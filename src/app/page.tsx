@@ -218,22 +218,25 @@ export default function Home() {
                   href={item.href}
                   className="group relative flex h-full min-h-[500px] flex-col overflow-hidden rounded-3xl border border-brand-bordo shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/40 hover:shadow-xl"
                 >
-                  <Image
-                    src={item.image}
-                    alt={item.lines.map((l) => l.text).join(" ")}
-                    fill
-                    className="object-cover object-top transition-transform duration-[450ms] ease-out group-hover:scale-[1.04]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                  <div className="absolute inset-0 bg-brand-panna" aria-hidden />
+                  <div className="absolute inset-x-0 bottom-0 top-[22%] z-0">
+                    <Image
+                      src={item.image}
+                      alt={item.lines.map((l) => l.text).join(" ")}
+                      fill
+                      className="object-contain object-bottom transition-transform duration-[450ms] ease-out group-hover:scale-[1.03] drop-shadow-sm"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
                   <div
-                    className="absolute inset-0"
+                    className="absolute inset-0 z-[1] pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 240, 236, 0.62) 35%, rgba(250, 240, 236, 0.38) 55%, rgba(250, 240, 236, 0.28) 75%, rgba(255, 255, 255, 0.82) 100%)",
+                        "linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 22%, rgba(251, 245, 242, 0.12) 42%, rgba(251, 245, 242, 0.08) 58%, rgba(255, 255, 255, 0.55) 82%, rgba(255, 255, 255, 0.92) 100%)",
                     }}
                     aria-hidden
                   />
-                  <div className="relative z-10 flex flex-1 flex-col justify-between p-8">
+                  <div className="relative z-[2] flex flex-1 flex-col justify-between p-8">
                     <div className="flex flex-col gap-3">
                       <span className="text-brand-corallo text-xs font-bold uppercase tracking-widest">
                         {item.label}
@@ -304,13 +307,19 @@ export default function Home() {
             <div className="max-w-5xl mx-auto rounded-3xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
               {/* Intestazioni colonne */}
               <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo">
-                <div className="p-8 md:p-10 pb-4 md:pb-6">
-                  <h3 className="text-brand-grigio text-base md:text-lg font-bold uppercase tracking-wider">
+                <div className="p-6 md:p-8 pb-4 md:pb-5 bg-red-50 border-b border-red-100">
+                  <p className="text-[10px] uppercase tracking-widest text-red-600 font-bold mb-2 md:hidden">
+                    ✕ Non funziona
+                  </p>
+                  <h3 className="text-red-800 text-base md:text-lg font-bold uppercase tracking-wider leading-snug">
                     Le aziende con le quali hai lavorato
                   </h3>
                 </div>
-                <div className="p-8 md:p-10 pb-4 md:pb-6 bg-brand-pesca-light">
-                  <h3 className="text-brand-corallo text-base md:text-lg font-bold uppercase tracking-wider">
+                <div className="p-6 md:p-8 pb-4 md:pb-5 bg-emerald-50 border-b border-emerald-100">
+                  <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-2 md:hidden">
+                    ✓ Funziona
+                  </p>
+                  <h3 className="text-emerald-800 text-base md:text-lg font-bold uppercase tracking-wider leading-snug">
                     Il nostro sistema Forge Group
                   </h3>
                 </div>
@@ -341,23 +350,33 @@ export default function Home() {
               ].map((row, idx) => (
                 <div
                   key={row.other}
-                  className={`grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo ${
-                    idx > 0 ? "border-t border-brand-bordo" : ""
+                  className={`grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo/80 ${
+                    idx > 0 ? "border-t border-brand-bordo/80" : ""
                   }`}
                 >
-                  <div className="flex items-center gap-3 min-h-[4.5rem] px-8 md:px-10 py-4 text-brand-grigio group hover:bg-red-50/40 transition-colors">
-                    <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 text-xs font-bold">
+                  <div className="flex items-start gap-3 min-h-[4.5rem] px-6 md:px-8 py-4 bg-red-50/80 border-l-4 border-red-400 transition-colors hover:bg-red-50">
+                    <span
+                      className="w-7 h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-sm"
+                      aria-hidden
+                    >
                       ✕
                     </span>
-                    <span className="text-sm md:text-base leading-snug">{row.other}</span>
+                    <span className="text-sm md:text-base leading-snug text-red-950/90 font-medium pt-0.5">
+                      {row.other}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-3 min-h-[4.5rem] px-8 md:px-10 py-4 bg-brand-pesca-light text-brand-nero group hover:bg-brand-corallo/5 transition-colors">
-                    <span className="w-6 h-6 rounded-full bg-brand-corallo/10 border border-brand-corallo/30 flex items-center justify-center shrink-0">
-                      <svg className="w-3 h-3 text-brand-corallo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-start gap-3 min-h-[4.5rem] px-6 md:px-8 py-4 bg-emerald-50/90 border-l-4 border-emerald-500 transition-colors hover:bg-emerald-50">
+                    <span
+                      className="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
+                      aria-hidden
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span className="text-sm md:text-base leading-snug font-medium">{row.forge}</span>
+                    <span className="text-sm md:text-base leading-snug font-semibold text-emerald-950 pt-0.5">
+                      {row.forge}
+                    </span>
                   </div>
                 </div>
               ))}

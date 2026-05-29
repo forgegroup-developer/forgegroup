@@ -7,8 +7,7 @@ export default function VideoTestimonial() {
         playsInline
         className="w-full rounded-2xl bg-black"
       >
-        <source src="/api/video-recensione" type="video/quicktime" />
-        <source src="/api/video-recensione" type="video/mp4" />
+        <source src="/video-recensione.mp4" type="video/mp4" />
       </video>
       <p className="text-sm text-brand-grigio mt-4">
         Video recensione cliente Forge Group.

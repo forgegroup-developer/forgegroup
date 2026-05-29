@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Video pesanti — serviti da /public o API route, non committare
+# Video sorgente pesanti — in produzione: public/video-recensione.mp4
 Materiale Sito Web Forge Group/03-video-recensione/*.mov
 public/video-recensione.mov
 video/

@@ -14,8 +14,7 @@ export default function HeroVideoRecensione() {
           poster={siteImages.videoPoster}
           className="w-full block aspect-video object-cover"
         >
-          <source src="/api/video-recensione" type="video/quicktime" />
-          <source src="/api/video-recensione" type="video/mp4" />
+          <source src="/video-recensione.mp4" type="video/mp4" />
           Il tuo browser non supporta il video.
         </video>
       </div>
