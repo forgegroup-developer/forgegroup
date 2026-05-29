@@ -17,9 +17,13 @@
   --font-display: "Stack Sans Notch", "Inter", system-ui, -apple-system, sans-serif;
 }
 
-html,
-body {
+html {
   background-color: var(--color-brand-bianco);
+}
+
+body {
+  /* trasparente per lasciar trasparire lo sfondo 3D globale (Logo3DBackground) */
+  background-color: transparent;
   color: var(--color-brand-nero);
   font-family: var(--font-sans);
 }

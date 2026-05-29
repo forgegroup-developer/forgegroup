@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Logo3DBackground from "@/components/Logo3DBackground";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -108,7 +109,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="it" className={`${inter.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col bg-brand-bianco text-brand-nero">
+      <body
+        className="min-h-screen flex flex-col text-brand-nero"
+        style={{ backgroundColor: "transparent" }}
+      >
+        <Logo3DBackground />
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationJsonLd)}
         </Script>

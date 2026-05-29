@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import HeroBento from "@/components/HeroBento";
+import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
@@ -9,8 +9,56 @@ import Reveal from "@/components/Reveal";
 import SocialProof from "@/components/SocialProof";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import TeamSection from "@/components/TeamSection";
-import MagneticCursor from "@/components/MagneticCursor";
-import { getCaseStudyImage } from "@/data/images";
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function HighlightedText({ text, highlights }: { text: string; highlights?: string[] }) {
+  if (!highlights?.length) return <>{text}</>;
+
+  const nodes: React.ReactNode[] = [];
+  let remaining = text;
+  let key = 0;
+
+  while (remaining.length > 0) {
+    let matchIndex = -1;
+    let matchedHighlight = "";
+
+    for (const highlight of highlights) {
+      const idx = remaining.indexOf(highlight);
+      if (idx !== -1 && (matchIndex === -1 || idx < matchIndex)) {
+        matchIndex = idx;
+        matchedHighlight = highlight;
+      }
+    }
+
+    if (matchIndex === -1) {
+      nodes.push(<span key={key++}>{remaining}</span>);
+      break;
+    }
+
+    if (matchIndex > 0) {
+      nodes.push(<span key={key++}>{remaining.slice(0, matchIndex)}</span>);
+    }
+
+    let highlighted = matchedHighlight;
+    remaining = remaining.slice(matchIndex + matchedHighlight.length);
+
+    const trailingPunct = remaining.match(/^[.,!?;:]+/);
+    if (trailingPunct) {
+      highlighted += trailingPunct[0];
+      remaining = remaining.slice(trailingPunct[0].length);
+    }
+
+    nodes.push(
+      <span key={key++} className="text-brand-corallo">
+        {highlighted}
+      </span>
+    );
+  }
+
+  return <>{nodes}</>;
+}
 
 export const metadata: Metadata = {
   title: "Forge Group — Sistema di Crescita per Imprese B2B",
@@ -22,40 +70,40 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* S1 — HERO */}
-      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 bg-brand-bianco">
-        <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-pesca-light/60 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-pesca/20 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Colonna sinistra — entrance on page load */}
-            <div>
-              <p className="hero-enter hero-enter-d1 inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
-                ✦ Sistema di Crescita B2B · Italia
+      {/* S1 — HERO full-viewport */}
+      <section className="relative overflow-hidden min-h-[calc(100dvh-80px)] flex items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
+
+            {/* Colonna sinistra — testo */}
+            <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
+              <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/80 backdrop-blur-sm">
+                ✦ La prima azienda di GROWTH HACKING in Italia!
               </p>
-              <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero mb-6">
+              <div className="flex flex-col gap-4 lg:gap-5">
+              <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero max-w-xl">
                 Portiamo la tua azienda{" "}
                 <span className="text-brand-corallo">
                   dal disordine a un sistema prevedibile
                 </span>{" "}
                 di acquisizione e vendita.
               </h1>
-              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-start gap-3">
-                <Link href="/contatti" className="btn-corallo">
+              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
                   Hai un minuto?
                 </Link>
-                <Link href="/casi-studio" className="btn-ghost">
+                <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
                   Vedi i risultati
                 </Link>
               </div>
+              </div>
             </div>
 
-            {/* Colonna destra — doppio marquee verticale opposto */}
-            <div className="hero-enter hero-enter-d3 w-full">
-              <HeroBento />
+            {/* Colonna destra — video recensione */}
+            <div className="hero-enter hero-enter-d3 w-full flex flex-col justify-center">
+              <HeroVideoRecensione />
             </div>
+
           </div>
         </div>
       </section>
@@ -64,7 +112,7 @@ export default function Home() {
       <SocialProof />
 
       {/* S3 — VIDEO RECENSIONE */}
-      <section id="recensione" className="py-20 md:py-28 bg-brand-bianco border-t border-brand-bordo scroll-mt-24">
+      <section id="recensione" className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm border-t border-brand-bordo scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             {/* Stars */}
@@ -78,7 +126,13 @@ export default function Home() {
 
             {/* Quote */}
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-semibold text-brand-nero leading-tight max-w-3xl mx-auto mb-8" style={{ fontFamily: "var(--font-display)" }}>
-              &ldquo;€126.500 generati in 90 giorni con una spesa media di €500/mese in advertising. Ci hanno costruito il sistema di vendita da zero.&rdquo;
+              &ldquo;
+              <span className="text-brand-corallo">126.500€ di fatturato</span>, non me lo aspettavo. Ero scettico all&apos;inizio:{" "}
+              <span className="text-brand-corallo">questo metodo</span> per me{" "}
+              <span className="text-brand-corallo">ha funzionato</span>.{" "}
+              <span className="text-brand-corallo">Lo consiglio</span> a tutte le aziende che hanno un prodotto o un servizio e vogliono{" "}
+              <span className="text-brand-corallo">crescere sul mercato</span>.
+              &rdquo;
             </blockquote>
 
             {/* Author */}
@@ -98,20 +152,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Video embed */}
-            <div className="rounded-2xl overflow-hidden border border-brand-bordo shadow-xl max-w-2xl mx-auto mb-10">
-              <video
-                controls
-                preload="metadata"
-                playsInline
-                className="w-full block aspect-video"
-              >
-                <source src="/video-recensione.mov" type="video/quicktime" />
-                <source src="/video-recensione.mov" type="video/mp4" />
-                Il tuo browser non supporta il video.
-              </video>
-            </div>
-
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/contatti" className="btn-corallo">
@@ -126,104 +166,130 @@ export default function Home() {
       </section>
 
       {/* S4 — SERVIZI */}
-      <section className="py-20 md:py-28 bg-brand-panna">
+      <section className="py-20 md:py-28 bg-brand-panna/75 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            eyebrow="Come Lavoriamo"
+            eyebrow="I Nostri Servizi"
             title={
               <>
-                Non facciamo gestione{" "}
-                <span className="text-brand-corallo">social</span>.
+                Ti affianchiamo nella{" "}
+                <span className="text-brand-corallo">crescita della tua azienda</span>.
               </>
             }
-            subtitle="Costruiamo un sistema integrato che lavora in sequenza: porta clienti, qualificali, convertili, scala."
           />
 
-          <div className="flex justify-center mb-12">
-            <Link href="/servizi" className="btn-ghost">
-              Vedi tutti i servizi
-            </Link>
-          </div>
-
-          <MagneticCursor label="Scopri">
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
             {[
               {
-                title: "Acquisizione Clienti",
-                body: "Campagne Meta e Google Ads, landing page, funnel e lead generation per portare contatti qualificati già filtrati prima ancora di parlare col tuo commerciale.",
+                label: "01 — Acquisizione Clienti",
+                lines: [
+                  { text: "I tuoi potenziali clienti esistono.", highlights: ["potenziali clienti"] },
+                  { text: "Il problema è che non ti trovano.", highlights: ["non ti trovano"] },
+                ],
                 href: "/servizi/advertising-lead-generation",
-                image: getCaseStudyImage("software-b2b"),
+                image: "/images/servizi/magnete.png",
               },
               {
-                title: "Vendite e Processi Commerciali",
-                body: "Script di vendita, CRM, follow-up automatizzato, materiale commerciale e supporto al reparto vendite per convertire più lead in contratti firmati.",
+                label: "02 — Vendite & Processi Commerciali",
+                lines: [
+                  { text: "Avere richieste non basta.", highlights: ["richieste"] },
+                  {
+                    text: "Il problema è quante ne stai davvero convertendo.",
+                    highlights: ["davvero convertendo"],
+                  },
+                ],
                 href: "/servizi/vendite-crm",
-                image: getCaseStudyImage("edilizia"),
+                image: "/images/servizi/bersaglio.png",
               },
               {
-                title: "Consulenza e Crescita",
-                body: "Strategia, report trimestrali, analisi KPI e affiancamento periodico per prendere decisioni corrette e scalare senza improvvisare.",
+                label: "03 — Consulenza & Formazione",
+                lines: [
+                  {
+                    text: "Stai crescendo, o stai solo lavorando di più?",
+                    highlights: ["crescendo", "lavorando di più"],
+                  },
+                ],
                 href: "/servizi/strategia-crescita",
-                image: getCaseStudyImage("hotel-hospitality"),
+                image: "/images/servizi/bussola.png",
               },
             ].map((item, idx) => (
-              <Reveal key={item.title} delay={idx}>
+              <Reveal key={item.label} delay={idx}>
                 <Link
                   href={item.href}
-                  className="group bg-brand-bianco border border-brand-bordo rounded-3xl overflow-hidden hover:border-brand-corallo hover:shadow-xl transition-all flex flex-col h-full"
+                  className="group relative flex h-full min-h-[500px] flex-col overflow-hidden rounded-3xl border border-brand-bordo shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/40 hover:shadow-xl"
                 >
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/50 via-transparent to-transparent" />
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="heading-card text-brand-nero mb-3">{item.title}</h3>
-                    <p className="text-brand-grigio leading-relaxed flex-grow text-sm">{item.body}</p>
-                    <span className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm mt-6 group-hover:gap-3 transition-all">
-                      Scopri come funziona
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                  <Image
+                    src={item.image}
+                    alt={item.lines.map((l) => l.text).join(" ")}
+                    fill
+                    className="object-cover object-top transition-transform duration-[450ms] ease-out group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(250, 240, 236, 0.62) 35%, rgba(250, 240, 236, 0.38) 55%, rgba(250, 240, 236, 0.28) 75%, rgba(255, 255, 255, 0.82) 100%)",
+                    }}
+                    aria-hidden
+                  />
+                  <div className="relative z-10 flex flex-1 flex-col justify-between p-8">
+                    <div className="flex flex-col gap-3">
+                      <span className="text-brand-corallo text-xs font-bold uppercase tracking-widest">
+                        {item.label}
+                      </span>
+                      <h3
+                        className="font-bold text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.1] text-brand-nero"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        {item.lines.map((line, lineIdx) => (
+                          <span key={line.text} className={lineIdx > 0 ? "block font-semibold mt-1" : undefined}>
+                            <HighlightedText text={line.text} highlights={line.highlights} />
+                          </span>
+                        ))}
+                      </h3>
+                    </div>
+                    <span className="inline-flex w-fit self-start items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
+                      → Scopri come
                     </span>
                   </div>
                 </Link>
               </Reveal>
             ))}
           </div>
-          </MagneticCursor>
         </div>
       </section>
 
       {/* S5 — CASI STUDIO (carousel full-bleed) */}
-      <section className="py-20 md:py-28 bg-brand-bianco overflow-hidden">
+      <section className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Casi Studio"
+            maxWidth="4xl"
             title={
               <>
-                Risultati <span className="text-brand-corallo">reali</span>, non promesse.
+                Risultati <span className="text-brand-corallo">verificati</span>. Sei pronto a diventare il{" "}
+                <span className="text-brand-corallo">nostro prossimo caso studio</span>?
               </>
             }
-            subtitle="Tre settori diversi. Un sistema uguale. Numeri verificabili."
           />
-          <div className="flex justify-center mt-8 mb-12">
+        </div>
+        {/* Full-bleed carousel — outside max-w constraint */}
+        <CaseStudyCarousel />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 mt-10 md:mt-12">
+            <Link href="/contatti" className="btn-corallo">
+              Sono pronto per iniziare
+            </Link>
             <Link href="/casi-studio" className="btn-ghost">
               Vedi tutti i casi studio
             </Link>
           </div>
         </div>
-        {/* Full-bleed carousel — outside max-w constraint */}
-        <CaseStudyCarousel />
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
-      <section className="py-20 md:py-28 bg-brand-panna">
+      <section className="py-20 md:py-28 bg-brand-panna/75 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Perché Forge Group"
@@ -236,55 +302,65 @@ export default function Home() {
           />
           <Reveal>
             <div className="max-w-5xl mx-auto rounded-3xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
+              {/* Intestazioni colonne */}
               <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo">
-                {/* Left — tradizionale */}
-                <div className="p-8 md:p-10">
-                  <h3 className="text-brand-grigio text-sm font-semibold uppercase tracking-wider mb-6">
-                    Approccio tradizionale
+                <div className="p-8 md:p-10 pb-4 md:pb-6">
+                  <h3 className="text-brand-grigio text-base md:text-lg font-bold uppercase tracking-wider">
+                    Le aziende con le quali hai lavorato
                   </h3>
-                  <ul className="space-y-4">
-                    {[
-                      "Ti vendono visibilità, non clienti",
-                      "Nessuna integrazione con il tuo commerciale",
-                      "Report con like e impression, non fatturato",
-                      "Pacchetti uguali per tutti, senza strategia",
-                      "Smettono di lavorare se smetti di pagare",
-                    ].map((item) => (
-                      <li key={item} className="group flex items-start gap-3 text-brand-grigio rounded-xl px-3 py-2 -mx-3 hover:bg-red-50/60 transition-colors duration-200">
-                        <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold group-hover:scale-110 transition-transform">
-                          ✕
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-
-                {/* Right — Forge Group */}
-                <div className="p-8 md:p-10 bg-brand-pesca-light">
-                  <h3 className="text-brand-corallo text-sm font-semibold uppercase tracking-wider mb-6">
-                    Sistema Forge Group
+                <div className="p-8 md:p-10 pb-4 md:pb-6 bg-brand-pesca-light">
+                  <h3 className="text-brand-corallo text-base md:text-lg font-bold uppercase tracking-wider">
+                    Il nostro sistema Forge Group
                   </h3>
-                  <ul className="space-y-4">
-                    {[
-                      "Costruiamo un sistema che porta clienti paganti",
-                      "Lavoriamo dentro al tuo processo commerciale",
-                      "KPI reali: ROAS, CAC, tasso di chiusura, LTV",
-                      "Strategia su misura dopo analisi della tua azienda",
-                      "Il sistema resta tuo anche dopo il progetto",
-                    ].map((item) => (
-                      <li key={item} className="group flex items-start gap-3 text-brand-nero rounded-xl px-3 py-2 -mx-3 hover:bg-brand-corallo/5 transition-colors duration-200">
-                        <span className="w-6 h-6 rounded-full bg-brand-corallo/10 border border-brand-corallo/30 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-corallo/20 group-hover:scale-110 transition-all">
-                          <svg className="w-3 h-3 text-brand-corallo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
+
+              {/* Righe allineate punto per punto */}
+              {[
+                {
+                  other: "Ti vendono visibilità, non clienti",
+                  forge: "Costruiamo un sistema che porta clienti paganti",
+                },
+                {
+                  other: "Nessun contatto con i tuoi commerciali",
+                  forge: "Lavoriamo e formiamo il tuo reparto commerciale",
+                },
+                {
+                  other: "Ti presentano report di visualizzazioni e like ai post",
+                  forge: "Dati misurabili, previsione di clienti e fatturato per i prossimi anni",
+                },
+                {
+                  other: "Pacchetti uguali per tutti, senza strategia",
+                  forge: "Strategia su misura in base al livello della tua azienda",
+                },
+                {
+                  other: "Smettono di lavorare se smetti di pagare",
+                  forge: "Creiamo un sistema che resta di tua proprietà",
+                },
+              ].map((row, idx) => (
+                <div
+                  key={row.other}
+                  className={`grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo ${
+                    idx > 0 ? "border-t border-brand-bordo" : ""
+                  }`}
+                >
+                  <div className="flex items-center gap-3 min-h-[4.5rem] px-8 md:px-10 py-4 text-brand-grigio group hover:bg-red-50/40 transition-colors">
+                    <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 text-xs font-bold">
+                      ✕
+                    </span>
+                    <span className="text-sm md:text-base leading-snug">{row.other}</span>
+                  </div>
+                  <div className="flex items-center gap-3 min-h-[4.5rem] px-8 md:px-10 py-4 bg-brand-pesca-light text-brand-nero group hover:bg-brand-corallo/5 transition-colors">
+                    <span className="w-6 h-6 rounded-full bg-brand-corallo/10 border border-brand-corallo/30 flex items-center justify-center shrink-0">
+                      <svg className="w-3 h-3 text-brand-corallo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-sm md:text-base leading-snug font-medium">{row.forge}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -294,7 +370,7 @@ export default function Home() {
       <TeamSection />
 
       {/* S8 — FAQ */}
-      <section className="py-20 md:py-28 bg-brand-bianco">
+      <section className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande Frequenti"

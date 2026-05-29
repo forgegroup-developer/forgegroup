@@ -16,7 +16,7 @@ export default function CTASection({
   secondary,
 }: CTAProps) {
   return (
-    <section className="py-16 md:py-24 bg-brand-bianco">
+    <section className="py-16 md:py-24 bg-brand-bianco/70 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="cta-glow-bg relative overflow-hidden rounded-3xl bg-brand-panna border border-brand-bordo p-8 md:p-16 text-center">
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">

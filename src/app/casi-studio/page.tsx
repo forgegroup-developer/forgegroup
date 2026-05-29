@@ -9,7 +9,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Casi Studio B2B",
   description:
-    "Risultati dimostrabili: +140% MRR software B2B, €850K pipeline edilizia, -40% costo acquisizione hotel. Casi studio reali con numeri verificati.",
+    "Risultati dimostrabili: €126.500 di fatturato in 90 giorni per un'azienda Software B2B. Casi studio reali con numeri verificati.",
   alternates: { canonical: "/casi-studio" },
 };
 
@@ -23,14 +23,14 @@ export default function CasiStudioHub() {
             Risultati <span className="text-brand-corallo">Dimostrabili</span>.
           </h1>
           <p className="text-xl text-brand-grigio leading-relaxed">
-            Zero teorie. Solo numeri. Come abbiamo trasformato l&apos;infrastruttura di acquisizione in vari settori chiave.
+            Zero teorie. Solo numeri. Come abbiamo trasformato l&apos;infrastruttura di acquisizione di DISA SRL in 90 giorni.
           </p>
         </div>
       </section>
 
       <section className="py-16 md:py-20 bg-brand-panna border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="max-w-xl mx-auto">
             {caseStudies.map((c, idx) => (
               <Reveal key={c.slug} delay={(idx % 3) as 0 | 1 | 2 | 3}>
                 <Link

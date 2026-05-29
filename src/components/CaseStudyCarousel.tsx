@@ -10,6 +10,37 @@ const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 const DUR = 340;
 const GAP = 24; // gap-6
 
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function ExcerptWithHighlights({
+  text,
+  highlights,
+}: {
+  text: string;
+  highlights?: string[];
+}) {
+  if (!highlights?.length) return <>{text}</>;
+
+  const pattern = highlights.map(escapeRegExp).join("|");
+  const parts = text.split(new RegExp(`(${pattern})`, "g")).filter((p) => p.length > 0);
+
+  return (
+    <>
+      {parts.map((part, i) =>
+        highlights.includes(part) ? (
+          <span key={i} className="text-brand-corallo">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
 export default function CaseStudyCarousel() {
   const total = caseStudies.length;
   // Triple-clone for seamless infinite loop
@@ -68,7 +99,7 @@ export default function CaseStudyCarousel() {
   // --- Measurement ---
   const wrapRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [unit, setUnit] = useState(0);       // cardW + GAP
+  const [unit, setUnit] = useState(0); // cardW + GAP
   const [containerW, setContainerW] = useState(0);
 
   useEffect(() => {
@@ -95,7 +126,6 @@ export default function CaseStudyCarousel() {
 
   return (
     <div ref={wrapRef} className="relative overflow-hidden py-4">
-
       {/* ── Navigation arrows ── centered vertically on image area ── */}
       <div
         className="
@@ -175,18 +205,20 @@ export default function CaseStudyCarousel() {
                   draggable={false}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/30 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-nero/40 backdrop-blur-sm px-3 py-1 rounded-full">
+                <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-corallo px-3 py-1 rounded-full shadow-sm">
                   {c.sector}
                 </span>
               </div>
 
               {/* ── Metadata row (bottom) ── */}
               <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5">
-                <div className="min-w-0">
-                  <h3 className="font-bold text-brand-nero text-base md:text-lg leading-tight truncate">
-                    {c.shortTitle}
+                <div className="min-w-0 flex-1">
+                  <h3
+                    className="font-semibold text-brand-nero text-base md:text-lg leading-snug line-clamp-2"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
                   </h3>
-                  <p className="text-brand-grigio text-sm mt-0.5 truncate">{c.resultHeadline}</p>
                 </div>
 
                 {/* Circular arrow button */}

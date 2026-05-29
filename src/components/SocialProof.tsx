@@ -7,9 +7,28 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const statsData = [
-  { target: 30, suffix: "+", label: "Imprese aiutate a crescere", icon: "users" },
-  { target: 350, prefix: "€", suffix: "K+", label: "Generati per i nostri clienti", icon: "chart" },
-  { target: 5, suffix: " ★", label: "Recensioni verificate", icon: "star" },
+  {
+    target: 50,
+    suffix: "+",
+    label: "Imprese aiutate",
+    sublabel: "nel corso della nostra esperienza",
+    icon: "users",
+  },
+  {
+    target: 300,
+    prefix: "€",
+    suffix: "K+",
+    label: "Fatturato generato",
+    sublabel: "per singolo cliente",
+    icon: "chart",
+  },
+  {
+    target: 5,
+    suffix: "/5",
+    label: "Recensioni verificate",
+    sublabel: "feedback dai nostri clienti",
+    icon: "star",
+  },
 ];
 
 function CountUpNumber({ target, prefix = "", suffix = "" }: { target: number; prefix?: string; suffix?: string }) {
@@ -99,7 +118,7 @@ export default function SocialProof() {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-brand-panna border-y border-brand-bordo">
+    <section className="py-16 md:py-20 bg-brand-pesca-light/85 backdrop-blur-sm border-y border-brand-bordo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={containerRef} className="grid md:grid-cols-3 gap-5">
           {statsData.map((stat) => (
@@ -109,7 +128,15 @@ export default function SocialProof() {
               className="relative rounded-3xl bg-brand-bianco border border-brand-bordo p-8 md:p-10 flex flex-col items-center text-center overflow-hidden shadow-sm"
             >
               <CountUpNumber target={stat.target} prefix={stat.prefix} suffix={stat.suffix} />
-              <p className="text-brand-grigio text-sm mt-3 font-medium">{stat.label}</p>
+              <p
+                className="text-brand-grigio text-base md:text-lg mt-3 font-bold leading-snug"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {stat.label}
+              </p>
+              <p className="text-brand-grigio text-sm mt-1 font-medium leading-snug opacity-70 w-full max-w-full px-4">
+                {stat.sublabel}
+              </p>
               <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-brand-bordo flex items-center justify-center">
                 <Icon type={stat.icon} />
               </div>
