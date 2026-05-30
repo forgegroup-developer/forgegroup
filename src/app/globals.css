@@ -409,6 +409,17 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
+/* ── Glass chip (tag / pill) — vetro con tinta pesca ─────────── */
+.glass-chip {
+  background: rgba(232, 185, 165, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 4px 20px rgba(200, 80, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
 /* ── CTA radial glow ─────────────────────────────────────────────── */
 .cta-glow-bg::before {
   content: "";
@@ -441,4 +452,64 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-brand-corallo);
+}
+
+/* ── Marquee verticale (sezione Servizi) ─────────────────────────── */
+.marquee-col {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
+}
+
+@keyframes marquee-v-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-v-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.marquee-track-up {
+  animation: marquee-v-up 36s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-down {
+  animation: marquee-v-down 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-col:hover .marquee-track-up,
+.marquee-col:hover .marquee-track-down {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track-up,
+  .marquee-track-down {
+    animation: none;
+  }
 }

@@ -1,9 +1,35 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
-import HeroBento from "@/components/HeroBento";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import { heroShowcaseImages } from "@/data/images";
+
+const leftShowcase = [
+  { src: heroShowcaseImages.metaAds, alt: "Meta Ads" },
+  { src: heroShowcaseImages.crmIntegrato, alt: "CRM Integrato" },
+];
+const rightShowcase = [
+  { src: heroShowcaseImages.formazioneCommerciale, alt: "Formazione commerciale" },
+  { src: heroShowcaseImages.consulenza, alt: "Consulenza" },
+];
+const allShowcase = [...leftShowcase, ...rightShowcase];
+
+function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 shadow-sm">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 45vw, 300px"
+        draggable={false}
+      />
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Servizi — Forge Group | Acquisizione, Vendite, Crescita B2B",
@@ -21,10 +47,23 @@ export default function ServiziHub() {
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-pesca/20 rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+          {/* Desktop: 3 colonne simmetriche con doppio marquee verticale */}
+          <div className="hidden lg:grid lg:grid-cols-[1fr_2fr_1fr] gap-8 xl:gap-12 items-center">
+            {/* Sinistra — card showcase, scorrono verso l'alto */}
+            <div className="marquee-col h-[560px]">
+              <div className="marquee-track-up">
+                {[...leftShowcase, ...leftShowcase].map((c, idx) => (
+                  <div key={`l-${idx}`} className="pb-5">
+                    <ShowcaseTile src={c.src} alt={c.alt} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Centro — testo centrato */}
+            <div className="flex flex-col items-center justify-center text-center px-2">
               <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
-                ✦ Come Lavoriamo
+                ✦ I Nostri Servizi
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
                 Dal primo contatto{" "}
@@ -35,8 +74,40 @@ export default function ServiziHub() {
                 vendita e crescita aziendale su misura della tua impresa.
               </p>
             </div>
-            <div className="w-full">
-              <HeroBento />
+
+            {/* Destra — card showcase, scorrono verso il basso */}
+            <div className="marquee-col h-[560px]">
+              <div className="marquee-track-down">
+                {[...rightShowcase, ...rightShowcase].map((c, idx) => (
+                  <div key={`r-${idx}`} className="pb-5">
+                    <ShowcaseTile src={c.src} alt={c.alt} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile/tablet: testo in alto + griglia card showcase */}
+          <div className="lg:hidden">
+            <div className="flex flex-col items-center justify-center text-center mb-12">
+              <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
+                ✦ I Nostri Servizi
+              </p>
+              <h1 className="heading-hero text-brand-nero mb-6">
+                Dal primo contatto{" "}
+                <span className="text-brand-corallo">al contratto firmato</span>
+              </h1>
+              <p className="body-lg text-brand-grigio max-w-xl">
+                Non vendiamo servizi isolati. Costruiamo un sistema integrato di acquisizione clienti,
+                vendita e crescita aziendale su misura della tua impresa.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md mx-auto">
+              {allShowcase.map((c, idx) => (
+                <Reveal key={c.alt} delay={(idx % 3) as 0 | 1 | 2}>
+                  <ShowcaseTile src={c.src} alt={c.alt} />
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
