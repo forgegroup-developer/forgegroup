@@ -10,17 +10,17 @@ gsap.registerPlugin(ScrollTrigger);
 const team = [
   {
     name: "Marco Pio Cerbone",
-    forgeRole: "Co-Founder & C.E.O. di Forge Group",
+    forgeRole: "Co-Founder",
     role: "Consulente Marketing e Consulente Aziendale",
     photo: "/images/team/foto-marco.png",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
     name: "Gianpio Uva",
-    forgeRole: "Co-Founder & C.O.O. di Forge Group",
+    forgeRole: "Co-Founder",
     role: "Consulente Commerciale ed Esperto in Processi di Vendita",
     photo: "/images/team/foto-gianpio.png",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
 ];
 

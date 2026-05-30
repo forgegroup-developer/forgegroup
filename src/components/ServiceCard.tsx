@@ -16,7 +16,7 @@ export const services: Service[] = [
       { text: "I tuoi potenziali clienti esistono.", highlights: ["potenziali clienti"] },
       { text: "Il problema è che non ti trovano.", highlights: ["non ti trovano"] },
     ],
-    href: "/servizi/advertising-lead-generation",
+    href: "/servizi/acquisizione-clienti",
     image: "/images/servizi/magnete.png",
   },
   {
@@ -28,7 +28,7 @@ export const services: Service[] = [
         highlights: ["davvero convertendo"],
       },
     ],
-    href: "/servizi/vendite-crm",
+    href: "/servizi/vendite-processi-commerciali",
     image: "/images/servizi/bersaglio.png",
   },
   {
@@ -39,7 +39,7 @@ export const services: Service[] = [
         highlights: ["crescendo", "lavorando di più"],
       },
     ],
-    href: "/servizi/strategia-crescita",
+    href: "/servizi/consulenza-formazione",
     image: "/images/servizi/bussola.png",
   },
 ];
