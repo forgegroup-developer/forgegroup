@@ -19,8 +19,8 @@ export default function Reveal({
   children,
   className = "",
   delay = 0,
-  y = 50,
-  duration = 0.9,
+  y = 40,
+  duration = 1.2,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -28,18 +28,28 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    gsap.set(el, { opacity: 0, y, scale: 0.97 });
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      gsap.set(el, { opacity: 1, y: 0, scale: 1 });
+      return;
+    }
+
+    gsap.set(el, { opacity: 0, y, scale: 0.985, filter: "blur(6px)" });
 
     const tween = gsap.to(el, {
       opacity: 1,
       y: 0,
       scale: 1,
+      filter: "blur(0px)",
       duration,
-      delay: delay * 0.12,
-      ease: "power3.out",
+      delay: delay * 0.1,
+      ease: "expo.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 88%",
+        start: "top 90%",
         once: true,
       },
     });

@@ -113,27 +113,17 @@ export default function ServiziHub() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-brand-corallo">
+      <section className="py-16 md:py-24 bg-brand-corallo/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20 md:space-y-28">
 
             {/* 01 — Acquisizione Clienti */}
             <Reveal>
               <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
-                  <Image
-                    src="/images/servizi/magnete.png"
-                    alt=""
-                    fill
-                    className="object-contain object-left-bottom"
-                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
-                    sizes="600px"
-                  />
-                </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">01</span>
+                  <span className="text-white/70 font-bold text-sm uppercase tracking-widest">01</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Acquisizione Clienti</h2>
-                  <p className="body-lg text-white/80 mb-6">
+                  <p className="body-lg text-white mb-6">
                     I tuoi potenziali clienti esistono. Il problema è che non ti trovano.
                   </p>
                   <Link
@@ -171,20 +161,10 @@ export default function ServiziHub() {
             {/* 02 — Vendite & Processi Commerciali */}
             <Reveal>
               <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
-                  <Image
-                    src="/images/servizi/bersaglio.png"
-                    alt=""
-                    fill
-                    className="object-contain object-left-bottom"
-                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
-                    sizes="600px"
-                  />
-                </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">02</span>
+                  <span className="text-white/70 font-bold text-sm uppercase tracking-widest">02</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Vendite &amp; Processi Commerciali</h2>
-                  <p className="body-lg text-white/80 mb-6">
+                  <p className="body-lg text-white mb-6">
                     Avere richieste non basta. Il problema è quante ne stai davvero convertendo.
                   </p>
                   <Link
@@ -216,20 +196,10 @@ export default function ServiziHub() {
             {/* 03 — Consulenza & Formazione */}
             <Reveal>
               <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
-                  <Image
-                    src="/images/servizi/bussola.png"
-                    alt=""
-                    fill
-                    className="object-contain object-left-bottom"
-                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
-                    sizes="600px"
-                  />
-                </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">03</span>
+                  <span className="text-white/70 font-bold text-sm uppercase tracking-widest">03</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Consulenza &amp; Formazione</h2>
-                  <p className="body-lg text-white/80 mb-6">
+                  <p className="body-lg text-white mb-6">
                     Stai crescendo, o stai solo lavorando di più?
                   </p>
                   <Link
