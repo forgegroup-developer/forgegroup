@@ -119,19 +119,18 @@ export default function ServiziHub() {
 
             {/* 01 — Acquisizione Clienti */}
             <Reveal>
-              <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="lg:sticky lg:top-28 relative">
-                  <div className="hidden lg:block absolute inset-0 pointer-events-none select-none" aria-hidden>
-                    <Image
-                      src="/images/servizi/magnete.png"
-                      alt=""
-                      fill
-                      className="object-contain object-center"
-                      style={{ opacity: 0.15, mixBlendMode: "multiply" }}
-                      sizes="400px"
-                    />
-                  </div>
-                  <div className="relative z-10">
+              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
+                  <Image
+                    src="/images/servizi/magnete.png"
+                    alt=""
+                    fill
+                    className="object-contain object-left-bottom"
+                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    sizes="600px"
+                  />
+                </div>
+                <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">01</span>
                   <h2 className="heading-section text-brand-nero mt-2 mb-4">Acquisizione Clienti</h2>
                   <p className="body-lg text-brand-grigio mb-6">
@@ -143,9 +142,8 @@ export default function ServiziHub() {
                   >
                     Scopri i servizi →
                   </Link>
-                  </div>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 relative z-10">
                   <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
                     <p className="font-semibold text-brand-nero mb-2">Ogni mese hai bisogno di nuove richieste qualificate. Le portiamo noi.</p>
                     <p className="text-brand-grigio leading-relaxed">
@@ -172,19 +170,18 @@ export default function ServiziHub() {
 
             {/* 02 — Vendite & Processi Commerciali */}
             <Reveal>
-              <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="lg:sticky lg:top-28 relative">
-                  <div className="hidden lg:block absolute inset-0 pointer-events-none select-none" aria-hidden>
-                    <Image
-                      src="/images/servizi/bersaglio.png"
-                      alt=""
-                      fill
-                      className="object-contain object-center"
-                      style={{ opacity: 0.15, mixBlendMode: "multiply" }}
-                      sizes="400px"
-                    />
-                  </div>
-                  <div className="relative z-10">
+              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
+                  <Image
+                    src="/images/servizi/bersaglio.png"
+                    alt=""
+                    fill
+                    className="object-contain object-left-bottom"
+                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    sizes="600px"
+                  />
+                </div>
+                <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">02</span>
                   <h2 className="heading-section text-brand-nero mt-2 mb-4">Vendite &amp; Processi Commerciali</h2>
                   <p className="body-lg text-brand-grigio mb-6">
@@ -196,9 +193,8 @@ export default function ServiziHub() {
                   >
                     Scopri i servizi →
                   </Link>
-                  </div>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 relative z-10">
                   <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
                     <p className="font-semibold text-brand-nero mb-2">Quante opportunità stai perdendo dopo il primo contatto?</p>
                     <p className="text-brand-grigio leading-relaxed">
@@ -219,19 +215,18 @@ export default function ServiziHub() {
 
             {/* 03 — Consulenza & Formazione */}
             <Reveal>
-              <div className="grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
-                <div className="lg:sticky lg:top-28 relative">
-                  <div className="hidden lg:block absolute inset-0 pointer-events-none select-none" aria-hidden>
-                    <Image
-                      src="/images/servizi/bussola.png"
-                      alt=""
-                      fill
-                      className="object-contain object-center"
-                      style={{ opacity: 0.15, mixBlendMode: "multiply" }}
-                      sizes="400px"
-                    />
-                  </div>
-                  <div className="relative z-10">
+              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+                <div className="hidden lg:block absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden>
+                  <Image
+                    src="/images/servizi/bussola.png"
+                    alt=""
+                    fill
+                    className="object-contain object-left-bottom"
+                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    sizes="600px"
+                  />
+                </div>
+                <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">03</span>
                   <h2 className="heading-section text-brand-nero mt-2 mb-4">Consulenza &amp; Formazione</h2>
                   <p className="body-lg text-brand-grigio mb-6">
@@ -243,9 +238,8 @@ export default function ServiziHub() {
                   >
                     Scopri i servizi →
                   </Link>
-                  </div>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 relative z-10">
                   <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
                     <p className="font-semibold text-brand-nero mb-2">Sai quali numeri guardare per capire se stai andando nella direzione giusta?</p>
                     <p className="text-brand-grigio leading-relaxed">
