@@ -56,7 +56,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-panna border-t border-brand-bordo">
+    <footer className="bg-brand-panna border-t border-brand-bordo" style={{ backgroundColor: '#fbf5f2' }}>
       {/* CTA strip */}
       <div className="border-b border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
