@@ -173,125 +173,143 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile fullscreen menu */}
+      {/* Mobile fullscreen menu — dark style */}
       <div className={`mobile-nav lg:hidden${open ? " open" : ""}`} aria-hidden={!open}>
-        <div className="flex h-full flex-col">
+        <div className="flex h-full flex-col bg-brand-nero">
+
           {/* Header: logo + chiudi */}
-          <div className="flex items-center justify-between px-5 h-20 shrink-0">
-            <Link href="/" onClick={closeMenu} className="flex items-center gap-2" aria-label="Forge Group home">
-              <Image src="/logo-transparent.png" alt="Forge Group" width={44} height={44} className="h-11 w-auto" />
-              <span className="font-semibold text-lg tracking-tight text-brand-nero">
-                FORGE<span className="text-brand-corallo">GROUP</span>
-              </span>
+          <div className="flex items-center justify-between px-6 pt-8 pb-6 shrink-0">
+            <Link href="/" onClick={closeMenu} className="flex items-center gap-3" aria-label="Forge Group home">
+              <Image src="/logo-transparent.png" alt="Forge Group" width={44} height={44} className="h-10 w-auto" />
+              <div>
+                <div className="font-semibold text-base tracking-tight text-white leading-none">
+                  FORGE<span className="text-brand-corallo">GROUP</span>
+                </div>
+                <div className="text-[10px] uppercase tracking-widest text-white/40 mt-0.5">
+                  Growth Hacking
+                </div>
+              </div>
             </Link>
             <button
               onClick={closeMenu}
-              className="w-11 h-11 rounded-full border border-brand-bordo bg-brand-bianco flex items-center justify-center text-brand-nero hover:text-brand-corallo hover:border-brand-corallo transition-colors"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors"
               aria-label="Chiudi menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
 
-          {/* Voci menu centrate */}
-          <nav className="flex-1 overflow-y-auto flex flex-col justify-center px-6 py-6">
-            <div className="w-full max-w-md mx-auto">
-              <Link
-                href="/"
-                onClick={closeMenu}
-                className="block w-full text-center text-[32px] font-bold leading-tight text-brand-nero hover:text-brand-corallo transition-colors py-5 border-b border-brand-bordo"
-              >
-                Home
-              </Link>
+          {/* Voci menu */}
+          <nav className="flex-1 overflow-y-auto px-6">
 
-              {/* Servizi */}
-              <div className="border-b border-brand-bordo">
-                <button
-                  onClick={() => setMobileServizi(!mobileServizi)}
-                  className="w-full flex items-center justify-center gap-3 text-[32px] font-bold leading-tight text-brand-nero hover:text-brand-corallo transition-colors py-5"
-                  aria-expanded={mobileServizi}
-                >
-                  Servizi
-                  <span className={`text-brand-corallo transition-transform duration-300 ${mobileServizi ? "rotate-45" : ""}`}>+</span>
-                </button>
-                <div className={`accordion-content${mobileServizi ? " open" : ""}`}>
-                  <div className="pb-4 space-y-1">
-                    {services.map((s) => (
-                      <Link
-                        key={s.slug}
-                        href={`/servizi/${s.slug}`}
-                        onClick={closeMenu}
-                        className="block text-center text-lg text-brand-grigio hover:text-brand-corallo transition-colors py-2"
-                      >
-                        {s.shortTitle}
-                      </Link>
-                    ))}
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="flex items-center justify-between py-5 border-b border-white/10 group"
+            >
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Home</span>
+              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+            </Link>
+
+            {/* Servizi */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => setMobileServizi(!mobileServizi)}
+                className="w-full flex items-center justify-between py-5 group"
+                aria-expanded={mobileServizi}
+              >
+                <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Servizi</span>
+                <span className={`text-brand-corallo text-2xl font-light transition-transform duration-300 ${mobileServizi ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div className={`accordion-content${mobileServizi ? " open" : ""}`}>
+                <div className="pb-4 pl-2 space-y-0">
+                  {services.map((s) => (
                     <Link
-                      href="/servizi"
+                      key={s.slug}
+                      href={`/servizi/${s.slug}`}
                       onClick={closeMenu}
-                      className="block text-center text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2"
+                      className="flex items-center gap-2 py-2.5 text-base font-medium text-white/60 hover:text-brand-corallo transition-colors"
                     >
-                      Vedi tutti i servizi →
+                      <span className="text-brand-corallo text-xs">✦</span>
+                      {s.shortTitle}
                     </Link>
-                  </div>
+                  ))}
+                  <Link
+                    href="/servizi"
+                    onClick={closeMenu}
+                    className="block text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2 pb-1"
+                  >
+                    Vedi tutti →
+                  </Link>
                 </div>
               </div>
+            </div>
 
-              {/* Casi Studio */}
-              <div className="border-b border-brand-bordo">
-                <button
-                  onClick={() => setMobileCasi(!mobileCasi)}
-                  className="w-full flex items-center justify-center gap-3 text-[32px] font-bold leading-tight text-brand-nero hover:text-brand-corallo transition-colors py-5"
-                  aria-expanded={mobileCasi}
-                >
-                  Casi Studio
-                  <span className={`text-brand-corallo transition-transform duration-300 ${mobileCasi ? "rotate-45" : ""}`}>+</span>
-                </button>
-                <div className={`accordion-content${mobileCasi ? " open" : ""}`}>
-                  <div className="pb-4 space-y-1">
-                    {caseStudies.map((c) => (
-                      <Link
-                        key={c.slug}
-                        href={`/casi-studio/${c.slug}`}
-                        onClick={closeMenu}
-                        className="block text-center text-lg text-brand-grigio hover:text-brand-corallo transition-colors py-2"
-                      >
-                        {c.shortTitle}
-                      </Link>
-                    ))}
+            {/* Casi Studio */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => setMobileCasi(!mobileCasi)}
+                className="w-full flex items-center justify-between py-5 group"
+                aria-expanded={mobileCasi}
+              >
+                <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Casi Studio</span>
+                <span className={`text-brand-corallo text-2xl font-light transition-transform duration-300 ${mobileCasi ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div className={`accordion-content${mobileCasi ? " open" : ""}`}>
+                <div className="pb-4 pl-2 space-y-0">
+                  {caseStudies.map((c) => (
                     <Link
-                      href="/casi-studio"
+                      key={c.slug}
+                      href={`/casi-studio/${c.slug}`}
                       onClick={closeMenu}
-                      className="block text-center text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2"
+                      className="flex items-center gap-2 py-2.5 text-base font-medium text-white/60 hover:text-brand-corallo transition-colors"
                     >
-                      Tutti i casi studio →
+                      <span className="text-brand-corallo text-xs">✦</span>
+                      {c.shortTitle}
                     </Link>
-                  </div>
+                  ))}
+                  <Link
+                    href="/casi-studio"
+                    onClick={closeMenu}
+                    className="block text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2 pb-1"
+                  >
+                    Tutti i casi →
+                  </Link>
                 </div>
               </div>
+            </div>
 
-              <Link
-                href="/blog"
-                onClick={closeMenu}
-                className="block w-full text-center text-[32px] font-bold leading-tight text-brand-nero hover:text-brand-corallo transition-colors py-5 border-b border-brand-bordo"
-              >
-                Blog
-              </Link>
+            <Link
+              href="/blog"
+              onClick={closeMenu}
+              className="flex items-center justify-between py-5 border-b border-white/10 group"
+            >
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Blog</span>
+              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+            </Link>
+
+            {/* Info contatti */}
+            <div className="pt-8 pb-4 space-y-1">
+              <a href="mailto:info@forgegroup.it" className="block text-sm text-white/40 hover:text-white/70 transition-colors">
+                info@forgegroup.it
+              </a>
+              <p className="text-sm text-white/30">Italia · Campania</p>
             </div>
           </nav>
 
           {/* CTA full width in fondo */}
-          <div className="shrink-0 px-5 pb-6 pt-2">
+          <div className="shrink-0 px-6 pb-8 pt-4">
             <Link
               href="/contatti"
               onClick={closeMenu}
-              className="block btn-corallo w-full text-center text-base py-4"
+              className="block btn-corallo w-full text-center text-base py-4 rounded-full"
             >
               HAI UN MINUTO?
             </Link>
           </div>
+
         </div>
       </div>
     </header>
