@@ -174,8 +174,8 @@ export default function Home() {
             eyebrow="Perché Forge Group"
             title={
               <>
-                Non siamo un&apos;agenzia.{" "}
-                <span className="text-brand-corallo">Siamo il tuo reparto crescita.</span>
+                Non siamo un&apos;agenzia,{" "}
+                <span className="text-brand-corallo">siamo il tuo partner ideale per far crescere la tua azienda.</span>
               </>
             }
           />

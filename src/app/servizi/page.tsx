@@ -138,9 +138,9 @@ export default function ServiziHub() {
                   </p>
                   <Link
                     href="/servizi/acquisizione-clienti"
-                    className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm hover:gap-3 transition-all"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
                   >
-                    Scopri i servizi →
+                    → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
@@ -189,9 +189,9 @@ export default function ServiziHub() {
                   </p>
                   <Link
                     href="/servizi/vendite-processi-commerciali"
-                    className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm hover:gap-3 transition-all"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
                   >
-                    Scopri i servizi →
+                    → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
@@ -234,9 +234,9 @@ export default function ServiziHub() {
                   </p>
                   <Link
                     href="/servizi/consulenza-formazione"
-                    className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm hover:gap-3 transition-all"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
                   >
-                    Scopri i servizi →
+                    → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
