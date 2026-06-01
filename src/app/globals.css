@@ -105,11 +105,12 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transform: translateY(8px);
   pointer-events: none;
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition: opacity 220ms ease, transform 220ms ease;
+  /* z-index esplicito: sovrasta qualsiasi layer della pagina (triangoli hero, ecc.) */
+  z-index: 200;
 }
 
-/* Il padding-top del wrapper fa da "ponte" invisibile tra trigger e card,
-   così l'hover non si interrompe nello spazio vuoto. */
+/* Ponte invisibile (padding-top) che evita il "buco" hover tra trigger e card */
 .nav-dropdown-trigger:hover .nav-dropdown,
 .nav-dropdown:hover,
 .nav-dropdown-trigger:focus-within .nav-dropdown {
@@ -121,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-dropdown-card {
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--color-brand-bordo);
 }
 
