@@ -113,7 +113,7 @@ export default function ServiziHub() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-brand-panna border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20 md:space-y-28">
 
@@ -126,39 +126,39 @@ export default function ServiziHub() {
                     alt=""
                     fill
                     className="object-contain object-left-bottom"
-                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
                     sizes="600px"
                   />
                 </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">01</span>
-                  <h2 className="heading-section text-brand-nero mt-2 mb-4">Acquisizione Clienti</h2>
-                  <p className="body-lg text-brand-grigio mb-6">
+                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">01</span>
+                  <h2 className="heading-section text-white mt-2 mb-4">Acquisizione Clienti</h2>
+                  <p className="body-lg text-white/80 mb-6">
                     I tuoi potenziali clienti esistono. Il problema è che non ti trovano.
                   </p>
                   <Link
                     href="/servizi/acquisizione-clienti"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
                   >
                     → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Ogni mese hai bisogno di nuove richieste qualificate. Le portiamo noi.</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Ogni mese hai bisogno di nuove richieste qualificate. Le portiamo noi.</p>
+                    <p className="text-white/75 leading-relaxed">
                       Campagne Meta e Google, funnel e lead generation per portare contatti già filtrati, prima ancora che parlino col tuo commerciale.
                     </p>
                   </div>
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Quando un cliente cerca il tuo prodotto online, esci tu o il tuo competitor?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Quando un cliente cerca il tuo prodotto online, esci tu o il tuo competitor?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Sito, SEO e LinkedIn costruiti per farti trovare da chi ha già intenzione di acquistare.
                     </p>
                   </div>
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Chi ti segue sui social dovrebbe voler comprare da te.</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Chi ti segue sui social dovrebbe voler comprare da te.</p>
+                    <p className="text-white/75 leading-relaxed">
                       Contenuti, video e posizionamento orientati alla conversione, non alla visibilità fine a se stessa.
                     </p>
                   </div>
@@ -166,7 +166,7 @@ export default function ServiziHub() {
               </div>
             </Reveal>
 
-            <div className="border-t border-brand-bordo" />
+            <div className="border-t border-white/20" />
 
             {/* 02 — Vendite & Processi Commerciali */}
             <Reveal>
@@ -177,33 +177,33 @@ export default function ServiziHub() {
                     alt=""
                     fill
                     className="object-contain object-left-bottom"
-                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
                     sizes="600px"
                   />
                 </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">02</span>
-                  <h2 className="heading-section text-brand-nero mt-2 mb-4">Vendite &amp; Processi Commerciali</h2>
-                  <p className="body-lg text-brand-grigio mb-6">
+                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">02</span>
+                  <h2 className="heading-section text-white mt-2 mb-4">Vendite &amp; Processi Commerciali</h2>
+                  <p className="body-lg text-white/80 mb-6">
                     Avere richieste non basta. Il problema è quante ne stai davvero convertendo.
                   </p>
                   <Link
                     href="/servizi/vendite-processi-commerciali"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
                   >
                     → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Quante opportunità stai perdendo dopo il primo contatto?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Quante opportunità stai perdendo dopo il primo contatto?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Implementiamo il tuo processo di vendita: dal CRM, alla prima chiamata, all&apos;appuntamento conoscitivo fino alla firma del contratto.
                     </p>
                   </div>
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Il tuo commerciale sa esattamente cosa dire, quando dirlo e come chiudere?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Il tuo commerciale sa esattamente cosa dire, quando dirlo e come chiudere?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Script di vendita, materiale commerciale e supporto diretto al reparto vendite per aumentare il tasso di chiusura.
                     </p>
                   </div>
@@ -211,7 +211,7 @@ export default function ServiziHub() {
               </div>
             </Reveal>
 
-            <div className="border-t border-brand-bordo" />
+            <div className="border-t border-white/20" />
 
             {/* 03 — Consulenza & Formazione */}
             <Reveal>
@@ -222,39 +222,39 @@ export default function ServiziHub() {
                     alt=""
                     fill
                     className="object-contain object-left-bottom"
-                    style={{ opacity: 0.15, mixBlendMode: "multiply" }}
+                    style={{ opacity: 0.12, mixBlendMode: "screen" }}
                     sizes="600px"
                   />
                 </div>
                 <div className="lg:sticky lg:top-28 relative z-10">
-                  <span className="text-brand-corallo font-bold text-sm uppercase tracking-widest">03</span>
-                  <h2 className="heading-section text-brand-nero mt-2 mb-4">Consulenza &amp; Formazione</h2>
-                  <p className="body-lg text-brand-grigio mb-6">
+                  <span className="text-white/60 font-bold text-sm uppercase tracking-widest">03</span>
+                  <h2 className="heading-section text-white mt-2 mb-4">Consulenza &amp; Formazione</h2>
+                  <p className="body-lg text-white/80 mb-6">
                     Stai crescendo, o stai solo lavorando di più?
                   </p>
                   <Link
                     href="/servizi/consulenza-formazione"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:gap-3 hover:bg-brand-corallo/10"
+                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
                   >
                     → Scopri i servizi
                   </Link>
                 </div>
                 <div className="space-y-6 relative z-10">
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Sai quali numeri guardare per capire se stai andando nella direzione giusta?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Sai quali numeri guardare per capire se stai andando nella direzione giusta?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Analisi KPI, report trimestrali e monitoraggio costante per smettere di decidere a sensazione e iniziare a decidere con i dati.
                     </p>
                   </div>
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Hai una direzione chiara per i prossimi mesi, o stai reagendo agli eventi?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Hai una direzione chiara per i prossimi mesi, o stai reagendo agli eventi?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Affiancamento strategico periodico per definire priorità, allocare budget e non disperdere energie su ciò che non porta risultati concreti.
                     </p>
                   </div>
-                  <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-7">
-                    <p className="font-semibold text-brand-nero mb-2">Il tuo reparto commerciale sta chiudendo al massimo delle sue possibilità?</p>
-                    <p className="text-brand-grigio leading-relaxed">
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">Il tuo reparto commerciale sta chiudendo al massimo delle sue possibilità?</p>
+                    <p className="text-white/75 leading-relaxed">
                       Formiamo e seguiamo nel tempo il tuo team di vendita — non un corso e via, ma un percorso continuo per aumentare le conversioni reali.
                     </p>
                   </div>
