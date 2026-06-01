@@ -231,14 +231,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-brand-corallo/15 border-t border-brand-bordo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-brand-grigio">
+      <div className="bg-brand-corallo">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/80">
           <p>© {year} Forge Group. Tutti i diritti riservati.</p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-brand-corallo">
+            <Link href="/privacy-policy" className="text-white/80 hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/cookie-policy" className="hover:text-brand-corallo">
+            <Link href="/cookie-policy" className="text-white/80 hover:text-white transition-colors">
               Cookie Policy
             </Link>
           </div>
