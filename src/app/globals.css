@@ -108,11 +108,42 @@ h1, h2, h3, h4, h5, h6 {
   transition: opacity 200ms ease, transform 200ms ease;
 }
 
+/* Il padding-top del wrapper fa da "ponte" invisibile tra trigger e card,
+   così l'hover non si interrompe nello spazio vuoto. */
 .nav-dropdown-trigger:hover .nav-dropdown,
-.nav-dropdown:hover {
+.nav-dropdown:hover,
+.nav-dropdown-trigger:focus-within .nav-dropdown {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.nav-dropdown-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-brand-bordo);
+}
+
+/* ── Mobile fullscreen menu ──────────────────────────────────────── */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 60;
+  background: #f5f0eb;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* Underline animato */
