@@ -68,7 +68,7 @@ export default function Footer() {
               <h3 className="heading-section text-brand-nero">
                 Candida la tua azienda.
                 <br />
-                <span className="text-brand-corallo">Selezioniamo solo chi è in target.</span>
+                <span className="text-brand-corallo">Smetti di improvvisare.</span>
               </h3>
             </div>
             <Link href="/contatti" className="btn-corallo text-base whitespace-nowrap">
