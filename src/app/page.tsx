@@ -117,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* S4 — SERVIZI */}
-      <section className="py-20 md:py-28 bg-brand-panna/75 backdrop-blur-sm">
+      <section className="py-20 md:py-28 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="I Nostri Servizi"
@@ -265,7 +265,7 @@ export default function Home() {
       <TeamSection />
 
       {/* S8 — FAQ */}
-      <section className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm">
+      <section className="py-20 md:py-28 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande Frequenti"
