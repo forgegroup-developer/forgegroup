@@ -118,7 +118,7 @@ export default function SocialProof() {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+    <section className="py-16 md:py-20 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={containerRef} className="grid md:grid-cols-3 gap-5">
           {statsData.map((stat) => (

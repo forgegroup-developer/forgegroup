@@ -56,7 +56,7 @@ export default function ChiSiamoManifesto() {
       </section>
 
       {/* CHI SIAMO */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Chi siamo</p>
           <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-8">
@@ -111,7 +111,7 @@ export default function ChiSiamoManifesto() {
       </section>
 
       {/* CHI NON ACCETTIAMO */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
             ✦ I Nostri Confini

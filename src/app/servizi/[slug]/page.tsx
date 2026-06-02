@@ -59,7 +59,7 @@ export default async function ServizioDetail({ params }: Props) {
       </section>
 
       {/* SISTEMA INTEGRATO */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Un sistema integrato</p>
           <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
@@ -110,7 +110,7 @@ export default async function ServizioDetail({ params }: Props) {
       </section>
 
       {/* TABELLA COMPARATIVA — NOI VS ALTRI */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ La differenza</p>
@@ -168,7 +168,7 @@ export default async function ServizioDetail({ params }: Props) {
       </section>
 
       {/* METODO FORGE */}
-      <MetodoForge className="bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo" />
+      <MetodoForge className="bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo" />
 
       {/* FAQ EDUCATIVE */}
       <section className="py-16 md:py-24 bg-brand-bianco">
@@ -182,7 +182,7 @@ export default async function ServizioDetail({ params }: Props) {
       </section>
 
       {/* ALTRE MACRO AREE */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-t border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-t border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold md:text-4xl text-brand-nero leading-tight mb-10">
             Le altre <span className="text-brand-corallo">aree di servizio</span> Forge.

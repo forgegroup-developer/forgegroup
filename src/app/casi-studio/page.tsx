@@ -28,7 +28,7 @@ export default function CasiStudioHub() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-20 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-xl mx-auto">
             {caseStudies.map((c, idx) => (

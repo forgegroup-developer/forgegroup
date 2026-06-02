@@ -46,7 +46,7 @@ export default async function CasoStudioDetail({ params }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 pb-0 md:pt-24 bg-brand-corallo/12 backdrop-blur-md border-b border-brand-bordo">
+      <section className="pt-16 pb-0 md:pt-24 bg-brand-corallo/25 backdrop-blur-md border-b border-brand-bordo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
           <Link href="/casi-studio" className="inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-6 hover:underline">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* CHALLENGE */}
-      <section className="py-16 md:py-20 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-20 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ La Sfida</p>
           <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-6">
@@ -151,7 +151,7 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* RISULTATI */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ I Risultati</p>
@@ -200,7 +200,7 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* ALTRI CASI */}
-      <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-10">
             Altri <span className="text-brand-corallo">casi studio</span>.
