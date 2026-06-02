@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Logo3DBackground from "@/components/Logo3DBackground";
+import IntroLoader from "@/components/IntroLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -113,6 +114,7 @@ export default function RootLayout({
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
       >
+        <IntroLoader />
         <Logo3DBackground />
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationJsonLd)}
