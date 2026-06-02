@@ -177,8 +177,9 @@ export default function IntroLoader() {
         new THREE.ExtrudeGeometry(coralShape, extrudeSettings),
         makeMat(0xc8502a)
       );
-      peachMesh.position.z = -0.35;
-      coralMesh.position.z = 0.15;
+      // distanza in z > spessore lamina (~0.66) per evitare la compenetrazione: restano staccate
+      peachMesh.position.z = -0.5;
+      coralMesh.position.z = 0.35;
 
       const logoGroup = new THREE.Group();
       logoGroup.add(peachMesh, coralMesh);

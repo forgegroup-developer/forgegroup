@@ -172,8 +172,9 @@ export default function Logo3DBackground() {
 
       const peachMesh = new THREE.Mesh(peachGeo, makeMat(0xe8b9a5));
       const coralMesh = new THREE.Mesh(coralGeo, makeMat(0xc8502a));
-      peachMesh.position.z = -0.35;
-      coralMesh.position.z = 0.15;
+      // distanza in z > spessore lamina (~0.66) per evitare la compenetrazione: restano staccate
+      peachMesh.position.z = -0.5;
+      coralMesh.position.z = 0.35;
 
       const logoGroup = new THREE.Group();
       logoGroup.add(peachMesh, coralMesh);
