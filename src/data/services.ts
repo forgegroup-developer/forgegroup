@@ -148,8 +148,8 @@ export const services: Service[] = [
   },
   {
     slug: "vendite-processi-commerciali",
-    shortTitle: "Vendite & Processi Commerciali",
-    title: "Vendite & Processi Commerciali",
+    shortTitle: "Processi di Vendita",
+    title: "Processi di Vendita",
     tagline: "Audit, processo di vendita, affiancamento e CRM per convertire più opportunità in contratti.",
     description:
       "Trasformiamo i contatti in contratti: un processo commerciale chiaro, gli strumenti giusti e il controllo di ogni opportunità, dal primo contatto alla firma.",

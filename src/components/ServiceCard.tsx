@@ -20,7 +20,7 @@ export const services: Service[] = [
     image: "/images/servizi/magnete.png",
   },
   {
-    label: "02 — Vendite & Processi Commerciali",
+    label: "02 — Processi di Vendita",
     lines: [
       { text: "Avere richieste non basta.", highlights: ["richieste"] },
       {

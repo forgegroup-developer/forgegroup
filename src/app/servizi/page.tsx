@@ -158,12 +158,12 @@ export default function ServiziHub() {
 
             <div className="border-t border-white/20" />
 
-            {/* 02 — Vendite & Processi Commerciali */}
+            {/* 02 — Processi di Vendita */}
             <Reveal>
               <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
                 <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-white/70 font-bold text-sm uppercase tracking-widest">02</span>
-                  <h2 className="heading-section text-white mt-2 mb-4">Vendite &amp; Processi Commerciali</h2>
+                  <h2 className="heading-section text-white mt-2 mb-4">Processi di Vendita</h2>
                   <p className="body-lg text-white mb-6">
                     Avere richieste non basta. Il problema è quante ne stai davvero convertendo.
                   </p>
