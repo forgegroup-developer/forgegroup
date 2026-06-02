@@ -168,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
-      <section className="py-20 md:py-28 bg-brand-panna/75 backdrop-blur-sm">
+      <section className="py-20 md:py-28 bg-brand-corallo/12 backdrop-blur-md border-y border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Perché Forge Group"

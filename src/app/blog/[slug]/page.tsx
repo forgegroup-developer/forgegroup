@@ -68,7 +68,7 @@ export default async function ArticleDetail({ params }: Props) {
       </Script>
 
       <article>
-        <header className="pt-16 pb-10 md:pt-24 md:pb-12 bg-brand-panna border-b border-brand-bordo">
+        <header className="pt-16 pb-10 md:pt-24 md:pb-12 bg-brand-corallo/12 backdrop-blur-md border-b border-brand-bordo">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-6 hover:underline">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,7 +175,7 @@ export default async function ArticleDetail({ params }: Props) {
       </article>
 
       {others.length > 0 && (
-        <section className="py-16 md:py-24 bg-brand-panna border-t border-brand-bordo">
+        <section className="py-16 md:py-24 bg-brand-corallo/12 backdrop-blur-md border-t border-brand-bordo">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-10">
               Altri <span className="text-brand-corallo">articoli</span>.
