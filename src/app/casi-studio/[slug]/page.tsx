@@ -63,7 +63,7 @@ export default async function CasoStudioDetail({ params }: Props) {
               controls
               preload="metadata"
               playsInline
-              poster={getCaseStudyImage(c.slug)}
+              poster="/images/video-recensione-poster.png"
               className="w-full block aspect-video object-cover"
             >
               <source src={c.videoUrl ?? "/video-recensione.mp4"} type="video/mp4" />
