@@ -11,14 +11,14 @@ const team = [
   {
     name: "Marco Pio Cerbone",
     forgeRole: "Co-Founder",
-    role: "Consulente Marketing e Consulente Aziendale",
+    role: "Imprenditore, Consulente Marketing e Consulente Aziendale",
     photo: "/images/team/foto-marco.png",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
     name: "Gianpio Uva",
     forgeRole: "Co-Founder",
-    role: "Consulente Commerciale ed Esperto in Processi di Vendita",
+    role: "Imprenditore, Consulente Commerciale ed Esperto in Processi di Vendita",
     photo: "/images/team/foto-gianpio.png",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
