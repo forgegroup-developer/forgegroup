@@ -33,8 +33,6 @@ export default async function ServizioDetail({ params }: Props) {
   const s = getServiceBySlug(slug);
   if (!s) notFound();
 
-  const otherServices = services.filter((x) => x.slug !== s.slug);
-
   return (
     <>
       <section className="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden">
@@ -170,18 +168,75 @@ export default async function ServizioDetail({ params }: Props) {
         </div>
       </section>
 
-      {/* PER CHI È IDEALE */}
-      <section className="py-16 md:py-24 bg-brand-bianco">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Per chi è ideale</p>
-          <ul className="space-y-3">
-            {s.forWho.map((item) => (
-              <li key={item} className="flex items-start gap-3 bg-brand-panna border border-brand-bordo rounded-lg p-5">
-                <span className="text-brand-corallo text-xl shrink-0">✦</span>
-                <span className="text-lg text-brand-nero">{item}</span>
-              </li>
+      {/* PAIN POINTS + PER CHI È IDEALE */}
+      <section className="relative py-16 md:py-24 bg-brand-nero overflow-hidden">
+        <div aria-hidden className="absolute inset-0 -z-0 opacity-30 pointer-events-none">
+          <div className="absolute -top-20 -right-20 w-[480px] h-[480px] bg-brand-corallo/40 rounded-full blur-[120px]" />
+          <div className="absolute bottom-0 -left-20 w-[420px] h-[420px] bg-brand-corallo/20 rounded-full blur-[120px]" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
+              ✦ Ti riconosci in questo?
+            </p>
+            <h2 className="heading-section text-white leading-tight">
+              I problemi che senti{" "}
+              <span className="text-brand-corallo">ogni giorno</span>, prima che diventino numeri rossi.
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            {s.painPoints.map((pain, idx) => (
+              <Reveal key={pain} delay={(idx % 3) as 0 | 1 | 2}>
+                <div className="group flex items-start gap-4 h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-colors hover:border-brand-corallo/60 hover:bg-white/[0.07]">
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-corallo/15 text-brand-corallo text-lg font-bold transition-colors group-hover:bg-brand-corallo group-hover:text-white"
+                    aria-hidden
+                  >
+                    ✕
+                  </span>
+                  <p className="text-base md:text-lg text-white/85 leading-snug pt-1">{pain}</p>
+                </div>
+              </Reveal>
             ))}
-          </ul>
+          </div>
+
+          {/* Ponte pain → soluzione */}
+          <Reveal>
+            <div className="mt-10 md:mt-12 rounded-2xl border-l-4 border-brand-corallo bg-brand-corallo/10 px-6 py-6 md:px-8 md:py-7">
+              <p className="text-lg md:text-xl text-white leading-relaxed">{s.painConclusion}</p>
+            </div>
+          </Reveal>
+
+          {/* Per chi è ideale */}
+          <div className="mt-14 md:mt-20 pt-12 border-t border-white/10">
+            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+              ✦ Allora {s.shortTitle} è per te
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+              {s.forWho.map((item, idx) => (
+                <Reveal key={item} delay={(idx % 3) as 0 | 1 | 2}>
+                  <div className="flex h-full flex-col gap-3 rounded-2xl bg-white p-6">
+                    <span
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-corallo text-white shrink-0"
+                      aria-hidden
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <p className="text-base text-brand-nero leading-snug">{item}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <div className="mt-10">
+              <Link href="/contatti" className="btn-corallo">
+                HAI UN MINUTO?
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -196,32 +251,6 @@ export default async function ServizioDetail({ params }: Props) {
             Quello che spesso ci si chiede su <span className="text-brand-corallo">{s.shortTitle}</span>
           </h2>
           <FAQAccordion items={s.faqs} />
-        </div>
-      </section>
-
-      {/* ALTRE MACRO AREE */}
-      <section className="py-16 md:py-24 section-coral border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="heading-section text-white [&_span]:text-brand-pesca-light mb-10">
-            Le altre <span className="text-brand-corallo">aree di servizio</span> Forge.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {otherServices.map((other) => (
-              <Link
-                key={other.slug}
-                href={`/servizi/${other.slug}`}
-                className="group bg-brand-bianco border border-brand-bordo rounded-2xl p-6 hover:border-brand-corallo hover:shadow-lg transition-all"
-              >
-                <h3 className="text-lg font-semibold font-bold text-brand-nero mb-2 group-hover:text-brand-corallo transition-colors">
-                  {other.title}
-                </h3>
-                <p className="text-brand-grigio text-sm mb-4">{other.tagline}</p>
-                <span className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm">
-                  Scopri di più →
-                </span>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 

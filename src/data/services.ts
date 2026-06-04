@@ -14,6 +14,8 @@ export type Service = {
   }[];
   comparisonItems: { withoutForge: string; withForge: string }[];
   faqs: { q: string; a: string }[];
+  painPoints: string[];
+  painConclusion: string;
   forWho: string[];
 };
 
@@ -140,6 +142,14 @@ export const services: Service[] = [
         a: "Partiamo da dove ha più senso per la tua situazione. Ma il valore vero nasce quando i pezzi lavorano insieme: per questo, anche se iniziamo con una sola attività, la inseriamo sempre in una visione di sistema, così ogni passo successivo si incastra senza sprechi.",
       },
     ],
+    painPoints: [
+      "Ogni mese riparti da zero e non sai quante richieste arriveranno.",
+      "Investi in pubblicità ma non sai dire quanto ti rende davvero.",
+      "Il tuo sito e i tuoi social ci sono, ma non portano clienti.",
+      "Competitor meno bravi di te si prendono i clienti online, perché loro si fanno trovare.",
+    ],
+    painConclusion:
+      "Se anche solo uno di questi punti ti suona familiare, il problema non è la tua offerta: è che manca un sistema che porti richieste qualificate in modo costante.",
     forWho: [
       "Aziende B2B che vogliono un flusso prevedibile di richieste, non picchi casuali",
       "Imprese con un'offerta valida ma poco visibile online",
@@ -243,6 +253,14 @@ export const services: Service[] = [
         a: "Quasi sempre sì, ed è spesso il primo passo. Molte aziende hanno già abbastanza opportunità ma ne convertono una piccola parte. Lavorare sul processo di vendita aumenta il ritorno sui contatti che hai già, prima ancora di investire per generarne di nuovi.",
       },
     ],
+    painPoints: [
+      "Arrivano contatti, ma troppi si raffreddano senza diventare clienti.",
+      "Ogni commerciale vende a modo suo: i risultati dipendono dalla persona, non da un metodo.",
+      "Hai un CRM, ma in pratica non lo usa nessuno.",
+      "Non sai in quale fase della trattativa stai perdendo le opportunità.",
+    ],
+    painConclusion:
+      "Se ti rivedi in questi punti, non hai un problema di contatti: hai un problema di conversione. E si risolve con un processo, non con più sforzo.",
     forWho: [
       "Aziende con un reparto commerciale da strutturare o riorganizzare",
       "Team di vendita con risultati altalenanti, dipendenti dalla singola persona",
@@ -335,6 +353,14 @@ export const services: Service[] = [
         a: "Guardando i numeri giusti. Un fatturato in crescita con margini che calano, o un team sempre più sotto pressione, sono segnali che stai lavorando di più senza crescere davvero. La consulenza serve esattamente a questo: misurare la crescita reale e renderla sostenibile.",
       },
     ],
+    painPoints: [
+      "Prendi decisioni a istinto perché i numeri non ti dicono nulla.",
+      "Lavori sempre di più, ma non senti di crescere davvero.",
+      "Il team dipende da fornitori esterni per ogni scelta strategica.",
+      "Hai tanti dati ma nessuno che ti aiuti a trasformarli in azioni.",
+    ],
+    painConclusion:
+      "Se ti riconosci, ti manca una regia: qualcuno che legga i numeri con te e faccia crescere le competenze del team, così smetti di crescere per fortuna.",
     forWho: [
       "Imprenditori che vogliono una direzione costante e basata sui dati",
       "Aziende in crescita con più canali attivi da coordinare",
