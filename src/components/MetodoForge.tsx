@@ -29,11 +29,22 @@ const fasi = [
   },
 ];
 
-export default function MetodoForge({ className = "bg-brand-bianco" }: { className?: string }) {
+type MetodoForgeProps = {
+  className?: string;
+  onCoral?: boolean;
+};
+
+export default function MetodoForge({
+  className = "bg-brand-bianco",
+  onCoral = false,
+}: MetodoForgeProps) {
+  const coral = onCoral || className.includes("section-coral");
+
   return (
     <section className={`py-16 md:py-24 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
+          onCoral={coral}
           eyebrow="Il Metodo Forge"
           title={
             <>

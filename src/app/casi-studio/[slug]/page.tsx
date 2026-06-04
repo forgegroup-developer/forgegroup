@@ -46,19 +46,19 @@ export default async function CasoStudioDetail({ params }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 pb-0 md:pt-24 bg-brand-corallo/25 backdrop-blur-md border-b border-brand-bordo">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
-          <Link href="/casi-studio" className="inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-6 hover:underline">
+      <section className="pt-16 pb-0 md:pt-24 section-coral border-b">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
+          <Link href="/casi-studio" className="inline-flex items-center gap-2 text-sm link-coral mb-6 hover:underline">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Tutti i casi studio
           </Link>
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ {c.sector}</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
+          <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
+          <h1 className="heading-hero font-semibold leading-tight mb-6">
             {c.resultHeadline}
           </h1>
-          <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed">{c.excerpt}</p>
+          <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-brand-bordo shadow-lg">
@@ -99,13 +99,15 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* CHALLENGE */}
-      <section className="py-16 md:py-20 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-20 section-coral border-y">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ La Sfida</p>
-          <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-6">
-            Da dove <span className="text-brand-corallo">siamo partiti</span>.
-          </h2>
-          <p className="text-lg text-brand-grigio leading-relaxed mb-8">{c.challenge}</p>
+          <div className="copy-on-coral mb-8">
+            <p className="eyebrow-coral mb-4">✦ La Sfida</p>
+            <h2 className="heading-section leading-tight mb-6">
+              Da dove <span>siamo partiti</span>.
+            </h2>
+            <p className="text-lg text-white/90 leading-relaxed">{c.challenge}</p>
+          </div>
 
           <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8">
             <h3 className="text-lg font-semibold font-bold text-brand-nero mb-4">
@@ -151,10 +153,10 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* RISULTATI */}
-      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ I Risultati</p>
+          <div className="max-w-3xl mx-auto text-center mb-12 copy-on-coral">
+            <p className="eyebrow-coral mb-4">✦ I Risultati</p>
             <h2 className="heading-section font-semibold text-brand-nero leading-tight">
               I numeri <span className="text-brand-corallo">reali</span>.
             </h2>
@@ -200,10 +202,10 @@ export default async function CasoStudioDetail({ params }: Props) {
       </section>
 
       {/* ALTRI CASI */}
-      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-24 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-10">
-            Altri <span className="text-brand-corallo">casi studio</span>.
+          <h2 className="heading-section text-white [&_span]:text-brand-pesca-light mb-10">
+            Altri <span>casi studio</span>.
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {others.map((o) => (

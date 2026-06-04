@@ -68,20 +68,20 @@ export default async function ArticleDetail({ params }: Props) {
       </Script>
 
       <article>
-        <header className="pt-16 pb-10 md:pt-24 md:pb-12 bg-brand-corallo/25 backdrop-blur-md border-b border-brand-bordo">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-6 hover:underline">
+        <header className="pt-16 pb-10 md:pt-24 md:pb-12 section-coral border-b">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 copy-on-coral">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-sm link-coral mb-6 hover:underline">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Tutti gli articoli
             </Link>
-            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ {a.category}</p>
-            <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
+            <p className="eyebrow-coral mb-6">✦ {a.category}</p>
+            <h1 className="heading-section font-semibold leading-tight mb-6">
               {a.title}
             </h1>
             <p className="text-lg md:text-xl text-brand-grigio leading-relaxed mb-6">{a.description}</p>
-            <div className="flex items-center gap-4 text-sm text-brand-grigio-light">
+            <div className="flex items-center gap-4 text-sm text-white/70">
               <span>{formatDate(a.date)}</span>
               <span>·</span>
               <span>{a.readTime} di lettura</span>
@@ -175,10 +175,10 @@ export default async function ArticleDetail({ params }: Props) {
       </article>
 
       {others.length > 0 && (
-        <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-t border-brand-bordo">
+        <section className="py-16 md:py-24 section-coral border-t">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold md:text-4xl font-semibold text-brand-nero leading-tight mb-10">
-              Altri <span className="text-brand-corallo">articoli</span>.
+            <h2 className="heading-section text-white [&_span]:text-brand-pesca-light mb-10">
+              Altri <span>articoli</span>.
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {others.map((o) => (

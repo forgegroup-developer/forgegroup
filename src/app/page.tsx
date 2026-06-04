@@ -117,9 +117,10 @@ export default function Home() {
       </section>
 
       {/* S4 — SERVIZI */}
-      <section className="py-20 md:py-28 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
+            onCoral
             eyebrow="I Nostri Servizi"
             title={
               <>
@@ -168,9 +169,10 @@ export default function Home() {
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
-      <section className="py-20 md:py-28 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
+            onCoral
             eyebrow="Perché Forge Group"
             title={
               <>
@@ -180,28 +182,28 @@ export default function Home() {
             }
           />
           <Reveal>
-            <div className="max-w-5xl mx-auto rounded-3xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
-              {/* Intestazioni colonne */}
-              <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo">
-                <div className="p-6 md:p-8 pb-4 md:pb-5 bg-red-50 border-b border-red-100">
-                  <p className="text-[10px] uppercase tracking-widest text-red-600 font-bold mb-2 md:hidden">
+            <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
+              {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
+              <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
+                <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-red-600 font-bold mb-0.5">
                     ✕ Non funziona
                   </p>
-                  <h3 className="text-red-800 text-base md:text-lg font-bold uppercase tracking-wider leading-snug">
-                    Le aziende con le quali hai lavorato
+                  <h3 className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
+                    Le altre aziende
                   </h3>
                 </div>
-                <div className="p-6 md:p-8 pb-4 md:pb-5 bg-emerald-50 border-b border-emerald-100">
-                  <p className="text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-2 md:hidden">
+                <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
+                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
                     ✓ Funziona
                   </p>
-                  <h3 className="text-emerald-800 text-base md:text-lg font-bold uppercase tracking-wider leading-snug">
-                    Il nostro sistema Forge Group
+                  <h3 className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
+                    Forge Group
                   </h3>
                 </div>
               </div>
 
-              {/* Righe allineate punto per punto */}
+              {/* Righe allineate — sempre 2 colonne */}
               {[
                 {
                   other: "Ti vendono visibilità, non clienti",
@@ -226,31 +228,29 @@ export default function Home() {
               ].map((row, idx) => (
                 <div
                   key={row.other}
-                  className={`grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-brand-bordo/80 ${
-                    idx > 0 ? "border-t border-brand-bordo/80" : ""
-                  }`}
+                  className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
                 >
-                  <div className="flex items-start gap-3 min-h-[4.5rem] px-6 md:px-8 py-4 bg-red-50/80 border-l-4 border-red-400 transition-colors hover:bg-red-50">
+                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-red-50/70 hover:bg-red-50 transition-colors">
                     <span
-                      className="w-7 h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold shadow-sm"
+                      className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] md:text-xs font-bold shadow-sm"
                       aria-hidden
                     >
                       ✕
                     </span>
-                    <span className="text-sm md:text-base leading-snug text-red-950/90 font-medium pt-0.5">
+                    <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium pt-0.5">
                       {row.other}
                     </span>
                   </div>
-                  <div className="flex items-start gap-3 min-h-[4.5rem] px-6 md:px-8 py-4 bg-emerald-50/90 border-l-4 border-emerald-500 transition-colors hover:bg-emerald-50">
+                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-emerald-50/80 hover:bg-emerald-50 transition-colors">
                     <span
-                      className="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
+                      className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
                       aria-hidden
                     >
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span className="text-sm md:text-base leading-snug font-semibold text-emerald-950 pt-0.5">
+                    <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950 pt-0.5">
                       {row.forge}
                     </span>
                   </div>
@@ -265,9 +265,10 @@ export default function Home() {
       <TeamSection />
 
       {/* S8 — FAQ */}
-      <section className="py-20 md:py-28 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
+            onCoral
             eyebrow="Domande Frequenti"
             title={
               <>

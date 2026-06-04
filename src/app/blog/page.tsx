@@ -37,7 +37,7 @@ export default function BlogHub() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
+      <section className="py-16 md:py-20 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {articles.map((a, idx) => (

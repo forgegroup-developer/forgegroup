@@ -56,13 +56,13 @@ export default function ChiSiamoManifesto() {
       </section>
 
       {/* CHI SIAMO */}
-      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Chi siamo</p>
-          <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-8">
+      <section className="py-16 md:py-24 section-coral border-y">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 copy-on-coral">
+          <p className="eyebrow-coral mb-4">✦ Chi siamo</p>
+          <h2 className="heading-section font-semibold leading-tight mb-8">
             Due imprenditori, una visione comune.
           </h2>
-          <div className="prose prose-lg max-w-none text-brand-grigio leading-relaxed space-y-4">
+          <div className="prose prose-lg max-w-none leading-relaxed space-y-4">
             <p>
               Forge Group nasce dall&apos;incrocio di due visioni: quella di chi ha già costruito un&apos;agenzia di
               marketing e quella di chi viene dal lato cliente, dal contatto quotidiano con le imprese. Da questo incrocio
@@ -111,15 +111,15 @@ export default function ChiSiamoManifesto() {
       </section>
 
       {/* CHI NON ACCETTIAMO */}
-      <section className="py-16 md:py-24 bg-brand-corallo/25 backdrop-blur-md border-y border-brand-bordo">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
+      <section className="py-16 md:py-24 section-coral border-y">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 copy-on-coral">
+          <p className="eyebrow-coral mb-4">
             ✦ I Nostri Confini
           </p>
-          <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
-            Chi <span className="text-brand-corallo">NON</span> accettiamo.
+          <h2 className="heading-section font-semibold leading-tight mb-6">
+            Chi <span>NON</span> accettiamo.
           </h2>
-          <p className="text-lg text-brand-grigio leading-relaxed mb-10">
+          <p className="text-lg text-white/90 leading-relaxed mb-10">
             Per mantenere standard alti e portare risultati veri, rifiutiamo categoricamente di lavorare con queste
             tipologie di clienti.
           </p>

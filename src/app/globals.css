@@ -84,6 +84,60 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-brand-corallo);
 }
 
+/* ── Sezioni corallo (tinta intensa, allineata all'hub servizi) ─── */
+.section-coral {
+  background-color: color-mix(in srgb, var(--color-brand-corallo) 90%, transparent);
+}
+
+.section-coral.border-y,
+.section-coral.border-t,
+.section-coral.border-b {
+  border-color: color-mix(in srgb, var(--color-brand-corallo-dark) 35%, transparent);
+}
+
+/* Tipografia su sfondo corallo: bianco + keyword pesca chiaro */
+.copy-on-coral .eyebrow,
+.eyebrow-coral {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.copy-on-coral .heading-section,
+.copy-on-coral .heading-hero,
+.title-coral {
+  color: #ffffff;
+}
+
+.copy-on-coral .heading-section span,
+.copy-on-coral .heading-section .text-brand-corallo,
+.copy-on-coral .heading-hero span,
+.copy-on-coral .heading-hero .text-brand-corallo,
+.title-coral span,
+.title-coral .text-brand-corallo {
+  color: var(--color-brand-pesca-light);
+}
+
+.copy-on-coral .body-lg,
+.copy-on-coral .text-coral-body,
+.copy-on-coral.prose p,
+.copy-on-coral > p.text-lg,
+.copy-on-coral > p.text-xl,
+.copy-on-coral > p.text-brand-grigio {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.link-coral {
+  color: var(--color-brand-pesca-light);
+  font-weight: 700;
+}
+
+.link-coral:hover {
+  color: #ffffff;
+}
+
 /* Accordion */
 .accordion-content {
   display: grid;
