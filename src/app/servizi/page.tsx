@@ -113,8 +113,6 @@ export default function ServiziHub() {
         </div>
       </section>
 
-      <ClientiLogos />
-
       <section className="py-16 md:py-24 section-coral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-20 md:space-y-28">
@@ -237,6 +235,8 @@ export default function ServiziHub() {
           </div>
         </div>
       </section>
+
+      <ClientiLogos />
 
       <MetodoForge />
 

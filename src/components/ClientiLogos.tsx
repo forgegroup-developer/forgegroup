@@ -10,13 +10,13 @@ const clienti = [
 
 function LogoItem({ name, src }: { name: string; src: string }) {
   return (
-    <div className="relative mx-6 h-20 w-36 shrink-0 md:mx-10 md:h-24 md:w-44">
+    <div className="relative mx-7 h-16 w-40 shrink-0 md:mx-12 md:h-24 md:w-56">
       <Image
         src={src}
         alt={name}
         fill
         className="object-contain"
-        sizes="(max-width: 768px) 144px, 176px"
+        sizes="(max-width: 768px) 160px, 224px"
         draggable={false}
       />
     </div>
@@ -28,16 +28,16 @@ export default function ClientiLogos() {
     <section className="py-14 md:py-20 bg-brand-bianco border-y border-brand-bordo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center eyebrow mb-3">✦ Alcuni dei nostri clienti</p>
-        <h2 className="text-center heading-section text-brand-nero mb-12">
+        <h2 className="text-center heading-section text-brand-nero mb-10 md:mb-14">
           Imprese che hanno scelto di <span className="text-brand-corallo">crescere con noi</span>
         </h2>
 
         <div className="logo-marquee relative overflow-hidden">
           {/* sfumature laterali */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-32 bg-gradient-to-r from-brand-bianco to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-32 bg-gradient-to-l from-brand-bianco to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 md:w-32 bg-gradient-to-r from-brand-bianco to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 md:w-32 bg-gradient-to-l from-brand-bianco to-transparent" />
 
-          <div className="logo-marquee-track">
+          <div className="logo-marquee-track items-center">
             {[...clienti, ...clienti].map((c, i) => (
               <LogoItem key={`${c.name}-${i}`} name={c.name} src={c.src} />
             ))}
