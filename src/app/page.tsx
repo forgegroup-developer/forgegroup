@@ -62,9 +62,6 @@ export default function Home() {
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
       <SocialProof />
 
-      {/* S2b — LOGHI CLIENTI */}
-      <ClientiLogos />
-
       {/* S3 — VIDEO RECENSIONE */}
       <section id="recensione" className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm border-t border-brand-bordo scroll-mt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -140,6 +137,8 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <ClientiLogos />
         </div>
       </section>
 
