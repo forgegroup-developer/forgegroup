@@ -21,7 +21,7 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Imprenditore, Consulente Commerciale ed Esperto in Processi di Vendita",
     photo: "/images/team/foto-gianpio.png",
-    objectPosition: "object-[50%_28%]",
+    objectPosition: "object-[50%_12%]",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
 ];
