@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
-import CTASection from "@/components/CTASection";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -200,14 +199,6 @@ export default async function ArticleDetail({ params }: Props) {
         </section>
       )}
 
-      <CTASection
-        title={
-          <>
-            Vuoi sistematizzare il tuo <span className="text-brand-corallo">processo di crescita</span>?
-          </>
-        }
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-      />
     </>
   );
 }

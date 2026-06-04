@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
-import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 import SocialProof from "@/components/SocialProof";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
@@ -283,23 +282,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* S9 — CTA */}
-      <CTASection
-        eyebrow="Pronto a smettere di improvvisare?"
-        title={
-          <>
-            <span className="text-brand-corallo">Contattaci</span> e{" "}
-            <span className="text-brand-corallo">parliamone</span> davanti un{" "}
-            <span className="text-brand-corallo">caffè</span>.
-            <br />
-            <span className="text-brand-corallo">Scopri</span> come possiamo{" "}
-            <span className="text-brand-corallo">esserti utile</span>.
-          </>
-        }
-        description="Accettiamo un numero limitato di partner all'anno."
-        primary={{ label: "Hai un minuto?", href: "/contatti" }}
-        secondary={{ label: "Vedi i casi studio", href: "/casi-studio" }}
-      />
     </>
   );
 }

@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
-import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -76,15 +75,6 @@ export default function BlogHub() {
         </div>
       </section>
 
-      <CTASection
-        title={
-          <>
-            Vuoi applicare queste <span className="text-brand-corallo">strategie</span> alla tua azienda?
-          </>
-        }
-        description="Leggere è il primo passo. Implementare il sistema è il secondo. Compila la prequalifica e ne parliamo."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-      />
     </>
   );
 }

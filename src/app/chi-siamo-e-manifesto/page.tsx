@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
   title: "Chi Siamo e Manifesto",
@@ -148,17 +147,6 @@ export default function ChiSiamoManifesto() {
         </div>
       </section>
 
-      <CTASection
-        eyebrow="Sei in target?"
-        title={
-          <>
-            Se condividi i nostri valori, <span className="text-brand-corallo">parliamone</span>.
-          </>
-        }
-        description="Il primo passo è il questionario di prequalifica. Bastano 5 minuti. Se siamo allineati, ti contattiamo entro 48 ore."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-        secondary={{ label: "Scopri i servizi", href: "/servizi" }}
-      />
     </>
   );
 }

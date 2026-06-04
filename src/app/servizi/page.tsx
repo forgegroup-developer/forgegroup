@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import CTASection from "@/components/CTASection";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
 import { heroShowcaseImages } from "@/data/images";
@@ -238,15 +237,6 @@ export default function ServiziHub() {
 
       <MetodoForge />
 
-      <CTASection
-        title={
-          <>
-            Vuoi capire <span className="text-brand-corallo">quale combinazione</span> serve alla tua azienda?
-          </>
-        }
-        description="Compila la prequalifica: in base alle tue risposte ti diciamo da dove partire e con quale priorità."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-      />
     </>
   );
 }

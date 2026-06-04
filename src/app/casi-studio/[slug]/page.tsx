@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
-import CTASection from "@/components/CTASection";
-
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
@@ -242,15 +240,6 @@ export default async function CasoStudioDetail({ params }: Props) {
         </div>
       </section>
 
-      <CTASection
-        title={
-          <>
-            Vuoi un <span className="text-brand-corallo">caso studio</span> come questo per la tua azienda?
-          </>
-        }
-        description="Ogni caso studio è il risultato di un sistema. Compila la prequalifica e capiamo se possiamo costruire il tuo."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-      />
     </>
   );
 }

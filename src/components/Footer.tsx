@@ -63,12 +63,12 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
-                ✦ Pronto a costruire un sistema?
+                ✦ Pronto a smettere di improvvisare?
               </p>
               <h3 className="heading-section text-brand-nero">
-                Candida la tua azienda.
+                Contattaci e parliamone davanti un caffè.
                 <br />
-                <span className="text-brand-corallo">Smetti di improvvisare.</span>
+                <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
               </h3>
             </div>
             <Link href="/contatti" className="btn-corallo text-base whitespace-nowrap">

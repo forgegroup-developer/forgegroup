@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { services, getServiceBySlug } from "@/data/services";
-import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
@@ -226,16 +225,6 @@ export default async function ServizioDetail({ params }: Props) {
         </div>
       </section>
 
-      <CTASection
-        title={
-          <>
-            Pronto a <span className="text-brand-corallo">costruire questo sistema</span> nella tua azienda?
-          </>
-        }
-        description="Compila il questionario di prequalifica. Se sei in target, fissiamo una call di scoperta entro 48 ore."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-        secondary={{ label: "Vedi i casi studio", href: "/casi-studio" }}
-      />
     </>
   );
 }

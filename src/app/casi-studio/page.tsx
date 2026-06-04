@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { caseStudies } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
-import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -72,16 +71,6 @@ export default function CasiStudioHub() {
         </div>
       </section>
 
-      <CTASection
-        title={
-          <>
-            Vuoi <span className="text-brand-corallo">risultati come questi</span>?
-          </>
-        }
-        description="I casi studio non sono fortuna: sono il risultato di un sistema replicabile. Compila la prequalifica e vediamo se ha senso costruire il tuo."
-        primary={{ label: "HAI UN MINUTO?", href: "/contatti" }}
-        secondary={{ label: "Vedi i servizi", href: "/servizi" }}
-      />
     </>
   );
 }
