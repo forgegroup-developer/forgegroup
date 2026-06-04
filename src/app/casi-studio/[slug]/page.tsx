@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -39,7 +38,6 @@ export default async function CasoStudioDetail({ params }: Props) {
   const c = getCaseStudyBySlug(slug);
   if (!c) notFound();
 
-  const others = caseStudies.filter((x) => x.slug !== c.slug);
 
   return (
     <>
@@ -58,20 +56,18 @@ export default async function CasoStudioDetail({ params }: Props) {
           </h1>
           <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
         </div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
-          <div className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-brand-bordo shadow-lg">
-            <Image
-              src={getCaseStudyImage(c.slug)}
-              alt={c.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1280px) 100vw, 1152px"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/60 via-brand-nero/10 to-transparent" />
-            <span className="absolute bottom-4 left-6 text-2xl md:text-4xl font-semibold text-white drop-shadow-lg">
-              {c.resultHeadline}
-            </span>
+        {/* Video testimonianza */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
+          <div className="rounded-3xl overflow-hidden border border-white/20 shadow-lg bg-brand-nero">
+            <video
+              controls
+              preload="metadata"
+              playsInline
+              poster={getCaseStudyImage(c.slug)}
+              className="w-full block aspect-video object-cover"
+            >
+              <source src={c.videoUrl ?? "/video-recensione.mp4"} type="video/mp4" />
+            </video>
           </div>
         </div>
       </section>
@@ -214,46 +210,6 @@ export default async function CasoStudioDetail({ params }: Props) {
         </div>
       </section>
 
-      {/* ALTRI CASI */}
-      <section className="py-16 md:py-24 section-coral border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="heading-section text-white [&_span]:text-brand-pesca-light mb-10">
-            Altri <span>casi studio</span>.
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {others.map((o) => (
-              <Link
-                key={o.slug}
-                href={`/casi-studio/${o.slug}`}
-                className="group bg-brand-bianco border border-brand-bordo rounded-3xl overflow-hidden hover:border-brand-corallo hover:shadow-lg transition-all flex flex-col"
-              >
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={getCaseStudyImage(o.slug)}
-                    alt={o.shortTitle}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/60 to-transparent" />
-                  <span className="absolute top-3 left-3 text-xs uppercase tracking-widest text-white font-bold bg-brand-corallo px-3 py-1 rounded-full">
-                    {o.sector}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-brand-nero mb-2 group-hover:text-brand-corallo transition-colors">
-                    {o.shortTitle}
-                  </h3>
-                  <div className="text-xl font-semibold text-brand-corallo mb-3">{o.resultHeadline}</div>
-                  <span className="inline-flex items-center gap-2 text-brand-corallo font-bold text-sm">
-                    Leggi il caso →
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
     </>
   );

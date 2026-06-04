@@ -153,12 +153,11 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <Link
-            href="/contatti"
-            className="hidden lg:inline-flex btn-corallo text-sm"
-          >
-            Hai un minuto?
-          </Link>
+          <div className="hidden lg:block">
+            <Link href="/contatti" className="btn-corallo text-sm">
+              Hai un minuto?
+            </Link>
+          </div>
 
           <button
             onClick={() => setOpen(true)}
