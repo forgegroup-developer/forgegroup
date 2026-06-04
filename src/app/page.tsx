@@ -81,7 +81,7 @@ export default function Home() {
               <span className="text-brand-corallo">126.500€ di fatturato</span>, non me lo aspettavo. Ero scettico all&apos;inizio:{" "}
               <span className="text-brand-corallo">questo metodo</span> per me{" "}
               <span className="text-brand-corallo">ha funzionato</span>.{" "}
-              <span className="text-brand-corallo">Lo consiglio</span> a tutte le aziende che hanno un prodotto o un servizio e vogliono{" "}
+              <span className="text-brand-corallo">Lo consiglio</span> a tutte le aziende che vogliono{" "}
               <span className="text-brand-corallo">crescere sul mercato</span>.
               &rdquo;
             </blockquote>
