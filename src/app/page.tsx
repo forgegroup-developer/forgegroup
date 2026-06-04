@@ -287,11 +287,11 @@ export default function Home() {
         eyebrow="Pronto a smettere di improvvisare?"
         title={
           <>
-            Cosa possiamo{" "}
-            <span className="text-brand-corallo">fare per te?</span>
+            Contattaci e parliamone davanti un caffè.{" "}
+            <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
           </>
         }
-        description="Accettiamo un numero limitato di partner all'anno. Contattaci: un nostro consulente verrà a prendere un caffè con te!"
+        description="Accettiamo un numero limitato di partner all'anno."
         primary={{ label: "Hai un minuto?", href: "/contatti" }}
         secondary={{ label: "Vedi i casi studio", href: "/casi-studio" }}
       />
