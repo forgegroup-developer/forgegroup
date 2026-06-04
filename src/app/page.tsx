@@ -287,12 +287,11 @@ export default function Home() {
         eyebrow="Pronto a smettere di improvvisare?"
         title={
           <>
-            Costruiamo insieme il tuo sistema.
-            <br />
-            <span className="text-brand-corallo">Parti dalla prequalifica.</span>
+            Cosa possiamo{" "}
+            <span className="text-brand-corallo">fare per te?</span>
           </>
         }
-        description="Accettiamo un numero limitato di partner ogni trimestre. Compila il questionario: se siamo allineati ti ricontattiamo entro 48 ore con un piano concreto."
+        description="Accettiamo un numero limitato di partner all'anno. Contattaci: un nostro consulente verrà a prendere un caffè con te!"
         primary={{ label: "Hai un minuto?", href: "/contatti" }}
         secondary={{ label: "Vedi i casi studio", href: "/casi-studio" }}
       />
