@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
 import SocialProof from "@/components/SocialProof";
+import ClientiLogos from "@/components/ClientiLogos";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
@@ -60,6 +61,9 @@ export default function Home() {
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
       <SocialProof />
+
+      {/* S2b — LOGHI CLIENTI */}
+      <ClientiLogos />
 
       {/* S3 — VIDEO RECENSIONE */}
       <section id="recensione" className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm border-t border-brand-bordo scroll-mt-24">
