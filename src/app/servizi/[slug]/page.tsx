@@ -35,23 +35,67 @@ export default async function ServizioDetail({ params }: Props) {
 
   return (
     <>
-      <section className="relative pt-16 pb-12 md:pt-24 md:pb-16 overflow-hidden">
-        <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-40 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-corallo/15 rounded-full blur-3xl" />
+      <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-corallo/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-[320px] h-[320px] bg-brand-corallo/15 rounded-full blur-3xl" />
         </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/servizi" className="inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-6 hover:underline">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/servizi"
+            className="hero-enter hero-enter-d1 inline-flex items-center gap-2 text-sm text-brand-corallo font-bold mb-8 hover:gap-3 transition-all"
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Tutti i servizi
           </Link>
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ {s.shortTitle}</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">{s.heroHeadline}</h1>
-          <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed mb-10">{s.heroSubheadline}</p>
-          <Link href="/contatti" className="btn-corallo">
-            HAI UN MINUTO?
-          </Link>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            {/* Colonna sinistra — testo */}
+            <div className="flex flex-col gap-6 lg:gap-7">
+              <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/80 backdrop-blur-sm">
+                ✦ {s.shortTitle}
+              </p>
+              <h1 className="hero-enter hero-enter-d2 heading-hero font-semibold text-brand-nero leading-tight">
+                {s.heroHeadline}
+              </h1>
+              <p className="hero-enter hero-enter-d2 text-xl md:text-2xl text-brand-grigio leading-relaxed">
+                {s.heroSubheadline}
+              </p>
+              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-1">
+                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+                  Hai un minuto?
+                </Link>
+                <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+                  Vedi i risultati
+                </Link>
+              </div>
+            </div>
+
+            {/* Colonna destra — card pilastri del servizio */}
+            <div className="hero-enter hero-enter-d3">
+              <div className="relative rounded-3xl border border-brand-bordo bg-brand-bianco shadow-xl p-7 md:p-9">
+                <div aria-hidden className="absolute -top-3 -right-3 w-24 h-24 bg-brand-corallo/10 rounded-full blur-2xl" />
+                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+                  ✦ Cosa include
+                </p>
+                <ul className="space-y-4">
+                  {s.pillars.map((pillar, idx) => (
+                    <li key={pillar.name} className="flex items-start gap-4">
+                      <span className="font-display text-2xl font-semibold text-brand-corallo/40 leading-none shrink-0 w-8">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3 className="font-semibold text-brand-nero leading-snug">{pillar.name}</h3>
+                        <p className="text-sm text-brand-grigio leading-snug mt-0.5">{pillar.intro}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
