@@ -95,6 +95,12 @@ h1, h2, h3, h4, h5, h6 {
   border-color: color-mix(in srgb, var(--color-brand-corallo-dark) 35%, transparent);
 }
 
+/* Forza bianco sulle classi utility con colore hardcoded dentro sezioni corallo */
+.section-coral .body-lg,
+.section-coral .eyebrow {
+  color: #ffffff;
+}
+
 /* Tipografia su sfondo corallo: bianco + keyword pesca chiaro */
 .copy-on-coral .eyebrow,
 .eyebrow-coral {
