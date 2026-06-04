@@ -106,7 +106,7 @@ export default async function ServizioDetail({ params }: Props) {
           <h2 className="heading-section font-semibold leading-tight mb-6">
             Non servizi isolati, ma <span>un sistema che lavora insieme</span>.
           </h2>
-          <p className="text-lg md:text-xl text-brand-grigio leading-relaxed">{s.systemIntro}</p>
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed">{s.systemIntro}</p>
         </div>
       </section>
 
@@ -208,6 +208,71 @@ export default async function ServizioDetail({ params }: Props) {
                 </ul>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* PAIN POINTS + PER CHI È IDEALE */}
+      <section className="py-16 md:py-24 bg-brand-bianco">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
+            ✦ Ti riconosci in questo?
+          </p>
+          <h2 className="heading-section text-brand-nero leading-tight mb-10 md:mb-12 max-w-3xl">
+            I problemi che senti{" "}
+            <span className="text-brand-corallo">ogni giorno</span>, prima che diventino numeri rossi.
+          </h2>
+
+          <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
+            {s.painPoints.map((pain, idx) => (
+              <Reveal key={pain} delay={(idx % 3) as 0 | 1 | 2}>
+                <div className="flex items-start gap-4 h-full rounded-2xl border border-brand-bordo bg-brand-panna p-6">
+                  <span
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-corallo/15 text-brand-corallo text-base font-bold"
+                    aria-hidden
+                  >
+                    ✕
+                  </span>
+                  <p className="text-base md:text-lg text-brand-nero leading-snug pt-0.5">{pain}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Ponte pain → soluzione */}
+          <Reveal>
+            <div className="mt-8 md:mt-10 rounded-2xl border-l-4 border-brand-corallo bg-brand-pesca-light px-6 py-6 md:px-8 md:py-7">
+              <p className="text-lg md:text-xl text-brand-nero leading-relaxed">{s.painConclusion}</p>
+            </div>
+          </Reveal>
+
+          {/* Per chi è ideale */}
+          <div className="mt-14 md:mt-20 pt-12 border-t border-brand-bordo">
+            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+              ✦ Allora {s.shortTitle} è per te
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+              {s.forWho.map((item, idx) => (
+                <Reveal key={item} delay={(idx % 3) as 0 | 1 | 2}>
+                  <div className="flex h-full flex-col gap-3 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 shadow-sm">
+                    <span
+                      className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-corallo text-white shrink-0"
+                      aria-hidden
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <p className="text-base text-brand-nero leading-snug">{item}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+            <div className="mt-10">
+              <Link href="/contatti" className="btn-corallo">
+                Hai un minuto?
+              </Link>
+            </div>
           </div>
         </div>
       </section>

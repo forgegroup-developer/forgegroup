@@ -13,6 +13,7 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Imprenditore, Consulente Marketing e Consulente Aziendale",
     photo: "/images/team/foto-marco.png",
+    objectPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
@@ -20,6 +21,7 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Imprenditore, Consulente Commerciale ed Esperto in Processi di Vendita",
     photo: "/images/team/foto-gianpio.png",
+    objectPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
 ];
@@ -97,7 +99,7 @@ export default function TeamSection() {
                   src={member.photo}
                   alt={member.name}
                   fill
-                  className="object-cover object-top"
+                  className={`object-cover ${member.objectPosition}`}
                   sizes="(max-width: 768px) 256px, 320px"
                 />
               </div>

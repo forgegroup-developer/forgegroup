@@ -22,7 +22,7 @@ export default function CasiStudioHub() {
             Risultati <span className="text-brand-corallo">Dimostrabili</span>.
           </h1>
           <p className="text-xl text-brand-grigio leading-relaxed">
-            Zero teorie. Solo numeri. Come abbiamo trasformato l&apos;infrastruttura di acquisizione di DISA SRL in 90 giorni.
+            Zero teorie. Solo numeri. Come abbiamo costruito da zero il sistema di acquisizione di DISA SRL e del software SOS APPALTI in 90 giorni.
           </p>
         </div>
       </section>

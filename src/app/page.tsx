@@ -97,7 +97,7 @@ export default function Home() {
                 />
               </div>
               <div className="text-left">
-                <p className="text-brand-nero font-semibold text-sm">DISA Software</p>
+                <p className="text-brand-nero font-semibold text-sm">DISA SRL</p>
                 <p className="text-brand-grigio text-xs">CEO & Founder · Software B2B</p>
               </div>
             </div>

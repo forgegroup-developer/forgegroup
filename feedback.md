@@ -55,7 +55,42 @@ I file PNG hanno sfondo bianco integrato. Per una versione monocromatica corallo
 
 ---
 
-## 4. Modifiche implementate (log)
+## 4. Caso studio DISA SRL / SOS APPALTI (testi definitivi)
+
+Caso studio reale, slug `software-b2b`. Cliente: **DISA SRL**, software **SOS APPALTI** (gestionale B2B di nicchia). Ticket sempre generico: **oltre 12.000€** (mai citare la cifra esatta).
+
+**Settore:** Software B2B · **Mercato:** Italia · **Periodo:** 90 giorni (+ evoluzione)
+
+**La sfida (prima di Forge):**  
+DISA fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Nessun sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano cosa fosse il software né perché potesse servirgli.
+
+**Diagnosi:**
+- Nessun canale di acquisizione prevedibile oltre al passaparola
+- Contatti non consapevoli del software e della sua utilità
+- Appuntamenti senza reale interesse e tassi di chiusura bassi
+- Mercato limitato al territorio, impossibile da scalare
+
+**Il sistema (5 step):**
+1. Comunicazione & posizionamento di SOS APPALTI
+2. Contenuti professionali (video + infografiche, con videomaker)
+3. Sistema di acquisizione Meta Ads (lead generation + gestione budget)
+4. Form di qualifica per contatti già consapevoli
+5. Lancio geolocalizzato (250 km) e poi scala in tutta Italia
+
+**Risultati:**
+- €126.500 di fatturato nei primi 90 giorni
+- €1,48 costo per contatto (fino a max €3 nei primi mesi)
+- ~550 contatti generati, già consapevoli e in target
+- €350.000+ di fatturato ad oggi (cliente ancora attivo e in crescita)
+
+**Cosa è successo dopo:**  
+I €126.500 sono arrivati nei primi 90 giorni. DISA è ancora oggi cliente e ha già superato i €350.000 di fatturato. Non dipende più dal passaparola: lavora solo con le campagne di acquisizione, i commerciali parlano con clienti già interessati, il tasso di chiusura è cresciuto. Sistema funzionante, testato, di proprietà dell'azienda e scalabile in tutta Italia.
+
+**Asset mancante:** video recensione professionale del caso (campo `videoUrl` predisposto in `caseStudies.ts`, da agganciare quando il file è disponibile).
+
+---
+
+## 5. Modifiche implementate (log)
 
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
 - [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
@@ -68,11 +103,16 @@ I file PNG hanno sfondo bianco integrato. Per una versione monocromatica corallo
 - [x] Loghi croppati e normalizzati per dimensione ottica uniforme
 - [x] Loghi spostati sopra Metodo Forge nella pagina /servizi
 - [x] Metodo FORGE: schema a 5 pallini con solo titolo (no descrizione estesa)
+- [x] Caso studio DISA/SOS APPALTI riscritto con la storia reale + sezione "Cosa è successo dopo"
+- [x] Naming uniformato a "DISA SRL" + software "SOS APPALTI" (home, hub, caso studio)
+- [x] Pagine servizi: sezioni "Ti riconosci in questo?" (painPoints) e "È per te" (forWho) in palette
+- [x] Foto Gianpio ricentrata (object-position per-membro nella TeamSection)
 
 ---
 
-## 5. Modifiche da fare (backlog)
+## 6. Modifiche da fare (backlog)
 
+- [ ] Fornire la video recensione del caso DISA da agganciare al campo `videoUrl`
 - [ ] Ottenere loghi clienti in SVG/PNG con sfondo trasparente per versione monocromatica corallo
 - [ ] Aggiungere più casi studio nella sezione dedicata
 - [ ] Valutare una sezione "press/menzioni" se ci sono coperture media

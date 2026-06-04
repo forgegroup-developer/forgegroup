@@ -160,22 +160,37 @@ export default async function CasoStudioDetail({ params }: Props) {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {c.results.map((r, i) => (
               <div
                 key={i}
-                className="bg-brand-bianco border border-brand-bordo rounded-2xl p-8 text-center hover:border-brand-corallo transition-colors"
+                className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8 text-center hover:border-brand-corallo transition-colors"
               >
-                <div className="text-5xl md:text-6xl font-semibold font-semibold text-brand-corallo mb-2">
+                <div className="text-4xl md:text-5xl font-semibold text-brand-corallo mb-2">
                   {r.value}
                 </div>
-                <p className="text-brand-nero font-semibold mb-1">{r.label}</p>
-                {r.detail && <p className="text-sm text-brand-grigio">{r.detail}</p>}
+                <p className="text-brand-nero font-semibold text-sm md:text-base mb-1">{r.label}</p>
+                {r.detail && <p className="text-xs md:text-sm text-brand-grigio">{r.detail}</p>}
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* EVOLUZIONE — Cosa è successo dopo */}
+      {c.evolution && (
+        <section className="py-16 md:py-24 bg-brand-bianco">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Cosa è successo dopo</p>
+            <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-8">
+              Da progetto a <span className="text-brand-corallo">sistema scalabile</span>.
+            </h2>
+            <div className="rounded-2xl border-l-4 border-brand-corallo bg-brand-pesca-light px-6 py-6 md:px-9 md:py-8">
+              <p className="text-lg md:text-xl text-brand-nero leading-relaxed">{c.evolution}</p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* QUOTE */}
       <section className="py-16 md:py-24 bg-brand-bianco">
