@@ -12,6 +12,10 @@ export const faqs = [
     a: "Lavoriamo solo con imprese B2B (o B2C high ticket) che vendono con margini in grado di sostenere un sistema di acquisizione clienti strutturato. Settori in cui abbiamo risultati concreti: Software B2B/SaaS, Edilizia, Fotovoltaico, Consulenza e Servizi Professionali.",
   },
   {
+    q: "Siete solo in Campania o lavorate in tutta Italia?",
+    a: "Operiamo in tutta Italia, da remoto e in presenza per le fasi chiave.",
+  },
+  {
     q: "Cosa vi differenzia da una normale agenzia di marketing?",
     a: "A differenza delle agenzie noi non vendiamo 'gestione social' o 'visibilità'. Entriamo all'interno delle aziende per costruire: processi, acquisire nuovi clienti e supportare il reparto commerciale dal primo contatto alla firma del contratto. I nostri risultati si traducono in un aumento reale del fatturato, non in like e views.",
   },
