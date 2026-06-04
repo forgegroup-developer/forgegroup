@@ -155,7 +155,7 @@ export default function Navbar() {
 
           <Link
             href="/contatti"
-            className="hidden md:inline-flex btn-corallo text-sm"
+            className="hidden lg:inline-flex btn-corallo text-sm"
           >
             Hai un minuto?
           </Link>
