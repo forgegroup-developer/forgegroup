@@ -119,62 +119,55 @@ export default async function ServizioDetail({ params }: Props) {
             </h2>
           </div>
 
-          <Reveal>
-            <div className="rounded-2xl border border-white/30 overflow-hidden shadow-lg">
-              {/* Intestazioni colonne */}
-              <div className="grid grid-cols-2 divide-x divide-white/30 border-b border-white/30">
-                <div className="px-4 py-3 md:px-7 md:py-5 bg-red-600/90">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-red-100 font-bold mb-0.5">
-                    ✕ Non funziona
-                  </p>
-                  <h3 className="text-xs md:text-base font-bold text-white uppercase tracking-wide leading-snug">
+          <div className="grid md:grid-cols-2 gap-6">
+            <Reveal>
+              <div className="bg-brand-panna border border-brand-bordo rounded-2xl overflow-hidden h-full">
+                <div className="px-6 py-4 bg-brand-bianco border-b border-brand-bordo">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-brand-grigio">
                     Le altre agenzie
                   </h3>
                 </div>
-                <div className="px-4 py-3 md:px-7 md:py-5 bg-emerald-700/90">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-emerald-100 font-bold mb-0.5">
-                    ✓ Funziona
-                  </p>
-                  <h3 className="text-xs md:text-base font-bold text-white uppercase tracking-wide leading-snug">
+                <ul className="divide-y divide-brand-bordo">
+                  {s.comparisonItems.map((item) => (
+                    <li key={item.withoutForge} className="flex items-start gap-3 px-6 py-4">
+                      <span
+                        className="w-5 h-5 rounded-full border-2 border-brand-bordo text-brand-grigio flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
+                        aria-hidden
+                      >
+                        ✕
+                      </span>
+                      <span className="text-sm text-brand-grigio leading-snug">{item.withoutForge}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={1}>
+              <div className="bg-brand-bianco border-2 border-brand-corallo rounded-2xl overflow-hidden h-full">
+                <div className="px-6 py-4 bg-brand-pesca-light border-b border-brand-corallo/30">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-brand-corallo">
                     Forge Group
                   </h3>
                 </div>
+                <ul className="divide-y divide-brand-bordo">
+                  {s.comparisonItems.map((item) => (
+                    <li key={item.withForge} className="flex items-start gap-3 px-6 py-4">
+                      <span
+                        className="w-5 h-5 rounded-full bg-brand-corallo text-white flex items-center justify-center shrink-0 mt-0.5"
+                        aria-hidden
+                      >
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="text-sm font-medium text-brand-nero leading-snug">{item.withForge}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Righe punto per punto */}
-              {s.comparisonItems.map((item, idx) => (
-                <div
-                  key={item.withoutForge}
-                  className={`grid grid-cols-2 divide-x divide-white/20 ${idx > 0 ? "border-t border-white/20" : ""}`}
-                >
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-7 py-3 md:py-4 bg-red-50/95 hover:bg-red-50 transition-colors">
-                    <span
-                      className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] font-bold shadow-sm"
-                      aria-hidden
-                    >
-                      ✕
-                    </span>
-                    <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium pt-0.5">
-                      {item.withoutForge}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-7 py-3 md:py-4 bg-emerald-50/95 hover:bg-emerald-50 transition-colors">
-                    <span
-                      className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
-                      aria-hidden
-                    >
-                      <svg className="w-2.5 h-2.5 md:w-3 md:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950 pt-0.5">
-                      {item.withForge}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
       </section>
 
