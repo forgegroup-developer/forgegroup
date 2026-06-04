@@ -287,8 +287,12 @@ export default function Home() {
         eyebrow="Pronto a smettere di improvvisare?"
         title={
           <>
-            Contattaci e parliamone davanti un caffè.{" "}
-            <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
+            <span className="text-brand-corallo">Contattaci</span> e{" "}
+            <span className="text-brand-corallo">parliamone</span> davanti un{" "}
+            <span className="text-brand-corallo">caffè</span>.
+            <br />
+            <span className="text-brand-corallo">Scopri</span> come possiamo{" "}
+            <span className="text-brand-corallo">esserti utile</span>.
           </>
         }
         description="Accettiamo un numero limitato di partner all'anno."
