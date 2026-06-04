@@ -6,7 +6,6 @@ import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
 import SocialProof from "@/components/SocialProof";
-import ClientiLogos from "@/components/ClientiLogos";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
@@ -137,8 +136,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-
-          <ClientiLogos />
         </div>
       </section>
 

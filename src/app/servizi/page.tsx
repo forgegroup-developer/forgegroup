@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
+import ClientiLogos from "@/components/ClientiLogos";
 import { heroShowcaseImages } from "@/data/images";
 
 const leftShowcase = [
@@ -111,6 +112,8 @@ export default function ServiziHub() {
           </div>
         </div>
       </section>
+
+      <ClientiLogos />
 
       <section className="py-16 md:py-24 section-coral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

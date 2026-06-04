@@ -626,16 +626,6 @@ html {
   animation-play-state: paused;
 }
 
-.logo-corallo {
-  background-color: var(--color-brand-corallo);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee-track {
     animation: none;
