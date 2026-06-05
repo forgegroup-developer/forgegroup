@@ -54,13 +54,14 @@ export default function Footer() {
   const [openCol, setOpenCol] = useState<ColKey | null>(null);
   const pathname = usePathname();
   const isCaseStudy = pathname?.startsWith("/casi-studio") ?? false;
+  const isContatti = pathname === "/contatti";
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
 
   return (
     <footer>
-      {/* CTA strip — sfondo bianco, invariato su tutte le pagine */}
-      <div className="bg-brand-bianco border-t border-b border-brand-bordo">
+      {/* CTA strip — nascosta su /contatti */}
+      {!isContatti && <div className="bg-brand-bianco border-t border-b border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -85,7 +86,7 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Corpo footer — sfondo corallo */}
       <div className="bg-brand-corallo">

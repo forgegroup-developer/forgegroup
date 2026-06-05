@@ -21,7 +21,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="pt-16 pb-0 md:pt-24 section-coral border-b">
+      <section className="relative z-0 pt-16 pb-0 md:pt-24 section-coral border-b">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
           {showBackLink && (
             <Link
@@ -79,28 +79,21 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       </section>
 
       {/* CONTEXT */}
-      <section className="py-12 md:py-16 section-bianco border-b border-brand-bordo">
+      <section className="relative z-10 overflow-visible py-10 md:py-14 section-bianco border-b border-brand-bordo">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between mb-10 md:mb-12">
-            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95]">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between mb-10 md:mb-12">
+            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95] sm:max-w-[45%] lg:max-w-[42%]">
               {clientName}
             </h2>
             {c.clientLogo && (
-              <div className="flex flex-wrap items-center justify-start sm:justify-end gap-4 sm:gap-5 shrink-0">
+              <div className="relative z-20 shrink-0 -mt-10 sm:-mt-16 md:-mt-24 lg:-mt-28 flex justify-center sm:justify-end">
                 <CaseStudyClientLogo
                   src={c.clientLogo}
                   alt={c.clientLogoAlt ?? clientName}
                   variant="inline"
-                  size="2xl"
+                  size="3xl"
+                  className="drop-shadow-[0_8px_32px_rgba(17,17,17,0.12)]"
                 />
-                {c.productLogo && (
-                  <CaseStudyClientLogo
-                    src={c.productLogo}
-                    alt={c.productLogoAlt ?? "Prodotto"}
-                    variant="inline"
-                    size="lg"
-                  />
-                )}
               </div>
             )}
           </div>

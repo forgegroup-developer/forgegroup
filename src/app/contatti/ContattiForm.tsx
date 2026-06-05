@@ -259,21 +259,14 @@ export default function ContattiForm() {
   }
 
   return (
-    <>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Prequalifica Strategica</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
-            Candida la tua <span className="text-brand-corallo">azienda</span>.
-          </h1>
-        </div>
-      </section>
+    <section className="pt-16 pb-20 md:pt-24 md:pb-28 section-bianco">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Prequalifica Strategica</p>
+        <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-10 md:mb-12">
+          Candida la tua <span className="text-brand-corallo">azienda</span>.
+        </h1>
 
-      <SocialProof />
-
-      <section className="pb-20 md:pb-28 section-bianco">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
+        <div className="mb-8">
             <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-brand-grigio mb-2">
               <span>
                 Domanda {step + 1} di {steps.length}
@@ -387,8 +380,7 @@ export default function ContattiForm() {
               </p>
             )}
           </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
