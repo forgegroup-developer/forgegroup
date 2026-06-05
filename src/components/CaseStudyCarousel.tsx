@@ -218,13 +218,6 @@ export default function CaseStudyCarousel() {
                     />
                   </div>
                 )}
-                <h2
-                  className={`absolute bottom-4 left-4 z-10 !text-white font-semibold text-lg md:text-xl leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
-                    c.clientLogo ? "right-16 md:right-[4.5rem]" : "right-4"
-                  }`}
-                >
-                  {c.shortTitle}
-                </h2>
               </div>
 
               <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5">
