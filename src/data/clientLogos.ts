@@ -36,6 +36,7 @@ export const caseStudyLogosBySlug = {
   },
   edilizia: {
     clientLogo: clientLogos.tettitop.src,
+    clientLogoFull: "/images/clienti/cliente-tettitop-full.png",
     clientLogoAlt: clientLogos.tettitop.alt,
   },
   "arredo-commerciale": {

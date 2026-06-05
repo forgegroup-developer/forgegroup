@@ -47,6 +47,8 @@ export type CaseStudy = {
   statusBadge?: string;
   /** Logo cliente (carousel, hub, contesto). Omesso se cliente non pubblicato */
   clientLogo?: string;
+  /** Versione originale (con sfondo) per display grande in contesto */
+  clientLogoFull?: string;
   /** Variante ottimizzata per badge tondi (es. Rovi) */
   clientLogoCircle?: string;
   clientLogoAlt?: string;
