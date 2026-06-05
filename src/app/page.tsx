@@ -32,7 +32,7 @@ export default function Home() {
             {/* Colonna sinistra — testo */}
             <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
               <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/80 backdrop-blur-sm">
-                Vuoi aumentare il fatturato della tua azienda?
+                ✦ Vuoi aumentare il fatturato della tua azienda?
               </p>
               <div className="flex flex-col gap-4 lg:gap-5">
               <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero max-w-xl">
@@ -141,12 +141,7 @@ export default function Home() {
           <SectionHeader
             onCoral
             eyebrow="Perché Forge Group"
-            title={
-              <>
-                Non siamo un&apos;agenzia,{" "}
-                <span className="text-brand-corallo">✦ La prima azienda di GROWTH HACKING in Italia!</span>
-              </>
-            }
+            title="La prima azienda di GROWTH HACKING in Italia!"
           />
           <Reveal>
             <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
