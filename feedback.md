@@ -128,12 +128,12 @@ I €126.500 sono arrivati nei primi 90 giorni. DISA è ancora oggi cliente e ha
 **URL pubblici:** hub `/casi-studio` + dettaglio `/casi-studio/[slug]` (es. `software-b2b`).
 
 **Loghi clienti (`public/images/clienti/`):**
-- File canonici: `cliente-disa.png` · `cliente-tettitop.png` · `cliente-rovi.png` · `cliente-sos-appalti.png` · `cliente-eva-consulting.png`
+- File canonici: `cliente-disa.png` · `cliente-tettitop.png` · `cliente-rovi.png` · `cliente-sos-appalti.png` · `cliente-eva-consulting.png` · `cliente-hotel-dream.png`
 - Mappa centralizzata: `src/data/clientLogos.ts` → `caseStudyLogosBySlug` (slug → logo cliente corretto)
 - Casi studio: spread `...caseStudyLogosBySlug[slug]` in `caseStudies.ts` — non duplicare path a mano
 - Software B2B: anche `productLogo` SOS Appalti in sezione contesto
 - Componente: `CaseStudyClientLogo.tsx` (box dimensione fissa + `fill`, **solo PNG scontornato**, nessun box/pill/sfondo dietro al logo)
-- **Pagina dettaglio** `/casi-studio/[slug]`: logo **non** in hero corallo; solo in sezione *Il Contesto* (+ SOS per software-b2b). Hub e carousel: sì.
+- **Pagina dettaglio** `/casi-studio/[slug]`: hero corallo con badge Forge + cliente; sezione **Il Contesto** (fascia bianca) con **nome cliente grande** a sinistra, **logo grande** a destra (`CaseStudyClientLogo` size `2xl`), eyebrow `+ Il Contesto`, card contesto a griglia 3 colonne (label corallo + valore). Campo `Azienda` nel nome header, non ripetuto nelle card. Software B2B: anche `productLogo` SOS accanto al logo DISA. Hub e carousel: badge logo su foto.
 - Scontorno: `scripts/remove-logo-background.py` (rimuove sfondo bianco e nero dai bordi). Asset aggiornati giugno 2026 dai PNG forniti dal cliente.
 
 **Hub `/casi-studio` (layout card):**
@@ -218,7 +218,7 @@ Caso studio reale, slug `hotel-hospitality`. **Nome pagina:** Hospitality. Clien
 
 **Sistema (5 step):** consulenza, ottimizzazione OTA, contenuti/foto, sito + Google Business + recensioni, lancio OTA con ads.
 
-**Nessun logo cliente** in hub/carousel/contesto (`clientLogo` omesso). Immagine: `hotel-hospitality.jpg`.
+**Logo cliente:** Dream Hotel (`cliente-hotel-dream.png`) in hub, carousel, hero e sezione contesto. Immagine: `hotel-hospitality.jpg`.
 
 **URL:** `/casi-studio/hotel-hospitality`
 
@@ -294,7 +294,10 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Hub casi studio: loghi clienti in hero, `hubExcerpt` breve, titoli foto bianchi, CTA `btn-corallo`
 - [x] Loghi clienti rinominati correttamente + scontorno sfondo bianco (trasparenza PNG)
 - [x] Loghi corretti in tutte le sezioni casi studio via `clientLogo` (+ `productLogo` SOS per DISA)
-- [x] Caso studio Hospitality aggiunto (`/casi-studio/hotel-hospitality`, cliente anonimo)
+- [x] Caso studio Hospitality aggiunto (`/casi-studio/hotel-hospitality`, logo Dream Hotel)
+- [x] Sezione contesto casi studio: template nome grande + logo + card (giugno 2026)
+- [x] `/contatti`: form multi-step tipo Typeform + banner `SocialProof` sopra il questionario
+- [x] Navbar: logo e wordmark leggermente ingranditi
 - [ ] Aggiungere altri casi studio (quando disponibili)
 - [ ] Valutare una sezione "press/menzioni" se ci sono coperture media
 - [ ] Revisione SEO completa: meta title, description e structured data per ogni pagina

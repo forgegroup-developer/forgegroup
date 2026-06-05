@@ -30,16 +30,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-[100] isolate bg-brand-bianco border-b border-brand-bordo shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Forge Group home">
+          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Forge Group home">
             <Image
               src="/logo.png"
               alt="Forge Group"
-              width={48}
-              height={48}
+              width={56}
+              height={56}
               priority
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
-            <span className="hidden sm:block font-semibold text-lg tracking-tight text-brand-nero">
+            <span className="hidden sm:block font-semibold text-xl tracking-tight text-brand-nero">
               FORGE<span className="text-brand-corallo">GROUP</span>
             </span>
           </Link>

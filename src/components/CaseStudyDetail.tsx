@@ -9,7 +9,15 @@ type Props = {
   showBackLink?: boolean;
 };
 
+function getClientDisplayName(c: CaseStudy): string {
+  const azienda = c.context.find((ctx) => ctx.label === "Azienda")?.value;
+  if (azienda) return azienda.split(",")[0].trim();
+  if (c.clientLogoAlt) return c.clientLogoAlt;
+  return c.shortTitle;
+}
+
 export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
+  const clientName = getClientDisplayName(c);
   return (
     <>
       {/* HERO */}
@@ -71,41 +79,41 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       </section>
 
       {/* CONTEXT */}
-      <section className="py-16 md:py-20 section-bianco">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-start justify-between gap-6 mb-8">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Il Contesto</p>
-              <h2 className="text-2xl font-semibold md:text-4xl text-brand-nero leading-tight">
-                Chi è il cliente.
-              </h2>
-            </div>
+      <section className="py-12 md:py-16 section-bianco border-b border-brand-bordo">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between mb-10 md:mb-12">
+            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95]">
+              {clientName}
+            </h2>
             {c.clientLogo && (
-            <div className="flex flex-wrap items-center justify-end gap-3">
-              <CaseStudyClientLogo
-                src={c.clientLogo}
-                alt={c.clientLogoAlt ?? c.shortTitle}
-                variant="inline"
-                size="lg"
-              />
-              {c.productLogo && (
+              <div className="flex flex-wrap items-center justify-start sm:justify-end gap-4 sm:gap-5 shrink-0">
                 <CaseStudyClientLogo
-                  src={c.productLogo}
-                  alt={c.productLogoAlt ?? "Prodotto"}
+                  src={c.clientLogo}
+                  alt={c.clientLogoAlt ?? clientName}
                   variant="inline"
-                  size="lg"
+                  size="2xl"
                 />
-              )}
-            </div>
+                {c.productLogo && (
+                  <CaseStudyClientLogo
+                    src={c.productLogo}
+                    alt={c.productLogoAlt ?? "Prodotto"}
+                    variant="inline"
+                    size="lg"
+                  />
+                )}
+              </div>
             )}
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            {c.context.map((ctx, i) => (
-              <div key={i} className="bg-brand-panna border border-brand-bordo rounded-lg p-5">
-                <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-1">
+
+          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
+              <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
+                <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
                   {ctx.label}
                 </div>
-                <div className="text-brand-nero font-medium">{ctx.value}</div>
+                <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
               </div>
             ))}
           </div>

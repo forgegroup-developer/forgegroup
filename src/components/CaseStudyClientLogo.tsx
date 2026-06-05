@@ -6,7 +6,7 @@ type Props = {
   /** overlay = rettangolo su foto · circle = badge tondo · hero = corallo · inline = sezioni bianche */
   variant?: "overlay" | "circle" | "hero" | "inline";
   className?: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl";
 };
 
 const boxSizes = {
@@ -14,6 +14,7 @@ const boxSizes = {
   md: "h-12 w-32",
   lg: "h-16 w-44 md:h-[4.5rem] md:w-52",
   xl: "h-14 w-40 md:h-[4.25rem] md:w-[13.5rem]",
+  "2xl": "h-24 w-52 sm:h-28 sm:w-60 md:h-32 md:w-72",
 };
 
 const circleSizes = {
@@ -21,6 +22,7 @@ const circleSizes = {
   md: "h-11 w-11 md:h-12 md:w-12",
   lg: "h-12 w-12 md:h-14 md:w-14",
   xl: "h-11 w-11 md:h-12 md:w-12",
+  "2xl": "h-14 w-14 md:h-16 md:w-16",
 };
 
 const imageSizes = {
@@ -28,6 +30,7 @@ const imageSizes = {
   md: "(max-width: 768px) 128px, 160px",
   lg: "(max-width: 768px) 176px, 208px",
   xl: "(max-width: 768px) 200px, 280px",
+  "2xl": "(max-width: 768px) 240px, 320px",
 };
 
 const circleImageSizes = {
@@ -35,6 +38,7 @@ const circleImageSizes = {
   md: "48px",
   lg: "56px",
   xl: "48px",
+  "2xl": "64px",
 };
 
 export default function CaseStudyClientLogo({

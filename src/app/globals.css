@@ -421,6 +421,17 @@ h1, h2, h3, h4, h5, h6 {
 .hero-enter-d3 { animation-delay: 0.30s; }
 .hero-enter-d4 { animation-delay: 0.44s; }
 
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ── Button shimmer on hover ──────────────────────────────────────── */
 @keyframes btnShimmer {
   from { transform: translateX(-100%) skewX(-15deg); }
