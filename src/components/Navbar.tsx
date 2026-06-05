@@ -228,11 +228,10 @@ export default function Navbar() {
               <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
             </Link>
 
-            <div className="pt-8 pb-4 space-y-1">
+            <div className="pt-8 pb-4">
               <a href="mailto:info@forgegroup.it" className="block text-sm text-white/40 hover:text-white/70 transition-colors">
                 info@forgegroup.it
               </a>
-              <p className="text-sm text-white/30">Italia · Campania</p>
             </div>
           </nav>
 
