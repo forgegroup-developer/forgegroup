@@ -26,6 +26,11 @@ export default function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    setOpen(false);
+    setMobileCasi(false);
+  }, [pathname]);
+
   return (
     <header className="sticky top-0 z-[100] isolate bg-brand-bianco border-b border-brand-bordo shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,7 +122,10 @@ export default function Navbar() {
           </div>
 
           <button
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              setMobileCasi(false);
+              setOpen(true);
+            }}
             className="lg:hidden p-2 text-brand-corallo"
             aria-label="Apri menu"
             aria-expanded={open}
@@ -183,7 +191,11 @@ export default function Navbar() {
                 <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Casi Studio</span>
                 <span className={`text-brand-corallo text-2xl font-light transition-transform duration-300 ${mobileCasi ? "rotate-45" : ""}`}>+</span>
               </button>
-              <div className={`accordion-content${mobileCasi ? " open" : ""}`}>
+              <div
+                className={`accordion-content${mobileCasi ? " open" : ""}`}
+                aria-hidden={!mobileCasi}
+                inert={!mobileCasi ? true : undefined}
+              >
                 <div className="pb-4 pl-2 space-y-0">
                   {caseStudies.map((c) => (
                     <Link

@@ -55,14 +55,14 @@ export default function CaseStudyClientLogo({
   if (variant === "circle") {
     return (
       <div
-        className={`relative shrink-0 rounded-full bg-white shadow-lg shadow-black/30 ring-1 ring-black/[0.06] p-1 md:p-1.5 ${circleSizes[size]} ${className}`}
+        className={`relative shrink-0 overflow-hidden rounded-full bg-white shadow-lg shadow-black/30 ring-1 ring-black/[0.06] p-1.5 md:p-2 ${circleSizes[size]} ${className}`}
       >
         <Image
           src={src}
           alt={alt}
           fill
           quality={95}
-          className="object-contain object-center scale-[1.14]"
+          className="object-contain object-center"
           sizes={circleImageSizes[size]}
         />
       </div>
