@@ -43,7 +43,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               />
               {c.clientLogo && (
                 <CaseStudyClientLogo
-                  src={c.clientLogoCircle ?? c.clientLogo}
+                  src={c.clientLogo}
                   alt={c.clientLogoAlt ?? c.shortTitle}
                   variant="circle"
                   size="lg"

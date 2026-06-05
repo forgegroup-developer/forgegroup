@@ -211,7 +211,7 @@ export default function CaseStudyCarousel() {
                 {c.clientLogo && (
                   <div className="absolute bottom-4 right-4 z-10">
                     <CaseStudyClientLogo
-                      src={c.clientLogoCircle ?? c.clientLogo}
+                      src={c.clientLogo}
                       alt={c.clientLogoAlt ?? c.shortTitle}
                       variant="circle"
                       size="md"
