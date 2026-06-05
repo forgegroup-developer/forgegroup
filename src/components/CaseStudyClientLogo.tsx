@@ -10,9 +10,9 @@ type Props = {
 };
 
 const boxSizes = {
-  sm: "h-10 w-24",
-  md: "h-11 w-28",
-  lg: "h-14 w-36 md:h-16 md:w-40",
+  sm: "h-10 w-28",
+  md: "h-12 w-32",
+  lg: "h-16 w-44 md:h-[4.5rem] md:w-52",
 };
 
 export default function CaseStudyClientLogo({

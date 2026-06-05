@@ -22,6 +22,6 @@ Mappa codice: `src/data/clientLogos.ts`
 
 **Importante:** il nome file deve corrispondere all'azienda nel logo. PNG con **sfondo trasparente** (no rettangolo bianco).
 
-Scontorno sfondo bianco: `scripts/remove-logo-background.py` (flood-fill dai bordi).
+Scontorno e ritaglio: `python3 scripts/remove-logo-background.py` (rigenera tutti i `cliente-*.png` dai file sorgente `disa.png`, `tettitop.png`, ecc.).
 
 Sezione sul sito: `ClientiLogos` (marquee homepage) + `clientLogo` nei casi studio.

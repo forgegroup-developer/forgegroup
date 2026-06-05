@@ -1,10 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
+import SectionHeader from "@/components/SectionHeader";
 import { caseStudies } from "@/data/caseStudies";
-import { getCaseStudyImage } from "@/data/images";
-import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Casi Studio",
@@ -38,58 +37,25 @@ export default function CasiStudioHub() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 section-coral border-y">
+      <section className="py-20 md:py-28 section-bianco overflow-hidden border-t border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={
-              caseStudies.length === 1
-                ? "max-w-xl mx-auto"
-                : "grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          <SectionHeader
+            eyebrow="Casi Studio"
+            maxWidth="4xl"
+            title={
+              <>
+                Risultati <span className="text-brand-corallo">verificati</span>. Sei pronto a diventare il{" "}
+                <span className="text-brand-corallo">nostro prossimo caso studio</span>?
+              </>
             }
-          >
-            {caseStudies.map((c, idx) => (
-              <Reveal key={c.slug} delay={(idx % 3) as 0 | 1 | 2 | 3}>
-                <article className="group bg-brand-bianco border border-brand-bordo rounded-3xl overflow-hidden hover:border-brand-corallo hover:shadow-xl transition-all flex flex-col h-full">
-                  <Link
-                    href={`/casi-studio/${c.slug}`}
-                    className="block relative aspect-video overflow-hidden bg-brand-panna"
-                  >
-                    <Image
-                      src={getCaseStudyImage(c.slug)}
-                      alt={c.shortTitle}
-                      fill
-                      className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/70 via-brand-nero/20 to-transparent" />
-                    <span className="absolute top-3 left-3 text-xs uppercase tracking-widest text-white font-bold bg-brand-corallo px-3 py-1 rounded-full">
-                      {c.sector}
-                    </span>
-                    {c.clientLogo && (
-                      <div className="absolute top-3 right-3">
-                        <CaseStudyClientLogo src={c.clientLogo} alt={c.clientLogoAlt ?? c.shortTitle} />
-                      </div>
-                    )}
-                    <h2 className="absolute bottom-4 left-4 right-20 text-brand-bianco font-semibold text-lg leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
-                      {c.shortTitle}
-                    </h2>
-                  </Link>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <div className="text-2xl font-semibold text-brand-corallo mb-3">{c.resultHeadline}</div>
-                    <p className="text-sm text-brand-grigio mb-6 flex-grow leading-relaxed">{c.hubExcerpt}</p>
-                    <Link
-                      href={`/casi-studio/${c.slug}`}
-                      className="btn-corallo w-full text-center text-sm py-3.5 mt-auto group-hover:translate-y-[-2px]"
-                    >
-                      Leggi il caso studio
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+          />
+        </div>
+        <CaseStudyCarousel />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mt-10 md:mt-12">
+            <Link href="/contatti" className="btn-corallo">
+              Sono pronto per iniziare
+            </Link>
           </div>
         </div>
       </section>

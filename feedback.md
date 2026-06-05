@@ -70,18 +70,17 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 
 ## 2. Metodo FORGE: Testi definitivi (5 fasi)
 
-Il metodo deve trasmettere: chiarezza operativa, sequenzialità logica, concretezza.  
-Ogni fase ha un titolo forte e una micro-descrizione di supporto.
+Acronimo **F.O.R.G.E.** — una fase per lettera, con descrizione e pill «Per te».
 
-| # | Titolo | Micro-descrizione |
-|---|--------|-------------------|
-| 01 | **Analisi & Audit** | Capiamo dove sei, dove vuoi andare e cosa ti blocca oggi. |
-| 02 | **Strategia & Piano** | Priorità, budget e sequenza operativa. Nessuna mossa senza un perché misurabile. |
-| 03 | **Acquisizione Clienti** | Campagne, funnel e posizionamento per portare contatti già qualificati. |
-| 04 | **Vendita & Chiusura** | CRM, script e processo commerciale per convertire più opportunità in contratti. |
-| 05 | **Crescita & Scala** | Report, revisione KPI e affiancamento strategico per crescere con metodo. |
+| Lettera | Titolo | Takeaway |
+|---------|--------|----------|
+| **F** | Formazione | una strategia su misura, non un copia-incolla |
+| **O** | Organizzazione | basi solide, niente più caos |
+| **R** | Reputazione | i clienti ti scelgono prima ancora di chiamarti |
+| **G** | Gestione | contatti che si trasformano in incassi |
+| **E** | Economia | numeri reali, non vanity metrics |
 
-**Schema visivo (implementato):** 5 pallini numerati su riga orizzontale con solo il titolo, senza descrizione estesa. Pulito e immediato.
+**Schema visivo:** strip lettere F.O.R.G.E., righe con lettera grande + testo verticale, descrizione e pill. Footer: «rincorre → sceglie». Componente: `MetodoForge.tsx`.
 
 ---
 
@@ -271,7 +270,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Aggiunta sezione loghi clienti con marquee animato nella pagina /servizi
 - [x] Loghi croppati e normalizzati per dimensione ottica uniforme
 - [x] Loghi spostati sopra Metodo Forge nella pagina /servizi
-- [x] Metodo FORGE: schema a 5 pallini con solo titolo (no descrizione estesa)
+- [x] Metodo FORGE: acronimo F.O.R.G.E. con strip lettere, 5 fasi descritte e pill «Per te»
 - [x] Caso studio DISA/SOS APPALTI riscritto con la storia reale + sezione "Cosa è successo dopo"
 - [x] Naming uniformato a "DISA SRL" + software "SOS APPALTI" (home, hub, caso studio)
 - [x] Pagine servizi: sezioni "Ti riconosci in questo?" (painPoints) e "È per te" (forWho) in palette

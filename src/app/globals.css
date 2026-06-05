@@ -649,3 +649,30 @@ html {
   }
 }
 
+/* ── Metodo FORGE — lettere F.O.R.G.E. ── */
+.forge-strip-letter {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 1;
+  color: var(--color-brand-panna);
+  -webkit-text-stroke: 2px var(--color-brand-corallo);
+  transition: color 0.3s ease, -webkit-text-stroke-color 0.3s ease;
+  cursor: default;
+}
+
+.forge-strip-letter:hover {
+  color: var(--color-brand-corallo);
+  -webkit-text-stroke-color: var(--color-brand-corallo-dark);
+}
+
+.forge-strip-letter-coral {
+  color: transparent;
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.55);
+}
+
+.forge-strip-letter-coral:hover {
+  color: rgba(255, 255, 255, 0.15);
+  -webkit-text-stroke-color: #ffffff;
+}
+

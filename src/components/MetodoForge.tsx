@@ -1,12 +1,49 @@
-import SectionHeader from "@/components/SectionHeader";
+import Reveal from "@/components/Reveal";
+
+const forgeLetters = ["F", "O", "R", "G", "E"] as const;
 
 const fasi = [
-  { n: "01", title: "Analisi & Audit" },
-  { n: "02", title: "Strategia & Piano" },
-  { n: "03", title: "Acquisizione Clienti" },
-  { n: "04", title: "Vendita & Chiusura" },
-  { n: "05", title: "Crescita & Scala" },
-];
+  {
+    letter: "F",
+    rest: "ormazione",
+    title: "Formazione",
+    description:
+      "Partiamo da un percorso di consulenza e formazione per inquadrare il tuo modello di business, gli obiettivi reali e dove si rompe oggi la tua acquisizione clienti. Prima di agire, capiamo. Nessuna soluzione preconfezionata.",
+    takeaway: "una strategia su misura, non un copia-incolla",
+  },
+  {
+    letter: "O",
+    rest: "rganizzazione",
+    title: "Organizzazione",
+    description:
+      "Sistemiamo le fondamenta: piattaforme, sito, contenuti, presenza online e processi interni. Mettiamo ordine dove oggi c'è improvvisazione, così la macchina è pronta a vendere prima ancora di accenderla.",
+    takeaway: "basi solide, niente più caos",
+  },
+  {
+    letter: "R",
+    rest: "eputazione",
+    title: "Reputazione",
+    description:
+      "Costruiamo posizionamento e riprova sociale: Google My Business, recensioni raccolte in modo continuo, presenza digitale coerente su tutte le piattaforme. È la fiducia che fa scattare il contatto, e di questa fiducia ci prendiamo la piena responsabilità.",
+    takeaway: "i clienti ti scelgono prima ancora di chiamarti",
+  },
+  {
+    letter: "G",
+    rest: "estione",
+    title: "Gestione",
+    description:
+      "Gestiamo il flusso: pre-qualifica dei contatti, follow-up, supporto alla vendita e CRM. I potenziali clienti non si limitano ad arrivare: li accompagniamo fino a diventare prenotazioni, appuntamenti, contratti.",
+    takeaway: "contatti che si trasformano in incassi",
+  },
+  {
+    letter: "E",
+    rest: "conomia",
+    title: "Economia",
+    description:
+      "Misuriamo tutto in termini economici: più clienti, più margine, crescita prevedibile e scalabile. L'obiettivo non è \"fare marketing\": è far crescere il tuo fatturato in modo concreto e sostenibile nel tempo.",
+    takeaway: "numeri reali, non vanity metrics",
+  },
+] as const;
 
 type MetodoForgeProps = {
   className?: string;
@@ -19,71 +56,124 @@ export default function MetodoForge({
 }: MetodoForgeProps) {
   const coral = onCoral || className.includes("section-coral");
 
-  const dotBg = coral ? "bg-white" : "bg-brand-corallo";
-  const dotText = coral ? "text-brand-corallo" : "text-white";
-  const lineColor = coral ? "bg-white/30" : "bg-brand-bordo";
-  const titleText = coral ? "text-white" : "text-brand-nero";
-  const numText = coral ? "text-white/50" : "text-brand-grigio";
-
   return (
-    <section className={`py-16 md:py-24 ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          onCoral={coral}
-          eyebrow="Il Metodo Forge"
-          title={
-            <>
-              Il <span className={coral ? "text-white underline decoration-white/40 underline-offset-4" : "text-brand-corallo"}>Metodo FORGE</span> in 5 fasi
-            </>
-          }
-          subtitle="Un percorso operativo e misurabile per portare la tua azienda dall'acquisizione alla crescita prevedibile."
+    <section className={`relative overflow-hidden py-20 md:py-24 lg:py-28 ${className}`}>
+      {!coral && (
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_400px_at_85%_-5%,rgba(200,80,42,0.06),transparent_60%)]"
+          aria-hidden
         />
+      )}
 
-        {/* Desktop: riga orizzontale */}
-        <div className="hidden md:block relative">
-          {/* linea di connessione */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+         <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-5">
+            <span
+              className={`inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] px-4 py-2 rounded-full mb-6 ${
+                coral
+                  ? "text-white/90 bg-white/10"
+                  : "text-brand-corallo-dark bg-brand-pesca-light"
+              }`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full shrink-0 ${coral ? "bg-white" : "bg-brand-corallo"}`}
+                aria-hidden
+              />
+              Il nostro metodo
+            </span>
+            <h2
+              className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
+            >
+              Il Metodo <span className="text-brand-corallo">FORGE</span>
+            </h2>
+            <p
+              className={`body-lg mt-5 max-w-xl mx-auto ${coral ? "text-white/85" : ""}`}
+            >
+              Non improvvisiamo. Ogni azienda con cui lavoriamo passa attraverso lo stesso percorso,
+              costruito mattone per mattone. Cinque fasi, una per ogni lettera del nostro nome.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={1}>
           <div
-            className={`absolute top-[26px] left-[calc(10%+20px)] right-[calc(10%+20px)] h-px ${lineColor}`}
+            className="flex flex-wrap justify-center gap-[clamp(6px,1.4vw,18px)] my-10 md:my-12 lg:my-14"
             aria-hidden
-          />
-          <ol className="grid grid-cols-5 gap-4 relative z-10">
-            {fasi.map((fase) => (
-              <li key={fase.n} className="flex flex-col items-center text-center gap-4">
-                {/* pallino */}
-                <div
-                  className={`w-[52px] h-[52px] rounded-full ${dotBg} flex items-center justify-center shrink-0 shadow-sm ring-2 ${coral ? "ring-white/20" : "ring-brand-bordo"}`}
-                >
-                  <span className={`text-sm font-bold tabular-nums ${dotText}`}>{fase.n}</span>
-                </div>
-                <span className={`text-sm font-semibold leading-snug ${titleText}`}>
-                  {fase.title}
-                </span>
-              </li>
+          >
+            {forgeLetters.map((letter) => (
+              <span
+                key={letter}
+                className={`forge-strip-letter ${coral ? "forge-strip-letter-coral" : ""}`}
+              >
+                {letter}
+              </span>
             ))}
-          </ol>
+          </div>
+        </Reveal>
+
+        <div>
+          {fasi.map((fase, idx) => (
+            <Reveal key={fase.letter} delay={(idx % 4) as 0 | 1 | 2 | 3}>
+              <article
+                className={`grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-2 sm:gap-9 items-center py-8 md:py-9 border-t ${
+                  coral ? "border-white/15" : "border-brand-bordo"
+                } ${idx === fasi.length - 1 ? (coral ? "border-b border-white/15" : "border-b border-brand-bordo") : ""} group`}
+              >
+                <div className="flex items-baseline gap-1 sm:gap-1.5">
+                  <span
+                    className={`font-display font-extrabold text-[clamp(4.2rem,9vw,7rem)] leading-[0.8] transition-colors duration-300 group-hover:text-brand-corallo-dark ${
+                      coral ? "text-brand-pesca-light group-hover:text-white" : "text-brand-corallo"
+                    }`}
+                  >
+                    {fase.letter}
+                  </span>
+                  <span
+                    className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase opacity-55 self-center [writing-mode:vertical-rl] rotate-180 ${
+                      coral ? "text-white/70" : "text-brand-grigio"
+                    }`}
+                  >
+                    {fase.rest}
+                  </span>
+                </div>
+
+                <div>
+                  <h3
+                    className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
+                      coral ? "text-white" : "text-brand-nero"
+                    }`}
+                  >
+                    {fase.title}
+                  </h3>
+                  <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>
+                    {fase.description}
+                  </p>
+                  <span
+                    className={`inline-flex items-center gap-2 mt-4 text-[13.5px] font-semibold px-4 py-1.5 rounded-full ${
+                      coral
+                        ? "text-white bg-white/10"
+                        : "text-brand-corallo-dark bg-brand-pesca-light"
+                    }`}
+                  >
+                    Per te:{" "}
+                    <strong className={coral ? "text-white" : "text-brand-nero"}>{fase.takeaway}</strong>
+                  </span>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
 
-        {/* Mobile: colonna verticale con linea */}
-        <ol className="md:hidden flex flex-col gap-0">
-          {fasi.map((fase, i) => (
-            <li key={fase.n} className="flex items-start gap-5">
-              <div className="flex flex-col items-center">
-                <div
-                  className={`w-11 h-11 rounded-full ${dotBg} flex items-center justify-center shrink-0 shadow-sm ring-2 ${coral ? "ring-white/20" : "ring-brand-bordo"}`}
-                >
-                  <span className={`text-sm font-bold tabular-nums ${dotText}`}>{fase.n}</span>
-                </div>
-                {i < fasi.length - 1 && (
-                  <div className={`w-px flex-1 min-h-[40px] my-1 ${lineColor}`} aria-hidden />
-                )}
-              </div>
-              <div className="pb-8 pt-2">
-                <span className={`text-xs font-semibold uppercase tracking-widest ${numText}`}>Fase {fase.n}</span>
-                <p className={`text-base font-semibold leading-snug mt-1 ${titleText}`}>{fase.title}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <Reveal delay={1}>
+          <p
+            className={`text-center font-display font-bold text-[clamp(1.2rem,2vw,1.6rem)] leading-snug max-w-2xl mx-auto mt-14 md:mt-16 ${
+              coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"
+            }`}
+          >
+            Cinque fasi, un solo obiettivo: trasformarti da azienda che{" "}
+            <span className="text-brand-corallo">rincorre</span> i clienti ad azienda che li{" "}
+            <span className="text-brand-corallo">sceglie</span>.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,25 +1,37 @@
 #!/usr/bin/env python3
-"""Rimuove sfondo bianco o nero dai loghi PNG (flood-fill dai bordi)."""
+"""Rimuove sfondo bianco/nero, elimina aloni e ritaglia i loghi clienti."""
 
 from __future__ import annotations
 
+import shutil
 import sys
 from collections import deque
 from pathlib import Path
 
 from PIL import Image
 
+ROOT = Path(__file__).resolve().parents[1]
+MATERIALE = ROOT / "Materiale Sito Web Forge Group" / "07-loghi-clienti"
+PUBLIC = ROOT / "public" / "images" / "clienti"
 
-def is_near_white(r: int, g: int, b: int, tolerance: int = 28) -> bool:
+LOGO_SOURCES = {
+    "cliente-disa.png": "disa.png",
+    "cliente-tettitop.png": "tettitop.png",
+    "cliente-rovi.png": "rovi.png",
+    "cliente-sos-appalti.png": "sos-appalti.png",
+    "cliente-eva-consulting.png": "eva-consulting.png",
+}
+
+
+def is_near_white(r: int, g: int, b: int, tolerance: int = 32) -> bool:
     return r >= 255 - tolerance and g >= 255 - tolerance and b >= 255 - tolerance
 
 
-def is_near_black(r: int, g: int, b: int, tolerance: int = 35) -> bool:
+def is_near_black(r: int, g: int, b: int, tolerance: int = 42) -> bool:
     return r <= tolerance and g <= tolerance and b <= tolerance
 
 
-def remove_edge_background(path: Path, matcher, tolerance: int = 28) -> None:
-    img = Image.open(path).convert("RGBA")
+def flood_remove(img: Image.Image, matcher, tolerance: int) -> None:
     w, h = img.size
     pixels = img.load()
     visited = [[False] * w for _ in range(h)]
@@ -38,38 +50,93 @@ def remove_edge_background(path: Path, matcher, tolerance: int = 28) -> None:
             continue
         visited[y][x] = True
         r, g, b, a = pixels[x, y]
-        if not matcher(r, g, b, tolerance):
+        if a == 0 or not matcher(r, g, b, tolerance):
             continue
         pixels[x, y] = (r, g, b, 0)
-        queue.append((x + 1, y))
-        queue.append((x - 1, y))
-        queue.append((x, y + 1))
-        queue.append((x, y - 1))
-
-    img.save(path, "PNG", optimize=True)
+        queue.extend(((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)))
 
 
-def remove_white_background(path: Path, tolerance: int = 28) -> None:
-    remove_edge_background(path, is_near_white, tolerance)
+def remove_halo(img: Image.Image, tolerance: int = 28) -> None:
+    """Rimuove pixel quasi bianchi attaccati al bordo trasparente (aloni da scontorno)."""
+    w, h = img.size
+    pixels = img.load()
+    to_clear: list[tuple[int, int]] = []
+
+    for y in range(h):
+        for x in range(w):
+            r, g, b, a = pixels[x, y]
+            if a == 0 or not is_near_white(r, g, b, tolerance):
+                continue
+            for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                if 0 <= nx < w and 0 <= ny < h and pixels[nx, ny][3] == 0:
+                    to_clear.append((x, y))
+                    break
+
+    for x, y in to_clear:
+        pixels[x, y] = (0, 0, 0, 0)
 
 
-def remove_black_background(path: Path, tolerance: int = 35) -> None:
-    remove_edge_background(path, is_near_black, tolerance)
+def content_bbox(img: Image.Image, alpha_threshold: int = 16):
+    w, h = img.size
+    pixels = img.load()
+    minx, miny, maxx, maxy = w, h, 0, 0
+    found = False
+    for y in range(h):
+        for x in range(w):
+            if pixels[x, y][3] > alpha_threshold:
+                found = True
+                minx, miny = min(minx, x), min(miny, y)
+                maxx, maxy = max(maxx, x), max(maxy, y)
+    if not found:
+        return 0, 0, w, h
+    return minx, miny, maxx + 1, maxy + 1
+
+
+def trim_with_padding(img: Image.Image, padding_ratio: float = 0.04, min_pad: int = 8) -> Image.Image:
+    minx, miny, maxx, maxy = content_bbox(img)
+    cw, ch = maxx - minx, maxy - miny
+    pad = max(min_pad, int(max(cw, ch) * padding_ratio))
+    left = max(0, minx - pad)
+    top = max(0, miny - pad)
+    right = min(img.width, maxx + pad)
+    bottom = min(img.height, maxy + pad)
+    return img.crop((left, top, right, bottom))
+
+
+def process_logo(src: Path, dest: Path) -> None:
+    img = Image.open(src).convert("RGBA")
+    flood_remove(img, is_near_black, 42)
+    flood_remove(img, is_near_white, 32)
+    remove_halo(img, 28)
+    img = trim_with_padding(img)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    img.save(dest, "PNG", optimize=True)
+    print(f"ok: {src.name} -> {dest.relative_to(ROOT)} ({img.width}x{img.height})")
+
+
+def process_all() -> int:
+    for dest_name, src_name in LOGO_SOURCES.items():
+        src = MATERIALE / src_name
+        if not src.exists():
+            print(f"missing source: {src}")
+            return 1
+        dest_public = PUBLIC / dest_name
+        dest_materiale = MATERIALE / dest_name
+        process_logo(src, dest_public)
+        shutil.copy2(dest_public, dest_materiale)
+    return 0
 
 
 def main() -> int:
-    targets = [Path(p) for p in sys.argv[1:]]
-    if not targets:
-        print("Usage: remove-logo-background.py <file.png> ...")
-        return 1
-    for path in targets:
-        if not path.exists():
-            print(f"skip missing: {path}")
-            continue
-        remove_white_background(path)
-        remove_black_background(path)
-        print(f"ok: {path}")
-    return 0
+    if len(sys.argv) > 1:
+        for path in sys.argv[1:]:
+            src = Path(path)
+            if not src.exists():
+                print(f"skip missing: {src}")
+                continue
+            process_logo(src, src)
+        return 0
+    return process_all()
 
 
 if __name__ == "__main__":

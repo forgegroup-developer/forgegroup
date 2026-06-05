@@ -208,6 +208,9 @@ export default function CaseStudyCarousel() {
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-corallo px-3 py-1 rounded-full shadow-sm">
                   {c.sector}
                 </span>
+                <h2 className="absolute bottom-4 left-4 right-20 !text-white font-semibold text-lg leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
+                  {c.shortTitle}
+                </h2>
                 {c.clientLogo && (
                   <div className="absolute bottom-4 right-4">
                     <CaseStudyClientLogo src={c.clientLogo} alt={c.clientLogoAlt ?? c.shortTitle} />
