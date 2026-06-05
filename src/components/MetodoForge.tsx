@@ -1,7 +1,5 @@
 import Reveal from "@/components/Reveal";
 
-const forgeLetters = ["F", "O", "R", "G", "E"] as const;
-
 const fasi = [
   {
     letter: "F",
@@ -66,48 +64,13 @@ export default function MetodoForge({
       )}
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-         <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-5">
-            <span
-              className={`inline-flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] px-4 py-2 rounded-full mb-6 ${
-                coral
-                  ? "text-white/90 bg-white/10"
-                  : "text-brand-corallo-dark bg-brand-pesca-light"
-              }`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rounded-full shrink-0 ${coral ? "bg-white" : "bg-brand-corallo"}`}
-                aria-hidden
-              />
-              Il nostro metodo
-            </span>
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             <h2
               className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
             >
               Il Metodo <span className="text-brand-corallo">FORGE</span>
             </h2>
-            <p
-              className={`body-lg mt-5 max-w-xl mx-auto ${coral ? "text-white/85" : ""}`}
-            >
-              Non improvvisiamo. Ogni azienda con cui lavoriamo passa attraverso lo stesso percorso,
-              costruito mattone per mattone. Cinque fasi, una per ogni lettera del nostro nome.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={1}>
-          <div
-            className="flex flex-wrap justify-center gap-[clamp(6px,1.4vw,18px)] my-10 md:my-12 lg:my-14"
-            aria-hidden
-          >
-            {forgeLetters.map((letter) => (
-              <span
-                key={letter}
-                className={`forge-strip-letter ${coral ? "forge-strip-letter-coral" : ""}`}
-              >
-                {letter}
-              </span>
-            ))}
           </div>
         </Reveal>
 

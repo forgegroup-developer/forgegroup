@@ -204,18 +204,22 @@ export default function CaseStudyCarousel() {
                   sizes="(max-width: 768px) 82vw, 52vw"
                   draggable={false}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/30 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-corallo px-3 py-1 rounded-full shadow-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/65 via-brand-nero/10 to-transparent" />
+                <span className="absolute top-4 left-4 z-10 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-corallo px-3 py-1 rounded-full shadow-sm">
                   {c.sector}
                 </span>
-                <h2 className="absolute bottom-4 left-4 right-20 !text-white font-semibold text-lg leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
-                  {c.shortTitle}
-                </h2>
                 {c.clientLogo && (
-                  <div className="absolute bottom-4 right-4">
-                    <CaseStudyClientLogo src={c.clientLogo} alt={c.clientLogoAlt ?? c.shortTitle} />
+                  <div className="absolute top-4 right-4 z-10 max-w-[46%]">
+                    <CaseStudyClientLogo
+                      src={c.clientLogo}
+                      alt={c.clientLogoAlt ?? c.shortTitle}
+                      size="xl"
+                    />
                   </div>
                 )}
+                <h2 className="absolute bottom-4 left-4 right-4 z-10 !text-white font-semibold text-lg md:text-xl leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">
+                  {c.shortTitle}
+                </h2>
               </div>
 
               <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5">
