@@ -209,15 +209,20 @@ export default function CaseStudyCarousel() {
                   {c.sector}
                 </span>
                 {c.clientLogo && (
-                  <div className="absolute top-4 right-4 z-10 max-w-[46%]">
+                  <div className="absolute bottom-4 right-4 z-10">
                     <CaseStudyClientLogo
                       src={c.clientLogo}
                       alt={c.clientLogoAlt ?? c.shortTitle}
-                      size="xl"
+                      variant="circle"
+                      size="md"
                     />
                   </div>
                 )}
-                <h2 className="absolute bottom-4 left-4 right-4 z-10 !text-white font-semibold text-lg md:text-xl leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)]">
+                <h2
+                  className={`absolute bottom-4 left-4 z-10 !text-white font-semibold text-lg md:text-xl leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.65)] ${
+                    c.clientLogo ? "right-16 md:right-[4.5rem]" : "right-4"
+                  }`}
+                >
                   {c.shortTitle}
                 </h2>
               </div>

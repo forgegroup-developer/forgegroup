@@ -353,65 +353,6 @@ export default function ServiziHub() {
 
       <ClientiLogos />
 
-      {/* PROVA SOCIALE */}
-      <section className="py-16 md:py-24 section-bianco">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-10 text-center">
-              Non ti chiediamo di fidarti.{" "}
-              <span className="text-brand-corallo">Ti chiediamo di guardare i numeri.</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={1}>
-            <div className="rounded-3xl border-2 border-brand-corallo bg-brand-pesca-light p-8 md:p-12 space-y-6">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">Cliente</p>
-                <p className="text-lg text-brand-nero">Azienda B2B nel settore software.</p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
-                  Situazione di partenza
-                </p>
-                <p className="text-lg text-brand-nero">
-                  Nessun sistema di acquisizione clienti, vendite affidate al passaparola.
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
-                  Cosa abbiamo fatto
-                </p>
-                <p className="text-lg text-brand-nero">
-                  Costruito da zero il sistema completo: advertising, processo di vendita, chiusura
-                  contratti.
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
-                  Risultato in 90 giorni
-                </p>
-                <p className="text-3xl md:text-4xl font-semibold text-brand-corallo">
-                  126.500€ di nuovo fatturato generato.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="mt-8 text-lg md:text-xl text-brand-nero leading-relaxed text-center">
-              Questo non è un caso eccezionale. È quello che succede quando smetti di improvvisare e
-              inizi a lavorare con un sistema.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
-                Leggi il caso completo
-              </Link>
-              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-                Ottieni una consulenza gratuita
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <MetodoForge />
     </>
   );

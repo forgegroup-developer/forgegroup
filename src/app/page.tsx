@@ -5,6 +5,7 @@ import ClientReviewSection from "@/components/ClientReviewSection";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
+import ClientiLogos from "@/components/ClientiLogos";
 import SocialProof from "@/components/SocialProof";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import TeamSection from "@/components/TeamSection";
@@ -63,6 +64,9 @@ export default function Home() {
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
       <SocialProof />
+
+      {/* S2b — LOGHI CLIENTI */}
+      <ClientiLogos />
 
       {/* S3 — RECENSIONE DISA (stessa sezione del caso studio) */}
       {disaCase?.quoteSegments && (

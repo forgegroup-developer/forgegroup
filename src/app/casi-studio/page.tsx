@@ -1,9 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
-import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import SectionHeader from "@/components/SectionHeader";
-import { caseStudies } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
   title: "Casi Studio",
@@ -18,22 +16,9 @@ export default function CasiStudioHub() {
       <section className="pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Casi Studio</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-8 md:mb-10">
+          <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
             Risultati <span className="text-brand-corallo">Dimostrabili</span>.
           </h1>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            {caseStudies
-              .filter((c) => c.clientLogo)
-              .map((c) => (
-                <CaseStudyClientLogo
-                  key={c.slug}
-                  src={c.clientLogo!}
-                  alt={c.clientLogoAlt ?? c.shortTitle}
-                  variant="inline"
-                  size="lg"
-                />
-              ))}
-          </div>
         </div>
       </section>
 
