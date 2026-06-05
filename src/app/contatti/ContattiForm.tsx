@@ -2,8 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import SocialProof from "@/components/SocialProof";
-
 type FormData = {
   nome_attivita: string;
   occupazione: string;
