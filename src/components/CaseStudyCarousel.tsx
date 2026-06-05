@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import { caseStudies } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 
@@ -194,13 +195,12 @@ export default function CaseStudyCarousel() {
                 transition: `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`,
               }}
             >
-              {/* ── Image area (top) ── */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-brand-panna">
+              <div className="relative aspect-video overflow-hidden bg-brand-panna">
                 <Image
                   src={getCaseStudyImage(c.slug)}
                   alt={c.shortTitle}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 82vw, 52vw"
                   draggable={false}
                 />
@@ -208,9 +208,13 @@ export default function CaseStudyCarousel() {
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.18em] text-white font-bold bg-brand-corallo px-3 py-1 rounded-full shadow-sm">
                   {c.sector}
                 </span>
+                {c.clientLogo && (
+                  <div className="absolute bottom-4 right-4">
+                    <CaseStudyClientLogo src={c.clientLogo} alt={c.clientLogoAlt ?? c.shortTitle} />
+                  </div>
+                )}
               </div>
 
-              {/* ── Metadata row (bottom) ── */}
               <div className="flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5">
                 <div className="min-w-0 flex-1">
                   <h3
@@ -221,7 +225,6 @@ export default function CaseStudyCarousel() {
                   </h3>
                 </div>
 
-                {/* Circular arrow button */}
                 <Link
                   href={`/casi-studio/${c.slug}`}
                   className="

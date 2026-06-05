@@ -14,7 +14,7 @@ type MetodoForgeProps = {
 };
 
 export default function MetodoForge({
-  className = "bg-brand-bianco",
+  className = "section-bianco",
   onCoral = false,
 }: MetodoForgeProps) {
   const coral = onCoral || className.includes("section-coral");

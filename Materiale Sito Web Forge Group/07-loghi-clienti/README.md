@@ -8,12 +8,20 @@ Inserire un file per ogni cliente.
 - Altezza sorgente: **200–400 px**
 - Nome file: `nome-azienda.png` (minuscolo, trattini)
 
-## Esempi
+## File attivi sul sito (`public/images/clienti/`)
 
-```
-disa-software.png
-cliente-edilizia.png
-gruppo-alberghiero.png
-```
+| File | Azienda |
+|------|---------|
+| `cliente-disa.png` | DISA Appalti & Servizi |
+| `cliente-tettitop.png` | Tetti Top |
+| `cliente-rovi.png` | ROVI Arredo Negozi |
+| `cliente-eva-consulting.png` | EVA Consulting |
+| `cliente-sos-appalti.png` | SOS Appalti (software DISA) |
 
-Sezione sul sito: fascia “Ci hanno scelto” / riprova sociale (da integrare).
+Mappa codice: `src/data/clientLogos.ts`
+
+**Importante:** il nome file deve corrispondere all'azienda nel logo. PNG con **sfondo trasparente** (no rettangolo bianco).
+
+Scontorno sfondo bianco: `scripts/remove-logo-background.py` (flood-fill dai bordi).
+
+Sezione sul sito: `ClientiLogos` (marquee homepage) + `clientLogo` nei casi studio.

@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
+import { clientLogos } from "@/data/clientLogos";
 import { siteImages } from "@/data/images";
 
 export default function HeroVideoRecensione() {
@@ -39,15 +40,12 @@ export default function HeroVideoRecensione() {
         </blockquote>
 
         <div className="mt-5 flex items-center gap-4 rounded-xl bg-brand-bianco/70 border border-brand-bordo px-4 py-3.5">
-          <div className="w-11 h-11 rounded-full overflow-hidden border border-brand-bordo bg-white flex items-center justify-center shrink-0 shadow-sm">
-            <Image
-              src="/images/logo-disa.png"
-              alt="DISA SRL"
-              width={44}
-              height={44}
-              className="object-contain w-full h-full p-1"
-            />
-          </div>
+          <CaseStudyClientLogo
+            src={clientLogos.disa.src}
+            alt={clientLogos.disa.alt}
+            variant="inline"
+            size="md"
+          />
           <div className="flex-1 min-w-0">
             <p
               className="text-brand-nero font-bold text-sm leading-tight truncate"

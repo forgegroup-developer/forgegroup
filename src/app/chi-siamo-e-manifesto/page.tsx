@@ -48,7 +48,7 @@ export default function ChiSiamoManifesto() {
             Non siamo l&apos;ennesima <span className="text-brand-corallo">agenzia creativa</span>.
           </h1>
           <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed">
-            Siamo un&apos;infrastruttura di acquisizione e vendita per aziende B2B che vogliono dominare il loro mercato — non
+            Siamo un&apos;infrastruttura di acquisizione e vendita per aziende B2B che vogliono dominare il loro mercato, non
             essere &ldquo;visibili&rdquo; su Instagram.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ChiSiamoManifesto() {
       </section>
 
       {/* VALORI */}
-      <section className="py-16 md:py-24 bg-brand-bianco">
+      <section className="py-16 md:py-24 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
             <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">

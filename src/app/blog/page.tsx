@@ -6,7 +6,7 @@ import { getBlogImage } from "@/data/images";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Blog Marketing B2B — Intelligence",
+  title: "Blog Marketing B2B | Intelligence",
   description:
     "Strategie avanzate di acquisizione clienti, vendita high-ticket e processi commerciali B2B. Articoli tecnici per imprenditori e direttori vendite.",
   alternates: { canonical: "/blog" },

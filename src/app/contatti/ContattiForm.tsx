@@ -100,7 +100,7 @@ export default function ContattiForm() {
       </section>
 
       {/* FORM */}
-      <section className="pb-20 md:pb-28">
+      <section className="pb-20 md:pb-28 section-bianco">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <form
             onSubmit={handleSubmit}
@@ -182,8 +182,8 @@ export default function ContattiForm() {
                     Seleziona...
                   </option>
                   <option value="Subito">Subito</option>
-                  <option value="Tra 1 - 4 settimane">Tra 1 - 4 settimane</option>
-                  <option value="Tra 1 - 3 mesi">Tra 1 - 3 mesi</option>
+                  <option value="Tra 1 e 4 settimane">Tra 1 e 4 settimane</option>
+                  <option value="Tra 1 e 3 mesi">Tra 1 e 3 mesi</option>
                 </select>
               </Field>
 
@@ -192,9 +192,9 @@ export default function ContattiForm() {
                   <option value="" disabled>
                     Seleziona...
                   </option>
-                  <option value="1.500€ - 2.500€ / mese">1.500€ - 2.500€ / mese</option>
-                  <option value="2.500€ - 5.000€ / mese">2.500€ - 5.000€ / mese</option>
-                  <option value="5.000€ - 10.000€ / mese">5.000€ - 10.000€ / mese</option>
+                  <option value="da 1.500€ a 2.500€ / mese">da 1.500€ a 2.500€ / mese</option>
+                  <option value="da 2.500€ a 5.000€ / mese">da 2.500€ a 5.000€ / mese</option>
+                  <option value="da 5.000€ a 10.000€ / mese">da 5.000€ a 10.000€ / mese</option>
                   <option value="+ 10.000€ / mese">+ 10.000€ / mese</option>
                 </select>
               </Field>

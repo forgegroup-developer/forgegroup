@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/blog/${a.slug}` },
     openGraph: {
       type: "article",
-      title: `${a.title} — Forge Group`,
+      title: `${a.title} | Forge Group`,
       description: a.description,
       url: `/blog/${a.slug}`,
       publishedTime: a.date,
@@ -100,7 +100,7 @@ export default async function ArticleDetail({ params }: Props) {
           </div>
         </header>
 
-        <div className="py-12 md:py-16 bg-brand-bianco">
+        <section className="py-12 md:py-16 section-bianco">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             {a.content.map((block, i) => {
               if (block.type === "p")
@@ -170,7 +170,7 @@ export default async function ArticleDetail({ params }: Props) {
               return null;
             })}
           </div>
-        </div>
+        </section>
       </article>
 
       {others.length > 0 && (

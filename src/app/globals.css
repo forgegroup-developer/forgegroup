@@ -86,13 +86,30 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Sezioni corallo (tinta intensa, allineata all'hub servizi) ─── */
 .section-coral {
+  /* Fallback rgba per dev/browser senza color-mix */
+  background-color: rgba(200, 80, 42, 0.9);
   background-color: color-mix(in srgb, var(--color-brand-corallo) 90%, transparent);
 }
 
 .section-coral.border-y,
 .section-coral.border-t,
 .section-coral.border-b {
+  border-color: rgba(169, 63, 30, 0.35);
   border-color: color-mix(in srgb, var(--color-brand-corallo-dark) 35%, transparent);
+}
+
+/* ── Sezioni bianche (stessa opacità delle section-coral: 90%) ─── */
+.section-bianco {
+  background-color: rgba(255, 255, 255, 0.9);
+  background-color: color-mix(in srgb, var(--color-brand-bianco) 90%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
+}
+
+.section-bianco-y {
+  background-color: rgba(255, 255, 255, 0.9);
+  background-color: color-mix(in srgb, var(--color-brand-bianco) 90%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
 
 /* Forza bianco sulle classi utility con colore hardcoded dentro sezioni corallo */
@@ -611,14 +628,14 @@ html {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / 3));
   }
 }
 
 .logo-marquee-track {
   display: flex;
   width: max-content;
-  animation: logo-marquee 32s linear infinite;
+  animation: logo-marquee 40s linear infinite;
   will-change: transform;
 }
 

@@ -19,8 +19,8 @@ const siteUrl = "https://www.forgegroup.it";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Forge Group — Agenzia Marketing B2B Italia",
-    template: "%s — Forge Group",
+    default: "Forge Group | Agenzia Marketing B2B Italia",
+    template: "%s | Forge Group",
   },
   description:
     "Sistemi di acquisizione clienti e vendita B2B high-ticket. Oltre 30 clienti soddisfatti, €350K+ generati in 12 mesi, recensioni a 5 stelle.",
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     locale: "it_IT",
     url: siteUrl,
     siteName: "Forge Group",
-    title: "Forge Group — Agenzia Marketing B2B Italia",
+    title: "Forge Group | Agenzia Marketing B2B Italia",
     description:
       "Sistemi di acquisizione clienti e vendita B2B high-ticket. 30+ clienti soddisfatti, €350K+ generati in 12 mesi.",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Group — Agenzia Marketing B2B Italia",
+    title: "Forge Group | Agenzia Marketing B2B Italia",
     description:
       "Sistemi di acquisizione clienti e vendita B2B high-ticket per imprenditori che vogliono crescere davvero.",
     images: ["/logo.png"],

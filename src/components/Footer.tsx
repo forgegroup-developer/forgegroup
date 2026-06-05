@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { services } from "@/data/services";
+import { usePathname } from "next/navigation";
 import { caseStudies } from "@/data/caseStudies";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
@@ -52,27 +52,36 @@ function MobileCol({
 
 export default function Footer() {
   const [openCol, setOpenCol] = useState<ColKey | null>(null);
+  const pathname = usePathname();
+  const isCaseStudy = pathname?.startsWith("/casi-studio") ?? false;
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
 
   return (
     <footer>
-      {/* CTA strip — panna, invariata */}
-      <div className="bg-brand-panna border-t border-brand-bordo border-b border-brand-bordo" style={{ backgroundColor: '#fbf5f2' }}>
+      {/* CTA strip — sfondo bianco, invariato su tutte le pagine */}
+      <div className="bg-brand-bianco border-t border-b border-brand-bordo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
                 ✦ Pronto a smettere di improvvisare?
               </p>
-              <h3 className="heading-section text-brand-nero">
-                Contattaci e parliamone davanti un caffè.
-                <br />
-                <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
-              </h3>
+              {isCaseStudy ? (
+                <h3 className="heading-section text-brand-nero">
+                  Vuoi un sistema come questo per la{" "}
+                  <span className="text-brand-corallo">tua azienda?</span>
+                </h3>
+              ) : (
+                <h3 className="heading-section text-brand-nero">
+                  Contattaci e parliamone davanti un caffè.
+                  <br />
+                  <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
+                </h3>
+              )}
             </div>
-            <Link href="/contatti" className="btn-corallo text-base whitespace-nowrap">
-              HAI UN MINUTO?
+            <Link href="/contatti" className="btn-corallo text-base whitespace-nowrap shrink-0">
+              {isCaseStudy ? "OTTIENI UNA CONSULENZA GRATUITA" : "HAI UN MINUTO?"}
             </Link>
           </div>
         </div>
@@ -140,20 +149,13 @@ export default function Footer() {
                 onToggle={() => toggle("servizi")}
               >
                 <ul className="space-y-2">
-                  {services.map((s) => (
-                    <li key={s.slug}>
-                      <Link
-                        href={`/servizi/${s.slug}`}
-                        className="text-sm text-white/65 hover:text-white transition-colors flex items-start gap-2"
-                      >
-                        <span className="text-white/40 shrink-0">✦</span>
-                        <span>{s.shortTitle}</span>
-                      </Link>
-                    </li>
-                  ))}
-                  <li className="pt-2">
-                    <Link href="/servizi" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
-                      Vedi tutti →
+                  <li>
+                    <Link
+                      href="/servizi"
+                      className="text-sm text-white/65 hover:text-white transition-colors flex items-start gap-2"
+                    >
+                      <span className="text-white/40 shrink-0">✦</span>
+                      <span>Il nostro sistema</span>
                     </Link>
                   </li>
                 </ul>

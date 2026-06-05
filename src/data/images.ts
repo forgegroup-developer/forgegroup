@@ -2,6 +2,7 @@
 export const caseStudyImages: Record<string, string> = {
   "software-b2b": "/images/casi-studio/software-b2b.jpg",
   edilizia: "/images/casi-studio/edilizia.jpg",
+  "arredo-commerciale": "/images/casi-studio/arredo-commerciale.jpg",
   "hotel-hospitality": "/images/casi-studio/hotel-hospitality.jpg",
 };
 

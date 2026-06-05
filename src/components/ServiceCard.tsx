@@ -11,16 +11,16 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    label: "01 — Acquisizione Clienti",
+    label: "01 · Acquisizione Clienti",
     lines: [
       { text: "I tuoi potenziali clienti esistono.", highlights: ["potenziali clienti"] },
       { text: "Il problema è che non ti trovano.", highlights: ["non ti trovano"] },
     ],
-    href: "/servizi/acquisizione-clienti",
+    href: "/servizi#acquisizione",
     image: "/images/servizi/magnete.png",
   },
   {
-    label: "02 — Processi di Vendita",
+    label: "02 · Processi di Vendita",
     lines: [
       { text: "Avere richieste non basta.", highlights: ["richieste"] },
       {
@@ -28,18 +28,18 @@ export const services: Service[] = [
         highlights: ["davvero convertendo"],
       },
     ],
-    href: "/servizi/vendite-processi-commerciali",
+    href: "/servizi#vendite",
     image: "/images/servizi/bersaglio.png",
   },
   {
-    label: "03 — Consulenza & Formazione",
+    label: "03 · Consulenza & Formazione",
     lines: [
       {
         text: "Stai crescendo, o stai solo lavorando di più?",
         highlights: ["crescendo", "lavorando di più"],
       },
     ],
-    href: "/servizi/consulenza-formazione",
+    href: "/servizi#consulenza",
     image: "/images/servizi/bussola.png",
   },
 ];

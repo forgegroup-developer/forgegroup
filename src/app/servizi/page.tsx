@@ -16,6 +16,25 @@ const rightShowcase = [
 ];
 const allShowcase = [...leftShowcase, ...rightShowcase];
 
+const painQuestions = [
+  {
+    question: "Ogni mese speri che arrivi qualcosa, come una referenza, un passaparola o un colpo di fortuna?",
+    answer: "Non è una strategia. È sopravvivenza.",
+  },
+  {
+    question: "Hai già provato i social o un po' di advertising, ma i risultati non sono continuativi?",
+    answer: "Qualcosa è arrivato, ma non abbastanza. E soprattutto non con continuità.",
+  },
+  {
+    question: "Il tuo commerciale, o tu stesso, passa ore a inseguire persone che non rispondono o chiedono lo sconto?",
+    answer: "Stai perdendo tempo su opportunità che non si chiudono mai.",
+  },
+  {
+    question: "Nel frattempo i tuoi competitor crescono e tu non capisci perché?",
+    answer: "Perché loro hanno un sistema. Tu stai ancora improvvisando.",
+  },
+];
+
 function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 shadow-sm">
@@ -31,25 +50,35 @@ function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function CoralCta() {
+  return (
+    <Link
+      href="/contatti"
+      className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
+    >
+      Ottieni una consulenza gratuita
+    </Link>
+  );
+}
+
 export const metadata: Metadata = {
-  title: "Servizi — Forge Group | Acquisizione, Vendite, Crescita B2B",
+  title: "Servizi | Forge Group | Sistema di acquisizione e vendita B2B",
   description:
-    "Dal lead all'acquisto: advertising, social, sito web, SEO, CRM, processi di vendita e consulenza strategica. Scopri come costruiamo il sistema di crescita per la tua azienda.",
+    "La tua azienda sta perdendo clienti ogni giorno. Costruiamo il sistema che in 90 giorni ha generato €126.500 di nuovo fatturato per un cliente B2B. Acquisizione, vendita e consulenza integrati.",
   alternates: { canonical: "/servizi" },
 };
 
 export default function ServiziHub() {
   return (
     <>
-      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 bg-brand-bianco">
+      {/* HERO — layout originale, copy LP */}
+      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 section-bianco">
         <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-corallo/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-corallo/15 rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Desktop: 3 colonne simmetriche con doppio marquee verticale */}
           <div className="hidden lg:grid lg:grid-cols-[1fr_2fr_1fr] gap-8 xl:gap-12 items-center">
-            {/* Sinistra — card showcase, scorrono verso l'alto */}
             <div className="marquee-col h-[560px]">
               <div className="marquee-track-up">
                 {[...leftShowcase, ...leftShowcase].map((c, idx) => (
@@ -60,22 +89,30 @@ export default function ServiziHub() {
               </div>
             </div>
 
-            {/* Centro — testo centrato */}
             <div className="flex flex-col items-center justify-center text-center px-2">
               <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
                 ✦ I Nostri Servizi
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
-                Dal primo contatto{" "}
-                <span className="text-brand-corallo">al contratto firmato</span>
+                La tua azienda sta{" "}
+                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno. Il problema
+                non è il <span className="text-brand-corallo">mercato</span>.
               </h1>
-              <p className="body-lg text-brand-grigio max-w-xl">
-                Non vendiamo servizi isolati. Costruiamo un sistema integrato di acquisizione clienti,
-                vendita e crescita aziendale su misura della tua impresa.
+              <p className="body-lg text-brand-grigio max-w-xl mb-8">
+                Il problema è che non hai un{" "}
+                <span className="text-brand-corallo font-semibold">sistema</span>. Noi ne abbiamo
+                costruito uno che in{" "}
+                <span className="text-brand-corallo font-semibold">90 giorni</span> ha generato{" "}
+                <span className="text-brand-corallo font-semibold">126.500€</span> di nuovo fatturato
+                per un cliente nel settore <span className="text-brand-corallo font-semibold">B2B</span>.
+                Lo stesso sistema può lavorare per te.
               </p>
+              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+                Ottieni una consulenza gratuita
+              </Link>
+              <p className="mt-4 text-sm text-brand-grigio">Solo 3 posti disponibili questo mese.</p>
             </div>
 
-            {/* Destra — card showcase, scorrono verso il basso */}
             <div className="marquee-col h-[560px]">
               <div className="marquee-track-down">
                 {[...rightShowcase, ...rightShowcase].map((c, idx) => (
@@ -87,20 +124,29 @@ export default function ServiziHub() {
             </div>
           </div>
 
-          {/* Mobile/tablet: testo in alto + griglia card showcase */}
           <div className="lg:hidden">
             <div className="flex flex-col items-center justify-center text-center mb-12">
               <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
                 ✦ I Nostri Servizi
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
-                Dal primo contatto{" "}
-                <span className="text-brand-corallo">al contratto firmato</span>
+                La tua azienda sta{" "}
+                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno. Il problema
+                non è il <span className="text-brand-corallo">mercato</span>.
               </h1>
-              <p className="body-lg text-brand-grigio max-w-xl">
-                Non vendiamo servizi isolati. Costruiamo un sistema integrato di acquisizione clienti,
-                vendita e crescita aziendale su misura della tua impresa.
+              <p className="body-lg text-brand-grigio max-w-xl mb-8">
+                Il problema è che non hai un{" "}
+                <span className="text-brand-corallo font-semibold">sistema</span>. Noi ne abbiamo
+                costruito uno che in{" "}
+                <span className="text-brand-corallo font-semibold">90 giorni</span> ha generato{" "}
+                <span className="text-brand-corallo font-semibold">126.500€</span> di nuovo fatturato
+                per un cliente nel settore <span className="text-brand-corallo font-semibold">B2B</span>.
+                Lo stesso sistema può lavorare per te.
               </p>
+              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+                Ottieni una consulenza gratuita
+              </Link>
+              <p className="mt-4 text-sm text-brand-grigio">Solo 3 posti disponibili questo mese.</p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md mx-auto">
               {allShowcase.map((c, idx) => (
@@ -113,43 +159,99 @@ export default function ServiziHub() {
         </div>
       </section>
 
+      {/* AGITAZIONE DEL DOLORE */}
+      <section className="py-16 md:py-24 section-bianco">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-12">
+              Fermati un secondo. Riconosci questa{" "}
+              <span className="text-brand-corallo">situazione</span>?
+            </h2>
+          </Reveal>
+          <div className="space-y-5">
+            {painQuestions.map((item, idx) => (
+              <Reveal key={idx} delay={(idx % 3) as 0 | 1 | 2}>
+                <div className="rounded-2xl border border-brand-bordo bg-brand-panna p-6 md:p-8">
+                  <p className="text-lg md:text-xl font-semibold text-brand-nero leading-snug mb-3">
+                    {item.question}
+                  </p>
+                  <p className="text-base md:text-lg text-brand-grigio leading-relaxed pl-4 border-l-4 border-brand-corallo">
+                    {item.answer}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal>
+            <div className="mt-12 rounded-2xl border-l-4 border-brand-corallo bg-brand-pesca-light px-6 py-6 md:px-9 md:py-8">
+              <p className="text-xl md:text-2xl font-semibold text-brand-nero leading-relaxed">
+                Non è colpa tua. Nessuno ti ha mai costruito un{" "}
+                <span className="text-brand-corallo">sistema vero</span>. Noi lo facciamo.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* TRE SERVIZI — layout originale, copy LP */}
       <section className="py-16 md:py-24 section-coral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20 md:space-y-28">
+          <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 copy-on-coral">
+            <h2 className="heading-section font-semibold leading-tight mb-4">
+              Un <span>sistema</span> unico. Tre <span>ingranaggi</span> che lavorano insieme.
+            </h2>
+            <p className="body-lg text-white/90">
+              Ogni pezzo serve. Nessuno funziona da solo. Insieme portano risultati che si misurano in{" "}
+              <span className="text-brand-pesca-light font-semibold">euro</span>, non in like.
+            </p>
+          </div>
 
+          <div className="space-y-20 md:space-y-28">
             {/* 01 — Acquisizione Clienti */}
             <Reveal>
-              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+              <div id="acquisizione" className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
                 <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-white/70 font-bold text-sm uppercase tracking-widest">01</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Acquisizione Clienti</h2>
                   <p className="body-lg text-white mb-6">
-                    I tuoi potenziali clienti esistono. Il problema è che non ti trovano.
+                    Se i clienti giusti non ti trovano, stai lasciando soldi sul tavolo ogni giorno.
                   </p>
-                  <Link
-                    href="/servizi/acquisizione-clienti"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
-                  >
-                    → Scopri i servizi
-                  </Link>
+                  <CoralCta />
                 </div>
                 <div className="space-y-6 relative z-10">
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Ogni mese hai bisogno di nuove richieste qualificate. Le portiamo noi.</p>
+                    <p className="font-semibold text-white mb-2">
+                      Ogni euro in advertising deve portare contatti già qualificati.
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Campagne Meta e Google, funnel e lead generation per portare contatti già filtrati, prima ancora che parlino col tuo commerciale.
+                      Campagne Meta e Google ottimizzate alla conversione. Persone con un problema reale,
+                      che cercano una soluzione e sono disposte a pagare per averla.
                     </p>
                   </div>
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Quando un cliente cerca il tuo prodotto online, esci tu o il tuo competitor?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Funnel e lead generation profilati sul tuo cliente ideale.
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Sito, SEO e LinkedIn costruiti per farti trovare da chi ha già intenzione di acquistare.
+                      Non visibilità generica. Non follower. Richieste reali da persone reali, filtrate
+                      prima ancora che parlino col tuo commerciale.
                     </p>
                   </div>
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Chi ti segue sui social dovrebbe voler comprare da te.</p>
+                    <p className="font-semibold text-white mb-2">
+                      I tuoi contenuti vendono, o fanno solo brand?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Contenuti, video e posizionamento orientati alla conversione, non alla visibilità fine a se stessa.
+                      Social media e contenuti orientati alla conversione, non alla visibilità fine a
+                      se stessa.
+                    </p>
+                  </div>
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">
+                      Quando un cliente cerca il tuo prodotto online, esci tu o il competitor?
+                    </p>
+                    <p className="text-white/75 leading-relaxed">
+                      Sito, SEO e LinkedIn costruiti per farti trovare da chi vuole già comprare.
                     </p>
                   </div>
                 </div>
@@ -160,31 +262,41 @@ export default function ServiziHub() {
 
             {/* 02 — Processi di Vendita */}
             <Reveal>
-              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+              <div id="vendite" className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
                 <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-white/70 font-bold text-sm uppercase tracking-widest">02</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Processi di Vendita</h2>
                   <p className="body-lg text-white mb-6">
-                    Avere richieste non basta. Il problema è quante ne stai davvero convertendo.
+                    Avere richieste non basta. Il problema è quante ne stai perdendo dopo il primo contatto.
                   </p>
-                  <Link
-                    href="/servizi/vendite-processi-commerciali"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
-                  >
-                    → Scopri i servizi
-                  </Link>
+                  <CoralCta />
                 </div>
                 <div className="space-y-6 relative z-10">
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Quante opportunità stai perdendo dopo il primo contatto?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Quante opportunità stai perdendo per mancanza di processo?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Implementiamo il tuo processo di vendita: dal CRM, alla prima chiamata, all&apos;appuntamento conoscitivo fino alla firma del contratto.
+                      La maggior parte delle aziende perde il 60% delle opportunità non per il prodotto,
+                      ma per assenza di follow-up, script e CRM. Solo improvvisazione.
                     </p>
                   </div>
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Il tuo commerciale sa esattamente cosa dire, quando dirlo e come chiudere?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Il tuo commerciale sa esattamente cosa dire e come chiudere?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Script di vendita, materiale commerciale e supporto diretto al reparto vendite per aumentare il tasso di chiusura.
+                      Audit commerciale, script di vendita, gestione obiezioni e CRM personalizzato per
+                      chiudere più contratti con le stesse richieste che già ricevi.
+                    </p>
+                  </div>
+                  <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
+                    <p className="font-semibold text-white mb-2">
+                      Ogni lead riceve un follow-up strutturato fino alla firma?
+                    </p>
+                    <p className="text-white/75 leading-relaxed">
+                      Follow-up strutturato, affiancamento e formazione al reparto commerciale: non un
+                      corso e via, ma un processo che resta.
                     </p>
                   </div>
                 </div>
@@ -195,51 +307,112 @@ export default function ServiziHub() {
 
             {/* 03 — Consulenza & Formazione */}
             <Reveal>
-              <div className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
+              <div id="consulenza" className="relative grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-20 items-start">
                 <div className="lg:sticky lg:top-28 relative z-10">
                   <span className="text-white/70 font-bold text-sm uppercase tracking-widest">03</span>
                   <h2 className="heading-section text-white mt-2 mb-4">Consulenza &amp; Formazione</h2>
                   <p className="body-lg text-white mb-6">
-                    Stai crescendo, o stai solo lavorando di più?
+                    Lavorare di più non è una strategia. È esaurimento con un altro nome.
                   </p>
-                  <Link
-                    href="/servizi/consulenza-formazione"
-                    className="inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-white bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-white shadow-sm transition-all duration-200 hover:gap-3 hover:bg-white/20"
-                  >
-                    → Scopri i servizi
-                  </Link>
+                  <CoralCta />
                 </div>
                 <div className="space-y-6 relative z-10">
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Sai quali numeri guardare per capire se stai andando nella direzione giusta?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Stai crescendo, o stai solo lavorando di più?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Analisi KPI, report trimestrali e monitoraggio costante per smettere di decidere a sensazione e iniziare a decidere con i dati.
+                      Se cresci senza sapere perché, o lavori tanto senza crescere, hai bisogno di
+                      metodo, non di motivazione. Strategia di marketing e acquisizione su misura.
                     </p>
                   </div>
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Hai una direzione chiara per i prossimi mesi, o stai reagendo agli eventi?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Sai quali numeri guardare per capire se stai andando nella direzione giusta?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Affiancamento strategico periodico per definire priorità, allocare budget e non disperdere energie su ciò che non porta risultati concreti.
+                      Report e analisi dati mensili, pianificazione della crescita aziendale. Smetti di
+                      decidere a sensazione, inizia a decidere con i dati.
                     </p>
                   </div>
                   <div className="bg-white/15 border border-white/25 rounded-2xl p-7 backdrop-blur-sm">
-                    <p className="font-semibold text-white mb-2">Il tuo reparto commerciale sta chiudendo al massimo delle sue possibilità?</p>
+                    <p className="font-semibold text-white mb-2">
+                      Il tuo team ha una direzione chiara per i prossimi mesi?
+                    </p>
                     <p className="text-white/75 leading-relaxed">
-                      Formiamo e seguiamo nel tempo il tuo team di vendita — non un corso e via, ma un percorso continuo per aumentare le conversioni reali.
+                      Formazione continua su vendita, marketing e gestione. Restiamo al tuo fianco mentre
+                      percorri la direzione che costruiamo insieme.
                     </p>
                   </div>
                 </div>
               </div>
             </Reveal>
-
           </div>
         </div>
       </section>
 
       <ClientiLogos />
 
-      <MetodoForge />
+      {/* PROVA SOCIALE */}
+      <section className="py-16 md:py-24 section-bianco">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-10 text-center">
+              Non ti chiediamo di fidarti.{" "}
+              <span className="text-brand-corallo">Ti chiediamo di guardare i numeri.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={1}>
+            <div className="rounded-3xl border-2 border-brand-corallo bg-brand-pesca-light p-8 md:p-12 space-y-6">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">Cliente</p>
+                <p className="text-lg text-brand-nero">Azienda B2B nel settore software.</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                  Situazione di partenza
+                </p>
+                <p className="text-lg text-brand-nero">
+                  Nessun sistema di acquisizione clienti, vendite affidate al passaparola.
+                </p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                  Cosa abbiamo fatto
+                </p>
+                <p className="text-lg text-brand-nero">
+                  Costruito da zero il sistema completo: advertising, processo di vendita, chiusura
+                  contratti.
+                </p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                  Risultato in 90 giorni
+                </p>
+                <p className="text-3xl md:text-4xl font-semibold text-brand-corallo">
+                  126.500€ di nuovo fatturato generato.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={2}>
+            <p className="mt-8 text-lg md:text-xl text-brand-nero leading-relaxed text-center">
+              Questo non è un caso eccezionale. È quello che succede quando smetti di improvvisare e
+              inizi a lavorare con un sistema.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+                Leggi il caso completo
+              </Link>
+              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+                Ottieni una consulenza gratuita
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
+      <MetodoForge />
     </>
   );
 }

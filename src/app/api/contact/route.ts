@@ -32,7 +32,7 @@ function escapeHtml(str: string): string {
 function buildHtml(data: Record<string, string>): string {
   const rows = Object.entries(FIELD_LABELS)
     .map(([key, label]) => {
-      const value = escapeHtml(String(data[key] ?? "—"));
+      const value = escapeHtml(String(data[key] ?? "n.d."));
       return `
         <tr>
           <td style="padding:12px 16px;background:#fbf5f2;font-weight:600;color:#111;border-bottom:1px solid #e8d5cc;width:35%;vertical-align:top;">${label}</td>
@@ -46,7 +46,7 @@ function buildHtml(data: Record<string, string>): string {
 <body style="font-family:Arial,sans-serif;background:#ffffff;margin:0;padding:24px;">
   <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #e8d5cc;border-radius:12px;overflow:hidden;">
     <div style="background:#c8502a;color:#fff;padding:24px 28px;">
-      <p style="margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:2px;opacity:0.85;">✦ Forge Group — Nuova candidatura</p>
+      <p style="margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:2px;opacity:0.85;">✦ Forge Group: Nuova candidatura</p>
       <h1 style="margin:0;font-size:24px;font-weight:800;">Nuovo lead di prequalifica</h1>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:14px;">

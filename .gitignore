@@ -21,6 +21,8 @@
 /build
 
 # misc
+.cursor/
+.venv-logos/
 .DS_Store
 *.pem
 

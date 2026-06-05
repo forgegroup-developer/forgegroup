@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
+import ClientReviewSection from "@/components/ClientReviewSection";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
@@ -9,15 +9,18 @@ import SocialProof from "@/components/SocialProof";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
+import { getCaseStudyBySlug } from "@/data/caseStudies";
 
 export const metadata: Metadata = {
-  title: "Forge Group — Sistema di Crescita per Imprese B2B",
+  title: "Forge Group | Sistema di Crescita per Imprese B2B",
   description:
     "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile. Dalle prime contatti al contratto firmato: un sistema completo.",
   alternates: { canonical: "/" },
 };
 
 export default function Home() {
+  const disaCase = getCaseStudyBySlug("software-b2b");
+
   return (
     <>
       {/* S1 — HERO full-viewport */}
@@ -61,59 +64,20 @@ export default function Home() {
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
       <SocialProof />
 
-      {/* S3 — VIDEO RECENSIONE */}
-      <section id="recensione" className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm border-t border-brand-bordo scroll-mt-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Reveal>
-            {/* Stars */}
-            <div className="flex justify-center gap-1 mb-8">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <svg key={i} className="w-6 h-6 text-brand-corallo" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
-                </svg>
-              ))}
-            </div>
-
-            {/* Quote */}
-            <blockquote className="text-2xl md:text-3xl lg:text-4xl font-semibold text-brand-nero leading-tight max-w-3xl mx-auto mb-8" style={{ fontFamily: "var(--font-display)" }}>
-              &ldquo;
-              <span className="text-brand-corallo">126.500€ di fatturato</span>, non me lo aspettavo. Ero scettico all&apos;inizio:{" "}
-              <span className="text-brand-corallo">questo metodo</span> per me{" "}
-              <span className="text-brand-corallo">ha funzionato</span>.{" "}
-              <span className="text-brand-corallo">Lo consiglio</span> a tutte le aziende che vogliono{" "}
-              <span className="text-brand-corallo">crescere sul mercato</span>.
-              &rdquo;
-            </blockquote>
-
-            {/* Author */}
-            <div className="flex items-center justify-center gap-4 mb-10">
-              <div className="w-14 h-14 rounded-full overflow-hidden border border-brand-bordo bg-white flex items-center justify-center shrink-0">
-                <Image
-                  src="/images/logo-disa.png"
-                  alt="DISA Appalti & Servizi"
-                  width={56}
-                  height={56}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <div className="text-left">
-                <p className="text-brand-nero font-semibold text-sm">DISA SRL</p>
-                <p className="text-brand-grigio text-xs">CEO & Founder · Software B2B</p>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/contatti" className="btn-corallo">
-                Voglio risultati simili
-              </Link>
-              <Link href="/casi-studio/software-b2b" className="btn-ghost">
-                Leggi il caso studio
-              </Link>
-            </div>
-          </Reveal>
+      {/* S3 — RECENSIONE DISA (stessa sezione del caso studio) */}
+      {disaCase?.quoteSegments && (
+        <div id="recensione" className="scroll-mt-24">
+          <ClientReviewSection
+            quoteSegments={disaCase.quoteSegments}
+            author={disaCase.quote.author}
+            role={disaCase.quote.role}
+            logoSrc={disaCase.clientLogo!}
+            logoAlt={disaCase.clientLogoAlt ?? "DISA"}
+            primaryCta={{ label: "Voglio risultati simili", href: "/contatti" }}
+            secondaryCta={{ label: "Leggi il caso studio", href: "/casi-studio/software-b2b" }}
+          />
         </div>
-      </section>
+      )}
 
       {/* S4 — SERVIZI */}
       <section className="py-20 md:py-28 section-coral border-y">
@@ -140,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* S5 — CASI STUDIO (carousel full-bleed) */}
-      <section className="py-20 md:py-28 bg-brand-bianco/70 backdrop-blur-sm overflow-hidden">
+      <section className="py-20 md:py-28 section-bianco overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Casi Studio"

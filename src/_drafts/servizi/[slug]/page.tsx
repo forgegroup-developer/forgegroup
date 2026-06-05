@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const s = getServiceBySlug(slug);
   if (!s) return {};
   return {
-    title: `${s.title} — Forge Group`,
+    title: `${s.title} | Forge Group`,
     description: s.description,
     alternates: { canonical: `/servizi/${s.slug}` },
     openGraph: {
-      title: `${s.title} — Forge Group`,
+      title: `${s.title} | Forge Group`,
       description: s.description,
       url: `/servizi/${s.slug}`,
     },

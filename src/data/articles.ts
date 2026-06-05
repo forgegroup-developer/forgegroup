@@ -23,7 +23,7 @@ export const articles: Article[] = [
     content: [
       {
         type: "p",
-        text: "Se sei un imprenditore B2B in Campania, probabilmente hai già provato a investire in pubblicità online — Facebook Ads, Google Ads, magari LinkedIn — e ti sei trovato con due risultati: o nessuna richiesta seria, o tante richieste che però non comprano mai. Questo articolo spiega perché succede e cosa fare concretamente per cambiare la situazione.",
+        text: "Se sei un imprenditore B2B in Campania, probabilmente hai già provato a investire in pubblicità online, con Facebook Ads, Google Ads o magari LinkedIn, e ti sei trovato con due risultati: o nessuna richiesta seria, o tante richieste che però non comprano mai. Questo articolo spiega perché succede e cosa fare concretamente per cambiare la situazione.",
       },
       { type: "h2", text: "Perché il marketing tradizionale fallisce in Campania" },
       {
@@ -185,7 +185,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Perché Napoli e la Campania sono un'opportunità unica" },
       {
         type: "p",
-        text: "La maggior parte delle aziende B2B campane non ha ancora sistematizzato l'acquisizione clienti. Significa che il primo concorrente diretto che lo fa ottiene un vantaggio enorme — perché parte da un mercato dove tutti improvvisano. La finestra di opportunità è ancora aperta, ma non per molto.",
+        text: "La maggior parte delle aziende B2B campane non ha ancora sistematizzato l'acquisizione clienti. Significa che il primo concorrente diretto che lo fa ottiene un vantaggio enorme, perché parte da un mercato dove tutti improvvisano. La finestra di opportunità è ancora aperta, ma non per molto.",
       },
       {
         type: "quote",
