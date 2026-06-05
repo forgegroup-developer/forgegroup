@@ -95,8 +95,8 @@ export default function Footer() {
 
             {/* Logo + desc */}
             <div className="md:col-span-1">
-              <Link href="/" className="flex items-center gap-2 mb-4">
-                <Image src="/logo-transparent.png" alt="Forge Group" width={48} height={48} className="h-12 w-auto" />
+              <Link href="/" className="flex flex-col items-start gap-2.5 mb-4 md:flex-row md:items-center md:gap-2">
+                <Image src="/logo-transparent.png" alt="Forge Group" width={48} height={48} className="h-12 w-auto shrink-0" />
                 <span className="font-semibold text-lg tracking-tight text-white">
                   FORGE<span className="text-brand-pesca-light">GROUP</span>
                 </span>

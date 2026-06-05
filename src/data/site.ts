@@ -1,7 +1,7 @@
 export const faqs = [
   {
     q: "Quanto costa lavorare con Forge Group?",
-    a: "Non abbiamo 'pacchetti'. Dopo un'analisi del tuo modello di business costruiamo un progetto su misura. Per essere chiari: i nostri partner investono almeno 2.500€/mese più budget pubblicitario dedicato. Sotto questa soglia è impossibile per noi costruire un sistema che aumenti in maniera sostanziale il fatturato.",
+    a: "Non abbiamo 'pacchetti'. Dopo un'analisi del tuo modello di business costruiamo un progetto su misura. La domanda che ti faccio è: quanto saresti disposto ad investire se il tuo business da qui ad un anno facesse un +100k? E se il tuo fatturato raddoppiasse?",
   },
   {
     q: "In quanto tempo vedrò i primi risultati?",
