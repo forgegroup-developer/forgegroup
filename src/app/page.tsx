@@ -141,7 +141,7 @@ export default function Home() {
           <SectionHeader
             onCoral
             eyebrow="Perché Forge Group"
-            title="Costruiamo sistemi che portano clienti, non visibilità"
+            title="Azienda di Growth Hacking Italia"
           />
           <Reveal>
             <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">

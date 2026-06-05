@@ -103,6 +103,7 @@ export default function Footer() {
               </Link>
               <p className="text-sm text-white leading-relaxed">
                 Sistemi di acquisizione clienti e crescita prevedibile per imprese B2B.
+                Azienda di Growth Hacking in Italia.
               </p>
               <div className="flex items-center gap-3 mt-5">
                 <a

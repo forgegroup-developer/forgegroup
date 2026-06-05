@@ -148,7 +148,7 @@ export default function Navbar() {
                   FORGE<span className="text-brand-corallo">GROUP</span>
                 </div>
                 <div className="text-[10px] uppercase tracking-widest text-white/40 mt-0.5">
-                  Marketing B2B
+                  Growth Hacking Italia
                 </div>
               </div>
             </Link>
