@@ -5,6 +5,7 @@ const clienti = [
   clientLogos.rovi,
   clientLogos.evaConsulting,
   clientLogos.tettitop,
+  clientLogos.hotelDream,
   clientLogos.disa,
   clientLogos.sosAppalti,
 ];

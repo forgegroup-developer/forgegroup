@@ -20,6 +20,7 @@ LOGO_SOURCES = {
     "cliente-rovi.png": "rovi.png",
     "cliente-sos-appalti.png": "sos-appalti.png",
     "cliente-eva-consulting.png": "eva-consulting.png",
+    "cliente-hotel-dream.png": "hotel-dream.png",
 }
 
 
@@ -103,6 +104,16 @@ def trim_with_padding(img: Image.Image, padding_ratio: float = 0.04, min_pad: in
     return img.crop((left, top, right, bottom))
 
 
+def process_logo_rovi(src: Path, dest: Path) -> None:
+    """Logo su sfondo nero: rimuove solo il nero puro ai bordi, preserva il testo scuro."""
+    img = Image.open(src).convert("RGBA")
+    flood_remove(img, is_near_black, 18)
+    img = trim_with_padding(img)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    img.save(dest, "PNG", optimize=True)
+    print(f"ok: {src.name} -> {dest.relative_to(ROOT)} ({img.width}x{img.height})")
+
+
 def process_logo(src: Path, dest: Path) -> None:
     img = Image.open(src).convert("RGBA")
     flood_remove(img, is_near_black, 42)
@@ -122,7 +133,8 @@ def process_all() -> int:
             return 1
         dest_public = PUBLIC / dest_name
         dest_materiale = MATERIALE / dest_name
-        process_logo(src, dest_public)
+        processor = process_logo_rovi if dest_name == "cliente-rovi.png" else process_logo
+        processor(src, dest_public)
         shutil.copy2(dest_public, dest_materiale)
     return 0
 

@@ -69,7 +69,7 @@ export default function MetodoForge({
             <h2
               className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
             >
-              Il Metodo <span className="text-brand-corallo">FORGE</span>
+              Il metodo <span className="text-brand-corallo">FORGE</span> in 5 step
             </h2>
           </div>
         </Reveal>
@@ -116,7 +116,6 @@ export default function MetodoForge({
             </Reveal>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
     <>
       {/* HERO */}
       <section className="pt-16 pb-0 md:pt-24 section-coral border-b">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
           {showBackLink && (
             <Link
               href="/casi-studio"
@@ -26,9 +26,31 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               Tutti i casi studio
             </Link>
           )}
-          <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-          <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
-          <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
+
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0 flex-1">
+              <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
+              <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
+            </div>
+
+            <div className="flex shrink-0 items-center justify-end gap-2.5 sm:pt-1">
+              <CaseStudyClientLogo
+                src="/logo-transparent.png"
+                alt="Forge Group"
+                variant="circle"
+                size="lg"
+              />
+              {c.clientLogo && (
+                <CaseStudyClientLogo
+                  src={c.clientLogoCircle ?? c.clientLogo}
+                  alt={c.clientLogoAlt ?? c.shortTitle}
+                  variant="circle"
+                  size="lg"
+                />
+              )}
+            </div>
+          </div>
         </div>
         {c.videoUrl && (
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">

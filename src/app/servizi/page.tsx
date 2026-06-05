@@ -137,13 +137,12 @@ export default function ServiziHub() {
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
                 La tua azienda sta{" "}
-                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno. Il problema
+                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno e il problema
                 non è il <span className="text-brand-corallo">mercato</span>.
               </h1>
               <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
                 Ottieni una consulenza gratuita
               </Link>
-              <p className="mt-4 text-sm text-brand-grigio">Solo 3 posti disponibili questo mese.</p>
             </div>
 
             <div className="marquee-col h-[560px]">
@@ -164,13 +163,12 @@ export default function ServiziHub() {
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
                 La tua azienda sta{" "}
-                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno. Il problema
+                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno e il problema
                 non è il <span className="text-brand-corallo">mercato</span>.
               </h1>
               <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
                 Ottieni una consulenza gratuita
               </Link>
-              <p className="mt-4 text-sm text-brand-grigio">Solo 3 posti disponibili questo mese.</p>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md mx-auto">
               {allShowcase.map((c, idx) => (

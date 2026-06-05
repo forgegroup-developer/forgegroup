@@ -47,6 +47,8 @@ export type CaseStudy = {
   statusBadge?: string;
   /** Logo cliente (carousel, hub, contesto). Omesso se cliente non pubblicato */
   clientLogo?: string;
+  /** Variante ottimizzata per badge tondi (es. Rovi) */
+  clientLogoCircle?: string;
   clientLogoAlt?: string;
 };
 
@@ -171,13 +173,13 @@ export const caseStudies: CaseStudy[] = [
     sector: "Edilizia B2C",
     title: "Edilizia B2C: 4 clienti qualificati al mese senza pubblicità",
     shortTitle: "Edilizia B2C",
-    resultHeadline: "4 clienti qualificati al mese. Zero euro in pubblicità.",
+    resultHeadline: "4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerpt:
-      "Abbiamo trasformato Tetti Top, azienda edile a conduzione familiare che viveva di passaparola, in un sistema di acquisizione che porta 4 richieste qualificate al mese. Senza advertising a pagamento, e ancora attivo oggi.",
-    hubExcerpt: "Tetti Top: 4 clienti qualificati al mese, zero euro in advertising.",
-    excerptHighlights: ["4 clienti qualificati", "Zero euro", "azienda di famiglia"],
+      "Abbiamo trasformato Tetti Top, azienda edile a conduzione familiare che viveva di passaparola, in un sistema di acquisizione che porta 4 richieste qualificate al mese. Senza spendere un euro in pubblicità, e ancora attivo oggi.",
+    hubExcerpt: "Tetti Top: 4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
+    excerptHighlights: ["4 clienti qualificati", "senza pubblicità", "azienda di famiglia"],
     metaDescription:
-      "Caso studio Edilizia B2C: come Tetti Top, azienda a conduzione familiare, ha raggiunto 4 clienti qualificati al mese senza spendere in advertising, con preventivi fino a 175.000€ + IVA.",
+      "Caso studio Edilizia B2C: come Tetti Top, azienda a conduzione familiare, ha raggiunto 4 clienti qualificati al mese senza spendere un euro in pubblicità, con preventivi fino a 175.000€ + IVA.",
     context: [
       { label: "Settore", value: "Edilizia B2C" },
       { label: "Azienda", value: "Tetti Top" },
@@ -226,12 +228,12 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       { value: "4", label: "Clienti qualificati al mese", detail: "Media stabile, scala da azienda familiare" },
-      { value: "0€", label: "Investiti in advertising", detail: "Solo posizionamento organico" },
+      { value: "0€", label: "Investiti in pubblicità", detail: "Solo posizionamento organico" },
       { value: "175K€", label: "Preventivo più alto", detail: "Valore generato dal sistema (+ IVA)" },
       { value: "100%", label: "Agenda piena", detail: "Lavori a calendario bloccato" },
     ],
     quote: {
-      text: "4 clienti qualificati al mese, senza spendere un euro in advertising, solo grazie al posizionamento online. Trattative generate fino a 175.000€ + IVA. Un'azienda di famiglia che oggi lavora finalmente a calendario bloccato.",
+      text: "4 clienti qualificati al mese, senza spendere un euro in pubblicità, solo grazie al posizionamento online. Trattative generate fino a 175.000€ + IVA. Un'azienda di famiglia che oggi lavora finalmente a calendario bloccato.",
       author: "Edilizia B2C",
       role: "Tetti Top · Sistema Forge Group",
     },
@@ -260,9 +262,9 @@ export const caseStudies: CaseStudy[] = [
         after: "Solo clienti caldi, titolare e tecnico su appuntamenti mirati",
       },
       {
-        aspect: "Advertising",
+        aspect: "Pubblicità",
         before: "Nessun canale digitale strutturato",
-        after: "0€ in advertising: solo posizionamento organico",
+        after: "0€ in pubblicità: solo posizionamento organico",
       },
       {
         aspect: "Agenda",
@@ -517,6 +519,7 @@ export const caseStudies: CaseStudy[] = [
       "Titolari che vogliono occupazione da subito, non tra sei mesi",
       "Chi vuole una presenza online che continua a portare prenotazioni, non solo uno sprint iniziale",
     ],
+    ...caseStudyLogosBySlug["hotel-hospitality"],
   },
 ];
 

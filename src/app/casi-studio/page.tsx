@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import CaseStudyCarousel from "@/components/CaseStudyCarousel";
 import SectionHeader from "@/components/SectionHeader";
@@ -13,16 +12,7 @@ export const metadata: Metadata = {
 export default function CasiStudioHub() {
   return (
     <>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Casi Studio</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
-            Risultati <span className="text-brand-corallo">Dimostrabili</span>.
-          </h1>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28 section-bianco overflow-hidden border-t border-brand-bordo">
+      <section className="pt-16 pb-20 md:pt-24 md:pb-28 section-bianco overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Casi Studio"
@@ -36,13 +26,6 @@ export default function CasiStudioHub() {
           />
         </div>
         <CaseStudyCarousel />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center mt-10 md:mt-12">
-            <Link href="/contatti" className="btn-corallo">
-              Sono pronto per iniziare
-            </Link>
-          </div>
-        </div>
       </section>
     </>
   );

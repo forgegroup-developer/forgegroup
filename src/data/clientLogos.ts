@@ -10,7 +10,8 @@ export const clientLogos = {
   },
   rovi: {
     src: "/images/clienti/cliente-rovi.png",
-    alt: "ROVI Arredo Negozi",
+    circleSrc: "/images/clienti/cliente-rovi-circle.png",
+    alt: "Rovi arredo negozi",
   },
   sosAppalti: {
     src: "/images/clienti/cliente-sos-appalti.png",
@@ -19,6 +20,10 @@ export const clientLogos = {
   evaConsulting: {
     src: "/images/clienti/cliente-eva-consulting.png",
     alt: "EVA Consulting",
+  },
+  hotelDream: {
+    src: "/images/clienti/cliente-hotel-dream.png",
+    alt: "Dream Hotel",
   },
 } as const;
 
@@ -36,7 +41,12 @@ export const caseStudyLogosBySlug = {
   },
   "arredo-commerciale": {
     clientLogo: clientLogos.rovi.src,
+    clientLogoCircle: clientLogos.rovi.circleSrc,
     clientLogoAlt: clientLogos.rovi.alt,
+  },
+  "hotel-hospitality": {
+    clientLogo: clientLogos.hotelDream.src,
+    clientLogoAlt: clientLogos.hotelDream.alt,
   },
 } as const;
 
