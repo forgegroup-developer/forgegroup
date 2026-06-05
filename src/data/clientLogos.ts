@@ -30,6 +30,7 @@ export const clientLogos = {
 export const caseStudyLogosBySlug = {
   "software-b2b": {
     clientLogo: clientLogos.disa.src,
+    clientLogoFull: "/images/clienti/cliente-disa-full.png",
     clientLogoAlt: clientLogos.disa.alt,
     productLogo: clientLogos.sosAppalti.src,
     productLogoAlt: clientLogos.sosAppalti.alt,
@@ -41,10 +42,12 @@ export const caseStudyLogosBySlug = {
   },
   "arredo-commerciale": {
     clientLogo: clientLogos.rovi.src,
+    clientLogoFull: "/images/clienti/cliente-rovi-full.png",
     clientLogoAlt: clientLogos.rovi.alt,
   },
   "hotel-hospitality": {
     clientLogo: clientLogos.hotelDream.src,
+    clientLogoFull: "/images/clienti/cliente-hotel-dream-full.png",
     clientLogoAlt: clientLogos.hotelDream.alt,
   },
 } as const;

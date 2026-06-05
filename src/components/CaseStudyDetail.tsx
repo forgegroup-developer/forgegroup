@@ -21,7 +21,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="relative z-10 pt-16 pb-0 md:pt-24 section-coral border-b overflow-visible">
+      <section className="relative z-0 pt-16 pb-0 md:pt-24 section-coral border-b overflow-visible">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
           {showBackLink && (
             <Link
@@ -35,50 +35,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </Link>
           )}
 
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
-            <div className="min-w-0 flex-1">
-              <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-              <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
-            </div>
-
-            <div className="flex shrink-0 items-center justify-end gap-2.5 sm:pt-1">
-              <CaseStudyClientLogo
-                src="/logo-transparent.png"
-                alt="Forge Group"
-                variant="circle"
-                size="lg"
-              />
-              {c.clientLogo && (
-                <CaseStudyClientLogo
-                  src={c.clientLogo}
-                  alt={c.clientLogoAlt ?? c.shortTitle}
-                  variant="circle"
-                  size="lg"
-                />
-              )}
-            </div>
+          <div>
+            <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
+            <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
           </div>
         </div>
-
-        {/* Logo cliente grande — sborda nella sezione bianca sottostante */}
-        {!c.videoUrl && c.clientLogo && (
-          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* spacer = metà altezza del logo, così il logo è centrato sulla linea di separazione */}
-            <div className="relative h-20 sm:h-28 md:h-32 lg:h-36">
-              <div className="absolute bottom-0 right-0 translate-y-1/2 z-30">
-                <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(17,17,17,0.16)] p-4 sm:p-5 md:p-6">
-                  <CaseStudyClientLogo
-                    src={c.clientLogoFull ?? c.clientLogo!}
-                    alt={c.clientLogoAlt ?? clientName}
-                    variant="inline"
-                    size="3xl"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {c.videoUrl && (
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
@@ -95,16 +57,27 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </div>
           </div>
         )}
-        {!c.videoUrl && !c.clientLogo && <div className="pb-12 md:pb-16" />}
+        {!c.videoUrl && <div className="pb-12 md:pb-16" />}
       </section>
 
-      {/* CONTEXT — top padding = metà altezza logo + margine di respiro */}
-      <section className={`relative z-0 section-bianco border-b border-brand-bordo pb-14 ${c.clientLogo && !c.videoUrl ? "pt-24 sm:pt-32 md:pt-36 lg:pt-40" : "pt-10 md:pt-14"}`}>
+      {/* CONTEXT — logo grande a destra, sborda nell'hero corallo sopra */}
+      <section className="relative z-10 overflow-visible section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 md:mb-10">
-            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95] max-w-[55%]">
+          <div className="relative mb-8 md:mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95] sm:max-w-[50%]">
               {clientName}
             </h2>
+            {c.clientLogo && (
+              <div className="relative shrink-0 self-end -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-36 z-20">
+                <CaseStudyClientLogo
+                  src={c.clientLogo}
+                  alt={c.clientLogoAlt ?? clientName}
+                  variant="inline"
+                  size="3xl"
+                  className="drop-shadow-[0_4px_24px_rgba(17,17,17,0.12)]"
+                />
+              </div>
+            )}
           </div>
 
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>

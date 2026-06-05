@@ -15,7 +15,7 @@ const boxSizes = {
   lg: "h-16 w-44 md:h-[4.5rem] md:w-52",
   xl: "h-14 w-40 md:h-[4.25rem] md:w-[13.5rem]",
   "2xl": "h-24 w-52 sm:h-28 sm:w-60 md:h-32 md:w-72",
-  "3xl": "h-40 w-40 sm:h-52 sm:w-52 md:h-64 md:w-64 lg:h-72 lg:w-72",
+  "3xl": "h-28 w-56 sm:h-36 sm:w-72 md:h-44 md:w-[22rem] lg:h-52 lg:w-[26rem]",
 };
 
 const circleSizes = {
