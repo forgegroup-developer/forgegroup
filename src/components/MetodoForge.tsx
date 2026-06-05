@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 const fasi = [
   {
     letter: "F",
-    rest: "ormazione",
+    verticalLabel: "FORMAZIONE",
     title: "Formazione",
     description:
       "Partiamo da un percorso di consulenza e formazione per inquadrare il tuo modello di business, gli obiettivi reali e dove si rompe oggi la tua acquisizione clienti. Prima di agire, capiamo. Nessuna soluzione preconfezionata.",
@@ -11,7 +11,7 @@ const fasi = [
   },
   {
     letter: "O",
-    rest: "rganizzazione",
+    verticalLabel: "ORGANIZZAZIONE",
     title: "Organizzazione",
     description:
       "Sistemiamo le fondamenta: piattaforme, sito, contenuti, presenza online e processi interni. Mettiamo ordine dove oggi c'è improvvisazione, così la macchina è pronta a vendere prima ancora di accenderla.",
@@ -19,7 +19,7 @@ const fasi = [
   },
   {
     letter: "R",
-    rest: "eputazione",
+    verticalLabel: "REPUTAZIONE",
     title: "Reputazione",
     description:
       "Costruiamo posizionamento e riprova sociale: Google My Business, recensioni raccolte in modo continuo, presenza digitale coerente su tutte le piattaforme. È la fiducia che fa scattare il contatto, e di questa fiducia ci prendiamo la piena responsabilità.",
@@ -27,7 +27,7 @@ const fasi = [
   },
   {
     letter: "G",
-    rest: "estione",
+    verticalLabel: "GESTIONE",
     title: "Gestione",
     description:
       "Gestiamo il flusso: pre-qualifica dei contatti, follow-up, supporto alla vendita e CRM. I potenziali clienti non si limitano ad arrivare: li accompagniamo fino a diventare prenotazioni, appuntamenti, contratti.",
@@ -35,7 +35,7 @@ const fasi = [
   },
   {
     letter: "E",
-    rest: "conomia",
+    verticalLabel: "ECONOMIA",
     title: "Economia",
     description:
       "Misuriamo tutto in termini economici: più clienti, più margine, crescita prevedibile e scalabile. L'obiettivo non è \"fare marketing\": è far crescere il tuo fatturato in modo concreto e sostenibile nel tempo.",
@@ -90,35 +90,26 @@ export default function MetodoForge({
                   >
                     {fase.letter}
                   </span>
-                  <span
-                    className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase opacity-55 self-center [writing-mode:vertical-rl] rotate-180 ${
-                      coral ? "text-white/70" : "text-brand-grigio"
-                    }`}
-                  >
-                    {fase.rest}
+                  <span className="hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 text-brand-nero">
+                    {fase.verticalLabel}
                   </span>
                 </div>
 
                 <div>
-                  <h3
-                    className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
-                      coral ? "text-white" : "text-brand-nero"
-                    }`}
-                  >
+                  <h3 className="font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 !text-brand-corallo">
                     {fase.title}
                   </h3>
                   <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>
                     {fase.description}
                   </p>
                   <span
-                    className={`inline-flex items-center gap-2 mt-4 text-[13.5px] font-semibold px-4 py-1.5 rounded-full ${
+                    className={`inline-flex w-fit items-center gap-1.5 mt-4 rounded-full border-2 bg-transparent px-5 py-2.5 text-sm font-bold normal-case shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 ${
                       coral
-                        ? "text-white bg-white/10"
-                        : "text-brand-corallo-dark bg-brand-pesca-light"
+                        ? "border-white text-white hover:bg-white/10"
+                        : "border-brand-corallo text-brand-corallo"
                     }`}
                   >
-                    Per te:{" "}
-                    <strong className={coral ? "text-white" : "text-brand-nero"}>{fase.takeaway}</strong>
+                    Per te: {fase.takeaway}
                   </span>
                 </div>
               </article>
@@ -126,17 +117,6 @@ export default function MetodoForge({
           ))}
         </div>
 
-        <Reveal delay={1}>
-          <p
-            className={`text-center font-display font-bold text-[clamp(1.2rem,2vw,1.6rem)] leading-snug max-w-2xl mx-auto mt-14 md:mt-16 ${
-              coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"
-            }`}
-          >
-            Cinque fasi, un solo obiettivo: trasformarti da azienda che{" "}
-            <span className="text-brand-corallo">rincorre</span> i clienti ad azienda che li{" "}
-            <span className="text-brand-corallo">sceglie</span>.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
