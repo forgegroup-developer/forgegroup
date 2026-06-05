@@ -317,7 +317,7 @@ export default function IntroLoader() {
           color: "rgba(255,255,255,0.35)",
         }}
       >
-        Growth Hacking · Italia
+        Acquisizione clienti · B2B
       </div>
     </div>
   );
