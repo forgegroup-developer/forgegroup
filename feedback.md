@@ -46,8 +46,9 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Card, form, navbar e pill interne restano bianco pieno dove serve contrasto
 
 **Punteggiatura italiana (regola fissa):**
-- **Mai usare il trattino** (`-` o `—`) come punteggiatura nelle frasi
-- Al suo posto: virgola, due punti, punto o parentesi
+- **Mai usare il trattino** (`-` o `—`) come punteggiatura nelle frasi: è un pattern tipico dell'IA e suona innaturale in italiano
+- Al suo posto: virgola, due punti, punto o parentesi (es. *"Stai crescendo, o stai solo lavorando di più?"* non *"Stai crescendo — o stai..."*)
+- Vale per copy sito, FAQ, casi studio, blog e CTA
 - Per titoli SEO e separatori: usare `|` (es. `Forge Group | Servizi`)
 - Per elenchi numerati servizi: usare il punto medio `·` (es. `01 · Acquisizione Clienti`)
 - Per intervalli: `da X a Y` o `tra X e Y` (es. `da 1.500€ a 2.500€ / mese`)

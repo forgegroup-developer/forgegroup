@@ -12,7 +12,7 @@ type ServiziTab = {
   id: string;
   number: string;
   title: string;
-  intro: string;
+  intro: React.ReactNode;
   points: ServiziTabPoint[];
 };
 
@@ -21,18 +21,35 @@ const serviziTabs: ServiziTab[] = [
     id: "acquisizione",
     number: "01",
     title: "Acquisizione Clienti",
-    intro: "La tua azienda dipende ancora solo dal passaparola?",
+    intro: (
+      <>
+        La tua azienda dipende ancora solo dal <span>passaparola</span>?
+      </>
+    ),
     points: [
       {
-        title: "Hai solo contatti poco interessati che cliccano per sbaglio sulle tue inserzioni?",
+        title: (
+          <>
+            Hai solo <span>contatti poco interessati</span> che cliccano per sbaglio sulle tue{" "}
+            <span>inserzioni</span>?
+          </>
+        ),
         body: "Pensiamo noi a migliorare la tua comunicazione e a creare campagne di lead generation altamente performanti.",
       },
       {
-        title: "Stai pagando pubblicità senza sapere quante richieste serie ti porta?",
-        body: "Creiamo sistemi per acquisire nuovi clienti — non click, non curiosi.",
+        title: (
+          <>
+            Stai pagando <span>pubblicità</span> senza sapere quante <span>richieste serie</span> ti porta?
+          </>
+        ),
+        body: "Ti portiamo nuovi clienti pronti ad acquistare, non persone che cercano informazioni gratuite.",
       },
       {
-        title: "I tuoi contenuti portano visibilità, ma non appuntamenti in agenda?",
+        title: (
+          <>
+            I tuoi <span>contenuti</span> portano <span>visibilità</span>, ma non <span>appuntamenti</span> in agenda?
+          </>
+        ),
         body: "Costruiamo comunicazione che genera contatti pronti a parlare col tuo commerciale.",
       },
     ],
@@ -41,19 +58,36 @@ const serviziTabs: ServiziTab[] = [
     id: "vendite",
     number: "02",
     title: "Processi di Vendita",
-    intro: "Ricevi richieste, ma quante diventano davvero contratti?",
+    intro: (
+      <>
+        Ricevi <span>richieste</span>, ma quante diventano davvero <span>contratti</span>?
+      </>
+    ),
     points: [
       {
-        title: "Il tuo commerciale perde tempo con persone che non hanno budget o non sono in target?",
+        title: (
+          <>
+            Il tuo <span>commerciale</span> perde tempo con persone che non hanno <span>budget</span> o non sono in{" "}
+            <span>target</span>?
+          </>
+        ),
         body: "Prequalifichiamo i contatti con materiale commerciale mirato, così al telefono arrivano solo persone allineate.",
       },
       {
-        title: "Fai fatica a trovare commerciali?",
-        body: "Li troviamo noi per te.",
+        title: (
+          <>
+            La tua azienda fa fatica a trovare <span>nuovi commerciali</span>?
+          </>
+        ),
+        body: "Mettiamo a disposizione i nostri commerciali o ne reclutiamo di nuovi per il tuo team.",
       },
       {
-        title: "O quelli che hai non performano?",
-        body: "Li formiamo noi per te.",
+        title: (
+          <>
+            I tuoi <span>commerciali</span> non <span>performano</span>?
+          </>
+        ),
+        body: "Creiamo un percorso di formazione ad hoc per la tua azienda e li formiamo noi!",
       },
     ],
   },
@@ -61,19 +95,37 @@ const serviziTabs: ServiziTab[] = [
     id: "consulenza",
     number: "03",
     title: "Consulenza & Formazione",
-    intro: "Stai crescendo — o stai solo lavorando di più?",
+    intro: (
+      <>
+        Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?
+      </>
+    ),
     points: [
       {
-        title: "Stai facendo tutto da solo, sei stanco e non hai tempo per il troppo lavoro?",
+        title: (
+          <>
+            Stai facendo <span>tutto da solo</span>, sei <span>stanco</span> e non hai <span>tempo</span> per il troppo
+            lavoro?
+          </>
+        ),
         body: "Lavoriamo sui processi per liberare ore lavorative che puoi investire in altro.",
       },
       {
-        title: "Hai bisogno di indicazioni su che strada deve prendere il tuo modello di business?",
-        body: "Te la diamo noi.",
+        title: (
+          <>
+            Hai bisogno di <span>indicazioni</span> su che <span>strada</span> deve prendere il tuo{" "}
+            <span>modello di business</span>?
+          </>
+        ),
+        body: "Ti offriamo un percorso di consulenze con i nostri esperti per darti chiarezza e scegliere finalmente la strada da seguire per far crescere la tua attività.",
       },
       {
-        title: "Decidi a sensazione perché non sai quali numeri guardare?",
-        body: "Ti diamo chiarezza su dati, priorità e piano di crescita.",
+        title: (
+          <>
+            Decidi a <span>sensazione</span> perché non sai quali <span>numeri</span> guardare?
+          </>
+        ),
+        body: "Ti diamo chiarezza su dati, priorità e creiamo un piano di crescita.",
       },
     ],
   },
@@ -193,9 +245,7 @@ export default function ServiziHub() {
                 Riconosci qualcuno di questi <span>problemi</span>?
               </>
             }
-            subtitle="Ogni domanda nasconde un'opportunità di crescita. Noi costruiamo il sistema che la trasforma in fatturato."
             maxWidth="4xl"
-            subtitleMaxWidth="3xl"
           />
 
           <div className="space-y-6 md:space-y-8">
