@@ -185,13 +185,9 @@ export default function ServiziHub() {
       <section className="py-16 md:py-24 section-coral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 copy-on-coral">
-            <h2 className="heading-section font-semibold leading-tight mb-4">
+            <h2 className="heading-section font-semibold leading-tight">
               Un <span>sistema</span> unico. Tre <span>ingranaggi</span> che lavorano insieme.
             </h2>
-            <p className="body-lg text-white/90">
-              Ogni pezzo serve. Nessuno funziona da solo. Insieme portano risultati che si misurano in{" "}
-              <span className="text-brand-pesca-light font-semibold">euro</span>, non in like.
-            </p>
           </div>
 
           <div className="space-y-8 md:space-y-10">
