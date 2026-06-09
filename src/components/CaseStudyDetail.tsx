@@ -72,9 +72,8 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 <CaseStudyClientLogo
                   src={c.clientLogo}
                   alt={c.clientLogoAlt ?? clientName}
-                  variant="inline"
+                  variant="card"
                   size="3xl"
-                  className="drop-shadow-[0_4px_24px_rgba(17,17,17,0.12)]"
                 />
               </div>
             )}

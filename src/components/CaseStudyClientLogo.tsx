@@ -3,8 +3,8 @@ import Image from "next/image";
 type Props = {
   src: string;
   alt: string;
-  /** overlay = rettangolo su foto · circle = badge tondo · hero = corallo · inline = sezioni bianche */
-  variant?: "overlay" | "circle" | "hero" | "inline";
+  /** overlay = rettangolo su foto · circle = badge tondo · hero = corallo · inline = senza sfondo · card = riquadro bianco */
+  variant?: "overlay" | "circle" | "hero" | "inline" | "card";
   className?: string;
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 };
@@ -76,10 +76,8 @@ export default function CaseStudyClientLogo({
         ? "drop-shadow-md"
         : "";
 
-  return (
-    <div
-      className={`relative inline-flex items-center justify-center shrink-0 ${boxSizes[size]} ${className}`}
-    >
+  const imageBox = (
+    <div className={`relative inline-flex items-center justify-center shrink-0 ${boxSizes[size]}`}>
       <Image
         src={src}
         alt={alt}
@@ -90,4 +88,16 @@ export default function CaseStudyClientLogo({
       />
     </div>
   );
+
+  if (variant === "card") {
+    return (
+      <div
+        className={`inline-flex shrink-0 rounded-2xl border border-brand-bordo bg-white p-4 md:p-5 lg:p-6 shadow-lg shadow-black/10 ${className}`}
+      >
+        {imageBox}
+      </div>
+    );
+  }
+
+  return <div className={className}>{imageBox}</div>;
 }
