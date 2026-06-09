@@ -10,7 +10,7 @@ export type ServiziTabPoint = {
 type Props = {
   id: string;
   number: string;
-  title: string;
+  title: ReactNode;
   intro: ReactNode;
   points: ServiziTabPoint[];
 };
@@ -47,11 +47,11 @@ export default function ServiziTabCard({ id, number, title, intro, points }: Pro
           <div className="flex flex-col justify-between gap-8 border-b border-brand-bordo p-8 md:p-10 lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
             <Reveal delay={0} y={20} duration={0.8}>
               <div>
-                <div className="flex items-end gap-4">
+                <div>
                   <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
                     {number}
                   </span>
-                  <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-nero leading-tight pb-1">
+                  <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3">
                     {title}
                   </h2>
                 </div>
@@ -63,7 +63,7 @@ export default function ServiziTabCard({ id, number, title, intro, points }: Pro
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="btn-ghost inline-flex w-full sm:w-fit items-center justify-center gap-2.5 px-6 py-3 text-sm normal-case tracking-normal"
+                className="btn-ghost-coral inline-flex w-full sm:w-fit items-center justify-center gap-2.5 px-6 py-3 text-sm normal-case tracking-normal"
               >
                 Ottieni una consulenza gratuita
                 <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

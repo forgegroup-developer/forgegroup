@@ -11,7 +11,7 @@ import { heroShowcaseImages } from "@/data/images";
 type ServiziTab = {
   id: string;
   number: string;
-  title: string;
+  title: React.ReactNode;
   intro: React.ReactNode;
   points: ServiziTabPoint[];
 };
@@ -94,7 +94,7 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "consulenza",
     number: "03",
-    title: "Consulenza & Formazione",
+    title: "Consulenza e Formazione",
     intro: (
       <>
         Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?
