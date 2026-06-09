@@ -20,19 +20,19 @@ const serviziTabs: ServiziTab[] = [
     id: "acquisizione",
     number: "01",
     title: "Acquisizione Clienti",
-    intro: "Se i clienti giusti non ti trovano, stai lasciando soldi sul tavolo ogni giorno.",
+    intro: "La tua azienda dipende ancora solo dal passaparola?",
     points: [
       {
-        title: "Ogni euro in advertising deve portare contatti già qualificati.",
-        body: "Campagne Meta e Google ottimizzate alla conversione. Persone con un problema reale, che cercano una soluzione e sono disposte a pagare per averla.",
+        title: "Hai solo contatti poco interessati che cliccano per sbaglio sulle tue inserzioni?",
+        body: "Pensiamo noi a migliorare la tua comunicazione e a creare campagne di lead generation altamente performanti.",
       },
       {
-        title: "Funnel e lead generation profilati sul tuo cliente ideale.",
-        body: "Non visibilità generica. Non follower. Richieste reali da persone reali, filtrate prima ancora che parlino col tuo commerciale.",
+        title: "Stai pagando pubblicità senza sapere quante richieste serie ti porta?",
+        body: "Creiamo sistemi per acquisire nuovi clienti — non click, non curiosi.",
       },
       {
-        title: "I tuoi contenuti vendono, o fanno solo brand?",
-        body: "Social media e contenuti orientati alla conversione, non alla visibilità fine a se stessa.",
+        title: "I tuoi contenuti portano visibilità, ma non appuntamenti in agenda?",
+        body: "Costruiamo comunicazione che genera contatti pronti a parlare col tuo commerciale.",
       },
     ],
   },
@@ -40,19 +40,19 @@ const serviziTabs: ServiziTab[] = [
     id: "vendite",
     number: "02",
     title: "Processi di Vendita",
-    intro: "Avere richieste non basta. Il problema è quante ne stai perdendo dopo il primo contatto.",
+    intro: "Ricevi richieste, ma quante diventano davvero contratti?",
     points: [
       {
-        title: "Quante opportunità stai perdendo per mancanza di processo?",
-        body: "La maggior parte delle aziende perde il 60% delle opportunità non per il prodotto, ma per assenza di follow-up, script e CRM. Solo improvvisazione.",
+        title: "Il tuo commerciale perde tempo con persone che non hanno budget o non sono in target?",
+        body: "Prequalifichiamo i contatti con materiale commerciale mirato, così al telefono arrivano solo persone allineate.",
       },
       {
-        title: "Il tuo commerciale sa esattamente cosa dire e come chiudere?",
-        body: "Audit commerciale, script di vendita, gestione obiezioni e CRM personalizzato per chiudere più contratti con le stesse richieste che già ricevi.",
+        title: "Fai fatica a trovare commerciali?",
+        body: "Li troviamo noi per te.",
       },
       {
-        title: "Ogni lead riceve un follow-up strutturato fino alla firma?",
-        body: "Follow-up strutturato, affiancamento e formazione al reparto commerciale: non un corso e via, ma un processo che resta.",
+        title: "O quelli che hai non performano?",
+        body: "Li formiamo noi per te.",
       },
     ],
   },
@@ -60,19 +60,19 @@ const serviziTabs: ServiziTab[] = [
     id: "consulenza",
     number: "03",
     title: "Consulenza & Formazione",
-    intro: "Lavorare di più non è una strategia. È esaurimento con un altro nome.",
+    intro: "Stai crescendo — o stai solo lavorando di più?",
     points: [
       {
-        title: "Stai crescendo, o stai solo lavorando di più?",
-        body: "Se cresci senza sapere perché, o lavori tanto senza crescere, hai bisogno di metodo, non di motivazione. Strategia di marketing e acquisizione su misura.",
+        title: "Stai facendo tutto da solo, sei stanco e non hai tempo per il troppo lavoro?",
+        body: "Lavoriamo sui processi per liberare ore lavorative che puoi investire in altro.",
       },
       {
-        title: "Sai quali numeri guardare per capire se stai andando nella direzione giusta?",
-        body: "Report e analisi dati mensili, pianificazione della crescita aziendale. Smetti di decidere a sensazione, inizia a decidere con i dati.",
+        title: "Hai bisogno di indicazioni su che strada deve prendere il tuo modello di business?",
+        body: "Te la diamo noi.",
       },
       {
-        title: "Il tuo team ha una direzione chiara per i prossimi mesi?",
-        body: "Formazione continua su vendita, marketing e gestione. Restiamo al tuo fianco mentre percorri la direzione che costruiamo insieme.",
+        title: "Decidi a sensazione perché non sai quali numeri guardare?",
+        body: "Ti diamo chiarezza su dati, priorità e piano di crescita.",
       },
     ],
   },
@@ -186,7 +186,7 @@ export default function ServiziHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 copy-on-coral">
             <h2 className="heading-section font-semibold leading-tight">
-              Un <span>sistema</span> unico. Tre <span>ingranaggi</span> che lavorano insieme.
+              Riconosci qualcuno di questi <span>problemi</span>?
             </h2>
           </div>
 
