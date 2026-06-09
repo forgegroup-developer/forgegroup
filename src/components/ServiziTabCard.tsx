@@ -61,7 +61,7 @@ export default function ServiziTabCard({
                 <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
                   {number}
                 </span>
-                <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3">
+                <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3 [&_span]:text-inherit">
                   {title}
                 </h2>
                 <div className="my-5 border-t border-brand-bordo" aria-hidden />
@@ -84,15 +84,10 @@ export default function ServiziTabCard({
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="btn-ghost-coral mt-6 inline-flex w-full shrink-0 items-center justify-between gap-3 px-6 py-3 text-sm normal-case tracking-normal sm:w-full"
+                className="mt-6 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs"
               >
-                <span className="flex flex-col items-start leading-tight text-left">
-                  <span className="text-sm font-bold uppercase tracking-wide">Ottieni</span>
-                  <span className="text-xs font-semibold normal-case tracking-normal opacity-90">
-                    una consulenza gratuita
-                  </span>
-                </span>
-                <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                Ottieni una consulenza gratuita
+                <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
