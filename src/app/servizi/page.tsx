@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
+import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
 import { heroShowcaseImages } from "@/data/images";
@@ -184,13 +185,20 @@ export default function ServiziHub() {
       {/* TRE SERVIZI — layout originale, copy LP */}
       <section className="py-16 md:py-24 section-coral">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 copy-on-coral">
-            <h2 className="heading-section font-semibold leading-tight">
-              Riconosci qualcuno di questi <span>problemi</span>?
-            </h2>
-          </div>
+          <SectionHeader
+            onCoral
+            eyebrow="Come lavoriamo"
+            title={
+              <>
+                Riconosci qualcuno di questi <span>problemi</span>?
+              </>
+            }
+            subtitle="Ogni domanda nasconde un'opportunità di crescita. Noi costruiamo il sistema che la trasforma in fatturato."
+            maxWidth="4xl"
+            subtitleMaxWidth="3xl"
+          />
 
-          <div className="space-y-8 md:space-y-10">
+          <div className="space-y-6 md:space-y-8">
             {serviziTabs.map((tab) => (
               <ServiziTabCard key={tab.id} {...tab} />
             ))}

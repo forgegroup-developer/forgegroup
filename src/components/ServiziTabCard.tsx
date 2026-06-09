@@ -17,9 +17,19 @@ type Props = {
 function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 | 3 }) {
   return (
     <Reveal delay={delay} y={18} duration={0.85}>
-      <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-panna/80 p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/45 hover:shadow-lg hover:shadow-brand-corallo/10">
-        <p className="font-semibold text-brand-nero mb-2 leading-snug">{title}</p>
-        <p className="text-brand-grigio leading-relaxed text-[15px]">{body}</p>
+      <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-corallo/50 hover:shadow-lg hover:shadow-brand-corallo/10">
+        <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight">
+          {title}
+        </p>
+        <div className="mt-4 flex items-start gap-3 border-t border-brand-pesca/40 pt-4">
+          <span
+            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-corallo/10 text-brand-corallo text-sm font-bold"
+            aria-hidden
+          >
+            ✦
+          </span>
+          <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">{body}</p>
+        </div>
       </div>
     </Reveal>
   );
@@ -30,39 +40,33 @@ export default function ServiziTabCard({ id, number, title, intro, points }: Pro
     <Reveal y={32} duration={1}>
       <article
         id={id}
-        className="scroll-mt-28 overflow-hidden rounded-3xl border border-brand-bordo/80 bg-brand-bianco shadow-xl shadow-brand-nero/5 transition-shadow duration-500 hover:shadow-2xl hover:shadow-brand-corallo/10"
+        className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
       >
-        <div className="flex flex-col lg:flex-row lg:min-h-[320px]">
-          <div className="flex flex-col justify-between gap-6 border-b border-brand-bordo p-8 md:p-10 lg:w-[min(100%,340px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/40">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex flex-col justify-between gap-8 border-b border-brand-bordo p-8 md:p-10 lg:w-[min(100%,360px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
             <Reveal delay={0} y={20} duration={0.8}>
               <div>
-                <span className="text-brand-corallo font-bold text-sm uppercase tracking-[0.2em]">
-                  {number}
+                <span className="text-brand-corallo font-bold text-xs uppercase tracking-[0.22em]">
+                  {number} · {title}
                 </span>
-                <h2 className="heading-section !text-brand-nero mt-3 mb-4 leading-tight">{title}</h2>
-                <p className="body-lg !text-brand-grigio">{intro}</p>
+                <p className="font-display text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold text-brand-nero mt-5 leading-snug tracking-tight">
+                  {intro}
+                </p>
               </div>
             </Reveal>
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="inline-flex w-full sm:w-fit items-center justify-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10"
+                className="btn-corallo inline-flex w-full sm:w-fit items-center justify-center px-6 py-3 text-sm"
               >
                 Ottieni una consulenza gratuita
               </Link>
             </Reveal>
           </div>
 
-          <div className="grid flex-1 gap-4 p-6 md:gap-5 md:p-8 sm:grid-cols-2 content-center">
+          <div className="flex flex-1 flex-col gap-4 p-6 md:gap-5 md:p-8 lg:py-10">
             {points.map((point, idx) => (
-              <div
-                key={point.title}
-                className={
-                  idx === points.length - 1 && points.length % 2 !== 0 ? "sm:col-span-2" : undefined
-                }
-              >
-                <PointCard {...point} delay={(Math.min(idx, 3)) as 0 | 1 | 2 | 3} />
-              </div>
+              <PointCard key={point.title} {...point} delay={(Math.min(idx, 3)) as 0 | 1 | 2 | 3} />
             ))}
           </div>
         </div>
