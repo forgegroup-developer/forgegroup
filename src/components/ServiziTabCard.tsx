@@ -71,12 +71,12 @@ export default function ServiziTabCard({
               </div>
             </Reveal>
 
-            <div className="relative mt-6 min-h-[120px] flex-1 md:min-h-[160px]">
+            <div className="relative mt-4 min-h-[220px] flex-1 sm:min-h-[260px] lg:min-h-[300px]">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
                 fill
-                className="pointer-events-none object-contain object-bottom"
+                className="pointer-events-none object-contain object-bottom scale-[1.18] origin-bottom"
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
             </div>
