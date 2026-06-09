@@ -246,7 +246,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - **Titolo:** "Riconosci qualcuno di questi problemi?"
 - 01 Acquisizione Clienti / 02 Processi di Vendita / 03 Consulenza e Formazione
 - **Sidebar card:** numero grande corallo, titolo servizio corallo, divisorio, domanda intro con keyword corallo, foto imprenditore PNG scontornato nello spazio centrale sopra CTA, pulsante glass corallo su due righe (*Ottieni* / *una consulenza gratuita*) con freccia
-- **Asset sidebar:** `public/images/servizi/imprenditore-{acquisizione,vendite,consulenza}.png` (3 immagini IA distinte, stile fotografico realistico)
+- **Asset sidebar:** PNG scontornati in `public/images/servizi/` (`imprenditore-acquisizione`, `imprenditore-vendite`, `imprenditrice-consulenza`). Ogni immagine deve rispecchiare la domanda intro sopra (es. consulenza: imprenditrice stanca, «stai crescendo o lavorando di più?»). Sfondo piatto uniforme in generazione, niente oggetti che sovrappongono il corpo, per facilitare rembg.
 - Colonna destra: card domanda + reframe (pattern domanda → risposta breve)
 - Anchor: `#acquisizione`, `#vendite`, `#consulenza`
 

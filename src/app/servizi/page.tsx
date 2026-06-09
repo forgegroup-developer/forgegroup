@@ -106,7 +106,7 @@ const serviziTabs: ServiziTab[] = [
       </>
     ),
     imageSrc: serviziSidebarImages.consulenza,
-    imageAlt: "Imprenditore B2B stanco e sopraffatto dal lavoro quotidiano",
+    imageAlt: "Imprenditrice stanca e sovraccarica dal lavorare troppo senza crescere",
     intro: (
       <>
         Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?
