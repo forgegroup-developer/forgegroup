@@ -27,6 +27,12 @@ export const heroShowcaseImages = {
   formazioneCommerciale: "/images/hero/hero-formazione-commerciale.png",
 } as const;
 
+export const serviziSidebarImages = {
+  acquisizione: "/images/servizi/imprenditore-acquisizione.png",
+  vendite: "/images/servizi/imprenditore-vendite.png",
+  consulenza: "/images/servizi/imprenditore-consulenza.png",
+} as const;
+
 export function getCaseStudyImage(slug: string): string {
   return caseStudyImages[slug] ?? "/images/casi-studio/software-b2b.jpg";
 }

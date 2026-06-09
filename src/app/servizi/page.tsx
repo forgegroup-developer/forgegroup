@@ -6,13 +6,15 @@ import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import { heroShowcaseImages } from "@/data/images";
+import { heroShowcaseImages, serviziSidebarImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
   number: string;
   title: React.ReactNode;
   intro: React.ReactNode;
+  imageSrc: string;
+  imageAlt: string;
   points: ServiziTabPoint[];
 };
 
@@ -21,6 +23,8 @@ const serviziTabs: ServiziTab[] = [
     id: "acquisizione",
     number: "01",
     title: "Acquisizione Clienti",
+    imageSrc: serviziSidebarImages.acquisizione,
+    imageAlt: "Imprenditore B2B dubbioso sulla acquisizione di nuovi clienti",
     intro: (
       <>
         La tua azienda dipende ancora solo dal <span>passaparola</span>?
@@ -58,6 +62,8 @@ const serviziTabs: ServiziTab[] = [
     id: "vendite",
     number: "02",
     title: "Processi di Vendita",
+    imageSrc: serviziSidebarImages.vendite,
+    imageAlt: "Imprenditore B2B frustrato dai processi di vendita e dal team commerciale",
     intro: (
       <>
         Ricevi <span>richieste</span>, ma quante diventano davvero <span>contratti</span>?
@@ -94,7 +100,13 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "consulenza",
     number: "03",
-    title: "Consulenza e Formazione",
+    title: (
+      <>
+        Consulenza <span className="whitespace-nowrap">e Formazione</span>
+      </>
+    ),
+    imageSrc: serviziSidebarImages.consulenza,
+    imageAlt: "Imprenditore B2B stanco e sopraffatto dal lavoro quotidiano",
     intro: (
       <>
         Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?

@@ -243,9 +243,11 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - **Chiusura:** "Non è colpa tua. Nessuno ti ha mai costruito un sistema vero. Noi lo facciamo."
 
 ### Sezione 3: I tre servizi
-- **Titolo:** "Un sistema unico. Tre ingranaggi che lavorano insieme."
-- 01 Acquisizione Clienti / 02 Processi di Vendita / 03 Consulenza & Formazione
-- Ogni blocco: headline, body, card con domande
+- **Titolo:** "Riconosci qualcuno di questi problemi?"
+- 01 Acquisizione Clienti / 02 Processi di Vendita / 03 Consulenza e Formazione
+- **Sidebar card:** numero grande corallo, titolo servizio corallo, divisorio, domanda intro con keyword corallo, foto imprenditore PNG scontornato nello spazio centrale sopra CTA, pulsante glass corallo su due righe (*Ottieni* / *una consulenza gratuita*) con freccia
+- **Asset sidebar:** `public/images/servizi/imprenditore-{acquisizione,vendite,consulenza}.png` (3 immagini IA distinte, stile fotografico realistico)
+- Colonna destra: card domanda + reframe (pattern domanda → risposta breve)
 - Anchor: `#acquisizione`, `#vendite`, `#consulenza`
 
 ### Sezione 4: Prova sociale

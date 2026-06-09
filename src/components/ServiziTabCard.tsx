@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
@@ -12,6 +13,8 @@ type Props = {
   number: string;
   title: ReactNode;
   intro: ReactNode;
+  imageSrc: string;
+  imageAlt: string;
   points: ServiziTabPoint[];
 };
 
@@ -36,7 +39,15 @@ function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 
   );
 }
 
-export default function ServiziTabCard({ id, number, title, intro, points }: Props) {
+export default function ServiziTabCard({
+  id,
+  number,
+  title,
+  intro,
+  imageSrc,
+  imageAlt,
+  points,
+}: Props) {
   return (
     <Reveal y={32} duration={1}>
       <article
@@ -44,29 +55,44 @@ export default function ServiziTabCard({ id, number, title, intro, points }: Pro
         className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
       >
         <div className="flex flex-col lg:flex-row">
-          <div className="flex flex-col justify-between gap-8 border-b border-brand-bordo p-8 md:p-10 lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
+          <div className="flex min-h-[520px] flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[580px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
             <Reveal delay={0} y={20} duration={0.8}>
               <div>
-                <div>
-                  <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
-                    {number}
-                  </span>
-                  <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3">
-                    {title}
-                  </h2>
-                </div>
-                <p className="font-display text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold text-brand-nero mt-6 leading-snug tracking-tight [&_span]:text-brand-corallo">
+                <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
+                  {number}
+                </span>
+                <h2 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3">
+                  {title}
+                </h2>
+                <div className="my-5 border-t border-brand-bordo" aria-hidden />
+                <p className="font-display text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo">
                   {intro}
                 </p>
               </div>
             </Reveal>
+
+            <div className="relative mt-6 min-h-[120px] flex-1 md:min-h-[160px]">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="pointer-events-none object-contain object-bottom"
+                sizes="(max-width: 1024px) 100vw, 400px"
+              />
+            </div>
+
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="btn-ghost-coral inline-flex w-full sm:w-fit items-center justify-center gap-2.5 px-6 py-3 text-sm normal-case tracking-normal"
+                className="btn-ghost-coral mt-6 inline-flex w-full shrink-0 items-center justify-between gap-3 px-6 py-3 text-sm normal-case tracking-normal sm:w-full"
               >
-                Ottieni una consulenza gratuita
-                <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <span className="flex flex-col items-start leading-tight text-left">
+                  <span className="text-sm font-bold uppercase tracking-wide">Ottieni</span>
+                  <span className="text-xs font-semibold normal-case tracking-normal opacity-90">
+                    una consulenza gratuita
+                  </span>
+                </span>
+                <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
