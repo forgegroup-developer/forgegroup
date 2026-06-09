@@ -30,7 +30,7 @@ export const heroShowcaseImages = {
 export const serviziSidebarImages = {
   acquisizione: "/images/servizi/imprenditore-acquisizione.png",
   vendite: "/images/servizi/imprenditore-vendite.png",
-  consulenza: "/images/servizi/imprenditore-consulenza.png",
+  consulenza: "/images/servizi/segretaria-consulenza.png",
 } as const;
 
 export function getCaseStudyImage(slug: string): string {
