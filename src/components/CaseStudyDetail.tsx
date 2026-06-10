@@ -22,45 +22,47 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="relative z-0 pt-16 pb-0 md:pt-24 section-coral border-b overflow-visible">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
+      <section className="relative z-0 overflow-hidden border-b border-brand-bordo bg-brand-nero">
+        <div className="absolute inset-0" aria-hidden>
+          <Image
+            src={getCaseStudyImage(c.slug)}
+            alt=""
+            fill
+            className="object-cover object-center opacity-35"
+            style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
+            sizes="100vw"
+            quality={95}
+            unoptimized
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-nero via-brand-nero/90 to-brand-nero/55" />
+          <div className="absolute inset-0 bg-brand-nero/40" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-12 pt-16 sm:px-6 md:pb-16 md:pt-24 lg:px-8">
           {showBackLink && (
             <Link
               href="/#casi-studio"
-              className="inline-flex items-center gap-2 text-sm link-coral mb-6 hover:underline"
+              className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-brand-pesca-light hover:underline"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Tutti i casi studio
             </Link>
           )}
 
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-            <div>
-              <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-              <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
-              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
-            </div>
-
-            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/25 bg-brand-panna shadow-[0_16px_48px_rgba(17,17,17,0.2)] md:rounded-3xl">
-              <Image
-                src={getCaseStudyImage(c.slug)}
-                alt={c.shortTitle}
-                fill
-                className="object-contain object-center"
-                style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={95}
-                unoptimized
-                priority
-              />
-            </div>
+          <div className="max-w-3xl">
+            <p className="mb-6 text-xs font-bold uppercase tracking-widest text-brand-pesca-light">
+              ✦ {c.sector}
+            </p>
+            <h1 className="heading-hero mb-6 font-semibold leading-tight text-white">{c.resultHeadline}</h1>
+            <p className="text-xl leading-relaxed text-white/85 md:text-2xl">{c.excerpt}</p>
           </div>
         </div>
 
         {c.videoUrl && (
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16">
+          <div className="relative z-10 mx-auto max-w-4xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
             <div className="rounded-3xl overflow-hidden border border-white/20 shadow-lg bg-brand-nero">
               <video
                 controls
@@ -76,7 +78,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         )}
       </section>
 
-      {/* CONTEXT — logo grande a destra, sborda nell'hero corallo sopra */}
+      {/* CONTEXT — logo grande a destra, sborda nell'hero sopra */}
       <section className="relative z-10 overflow-visible section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative mb-8 md:mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
