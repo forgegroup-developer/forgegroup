@@ -25,6 +25,7 @@ const team = [
     name: "Nicandro Grande",
     forgeRole: "Partner",
     role: "Direttore Commerciale & Sales Process",
+    photo: "/images/team/foto-nicandro.png",
   },
 ];
 
