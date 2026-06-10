@@ -6,20 +6,17 @@ export const caseStudyImages: Record<string, string> = {
   "hotel-hospitality": "/images/casi-studio/hotel-hospitality.jpg",
 };
 
-/** Focal point per mostrare tutti i soggetti nelle copertine 16:9 */
-export const caseStudyImagePosition: Record<string, string> = {
-  "software-b2b": "50% 42%",
-  edilizia: "54% 38%",
-  "arredo-commerciale": "50% 40%",
-  "hotel-hospitality": "50% 52%",
+export type CaseStudyImageLayout = {
+  fit: "cover" | "contain";
+  position: string;
 };
 
-/** Fit per card stack: cover riempie il pannello, contain per soggetti larghi */
-export const caseStudyImageFit: Record<string, "cover" | "contain"> = {
-  "software-b2b": "cover",
-  edilizia: "cover",
-  "arredo-commerciale": "contain",
-  "hotel-hospitality": "cover",
+/** Layout per copertina: inquadratura e fit ottimizzati per ogni foto 16:9 */
+export const caseStudyImageLayout: Record<string, CaseStudyImageLayout> = {
+  "software-b2b": { fit: "cover", position: "48% 42%" },
+  edilizia: { fit: "cover", position: "54% 36%" },
+  "arredo-commerciale": { fit: "cover", position: "50% 36%" },
+  "hotel-hospitality": { fit: "cover", position: "50% 54%" },
 };
 
 export const blogImages: Record<string, string> = {
@@ -53,12 +50,16 @@ export function getCaseStudyImage(slug: string): string {
   return caseStudyImages[slug] ?? "/images/casi-studio/software-b2b.jpg";
 }
 
+export function getCaseStudyImageLayout(slug: string): CaseStudyImageLayout {
+  return caseStudyImageLayout[slug] ?? { fit: "cover", position: "50% 50%" };
+}
+
 export function getCaseStudyImagePosition(slug: string): string {
-  return caseStudyImagePosition[slug] ?? "50% 50%";
+  return getCaseStudyImageLayout(slug).position;
 }
 
 export function getCaseStudyImageFit(slug: string): "cover" | "contain" {
-  return caseStudyImageFit[slug] ?? "cover";
+  return getCaseStudyImageLayout(slug).fit;
 }
 
 export function getBlogImage(slug: string): string {

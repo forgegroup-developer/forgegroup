@@ -5,7 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import { caseStudies } from "@/data/caseStudies";
-import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
+import {
+  getCaseStudyImage,
+  getCaseStudyImageFit,
+  getCaseStudyImagePosition,
+} from "@/data/images";
 
 const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 const DUR = 340;
@@ -195,12 +199,16 @@ export default function CaseStudyCarousel() {
                 transition: `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`,
               }}
             >
-              <div className="relative aspect-video overflow-hidden bg-brand-panna">
+              <div className="relative aspect-video overflow-hidden bg-brand-corallo">
                 <Image
                   src={getCaseStudyImage(c.slug)}
                   alt={c.shortTitle}
                   fill
-                  className="object-contain object-center"
+                  className={`object-center ${
+                    getCaseStudyImageFit(c.slug) === "contain"
+                      ? "object-contain"
+                      : "object-cover"
+                  }`}
                   style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
                   sizes="(max-width: 768px) 82vw, 52vw"
                   quality={95}
