@@ -56,9 +56,9 @@ function CaseStudyCard({
   const totalStr = String(total).padStart(2, "0");
 
   return (
-    <article className="flex w-full min-h-[300px] flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:min-h-[340px] md:flex-row lg:min-h-[380px]">
+    <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
-      <div className="relative h-52 w-full shrink-0 bg-brand-panna md:h-auto md:min-h-[340px] md:w-[55%] lg:min-h-[380px]">
+      <div className="relative h-[200px] w-full shrink-0 bg-brand-panna md:h-full md:w-[55%]">
         <Image
           src={getCaseStudyImage(c.slug)}
           alt={c.shortTitle}
@@ -70,28 +70,26 @@ function CaseStudyCard({
       </div>
 
       {/* Contenuto — destra su desktop */}
-      <div className="relative flex flex-1 flex-col p-6 md:w-[45%] md:p-8 lg:p-10 bg-brand-nero">
+      <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden bg-brand-corallo p-6 md:w-[45%] md:p-8">
         <div
           aria-hidden
-          className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-brand-corallo/15 blur-3xl"
+          className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-white/10 blur-3xl"
         />
 
-        <div className="relative mb-5 flex items-center justify-between gap-4 md:mb-6">
-          <span className="rounded-full border border-brand-corallo/50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-pesca-light">
+        <div className="relative mb-4 flex shrink-0 items-center justify-between gap-4">
+          <span className="rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
             {c.sector}
           </span>
-          <span className="text-sm font-medium tabular-nums text-white/40">
+          <span className="text-sm font-medium tabular-nums text-white/60">
             {num} / {totalStr}
           </span>
         </div>
 
-        <h3
-          className="relative mb-3 font-display text-xl font-semibold leading-tight text-white md:text-2xl lg:text-[1.75rem]"
-        >
+        <h3 className="relative mb-2 line-clamp-2 shrink-0 font-display text-xl font-semibold leading-tight text-white md:text-2xl">
           {c.resultHeadline}
         </h3>
 
-        <p className="relative flex-1 text-sm leading-relaxed text-white/75 md:text-[15px] lg:text-base">
+        <p className="relative line-clamp-3 shrink-0 text-sm leading-relaxed text-white/90 md:text-[15px]">
           <ExcerptWithHighlights
             text={c.excerpt}
             highlights={c.excerptHighlights}
@@ -100,11 +98,11 @@ function CaseStudyCard({
         </p>
 
         {c.excerptHighlights && c.excerptHighlights.length > 0 && (
-          <div className="relative mt-4 flex flex-wrap gap-2">
+          <div className="relative mt-3 flex shrink-0 flex-wrap gap-2">
             {c.excerptHighlights.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60"
+                className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-white/80"
               >
                 {tag}
               </span>
@@ -112,7 +110,7 @@ function CaseStudyCard({
           </div>
         )}
 
-        <div className="relative mt-6 border-t border-white/10 pt-5 md:mt-8">
+        <div className="relative mt-auto shrink-0 border-t border-white/20 pt-4">
           <Link
             href={`/casi-studio/${c.slug}`}
             className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-brand-pesca-light"
