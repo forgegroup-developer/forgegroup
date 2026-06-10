@@ -63,25 +63,7 @@ export default function Home() {
       {/* S2b — LOGHI CLIENTI */}
       <ClientiLogos />
 
-      {/* S3 — FAQ */}
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-bianco">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Domande Frequenti"
-            title={
-              <>
-                Quello che gli{" "}
-                <span className="text-brand-corallo">imprenditori</span> ci chiedono sempre.
-              </>
-            }
-          />
-          <Reveal>
-            <FAQAccordion />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* S4 — SERVIZI */}
+      {/* S3 — SERVIZI */}
       <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -212,6 +194,24 @@ export default function Home() {
 
       {/* S7 — TEAM */}
       <TeamSection />
+
+      {/* S8 — FAQ */}
+      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-bianco">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Domande Frequenti"
+            title={
+              <>
+                Quello che gli{" "}
+                <span className="text-brand-corallo">imprenditori</span> ci chiedono sempre.
+              </>
+            }
+          />
+          <Reveal>
+            <FAQAccordion />
+          </Reveal>
+        </div>
+      </section>
 
     </>
   );
