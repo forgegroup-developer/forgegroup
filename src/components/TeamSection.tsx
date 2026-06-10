@@ -71,10 +71,12 @@ export default function TeamSection() {
                   <Image
                     src={member.photo}
                     alt={member.name}
-                    fill
-                    className="object-cover object-center"
+                    width={640}
+                    height={960}
+                    className="h-full w-full object-cover object-center"
                     sizes="(max-width: 640px) 260px, 280px"
-                    quality={90}
+                    quality={95}
+                    unoptimized
                   />
                 ) : (
                   <div
