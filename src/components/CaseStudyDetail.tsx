@@ -22,28 +22,27 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   return (
     <>
       {/* HERO */}
-      <section className="relative z-0 overflow-hidden border-b border-brand-bordo bg-brand-nero">
+      <section className="relative z-0 overflow-hidden border-b section-coral">
         <div className="absolute inset-0" aria-hidden>
           <Image
             src={getCaseStudyImage(c.slug)}
             alt=""
             fill
-            className="object-cover object-center opacity-35"
+            className="object-cover object-center"
             style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
             sizes="100vw"
             quality={95}
             unoptimized
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-nero via-brand-nero/90 to-brand-nero/55" />
-          <div className="absolute inset-0 bg-brand-nero/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-corallo/88 via-brand-corallo/72 to-brand-corallo/48" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-12 pt-16 sm:px-6 md:pb-16 md:pt-24 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-12 pt-16 copy-on-coral sm:px-6 md:pb-16 md:pt-24 lg:px-8">
           {showBackLink && (
             <Link
               href="/#casi-studio"
-              className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-white/70 transition-colors hover:text-brand-pesca-light hover:underline"
+              className="link-coral mb-6 inline-flex items-center gap-2 text-sm hover:underline"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -53,11 +52,9 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           )}
 
           <div className="max-w-3xl">
-            <p className="mb-6 text-xs font-bold uppercase tracking-widest text-brand-pesca-light">
-              ✦ {c.sector}
-            </p>
-            <h1 className="heading-hero mb-6 font-semibold leading-tight text-white">{c.resultHeadline}</h1>
-            <p className="text-xl leading-relaxed text-white/85 md:text-2xl">{c.excerpt}</p>
+            <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
+            <h1 className="heading-hero mb-6 font-semibold leading-tight">{c.resultHeadline}</h1>
+            <p className="text-xl leading-relaxed text-white/90 md:text-2xl">{c.excerpt}</p>
           </div>
         </div>
 
