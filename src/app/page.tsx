@@ -196,19 +196,19 @@ export default function Home() {
       <TeamSection />
 
       {/* S8 — FAQ */}
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-bianco">
+      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-coral border-y">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
+            onCoral
             eyebrow="Domande Frequenti"
             title={
               <>
-                Quello che gli{" "}
-                <span className="text-brand-corallo">imprenditori</span> ci chiedono sempre.
+                Quello che gli <span>imprenditori</span> ci chiedono sempre.
               </>
             }
           />
           <Reveal>
-            <FAQAccordion />
+            <FAQAccordion onCoral />
           </Reveal>
         </div>
       </section>

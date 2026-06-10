@@ -7,9 +7,11 @@ type FAQItem = { q: string; a: string };
 
 type Props = {
   items?: FAQItem[];
+  /** Card bianche su sfondo corallo */
+  onCoral?: boolean;
 };
 
-export default function FAQAccordion({ items = faqs }: Props) {
+export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
@@ -21,8 +23,12 @@ export default function FAQAccordion({ items = faqs }: Props) {
             key={idx}
             className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
               isOpen
-                ? "border-brand-corallo bg-brand-pesca-light"
-                : "border-brand-bordo bg-brand-bianco"
+                ? onCoral
+                  ? "border-brand-corallo bg-brand-bianco shadow-md"
+                  : "border-brand-corallo bg-brand-pesca-light"
+                : onCoral
+                  ? "border-white/35 bg-brand-bianco/95 shadow-sm"
+                  : "border-brand-bordo bg-brand-bianco"
             }`}
           >
             <button
