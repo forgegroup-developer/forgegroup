@@ -7,7 +7,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
 import ClientiLogos from "@/components/ClientiLogos";
 import SocialProof from "@/components/SocialProof";
-import CaseStudyCarousel from "@/components/CaseStudyCarousel";
+import CaseStudyStack from "@/components/CaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
@@ -107,8 +107,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* S5 — CASI STUDIO (carousel full-bleed) */}
-      <section className="py-20 md:py-28 section-bianco overflow-hidden">
+      {/* S5 — CASI STUDIO (stacking cards on scroll) */}
+      <section className="py-20 md:py-28 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Casi Studio"
@@ -121,8 +121,7 @@ export default function Home() {
             }
           />
         </div>
-        {/* Full-bleed carousel — outside max-w constraint */}
-        <CaseStudyCarousel />
+        <CaseStudyStack />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 mt-10 md:mt-12">
             <Link href="/contatti" className="btn-corallo">
