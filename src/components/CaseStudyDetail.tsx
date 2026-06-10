@@ -2,8 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
+import HighlightedText from "@/components/HighlightedText";
 import type { CaseStudy } from "@/data/caseStudies";
-import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition, siteImages } from "@/data/images";
 
 type Props = {
   c: CaseStudy;
@@ -57,22 +58,6 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <p className="text-xl leading-relaxed text-white/90 md:text-2xl">{c.excerpt}</p>
           </div>
         </div>
-
-        {c.videoUrl && (
-          <div className="relative z-10 mx-auto max-w-4xl px-4 pb-12 sm:px-6 md:pb-16 lg:px-8">
-            <div className="rounded-3xl overflow-hidden border border-white/20 shadow-lg bg-brand-nero">
-              <video
-                controls
-                preload="metadata"
-                playsInline
-                poster="/images/video-recensione-poster.png"
-                className="w-full block aspect-video object-cover"
-              >
-                <source src={c.videoUrl} type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* CONTEXT — logo grande a destra, sborda nell'hero sopra */}
@@ -204,6 +189,87 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           )}
         </div>
       </section>
+
+      {/* VIDEO RECENSIONE */}
+      {c.videoUrl && (
+        <section className="border-b border-brand-bordo py-16 md:py-24 section-bianco">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 max-w-2xl">
+              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-corallo">
+                ✦ Videorecensione
+              </p>
+              <h2 className="heading-section font-semibold leading-tight text-brand-nero">
+                La parola di <span className="text-brand-corallo">{clientName}</span>
+              </h2>
+            </div>
+
+            <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+              <div className="overflow-hidden rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  poster={siteImages.videoPoster}
+                  className="block aspect-video w-full object-cover"
+                >
+                  <source src={c.videoUrl} type="video/mp4" />
+                </video>
+              </div>
+
+              <div className="rounded-2xl border border-brand-bordo bg-brand-panna px-6 py-6 md:px-8 md:py-8">
+                <div className="mb-4 flex gap-1">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <svg
+                      key={i}
+                      className="h-5 w-5 text-brand-corallo"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <blockquote
+                  className="mb-6 font-display text-lg font-semibold leading-snug text-brand-nero md:text-xl"
+                >
+                  &ldquo;
+                  {c.quoteSegments ? (
+                    <HighlightedText segments={c.quoteSegments} />
+                  ) : (
+                    c.quote.text
+                  )}
+                  &rdquo;
+                </blockquote>
+
+                <div className="flex items-center gap-4 rounded-xl border border-brand-bordo bg-brand-bianco px-4 py-3.5">
+                  {c.clientLogo && (
+                    <CaseStudyClientLogo
+                      src={c.clientLogo}
+                      alt={c.clientLogoAlt ?? c.quote.author}
+                      variant="inline"
+                      size="md"
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate font-display text-sm font-bold leading-tight text-brand-nero">
+                      {c.quote.author}
+                    </p>
+                    <p className="mt-0.5 text-xs font-medium uppercase tracking-wide text-brand-grigio">
+                      {c.quote.role}
+                    </p>
+                  </div>
+                  <div className="flex shrink-0 flex-col items-end gap-0.5">
+                    <span className="text-sm font-bold leading-none text-brand-corallo">5/5</span>
+                    <span className="text-[10px] uppercase tracking-widest text-brand-grigio">Recensione</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* PRIMA / DOPO */}
       {c.beforeAfter.length > 0 && (
