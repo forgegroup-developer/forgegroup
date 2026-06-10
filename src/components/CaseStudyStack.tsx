@@ -97,27 +97,14 @@ function CaseStudyCard({
           />
         </p>
 
-        {c.excerptHighlights && c.excerptHighlights.length > 0 && (
-          <div className="relative mt-3 flex shrink-0 flex-wrap gap-2">
-            {c.excerptHighlights.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-white/80"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="relative mt-auto shrink-0 border-t border-white/20 pt-4">
+        <div className="relative mt-auto shrink-0 pt-4">
           <Link
             href={`/casi-studio/${c.slug}`}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-brand-pesca-light"
+            className="group inline-flex w-fit items-center gap-2 rounded-full border-2 border-white/55 bg-white/15 px-5 py-2.5 text-sm font-bold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/25"
           >
             Vedi il caso studio
             <svg
-              className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="h-3.5 w-3.5 shrink-0 transition-transform group-hover:translate-x-0.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -127,7 +114,7 @@ function CaseStudyCard({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M7 17L17 7M17 7H7M17 7v10"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
           </Link>
