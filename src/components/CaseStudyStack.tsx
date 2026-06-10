@@ -3,13 +3,12 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import { caseStudies } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 
 const NAV_OFFSET_REM = 5;
 const STACK_STEP_REM = 1.25;
-const SCROLL_VH_PER_CARD = 80;
+const SCROLL_VH_PER_CARD = 85;
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -18,9 +17,11 @@ function escapeRegExp(s: string) {
 function ExcerptWithHighlights({
   text,
   highlights,
+  highlightClassName = "text-brand-corallo",
 }: {
   text: string;
   highlights?: string[];
+  highlightClassName?: string;
 }) {
   if (!highlights?.length) return <>{text}</>;
 
@@ -31,7 +32,7 @@ function ExcerptWithHighlights({
     <>
       {parts.map((part, i) =>
         highlights.includes(part) ? (
-          <span key={i} className="text-brand-corallo">
+          <span key={i} className={highlightClassName}>
             {part}
           </span>
         ) : (
@@ -42,66 +43,97 @@ function ExcerptWithHighlights({
   );
 }
 
-function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
+function CaseStudyCard({
+  c,
+  index,
+  total,
+}: {
+  c: (typeof caseStudies)[number];
+  index: number;
+  total: number;
+}) {
+  const num = String(index + 1).padStart(2, "0");
+  const totalStr = String(total).padStart(2, "0");
+
   return (
-    <article className="w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300">
-      <div className="relative aspect-[16/10] overflow-hidden bg-brand-panna sm:aspect-video">
+    <article className="flex w-full min-h-[300px] flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:min-h-[340px] md:flex-row lg:min-h-[380px]">
+      {/* Immagine — sinistra su desktop */}
+      <div className="relative h-52 w-full shrink-0 bg-brand-panna md:h-auto md:min-h-[340px] md:w-[55%] lg:min-h-[380px]">
         <Image
           src={getCaseStudyImage(c.slug)}
           alt={c.shortTitle}
           fill
           className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, 896px"
+          sizes="(max-width: 768px) 100vw, 55vw"
           draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/70 via-brand-nero/15 to-transparent" />
-        <span className="absolute top-4 left-4 z-10 rounded-full bg-brand-corallo px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-sm">
-          {c.sector}
-        </span>
-        {c.resultHeadline && (
-          <p className="absolute bottom-4 left-4 z-10 max-w-[70%] font-display text-xl font-semibold leading-tight text-white sm:text-2xl md:text-3xl">
-            {c.resultHeadline}
-          </p>
-        )}
-        {c.clientLogo && (
-          <div className="absolute right-4 bottom-4 z-10">
-            <CaseStudyClientLogo
-              src={c.clientLogo}
-              alt={c.clientLogoAlt ?? c.shortTitle}
-              variant="circle"
-              size="md"
-            />
-          </div>
-        )}
       </div>
 
-      <div className="flex items-center justify-between gap-4 px-5 py-5 md:px-7 md:py-6">
-        <div className="min-w-0 flex-1">
-          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-grigio-light">
-            {c.shortTitle}
-          </p>
-          <h3
-            className="line-clamp-3 font-semibold text-base leading-snug text-brand-nero md:text-lg"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
-          </h3>
+      {/* Contenuto — destra su desktop */}
+      <div className="relative flex flex-1 flex-col p-6 md:w-[45%] md:p-8 lg:p-10 bg-brand-nero">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-brand-corallo/15 blur-3xl"
+        />
+
+        <div className="relative mb-5 flex items-center justify-between gap-4 md:mb-6">
+          <span className="rounded-full border border-brand-corallo/50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-pesca-light">
+            {c.sector}
+          </span>
+          <span className="text-sm font-medium tabular-nums text-white/40">
+            {num} / {totalStr}
+          </span>
         </div>
 
-        <Link
-          href={`/casi-studio/${c.slug}`}
-          className="
-            flex h-12 w-12 shrink-0 items-center justify-center rounded-full
-            bg-brand-corallo shadow-md shadow-brand-corallo/30
-            transition-all duration-200 ease-out
-            hover:scale-110 hover:bg-brand-corallo-dark
-          "
-          aria-label={`Leggi caso studio ${c.shortTitle}`}
+        <h3
+          className="relative mb-3 font-display text-xl font-semibold leading-tight text-white md:text-2xl lg:text-[1.75rem]"
         >
-          <svg className="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </Link>
+          {c.resultHeadline}
+        </h3>
+
+        <p className="relative flex-1 text-sm leading-relaxed text-white/75 md:text-[15px] lg:text-base">
+          <ExcerptWithHighlights
+            text={c.excerpt}
+            highlights={c.excerptHighlights}
+            highlightClassName="font-semibold text-brand-pesca-light"
+          />
+        </p>
+
+        {c.excerptHighlights && c.excerptHighlights.length > 0 && (
+          <div className="relative mt-4 flex flex-wrap gap-2">
+            {c.excerptHighlights.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/60"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="relative mt-6 border-t border-white/10 pt-5 md:mt-8">
+          <Link
+            href={`/casi-studio/${c.slug}`}
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-brand-pesca-light"
+          >
+            Vedi il caso studio
+            <svg
+              className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M7 17L17 7M17 7H7M17 7v10"
+              />
+            </svg>
+          </Link>
+        </div>
       </div>
     </article>
   );
@@ -109,6 +141,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
 
 export default function CaseStudyStack() {
   const [reducedMotion, setReducedMotion] = useState(false);
+  const total = caseStudies.length;
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -120,9 +153,9 @@ export default function CaseStudyStack() {
 
   if (reducedMotion) {
     return (
-      <div className="mx-auto max-w-4xl space-y-6 px-4 sm:px-6 lg:px-8">
-        {caseStudies.map((c) => (
-          <CaseStudyCard key={c.slug} c={c} />
+      <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
+        {caseStudies.map((c, i) => (
+          <CaseStudyCard key={c.slug} c={c} index={i} total={total} />
         ))}
       </div>
     );
@@ -130,7 +163,7 @@ export default function CaseStudyStack() {
 
   return (
     <div
-      className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
+      className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
       style={{ height: `${caseStudies.length * SCROLL_VH_PER_CARD}vh` }}
     >
       {caseStudies.map((c, i) => (
@@ -143,7 +176,7 @@ export default function CaseStudyStack() {
             minHeight: `${SCROLL_VH_PER_CARD}vh`,
           }}
         >
-          <CaseStudyCard c={c} />
+          <CaseStudyCard c={c} index={i} total={total} />
         </div>
       ))}
     </div>

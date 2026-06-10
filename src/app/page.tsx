@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
-import ClientReviewSection from "@/components/ClientReviewSection";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
@@ -10,8 +9,6 @@ import SocialProof from "@/components/SocialProof";
 import CaseStudyStack from "@/components/CaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
-import { getCaseStudyBySlug } from "@/data/caseStudies";
-
 export const metadata: Metadata = {
   title: "Forge Group | Sistema di Crescita per Imprese B2B",
   description:
@@ -20,8 +17,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const disaCase = getCaseStudyBySlug("software-b2b");
-
   return (
     <>
       {/* S1 — HERO full-viewport */}
@@ -68,20 +63,23 @@ export default function Home() {
       {/* S2b — LOGHI CLIENTI */}
       <ClientiLogos />
 
-      {/* S3 — RECENSIONE DISA (stessa sezione del caso studio) */}
-      {disaCase?.quoteSegments && (
-        <div id="recensione" className="scroll-mt-24">
-          <ClientReviewSection
-            quoteSegments={disaCase.quoteSegments}
-            author={disaCase.quote.author}
-            role={disaCase.quote.role}
-            logoSrc={disaCase.clientLogo!}
-            logoAlt={disaCase.clientLogoAlt ?? "DISA"}
-            primaryCta={{ label: "Voglio risultati simili", href: "/contatti" }}
-            secondaryCta={{ label: "Leggi il caso studio", href: "/casi-studio/software-b2b" }}
+      {/* S3 — FAQ */}
+      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-bianco">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Domande Frequenti"
+            title={
+              <>
+                Quello che gli{" "}
+                <span className="text-brand-corallo">imprenditori</span> ci chiedono sempre.
+              </>
+            }
           />
+          <Reveal>
+            <FAQAccordion />
+          </Reveal>
         </div>
-      )}
+      </section>
 
       {/* S4 — SERVIZI */}
       <section className="py-20 md:py-28 section-coral border-y">
@@ -224,25 +222,6 @@ export default function Home() {
 
       {/* S7 — TEAM */}
       <TeamSection />
-
-      {/* S8 — FAQ */}
-      <section className="py-20 md:py-28 section-coral border-y">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            onCoral
-            eyebrow="Domande Frequenti"
-            title={
-              <>
-                Quello che gli{" "}
-                <span className="text-brand-corallo">imprenditori</span> ci chiedono sempre.
-              </>
-            }
-          />
-          <Reveal>
-            <FAQAccordion />
-          </Reveal>
-        </div>
-      </section>
 
     </>
   );

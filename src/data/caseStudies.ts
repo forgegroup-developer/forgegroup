@@ -168,7 +168,6 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     videoUrl: "/video-recensione.mp4",
-    showQuote: true,
   },
   {
     slug: "edilizia",

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import ClientReviewSection from "@/components/ClientReviewSection";
 import type { CaseStudy } from "@/data/caseStudies";
 
 type Props = {
@@ -246,16 +245,6 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         </section>
       )}
 
-      {/* Recensione cliente — stessa sezione della homepage */}
-      {c.showQuote && c.quoteSegments && c.clientLogo && (
-        <ClientReviewSection
-          quoteSegments={c.quoteSegments}
-          author={c.quote.author}
-          role={c.quote.role}
-          logoSrc={c.clientLogo}
-          logoAlt={c.clientLogoAlt ?? c.quote.author}
-        />
-      )}
     </>
   );
 }
