@@ -120,16 +120,6 @@ export default function Home() {
           />
         </div>
         <CaseStudyStack />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-4 mt-10 md:mt-12">
-            <Link href="/contatti" className="btn-corallo">
-              Sono pronto per iniziare
-            </Link>
-            <Link href="/casi-studio" className="btn-ghost">
-              Vedi tutti i casi studio
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
