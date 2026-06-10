@@ -6,6 +6,14 @@ export const caseStudyImages: Record<string, string> = {
   "hotel-hospitality": "/images/casi-studio/hotel-hospitality.jpg",
 };
 
+/** Focal point per mostrare tutti i soggetti nelle copertine 16:9 */
+export const caseStudyImagePosition: Record<string, string> = {
+  "software-b2b": "50% 42%",
+  edilizia: "54% 38%",
+  "arredo-commerciale": "50% 40%",
+  "hotel-hospitality": "50% 52%",
+};
+
 export const blogImages: Record<string, string> = {
   "come-acquisire-clienti-b2b-campania":
     "/images/blog/come-acquisire-clienti-b2b-campania.jpg",
@@ -35,6 +43,10 @@ export const serviziSidebarImages = {
 
 export function getCaseStudyImage(slug: string): string {
   return caseStudyImages[slug] ?? "/images/casi-studio/software-b2b.jpg";
+}
+
+export function getCaseStudyImagePosition(slug: string): string {
+  return caseStudyImagePosition[slug] ?? "50% 50%";
 }
 
 export function getBlogImage(slug: string): string {

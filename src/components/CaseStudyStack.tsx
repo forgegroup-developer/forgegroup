@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
-import { getCaseStudyImage } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
 
 const NAV_OFFSET_REM = 5;
 const STACK_STEP_REM = 1.25;
@@ -63,8 +63,11 @@ function CaseStudyCard({
           src={getCaseStudyImage(c.slug)}
           alt={c.shortTitle}
           fill
-          className="object-cover object-center"
+          className="object-contain object-center"
+          style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
           sizes="(max-width: 768px) 100vw, 55vw"
+          quality={95}
+          unoptimized
           draggable={false}
         />
       </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import { caseStudies } from "@/data/caseStudies";
-import { getCaseStudyImage } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
 
 const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 const DUR = 340;
@@ -200,8 +200,11 @@ export default function CaseStudyCarousel() {
                   src={getCaseStudyImage(c.slug)}
                   alt={c.shortTitle}
                   fill
-                  className="object-cover object-center"
+                  className="object-contain object-center"
+                  style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
                   sizes="(max-width: 768px) 82vw, 52vw"
+                  quality={95}
+                  unoptimized
                   draggable={false}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/65 via-brand-nero/10 to-transparent" />
