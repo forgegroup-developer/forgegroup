@@ -11,7 +11,7 @@ const team = [
   {
     name: "Marco Pio Cerbone",
     forgeRole: "Co-Founder",
-    role: "Imprenditore, Consulente Marketing e Consulente Aziendale",
+    role: "Direttore marketing & Consulenza aziendale",
     photo: "/images/team/foto-marco.png",
     objectPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
@@ -19,10 +19,20 @@ const team = [
   {
     name: "Gianpio Uva",
     forgeRole: "Co-Founder",
-    role: "Imprenditore, Consulente Commerciale ed Esperto in Processi di Vendita",
+    role: "Direttore Commerciale & Sales Process",
     photo: "/images/team/foto-gianpio.png",
     objectPosition: "object-[50%_38%]",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
+  },
+  {
+    name: "Francesco Chiumiento",
+    forgeRole: "Direttore Creative",
+    role: "Video Producer",
+  },
+  {
+    name: "Nicandro Grande",
+    forgeRole: "Direttore Creative",
+    role: "Video Producer",
   },
 ];
 
@@ -79,7 +89,7 @@ export default function TeamSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="eyebrow mb-4">✦ Il Nostro Team</p>
         <h2 className="heading-section text-brand-nero max-w-2xl mx-auto mb-16">
-          I founder di{" "}
+          Il team di{" "}
           <span className="text-brand-corallo">Forge Group</span>
         </h2>
 
@@ -95,28 +105,42 @@ export default function TeamSection() {
               className="group flex w-[280px] flex-col items-center text-center"
             >
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden relative shadow-[0_12px_40px_rgba(17,17,17,0.12)] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.16)]">
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  fill
-                  className={`object-cover ${member.objectPosition}`}
-                  sizes="(max-width: 768px) 256px, 320px"
-                />
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    className={`object-cover ${member.objectPosition ?? "object-center"}`}
+                    sizes="(max-width: 768px) 256px, 320px"
+                  />
+                ) : (
+                  <div
+                    className="flex h-full w-full items-center justify-center bg-brand-panna font-display text-4xl font-bold text-brand-corallo md:text-5xl"
+                    aria-hidden
+                  >
+                    {member.name
+                      .split(" ")
+                      .map((part) => part[0])
+                      .join("")}
+                  </div>
+                )}
               </div>
               <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">{member.name}</h3>
               <p className="text-brand-corallo text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}
               </p>
               <p className="text-brand-grigio text-sm leading-snug">{member.role}</p>
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`mt-4 gap-2 ${chipOutlineClass}`}
-              >
-                <LinkedInIcon />
-                LinkedIn
-              </a>
+              {member.linkedin ? (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-4 gap-2 ${chipOutlineClass}`}
+                >
+                  <LinkedInIcon />
+                  LinkedIn
+                </a>
+              ) : null}
             </div>
           ))}
         </div>
