@@ -6,8 +6,6 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Direttore marketing & Consulenza aziendale",
     photo: "/images/team/foto-marco.png",
-    objectPosition: "46% 24%",
-    photoScale: 1.28,
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
@@ -15,8 +13,6 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Direttore Commerciale & Sales Process",
     photo: "/images/team/foto-gianpio.png",
-    objectPosition: "50% 24%",
-    photoScale: 1.28,
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
   {
@@ -24,8 +20,6 @@ const team = [
     forgeRole: "Partner",
     role: "Direttore Creative & Video Producer",
     photo: "/images/team/foto-francesco.png",
-    objectPosition: "50% 22%",
-    photoScale: 1.3,
   },
   {
     name: "Nicandro Grande",
@@ -65,28 +59,25 @@ export default function TeamSection() {
           Le persone dietro <span className="text-brand-corallo">Forge Group</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center items-start gap-12 md:gap-20">
+        <div className="flex flex-wrap justify-center items-start gap-10 md:gap-12">
           {team.map((member) => (
             <div
               key={member.name}
-              className="group flex w-[280px] flex-col items-center text-center"
+              className="group flex w-[min(100%,300px)] flex-col items-center text-center sm:w-[320px]"
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden relative shadow-[0_12px_40px_rgba(17,17,17,0.12)] transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.16)]">
+              <div className="relative w-full aspect-[3/2] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]">
                 {member.photo ? (
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
-                    className="object-cover"
-                    style={{
-                      objectPosition: member.objectPosition ?? "50% 30%",
-                      transform: member.photoScale ? `scale(${member.photoScale})` : undefined,
-                    }}
-                    sizes="(max-width: 768px) 256px, 320px"
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 300px, 320px"
+                    quality={90}
                   />
                 ) : (
                   <div
-                    className="flex h-full w-full items-center justify-center bg-brand-panna font-display text-4xl font-bold text-brand-corallo md:text-5xl"
+                    className="flex h-full w-full items-center justify-center font-display text-4xl font-bold text-brand-corallo md:text-5xl"
                     aria-hidden
                   >
                     {member.name
