@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import type { CaseStudy } from "@/data/caseStudies";
+import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
 
 type Props = {
   c: CaseStudy;
@@ -21,7 +23,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
     <>
       {/* HERO */}
       <section className="relative z-0 pt-16 pb-0 md:pt-24 section-coral border-b overflow-visible">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
           {showBackLink && (
             <Link
               href="/#casi-studio"
@@ -34,10 +36,26 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </Link>
           )}
 
-          <div>
-            <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-            <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
-            <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
+              <h1 className="heading-hero font-semibold leading-tight mb-6">{c.resultHeadline}</h1>
+              <p className="text-xl md:text-2xl text-white/90 leading-relaxed">{c.excerpt}</p>
+            </div>
+
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/25 bg-brand-panna shadow-[0_16px_48px_rgba(17,17,17,0.2)] md:rounded-3xl">
+              <Image
+                src={getCaseStudyImage(c.slug)}
+                alt={c.shortTitle}
+                fill
+                className="object-contain object-center"
+                style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={95}
+                unoptimized
+                priority
+              />
+            </div>
           </div>
         </div>
 
@@ -56,7 +74,6 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </div>
           </div>
         )}
-        {!c.videoUrl && <div className="pb-12 md:pb-16" />}
       </section>
 
       {/* CONTEXT — logo grande a destra, sborda nell'hero corallo sopra */}
