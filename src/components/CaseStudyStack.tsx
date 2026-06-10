@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
-import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
+import {
+  getCaseStudyImage,
+  getCaseStudyImageFit,
+  getCaseStudyImagePosition,
+} from "@/data/images";
 
 const NAV_OFFSET_REM = 5;
 const STACK_STEP_REM = 1.25;
@@ -54,37 +58,28 @@ function CaseStudyCard({
 }) {
   const num = String(index + 1).padStart(2, "0");
   const totalStr = String(total).padStart(2, "0");
+  const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
     <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
-      <div className="relative h-[200px] w-full shrink-0 overflow-hidden md:h-full md:w-[55%]">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-brand-corallo/20 via-brand-pesca-light to-brand-corallo/45"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-brand-pesca-light/80 via-transparent to-brand-corallo/25"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-x-0 top-0 h-[32%] bg-gradient-to-b from-brand-corallo/55 to-transparent"
-          aria-hidden
-        />
-        <div
-          className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-brand-corallo/60 to-transparent"
-          aria-hidden
-        />
+      <div className="relative h-[200px] w-full shrink-0 overflow-hidden bg-brand-corallo md:h-full md:w-[55%]">
         <Image
           src={getCaseStudyImage(c.slug)}
           alt={c.shortTitle}
           fill
-          className="relative z-[1] object-contain object-center"
+          className={`z-[1] object-center ${
+            imageFit === "contain" ? "object-contain" : "object-cover"
+          }`}
           style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
           sizes="(max-width: 768px) 100vw, 55vw"
           quality={95}
           unoptimized
           draggable={false}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-brand-corallo/10 via-transparent to-brand-corallo/35"
+          aria-hidden
         />
       </div>
 

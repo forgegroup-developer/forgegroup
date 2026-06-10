@@ -14,6 +14,14 @@ export const caseStudyImagePosition: Record<string, string> = {
   "hotel-hospitality": "50% 52%",
 };
 
+/** Fit per card stack: cover riempie il pannello, contain per soggetti larghi */
+export const caseStudyImageFit: Record<string, "cover" | "contain"> = {
+  "software-b2b": "cover",
+  edilizia: "cover",
+  "arredo-commerciale": "contain",
+  "hotel-hospitality": "cover",
+};
+
 export const blogImages: Record<string, string> = {
   "come-acquisire-clienti-b2b-campania":
     "/images/blog/come-acquisire-clienti-b2b-campania.jpg",
@@ -47,6 +55,10 @@ export function getCaseStudyImage(slug: string): string {
 
 export function getCaseStudyImagePosition(slug: string): string {
   return caseStudyImagePosition[slug] ?? "50% 50%";
+}
+
+export function getCaseStudyImageFit(slug: string): "cover" | "contain" {
+  return caseStudyImageFit[slug] ?? "cover";
 }
 
 export function getBlogImage(slug: string): string {
