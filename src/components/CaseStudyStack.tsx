@@ -58,12 +58,28 @@ function CaseStudyCard({
   return (
     <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
-      <div className="relative h-[200px] w-full shrink-0 bg-brand-panna md:h-full md:w-[55%]">
+      <div className="relative h-[200px] w-full shrink-0 overflow-hidden md:h-full md:w-[55%]">
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-brand-corallo/20 via-brand-pesca-light to-brand-corallo/45"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-brand-pesca-light/80 via-transparent to-brand-corallo/25"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-x-0 top-0 h-[32%] bg-gradient-to-b from-brand-corallo/55 to-transparent"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-brand-corallo/60 to-transparent"
+          aria-hidden
+        />
         <Image
           src={getCaseStudyImage(c.slug)}
           alt={c.shortTitle}
           fill
-          className="object-contain object-center"
+          className="relative z-[1] object-contain object-center"
           style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
           sizes="(max-width: 768px) 100vw, 55vw"
           quality={95}
