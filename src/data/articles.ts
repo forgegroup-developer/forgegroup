@@ -68,12 +68,6 @@ export const articles: Article[] = [
         type: "quote",
         text: "Le aziende che crescono in Campania nei prossimi 5 anni saranno quelle che smettono di improvvisare e iniziano a sistematizzare l'acquisizione clienti.",
       },
-      { type: "h2", text: "Quanto serve investire davvero" },
-      {
-        type: "p",
-        text: "Per un'azienda B2B con fatturato sopra 350K€ il budget realistico per costruire un sistema è di almeno 2.500€/mese in advertising più la struttura. Sotto questa soglia non riesci a generare abbastanza dati per ottimizzare. Sopra, i risultati arrivano nei primi 90 giorni.",
-      },
-      { type: "cta" },
     ],
   },
   {
