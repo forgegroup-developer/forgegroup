@@ -20,7 +20,7 @@ const team = [
   {
     name: "Francesco Chiumiento",
     forgeRole: "Partner",
-    role: "Direttore Creative - Video Producer",
+    role: "Direttore Creative & Video Producer",
   },
   {
     name: "Nicandro Grande",
