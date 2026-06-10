@@ -64,16 +64,16 @@ export default function TeamSection() {
           {team.map((member) => (
             <div
               key={member.name}
-              className="group flex w-[min(100%,300px)] flex-col items-center text-center sm:w-[320px]"
+              className="group flex w-[min(100%,260px)] flex-col items-center text-center sm:w-[280px]"
             >
-              <div className="relative w-full aspect-[3/2] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]">
+              <div className="relative w-full aspect-[2/3] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]">
                 {member.photo ? (
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
                     className="object-cover object-center"
-                    sizes="(max-width: 640px) 300px, 320px"
+                    sizes="(max-width: 640px) 260px, 280px"
                     quality={90}
                   />
                 ) : (
