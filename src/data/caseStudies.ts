@@ -416,8 +416,8 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Hospitality",
     resultHeadline: "258 prenotazioni in 48 ore.",
     excerpt:
-      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, circa 20.000€ di valore.",
-    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, ~20.000€ di valore.",
+      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, + di 20.000€ di prenotazioni*",
+    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, + di 20.000€ di prenotazioni*",
     excerptHighlights: ["258 prenotazioni", "48 ore", "20.000€"],
     metaDescription:
       "Caso studio Hospitality: lancio hotel sotto nuova gestione con 258 prenotazioni in 48 ore e circa 20.000€ di valore. OTA, contenuti, Google Business e campagne sponsorizzate.",

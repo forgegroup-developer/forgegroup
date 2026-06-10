@@ -180,7 +180,7 @@ export default function Footer() {
                     </li>
                   ))}
                   <li className="pt-2">
-                    <Link href="/casi-studio" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
+                    <Link href="/#casi-studio" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
                       Tutti i casi →
                     </Link>
                   </li>

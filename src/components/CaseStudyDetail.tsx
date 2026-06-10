@@ -24,7 +24,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 copy-on-coral">
           {showBackLink && (
             <Link
-              href="/casi-studio"
+              href="/#casi-studio"
               className="inline-flex items-center gap-2 text-sm link-coral mb-6 hover:underline"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

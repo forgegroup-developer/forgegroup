@@ -45,6 +45,11 @@ const nextConfig: NextConfig = {
         destination: "/servizi",
         permanent: true,
       },
+      {
+        source: "/casi-studio",
+        destination: "/#casi-studio",
+        permanent: true,
+      },
     ];
   },
 };

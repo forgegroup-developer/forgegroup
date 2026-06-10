@@ -41,7 +41,7 @@ export default function Home() {
                 <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
                   Hai un minuto?
                 </Link>
-                <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+                <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
                   Vedi i risultati
                 </Link>
               </div>
@@ -88,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* S5 — CASI STUDIO (stacking cards on scroll) */}
-      <section className="py-20 md:py-28 section-bianco">
+      <section id="casi-studio" className="py-20 md:py-28 section-bianco scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Casi Studio"

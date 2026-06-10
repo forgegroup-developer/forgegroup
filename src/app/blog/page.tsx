@@ -25,14 +25,10 @@ export default function BlogHub() {
     <>
       <section className="pt-16 pb-12 md:pt-24 md:pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Intelligence B2B</p>
+          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
           <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
-            Strategie per <span className="text-brand-corallo">imprenditori</span> seri.
+            Leggi i nostri <span className="text-brand-corallo">articoli</span>
           </h1>
-          <p className="text-xl text-brand-grigio leading-relaxed">
-            Articoli tecnici riservati a chi vuole capire davvero come funziona l&apos;acquisizione clienti e la vendita B2B
-            high-ticket.
-          </p>
         </div>
       </section>
 
