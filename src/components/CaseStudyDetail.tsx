@@ -54,8 +54,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <div className="max-w-3xl">
             <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-            <h1 className="heading-hero mb-6 font-semibold leading-tight">{c.resultHeadline}</h1>
-            <p className="text-xl leading-relaxed text-white/90 md:text-2xl">{c.excerpt}</p>
+            <h1 className="heading-hero font-semibold leading-tight">{c.resultHeadline}</h1>
           </div>
         </div>
       </section>
@@ -80,6 +79,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           </div>
 
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+
+          <p className="mb-8 max-w-3xl text-xl leading-relaxed text-brand-nero md:text-2xl">
+            {c.excerpt}
+          </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
