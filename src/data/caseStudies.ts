@@ -176,7 +176,7 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Edilizia B2C",
     resultHeadline: "4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerpt:
-      "Abbiamo trasformato Tetti Top, azienda edile che viveva di passaparola, in un sistema che porta 4 richieste qualificate al mese. Senza un euro in pubblicità, ancora attivo oggi.",
+      "Abbiamo trasformato Tetti Top, azienda edile che viveva di passaparola, in un sistema che porta 4 richieste qualificate al mese.",
     hubExcerpt: "Tetti Top: 4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerptHighlights: ["4 clienti qualificati", "senza pubblicità", "azienda di famiglia"],
     metaDescription:
@@ -290,7 +290,7 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Edilizia B2B",
     resultHeadline: "40 anni di storia. Un sistema nuovo da zero.",
     excerpt:
-      "ROVI Srl, arredamento negozi: ha scelto di smettere di dipendere dal passaparola e costruire un sistema di acquisizione e vendita scalabile. Progetto attivo con noi.",
+      "ROVI Srl, arredamento negozi: ha scelto di smettere di dipendere dal passaparola e costruire un sistema di acquisizione e vendita.",
     hubExcerpt: "ROVI Srl: arredamento negozi. Sistema commerciale nuovo, progetto attivo.",
     excerptHighlights: ["arredamento negozi", "40 anni", "progetto attivo"],
     metaDescription:
@@ -416,7 +416,7 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Hospitality",
     resultHeadline: "258 prenotazioni in 48 ore.",
     excerpt:
-      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, circa 20.000€ di valore. Da calendario vuoto a struttura che vende fin dal primo giorno.",
+      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, circa 20.000€ di valore.",
     hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, ~20.000€ di valore.",
     excerptHighlights: ["258 prenotazioni", "48 ore", "20.000€"],
     metaDescription:

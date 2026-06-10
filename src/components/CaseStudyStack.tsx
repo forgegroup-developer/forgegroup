@@ -89,7 +89,7 @@ function CaseStudyCard({
           {c.resultHeadline}
         </h3>
 
-        <p className="relative line-clamp-3 shrink-0 text-sm leading-relaxed text-white/90 md:text-[15px]">
+        <p className="relative shrink-0 text-sm leading-relaxed text-white/90 md:text-[15px]">
           <ExcerptWithHighlights
             text={c.excerpt}
             highlights={c.excerptHighlights}
@@ -97,7 +97,7 @@ function CaseStudyCard({
           />
         </p>
 
-        <div className="relative mt-auto shrink-0 pt-4">
+        <div className="relative mt-auto shrink-0 border-t border-white/20 pt-4">
           <Link
             href={`/casi-studio/${c.slug}`}
             className="group inline-flex w-fit items-center gap-2 rounded-full border-2 border-white/55 bg-white/15 px-5 py-2.5 text-sm font-bold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/25"
