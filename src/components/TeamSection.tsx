@@ -6,7 +6,8 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Direttore marketing & Consulenza aziendale",
     photo: "/images/team/foto-marco.png",
-    objectPosition: "object-top",
+    objectPosition: "46% 24%",
+    photoScale: 1.28,
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
@@ -14,13 +15,17 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Direttore Commerciale & Sales Process",
     photo: "/images/team/foto-gianpio.png",
-    objectPosition: "object-[50%_38%]",
+    objectPosition: "50% 24%",
+    photoScale: 1.28,
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
   {
     name: "Francesco Chiumiento",
     forgeRole: "Partner",
     role: "Direttore Creative & Video Producer",
+    photo: "/images/team/foto-francesco.png",
+    objectPosition: "50% 22%",
+    photoScale: 1.3,
   },
   {
     name: "Nicandro Grande",
@@ -72,7 +77,11 @@ export default function TeamSection() {
                     src={member.photo}
                     alt={member.name}
                     fill
-                    className={`object-cover ${member.objectPosition ?? "object-center"}`}
+                    className="object-cover"
+                    style={{
+                      objectPosition: member.objectPosition ?? "50% 30%",
+                      transform: member.photoScale ? `scale(${member.photoScale})` : undefined,
+                    }}
                     sizes="(max-width: 768px) 256px, 320px"
                   />
                 ) : (
