@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
@@ -13,8 +12,6 @@ type Props = {
   number: string;
   title: ReactNode;
   intro: ReactNode;
-  imageSrc: string;
-  imageAlt: string;
   points: ServiziTabPoint[];
 };
 
@@ -44,8 +41,6 @@ export default function ServiziTabCard({
   number,
   title,
   intro,
-  imageSrc,
-  imageAlt,
   points,
 }: Props) {
   return (
@@ -55,7 +50,7 @@ export default function ServiziTabCard({
         className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
       >
         <div className="flex flex-col lg:flex-row">
-          <div className="flex min-h-[520px] flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[580px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
+          <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
             <Reveal delay={0} y={20} duration={0.8}>
               <div>
                 <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
@@ -71,20 +66,10 @@ export default function ServiziTabCard({
               </div>
             </Reveal>
 
-            <div className="relative mt-4 min-h-[220px] flex-1 sm:min-h-[260px] lg:min-h-[300px]">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                fill
-                className="pointer-events-none object-contain object-bottom scale-[1.18] origin-bottom"
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
-            </div>
-
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="mt-6 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs"
+                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs"
               >
                 Ottieni una consulenza gratuita
                 <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

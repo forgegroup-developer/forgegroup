@@ -6,15 +6,13 @@ import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import { heroShowcaseImages, serviziSidebarImages } from "@/data/images";
+import { heroShowcaseImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
   number: string;
   title: React.ReactNode;
   intro: React.ReactNode;
-  imageSrc: string;
-  imageAlt: string;
   points: ServiziTabPoint[];
 };
 
@@ -23,8 +21,6 @@ const serviziTabs: ServiziTab[] = [
     id: "acquisizione",
     number: "01",
     title: "Acquisizione Clienti",
-    imageSrc: serviziSidebarImages.acquisizione,
-    imageAlt: "Imprenditore B2B dubbioso sulla acquisizione di nuovi clienti",
     intro: (
       <>
         La tua azienda dipende ancora solo dal <span>passaparola</span>?
@@ -62,8 +58,6 @@ const serviziTabs: ServiziTab[] = [
     id: "vendite",
     number: "02",
     title: "Processi di Vendita",
-    imageSrc: serviziSidebarImages.vendite,
-    imageAlt: "Imprenditore B2B frustrato dai processi di vendita e dal team commerciale",
     intro: (
       <>
         Ricevi <span>richieste</span>, ma quante diventano davvero <span>contratti</span>?
@@ -105,8 +99,6 @@ const serviziTabs: ServiziTab[] = [
         Consulenza <span className="whitespace-nowrap">e Formazione</span>
       </>
     ),
-    imageSrc: serviziSidebarImages.consulenza,
-    imageAlt: "Imprenditrice stanca e sovraccarica dal lavorare troppo senza crescere",
     intro: (
       <>
         Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?
@@ -201,9 +193,8 @@ export default function ServiziHub() {
                 ✦ I Nostri Servizi
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
-                La tua azienda sta{" "}
-                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno e il problema
-                non è il <span className="text-brand-corallo">mercato</span>.
+                Come aumentiamo il{" "}
+                <span className="text-brand-corallo">fatturato</span> della tua azienda.
               </h1>
               <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
                 Ottieni una consulenza gratuita
@@ -227,9 +218,8 @@ export default function ServiziHub() {
                 ✦ I Nostri Servizi
               </p>
               <h1 className="heading-hero text-brand-nero mb-6">
-                La tua azienda sta{" "}
-                <span className="text-brand-corallo">perdendo clienti</span> ogni giorno e il problema
-                non è il <span className="text-brand-corallo">mercato</span>.
+                Come aumentiamo il{" "}
+                <span className="text-brand-corallo">fatturato</span> della tua azienda.
               </h1>
               <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
                 Ottieni una consulenza gratuita
@@ -254,7 +244,7 @@ export default function ServiziHub() {
             eyebrow="Come lavoriamo"
             title={
               <>
-                Riconosci qualcuno di questi <span>problemi</span>?
+                Le <span>3 macroaree</span>
               </>
             }
             maxWidth="4xl"
