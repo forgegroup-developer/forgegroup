@@ -23,34 +23,35 @@ const serviziTabs: ServiziTab[] = [
     title: "Acquisizione Clienti",
     intro: (
       <>
-        La tua azienda dipende ancora solo dal <span>passaparola</span>?
+        Il tuo telefono squilla.
+        <br />
+        Sono clienti pronti a <span>comprare</span>.
       </>
     ),
     points: [
       {
         title: (
           <>
-            Hai solo <span>contatti poco interessati</span> che cliccano per sbaglio sulle tue{" "}
-            <span>inserzioni</span>?
+            Smetti di rincorrere. <span>Inizia a scegliere</span>.
           </>
         ),
-        body: "Pensiamo noi a migliorare la tua comunicazione e a creare campagne di lead generation altamente performanti.",
+        body: "Costruiamo un sistema che porta ogni mese contatti qualificati, mentre tu ti concentri sul lavoro che sai fare meglio.",
       },
       {
         title: (
           <>
-            Stai pagando <span>pubblicità</span> senza sapere quante <span>richieste serie</span> ti porta?
+            Ogni euro investito in pubblicità <span>torna indietro moltiplicato</span>.
           </>
         ),
-        body: "Ti portiamo nuovi clienti pronti ad acquistare, non persone che cercano informazioni gratuite.",
+        body: "Campagne progettate per generare richieste reali da persone con budget, non click casuali.",
       },
       {
         title: (
           <>
-            I tuoi <span>contenuti</span> portano <span>visibilità</span>, ma non <span>appuntamenti</span> in agenda?
+            I tuoi contenuti diventano <span>appuntamenti in agenda</span>.
           </>
         ),
-        body: "Costruiamo comunicazione che genera contatti pronti a parlare col tuo commerciale.",
+        body: "Costruiamo una comunicazione che scalda il contatto e lo consegna già convinto al tuo commerciale.",
       },
     ],
   },
@@ -60,34 +61,35 @@ const serviziTabs: ServiziTab[] = [
     title: "Processi di Vendita",
     intro: (
       <>
-        Ricevi <span>richieste</span>, ma quante diventano davvero <span>contratti</span>?
+        Il tuo commerciale <span>chiude</span>.
+        <br />
+        Sempre.
       </>
     ),
     points: [
       {
         title: (
           <>
-            Il tuo <span>commerciale</span> perde tempo con persone che non hanno <span>budget</span> o non sono in{" "}
-            <span>target</span>?
+            Al telefono arrivano solo <span>persone pronte a firmare</span>.
           </>
         ),
-        body: "Prequalifichiamo i contatti con materiale commerciale mirato, così al telefono arrivano solo persone allineate.",
+        body: "Prequalifichiamo ogni contatto con materiale mirato, così il tuo team non perde un minuto con chi non è pronto ad acquistare.",
       },
       {
         title: (
           <>
-            La tua azienda fa fatica a trovare <span>nuovi commerciali</span>?
+            Hai un reparto commerciale che <span>funziona anche senza di te</span>.
           </>
         ),
-        body: "Mettiamo a disposizione i nostri commerciali o ne reclutiamo di nuovi per il tuo team.",
+        body: "Selezioniamo o formiamo le persone giuste per costruire un team che vende in autonomia, ogni giorno.",
       },
       {
         title: (
           <>
-            I tuoi <span>commerciali</span> non <span>performano</span>?
+            I tuoi commerciali <span>convertono di più</span>, ogni mese.
           </>
         ),
-        body: "Creiamo un percorso di formazione ad hoc per la tua azienda e li formiamo noi!",
+        body: "Costruiamo un percorso di formazione su misura che trasforma il tuo team in una macchina da chiusura.",
       },
     ],
   },
@@ -101,35 +103,35 @@ const serviziTabs: ServiziTab[] = [
     ),
     intro: (
       <>
-        Stai <span>crescendo</span>, o stai solo <span>lavorando di più</span>?
+        Finalmente <span>sai</span>
+        <br />
+        dove stai andando.
       </>
     ),
     points: [
       {
         title: (
           <>
-            Stai facendo <span>tutto da solo</span>, sei <span>stanco</span> e non hai <span>tempo</span> per il troppo
-            lavoro?
+            Lavori meno ore e <span>l&apos;azienda cresce lo stesso</span>.
           </>
         ),
-        body: "Lavoriamo sui processi per liberare ore lavorative che puoi investire in altro.",
+        body: "Ottimizziamo i processi interni così recuperi tempo reale da reinvestire dove conta davvero per la tua crescita.",
       },
       {
         title: (
           <>
-            Hai bisogno di <span>indicazioni</span> su che <span>strada</span> deve prendere il tuo{" "}
-            <span>modello di business</span>?
+            Hai una mappa chiara per i <span>prossimi 12 mesi</span>.
           </>
         ),
-        body: "Ti offriamo un percorso di consulenze con i nostri esperti per darti chiarezza e scegliere finalmente la strada da seguire per far crescere la tua attività.",
+        body: "Niente più decisioni a sensazione, solo priorità, numeri e un piano concreto che puoi seguire ogni settimana.",
       },
       {
         title: (
           <>
-            Decidi a <span>sensazione</span> perché non sai quali <span>numeri</span> guardare?
+            Prendi decisioni come un imprenditore che <span>sa cosa guardare</span>.
           </>
         ),
-        body: "Ti diamo chiarezza su dati, priorità e creiamo un piano di crescita.",
+        body: "Ti diamo chiarezza sui dati che contano e costruiamo insieme la strategia di crescita per il tuo settore.",
       },
     ],
   },
