@@ -164,13 +164,13 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
 function ServiziHeroVideo({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`relative aspect-[9/16] w-full max-w-[min(100%,300px)] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] mx-auto lg:ml-auto lg:mr-0 rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero ${className}`}
+      className={`relative aspect-[9/16] w-full max-w-[min(100%,300px)] sm:max-w-[320px] lg:w-[340px] lg:max-w-none xl:w-[380px] shrink-0 mx-auto rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl ${className}`}
     >
       <video
         controls
         preload="metadata"
         playsInline
-        className="absolute inset-0 h-full w-full object-contain"
+        className="absolute inset-0 block h-full w-full object-cover object-center"
         aria-label="Video reel Gianpio Forge Group"
       >
         <source src={siteImages.gianpioReel} type="video/mp4" />
@@ -210,8 +210,8 @@ export default function ServiziHub() {
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-corallo/15 rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="hidden lg:grid lg:grid-cols-2 gap-10 xl:gap-14 items-center">
-            <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl" />
+          <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
+            <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
             <ServiziHeroVideo />
           </div>
 
