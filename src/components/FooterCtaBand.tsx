@@ -16,25 +16,27 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
         aria-hidden
       />
 
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[18%] min-h-[300px]" aria-hidden>
         <PrismBackground
-          animationType="rotate"
+          animationType="3drotate"
           transparent
           suspendWhenOffscreen
-          glow={1.5}
-          bloom={1.4}
-          noise={0.1}
-          scale={2.4}
-          hueShift={0.12}
-          colorFrequency={0.52}
-          timeScale={0.4}
-          warmMix={0.92}
-          offset={{ y: 90 }}
+          height={4.2}
+          baseWidth={6}
+          glow={2.1}
+          bloom={1.85}
+          noise={0.06}
+          scale={1.85}
+          hueShift={0.08}
+          colorFrequency={0.42}
+          timeScale={0.32}
+          warmMix={1}
+          offset={{ y: 40 }}
         />
       </div>
 
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-[radial-gradient(ellipse_80%_70%_at_50%_100%,rgba(200,80,42,0.32),transparent_68%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[80%] bg-[radial-gradient(ellipse_90%_75%_at_50%_100%,rgba(200,80,42,0.48),rgba(232,185,165,0.22)_45%,transparent_72%)]"
         aria-hidden
       />
 
@@ -53,23 +55,23 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
                 </h3>
               ) : (
                 <h3 className="heading-section text-brand-nero leading-snug">
-                  <span className="block">
-                    Contattaci e parliamone davanti un{" "}
-                    <HandDrawnUnderline>caffè</HandDrawnUnderline>.
-                  </span>
-                  <span className="mt-1 block md:mt-1.5">
-                    Scopri come possiamo{" "}
-                    <HandDrawnUnderline>esserti utile</HandDrawnUnderline>.
-                  </span>
+                  Contattaci e parliamone davanti un{" "}
+                  <HandDrawnUnderline>caffè</HandDrawnUnderline>.
                 </h3>
               )}
             </div>
 
             <Link
               href="/contatti"
-              className="btn-corallo shrink-0 px-8 py-3.5 text-sm md:px-10 md:py-4 md:text-base"
+              className={
+                isCaseStudy
+                  ? "btn-corallo shrink-0 px-8 py-3.5 text-sm md:px-10 md:py-4 md:text-base"
+                  : "btn-corallo btn-corallo-phrase shrink-0 px-7 py-3.5 text-sm md:px-9 md:py-4 md:text-base"
+              }
             >
-              {isCaseStudy ? "OTTIENI UNA CONSULENZA GRATUITA" : "HAI UN MINUTO?"}
+              {isCaseStudy
+                ? "OTTIENI UNA CONSULENZA GRATUITA"
+                : "Scopri come possiamo esserti utile"}
             </Link>
           </div>
         </div>

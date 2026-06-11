@@ -661,23 +661,44 @@ body {
 }
 
 /* ── Footer CTA band — prism corallo visibile sotto glass ────────── */
+.footer-cta-band {
+  min-height: 22rem;
+}
+
 .footer-cta-band .cta-glass-panel {
-  background: rgba(255, 255, 255, 0.36);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.5);
   box-shadow:
-    0 28px 70px rgba(200, 80, 42, 0.22),
-    0 10px 30px rgba(169, 63, 30, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    0 32px 80px rgba(200, 80, 42, 0.3),
+    0 14px 36px rgba(169, 63, 30, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .footer-cta-band .cta-glow-bg::before {
   background: radial-gradient(
-    ellipse 75% 60% at 50% 100%,
-    rgba(200, 80, 42, 0.28) 0%,
-    transparent 72%
+    ellipse 85% 70% at 50% 100%,
+    rgba(200, 80, 42, 0.42) 0%,
+    rgba(232, 185, 165, 0.2) 40%,
+    transparent 74%
   );
+}
+
+.btn-corallo-phrase {
+  text-transform: none;
+  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  max-width: 11.5rem;
+}
+
+@media (min-width: 768px) {
+  .btn-corallo-phrase {
+    max-width: 15rem;
+  }
 }
 
 /* ── CTA radial glow ─────────────────────────────────────────────── */

@@ -208,12 +208,13 @@ export default function PrismBackground({
         if (uWarmMix > 0.001) {
           vec3 forge = vec3(0.784, 0.314, 0.165);
           vec3 peach = vec3(0.910, 0.725, 0.647);
-          vec3 brand = mix(forge, peach, 0.4);
+          vec3 brand = mix(forge, peach, 0.35);
           float lum = dot(col, vec3(0.2126, 0.7152, 0.0722));
-          vec3 warm = brand * (lum * 1.35 + 0.18);
-          col = mix(col, warm, uWarmMix * 0.72);
-          col *= mix(vec3(1.0), vec3(1.18, 0.94, 0.78), uWarmMix);
-          col.b *= mix(1.0, 0.62, uWarmMix);
+          vec3 warm = brand * (lum * 1.55 + 0.22);
+          col = mix(col, warm, uWarmMix * 0.82);
+          col *= mix(vec3(1.0), vec3(1.28, 0.96, 0.74), uWarmMix);
+          col.b *= mix(1.0, 0.48, uWarmMix);
+          col.g = mix(col.g, col.g * 0.92 + 0.04 * uWarmMix, uWarmMix * 0.5);
           col = clamp(col, 0.0, 1.0);
         }
 

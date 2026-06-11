@@ -55,9 +55,8 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 
 **CTA: testi consentiti**
 - Footer standard (tutte le pagine tranne casi studio e `/contatti`):
-  - Riga 1: *"Contattaci e parliamone davanti un caffè."*
-  - Riga 2: *"Scopri come possiamo esserti utile."*
-  - Bottone: **"HAI UN MINUTO?"**
+  - Titolo: *"Contattaci e parliamone davanti un caffè."* (keyword: **caffè**)
+  - Bottone: **"Scopri come possiamo esserti utile"** (sentence case, `btn-corallo-phrase`)
 - Footer casi studio (`/casi-studio` e `/casi-studio/[slug]`): *"Vuoi un sistema come questo per la tua azienda?"* + bottone **"OTTIENI UNA CONSULENZA GRATUITA"**
 - Navbar: **"Hai un minuto?"**
 - Pagina `/servizi` (hero e sezioni servizi): **"Ottieni una consulenza gratuita"**
@@ -67,12 +66,13 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Sfondo: gradient panna/pesca + prism WebGL con `warmMix` corallo Forge (no filtri CSS viola) + glow radiale sotto la card
 - Glass panel semi-trasparente (`footer-cta-band .cta-glass-panel`) per far vedere il prism sotto
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
-- **Layout:** desktop testo a sinistra (max 2 righe) + bottone a destra sulla stessa fascia; mobile centrato in colonna
-- **Colori titolo:** testo **nero**; corallo **solo sulle keyword** (mai intere frasi corallo):
-  - Standard keyword: **caffè** · **esserti utile**
+- **Layout:** desktop titolo a sinistra + bottone a destra; mobile centrato in colonna
+- **Colori titolo:** testo **nero**; corallo **solo sulla keyword** (mai intere frasi corallo):
+  - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone: `btn-corallo`; varianti label solo su `/casi-studio*`
+- Bottone standard: frase *"Scopri come possiamo esserti utile"*; casi studio: **"OTTIENI UNA CONSULENZA GRATUITA"**
+- Prism: `3drotate`, `warmMix: 1`, glow alto, area inferiore della sezione (sotto la card)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 
