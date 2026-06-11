@@ -30,6 +30,8 @@ export const blogImages: Record<string, string> = {
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
   videoPoster: "/images/video-recensione-poster.png",
+  gianpioReel: "/video-gianpio-reel.mp4",
+  gianpioReelPoster: "/images/team/foto-gianpio.webp",
 } as const;
 
 /** Grafiche showcase hero — doppio marquee verticale */

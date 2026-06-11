@@ -1,12 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/ForgeGradientBackground";
 import MetodoForge from "@/components/MetodoForge";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import { heroShowcaseImages, serviziSidebarImages } from "@/data/images";
+import { serviziSidebarImages, siteImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
@@ -145,25 +144,37 @@ const serviziTabs: ServiziTab[] = [
   },
 ];
 
-const leftShowcase = [
-  { src: heroShowcaseImages.metaAds, alt: "Meta Ads" },
-  { src: heroShowcaseImages.crmIntegrato, alt: "CRM Integrato" },
-];
-const rightShowcase = [
-  { src: heroShowcaseImages.formazioneCommerciale, alt: "Formazione commerciale" },
-  { src: heroShowcaseImages.consulenza, alt: "Consulenza" },
-];
-function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
+function ServiziHeroCopy({ className = "" }: { className?: string }) {
   return (
-    <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 shadow-sm">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="(max-width: 1024px) 45vw, 300px"
-        draggable={false}
-      />
+    <div className={className}>
+      <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
+        ✦ I Nostri Servizi
+      </p>
+      <h1 className="heading-hero text-brand-nero mb-6">
+        Come aumentiamo il{" "}
+        <span className="text-brand-corallo">fatturato</span> della tua azienda.
+      </h1>
+      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
+        Ottieni una consulenza gratuita
+      </Link>
+    </div>
+  );
+}
+
+function ServiziHeroVideo({ className = "" }: { className?: string }) {
+  return (
+    <div className={`relative w-full rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero ${className}`}>
+      <video
+        controls
+        preload="metadata"
+        playsInline
+        poster={siteImages.gianpioReelPoster}
+        className="w-full block aspect-[9/16] max-h-[min(560px,80vh)] object-cover object-center mx-auto lg:ml-auto lg:max-w-sm xl:max-w-md"
+        aria-label="Video reel Gianpio Forge Group"
+      >
+        <source src={siteImages.gianpioReel} type="video/mp4" />
+        Il tuo browser non supporta il video.
+      </video>
     </div>
   );
 }
@@ -198,54 +209,14 @@ export default function ServiziHub() {
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-corallo/15 rounded-full blur-3xl" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="hidden lg:grid lg:grid-cols-[1fr_2fr_1fr] gap-8 xl:gap-12 items-center">
-            <div className="marquee-col h-[560px]">
-              <div className="marquee-track-up">
-                {[...leftShowcase, ...leftShowcase].map((c, idx) => (
-                  <div key={`l-${idx}`} className="pb-5">
-                    <ShowcaseTile src={c.src} alt={c.alt} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center text-center px-2">
-              <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
-                ✦ I Nostri Servizi
-              </p>
-              <h1 className="heading-hero text-brand-nero mb-6">
-                Come aumentiamo il{" "}
-                <span className="text-brand-corallo">fatturato</span> della tua azienda.
-              </h1>
-              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
-                Ottieni una consulenza gratuita
-              </Link>
-            </div>
-
-            <div className="marquee-col h-[560px]">
-              <div className="marquee-track-down">
-                {[...rightShowcase, ...rightShowcase].map((c, idx) => (
-                  <div key={`r-${idx}`} className="pb-5">
-                    <ShowcaseTile src={c.src} alt={c.alt} />
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="hidden lg:grid lg:grid-cols-2 gap-10 xl:gap-14 items-center">
+            <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl" />
+            <ServiziHeroVideo />
           </div>
 
-          <div className="lg:hidden">
-            <div className="flex flex-col items-center justify-center text-center">
-              <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
-                ✦ I Nostri Servizi
-              </p>
-              <h1 className="heading-hero text-brand-nero mb-6">
-                Come aumentiamo il{" "}
-                <span className="text-brand-corallo">fatturato</span> della tua azienda.
-              </h1>
-              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
-                Ottieni una consulenza gratuita
-              </Link>
-            </div>
+          <div className="lg:hidden flex flex-col gap-10">
+            <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
+            <ServiziHeroVideo className="max-w-md mx-auto w-full" />
           </div>
         </div>
       </section>
