@@ -734,6 +734,28 @@ body {
   inset: -8px;
   z-index: -1;
   border-radius: inherit;
+  filter: blur(12px);
+  opacity: 0.9;
+  animation: light-beam-glow-spin 2.8s linear infinite;
+  pointer-events: none;
+}
+
+.light-beam-btn--glass .light-beam-btn__glow {
+  inset: -6px;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    rgba(200, 80, 42, 0.55),
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  filter: blur(10px);
+  opacity: 0.75;
+  animation-duration: 3.2s;
+}
+
+.light-beam-btn--solid .light-beam-btn__glow {
   background: conic-gradient(
     from 0deg,
     transparent,
@@ -742,10 +764,6 @@ body {
     rgba(17, 17, 17, 0.75),
     transparent
   );
-  filter: blur(12px);
-  opacity: 0.9;
-  animation: light-beam-glow-spin 2.8s linear infinite;
-  pointer-events: none;
 }
 
 .light-beam-btn__inner {
@@ -779,21 +797,22 @@ body {
   font-weight: 700;
   color: var(--color-brand-corallo);
   box-shadow:
-    0 0 24px -5px rgba(17, 17, 17, 0.4),
-    0 0 30px -3px rgba(200, 80, 42, 0.45);
+    0 0 18px -4px rgba(255, 255, 255, 0.45),
+    0 0 24px -2px rgba(200, 80, 42, 0.42);
 }
 
 .light-beam-btn--glass .light-beam-btn__inner {
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(200, 80, 42, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 .light-beam-btn--glass:hover {
   box-shadow:
-    0 0 28px -4px rgba(17, 17, 17, 0.5),
-    0 0 36px -2px rgba(200, 80, 42, 0.55);
+    0 0 22px -3px rgba(255, 255, 255, 0.55),
+    0 0 32px -2px rgba(200, 80, 42, 0.52);
 }
 
 .light-beam-btn--solid {

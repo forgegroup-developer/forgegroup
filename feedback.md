@@ -75,8 +75,9 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 
 **Pulsanti primari (regola fissa):**
 - Usare **`LightBeamButton`** al posto di `btn-corallo` su tutto il sito
-- Beam rotante: **nero `#111111` → corallo `#C8502A` → nero**
-- Varianti: `solid` (CTA corallo pieno), `glass` (footer e sidebar servizi)
+- Beam rotante `solid`: **nero → corallo → nero** (hero, navbar, form)
+- Beam rotante `glass`: **bianco → corallo → pesca** (footer CTA, sidebar servizi)
+- Varianti: `solid` (fill corallo), `glass` (fill bianco semi-trasparente + testo corallo)
 - Taglie: `sm` (navbar), `default`, `lg` (hero, form, footer)
 
 **Card e pannelli (regola fissa):**
