@@ -218,10 +218,6 @@ export default function Footer() {
                       <span>info@forgegroup.it</span>
                     </a>
                   </li>
-                  <li className="text-sm text-white flex items-start gap-2">
-                    <span className="text-white shrink-0">✦</span>
-                    <span>Italia · Campania</span>
-                  </li>
                   <li className="pt-2">
                     <Link href="/contatti" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
                       Prequalifica →
