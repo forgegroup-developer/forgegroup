@@ -59,20 +59,21 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         </div>
       </section>
 
-      {/* CONTEXT — logo grande a destra, sborda nell'hero sopra */}
-      <section className="relative z-10 overflow-visible section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
+      {/* CONTEXT — titolo cliente e logo affiancati senza sovrapposizione */}
+      <section className="relative z-10 section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative mb-8 md:mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="font-display font-bold text-[clamp(2.25rem,6vw,3.75rem)] uppercase tracking-tight text-brand-nero leading-[0.95] sm:max-w-[50%]">
+          <div className="relative mb-8 grid gap-6 md:mb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-8">
+            <h2 className="min-w-0 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold uppercase leading-[0.95] tracking-tight text-brand-nero">
               {clientName}
             </h2>
             {c.clientLogo && (
-              <div className="relative shrink-0 self-end -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-36 z-20">
+              <div className="w-full max-w-full justify-self-start md:w-auto md:max-w-[min(100%,26rem)] md:justify-self-end">
                 <CaseStudyClientLogo
                   src={c.clientLogo}
                   alt={c.clientLogoAlt ?? clientName}
                   variant="card"
                   size="3xl"
+                  className="max-w-full"
                 />
               </div>
             )}

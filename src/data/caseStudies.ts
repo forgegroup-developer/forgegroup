@@ -108,9 +108,9 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "05",
-        title: "Lancio geolocalizzato & scala",
+        title: "Lancio geolocalizzato e crescita in Italia",
         description:
-          "Partenza su un'area a 250 km dalla sede per validare il sistema, oggi pronto a essere replicato e scalato in tutta Italia.",
+          "Partenza su un'area a 250 km dalla sede per validare il sistema, oggi pronto a essere replicato in tutta Italia con risultati in crescita.",
       },
     ],
     results: [

@@ -92,9 +92,18 @@ export default function CaseStudyClientLogo({
   if (variant === "card") {
     return (
       <div
-        className={`inline-flex shrink-0 rounded-2xl border border-brand-bordo bg-white p-4 md:p-5 lg:p-6 shadow-lg shadow-black/10 ${className}`}
+        className={`inline-flex max-w-full shrink-0 rounded-2xl border border-brand-bordo bg-white p-4 md:p-5 lg:p-6 shadow-lg shadow-black/10 ${className}`}
       >
-        {imageBox}
+        <div className={`relative max-w-full ${boxSizes[size]}`}>
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            quality={90}
+            className="object-contain object-center"
+            sizes={imageSizes[size]}
+          />
+        </div>
       </div>
     );
   }
