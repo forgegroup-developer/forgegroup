@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import { heroShowcaseImages } from "@/data/images";
+import { heroShowcaseImages, serviziSidebarImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
@@ -14,12 +14,16 @@ type ServiziTab = {
   title: React.ReactNode;
   intro: React.ReactNode;
   points: ServiziTabPoint[];
+  sidebarImage: string;
+  sidebarImageAlt: string;
 };
 
 const serviziTabs: ServiziTab[] = [
   {
     id: "acquisizione",
     number: "01",
+    sidebarImage: serviziSidebarImages.acquisizione,
+    sidebarImageAlt: "Illustrazione acquisizione clienti",
     title: "Acquisizione Clienti",
     intro: (
       <>
@@ -58,6 +62,8 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "vendite",
     number: "02",
+    sidebarImage: serviziSidebarImages.vendite,
+    sidebarImageAlt: "Illustrazione processi di vendita",
     title: "Processi di Vendita",
     intro: (
       <>
@@ -96,6 +102,8 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "consulenza",
     number: "03",
+    sidebarImage: serviziSidebarImages.consulenza,
+    sidebarImageAlt: "Illustrazione consulenza e formazione",
     title: (
       <>
         Consulenza <span className="whitespace-nowrap">e Formazione</span>

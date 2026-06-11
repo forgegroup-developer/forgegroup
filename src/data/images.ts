@@ -40,10 +40,11 @@ export const heroShowcaseImages = {
   formazioneCommerciale: "/images/hero/hero-formazione-commerciale.png",
 } as const;
 
+/** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
-  acquisizione: "/images/servizi/imprenditore-acquisizione.png",
-  vendite: "/images/servizi/imprenditore-vendite.png",
-  consulenza: "/images/servizi/imprenditrice-consulenza.png",
+  acquisizione: "/images/servizi/magnete.png",
+  vendite: "/images/servizi/bersaglio.png",
+  consulenza: "/images/servizi/bussola.png",
 } as const;
 
 export function getCaseStudyImage(slug: string): string {
