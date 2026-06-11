@@ -51,7 +51,7 @@ type FormStep = {
 };
 
 const steps: FormStep[] = [
-  { name: "nome_attivita", label: "Nome attività / Azienda", type: "text", placeholder: "Es. Rossi Srl" },
+  { name: "nome_attivita", label: "Nome attività / Azienda", type: "text", placeholder: "Es. Edil Srl" },
   {
     name: "occupazione",
     label: "Di cosa ti occupi? (in 1-3 frasi, come se mi parlassi di persona)",
