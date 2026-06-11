@@ -8,8 +8,15 @@ import HeroGooeySection from "@/components/HeroGooeySection";
 type FormData = {
   nome_attivita: string;
   occupazione: string;
+  fatturato: string;
   ostacolo: string;
+  acquisizione_attuale: string;
+  reparto_commerciale: string;
+  tempistiche: string;
+  budget: string;
   ruolo: string;
+  provenienza: string;
+  nome_cognome: string;
   telefono: string;
   email: string;
 };
@@ -17,8 +24,15 @@ type FormData = {
 const initialFormData: FormData = {
   nome_attivita: "",
   occupazione: "",
+  fatturato: "",
   ostacolo: "",
+  acquisizione_attuale: "",
+  reparto_commerciale: "",
+  tempistiche: "",
+  budget: "",
   ruolo: "",
+  provenienza: "",
+  nome_cognome: "",
   telefono: "",
   email: "",
 };
@@ -44,6 +58,16 @@ const steps: FormStep[] = [
     placeholder: "Raccontaci cosa fa la tua azienda...",
   },
   {
+    name: "fatturato",
+    label: "Qual è l'attuale fatturato annuo?",
+    type: "select",
+    options: [
+      { value: "Meno di 250.000€", label: "Meno di 250.000€" },
+      { value: "Tra 250.000€ e 1.000.000€", label: "Tra 250.000€ e 1.000.000€" },
+      { value: "Oltre 1.000.000€", label: "Oltre 1.000.000€" },
+    ],
+  },
+  {
     name: "ostacolo",
     label: "Qual è il tuo più grande ostacolo attualmente?",
     type: "select",
@@ -57,11 +81,60 @@ const steps: FormStep[] = [
     ],
   },
   {
+    name: "acquisizione_attuale",
+    label: "Come acquisisci clienti ad oggi?",
+    type: "textarea",
+    rows: 3,
+    placeholder: "Passaparola, ads, fiere, outbound...",
+  },
+  {
+    name: "reparto_commerciale",
+    label: "Hai un reparto commerciale? Come lo gestisci?",
+    type: "textarea",
+    rows: 3,
+    placeholder: "Descrivi team, processi, strumenti...",
+  },
+  {
+    name: "tempistiche",
+    label: "Se siamo in linea con i tuoi obiettivi, quando vorresti iniziare?",
+    type: "select",
+    options: [
+      { value: "Subito", label: "Subito" },
+      { value: "Tra 1 e 4 settimane", label: "Tra 1 e 4 settimane" },
+      { value: "Tra 1 e 3 mesi", label: "Tra 1 e 3 mesi" },
+    ],
+  },
+  {
+    name: "budget",
+    label: "Qual è il tuo budget mensile per Marketing e Vendite?",
+    type: "select",
+    options: [
+      { value: "da 1.500€ a 2.500€ / mese", label: "da 1.500€ a 2.500€ / mese" },
+      { value: "da 2.500€ a 5.000€ / mese", label: "da 2.500€ a 5.000€ / mese" },
+      { value: "da 5.000€ a 10.000€ / mese", label: "da 5.000€ a 10.000€ / mese" },
+      { value: "+ 10.000€ / mese", label: "+ 10.000€ / mese" },
+    ],
+  },
+  {
     name: "ruolo",
     label: "Qual è il tuo ruolo in azienda?",
     type: "text",
     placeholder: "Es. Titolare, CEO, Direttore commerciale",
   },
+  {
+    name: "provenienza",
+    label: "Come sei venuto a conoscenza di Forge Group?",
+    type: "select",
+    options: [
+      { value: "Ricerca Google", label: "Ricerca Google" },
+      { value: "LinkedIn", label: "LinkedIn" },
+      { value: "Facebook / Instagram", label: "Facebook / Instagram" },
+      { value: "Passaparola / Referenza", label: "Passaparola / Referenza" },
+      { value: "Evento dal vivo", label: "Evento dal vivo" },
+      { value: "Altro", label: "Altro" },
+    ],
+  },
+  { name: "nome_cognome", label: "Nome e Cognome", type: "text", placeholder: "Mario Rossi" },
   { name: "telefono", label: "Telefono", type: "tel", placeholder: "+39 333 1234567" },
   { name: "email", label: "Email", type: "email", placeholder: "nome@azienda.it" },
 ];
