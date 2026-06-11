@@ -5,6 +5,7 @@ import MetodoForge from "@/components/MetodoForge";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
+import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
 import { serviziSidebarImages, siteImages } from "@/data/images";
 
 type ServiziTab = {
@@ -151,7 +152,7 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
         ✦ I Nostri Servizi
       </p>
       <h1 className="heading-hero text-brand-nero mb-6">
-        Come aumentiamo il{" "}
+        Scopri come aumentiamo il{" "}
         <span className="text-brand-corallo">fatturato</span> della tua azienda.
       </h1>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
@@ -204,7 +205,10 @@ export default function ServiziHub() {
   return (
     <>
       {/* HERO — layout originale, copy LP */}
-      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 section-bianco">
+      <section
+        id="servizi-hero"
+        className="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 section-bianco"
+      >
         <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-corallo/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-corallo/15 rounded-full blur-3xl" />
@@ -220,10 +224,15 @@ export default function ServiziHub() {
             <ServiziHeroVideo />
           </div>
         </div>
+        <ServiziHeroScrollCue />
       </section>
 
       {/* TRE SERVIZI — layout originale, copy LP */}
-      <ForgeGradientBackground as="section" className="py-16 md:py-24 section-coral section-coral-gradient">
+      <ForgeGradientBackground
+        as="section"
+        id="servizi-contenuto"
+        className="scroll-mt-24 py-16 md:py-24 section-coral section-coral-gradient"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             onCoral
