@@ -198,12 +198,20 @@ export default function ServiziHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
             <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
-            <ReelHeroVideo src={siteImages.gianpioReel} label="Video reel Gianpio Forge Group" />
+            <ReelHeroVideo
+              src={siteImages.gianpioReel}
+              poster={siteImages.gianpioReelPoster}
+              label="Video reel Gianpio Forge Group"
+            />
           </div>
 
           <div className="lg:hidden flex flex-col gap-10">
             <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
-            <ReelHeroVideo src={siteImages.gianpioReel} label="Video reel Gianpio Forge Group" />
+            <ReelHeroVideo
+              src={siteImages.gianpioReel}
+              poster={siteImages.gianpioReelPoster}
+              label="Video reel Gianpio Forge Group"
+            />
           </div>
         </div>
         <ServiziHeroScrollCue />
