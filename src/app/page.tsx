@@ -13,12 +13,12 @@ import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 
 export const metadata: Metadata = {
-  title: "Forge Group | Sistema di Crescita per Imprese B2B",
+  title: "Forge Group - Growth Hacking Italia",
   description:
     "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile. Dalle prime contatti al contratto firmato: un sistema completo.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Forge Group | Sistema di Crescita per Imprese B2B",
+    title: "Forge Group - Growth Hacking Italia",
     description:
       "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
     url: "/",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Group | Sistema di Crescita per Imprese B2B",
+    title: "Forge Group - Growth Hacking Italia",
     description:
       "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
     images: ["/logo.png"],
