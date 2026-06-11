@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import {
   FORGE_LOGO_3D,
@@ -8,41 +9,96 @@ import {
   buildForgeLogoGroup,
 } from "@/lib/forgeLogo3d";
 
+const INTRO_SEEN_KEY = "fg_intro_seen";
+
 /**
- * Intro animation: fullscreen dark overlay con logo 3D Forge Group al centro.
- * Logo ruota lentamente, poi overlay fa curtain-wipe verso l'alto.
- * Mostrato solo una volta per sessione (sessionStorage).
- * Rispetta prefers-reduced-motion.
+ * Splash iniziale: logo Forge Group a schermo intero.
+ * L'utente entra nel sito con un click (o Invio); mostrata una volta per sessione.
  */
 export default function IntroLoader() {
   const [visible, setVisible] = useState<boolean | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [dismissing, setDismissing] = useState(false);
+
   const overlayRef = useRef<HTMLDivElement>(null);
   const canvasWrapRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const taglineRef = useRef<HTMLDivElement>(null);
+  const enterRef = useRef<HTMLButtonElement>(null);
+  const staticLogoRef = useRef<HTMLDivElement>(null);
+
+  const cleanupRef = useRef<{
+    disposed: boolean;
+    rafId: number;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    renderer: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    pmrem: any;
+  }>({ disposed: false, rafId: 0, renderer: null, pmrem: null });
+
+  const finishIntro = useCallback(() => {
+    sessionStorage.setItem(INTRO_SEEN_KEY, "1");
+    document.body.style.overflow = "";
+    setVisible(false);
+  }, []);
+
+  const dismissIntro = useCallback(() => {
+    if (dismissing) return;
+    setDismissing(true);
+
+    const cleanup = cleanupRef.current;
+    cleanup.disposed = true;
+    cancelAnimationFrame(cleanup.rafId);
+    if (cleanup.pmrem) cleanup.pmrem.dispose();
+    if (cleanup.renderer) {
+      cleanup.renderer.dispose();
+      const el = cleanup.renderer.domElement;
+      if (el?.parentNode) el.parentNode.removeChild(el);
+    }
+
+    const targets = reducedMotion
+      ? [staticLogoRef.current, textRef.current, taglineRef.current, enterRef.current]
+      : [canvasWrapRef.current, textRef.current, taglineRef.current, enterRef.current];
+
+    gsap
+      .timeline({ onComplete: finishIntro })
+      .to(targets, { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" })
+      .to(
+        overlayRef.current,
+        { yPercent: -105, duration: 0.7, ease: "expo.inOut" },
+        "-=0.05"
+      );
+  }, [dismissing, finishIntro, reducedMotion]);
 
   useEffect(() => {
-    if (sessionStorage.getItem("fg_intro_seen")) {
+    if (sessionStorage.getItem(INTRO_SEEN_KEY)) {
       setVisible(false);
       return;
     }
 
-    const prefersReduced =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReduced) {
-      sessionStorage.setItem("fg_intro_seen", "1");
-      setVisible(false);
-      return;
-    }
-
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setReducedMotion(prefersReduced);
     setVisible(true);
     document.body.style.overflow = "hidden";
 
-    let disposed = false;
-    let rafId = 0;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let renderer: any, pmrem: any;
+    if (prefersReduced) {
+      gsap.set([staticLogoRef.current, textRef.current, taglineRef.current, enterRef.current], {
+        opacity: 0,
+        y: 12,
+      });
+      gsap
+        .timeline()
+        .to(staticLogoRef.current, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0)
+        .to(textRef.current, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 0.15)
+        .to(taglineRef.current, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.3)
+        .to(enterRef.current, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 0.45);
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+
+    const cleanup = cleanupRef.current;
+    cleanup.disposed = false;
     const startTime = performance.now();
 
     (async () => {
@@ -50,35 +106,30 @@ export default function IntroLoader() {
       const { RoomEnvironment } = await import(
         "three/examples/jsm/environments/RoomEnvironment.js"
       );
-      if (disposed || !canvasWrapRef.current) return;
+      if (cleanup.disposed || !canvasWrapRef.current) return;
 
       const SIZE = Math.round(Math.min(window.innerWidth * 0.55, 320));
 
-      renderer = new THREE.WebGLRenderer({
+      cleanup.renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true,
         powerPreference: "high-performance",
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, FORGE_LOGO_3D.pixelRatioMax));
-      renderer.setSize(SIZE, SIZE);
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = FORGE_LOGO_3D.toneMappingExposure;
+      cleanup.renderer.setPixelRatio(Math.min(window.devicePixelRatio, FORGE_LOGO_3D.pixelRatioMax));
+      cleanup.renderer.setSize(SIZE, SIZE);
+      cleanup.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      cleanup.renderer.toneMappingExposure = FORGE_LOGO_3D.toneMappingExposure;
 
       canvasWrapRef.current.style.width = SIZE + "px";
       canvasWrapRef.current.style.height = SIZE + "px";
-      canvasWrapRef.current.appendChild(renderer.domElement);
+      canvasWrapRef.current.appendChild(cleanup.renderer.domElement);
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        FORGE_LOGO_3D.cameraFov,
-        1,
-        0.1,
-        100
-      );
+      const camera = new THREE.PerspectiveCamera(FORGE_LOGO_3D.cameraFov, 1, 0.1, 100);
       camera.position.set(0, 0, FORGE_LOGO_3D.cameraZ);
 
-      pmrem = new THREE.PMREMGenerator(renderer);
-      scene.environment = pmrem
+      cleanup.pmrem = new THREE.PMREMGenerator(cleanup.renderer);
+      scene.environment = cleanup.pmrem
         .fromScene(new RoomEnvironment(), FORGE_LOGO_3D.roomEnvironmentIntensity)
         .texture;
 
@@ -86,88 +137,63 @@ export default function IntroLoader() {
       const logoGroup = buildForgeLogoGroup(THREE);
       scene.add(logoGroup);
 
-      // ── Render loop: slow gentle rotation ───────────────────────────────
       const animate = () => {
-        if (disposed) return;
+        if (cleanup.disposed) return;
         const t = (performance.now() - startTime) / 1000;
         logoGroup.rotation.y = t * 0.55;
         logoGroup.rotation.x = Math.sin(t * 0.6) * 0.2;
-        renderer.render(scene, camera);
-        rafId = requestAnimationFrame(animate);
+        cleanup.renderer.render(scene, camera);
+        cleanup.rafId = requestAnimationFrame(animate);
       };
-      rafId = requestAnimationFrame(animate);
+      cleanup.rafId = requestAnimationFrame(animate);
 
-      // ── GSAP timeline ────────────────────────────────────────────────────
-      // Initial hidden state
       gsap.set(canvasWrapRef.current, { opacity: 0, scale: 0.72, y: 20 });
-      gsap.set(textRef.current, { opacity: 0, y: 14 });
-      gsap.set(taglineRef.current, { opacity: 0, y: 8 });
+      gsap.set([textRef.current, taglineRef.current, enterRef.current], { opacity: 0, y: 14 });
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          sessionStorage.setItem("fg_intro_seen", "1");
-          document.body.style.overflow = "";
-          setVisible(false);
-        },
-      });
-
-      tl
-        // Logo entra
-        .to(canvasWrapRef.current, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 1.0,
-          ease: "expo.out",
-        }, 0.1)
-        // Nome "FORGE GROUP" appare
-        .to(textRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "expo.out",
-        }, 0.55)
-        // Tagline appare
-        .to(taglineRef.current, {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "expo.out",
-        }, 0.8)
-        // Pausa + logo + testo svaniscono verso l'alto
-        .to(
-          [canvasWrapRef.current, textRef.current, taglineRef.current],
-          { opacity: 0, y: -40, duration: 0.5, ease: "power2.in" },
-          "+=0.95"
-        )
-        // Curtain wipe: overlay sale verso l'alto
-        .to(overlayRef.current, {
-          yPercent: -105,
-          duration: 0.75,
-          ease: "expo.inOut",
-        }, "-=0.1");
+      gsap
+        .timeline()
+        .to(canvasWrapRef.current, { opacity: 1, scale: 1, y: 0, duration: 1, ease: "expo.out" }, 0.1)
+        .to(textRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "expo.out" }, 0.55)
+        .to(taglineRef.current, { opacity: 1, y: 0, duration: 0.6, ease: "expo.out" }, 0.8)
+        .to(enterRef.current, { opacity: 1, y: 0, duration: 0.55, ease: "expo.out" }, 1.05);
     })();
 
     return () => {
-      disposed = true;
-      cancelAnimationFrame(rafId);
-      if (pmrem) pmrem.dispose();
-      if (renderer) {
-        renderer.dispose();
-        const el = renderer.domElement;
+      cleanup.disposed = true;
+      cancelAnimationFrame(cleanup.rafId);
+      if (cleanup.pmrem) cleanup.pmrem.dispose();
+      if (cleanup.renderer) {
+        cleanup.renderer.dispose();
+        const el = cleanup.renderer.domElement;
         if (el?.parentNode) el.parentNode.removeChild(el);
       }
       document.body.style.overflow = "";
     };
   }, []);
 
-  // null = SSR / non ancora determinato: non renderizzare nulla
+  useEffect(() => {
+    if (!visible || dismissing) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        dismissIntro();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [visible, dismissing, dismissIntro]);
+
   if (visible === null || visible === false) return null;
 
   return (
     <div
       ref={overlayRef}
-      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="intro-brand"
+      aria-describedby="intro-tagline"
       style={{
         position: "fixed",
         inset: 0,
@@ -178,14 +204,20 @@ export default function IntroLoader() {
         alignItems: "center",
         justifyContent: "center",
         gap: "20px",
+        padding: "24px",
       }}
     >
-      {/* Canvas Three.js */}
-      <div ref={canvasWrapRef} style={{ lineHeight: 0 }} />
+      {reducedMotion ? (
+        <div ref={staticLogoRef} className="relative h-28 w-28 sm:h-32 sm:w-32">
+          <Image src="/logo.png" alt="Forge Group" fill className="object-contain" priority />
+        </div>
+      ) : (
+        <div ref={canvasWrapRef} style={{ lineHeight: 0 }} aria-hidden="true" />
+      )}
 
-      {/* Nome brand */}
       <div
         ref={textRef}
+        id="intro-brand"
         style={{
           display: "flex",
           alignItems: "baseline",
@@ -202,9 +234,9 @@ export default function IntroLoader() {
         <span>GROUP</span>
       </div>
 
-      {/* Tagline */}
       <div
         ref={taglineRef}
+        id="intro-tagline"
         style={{
           fontFamily: "'Inter', system-ui, sans-serif",
           fontSize: "clamp(9px, 2vw, 11px)",
@@ -216,6 +248,16 @@ export default function IntroLoader() {
       >
         Growth Hacking · Italia
       </div>
+
+      <button
+        ref={enterRef}
+        type="button"
+        className="btn-corallo mt-4 px-8 py-4 text-sm md:text-base opacity-0"
+        onClick={dismissIntro}
+        disabled={dismissing}
+      >
+        Entra nel sito
+      </button>
     </div>
   );
 }
