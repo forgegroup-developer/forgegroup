@@ -64,7 +64,8 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 
 **Footer CTA band (regola fissa):**
 - Componente: `FooterCtaBand.tsx` (in `Footer.tsx`), nascosta su `/contatti`
-- Sfondo: prism WebGL corallo/pesca Forge + pannello glass centrale (`cta-glass-panel`)
+- Sfondo: gradient panna/pesca + prism WebGL con `warmMix` corallo Forge (no filtri CSS viola) + glow radiale sotto la card
+- Glass panel semi-trasparente (`footer-cta-band .cta-glass-panel`) per far vedere il prism sotto
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
 - **Layout:** desktop testo a sinistra (max 2 righe) + bottone a destra sulla stessa fascia; mobile centrato in colonna
 - **Colori titolo:** testo **nero**; corallo **solo sulle keyword** (mai intere frasi corallo):
@@ -273,7 +274,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
 - [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
 - [x] Rimossa CTASection da tutte le pagine (CTA resta solo nel footer)
-- [x] Footer: fascia CTA `FooterCtaBand` (prism corallo + glass) + corpo link `bg-brand-corallo`; keyword corallo e layout orizzontale
+- [x] Footer: fascia CTA `FooterCtaBand` (prism `warmMix` corallo + glass trasparente) + corpo link `bg-brand-corallo`; keyword corallo e layout orizzontale
 - [x] Regola sezioni bianche: classe `section-bianco` applicata su tutto il sito
 - [x] Navbar: pulsante "Hai un minuto?" nascosto su mobile/tablet
 - [x] Hero pagine servizi: layout due colonne con pillars card

@@ -10,21 +10,33 @@ type Props = {
 
 export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   return (
-    <section className="relative overflow-hidden border-t border-b border-brand-bordo bg-brand-panna">
-      <div className="prism-forge-coral pointer-events-none absolute inset-0 opacity-75">
+    <section className="footer-cta-band relative overflow-hidden border-t border-b border-brand-bordo">
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-panna via-brand-pesca-light/60 to-brand-pesca/35"
+        aria-hidden
+      />
+
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
         <PrismBackground
           animationType="rotate"
           transparent
           suspendWhenOffscreen
-          glow={0.82}
-          bloom={0.95}
-          noise={0.22}
-          scale={3.4}
-          hueShift={2.25}
-          colorFrequency={0.72}
-          timeScale={0.35}
+          glow={1.5}
+          bloom={1.4}
+          noise={0.1}
+          scale={2.4}
+          hueShift={0.12}
+          colorFrequency={0.52}
+          timeScale={0.4}
+          warmMix={0.92}
+          offset={{ y: 90 }}
         />
       </div>
+
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-[radial-gradient(ellipse_80%_70%_at_50%_100%,rgba(200,80,42,0.32),transparent_68%)]"
+        aria-hidden
+      />
 
       <div className="cta-glow-bg relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">

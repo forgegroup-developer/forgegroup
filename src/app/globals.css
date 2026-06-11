@@ -660,9 +660,24 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
-/* ── Prism footer — palette corallo/pesca Forge ──────────────────── */
-.prism-forge-coral canvas {
-  filter: hue-rotate(212deg) saturate(1.55) sepia(0.2) brightness(1.08);
+/* ── Footer CTA band — prism corallo visibile sotto glass ────────── */
+.footer-cta-band .cta-glass-panel {
+  background: rgba(255, 255, 255, 0.36);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 28px 70px rgba(200, 80, 42, 0.22),
+    0 10px 30px rgba(169, 63, 30, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.footer-cta-band .cta-glow-bg::before {
+  background: radial-gradient(
+    ellipse 75% 60% at 50% 100%,
+    rgba(200, 80, 42, 0.28) 0%,
+    transparent 72%
+  );
 }
 
 /* ── CTA radial glow ─────────────────────────────────────────────── */

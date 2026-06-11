@@ -19,6 +19,8 @@ export type PrismProps = {
   bloom?: number;
   suspendWhenOffscreen?: boolean;
   timeScale?: number;
+  /** 0–1: mix output verso palette corallo/pesca Forge */
+  warmMix?: number;
   className?: string;
 };
 
@@ -38,6 +40,7 @@ export default function PrismBackground({
   bloom = 1,
   suspendWhenOffscreen = false,
   timeScale = 0.5,
+  warmMix = 0,
   className = "",
 }: PrismProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -64,6 +67,7 @@ export default function PrismBackground({
     const TS = Math.max(0, timeScale || 1);
     const HOVSTR = Math.max(0, hoverStrength || 1);
     const INERT = Math.max(0, Math.min(1, inertia || 0.12));
+    const WARM = Math.max(0, Math.min(1, warmMix || 0));
 
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const renderer = new Renderer({
@@ -116,6 +120,7 @@ export default function PrismBackground({
       uniform float uMinAxis;
       uniform float uPxScale;
       uniform float uTimeScale;
+      uniform float uWarmMix;
 
       vec4 tanh4(vec4 x){
         vec4 e2x = exp(2.0*x);
@@ -200,6 +205,18 @@ export default function PrismBackground({
           col = clamp(hueRotation(uHueShift) * col, 0.0, 1.0);
         }
 
+        if (uWarmMix > 0.001) {
+          vec3 forge = vec3(0.784, 0.314, 0.165);
+          vec3 peach = vec3(0.910, 0.725, 0.647);
+          vec3 brand = mix(forge, peach, 0.4);
+          float lum = dot(col, vec3(0.2126, 0.7152, 0.0722));
+          vec3 warm = brand * (lum * 1.35 + 0.18);
+          col = mix(col, warm, uWarmMix * 0.72);
+          col *= mix(vec3(1.0), vec3(1.18, 0.94, 0.78), uWarmMix);
+          col.b *= mix(1.0, 0.62, uWarmMix);
+          col = clamp(col, 0.0, 1.0);
+        }
+
         gl_FragColor = vec4(col, o.a);
       }
     `;
@@ -234,6 +251,7 @@ export default function PrismBackground({
           value: 1 / ((gl.drawingBufferHeight || 1) * 0.1 * SCALE),
         },
         uTimeScale: { value: TS },
+        uWarmMix: { value: WARM },
       },
     });
 
@@ -467,6 +485,7 @@ export default function PrismBackground({
     inertia,
     bloom,
     suspendWhenOffscreen,
+    warmMix,
   ]);
 
   return (
