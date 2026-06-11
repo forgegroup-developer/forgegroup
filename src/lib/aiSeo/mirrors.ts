@@ -124,6 +124,20 @@ Entro 48 ore lavorative se ci sono i presupposti per una collaborazione profitte
 Dati trattati secondo la Privacy Policy: ${BASE}/privacy-policy
 `,
   },
+  "casi-studio": {
+    title: "Casi Studio | Forge Group",
+    description:
+      "Risultati verificati in acquisizione clienti e crescita B2B. Portfolio Forge Group con fatturato generato per clienti reali.",
+    url: `${BASE}/casi-studio`,
+    body: `
+# Casi Studio Forge Group
+
+Portfolio di risultati misurabili per imprese B2B: acquisizione clienti, processi di vendita e crescita del fatturato.
+
+## CTA
+Candida la tua azienda: ${BASE}/contatti
+`,
+  },
   "chi-siamo-e-manifesto": {
     title: "Chi Siamo e Manifesto | Forge Group",
     description: "Manifesto, valori e metodo Forge Group: sistemi di acquisizione B2B, non campagne generiche.",

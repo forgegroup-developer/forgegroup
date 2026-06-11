@@ -5,6 +5,7 @@ import MetodoForge from "@/components/MetodoForge";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
+import ReelHeroVideo from "@/components/ReelHeroVideo";
 import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
 import { serviziSidebarImages, siteImages } from "@/data/images";
 
@@ -162,25 +163,6 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
   );
 }
 
-function ServiziHeroVideo({ className = "" }: { className?: string }) {
-  return (
-    <div
-      className={`relative aspect-[9/16] w-full max-w-[min(100%,300px)] sm:max-w-[320px] lg:w-[340px] lg:max-w-none xl:w-[380px] shrink-0 mx-auto rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl ${className}`}
-    >
-      <video
-        controls
-        preload="metadata"
-        playsInline
-        className="absolute inset-0 block h-full w-full object-cover object-center"
-        aria-label="Video reel Gianpio Forge Group"
-      >
-        <source src={siteImages.gianpioReel} type="video/mp4" />
-        Il tuo browser non supporta il video.
-      </video>
-    </div>
-  );
-}
-
 export const metadata: Metadata = {
   title: "Servizi | Sistema di acquisizione e vendita B2B",
   description:
@@ -216,12 +198,12 @@ export default function ServiziHub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
             <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
-            <ServiziHeroVideo />
+            <ReelHeroVideo src={siteImages.gianpioReel} label="Video reel Gianpio Forge Group" />
           </div>
 
           <div className="lg:hidden flex flex-col gap-10">
             <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
-            <ServiziHeroVideo />
+            <ReelHeroVideo src={siteImages.gianpioReel} label="Video reel Gianpio Forge Group" />
           </div>
         </div>
         <ServiziHeroScrollCue />

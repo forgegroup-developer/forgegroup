@@ -51,7 +51,7 @@ export default async function CasoStudioDetail({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.forgegroup.it/" },
-      { "@type": "ListItem", position: 2, name: "Casi Studio", item: "https://www.forgegroup.it/#casi-studio" },
+      { "@type": "ListItem", position: 2, name: "Casi Studio", item: "https://www.forgegroup.it/casi-studio" },
       {
         "@type": "ListItem",
         position: 3,

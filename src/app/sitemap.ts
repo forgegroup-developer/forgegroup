@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE}/servizi`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/casi-studio`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/contatti`, lastModified: now, changeFrequency: "yearly", priority: 0.9 },
     { url: `${BASE}/chi-siamo-e-manifesto`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

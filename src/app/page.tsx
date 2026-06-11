@@ -117,6 +117,11 @@ export default function Home() {
               </>
             }
           />
+          <div className="mt-8 flex justify-center">
+            <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+              Vedi tutti i casi studio
+            </Link>
+          </div>
         </div>
         <LazyCaseStudyStack />
       </section>

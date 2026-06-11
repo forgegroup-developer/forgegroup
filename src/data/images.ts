@@ -32,6 +32,7 @@ export const siteImages = {
   videoPoster: "/images/video-recensione-poster.png",
   gianpioReel: "/video-gianpio-reel.mp4",
   gianpioReelPoster: "/images/team/foto-gianpio.webp",
+  marcoReel: "/video-marco-reel.mp4",
 } as const;
 
 /** Grafiche showcase hero — doppio marquee verticale */

@@ -84,7 +84,7 @@ export default function Navbar() {
             </Link>
             <div className="nav-dropdown-trigger relative">
               <Link
-                href="/#casi-studio"
+                href="/casi-studio"
                 className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo flex items-center gap-1 ${
                   isCaseStudyActive ? "text-brand-corallo active" : "text-brand-nero"
                 }`}
@@ -112,7 +112,7 @@ export default function Navbar() {
                   ))}
                   <div className="border-t border-brand-bordo mt-2 pt-2">
                     <Link
-                      href="/#casi-studio"
+                      href="/casi-studio"
                       className="block px-4 py-2 text-xs uppercase tracking-widest text-brand-corallo font-bold hover:bg-brand-pesca-light rounded-md"
                     >
                       Tutti i casi studio →
@@ -225,7 +225,7 @@ export default function Navbar() {
                     </Link>
                   ))}
                   <Link
-                    href="/#casi-studio"
+                    href="/casi-studio"
                     onClick={closeMenu}
                     className="block text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2 pb-1"
                   >
