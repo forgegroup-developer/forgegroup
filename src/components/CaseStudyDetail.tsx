@@ -58,13 +58,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         <div className="absolute inset-0" aria-hidden>
           <Image
             src={getCaseStudyImage(c.slug)}
-            alt=""
+            alt={`Caso studio ${c.shortTitle}`}
             fill
             className="object-cover object-center"
             style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
             sizes="100vw"
-            quality={95}
-            unoptimized
+            quality={85}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-corallo/88 via-brand-corallo/72 to-brand-corallo/48" />

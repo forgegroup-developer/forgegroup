@@ -78,7 +78,7 @@ export default function HeroBento() {
 
   return (
     <div
-      className={`hero-dual-marquee w-full h-[380px] sm:h-[440px] lg:h-[520px]${paused ? " is-paused" : ""}`}
+      className={`hero-dual-marquee w-full h-[300px] sm:h-[400px] md:h-[440px] lg:h-[520px]${paused ? " is-paused" : ""}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-hidden="true"

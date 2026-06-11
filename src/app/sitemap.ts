@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/servizi`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/contatti`, lastModified: now, changeFrequency: "yearly", priority: 0.9 },
+    { url: `${BASE}/chi-siamo-e-manifesto`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/cookie-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];

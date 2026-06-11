@@ -51,7 +51,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
   const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
-    <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
+    <article className="flex w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
       <div className="relative h-[200px] w-full shrink-0 overflow-hidden bg-brand-corallo md:h-full md:w-[55%]">
         <Image
@@ -63,8 +63,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
           }`}
           style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
           sizes="(max-width: 768px) 100vw, 55vw"
-          quality={95}
-          unoptimized
+          quality={85}
           draggable={false}
         />
         <div
@@ -86,11 +85,11 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
           </span>
         </div>
 
-        <h3 className="relative mb-2 line-clamp-2 shrink-0 font-display text-xl font-semibold leading-tight text-white md:text-2xl">
+        <h3 className="relative mb-2 line-clamp-2 shrink-0 font-display text-lg font-semibold leading-tight text-white sm:text-xl md:text-2xl">
           {c.resultHeadline}
         </h3>
 
-        <p className="relative shrink-0 text-sm leading-relaxed text-white/90 md:text-[15px]">
+        <p className="relative shrink-0 text-base leading-relaxed text-white/90 md:text-[15px]">
           <ExcerptWithHighlights
             text={c.excerpt}
             highlights={c.excerptHighlights}
@@ -101,7 +100,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
         <div className="relative mt-auto shrink-0 border-t border-white/20 pt-4">
           <Link
             href={`/casi-studio/${c.slug}`}
-            className="group inline-flex w-fit items-center gap-2 rounded-full border-2 border-white/55 bg-white/15 px-5 py-2.5 text-sm font-bold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/25"
+            className="group inline-flex min-h-11 w-fit items-center gap-2 rounded-full border-2 border-white/55 bg-white/15 px-5 py-2.5 text-sm font-bold text-white shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-white/25"
           >
             Vedi il caso studio
             <svg

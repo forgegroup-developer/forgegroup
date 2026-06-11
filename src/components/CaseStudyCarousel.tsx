@@ -211,8 +211,7 @@ export default function CaseStudyCarousel() {
                   }`}
                   style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
                   sizes="(max-width: 768px) 82vw, 52vw"
-                  quality={95}
-                  unoptimized
+                  quality={85}
                   draggable={false}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/65 via-brand-nero/10 to-transparent" />
@@ -274,10 +273,10 @@ export default function CaseStudyCarousel() {
               const diff = idx - activeReal;
               setRawIdx(rawIdxRef.current + diff);
             }}
-            className={`transition-all duration-300 rounded-full ${
+            className={`touch-target transition-all duration-300 rounded-full ${
               idx === activeReal
-                ? "w-8 h-2.5 bg-brand-corallo"
-                : "w-2.5 h-2.5 bg-brand-bordo hover:bg-brand-pesca"
+                ? "min-w-11 h-2.5 bg-brand-corallo"
+                : "bg-brand-bordo hover:bg-brand-pesca"
             }`}
             aria-label={`Vai al caso studio ${idx + 1}`}
           />

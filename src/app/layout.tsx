@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Stack_Sans_Notch } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Logo3DBackground from "@/components/Logo3DBackground";
-import IntroLoader from "@/components/IntroLoader";
+import ClientSceneEffects from "@/components/ClientSceneEffects";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const stackSansNotch = Stack_Sans_Notch({
+  variable: "--font-stack",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -109,13 +115,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="it" className={`${inter.variable} antialiased`}>
+    <html lang="it" className={`${inter.variable} ${stackSansNotch.variable} antialiased`}>
       <body
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
       >
-        <IntroLoader />
-        <Logo3DBackground />
+        <ClientSceneEffects />
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationJsonLd)}
         </Script>

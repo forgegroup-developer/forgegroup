@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Script from "next/script";
 import CaseStudyDetail from "@/components/CaseStudyDetail";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
@@ -31,6 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${c.title} | Forge Group`,
+      description: c.metaDescription,
+      images: [getCaseStudyImage(c.slug)],
+    },
   };
 }
 
@@ -39,5 +46,27 @@ export default async function CasoStudioDetail({ params }: Props) {
   const c = getCaseStudyBySlug(slug);
   if (!c) notFound();
 
-  return <CaseStudyDetail c={c} showBackLink />;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.forgegroup.it/" },
+      { "@type": "ListItem", position: 2, name: "Casi Studio", item: "https://www.forgegroup.it/#casi-studio" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: c.shortTitle,
+        item: `https://www.forgegroup.it/casi-studio/${c.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <Script id={`ld-breadcrumb-${c.slug}`} type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(breadcrumbJsonLd)}
+      </Script>
+      <CaseStudyDetail c={c} showBackLink />
+    </>
+  );
 }

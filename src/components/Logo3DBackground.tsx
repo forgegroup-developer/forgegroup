@@ -43,7 +43,8 @@ export default function Logo3DBackground() {
         alpha: true,
         powerPreference: "high-performance",
       });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, FORGE_LOGO_3D.pixelRatioMax));
+      const getPixelCap = () => (W() < 768 ? 1 : FORGE_LOGO_3D.pixelRatioMax);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, getPixelCap()));
       renderer.setSize(W(), H());
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = FORGE_LOGO_3D.toneMappingExposure;
@@ -103,6 +104,7 @@ export default function Logo3DBackground() {
       const onResize = () => {
         camera.aspect = W() / H();
         camera.updateProjectionMatrix();
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, getPixelCap()));
         renderer.setSize(W(), H());
       };
       window.addEventListener("resize", onResize);

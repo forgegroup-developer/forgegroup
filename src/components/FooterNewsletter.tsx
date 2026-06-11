@@ -9,6 +9,7 @@ type Props = {
 
 export default function FooterNewsletter({ variant = "featured" }: Props) {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
 
@@ -28,7 +29,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: trimmed }),
+        body: JSON.stringify({ email: trimmed, website: honeypot }),
       });
       const data = (await res.json()) as { success?: boolean; message?: string };
 
@@ -57,6 +58,16 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
             Newsletter
           </p>
           <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="website"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+            />
             <label htmlFor="footer-newsletter-email" className="sr-only">
               Email per la newsletter
             </label>
@@ -76,7 +87,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
                 placeholder="La tua email"
                 autoComplete="email"
                 disabled={status === "loading"}
-                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-4 py-2.5 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
+                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
               />
               <button
                 type="submit"
@@ -114,6 +125,16 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
             Resta aggiornato su strategie e casi studio B2B.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+            <input
+              type="text"
+              name="website"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+            />
             <label htmlFor="footer-newsletter-email" className="sr-only">
               Email per la newsletter
             </label>
@@ -133,12 +154,12 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
                 placeholder="La tua email"
                 autoComplete="email"
                 disabled={status === "loading"}
-                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
+                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-3 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="shrink-0 rounded-full border border-white bg-white px-3.5 py-2 text-xs font-bold uppercase tracking-wide text-brand-corallo transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
+                className="touch-target shrink-0 rounded-full border border-white bg-white px-4 text-xs font-bold uppercase tracking-wide text-brand-corallo transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
               >
                 {status === "loading" ? "..." : "Iscriviti"}
               </button>

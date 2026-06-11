@@ -98,7 +98,9 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
     <Link
       href={item.href}
       className={`group relative flex h-full ${
-        compact ? "min-h-[440px]" : "min-h-[500px]"
+        compact
+          ? "min-h-[320px] sm:min-h-[380px] lg:min-h-[440px]"
+          : "min-h-[360px] sm:min-h-[420px] lg:min-h-[500px]"
       } flex-col overflow-hidden rounded-3xl border border-brand-bordo shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/40 hover:shadow-xl`}
     >
       <div className="absolute inset-0 bg-brand-panna" aria-hidden />
@@ -127,8 +129,8 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
           <h3
             className={`font-bold leading-[1.1] text-brand-nero ${
               compact
-                ? "text-2xl md:text-3xl lg:text-[2rem]"
-                : "text-3xl md:text-4xl lg:text-[2.65rem]"
+                ? "text-[clamp(1.5rem,4vw,2rem)] md:text-3xl lg:text-[2rem]"
+                : "text-[clamp(1.75rem,5vw,2.65rem)] md:text-4xl lg:text-[2.65rem]"
             }`}
             style={{ fontFamily: "var(--font-display)" }}
           >

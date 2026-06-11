@@ -1,6 +1,35 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*.md",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600" },
+          { key: "X-Robots-Tag", value: "index, follow" },
+        ],
+      },
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      { source: "/index.md", destination: "/api/ai-mirror" },
+      { source: "/:path+/index.md", destination: "/api/ai-mirror/:path+" },
+    ];
+  },
   async redirects() {
     return [
       // Legacy service URLs → landing servizi

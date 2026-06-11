@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
@@ -13,11 +14,23 @@ function escapeHtml(str: string): string {
 }
 
 export async function POST(request: Request) {
-  let body: { email?: string };
+  const ip = getClientIp(request);
+  if (!checkRateLimit(`newsletter:${ip}`, 8, 60_000)) {
+    return NextResponse.json(
+      { success: false, message: "Troppe richieste. Riprova tra un minuto." },
+      { status: 429 }
+    );
+  }
+
+  let body: { email?: string; website?: string };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ success: false, message: "Payload JSON non valido." }, { status: 400 });
+  }
+
+  if (body.website?.trim()) {
+    return NextResponse.json({ success: true, message: "Iscrizione ricevuta." });
   }
 
   const email = String(body.email ?? "").trim().toLowerCase();

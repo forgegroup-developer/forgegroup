@@ -6,22 +6,39 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
 import ClientiLogos from "@/components/ClientiLogos";
 import SocialProof from "@/components/SocialProof";
-import CaseStudyStack from "@/components/CaseStudyStack";
+import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
+import JsonLdFAQ from "@/components/JsonLdFAQ";
+
 export const metadata: Metadata = {
   title: "Forge Group | Sistema di Crescita per Imprese B2B",
   description:
     "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile. Dalle prime contatti al contratto firmato: un sistema completo.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Forge Group | Sistema di Crescita per Imprese B2B",
+    description:
+      "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
+    url: "/",
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forge Group | Sistema di Crescita per Imprese B2B",
+    description:
+      "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function Home() {
   return (
     <>
+      <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <section className="relative overflow-hidden min-h-[calc(100dvh-80px)] flex items-center">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-14 lg:py-16">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
 
             {/* Colonna sinistra — testo */}
@@ -101,7 +118,7 @@ export default function Home() {
             }
           />
         </div>
-        <CaseStudyStack />
+        <LazyCaseStudyStack />
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}

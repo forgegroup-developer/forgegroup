@@ -128,7 +128,7 @@ export default function Navbar() {
               setMobileCasi(false);
               setOpen(true);
             }}
-            className="lg:hidden p-2 text-brand-corallo"
+            className="touch-target lg:hidden -mr-1 text-brand-corallo"
             aria-label="Apri menu"
             aria-expanded={open}
           >
@@ -156,7 +156,7 @@ export default function Navbar() {
             </Link>
             <button
               onClick={closeMenu}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 transition-colors"
+              className="touch-target rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/50 transition-colors"
               aria-label="Chiudi menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

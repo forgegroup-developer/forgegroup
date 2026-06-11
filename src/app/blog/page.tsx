@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   description:
     "Strategie avanzate di acquisizione clienti, vendita high-ticket e processi commerciali B2B. Articoli tecnici per imprenditori e direttori vendite.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog Forge Group | Marketing B2B e acquisizione clienti",
+    description:
+      "Articoli su acquisizione clienti, vendita high-ticket e processi commerciali B2B.",
+    url: "/blog",
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Blog" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Blog Forge Group",
+    description: "Intelligence su marketing B2B e acquisizione clienti.",
+  },
 };
 
 function formatDate(iso: string) {

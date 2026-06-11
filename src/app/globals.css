@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Stack+Sans+Notch:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -13,12 +12,13 @@
   --color-brand-grigio-light: #6b6b6b;
   --color-brand-bordo: #e8d5cc;
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Stack Sans Notch", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-stack), var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
 html {
   background-color: var(--color-brand-bianco);
+  overflow-x: clip;
 }
 
 body {
@@ -26,6 +26,9 @@ body {
   background-color: transparent;
   color: var(--color-brand-nero);
   font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: clip;
 }
 
 *:focus-visible {
@@ -67,9 +70,17 @@ body {
 
 .heading-card {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
   font-weight: 600;
   line-height: 1.3;
+}
+
+.touch-target {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .body-lg {
@@ -330,6 +341,7 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.8125rem 1.75rem;
+  min-height: 2.75rem;
   border-radius: 9999px;
   transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
@@ -1139,5 +1151,29 @@ html {
 .forge-strip-letter-coral:hover {
   color: rgba(255, 255, 255, 0.15);
   -webkit-text-stroke-color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-dual-marquee-track-up,
+  .hero-dual-marquee-track-down,
+  .forge-gradient-layer-1,
+  .forge-gradient-layer-2 {
+    animation: none !important;
+  }
+
+  .hero-enter {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 

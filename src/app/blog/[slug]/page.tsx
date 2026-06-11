@@ -28,6 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: a.date,
       images: [{ url: getBlogImage(a.slug), width: 1200, height: 750, alt: a.title }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${a.title} | Forge Group`,
+      description: a.description,
+      images: [getBlogImage(a.slug)],
+    },
   };
 }
 
@@ -60,10 +66,28 @@ export default async function ArticleDetail({ params }: Props) {
     },
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.forgegroup.it/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.forgegroup.it/blog" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: a.title,
+        item: `https://www.forgegroup.it/blog/${a.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <Script id={`ld-article-${a.slug}`} type="application/ld+json" strategy="afterInteractive">
         {JSON.stringify(articleJsonLd)}
+      </Script>
+      <Script id={`ld-breadcrumb-${a.slug}`} type="application/ld+json" strategy="afterInteractive">
+        {JSON.stringify(breadcrumbJsonLd)}
       </Script>
 
       <article>

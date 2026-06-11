@@ -13,9 +13,9 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
   return (
     <div className="rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
       {/* Intestazioni — sempre 2 colonne anche su mobile */}
-      <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
-        <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
-          <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-red-600 font-bold mb-0.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:divide-x divide-brand-bordo border-b border-brand-bordo">
+        <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50 border-b border-brand-bordo sm:border-b-0">
+          <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-600 font-bold mb-0.5">
             ✕ Prima
           </p>
           <h3 className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
@@ -23,7 +23,7 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
           </h3>
         </div>
         <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
-          <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
+          <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
             ✓ Dopo
           </p>
           <h3 className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
@@ -35,11 +35,11 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
       {rows.map((row, idx) => (
         <div
           key={idx}
-          className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 sm:divide-x divide-brand-bordo/60 ${
             idx > 0 ? "border-t border-brand-bordo/60" : ""
           }`}
         >
-          <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-red-50/70">
+          <div className="flex items-start gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 bg-red-50/70 border-b border-brand-bordo/40 sm:border-b-0">
             <span
               className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] md:text-xs font-bold shadow-sm"
               aria-hidden
@@ -52,7 +52,7 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
                   {row.aspect}
                 </p>
               )}
-              <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium">
+              <span className="text-sm md:text-base leading-relaxed text-red-950/85 font-medium">
                 {row.before}
               </span>
             </div>
@@ -72,7 +72,7 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
                   {row.aspect}
                 </p>
               )}
-              <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950">
+              <span className="text-sm md:text-base leading-relaxed font-semibold text-emerald-950">
                 {row.after}
               </span>
             </div>

@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   description:
     "Il manifesto di Forge Group: valori, metodo e chi siamo davvero. Un'agenzia che costruisce sistemi di acquisizione, non campagne generiche.",
   alternates: { canonical: "/chi-siamo-e-manifesto" },
+  openGraph: {
+    title: "Chi Siamo e Manifesto | Forge Group",
+    description:
+      "Valori, metodo e manifesto di Forge Group: sistemi di acquisizione B2B, non campagne generiche.",
+    url: "/chi-siamo-e-manifesto",
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Chi Siamo e Manifesto | Forge Group",
+    description: "Il manifesto e i valori di Forge Group.",
+  },
 };
 
 const values = [

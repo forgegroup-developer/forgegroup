@@ -156,6 +156,7 @@ export default function ContattiForm() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [stepError, setStepError] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
 
   const current = steps[stepIndex];
@@ -199,7 +200,7 @@ export default function ContattiForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website: honeypot }),
       });
 
       if (!response.ok) {
@@ -329,6 +330,16 @@ export default function ContattiForm() {
         </h1>
 
         <div onKeyDown={handleKeyDown}>
+          <input
+            type="text"
+            name="website"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden
+            className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+          />
           <AnimatedStepper
             variant="typeform"
             currentStep={stepIndex + 1}
@@ -339,10 +350,16 @@ export default function ContattiForm() {
             renderFooter={({ currentStep, handleBack, handleNext, isLastStep: last }) => (
               <>
                 {stepError && (
-                  <p className="mb-4 text-sm font-medium text-brand-corallo">{stepError}</p>
+                  <p className="mb-4 text-sm font-medium text-brand-corallo" role="alert" aria-live="polite">
+                    {stepError}
+                  </p>
                 )}
                 {error && (
-                  <div className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm">
+                  <div
+                    className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm"
+                    role="alert"
+                    aria-live="assertive"
+                  >
                     {error}
                   </div>
                 )}
@@ -352,7 +369,7 @@ export default function ContattiForm() {
                     type="button"
                     onClick={handleBack}
                     disabled={currentStep === 1 || submitting}
-                    className="text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    className="touch-target text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                   >
                     ← Indietro
                   </button>

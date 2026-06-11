@@ -169,10 +169,23 @@ function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
 }
 
 export const metadata: Metadata = {
-  title: "Servizi | Forge Group | Sistema di acquisizione e vendita B2B",
+  title: "Servizi | Sistema di acquisizione e vendita B2B",
   description:
     "La tua azienda sta perdendo clienti ogni giorno. Costruiamo il sistema che in 90 giorni ha generato €126.500 di nuovo fatturato per un cliente B2B. Acquisizione, vendita e consulenza integrati.",
   alternates: { canonical: "/servizi" },
+  openGraph: {
+    title: "Servizi Forge Group | Acquisizione, vendita e consulenza B2B",
+    description:
+      "Sistema integrato di acquisizione clienti, processi di vendita e consulenza per imprese B2B.",
+    url: "/servizi",
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servizi Forge Group",
+    description: "Acquisizione clienti, vendita e consulenza B2B integrati.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function ServiziHub() {
