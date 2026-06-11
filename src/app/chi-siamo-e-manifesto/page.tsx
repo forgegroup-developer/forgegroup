@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import HeroGooeySection from "@/components/HeroGooeySection";
 
 export const metadata: Metadata = {
   title: "Chi Siamo e Manifesto",
@@ -50,21 +51,18 @@ const values = [
 export default function ChiSiamoManifesto() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
-            ✦ Il Nostro Manifesto
-          </p>
-          <h1 className="heading-hero text-brand-nero mb-8">
-            Non siamo l&apos;ennesima <span className="text-brand-corallo">agenzia creativa</span>.
-          </h1>
-          <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed">
-            Siamo un&apos;infrastruttura di acquisizione e vendita per aziende B2B che vogliono dominare il loro mercato, non
-            essere &ldquo;visibili&rdquo; su Instagram.
-          </p>
-        </div>
-      </section>
+      <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+          ✦ Il Nostro Manifesto
+        </p>
+        <h1 className="heading-hero text-brand-nero mb-8">
+          Non siamo l&apos;ennesima <span className="text-brand-corallo">agenzia creativa</span>.
+        </h1>
+        <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed">
+          Siamo un&apos;infrastruttura di acquisizione e vendita per aziende B2B che vogliono dominare il loro mercato, non
+          essere &ldquo;visibili&rdquo; su Instagram.
+        </p>
+      </HeroGooeySection>
 
       {/* CHI SIAMO */}
       <section className="py-16 md:py-24 section-coral border-y">

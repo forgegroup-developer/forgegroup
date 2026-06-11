@@ -5,6 +5,7 @@ import MetodoForge from "@/components/MetodoForge";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
+import HeroGooeySection from "@/components/HeroGooeySection";
 import ReelHeroVideo from "@/components/ReelHeroVideo";
 import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
 import { serviziSidebarImages, siteImages } from "@/data/images";
@@ -149,7 +150,7 @@ const serviziTabs: ServiziTab[] = [
 function ServiziHeroCopy({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
-      <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
+      <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
         ✦ I Nostri Servizi
       </p>
       <h1 className="heading-hero text-brand-nero mb-6">
@@ -187,35 +188,30 @@ export default function ServiziHub() {
   return (
     <>
       {/* HERO — layout originale, copy LP */}
-      <section
+      <HeroGooeySection
         id="servizi-hero"
-        className="relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32 section-bianco"
+        className="pt-16 pb-24 md:pt-24 md:pb-32"
+        innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        after={<ServiziHeroScrollCue />}
       >
-        <div aria-hidden="true" className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-corallo/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-corallo/15 rounded-full blur-3xl" />
+        <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
+          <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
+          <ReelHeroVideo
+            src={siteImages.gianpioReel}
+            poster={siteImages.gianpioReelPoster}
+            label="Video reel Gianpio Forge Group"
+          />
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
-            <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
-            <ReelHeroVideo
-              src={siteImages.gianpioReel}
-              poster={siteImages.gianpioReelPoster}
-              label="Video reel Gianpio Forge Group"
-            />
-          </div>
 
-          <div className="lg:hidden flex flex-col gap-10">
-            <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
-            <ReelHeroVideo
-              src={siteImages.gianpioReel}
-              poster={siteImages.gianpioReelPoster}
-              label="Video reel Gianpio Forge Group"
-            />
-          </div>
+        <div className="lg:hidden flex flex-col gap-10">
+          <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
+          <ReelHeroVideo
+            src={siteImages.gianpioReel}
+            poster={siteImages.gianpioReelPoster}
+            label="Video reel Gianpio Forge Group"
+          />
         </div>
-        <ServiziHeroScrollCue />
-      </section>
+      </HeroGooeySection>
 
       {/* TRE SERVIZI — layout originale, copy LP */}
       <ForgeGradientBackground

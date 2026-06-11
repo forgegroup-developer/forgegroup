@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import AnimatedStepper, { Step } from "@/components/AnimatedStepper";
+import HeroGooeySection from "@/components/HeroGooeySection";
 
 type FormData = {
   nome_attivita: string;
@@ -296,39 +297,43 @@ export default function ContattiForm() {
 
   if (success) {
     return (
-      <section className="min-h-[70vh] flex items-center justify-center py-20 px-4">
-        <div className="max-w-2xl text-center">
-          <div className="w-20 h-20 bg-brand-corallo rounded-full flex items-center justify-center mb-8 mx-auto">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Candidatura ricevuta</p>
-          <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
-            Grazie. Adesso <span className="text-brand-corallo">analizziamo</span> il tuo caso.
-          </h1>
-          <p className="text-lg text-brand-grigio leading-relaxed mb-8">
-            Abbiamo ricevuto le tue informazioni. Se riterremo che ci siano i presupposti per una collaborazione
-            profittevole per entrambi, ti contatteremo entro <strong>48 ore lavorative</strong>.
-          </p>
-          <Link href="/" className="btn-ghost">
-            Torna alla Home
-          </Link>
+      <HeroGooeySection
+        className="min-h-[70vh] flex items-center py-20"
+        innerClassName="max-w-2xl mx-auto px-4 text-center"
+      >
+        <div className="w-20 h-20 bg-brand-corallo rounded-full flex items-center justify-center mb-8 mx-auto">
+          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+          </svg>
         </div>
-      </section>
+        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Candidatura ricevuta</p>
+        <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
+          Grazie. Adesso <span className="text-brand-corallo">analizziamo</span> il tuo caso.
+        </h1>
+        <p className="text-lg text-brand-grigio leading-relaxed mb-8">
+          Abbiamo ricevuto le tue informazioni. Se riterremo che ci siano i presupposti per una collaborazione
+          profittevole per entrambi, ti contatteremo entro <strong>48 ore lavorative</strong>.
+        </p>
+        <Link href="/" className="btn-ghost">
+          Torna alla Home
+        </Link>
+      </HeroGooeySection>
     );
   }
 
   return (
-    <section className="pt-16 pb-20 md:pt-24 md:pb-28 section-bianco">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
           ✦ Prequalifica Strategica
         </p>
-        <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-10 md:mb-12">
+        <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
           Candida la tua <span className="text-brand-corallo">azienda</span>.
         </h1>
+      </HeroGooeySection>
 
+      <section className="pb-20 md:pb-28 section-bianco pt-8 md:pt-10">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div onKeyDown={handleKeyDown}>
           <input
             type="text"
@@ -413,7 +418,8 @@ export default function ContattiForm() {
             ))}
           </AnimatedStepper>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

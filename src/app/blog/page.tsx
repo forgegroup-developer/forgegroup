@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
+import HeroGooeySection from "@/components/HeroGooeySection";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -35,14 +36,12 @@ function formatDate(iso: string) {
 export default function BlogHub() {
   return (
     <>
-      <section className="pt-16 pb-12 md:pt-24 md:pb-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
-          <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
-            Leggi i nostri <span className="text-brand-corallo">articoli</span>
-          </h1>
-        </div>
-      </section>
+      <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
+        <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
+          Leggi i nostri <span className="text-brand-corallo">articoli</span>
+        </h1>
+      </HeroGooeySection>
 
       <section className="py-16 md:py-20 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import GooeyGradientBackground from "@/components/GooeyGradientBackground";
+import HeroGooeySection from "@/components/HeroGooeySection";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -38,9 +38,10 @@ export default function Home() {
     <>
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
-      <section className="relative overflow-hidden min-h-[calc(100dvh-80px)]">
-        <GooeyGradientBackground className="min-h-[calc(100dvh-80px)] flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+      <HeroGooeySection
+        className="min-h-[calc(100dvh-80px)] flex items-center"
+        innerClassName="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16"
+      >
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
               <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
                 <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
@@ -69,9 +70,7 @@ export default function Home() {
                 <HeroVideoRecensione />
               </div>
             </div>
-          </div>
-        </GooeyGradientBackground>
-      </section>
+      </HeroGooeySection>
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
       <SocialProof />
