@@ -1192,6 +1192,22 @@ html {
   z-index: 0;
 }
 
+.forge-gooey-logo-watermark {
+  z-index: 0;
+}
+
+.forge-gooey-logo-watermark-img {
+  opacity: 0.075;
+  filter: saturate(0.85);
+  mix-blend-mode: multiply;
+}
+
+@media (min-width: 1024px) {
+  .forge-gooey-logo-watermark-img {
+    opacity: 0.09;
+  }
+}
+
 .forge-gooey-gradients {
   position: absolute;
   inset: 0;

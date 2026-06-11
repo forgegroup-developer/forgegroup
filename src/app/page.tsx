@@ -39,7 +39,10 @@ export default function Home() {
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <section className="relative overflow-hidden min-h-[calc(100dvh-80px)]">
-        <GooeyGradientBackground className="min-h-[calc(100dvh-80px)] flex items-center">
+        <GooeyGradientBackground
+          showLogoWatermark
+          className="min-h-[calc(100dvh-80px)] flex items-center"
+        >
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
               <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
