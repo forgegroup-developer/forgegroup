@@ -11,17 +11,17 @@ type Props = {
 export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   return (
     <section className="relative overflow-hidden border-t border-b border-brand-bordo bg-brand-panna">
-      <div className="pointer-events-none absolute inset-0 opacity-70">
+      <div className="prism-forge-coral pointer-events-none absolute inset-0 opacity-75">
         <PrismBackground
           animationType="rotate"
           transparent
           suspendWhenOffscreen
-          glow={0.75}
-          bloom={0.85}
-          noise={0.28}
+          glow={0.82}
+          bloom={0.95}
+          noise={0.22}
           scale={3.4}
-          hueShift={0.42}
-          colorFrequency={0.9}
+          hueShift={2.25}
+          colorFrequency={0.72}
           timeScale={0.35}
         />
       </div>

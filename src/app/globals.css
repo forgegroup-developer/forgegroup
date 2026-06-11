@@ -660,6 +660,11 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
+/* ── Prism footer — palette corallo/pesca Forge ──────────────────── */
+.prism-forge-coral canvas {
+  filter: hue-rotate(198deg) saturate(1.35) brightness(1.06);
+}
+
 /* ── CTA radial glow ─────────────────────────────────────────────── */
 .cta-glow-bg {
   position: relative;
