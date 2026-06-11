@@ -30,8 +30,8 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
 
       <div className="cta-glow-bg relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
-          <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:text-left">
-            <div className="min-w-0 flex-1">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <div className="w-full">
               <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-corallo">
                 ✦ Pronto a smettere di improvvisare?
               </p>
@@ -53,7 +53,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
               href="/contatti"
               size="lg"
               variant="glass"
-              className={isCaseStudy ? "text-sm uppercase tracking-wide" : undefined}
+              className={`footer-cta-beam-btn w-full${isCaseStudy ? " text-sm uppercase tracking-wide" : ""}`}
             >
               {isCaseStudy
                 ? "OTTIENI UNA CONSULENZA GRATUITA"

@@ -62,7 +62,7 @@ export default function LightBeamButton({
 }: LinkVariant | ButtonVariant) {
   if (href) {
     return (
-      <Link href={href} className="inline-flex shrink-0">
+      <Link href={href} className="inline-flex w-full max-w-full shrink-0">
         <LightBeamShell
           gradientColors={gradientColors}
           variant={variant}

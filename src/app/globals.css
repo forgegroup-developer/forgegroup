@@ -916,6 +916,15 @@ body {
   background: none;
 }
 
+.footer-cta-band .footer-cta-beam-btn {
+  width: 100%;
+  max-width: none;
+}
+
+.footer-cta-band .footer-cta-beam-btn .light-beam-btn__label {
+  white-space: nowrap;
+}
+
 /* ── CTA radial glow ─────────────────────────────────────────────── */
 .cta-glow-bg {
   position: relative;

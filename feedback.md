@@ -66,7 +66,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Sfondo: `bg-brand-panna` + prism WebGL **parametri originali** (`rotate`, scale 3.6, glow 1, hueShift 0, noise 0.5, timeScale 0.5)
 - Glass panel semi-trasparente (`footer-cta-band .cta-glass-panel`) per far vedere il prism sotto
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
-- **Layout:** desktop titolo a sinistra + bottone a destra; mobile centrato in colonna
+- **Layout:** titolo sopra, bottone **sotto** a tutta larghezza; testo pulsante su **una riga** (`whitespace-nowrap`)
 - **Colori titolo:** testo **nero**; corallo **solo sulla keyword** (mai intere frasi corallo):
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
