@@ -115,13 +115,18 @@ export default function Home() {
               </>
             }
           />
-          <div className="mt-8 flex justify-center">
-            <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+        </div>
+        <LazyCaseStudyStack />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
+            <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
+              Hai un minuto?
+            </Link>
+            <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
               Vedi tutti i casi studio
             </Link>
           </div>
         </div>
-        <LazyCaseStudyStack />
       </section>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
