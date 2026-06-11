@@ -1,5 +1,7 @@
 "use client";
 
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
+
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -122,10 +124,11 @@ export default function SocialProof() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={containerRef} className="grid md:grid-cols-3 gap-5">
           {statsData.map((stat) => (
-            <div
+            <GlowingEdgeCard
               key={stat.label}
               data-stat-card
-              className="relative rounded-3xl bg-brand-bianco border border-brand-bordo p-8 md:p-10 flex flex-col items-center text-center overflow-hidden shadow-sm"
+              className="rounded-3xl shadow-sm"
+              innerClassName="relative flex flex-col items-center text-center overflow-hidden bg-brand-bianco p-8 md:p-10"
             >
               <CountUpNumber target={stat.target} prefix={stat.prefix} suffix={stat.suffix} />
               <p
@@ -140,7 +143,7 @@ export default function SocialProof() {
               <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-brand-bordo flex items-center justify-center">
                 <Icon type={stat.icon} />
               </div>
-            </div>
+            </GlowingEdgeCard>
           ))}
         </div>
       </div>

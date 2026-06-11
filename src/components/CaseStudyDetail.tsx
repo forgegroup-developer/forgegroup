@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText from "@/components/HighlightedText";
@@ -118,12 +119,16 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
-              <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
+              <GlowingEdgeCard
+                key={i}
+                className="rounded-xl"
+                innerClassName="bg-brand-panna p-5 md:p-6"
+              >
                 <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
                   {ctx.label}
                 </div>
                 <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
-              </div>
+              </GlowingEdgeCard>
             ))}
           </div>
         </div>
@@ -140,7 +145,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <p className="text-lg text-white/90 leading-relaxed">{c.challenge}</p>
           </div>
 
-          <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8">
+          <GlowingEdgeCard className="rounded-2xl" innerClassName="bg-brand-bianco p-6 md:p-8">
             <h3 className="text-lg font-semibold text-brand-nero mb-4">La diagnosi Forge:</h3>
             <ul className="space-y-3">
               {c.diagnosis.map((d, i) => (
@@ -155,7 +160,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 </li>
               ))}
             </ul>
-          </div>
+          </GlowingEdgeCard>
         </div>
       </section>
 
@@ -171,14 +176,15 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <div className="grid md:grid-cols-2 gap-6">
             {c.system.map((step) => (
-              <div
+              <GlowingEdgeCard
                 key={step.step}
-                className="bg-brand-panna border border-brand-bordo rounded-2xl p-7 hover:border-brand-corallo transition-colors"
+                className="rounded-2xl transition-colors"
+                innerClassName="bg-brand-panna p-7"
               >
                 <div className="font-display text-5xl font-semibold text-brand-corallo mb-4">{step.step}</div>
                 <h3 className="text-lg font-semibold text-brand-nero mb-3">{step.title}</h3>
                 <p className="text-brand-grigio leading-relaxed">{step.description}</p>
-              </div>
+              </GlowingEdgeCard>
             ))}
           </div>
         </div>
@@ -200,9 +206,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               const compactValue =
                 r.value.length > 5 || /[A-Za-zÀ-ÿ]{3,}/.test(r.value.replace(/^[+~€]/, ""));
               return (
-              <div
+              <GlowingEdgeCard
                 key={i}
-                className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8 text-center hover:border-brand-corallo transition-colors"
+                className="rounded-2xl transition-colors"
+                innerClassName="bg-brand-bianco p-6 md:p-8 text-center"
               >
                 <div
                   className={`font-semibold text-brand-corallo mb-2 ${
@@ -213,7 +220,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 </div>
                 <p className="text-brand-nero font-semibold text-sm md:text-base mb-1">{r.label}</p>
                 {r.detail && <p className="text-xs md:text-sm text-brand-grigio">{r.detail}</p>}
-              </div>
+              </GlowingEdgeCard>
             );
             })}
           </div>
@@ -239,7 +246,11 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </div>
 
             <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
-              <div className="overflow-hidden rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
+              <GlowingEdgeCard
+                mode="dark"
+                className="rounded-3xl shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]"
+                innerClassName="overflow-hidden !border-0 bg-brand-nero"
+              >
                 <video
                   controls
                   preload="metadata"
@@ -249,9 +260,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 >
                   <source src={c.videoUrl} type="video/mp4" />
                 </video>
-              </div>
+              </GlowingEdgeCard>
 
-              <div className="rounded-2xl border border-brand-bordo bg-brand-panna px-6 py-6 md:px-8 md:py-8">
+              <GlowingEdgeCard
+                className="rounded-2xl"
+                innerClassName="bg-brand-panna px-6 py-6 md:px-8 md:py-8"
+              >
                 <div className="mb-4 flex gap-1">
                   {[0, 1, 2, 3, 4].map((i) => (
                     <svg
@@ -278,7 +292,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   &rdquo;
                 </blockquote>
 
-                <div className="flex items-center gap-4 rounded-xl border border-brand-bordo bg-brand-bianco px-4 py-3.5">
+                <GlowingEdgeCard
+                  className="rounded-xl"
+                  innerClassName="flex items-center gap-4 bg-brand-bianco px-4 py-3.5"
+                >
                   {c.clientLogo && (
                     <CaseStudyClientLogo
                       src={c.clientLogo}
@@ -299,8 +316,8 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                     <span className="text-sm font-bold leading-none text-brand-corallo">5/5</span>
                     <span className="text-[10px] uppercase tracking-widest text-brand-grigio">Recensione</span>
                   </div>
-                </div>
-              </div>
+                </GlowingEdgeCard>
+              </GlowingEdgeCard>
             </div>
           </div>
         </section>
@@ -344,9 +361,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </div>
             <ul className="space-y-3">
               {c.forWhom.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 bg-brand-bianco border border-brand-bordo rounded-xl p-5"
+                <li key={i}>
+                <GlowingEdgeCard
+                  className="rounded-xl"
+                  innerClassName="flex items-start gap-3 bg-brand-bianco p-5"
                 >
                   <span
                     className="w-6 h-6 rounded-full bg-brand-corallo text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"
@@ -355,6 +373,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                     ✓
                   </span>
                   <span className="text-brand-nero leading-relaxed">{item}</span>
+                </GlowingEdgeCard>
                 </li>
               ))}
             </ul>

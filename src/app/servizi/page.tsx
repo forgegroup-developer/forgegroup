@@ -7,6 +7,7 @@ import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
 import { heroShowcaseImages, serviziSidebarImages } from "@/data/images";
 
@@ -159,7 +160,11 @@ const allShowcase = [...leftShowcase, ...rightShowcase];
 
 function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 shadow-sm">
+    <GlowingEdgeCard
+      mode="dark"
+      className="w-full rounded-2xl shadow-sm aspect-[3/4]"
+      innerClassName="relative h-full overflow-hidden !border-brand-bordo/80 bg-brand-nero"
+    >
       <Image
         src={src}
         alt={alt}
@@ -168,7 +173,7 @@ function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
         sizes="(max-width: 1024px) 45vw, 300px"
         draggable={false}
       />
-    </div>
+    </GlowingEdgeCard>
   );
 }
 

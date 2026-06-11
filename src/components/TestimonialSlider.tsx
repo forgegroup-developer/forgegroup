@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { testimonials } from "@/data/site";
 
 export default function TestimonialSlider() {
@@ -13,7 +14,10 @@ export default function TestimonialSlider() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-brand-bianco border border-brand-bordo rounded-2xl shadow-sm p-8 md:p-14 text-center">
+      <GlowingEdgeCard
+        className="rounded-2xl shadow-sm"
+        innerClassName="bg-brand-bianco p-8 md:p-14 text-center"
+      >
         {/* Stars */}
         <div className="flex justify-center gap-1 mb-8">
           {[0, 1, 2, 3, 4].map((i) => (
@@ -33,7 +37,7 @@ export default function TestimonialSlider() {
             {t.role} · {t.sector}
           </div>
         </div>
-      </div>
+      </GlowingEdgeCard>
 
       {/* Controls */}
       <div className="flex items-center justify-center gap-4 mt-8">

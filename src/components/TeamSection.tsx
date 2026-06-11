@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 
 const team = [
   {
@@ -78,7 +79,10 @@ export default function TeamSection() {
               key={member.name}
               className="group flex w-[min(100%,260px)] flex-col items-center text-center sm:w-[280px]"
             >
-              <div className="relative w-full aspect-[2/3] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]">
+              <GlowingEdgeCard
+                className="w-full rounded-2xl shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]"
+                innerClassName="relative w-full aspect-[2/3] overflow-hidden bg-brand-panna"
+              >
                 {member.photo ? (
                   <Image
                     src={member.photo}
@@ -100,7 +104,7 @@ export default function TeamSection() {
                       .join("")}
                   </div>
                 )}
-              </div>
+              </GlowingEdgeCard>
               <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">{member.name}</h3>
               <p className="text-brand-corallo text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}

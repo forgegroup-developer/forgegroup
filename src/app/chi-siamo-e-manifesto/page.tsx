@@ -1,4 +1,5 @@
 import Link from "next/link";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -94,16 +95,17 @@ export default function ChiSiamoManifesto() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v) => (
-              <div
+              <GlowingEdgeCard
                 key={v.title}
-                className="bg-brand-panna border border-brand-bordo rounded-2xl p-7 hover:border-brand-corallo transition-colors"
+                className="rounded-2xl transition-colors"
+                innerClassName="bg-brand-panna p-7"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-brand-corallo text-2xl">✦</span>
                   <h3 className="text-lg font-semibold font-bold text-brand-nero">{v.title}</h3>
                 </div>
                 <p className="text-brand-grigio leading-relaxed">{v.desc}</p>
-              </div>
+              </GlowingEdgeCard>
             ))}
           </div>
         </div>
@@ -133,14 +135,16 @@ export default function ChiSiamoManifesto() {
               "Chi non è disposto a investire sul proprio business",
               "Lavori che possono compromettere i nostri valori",
             ].map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 bg-brand-bianco border border-brand-bordo rounded-lg p-4"
+              <li key={item}>
+              <GlowingEdgeCard
+                className="rounded-lg"
+                innerClassName="flex items-start gap-3 bg-brand-bianco p-4"
               >
                 <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5">
                   ✕
                 </span>
                 <span className="text-brand-nero">{item}</span>
+              </GlowingEdgeCard>
               </li>
             ))}
           </ul>

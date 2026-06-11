@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import LightBeamButton from "@/components/LightBeamButton";
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
@@ -21,7 +22,10 @@ type Props = {
 function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 | 3 }) {
   return (
     <Reveal delay={delay} y={18} duration={0.85}>
-      <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-corallo/50 hover:shadow-lg hover:shadow-brand-corallo/10">
+      <GlowingEdgeCard
+        className="group h-full rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-corallo/10"
+        innerClassName="h-full bg-brand-bianco p-6 md:p-7"
+      >
         <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo">
           {title}
         </p>
@@ -34,7 +38,7 @@ function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 
           </span>
           <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">{body}</p>
         </div>
-      </div>
+      </GlowingEdgeCard>
     </Reveal>
   );
 }
@@ -50,9 +54,11 @@ export default function ServiziTabCard({
 }: Props) {
   return (
     <Reveal y={32} duration={1}>
-      <article
+      <GlowingEdgeCard
+        as="article"
         id={id}
-        className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
+        className="scroll-mt-28 rounded-3xl shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
+        innerClassName="overflow-hidden bg-brand-bianco !border-white/20"
       >
         <div className="flex flex-col lg:flex-row">
           <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[620px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
@@ -106,7 +112,7 @@ export default function ServiziTabCard({
             ))}
           </div>
         </div>
-      </article>
+      </GlowingEdgeCard>
     </Reveal>
   );
 }
