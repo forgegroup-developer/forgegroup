@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import FooterCtaBand from "@/components/FooterCtaBand";
 import FooterNewsletter from "@/components/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
 
@@ -61,33 +62,8 @@ export default function Footer() {
 
   return (
     <footer>
-      {/* CTA strip — nascosta su /contatti */}
-      {!isContatti && <div className="bg-brand-bianco border-t border-b border-brand-bordo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
-                ✦ Pronto a smettere di improvvisare?
-              </p>
-              {isCaseStudy ? (
-                <h3 className="heading-section text-brand-nero">
-                  Vuoi un sistema come questo per la{" "}
-                  <span className="text-brand-corallo">tua azienda?</span>
-                </h3>
-              ) : (
-                <h3 className="heading-section text-brand-nero">
-                  Contattaci e parliamone davanti un caffè.
-                  <br />
-                  <span className="text-brand-corallo">Scopri come possiamo esserti utile.</span>
-                </h3>
-              )}
-            </div>
-            <Link href="/contatti" className="btn-corallo text-base whitespace-nowrap shrink-0">
-              {isCaseStudy ? "OTTIENI UNA CONSULENZA GRATUITA" : "HAI UN MINUTO?"}
-            </Link>
-          </div>
-        </div>
-      </div>}
+      {/* CTA band — nascosta su /contatti */}
+      {!isContatti && <FooterCtaBand isCaseStudy={isCaseStudy} />}
 
       {/* Corpo footer — sfondo corallo */}
       <div className="bg-brand-corallo">

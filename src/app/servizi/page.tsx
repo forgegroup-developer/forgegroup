@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import ForgeGradientBackground from "@/components/ForgeGradientBackground";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
@@ -247,7 +248,7 @@ export default function ServiziHub() {
       </section>
 
       {/* TRE SERVIZI — layout originale, copy LP */}
-      <section className="py-16 md:py-24 section-coral">
+      <ForgeGradientBackground as="section" className="py-16 md:py-24 section-coral section-coral-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             onCoral
@@ -266,7 +267,7 @@ export default function ServiziHub() {
             ))}
           </div>
         </div>
-      </section>
+      </ForgeGradientBackground>
 
       <ClientiLogos />
 

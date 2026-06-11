@@ -100,6 +100,75 @@ body {
   border-color: color-mix(in srgb, var(--color-brand-corallo-dark) 35%, transparent);
 }
 
+/* Sfondo corallo animato — palette Forge (corallo, pesca, panna) */
+.forge-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-brand-corallo) 92%, transparent),
+    color-mix(in srgb, var(--color-brand-pesca) 55%, var(--color-brand-corallo-dark))
+  );
+}
+
+.section-coral.forge-gradient-bg,
+.section-coral.section-coral-gradient {
+  background-color: transparent;
+}
+
+@keyframes forge-gradient-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes forge-gradient-rotate-reverse {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+.forge-gradient-radial {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.14),
+    rgba(169, 63, 30, 0.18)
+  );
+}
+
+.forge-gradient-layer-1 {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-brand-corallo),
+    var(--color-brand-pesca),
+    var(--color-brand-pesca-light),
+    var(--color-brand-panna),
+    var(--color-brand-corallo-dark),
+    #d4623a,
+    var(--color-brand-pesca),
+    var(--color-brand-corallo)
+  );
+  animation: forge-gradient-rotate 14s linear infinite;
+}
+
+.forge-gradient-layer-2 {
+  background: conic-gradient(
+    from 45deg,
+    var(--color-brand-corallo-dark),
+    var(--color-brand-pesca-light),
+    var(--color-brand-corallo),
+    var(--color-brand-pesca),
+    var(--color-brand-panna),
+    var(--color-brand-corallo),
+    var(--color-brand-corallo-dark)
+  );
+  animation: forge-gradient-rotate-reverse 18s linear infinite;
+}
+
 /* ── Sezioni bianche (stessa opacità delle section-coral: 90%) ─── */
 .section-bianco {
   background-color: rgba(255, 255, 255, 0.9);
@@ -592,6 +661,10 @@ body {
 }
 
 /* ── CTA radial glow ─────────────────────────────────────────────── */
+.cta-glow-bg {
+  position: relative;
+}
+
 .cta-glow-bg::before {
   content: "";
   position: absolute;
@@ -602,6 +675,42 @@ body {
     transparent 70%
   );
   pointer-events: none;
+}
+
+/* ── CTA glass panel (footer band) ─────────────────────────────── */
+.cta-glass-panel {
+  position: relative;
+  border-radius: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow:
+    0 32px 80px rgba(200, 80, 42, 0.14),
+    0 8px 24px rgba(17, 17, 17, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+/* ── Hand-drawn underline (scroll reveal) ──────────────────────── */
+.hand-drawn-underline-svg {
+  position: absolute;
+  left: -1%;
+  right: -1%;
+  bottom: -0.12em;
+  width: 102%;
+  height: 0.38em;
+  color: var(--color-brand-corallo);
+  pointer-events: none;
+}
+
+.hand-drawn-underline-path {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  transition: stroke-dashoffset 1.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hand-drawn-underline-path.is-visible {
+  stroke-dashoffset: 0;
 }
 
 
@@ -682,6 +791,16 @@ html {
   .marquee-track-up,
   .marquee-track-down {
     animation: none;
+  }
+
+  .forge-gradient-layer-1,
+  .forge-gradient-layer-2 {
+    animation: none;
+  }
+
+  .hand-drawn-underline-path {
+    stroke-dashoffset: 0;
+    transition: none;
   }
 }
 
