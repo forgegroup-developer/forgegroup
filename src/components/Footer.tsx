@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import FooterNewsletter from "@/components/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
@@ -95,16 +96,13 @@ export default function Footer() {
 
             {/* Logo + desc */}
             <div className="md:col-span-1">
-              <Link href="/" className="flex flex-col items-start gap-2.5 mb-4 md:flex-row md:items-center md:gap-2">
+              <Link href="/" className="inline-flex mb-4" aria-label="Forge Group — Home">
                 <Image src="/logo-transparent.png" alt="Forge Group" width={48} height={48} className="h-12 w-auto shrink-0" />
-                <span className="font-semibold text-lg tracking-tight text-white">
-                  FORGE<span className="text-brand-pesca-light">GROUP</span>
-                </span>
               </Link>
               <p className="text-sm text-white leading-relaxed">
-                Sistemi di acquisizione clienti e crescita prevedibile per imprese B2B.
                 Azienda di Growth Hacking in Italia.
               </p>
+              <FooterNewsletter />
               <div className="flex items-center gap-3 mt-5">
                 <a
                   href="https://www.instagram.com/"
