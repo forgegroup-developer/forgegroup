@@ -5,6 +5,7 @@ const team = [
     name: "Marco Pio Cerbone",
     forgeRole: "Co-Founder",
     role: "Direttore marketing & Consulenza aziendale",
+    roleNoWrap: true,
     photo: "/images/team/foto-marco.png",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
@@ -20,12 +21,15 @@ const team = [
     forgeRole: "Partner",
     role: "Direttore Creative & Video Producer",
     photo: "/images/team/foto-francesco.png",
+    instagram: "https://www.instagram.com/chiums_films?igsh=MTl0ZWJsM2x4ZXh4Yw==",
   },
   {
     name: "Nicandro Grande",
     forgeRole: "Partner",
     role: "Consulente Crescita Digitale & Business Systems Expert",
     photo: "/images/team/foto-nicandro.png",
+    linkedin:
+      "https://www.linkedin.com/in/nicandrogrande?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
 ];
 
@@ -47,6 +51,14 @@ function LinkedInIcon() {
   return (
     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
       <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+      <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.5.01-4.74.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.39-.32-1.71a2.86 2.86 0 0 0-.69-1.06 2.86 2.86 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.59-.07-4.74-.07zm0 3.06a4.98 4.98 0 1 1 0 9.96 4.98 4.98 0 0 1 0-9.96zm0 8.21a3.23 3.23 0 1 0 0-6.46 3.23 3.23 0 0 0 0 6.46zm6.34-8.41a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0z" />
     </svg>
   );
 }
@@ -94,17 +106,38 @@ export default function TeamSection() {
               <p className="text-brand-corallo text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}
               </p>
-              <p className="text-brand-grigio text-sm leading-snug">{member.role}</p>
-              {member.linkedin ? (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`mt-4 gap-2 ${chipOutlineClass}`}
-                >
-                  <LinkedInIcon />
-                  LinkedIn
-                </a>
+              <p
+                className={`text-brand-grigio text-sm leading-snug ${
+                  "roleNoWrap" in member && member.roleNoWrap ? "whitespace-nowrap" : ""
+                }`}
+              >
+                {member.role}
+              </p>
+              {member.linkedin || member.instagram ? (
+                <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  {member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`gap-2 ${chipOutlineClass}`}
+                    >
+                      <LinkedInIcon />
+                      LinkedIn
+                    </a>
+                  ) : null}
+                  {member.instagram ? (
+                    <a
+                      href={member.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`gap-2 ${chipOutlineClass}`}
+                    >
+                      <InstagramIcon />
+                      Instagram
+                    </a>
+                  ) : null}
+                </div>
               ) : null}
             </div>
           ))}
