@@ -2,14 +2,19 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { caseStudies } from "@/data/caseStudies";
+
+const MOBILE_CASI_DOUBLE_TAP_MS = 320;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileCasi, setMobileCasi] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const mobileCasiTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mobileCasiTapCountRef = useRef(0);
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname?.startsWith(href));
@@ -19,6 +24,32 @@ export default function Navbar() {
   const closeMenu = () => {
     setOpen(false);
     setMobileCasi(false);
+    mobileCasiTapCountRef.current = 0;
+    if (mobileCasiTapTimerRef.current) {
+      clearTimeout(mobileCasiTapTimerRef.current);
+      mobileCasiTapTimerRef.current = null;
+    }
+  };
+
+  const handleMobileCasiStudioTap = () => {
+    mobileCasiTapCountRef.current += 1;
+
+    if (mobileCasiTapCountRef.current === 1) {
+      mobileCasiTapTimerRef.current = setTimeout(() => {
+        setMobileCasi((prev) => !prev);
+        mobileCasiTapCountRef.current = 0;
+        mobileCasiTapTimerRef.current = null;
+      }, MOBILE_CASI_DOUBLE_TAP_MS);
+      return;
+    }
+
+    if (mobileCasiTapTimerRef.current) {
+      clearTimeout(mobileCasiTapTimerRef.current);
+      mobileCasiTapTimerRef.current = null;
+    }
+    mobileCasiTapCountRef.current = 0;
+    closeMenu();
+    router.push("/casi-studio");
   };
 
   useEffect(() => {
@@ -32,6 +63,12 @@ export default function Navbar() {
     setOpen(false);
     setMobileCasi(false);
   }, [pathname]);
+
+  useEffect(() => {
+    return () => {
+      if (mobileCasiTapTimerRef.current) clearTimeout(mobileCasiTapTimerRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const desktopNav = window.matchMedia("(min-width: 1024px)");
@@ -200,12 +237,30 @@ export default function Navbar() {
 
             <div className="border-b border-white/10">
               <button
-                onClick={() => setMobileCasi(!mobileCasi)}
+                type="button"
+                onClick={handleMobileCasiStudioTap}
                 className="w-full flex items-center justify-between py-5 group"
                 aria-expanded={mobileCasi}
+                aria-label="Casi Studio — tocca due volte per tutti i casi studio"
               >
-                <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Casi Studio</span>
-                <span className={`text-brand-corallo text-2xl font-light transition-transform duration-300 ${mobileCasi ? "rotate-45" : ""}`}>+</span>
+                <span
+                  className={`text-[28px] font-bold uppercase tracking-tight transition-colors ${
+                    isCaseStudyActive
+                      ? "text-brand-corallo"
+                      : "text-white group-hover:text-brand-corallo"
+                  }`}
+                >
+                  Casi Studio
+                </span>
+                <span
+                  className={`text-2xl font-light transition-all duration-300 ${
+                    mobileCasi
+                      ? "text-brand-corallo rotate-45"
+                      : "text-white/30 group-hover:text-brand-corallo"
+                  }`}
+                >
+                  +
+                </span>
               </button>
               <div
                 className={`accordion-content${mobileCasi ? " open" : ""}`}

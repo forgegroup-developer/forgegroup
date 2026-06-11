@@ -226,19 +226,19 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
       {/* VIDEO RECENSIONE */}
       {c.videoUrl && (
-        <section className="border-b border-brand-bordo py-16 md:py-24 section-bianco">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-10 max-w-2xl">
-              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-corallo">
+        <section className="border-b border-brand-bordo py-10 sm:py-16 md:py-24 section-bianco">
+          <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+            <div className="mb-6 sm:mb-10 max-w-2xl">
+              <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-brand-corallo">
                 ✦ Videorecensione
               </p>
-              <h2 className="heading-section font-semibold leading-tight text-brand-nero">
+              <h2 className="heading-section font-semibold leading-tight text-brand-nero text-balance">
                 La parola di <span className="text-brand-corallo">{clientName}</span>
               </h2>
             </div>
 
-            <div className="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
-              <div className="overflow-hidden rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
+            <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+              <div className="min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
                 <video
                   controls
                   preload="metadata"
@@ -250,12 +250,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 </video>
               </div>
 
-              <div className="rounded-2xl border border-brand-bordo bg-brand-panna px-6 py-6 md:px-8 md:py-8">
-                <div className="mb-4 flex gap-1">
+              <div className="min-w-0 rounded-2xl border border-brand-bordo bg-brand-panna px-5 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
+                <div className="mb-3 sm:mb-4 flex gap-1">
                   {[0, 1, 2, 3, 4].map((i) => (
                     <svg
                       key={i}
-                      className="h-5 w-5 text-brand-corallo"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-brand-corallo"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       aria-hidden
@@ -265,9 +265,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   ))}
                 </div>
 
-                <blockquote
-                  className="mb-6 font-display text-lg font-semibold leading-snug text-brand-nero md:text-xl"
-                >
+                <blockquote className="mb-5 sm:mb-6 font-display text-base sm:text-lg font-semibold leading-relaxed text-brand-nero md:text-xl text-balance">
                   &ldquo;
                   {c.quoteSegments ? (
                     <HighlightedText segments={c.quoteSegments} />
@@ -277,26 +275,33 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   &rdquo;
                 </blockquote>
 
-                <div className="flex items-center gap-4 rounded-xl border border-brand-bordo bg-brand-bianco px-4 py-3.5">
-                  {c.clientLogo && (
-                    <CaseStudyClientLogo
-                      src={c.clientLogo}
-                      alt={c.clientLogoAlt ?? c.quote.author}
-                      variant="inline"
-                      size="md"
-                    />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-display text-sm font-bold leading-tight text-brand-nero">
-                      {c.quote.author}
-                    </p>
-                    <p className="mt-0.5 text-xs font-medium uppercase tracking-wide text-brand-grigio">
-                      {c.quote.role}
-                    </p>
+                <div className="flex flex-col gap-3 rounded-xl border border-brand-bordo bg-brand-bianco px-4 py-4 sm:flex-row sm:items-center sm:gap-4">
+                  <div className="flex min-w-0 items-center gap-3 sm:flex-1">
+                    {c.clientLogo && (
+                      <CaseStudyClientLogo
+                        src={c.clientLogo}
+                        alt={c.clientLogoAlt ?? c.quote.author}
+                        variant="inline"
+                        size="md"
+                      />
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-display text-sm font-bold leading-snug text-brand-nero sm:truncate">
+                        {c.quote.author}
+                      </p>
+                      <p className="mt-0.5 text-[11px] sm:text-xs font-medium uppercase tracking-wide text-brand-grigio leading-snug">
+                        {c.quote.role}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex shrink-0 flex-col items-end gap-0.5">
-                    <span className="text-sm font-bold leading-none text-brand-corallo">5/5</span>
-                    <span className="text-[10px] uppercase tracking-widest text-brand-grigio">Recensione</span>
+                  <div className="flex items-center justify-between gap-2 border-t border-brand-bordo pt-3 sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-t-0 sm:pt-0">
+                    <span className="text-xs uppercase tracking-widest text-brand-grigio sm:hidden">Recensione</span>
+                    <div className="flex flex-col items-end gap-0.5">
+                      <span className="text-sm font-bold leading-none text-brand-corallo">5/5</span>
+                      <span className="hidden text-[10px] uppercase tracking-widest text-brand-grigio sm:block">
+                        Recensione
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
