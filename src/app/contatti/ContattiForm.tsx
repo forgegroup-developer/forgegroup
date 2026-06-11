@@ -10,7 +10,6 @@ type FormData = {
   occupazione: string;
   ostacolo: string;
   acquisizione_attuale: string;
-  provenienza: string;
   nome_cognome: string;
   telefono: string;
   email: string;
@@ -21,7 +20,6 @@ const initialFormData: FormData = {
   occupazione: "",
   ostacolo: "",
   acquisizione_attuale: "",
-  provenienza: "",
   nome_cognome: "",
   telefono: "",
   email: "",
@@ -66,19 +64,6 @@ const steps: FormStep[] = [
     type: "textarea",
     rows: 3,
     placeholder: "Passaparola, ads, fiere, outbound...",
-  },
-  {
-    name: "provenienza",
-    label: "Come sei venuto a conoscenza di Forge Group?",
-    type: "select",
-    options: [
-      { value: "Ricerca Google", label: "Ricerca Google" },
-      { value: "LinkedIn", label: "LinkedIn" },
-      { value: "Facebook / Instagram", label: "Facebook / Instagram" },
-      { value: "Passaparola / Referenza", label: "Passaparola / Referenza" },
-      { value: "Evento dal vivo", label: "Evento dal vivo" },
-      { value: "Altro", label: "Altro" },
-    ],
   },
   { name: "nome_cognome", label: "Nome e Cognome", type: "text", placeholder: "Mario Rossi" },
   { name: "telefono", label: "Telefono", type: "tel", placeholder: "+39 333 1234567" },
