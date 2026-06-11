@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import LightBeamButton from "@/components/LightBeamButton";
 type FormData = {
   nome_attivita: string;
   occupazione: string;
@@ -353,18 +354,18 @@ export default function ContattiForm() {
               </button>
 
               {isLastStep ? (
-                <button
+                <LightBeamButton
                   type="button"
                   onClick={() => void handleSubmit()}
                   disabled={submitting}
-                  className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="lg"
                 >
                   {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
-                </button>
+                </LightBeamButton>
               ) : current.type !== "select" ? (
-                <button type="button" onClick={goNext} className="btn-corallo px-10 py-4 text-base">
+                <LightBeamButton type="button" onClick={goNext} size="lg">
                   Continua →
-                </button>
+                </LightBeamButton>
               ) : (
                 <p className="text-sm text-brand-grigio text-center sm:text-right">Seleziona un&apos;opzione per continuare</p>
               )}

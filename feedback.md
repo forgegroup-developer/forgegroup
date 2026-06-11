@@ -71,8 +71,14 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`) con gradiente beam **bianco → corallo → pesca**; casi studio uppercase
+- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`) con beam **nero → corallo → nero**; casi studio uppercase
 - Prism: full-bleed `absolute inset-0`, stile componente originale (no warmMix, no overlay corallo pesante)
+
+**Pulsanti primari (regola fissa):**
+- Usare **`LightBeamButton`** al posto di `btn-corallo` su tutto il sito
+- Beam rotante: **nero `#111111` → corallo `#C8502A` → nero**
+- Varianti: `solid` (CTA corallo pieno), `glass` (footer e sidebar servizi)
+- Taglie: `sm` (navbar), `default`, `lg` (hero, form, footer)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 
@@ -150,7 +156,7 @@ I €126.500 sono arrivati nei primi 90 giorni. DISA è ancora oggi cliente e ha
 - Hero: solo eyebrow + H1 *Risultati Dimostrabili* + **loghi clienti** (`clientLogo` da ogni caso: DISA, Tetti Top, ROVI). Nessun sottotitolo descrittivo.
 - Card: foto 16:9 (`aspect-video`, `object-cover object-center`), badge settore, logo cliente in alto a destra, **titolo su foto in bianco** (`text-brand-bianco`).
 - Corpo card: `resultHeadline` in corallo + **`hubExcerpt`** (testo breve, campo dedicato in `caseStudies.ts`, non l'`excerpt` lungo).
-- CTA: pulsante **`btn-corallo`** full width *Leggi il caso studio* (Link separato, non testo inline).
+- CTA: pulsante **`LightBeamButton`** full width *Leggi il caso studio* (Link separato, non testo inline).
 - Immagini casi studio: `public/images/casi-studio/{slug}.jpg`, 1920×1080.
 
 **Sezione prima/dopo (template obbligatorio):**

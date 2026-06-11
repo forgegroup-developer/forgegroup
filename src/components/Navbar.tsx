@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import LightBeamButton from "@/components/LightBeamButton";
 import { caseStudies } from "@/data/caseStudies";
 
 export default function Navbar() {
@@ -118,9 +119,9 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:block">
-            <Link href="/contatti" className="btn-corallo text-sm">
+            <LightBeamButton href="/contatti" size="sm">
               Hai un minuto?
-            </Link>
+            </LightBeamButton>
           </div>
 
           <button
@@ -238,13 +239,9 @@ export default function Navbar() {
           </nav>
 
           <div className="shrink-0 px-6 pb-8 pt-4">
-            <Link
-              href="/contatti"
-              onClick={closeMenu}
-              className="block btn-corallo w-full text-center text-base py-4 rounded-full"
-            >
+            <LightBeamButton href="/contatti" size="lg" fullWidth onClick={closeMenu}>
               HAI UN MINUTO?
-            </Link>
+            </LightBeamButton>
           </div>
         </div>
       </div>

@@ -53,7 +53,8 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
               href="/contatti"
               size="lg"
               variant="glass"
-              className={`footer-cta-beam-btn w-full${isCaseStudy ? " text-sm uppercase tracking-wide" : ""}`}
+              fullWidth
+              className={`footer-cta-beam-btn${isCaseStudy ? " text-sm uppercase tracking-wide" : ""}`}
             >
               {isCaseStudy
                 ? "OTTIENI UNA CONSULENZA GRATUITA"

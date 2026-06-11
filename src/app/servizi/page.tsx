@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/ForgeGradientBackground";
+import LightBeamButton from "@/components/LightBeamButton";
 import MetodoForge from "@/components/MetodoForge";
 import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
@@ -207,9 +208,9 @@ export default function ServiziHub() {
                 Come aumentiamo il{" "}
                 <span className="text-brand-corallo">fatturato</span> della tua azienda.
               </h1>
-              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
+              <LightBeamButton href="/contatti" size="lg" className="mt-2">
                 Ottieni una consulenza gratuita
-              </Link>
+              </LightBeamButton>
             </div>
 
             <div className="marquee-col h-[560px]">
@@ -232,9 +233,9 @@ export default function ServiziHub() {
                 Come aumentiamo il{" "}
                 <span className="text-brand-corallo">fatturato</span> della tua azienda.
               </h1>
-              <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
+              <LightBeamButton href="/contatti" size="lg" className="mt-2">
                 Ottieni una consulenza gratuita
-              </Link>
+              </LightBeamButton>
             </div>
             <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md mx-auto">
               {allShowcase.map((c, idx) => (
