@@ -1,18 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useId, useRef } from "react";
 
 type GooeyGradientBackgroundProps = {
   children?: React.ReactNode;
   className?: string;
-  showLogoWatermark?: boolean;
 };
 
 export default function GooeyGradientBackground({
   children,
   className = "",
-  showLogoWatermark = false,
 }: GooeyGradientBackgroundProps) {
   const filterId = useId().replace(/:/g, "");
   const interactiveRef = useRef<HTMLDivElement>(null);
@@ -54,18 +51,6 @@ export default function GooeyGradientBackground({
   return (
     <div className={`forge-gooey-wrapper relative h-full w-full overflow-hidden ${className}`.trim()}>
       <div className="forge-gooey-bg pointer-events-none absolute inset-0" aria-hidden="true">
-        {showLogoWatermark && (
-          <div className="forge-gooey-logo-watermark absolute inset-0 flex items-center justify-center lg:justify-end lg:pr-[6%]">
-            <Image
-              src="/logo.png"
-              alt=""
-              width={640}
-              height={640}
-              priority
-              className="forge-gooey-logo-watermark-img h-auto w-[min(78vw,22rem)] sm:w-[26rem] lg:w-[30rem] xl:w-[34rem]"
-            />
-          </div>
-        )}
         <svg xmlns="http://www.w3.org/2000/svg" className="absolute h-0 w-0" aria-hidden="true">
           <defs>
             <filter id={filterId}>

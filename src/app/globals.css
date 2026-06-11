@@ -1176,36 +1176,16 @@ html {
   -webkit-text-stroke-color: #ffffff;
 }
 
-/* ── Hero gooey gradient (Forge palette, white base) ─────────────── */
+/* ── Hero gooey gradient (Forge palette, trasparente per Logo3D) ── */
 .forge-gooey-wrapper {
   --forge-gooey-size: 80%;
   --forge-gooey-blend: soft-light;
-  background: linear-gradient(
-    145deg,
-    var(--color-brand-bianco) 0%,
-    var(--color-brand-panna) 42%,
-    var(--color-brand-pesca-light) 100%
-  );
+  background-color: color-mix(in srgb, var(--color-brand-bianco) 90%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
 
 .forge-gooey-bg {
   z-index: 0;
-}
-
-.forge-gooey-logo-watermark {
-  z-index: 0;
-}
-
-.forge-gooey-logo-watermark-img {
-  opacity: 0.075;
-  filter: saturate(0.85);
-  mix-blend-mode: multiply;
-}
-
-@media (min-width: 1024px) {
-  .forge-gooey-logo-watermark-img {
-    opacity: 0.09;
-  }
 }
 
 .forge-gooey-gradients {
@@ -1223,7 +1203,7 @@ html {
   left: calc(50% - var(--forge-gooey-size) / 2);
   mix-blend-mode: var(--forge-gooey-blend);
   transform-origin: center center;
-  opacity: 0.72;
+  opacity: 0.55;
 }
 
 .forge-gooey-blob-1 {
@@ -1298,9 +1278,9 @@ html {
 .forge-gooey-veil {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0.08) 45%,
-    rgba(255, 255, 255, 0.2) 100%
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(255, 255, 255, 0.06) 100%
   );
 }
 
