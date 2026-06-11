@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import GooeyGradientBackground from "@/components/GooeyGradientBackground";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -37,41 +38,39 @@ export default function Home() {
     <>
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
-      <section className="relative overflow-hidden min-h-[calc(100dvh-80px)] flex items-center">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
-
-            {/* Colonna sinistra — testo */}
-            <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
-              <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/80 backdrop-blur-sm">
-                ✦ Vuoi aumentare il fatturato della tua azienda?
-              </p>
-              <div className="flex flex-col gap-4 lg:gap-5">
-              <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero max-w-xl">
-                Portiamo la tua azienda{" "}
-                <span className="text-brand-corallo">
-                  dal disordine a un sistema prevedibile
-                </span>{" "}
-                di acquisizione e vendita.
-              </h1>
-              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-                  Hai un minuto?
-                </Link>
-                <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
-                  Vedi i risultati
-                </Link>
+      <section className="relative overflow-hidden min-h-[calc(100dvh-80px)]">
+        <GooeyGradientBackground className="min-h-[calc(100dvh-80px)] flex items-center">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
+              <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
+                <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
+                  ✦ Vuoi aumentare il fatturato della tua azienda?
+                </p>
+                <div className="flex flex-col gap-4 lg:gap-5">
+                  <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero max-w-xl">
+                    Portiamo la tua azienda{" "}
+                    <span className="text-brand-corallo">
+                      dal disordine a un sistema prevedibile
+                    </span>{" "}
+                    di acquisizione e vendita.
+                  </h1>
+                  <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+                      Hai un minuto?
+                    </Link>
+                    <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
+                      Vedi i risultati
+                    </Link>
+                  </div>
+                </div>
               </div>
+
+              <div className="hero-enter hero-enter-d3 w-full flex flex-col justify-center">
+                <HeroVideoRecensione />
               </div>
             </div>
-
-            {/* Colonna destra — video recensione */}
-            <div className="hero-enter hero-enter-d3 w-full flex flex-col justify-center">
-              <HeroVideoRecensione />
-            </div>
-
           </div>
-        </div>
+        </GooeyGradientBackground>
       </section>
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
