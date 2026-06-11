@@ -1,14 +1,12 @@
 import Link from "next/link";
 import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, CSSProperties, ReactNode } from "react";
 
-/** Beam rotante solid: nero → corallo → nero */
-export const FORGE_BEAM_SOLID: [string, string, string] = ["#111111", "#c8502a", "#111111"];
+/** Beam rotante unificato: bianco → corallo → bianco (tutti i pulsanti) */
+export const FORGE_BEAM: [string, string, string] = ["#ffffff", "#d95830", "#ffffff"];
 
-/** Beam rotante glass: bianco → corallo → pesca */
-export const FORGE_BEAM_GLASS: [string, string, string] = ["#ffffff", "#c8502a", "#e8b9a5"];
-
-/** @deprecated Usare FORGE_BEAM_SOLID o FORGE_BEAM_GLASS */
-export const FORGE_BEAM = FORGE_BEAM_SOLID;
+/** @deprecated Alias di FORGE_BEAM */
+export const FORGE_BEAM_GLASS = FORGE_BEAM;
+export const FORGE_BEAM_SOLID = FORGE_BEAM;
 
 type SharedProps = {
   children: ReactNode;
@@ -29,19 +27,8 @@ type ButtonVariant = SharedProps &
     href?: undefined;
   };
 
-function beamGradient(colors: [string, string, string], glass = false) {
-  if (glass) {
-    return `conic-gradient(from var(--gradient-angle), transparent 0%, ${colors[0]} 32%, ${colors[1]} 48%, ${colors[2]} 62%, transparent 74%, transparent 100%)`;
-  }
-  return `conic-gradient(from var(--gradient-angle), transparent 0%, ${colors[0]} 36%, ${colors[1]} 50%, ${colors[2]} 64%, transparent 76%, transparent 100%)`;
-}
-
-function resolveBeamColors(
-  variant: "glass" | "solid",
-  gradientColors?: [string, string, string]
-) {
-  if (gradientColors) return gradientColors;
-  return variant === "glass" ? FORGE_BEAM_GLASS : FORGE_BEAM_SOLID;
+function beamGradient(colors: [string, string, string]) {
+  return `conic-gradient(from var(--gradient-angle), transparent 0%, ${colors[0]} 28%, ${colors[1]} 46%, ${colors[2]} 64%, transparent 78%, transparent 100%)`;
 }
 
 function LightBeamShell({
@@ -56,8 +43,7 @@ function LightBeamShell({
   const sizeClass =
     size === "lg" ? "light-beam-btn--lg" : size === "sm" ? "light-beam-btn--sm" : "";
   const variantClass = variant === "glass" ? "light-beam-btn--glass" : "light-beam-btn--solid";
-  const beamColors = resolveBeamColors(variant, gradientColors);
-  const isGlass = variant === "glass";
+  const beamColors = gradientColors ?? FORGE_BEAM;
 
   return (
     <span
@@ -67,7 +53,7 @@ function LightBeamShell({
     >
       <span
         className="light-beam-btn__beam"
-        style={{ background: beamGradient(beamColors, isGlass) }}
+        style={{ background: beamGradient(beamColors) }}
         aria-hidden
       />
       <span className="light-beam-btn__glow" aria-hidden />

@@ -71,13 +71,12 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`) con beam **bianco → corallo → pesca**; casi studio uppercase
+- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`); casi studio uppercase
 
 **Pulsanti primari (regola fissa):**
 - Usare **`LightBeamButton`** al posto di `btn-corallo` su tutto il sito
-- Beam rotante `solid`: **nero → corallo → nero** (hero, navbar, form)
-- Beam rotante `glass`: **bianco → corallo → pesca** (footer CTA, sidebar servizi)
-- Varianti: `solid` (fill corallo), `glass` (fill bianco semi-trasparente + testo corallo)
+- Contorno rotante **unificato** su tutti i pulsanti: **bianco → corallo → bianco** (alto contrasto)
+- Varianti: `solid` (fill corallo + testo bianco), `glass` (fill bianco + testo corallo)
 - Taglie: `sm` (navbar), `default`, `lg` (hero, form, footer)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)

@@ -660,7 +660,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
-/* ── Light beam button — alone nero/corallo rotante ────────────── */
+/* ── Light beam button — contorno bianco/corallo rotante ───────── */
 @property --gradient-angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -720,7 +720,7 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  padding: 3px;
+  padding: 3.5px;
   animation: light-beam-border-spin 2s linear infinite;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -731,51 +731,33 @@ body {
 
 .light-beam-btn__glow {
   position: absolute;
-  inset: -8px;
+  inset: -7px;
   z-index: -1;
   border-radius: inherit;
-  filter: blur(12px);
-  opacity: 0.9;
-  animation: light-beam-glow-spin 2.8s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.95),
+    rgba(217, 88, 48, 0.9),
+    rgba(255, 255, 255, 0.92),
+    transparent
+  );
+  filter: blur(11px);
+  opacity: 0.88;
+  animation: light-beam-glow-spin 2.6s linear infinite;
   pointer-events: none;
-}
-
-.light-beam-btn--glass .light-beam-btn__glow {
-  inset: -6px;
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    rgba(255, 255, 255, 0.85),
-    rgba(200, 80, 42, 0.55),
-    rgba(255, 255, 255, 0.7),
-    transparent
-  );
-  filter: blur(10px);
-  opacity: 0.75;
-  animation-duration: 3.2s;
-}
-
-.light-beam-btn--solid .light-beam-btn__glow {
-  background: conic-gradient(
-    from 0deg,
-    transparent,
-    rgba(17, 17, 17, 0.85),
-    rgba(200, 80, 42, 0.8),
-    rgba(17, 17, 17, 0.75),
-    transparent
-  );
 }
 
 .light-beam-btn__inner {
   position: absolute;
-  inset: 3px;
+  inset: 3.5px;
   z-index: 1;
   border-radius: inherit;
 }
 
 .light-beam-btn__shine {
   position: absolute;
-  inset: 3px;
+  inset: 3.5px;
   z-index: 1;
   border-radius: inherit;
   background: radial-gradient(
@@ -797,36 +779,36 @@ body {
   font-weight: 700;
   color: var(--color-brand-corallo);
   box-shadow:
-    0 0 18px -4px rgba(255, 255, 255, 0.45),
-    0 0 24px -2px rgba(200, 80, 42, 0.42);
+    0 0 22px -3px rgba(255, 255, 255, 0.65),
+    0 0 30px -2px rgba(217, 88, 48, 0.55);
 }
 
 .light-beam-btn--glass .light-beam-btn__inner {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(200, 80, 42, 0.22);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(217, 88, 48, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .light-beam-btn--glass:hover {
   box-shadow:
-    0 0 22px -3px rgba(255, 255, 255, 0.55),
-    0 0 32px -2px rgba(200, 80, 42, 0.52);
+    0 0 28px -2px rgba(255, 255, 255, 0.75),
+    0 0 38px -1px rgba(217, 88, 48, 0.65);
 }
 
 .light-beam-btn--solid {
   font-weight: 700;
   color: #ffffff;
   box-shadow:
-    0 0 22px -6px rgba(17, 17, 17, 0.35),
-    0 0 28px -4px rgba(200, 80, 42, 0.5);
+    0 0 22px -3px rgba(255, 255, 255, 0.55),
+    0 0 32px -2px rgba(217, 88, 48, 0.62);
 }
 
 .light-beam-btn--solid:hover {
   box-shadow:
-    0 0 26px -4px rgba(17, 17, 17, 0.45),
-    0 0 34px -2px rgba(200, 80, 42, 0.62);
+    0 0 28px -2px rgba(255, 255, 255, 0.7),
+    0 0 40px -1px rgba(217, 88, 48, 0.72);
 }
 
 .light-beam-btn--solid .light-beam-btn__inner {
@@ -835,6 +817,7 @@ body {
     var(--color-brand-corallo) 0%,
     var(--color-brand-corallo-dark) 100%
   );
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
 }
 
 .light-beam-btn--solid .light-beam-btn__label {
