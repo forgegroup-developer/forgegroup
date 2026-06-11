@@ -39,37 +39,37 @@ export default function Home() {
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <HeroGooeySection
-        className="min-h-[calc(100dvh-80px)] flex items-center"
-        innerClassName="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16"
+        className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
+        innerClassName="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16"
       >
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-stretch">
-              <div className="flex flex-col justify-center gap-6 lg:gap-8 py-4 lg:py-6">
-                <p className="hero-enter hero-enter-d1 self-start inline-flex items-center gap-2 eyebrow text-sm md:text-base px-5 py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
-                  ✦ Vuoi aumentare il fatturato della tua azienda?
-                </p>
-                <div className="flex flex-col gap-4 lg:gap-5">
-                  <h1 className="hero-enter hero-enter-d2 heading-hero text-brand-nero max-w-xl">
-                    Portiamo la tua azienda{" "}
-                    <span className="text-brand-corallo">
-                      dal disordine a un sistema prevedibile
-                    </span>{" "}
-                    di acquisizione e vendita.
-                  </h1>
-                  <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                    <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-                      Hai un minuto?
-                    </Link>
-                    <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
-                      Vedi i risultati
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hero-enter hero-enter-d3 w-full flex flex-col justify-center">
-                <HeroVideoRecensione />
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-12 xl:gap-16 items-stretch">
+          <div className="flex flex-col justify-center gap-7 sm:gap-8 py-2 sm:py-4 lg:py-6 w-full min-w-0">
+            <p className="hero-enter hero-enter-d1 self-center lg:self-start inline-flex items-center gap-2 eyebrow text-xs sm:text-sm md:text-base px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm text-center max-w-full text-balance">
+              ✦ Vuoi aumentare il fatturato della tua azienda?
+            </p>
+            <div className="flex flex-col gap-5 sm:gap-6 lg:gap-5 w-full min-w-0">
+              <h1 className="hero-enter hero-enter-d2 heading-hero heading-hero-home text-brand-nero max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
+                Portiamo la tua azienda{" "}
+                <span className="text-brand-corallo">
+                  dal disordine a un sistema prevedibile
+                </span>{" "}
+                di acquisizione e vendita.
+              </h1>
+              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
+                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
+                  Hai un minuto?
+                </Link>
+                <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
+                  Vedi i risultati
+                </Link>
               </div>
             </div>
+          </div>
+
+          <div className="hero-enter hero-enter-d3 w-full min-w-0 flex flex-col justify-center mt-2 sm:mt-0">
+            <HeroVideoRecensione />
+          </div>
+        </div>
       </HeroGooeySection>
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
