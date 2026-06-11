@@ -11,6 +11,37 @@ type Props = {
   showBackLink?: boolean;
 };
 
+function escapeRegExp(s: string) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function ExcerptWithHighlights({
+  text,
+  highlights,
+}: {
+  text: string;
+  highlights?: string[];
+}) {
+  if (!highlights?.length) return <>{text}</>;
+
+  const pattern = highlights.map(escapeRegExp).join("|");
+  const parts = text.split(new RegExp(`(${pattern})`, "g")).filter((p) => p.length > 0);
+
+  return (
+    <>
+      {parts.map((part, i) =>
+        highlights.includes(part) ? (
+          <span key={i} className="text-brand-corallo">
+            {part}
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
 function getClientDisplayName(c: CaseStudy): string {
   const azienda = c.context.find((ctx) => ctx.label === "Azienda")?.value;
   if (azienda) return azienda.split(",")[0].trim();
@@ -81,8 +112,8 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
 
-          <p className="mb-8 max-w-3xl text-xl leading-relaxed text-brand-nero md:text-2xl">
-            {c.excerpt}
+          <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
+            <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -187,7 +218,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             })}
           </div>
           {c.resultNote && (
-            <p className="max-w-3xl mx-auto mt-10 text-center text-sm text-white/75 leading-relaxed">
+            <p className="max-w-3xl mx-auto mt-10 text-center text-base md:text-lg text-white/90 leading-relaxed">
               {c.resultNote}
             </p>
           )}
@@ -278,7 +309,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       {/* PRIMA / DOPO */}
       {c.beforeAfter.length > 0 && (
         <section className="py-16 md:py-24 section-bianco">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
               ✦ {c.evolutionEyebrow ?? "Prima e dopo"}
             </p>

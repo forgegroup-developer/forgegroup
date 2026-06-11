@@ -116,7 +116,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { value: "+126k", label: "Fatturato generato", detail: "Nei primi 90 giorni" },
       { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
-      { value: "~550", label: "Contatti generati", detail: "Già consapevoli e in target" },
+      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
       { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
     ],
     quote: {
@@ -149,7 +149,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Contatti",
         before: "Persone che non conoscevano SOS APPALTI",
-        after: "Lead già consapevoli e in target (~550 generati)",
+        after: "Lead già consapevoli e in target (+550 generati)",
       },
       {
         aspect: "Commerciali",
@@ -299,9 +299,9 @@ export const caseStudies: CaseStudy[] = [
       { label: "Settore", value: "Edilizia B2B" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
       { label: "Azienda", value: "ROVI Srl" },
-      { label: "Ticket medio", value: "~25.000€" },
+      { label: "Ticket medio", value: "+25.000€" },
       { label: "Mercato", value: "Italia" },
-      { label: "Fatturato attuale", value: "~40.000€/mese" },
+      { label: "Fatturato attuale", value: "+40.000€/mese" },
       { label: "Max storico", value: "400.000€ su singolo progetto" },
     ],
     challenge:
@@ -310,7 +310,7 @@ export const caseStudies: CaseStudy[] = [
       "Acquisizione clienti solo passaparola: nessun canale attivo o prevedibile",
       "Progettazione gratuita ceduta a lead non qualificati: 36 progetti persi ogni anno senza ritorno",
       "Vendita artigianale: agenda cartacea, WhatsApp, zero CRM e zero pipeline",
-      "Media di ~10 incontri per chiudere un contratto, senza script né protocolli definiti",
+      "Media di 10 incontri per chiudere un contratto, senza script né protocolli definiti",
       "70% dei lead erano sognatori senza budget né urgenza reale: nessun filtro all'ingresso",
     ],
     system: [
@@ -391,7 +391,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Chiusura",
-        before: "~10 incontri per contratto, senza protocolli",
+        before: "10 incontri per contratto, senza protocolli",
         after: "Appuntamenti strutturati con schede e commitment progressivo",
       },
       {
@@ -416,11 +416,11 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Hospitality",
     resultHeadline: "258 prenotazioni in 48 ore.",
     excerpt:
-      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, + di 20.000€ di prenotazioni*",
-    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, + di 20.000€ di prenotazioni*",
-    excerptHighlights: ["258 prenotazioni", "48 ore", "20.000€"],
+      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, +20.000€ di prenotazioni",
+    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, +20.000€ di prenotazioni",
+    excerptHighlights: ["258 prenotazioni", "48 ore", "+20.000€"],
     metaDescription:
-      "Caso studio Hospitality: lancio hotel sotto nuova gestione con 258 prenotazioni in 48 ore e circa 20.000€ di valore. OTA, contenuti, Google Business e campagne sponsorizzate.",
+      "Caso studio Hospitality: lancio hotel sotto nuova gestione con 258 prenotazioni in 48 ore e +20.000€ di valore. OTA, contenuti, Google Business e campagne sponsorizzate.",
     context: [
       { label: "Settore", value: "Hospitality" },
       { label: "Struttura", value: "Hotel sotto nuova gestione" },
@@ -469,11 +469,11 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { value: "258+", label: "Prenotazioni raccolte", detail: "Nelle prime 48 ore dal lancio" },
       { value: "48h", label: "Dal go-live", detail: "Dalla messa online della struttura" },
-      { value: "~20K€", label: "Valore generato", detail: "Stima sulle prenotazioni raccolte" },
+      { value: "+20K€", label: "Valore generato", detail: "Sulle prenotazioni raccolte" },
       { value: "0", label: "Punto di partenza", detail: "Gestione appena cambiata, calendario vuoto" },
     ],
     quote: {
-      text: "Nelle prime 48 ore dal lancio: oltre 258 prenotazioni raccolte, per un valore di circa 20.000€.",
+      text: "Nelle prime 48 ore dal lancio: oltre 258 prenotazioni raccolte, per un valore di +20.000€.",
       author: "Sistema Forge Group",
       role: "Lancio struttura ricettiva · nuova gestione",
     },
@@ -504,7 +504,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Valore",
         before: "Nessun fatturato prevedibile al cambio gestione",
-        after: "Circa 20.000€ di valore generato in 48 ore",
+        after: "+20.000€ di valore generato in 48 ore",
       },
       {
         aspect: "Canali",
