@@ -102,7 +102,6 @@ export default function Footer() {
               <p className="text-sm text-white leading-relaxed">
                 Azienda di Growth Hacking in Italia.
               </p>
-              <FooterNewsletter />
               <div className="flex items-center gap-3 mt-5">
                 <a
                   href="https://www.instagram.com/"
@@ -227,6 +226,10 @@ export default function Footer() {
               </MobileCol>
             </div>
 
+          </div>
+
+          <div className="mt-10 border-t border-white/20 pt-10 md:mt-14 md:pt-12">
+            <FooterNewsletter variant="featured" />
           </div>
         </div>
 
