@@ -958,7 +958,7 @@ button:disabled .light-beam-btn__glow {
   }
 }
 
-/* ── Footer CTA band — sfondo bianco semplice ───────────────────── */
+/* ── Footer CTA band — sfondo gooey + pannello glass ───────────── */
 .footer-cta-band {
   min-height: 20rem;
 }

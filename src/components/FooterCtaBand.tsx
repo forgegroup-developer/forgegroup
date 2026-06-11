@@ -1,5 +1,6 @@
 "use client";
 
+import GooeyGradientBackground from "@/components/GooeyGradientBackground";
 import HandDrawnUnderline from "@/components/HandDrawnUnderline";
 import LightBeamButton from "@/components/LightBeamButton";
 
@@ -9,8 +10,9 @@ type Props = {
 
 export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   return (
-    <section className="footer-cta-band relative overflow-hidden border-t border-b border-brand-bordo bg-brand-bianco">
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <section className="footer-cta-band relative overflow-hidden border-t border-b border-brand-bordo">
+      <GooeyGradientBackground>
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="w-full">
@@ -44,7 +46,8 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
             </LightBeamButton>
           </div>
         </div>
-      </div>
+        </div>
+      </GooeyGradientBackground>
     </section>
   );
 }
