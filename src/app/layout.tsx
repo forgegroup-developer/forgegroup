@@ -70,6 +70,7 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteUrl}#organization`,
   name: "Forge Group",
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
@@ -111,6 +112,18 @@ const localBusinessJsonLd = {
   ],
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}#website`,
+  url: siteUrl,
+  name: "Forge Group",
+  description:
+    "Sistemi di acquisizione clienti e vendita B2B high-ticket per imprese in Italia.",
+  publisher: { "@id": `${siteUrl}#organization` },
+  inLanguage: "it-IT",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -130,6 +143,9 @@ export default function RootLayout({
           strategy="afterInteractive"
         >
           {JSON.stringify(localBusinessJsonLd)}
+        </Script>
+        <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(websiteJsonLd)}
         </Script>
         <Navbar />
         <main className="flex-grow">{children}</main>

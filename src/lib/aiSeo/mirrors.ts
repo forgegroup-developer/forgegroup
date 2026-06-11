@@ -1,6 +1,7 @@
 import { articles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
 import { faqs } from "@/data/site";
+import { SITE_URL, STATIC_SEO_ROUTES, absoluteUrl } from "@/lib/seo/site";
 
 export type MirrorPage = {
   title: string;
@@ -9,7 +10,7 @@ export type MirrorPage = {
   body: string;
 };
 
-const BASE = "https://www.forgegroup.it";
+const BASE = SITE_URL;
 const TODAY = new Date().toISOString().slice(0, 10);
 
 function frontmatter(page: MirrorPage): string {
@@ -54,6 +55,7 @@ Non vendiamo pacchetti fissi: dopo la prequalifica costruiamo un percorso su mis
 - Email: info@forgegroup.it
 - Website: ${BASE}
 - Candidatura: ${BASE}/contatti
+- Casi studio: ${BASE}/casi-studio
 
 ## Service Area
 Italia, con forte presenza in Campania (Napoli, Salerno, Caserta, Avellino, Benevento) e clienti B2B in tutto il territorio nazionale.
@@ -133,6 +135,14 @@ Dati trattati secondo la Privacy Policy: ${BASE}/privacy-policy
 # Casi Studio Forge Group
 
 Portfolio di risultati misurabili per imprese B2B: acquisizione clienti, processi di vendita e crescita del fatturato.
+
+## Casi pubblicati
+${caseStudies
+  .map(
+    (c) =>
+      `- [${c.shortTitle}](${BASE}/casi-studio/${c.slug}) — ${c.resultHeadline}. ${c.hubExcerpt}`
+  )
+  .join("\n")}
 
 ## CTA
 Candida la tua azienda: ${BASE}/contatti
@@ -275,6 +285,9 @@ export function listMirrorUrls(): string[] {
 
 export function buildLlmsTxt(): string {
   const mirrorList = listMirrorUrls().map((u) => `- ${u}`).join("\n");
+  const mainPages = STATIC_SEO_ROUTES.filter((r) => r.inLlmsMainPages)
+    .map((r) => `- ${absoluteUrl(r.path)}`)
+    .join("\n");
 
   return `# Forge Group
 
@@ -295,6 +308,13 @@ Italia — focus Campania (Napoli, Salerno, Caserta, Avellino, Benevento). Clien
 - Email: info@forgegroup.it
 - Sito: ${BASE}
 - Candidatura aziende: ${BASE}/contatti
+- Casi studio: ${BASE}/casi-studio
+
+## Main Pages (HTML)
+${mainPages}
+
+## Sitemap
+${BASE}/sitemap.xml
 
 ## Service Area
 Italia; Campania (Napoli, Salerno, Caserta, Avellino, Benevento); imprese B2B e B2C high-ticket nazionali.

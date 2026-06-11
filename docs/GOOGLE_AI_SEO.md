@@ -1,78 +1,107 @@
 # Google & AI SEO — Forge Group
 
-Guida operativa derivata dal playbook *The AI SEO Playbook* (Brycen Wood, 2026), adattata al sito Next.js su Vercel.
+Guida operativa per il lancio su `https://www.forgegroup.it` (dominio + Google Search Console).
 
-## Verifica sicurezza
-
-Il playbook contiene 11 sistemi. **Sul sito abbiamo implementato solo i sistemi 1–3** (visibilità AI + Google). I sistemi 4–11 (YouTube autopilot, CRM GHL, Twilio, Cloudflare Workers con API key) **non sono stati integrati** nel codice del sito: richiedono credenziali esterne e non appartengono al repository pubblico.
-
-**Protezioni mantenute:**
-- `/api/` resta bloccato in `robots.txt` (form, mirror interni non indicizzati per path API)
-- Nessuna API key nel codice o in `llms.txt`
-- Security headers invariati (X-Frame-Options, X-Content-Type-Options, Referrer-Policy)
-- Markdown mirrors serviti solo da whitelist path (no path traversal)
+Configurazione centralizzata: `src/lib/seo/site.ts`
 
 ---
 
-## Cosa è live sul sito
+## Inventario URL indicizzabili (sitemap)
 
-### 1. `llms.txt` (Sistema 1)
-- URL: https://www.forgegroup.it/llms.txt
-- File generato dinamicamente da `src/lib/aiSeo/mirrors.ts`
-- Contiene: servizi, pricing indicativo, area geografica, FAQ, elenco mirror
+| URL | Priorità | Note |
+|-----|----------|------|
+| `/` | 1.0 | Homepage |
+| `/servizi` | 0.9 | Hub servizi |
+| `/casi-studio` | 0.9 | Hub casi studio |
+| `/contatti` | 0.9 | Prequalifica |
+| `/blog` | 0.8 | Hub articoli |
+| `/chi-siamo-e-manifesto` | 0.7 | Manifesto |
+| `/casi-studio/software-b2b` | 0.8 | Caso DISA |
+| `/casi-studio/edilizia` | 0.8 | |
+| `/casi-studio/arredo-commerciale` | 0.8 | |
+| `/casi-studio/hotel-hospitality` | 0.8 | |
+| `/blog/come-acquisire-clienti-b2b-campania` | 0.7 | |
+| `/privacy-policy` | 0.3 | noindex in metadata |
+| `/cookie-policy` | 0.3 | noindex in metadata |
 
-### 2. Markdown mirrors (Sistema 2)
-- Pattern: aggiungi `/index.md` a ogni URL pagina
+**Sitemap:** https://www.forgegroup.it/sitemap.xml  
+**Robots:** https://www.forgegroup.it/robots.txt  
+**llms.txt:** https://www.forgegroup.it/llms.txt
+
+---
+
+## Asset SEO implementati
+
+### 1. `llms.txt`
+- Generato da `src/lib/aiSeo/mirrors.ts`
+- Include: servizi, pricing, area geografica, FAQ, pagine principali, sitemap, mirror markdown
+
+### 2. Markdown mirrors (AI-readable)
+- Pattern: `{url}/index.md` (rewrite → API mirror)
 - Esempi:
   - https://www.forgegroup.it/index.md
   - https://www.forgegroup.it/servizi/index.md
-  - https://www.forgegroup.it/contatti/index.md
+  - https://www.forgegroup.it/casi-studio/index.md
   - https://www.forgegroup.it/casi-studio/software-b2b/index.md
-- Content-Type: `text/plain; charset=utf-8`
-- Implementazione: rewrite in `next.config.ts` → `src/app/api/ai-mirror/[[...path]]/route.ts`
 
-### 3. Sitemap + robots (Sistema 3)
-- Sitemap: https://www.forgegroup.it/sitemap.xml (`src/app/sitemap.ts`)
-- Robots: https://www.forgegroup.it/robots.txt (`src/app/robots.ts`)
-- AI crawlers esplicitamente ammessi: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot
-- `/api/` disallowed per tutti i bot
+### 3. Schema markup (JSON-LD)
+| Tipo | Dove |
+|------|------|
+| Organization | `layout.tsx` |
+| LocalBusiness | `layout.tsx` |
+| WebSite | `layout.tsx` |
+| FAQPage | Homepage (`JsonLdFAQ.tsx`) |
+| BlogPosting | Articoli blog |
+| BreadcrumbList | Blog + casi studio |
 
-### 4. Schema markup
-- Organization + LocalBusiness: `src/app/layout.tsx`
-- FAQPage: `src/components/JsonLdFAQ.tsx` (homepage)
-- BreadcrumbList: blog e casi studio
+### 4. Metadata
+- `metadataBase` + canonical per pagina
+- Open Graph + Twitter Card
+- `robots: noindex` su privacy/cookie
 
----
-
-## Google Search Console — setup manuale
-
-1. Vai su https://search.google.com/search-console
-2. **Aggiungi proprietà** → tipo **Dominio** → `forgegroup.it` (senza https/www)
-3. Aggiungi il record TXT DNS che Google fornisce (su Vercel DNS o registrar)
-4. Clicca **Verifica** (propagazione DNS: fino a 24–48h)
-5. Menu **Sitemap** → invia: `https://www.forgegroup.it/sitemap.xml`
-6. Dopo 2–3 giorni: **Prestazioni** → analizza query, impressioni, CTR, posizione media
-
-### Quick win (dal playbook)
-Cerca keyword con **posizione 5–15** e **impressioni alte** → ottimizza title/description della pagina corrispondente.
+### 5. AI crawlers
+Ammessi in `robots.ts`: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended, CCBot  
+Bloccato: `/api/`
 
 ---
 
-## Test AI visibility (dopo 3–7 giorni dal deploy)
+## Checklist pre-lancio dominio
 
-1. ChatGPT: *"Chi fa acquisizione clienti B2B in Campania?"*
-2. Perplexity: stessa domanda
-3. Claude: stessa domanda
-4. Google AI Overview: ricerca normale su Google
+### A. Vercel + DNS
+1. Dominio `forgegroup.it` collegato al progetto Vercel
+2. `www.forgegroup.it` come dominio primario (consigliato)
+3. Redirect apex `forgegroup.it` → `www.forgegroup.it` attivo
+4. HTTPS attivo (certificato Let's Encrypt automatico)
+5. Env vars produzione: `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO`
 
-Verifica che citi Forge Group o che possa leggere `llms.txt` e i mirror.
-
-### Test tecnici immediati
+### B. Verifica tecnica SEO (dopo DNS live)
 ```bash
-curl -I https://www.forgegroup.it/llms.txt
-curl -I https://www.forgegroup.it/servizi/index.md
+curl -I https://www.forgegroup.it/
 curl https://www.forgegroup.it/robots.txt
+curl https://www.forgegroup.it/sitemap.xml
+curl -I https://www.forgegroup.it/llms.txt
+curl -I https://www.forgegroup.it/casi-studio/index.md
+curl -I https://www.forgegroup.it/casi-studio
 ```
+- `/casi-studio` deve rispondere **200** (non redirect a `/#casi-studio`)
+
+### C. Google Search Console
+1. https://search.google.com/search-console
+2. **Aggiungi proprietà** → **Prefisso URL** `https://www.forgegroup.it`  
+   (oppure **Dominio** `forgegroup.it` se gestite DNS centralizzato)
+3. Verifica via record DNS TXT o file HTML (Vercel supporta entrambi)
+4. **Sitemap** → Aggiungi: `https://www.forgegroup.it/sitemap.xml`
+5. **Impostazioni** → Paese di destinazione: **Italia**
+6. Dopo 48–72h: **Copertura** / **Pagine** → verificare indicizzazione
+7. **Prestazioni** → monitorare query brand e keyword B2B Campania
+
+### D. Bing Webmaster Tools (opzionale)
+1. https://www.bing.com/webmasters
+2. Importa da Google Search Console o verifica separatamente
+3. Invia la stessa sitemap
+
+### E. Google Business Profile (se applicabile)
+Profilo attività collegato a Campania / area servita.
 
 ---
 
@@ -80,20 +109,19 @@ curl https://www.forgegroup.it/robots.txt
 
 | Quando | Azione |
 |--------|--------|
-| Nuova pagina | Aggiungi mirror in `src/lib/aiSeo/mirrors.ts` + voce in `sitemap.ts` |
-| Nuovo servizio/prezzo | Aggiorna sezione Services in `mirrors.ts` (rigenera `llms.txt` automaticamente) |
-| Nuovo articolo blog | Mirror generato automaticamente da `articles.ts` |
-| Nuovo caso studio | Mirror generato automaticamente da `caseStudies.ts` |
+| Nuova pagina statica | Aggiungi in `src/lib/seo/site.ts` + mirror in `mirrors.ts` |
+| Nuovo articolo | Automatico da `articles.ts` |
+| Nuovo caso studio | Automatico da `caseStudies.ts` |
+| Cambio servizi/prezzi | Aggiorna `mirrors.ts` (rigenera `llms.txt`) |
 
 ---
 
-## Cosa NON fare (sicurezza / privacy)
+## Sicurezza
 
-- Non inserire API key Resend o altri secret in `llms.txt` o mirror
-- Non rimuovere `disallow: /api/` da robots.txt
-- Non esporre endpoint admin o pannelli senza autenticazione
-- Non implementare integrazioni CRM/Twilio nel frontend senza review sicurezza dedicata
+- Nessuna API key in `llms.txt` o mirror
+- `/api/` disallowed in robots
+- Mirror solo da whitelist path
 
 ---
 
-*Ultimo aggiornamento: giugno 2026*
+*Ultimo aggiornamento: 11 giugno 2026 — pre-lancio dominio e Search Console.*

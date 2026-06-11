@@ -52,7 +52,7 @@ Report per il deploy su `https://www.forgegroup.it`.
 ### Link interni
 
 - Navbar, Footer, CTA: route valide
-- `/casi-studio` → redirect a `/#casi-studio` (configurato in `next.config.ts`)
+- `/casi-studio` → hub dedicato (redirect legacy rimosso da `next.config.ts`)
 - **Non esiste** `/lavora-con-noi` — form unico su `/contatti`
 
 ### Form
@@ -126,9 +126,9 @@ Report per il deploy su `https://www.forgegroup.it`.
 |------|-------|
 | Metadata + OG/Twitter per pagina | Fatto su tutte le route statiche e `generateMetadata` su blog/casi studio |
 | Canonical | `metadataBase` in layout + `alternates.canonical` per pagina |
-| `sitemap.xml` | Aggiunto `/chi-siamo-e-manifesto` |
+| `sitemap.xml` | Hub `/casi-studio`, `/chi-siamo-e-manifesto`, blog, casi slug, articoli — config in `src/lib/seo/site.ts` |
 | `robots.ts` | Già presente |
-| JSON-LD Organization + LocalBusiness | Layout |
+| JSON-LD Organization + LocalBusiness + WebSite | Layout |
 | BreadcrumbList | Blog articoli + casi studio |
 | Alt text immagini | Audit; fix hero case study detail |
 
@@ -183,8 +183,9 @@ Report per il deploy su `https://www.forgegroup.it`.
 6. **Lighthouse su preview Vercel** — Confrontare con numeri locali; CDN può migliorare LCP
 7. **Asset residui** — Valutare compressione PNG servizi (`imprenditore-*.png` 1MB+) e video recensione per produzione
 8. **npm install** su CI/Vercel dopo rimozione `ogl`
-9. **Google Search Console** — verifica dominio + invio sitemap (vedi `docs/GOOGLE_AI_SEO.md`)
-10. **Test llms.txt e mirror** — `curl https://www.forgegroup.it/llms.txt` e `/servizi/index.md`
+9. **Google Search Console** — verifica `www.forgegroup.it` + sitemap `https://www.forgegroup.it/sitemap.xml` (checklist completa in `docs/GOOGLE_AI_SEO.md`)
+10. **Test SEO post-DNS** — robots, sitemap, llms.txt, `/casi-studio` (200), mirror `/casi-studio/index.md`
+11. **Bing Webmaster** (opzionale) — stessa sitemap
 
 ---
 

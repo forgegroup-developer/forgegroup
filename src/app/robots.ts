@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const HOST = "https://www.forgegroup.it";
+import { SITE_URL } from "@/lib/seo/site";
 
 /** Crawler AI esplicitamente ammessi (playbook AI SEO — non bloccare) */
 const AI_BOTS = [
@@ -29,7 +28,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: sharedDisallow,
       })),
     ],
-    sitemap: `${HOST}/sitemap.xml`,
-    host: HOST,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }
