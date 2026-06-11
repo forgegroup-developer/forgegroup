@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import AnimatedStepper, { Step } from "@/components/AnimatedStepper";
+
 type FormData = {
   nome_attivita: string;
   occupazione: string;
@@ -148,7 +150,7 @@ const inputCls =
   "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-5 py-4 text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
 
 export default function ContattiForm() {
-  const [step, setStep] = useState(0);
+  const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState<FormData>(initialFormData);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -156,47 +158,40 @@ export default function ContattiForm() {
   const [stepError, setStepError] = useState("");
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
 
-  const current = steps[step];
-  const progress = ((step + 1) / steps.length) * 100;
-  const isLastStep = step === steps.length - 1;
+  const current = steps[stepIndex];
+  const isLastStep = stepIndex === steps.length - 1;
 
   const updateField = (name: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [name]: value }));
     setStepError("");
   };
 
-  const validateStep = useCallback((): boolean => {
-    const value = form[current.name].trim();
-    if (!value) {
-      setStepError("Completa questa domanda per continuare.");
-      return false;
-    }
-    if (current.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-      setStepError("Inserisci un indirizzo email valido.");
-      return false;
-    }
-    setStepError("");
-    return true;
-  }, [current, form]);
+  const validateStep = useCallback(
+    (index = stepIndex): boolean => {
+      const step = steps[index];
+      const value = form[step.name].trim();
+      if (!value) {
+        setStepError("Completa questa domanda per continuare.");
+        return false;
+      }
+      if (step.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        setStepError("Inserisci un indirizzo email valido.");
+        return false;
+      }
+      setStepError("");
+      return true;
+    },
+    [form, stepIndex]
+  );
 
   const goNext = useCallback(() => {
     if (!validateStep()) return;
     if (isLastStep) return;
-    setStep((s) => s + 1);
+    setStepIndex((s) => s + 1);
   }, [isLastStep, validateStep]);
 
-  const goBack = () => {
-    if (step === 0) return;
-    setStepError("");
-    setStep((s) => s - 1);
-  };
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [step]);
-
-  const handleSubmit = async () => {
-    if (!validateStep()) return;
+  const handleSubmit = async (): Promise<boolean> => {
+    if (!validateStep()) return false;
     setSubmitting(true);
     setError("");
 
@@ -214,23 +209,88 @@ export default function ContattiForm() {
 
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return true;
     } catch (err) {
       const message = err instanceof Error ? err.message : "Si è verificato un errore inaspettato.";
       setError(message);
+      return false;
     } finally {
       setSubmitting(false);
     }
   };
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, [stepIndex]);
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key !== "Enter" || e.shiftKey) return;
-    if (current.type === "textarea") return;
+    if (current.type === "textarea" || current.type === "select") return;
     e.preventDefault();
     if (isLastStep) {
       void handleSubmit();
     } else {
       goNext();
     }
+  };
+
+  const renderField = (step: FormStep) => {
+    if (step.type === "select" && step.options) {
+      return (
+        <div className="space-y-3">
+          {step.options.map((opt) => {
+            const selected = form[step.name] === opt.value;
+            const stepIsLast = steps.indexOf(step) === steps.length - 1;
+            return (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => {
+                  updateField(step.name, opt.value);
+                  if (!stepIsLast) {
+                    window.setTimeout(() => setStepIndex((i) => i + 1), 280);
+                  }
+                }}
+                className={`w-full text-left rounded-xl border-2 px-5 py-4 text-base md:text-lg transition-all duration-200 ${
+                  selected
+                    ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero shadow-sm"
+                    : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50 hover:bg-brand-panna/50"
+                }`}
+              >
+                {opt.label}
+              </button>
+            );
+          })}
+        </div>
+      );
+    }
+
+    if (step.type === "textarea") {
+      return (
+        <textarea
+          ref={inputRef as React.RefObject<HTMLTextAreaElement>}
+          value={form[step.name]}
+          onChange={(e) => updateField(step.name, e.target.value)}
+          rows={step.rows ?? 4}
+          placeholder={step.placeholder}
+          className={`${inputCls} resize-y min-h-[140px]`}
+        />
+      );
+    }
+
+    return (
+      <input
+        ref={inputRef as React.RefObject<HTMLInputElement>}
+        type={step.type}
+        value={form[step.name]}
+        onChange={(e) => updateField(step.name, e.target.value)}
+        placeholder={step.placeholder}
+        className={inputCls}
+        autoComplete={
+          step.type === "email" ? "email" : step.type === "tel" ? "tel" : "organization"
+        }
+      />
+    );
   };
 
   if (success) {
@@ -261,125 +321,81 @@ export default function ContattiForm() {
   return (
     <section className="pt-16 pb-20 md:pt-24 md:pb-28 section-bianco">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Prequalifica Strategica</p>
+        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+          ✦ Prequalifica Strategica
+        </p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-10 md:mb-12">
           Candida la tua <span className="text-brand-corallo">azienda</span>.
         </h1>
 
-        <div className="mb-8">
-            <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-brand-grigio mb-2">
-              <span>
-                Domanda {step + 1} di {steps.length}
-              </span>
-              <span>{Math.round(progress)}%</span>
-            </div>
-            <div className="h-1.5 rounded-full bg-brand-bordo overflow-hidden">
-              <div
-                className="h-full rounded-full bg-brand-corallo transition-all duration-500 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-          </div>
+        <div onKeyDown={handleKeyDown}>
+          <AnimatedStepper
+            variant="typeform"
+            currentStep={stepIndex + 1}
+            onStepChange={(s) => setStepIndex(s - 1)}
+            onBeforeNext={() => validateStep()}
+            onBeforeComplete={() => handleSubmit()}
+            disableStepIndicators
+            renderFooter={({ currentStep, handleBack, handleNext, isLastStep: last }) => (
+              <>
+                {stepError && (
+                  <p className="mb-4 text-sm font-medium text-brand-corallo">{stepError}</p>
+                )}
+                {error && (
+                  <div className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm">
+                    {error}
+                  </div>
+                )}
 
-          <div
-            key={step}
-            className="animate-[fadeSlideIn_0.35s_ease-out]"
-            onKeyDown={handleKeyDown}
-          >
-            <h2 className="text-2xl md:text-3xl font-semibold text-brand-nero leading-snug mb-8">
-              {current.label}
-              <span className="text-brand-corallo ml-1">*</span>
-            </h2>
+                <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <button
+                    type="button"
+                    onClick={handleBack}
+                    disabled={currentStep === 1 || submitting}
+                    className="text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                  >
+                    ← Indietro
+                  </button>
 
-            {current.type === "select" && current.options ? (
-              <div className="space-y-3">
-                {current.options.map((opt) => {
-                  const selected = form[current.name] === opt.value;
-                  return (
+                  {last ? (
                     <button
-                      key={opt.value}
                       type="button"
-                      onClick={() => {
-                        updateField(current.name, opt.value);
-                        if (!isLastStep) {
-                          setTimeout(() => setStep((s) => s + 1), 280);
-                        }
-                      }}
-                      className={`w-full text-left rounded-xl border-2 px-5 py-4 text-base md:text-lg transition-all duration-200 ${
-                        selected
-                          ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero shadow-sm"
-                          : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50 hover:bg-brand-panna/50"
-                      }`}
+                      onClick={() => void handleSubmit()}
+                      disabled={submitting}
+                      className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {opt.label}
+                      {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
                     </button>
-                  );
-                })}
-              </div>
-            ) : current.type === "textarea" ? (
-              <textarea
-                ref={inputRef as React.RefObject<HTMLTextAreaElement>}
-                value={form[current.name]}
-                onChange={(e) => updateField(current.name, e.target.value)}
-                rows={current.rows ?? 4}
-                placeholder={current.placeholder}
-                className={`${inputCls} resize-y min-h-[140px]`}
-              />
-            ) : (
-              <input
-                ref={inputRef as React.RefObject<HTMLInputElement>}
-                type={current.type}
-                value={form[current.name]}
-                onChange={(e) => updateField(current.name, e.target.value)}
-                placeholder={current.placeholder}
-                className={inputCls}
-                autoComplete={current.type === "email" ? "email" : current.type === "tel" ? "tel" : "organization"}
-              />
+                  ) : current.type !== "select" ? (
+                    <button type="button" onClick={handleNext} className="btn-corallo px-10 py-4 text-base">
+                      Continua →
+                    </button>
+                  ) : (
+                    <p className="text-sm text-brand-grigio text-center sm:text-right">
+                      Seleziona un&apos;opzione per continuare
+                    </p>
+                  )}
+                </div>
+
+                {last && (
+                  <p className="text-xs text-center text-brand-grigio-light mt-6">
+                    Inviando il modulo accetti la nostra{" "}
+                    <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
+                      Privacy Policy
+                    </Link>
+                    . I tuoi dati saranno usati solo per valutare la candidatura.
+                  </p>
+                )}
+              </>
             )}
-
-            {stepError && <p className="mt-4 text-sm font-medium text-brand-corallo">{stepError}</p>}
-            {error && (
-              <div className="mt-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm">{error}</div>
-            )}
-
-            <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4 mt-10">
-              <button
-                type="button"
-                onClick={goBack}
-                disabled={step === 0 || submitting}
-                className="text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                ← Indietro
-              </button>
-
-              {isLastStep ? (
-                <button
-                  type="button"
-                  onClick={() => void handleSubmit()}
-                  disabled={submitting}
-                  className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
-                </button>
-              ) : current.type !== "select" ? (
-                <button type="button" onClick={goNext} className="btn-corallo px-10 py-4 text-base">
-                  Continua →
-                </button>
-              ) : (
-                <p className="text-sm text-brand-grigio text-center sm:text-right">Seleziona un&apos;opzione per continuare</p>
-              )}
-            </div>
-
-            {isLastStep && (
-              <p className="text-xs text-center text-brand-grigio-light mt-6">
-                Inviando il modulo accetti la nostra{" "}
-                <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
-                  Privacy Policy
-                </Link>
-                . I tuoi dati saranno usati solo per valutare la candidatura.
-              </p>
-            )}
-          </div>
+          >
+            {steps.map((step) => (
+              <Step key={step.name} title={step.label}>
+                {renderField(step)}
+              </Step>
+            ))}
+          </AnimatedStepper>
+        </div>
       </div>
     </section>
   );
