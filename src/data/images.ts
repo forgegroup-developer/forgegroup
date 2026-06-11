@@ -1,6 +1,6 @@
 /** Percorsi immagini professionali in /public/images */
 export const caseStudyImages: Record<string, string> = {
-  "software-b2b": "/images/casi-studio/software-b2b.jpg",
+  "software-b2b": "/images/casi-studio/software-b2b.png",
   edilizia: "/images/casi-studio/edilizia.jpg",
   "arredo-commerciale": "/images/casi-studio/arredo-commerciale.jpg",
   "hotel-hospitality": "/images/casi-studio/hotel-hospitality.jpg",
@@ -13,7 +13,7 @@ export type CaseStudyImageLayout = {
 
 /** Layout per copertina: inquadratura e fit ottimizzati per ogni foto 16:9 */
 export const caseStudyImageLayout: Record<string, CaseStudyImageLayout> = {
-  "software-b2b": { fit: "cover", position: "48% 42%" },
+  "software-b2b": { fit: "cover", position: "52% 38%" },
   edilizia: { fit: "cover", position: "54% 36%" },
   "arredo-commerciale": { fit: "cover", position: "50% 36%" },
   "hotel-hospitality": { fit: "cover", position: "50% 54%" },
@@ -48,7 +48,7 @@ export const serviziSidebarImages = {
 } as const;
 
 export function getCaseStudyImage(slug: string): string {
-  return caseStudyImages[slug] ?? "/images/casi-studio/software-b2b.jpg";
+  return caseStudyImages[slug] ?? "/images/casi-studio/software-b2b.png";
 }
 
 export function getCaseStudyImageLayout(slug: string): CaseStudyImageLayout {
