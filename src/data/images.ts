@@ -33,6 +33,7 @@ export const siteImages = {
   gianpioReel: "/video-gianpio-reel.mp4",
   gianpioReelPoster: "/images/team/gianpio-reel-poster.jpg",
   marcoReel: "/video-marco-reel.mp4",
+  marcoReelPoster: "/images/team/marco-reel-poster.jpg",
 } as const;
 
 /** Grafiche showcase hero — doppio marquee verticale */
