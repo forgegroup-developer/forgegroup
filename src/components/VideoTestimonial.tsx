@@ -1,11 +1,6 @@
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
-
 export default function VideoTestimonial() {
   return (
-    <GlowingEdgeCard
-      className="rounded-3xl"
-      innerClassName="bg-brand-panna p-4 md:p-6"
-    >
+    <div className="bg-brand-panna border border-brand-bordo rounded-3xl p-4 md:p-6">
       <video
         controls
         preload="metadata"
@@ -17,6 +12,6 @@ export default function VideoTestimonial() {
       <p className="text-sm text-brand-grigio mt-4">
         Video recensione cliente Forge Group.
       </p>
-    </GlowingEdgeCard>
+    </div>
   );
 }

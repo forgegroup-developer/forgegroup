@@ -1,5 +1,3 @@
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
-
 export type BeforeAfterRow = {
   /** Etichetta opzionale della riga (es. Acquisizione, Vendita) */
   aspect?: string;
@@ -13,10 +11,7 @@ type Props = {
 
 export default function CaseStudyBeforeAfter({ rows }: Props) {
   return (
-    <GlowingEdgeCard
-      className="rounded-2xl shadow-lg"
-      innerClassName="overflow-hidden bg-brand-bianco"
-    >
+    <div className="rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
       {/* Intestazioni — sempre 2 colonne anche su mobile */}
       <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
         <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
@@ -84,6 +79,6 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
           </div>
         </div>
       ))}
-    </GlowingEdgeCard>
+    </div>
   );
 }

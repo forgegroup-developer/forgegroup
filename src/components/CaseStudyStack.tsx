@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { caseStudies } from "@/data/caseStudies";
 import {
   getCaseStudyImage,
@@ -52,11 +51,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
   const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
-    <GlowingEdgeCard
-      as="article"
-      className="w-full rounded-3xl shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300"
-      innerClassName="flex h-[480px] w-full flex-col overflow-hidden bg-brand-bianco md:h-[400px] md:flex-row"
-    >
+    <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
       <div className="relative h-[200px] w-full shrink-0 overflow-hidden bg-brand-corallo md:h-full md:w-[55%]">
         <Image
@@ -126,7 +121,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
           </Link>
         </div>
       </div>
-    </GlowingEdgeCard>
+    </article>
   );
 }
 

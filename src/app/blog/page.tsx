@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 import Reveal from "@/components/Reveal";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 
 export const metadata: Metadata = {
   title: "Blog Marketing B2B | Intelligence",
@@ -38,10 +37,9 @@ export default function BlogHub() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {articles.map((a, idx) => (
               <Reveal key={a.slug} delay={(idx % 3) as 0 | 1 | 2 | 3}>
-              <Link href={`/blog/${a.slug}`} className="group block h-full">
-              <GlowingEdgeCard
-                className="h-full rounded-3xl transition-all group-hover:shadow-xl"
-                innerClassName="flex h-full flex-col overflow-hidden bg-brand-bianco"
+              <Link
+                href={`/blog/${a.slug}`}
+                className="group bg-brand-bianco border border-brand-bordo rounded-3xl overflow-hidden hover:border-brand-corallo hover:shadow-xl transition-all flex flex-col h-full"
               >
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
@@ -66,7 +64,6 @@ export default function BlogHub() {
                     <span>{a.readTime} di lettura</span>
                   </div>
                 </div>
-              </GlowingEdgeCard>
               </Link>
               </Reveal>
             ))}

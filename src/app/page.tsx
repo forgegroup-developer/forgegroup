@@ -10,7 +10,6 @@ import SocialProof from "@/components/SocialProof";
 import CaseStudyStack from "@/components/CaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 export const metadata: Metadata = {
   title: "Forge Group | Sistema di Crescita per Imprese B2B",
   description:
@@ -115,10 +114,7 @@ export default function Home() {
             title="Azienda di Growth Hacking Italia"
           />
           <Reveal>
-            <GlowingEdgeCard
-              className="max-w-5xl mx-auto rounded-2xl shadow-lg"
-              innerClassName="overflow-hidden bg-brand-bianco"
-            >
+            <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
               {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
@@ -192,7 +188,7 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </GlowingEdgeCard>
+            </div>
           </Reveal>
         </div>
       </section>

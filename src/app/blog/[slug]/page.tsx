@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import LightBeamButton from "@/components/LightBeamButton";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -181,10 +180,10 @@ export default async function ArticleDetail({ params }: Props) {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {others.map((o) => (
-                <Link key={o.slug} href={`/blog/${o.slug}`} className="group block">
-                <GlowingEdgeCard
-                  className="rounded-2xl transition-all group-hover:shadow-lg"
-                  innerClassName="bg-brand-bianco p-6"
+                <Link
+                  key={o.slug}
+                  href={`/blog/${o.slug}`}
+                  className="group bg-brand-bianco border border-brand-bordo rounded-2xl p-6 hover:border-brand-corallo hover:shadow-lg transition-all"
                 >
                   <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">{o.category}</p>
                   <h3 className="text-lg font-semibold font-bold text-brand-nero mb-3 group-hover:text-brand-corallo transition-colors">
@@ -192,7 +191,6 @@ export default async function ArticleDetail({ params }: Props) {
                   </h3>
                   <p className="text-sm text-brand-grigio mb-3">{o.excerpt}</p>
                   <span className="text-brand-corallo font-bold text-sm">Leggi →</span>
-                </GlowingEdgeCard>
                 </Link>
               ))}
             </div>

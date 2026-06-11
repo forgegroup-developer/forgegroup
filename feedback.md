@@ -64,14 +64,14 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 **Footer CTA band (regola fissa):**
 - Componente: `FooterCtaBand.tsx` (in `Footer.tsx`), nascosta su `/contatti`
 - Sfondo: **`bg-brand-bianco`** semplice (nessun prism WebGL)
-- Pannello CTA: card bianca con bordo (`footer-cta-band .cta-glass-panel`) + `GlowingEdgeCard`
+- Pannello CTA: card bianca con bordo (`footer-cta-band .cta-glass-panel`)
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
 - **Layout:** titolo sopra, bottone **sotto** a tutta larghezza; testo pulsante su **una riga** (`whitespace-nowrap`)
 - **Colori titolo:** testo **nero**; corallo **solo sulla keyword** (mai intere frasi corallo):
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`) con beam **nero → corallo → nero**; casi studio uppercase
+- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`) con beam **bianco → corallo → pesca**; casi studio uppercase
 
 **Pulsanti primari (regola fissa):**
 - Usare **`LightBeamButton`** al posto di `btn-corallo` su tutto il sito
@@ -79,14 +79,6 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Beam rotante `glass`: **bianco → corallo → pesca** (footer CTA, sidebar servizi)
 - Varianti: `solid` (fill corallo), `glass` (fill bianco semi-trasparente + testo corallo)
 - Taglie: `sm` (navbar), `default`, `lg` (hero, form, footer)
-
-**Card e pannelli (regola fissa):**
-- Usare **`GlowingEdgeCard`** al posto di `div`/`article` con solo `border border-brand-bordo`
-- Aura al passaggio del puntatore: mesh gradient **corallo + nero + pesca** (coerente con `LightBeamButton`)
-- Modalità: `light` (default, card bianche/panna), `dark` (video, tile nere)
-- Prop `intro` solo su CTA footer (`FooterCtaBand`); altre card solo glow on hover
-- Stili in `globals.css` (`.glowing-edge-card`, layer mesh/glow)
-- **Non** wrappare: badge logo piccoli, pill rotonde, righe Metodo FORGE, tile marquee
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 
@@ -288,7 +280,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
 - [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
 - [x] Rimossa CTASection da tutte le pagine (CTA resta solo nel footer)
-- [x] Footer: fascia CTA `FooterCtaBand` (sfondo bianco + `GlowingEdgeCard` + `LightBeamButton`) + corpo link `bg-brand-corallo`
+- [x] Footer: fascia CTA `FooterCtaBand` (prism originale + `LightBeamButton` alone rotante) + corpo link `bg-brand-corallo`
 - [x] Regola sezioni bianche: classe `section-bianco` applicata su tutto il sito
 - [x] Navbar: pulsante "Hai un minuto?" nascosto su mobile/tablet
 - [x] Hero pagine servizi: layout due colonne con pillars card
@@ -308,7 +300,6 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sitemap aggiornata: rimosse route `/servizi/[slug]`; route `/casi-studio/[slug]` attive
 - [x] Video recensione integrato nel caso studio con poster homepage
 - [x] Rimossi trattini come punteggiatura da tutti i testi del sito (regola in feedback.md)
-- [x] `GlowingEdgeCard`: aura corallo/nero su tutte le card del sito (coerente con `LightBeamButton`)
 
 ---
 

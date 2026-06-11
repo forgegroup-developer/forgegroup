@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { caseStudies } from "@/data/caseStudies";
 import {
   getCaseStudyImage,
@@ -191,16 +190,14 @@ export default function CaseStudyCarousel() {
         {items.map((c, i) => {
           const isActive = i === rawIdx;
           return (
-            <GlowingEdgeCard
-              as="article"
+            <article
               key={`${c.slug}-${i}`}
-              className="flex-shrink-0 w-[82vw] md:w-[52vw] lg:w-[46vw] rounded-3xl shadow-sm"
+              className="flex-shrink-0 w-[82vw] md:w-[52vw] lg:w-[46vw] rounded-3xl overflow-hidden bg-brand-bianco border border-brand-bordo shadow-sm"
               style={{
                 opacity: isActive ? 1 : 0.48,
                 transform: `scale(${isActive ? 1 : 0.95})`,
                 transition: `opacity ${DUR}ms ${EASE}, transform ${DUR}ms ${EASE}`,
               }}
-              innerClassName="overflow-hidden bg-brand-bianco"
             >
               <div className="relative aspect-video overflow-hidden bg-brand-corallo">
                 <Image
@@ -262,7 +259,7 @@ export default function CaseStudyCarousel() {
                   </svg>
                 </Link>
               </div>
-            </GlowingEdgeCard>
+            </article>
           );
         })}
       </div>

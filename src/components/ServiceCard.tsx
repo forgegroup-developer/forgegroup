@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 
 export type ServiceLine = { text: string; highlights?: string[] };
 export type Service = {
@@ -98,12 +97,10 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
   return (
     <Link
       href={item.href}
-      className={`group block h-full ${compact ? "min-h-[440px]" : "min-h-[500px]"}`}
+      className={`group relative flex h-full ${
+        compact ? "min-h-[440px]" : "min-h-[500px]"
+      } flex-col overflow-hidden rounded-3xl border border-brand-bordo shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/40 hover:shadow-xl`}
     >
-      <GlowingEdgeCard
-        className="h-full rounded-3xl shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl"
-        innerClassName="relative flex h-full flex-col overflow-hidden !border-0 bg-transparent"
-      >
       <div className="absolute inset-0 bg-brand-panna" aria-hidden />
       <div className="absolute inset-x-0 bottom-0 top-[22%] z-0">
         <Image
@@ -146,7 +143,6 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
           → Scopri come
         </span>
       </div>
-      </GlowingEdgeCard>
     </Link>
   );
 }

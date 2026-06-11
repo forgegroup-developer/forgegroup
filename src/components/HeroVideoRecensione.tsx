@@ -1,18 +1,13 @@
 "use client";
 
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { clientLogos } from "@/data/clientLogos";
 import { siteImages } from "@/data/images";
 
 export default function HeroVideoRecensione() {
   return (
     <div className="w-full flex flex-col gap-4">
-      <GlowingEdgeCard
-        mode="dark"
-        className="w-full rounded-3xl shadow-2xl"
-        innerClassName="relative overflow-hidden !border-0 bg-brand-nero"
-      >
+      <div className="relative w-full rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero">
         <video
           controls
           preload="metadata"
@@ -23,13 +18,10 @@ export default function HeroVideoRecensione() {
           <source src="/video-recensione.mp4" type="video/mp4" />
           Il tuo browser non supporta il video.
         </video>
-      </GlowingEdgeCard>
+      </div>
 
       {/* Banner recensione */}
-      <GlowingEdgeCard
-        className="w-full rounded-2xl shadow-sm"
-        innerClassName="bg-brand-panna/75 backdrop-blur-sm px-6 py-6 md:px-8 md:py-7 text-left"
-      >
+      <div className="w-full rounded-2xl border border-brand-bordo bg-brand-panna/75 backdrop-blur-sm px-6 py-6 md:px-8 md:py-7 shadow-sm text-left">
         <div className="flex gap-1 mb-4">
           {[0, 1, 2, 3, 4].map((i) => (
             <svg key={i} className="w-5 h-5 text-brand-corallo" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
@@ -47,10 +39,7 @@ export default function HeroVideoRecensione() {
           &rdquo;
         </blockquote>
 
-        <GlowingEdgeCard
-          className="mt-5 rounded-xl"
-          innerClassName="flex items-center gap-4 bg-brand-bianco/70 px-4 py-3.5"
-        >
+        <div className="mt-5 flex items-center gap-4 rounded-xl bg-brand-bianco/70 border border-brand-bordo px-4 py-3.5">
           <CaseStudyClientLogo
             src={clientLogos.disa.src}
             alt={clientLogos.disa.alt}
@@ -72,8 +61,8 @@ export default function HeroVideoRecensione() {
             <span className="text-brand-corallo font-bold text-sm leading-none">5/5</span>
             <span className="text-brand-grigio text-[10px] uppercase tracking-widest">Recensione</span>
           </div>
-        </GlowingEdgeCard>
-      </GlowingEdgeCard>
+        </div>
+      </div>
     </div>
   );
 }

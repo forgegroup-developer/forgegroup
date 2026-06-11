@@ -1,6 +1,5 @@
 "use client";
 
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import HandDrawnUnderline from "@/components/HandDrawnUnderline";
 import LightBeamButton from "@/components/LightBeamButton";
 
@@ -12,11 +11,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   return (
     <section className="footer-cta-band relative overflow-hidden border-t border-b border-brand-bordo bg-brand-bianco">
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
-        <GlowingEdgeCard
-          intro
-          className="mx-auto max-w-5xl rounded-[2.5rem]"
-          innerClassName="cta-glass-panel !border-0 px-6 py-8 md:px-10 md:py-10"
-        >
+        <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="w-full">
               <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-corallo">
@@ -48,7 +43,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
                 : "Scopri come possiamo esserti utile"}
             </LightBeamButton>
           </div>
-        </GlowingEdgeCard>
+        </div>
       </div>
     </section>
   );

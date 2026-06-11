@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { faqs } from "@/data/site";
 
 type FAQItem = { q: string; a: string };
@@ -20,17 +19,16 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
       {items.map((f, idx) => {
         const isOpen = openIdx === idx;
         return (
-          <GlowingEdgeCard
+          <div
             key={idx}
-            className="rounded-2xl"
-            innerClassName={`overflow-hidden transition-all duration-300 ${
+            className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
               isOpen
                 ? onCoral
-                  ? "!border-brand-corallo bg-brand-bianco shadow-md"
-                  : "!border-brand-corallo bg-brand-pesca-light"
+                  ? "border-brand-corallo bg-brand-bianco shadow-md"
+                  : "border-brand-corallo bg-brand-pesca-light"
                 : onCoral
-                  ? "!border-white/35 bg-brand-bianco/95 shadow-sm"
-                  : "bg-brand-bianco"
+                  ? "border-white/35 bg-brand-bianco/95 shadow-sm"
+                  : "border-brand-bordo bg-brand-bianco"
             }`}
           >
             <button
@@ -56,7 +54,7 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
                 <div className="px-6 pb-6 text-brand-grigio leading-relaxed">{f.a}</div>
               </div>
             </div>
-          </GlowingEdgeCard>
+          </div>
         );
       })}
     </div>

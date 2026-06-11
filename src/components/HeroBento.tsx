@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import GlowingEdgeCard from "@/components/GlowingEdgeCard";
 import { heroShowcaseImages } from "@/data/images";
 
 type ShowcaseCard = {
@@ -32,10 +31,8 @@ const aspectClass = {
 
 function ShowcaseTile({ card }: { card: ShowcaseCard }) {
   return (
-    <GlowingEdgeCard
-      mode="dark"
-      className={`w-full shrink-0 rounded-2xl ${aspectClass[card.aspect]}`}
-      innerClassName="relative overflow-hidden !border-brand-bordo/80 bg-brand-nero"
+    <div
+      className={`relative w-full shrink-0 rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 ${aspectClass[card.aspect]}`}
     >
       <Image
         src={card.imageSrc}
@@ -46,7 +43,7 @@ function ShowcaseTile({ card }: { card: ShowcaseCard }) {
         draggable={false}
         priority={card.priority}
       />
-    </GlowingEdgeCard>
+    </div>
   );
 }
 
