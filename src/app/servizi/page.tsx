@@ -3,7 +3,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/ForgeGradientBackground";
 import MetodoForge from "@/components/MetodoForge";
-import Reveal from "@/components/Reveal";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
@@ -154,8 +153,6 @@ const rightShowcase = [
   { src: heroShowcaseImages.formazioneCommerciale, alt: "Formazione commerciale" },
   { src: heroShowcaseImages.consulenza, alt: "Consulenza" },
 ];
-const allShowcase = [...leftShowcase, ...rightShowcase];
-
 function ShowcaseTile({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-brand-nero border border-brand-bordo/80 shadow-sm">
@@ -224,7 +221,7 @@ export default function ServiziHub() {
           </div>
 
           <div className="lg:hidden">
-            <div className="flex flex-col items-center justify-center text-center mb-12">
+            <div className="flex flex-col items-center justify-center text-center">
               <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
                 ✦ I Nostri Servizi
               </p>
@@ -235,13 +232,6 @@ export default function ServiziHub() {
               <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
                 Ottieni una consulenza gratuita
               </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-md mx-auto">
-              {allShowcase.map((c, idx) => (
-                <Reveal key={c.alt} delay={(idx % 3) as 0 | 1 | 2}>
-                  <ShowcaseTile src={c.src} alt={c.alt} />
-                </Reveal>
-              ))}
             </div>
           </div>
         </div>
