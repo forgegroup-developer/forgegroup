@@ -660,45 +660,77 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
-/* ── Footer CTA band — prism corallo visibile sotto glass ────────── */
-.footer-cta-band {
-  min-height: 22rem;
-}
-
-.footer-cta-band .cta-glass-panel {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow:
-    0 32px 80px rgba(200, 80, 42, 0.3),
-    0 14px 36px rgba(169, 63, 30, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.footer-cta-band .cta-glow-bg::before {
-  background: radial-gradient(
-    ellipse 85% 70% at 50% 100%,
-    rgba(200, 80, 42, 0.42) 0%,
-    rgba(232, 185, 165, 0.2) 40%,
-    transparent 74%
-  );
-}
-
-.btn-corallo-phrase {
+/* ── Glass pill CTA (stile Metodo FORGE, versione grande) ───────── */
+.btn-glass-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-brand-corallo);
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--color-brand-corallo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.3;
   text-transform: none;
   letter-spacing: -0.01em;
-  font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.25;
   text-align: center;
-  max-width: 11.5rem;
+  padding: 0.875rem 1.75rem;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 4px 18px rgba(200, 80, 42, 0.1);
+  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-glass-pill:hover {
+  background: rgba(255, 255, 255, 0.58);
+  border-color: var(--color-brand-corallo-dark);
+  color: var(--color-brand-corallo-dark);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 8px 24px rgba(200, 80, 42, 0.18);
+}
+
+.btn-glass-pill:active {
+  transform: translateY(0);
+}
+
+.btn-glass-pill-lg {
+  font-size: 1.0625rem;
+  padding: 1.125rem 2.25rem;
+  max-width: 20rem;
 }
 
 @media (min-width: 768px) {
-  .btn-corallo-phrase {
-    max-width: 15rem;
+  .btn-glass-pill-lg {
+    font-size: 1.1875rem;
+    padding: 1.25rem 2.5rem;
+    max-width: 22rem;
   }
+}
+
+/* ── Footer CTA band — prism originale sotto card glass ──────────── */
+.footer-cta-band {
+  min-height: 20rem;
+}
+
+.footer-cta-band .cta-glass-panel {
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 24px 60px rgba(17, 17, 17, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.footer-cta-band .cta-glow-bg::before {
+  background: none;
 }
 
 /* ── CTA radial glow ─────────────────────────────────────────────── */

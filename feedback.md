@@ -56,14 +56,14 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 **CTA: testi consentiti**
 - Footer standard (tutte le pagine tranne casi studio e `/contatti`):
   - Titolo: *"Contattaci e parliamone davanti un caffè."* (keyword: **caffè**)
-  - Bottone: **"Scopri come possiamo esserti utile"** (sentence case, `btn-corallo-phrase`)
+  - Bottone: **"Scopri come possiamo esserti utile"** (sentence case, glass pill grande `btn-glass-pill btn-glass-pill-lg`)
 - Footer casi studio (`/casi-studio` e `/casi-studio/[slug]`): *"Vuoi un sistema come questo per la tua azienda?"* + bottone **"OTTIENI UNA CONSULENZA GRATUITA"**
 - Navbar: **"Hai un minuto?"**
 - Pagina `/servizi` (hero e sezioni servizi): **"Ottieni una consulenza gratuita"**
 
 **Footer CTA band (regola fissa):**
 - Componente: `FooterCtaBand.tsx` (in `Footer.tsx`), nascosta su `/contatti`
-- Sfondo: gradient panna/pesca + prism WebGL con `warmMix` corallo Forge (no filtri CSS viola) + glow radiale sotto la card
+- Sfondo: `bg-brand-panna` + prism WebGL **parametri originali** (`rotate`, scale 3.6, glow 1, hueShift 0, noise 0.5, timeScale 0.5)
 - Glass panel semi-trasparente (`footer-cta-band .cta-glass-panel`) per far vedere il prism sotto
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
 - **Layout:** desktop titolo a sinistra + bottone a destra; mobile centrato in colonna
@@ -71,8 +71,8 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone standard: frase *"Scopri come possiamo esserti utile"*; casi studio: **"OTTIENI UNA CONSULENZA GRATUITA"**
-- Prism: `3drotate`, `warmMix: 1`, glow alto, area inferiore della sezione (sotto la card)
+- Bottone standard: glass pill *"Scopri come possiamo esserti utile"*; casi studio: glass pill **"OTTIENI UNA CONSULENZA GRATUITA"**
+- Prism: full-bleed `absolute inset-0`, stile componente originale (no warmMix, no overlay corallo pesante)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 
