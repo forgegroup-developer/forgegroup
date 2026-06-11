@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import HandDrawnUnderline from "@/components/HandDrawnUnderline";
+import LightBeamButton from "@/components/LightBeamButton";
 import PrismBackground from "@/components/PrismBackground";
 
 type Props = {
@@ -49,18 +49,16 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
               )}
             </div>
 
-            <Link
+            <LightBeamButton
               href="/contatti"
-              className={
-                isCaseStudy
-                  ? "btn-glass-pill btn-glass-pill-lg shrink-0 text-sm uppercase tracking-wide"
-                  : "btn-glass-pill btn-glass-pill-lg shrink-0"
-              }
+              size="lg"
+              variant="glass"
+              className={isCaseStudy ? "text-sm uppercase tracking-wide" : undefined}
             >
               {isCaseStudy
                 ? "OTTIENI UNA CONSULENZA GRATUITA"
                 : "Scopri come possiamo esserti utile"}
-            </Link>
+            </LightBeamButton>
           </div>
         </div>
       </div>

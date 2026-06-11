@@ -56,7 +56,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 **CTA: testi consentiti**
 - Footer standard (tutte le pagine tranne casi studio e `/contatti`):
   - Titolo: *"Contattaci e parliamone davanti un caffè."* (keyword: **caffè**)
-  - Bottone: **"Scopri come possiamo esserti utile"** (sentence case, glass pill grande `btn-glass-pill btn-glass-pill-lg`)
+  - Bottone: **"Scopri come possiamo esserti utile"** (`LightBeamButton` glass lg, alone bianco/corallo rotante)
 - Footer casi studio (`/casi-studio` e `/casi-studio/[slug]`): *"Vuoi un sistema come questo per la tua azienda?"* + bottone **"OTTIENI UNA CONSULENZA GRATUITA"**
 - Navbar: **"Hai un minuto?"**
 - Pagina `/servizi` (hero e sezioni servizi): **"Ottieni una consulenza gratuita"**
@@ -71,7 +71,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
   - Standard keyword: **caffè**
   - Casi studio keyword: **tua azienda**
 - Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
-- Bottone standard: glass pill *"Scopri come possiamo esserti utile"*; casi studio: glass pill **"OTTIENI UNA CONSULENZA GRATUITA"**
+- Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`) con gradiente beam **bianco → corallo → pesca**; casi studio uppercase
 - Prism: full-bleed `absolute inset-0`, stile componente originale (no warmMix, no overlay corallo pesante)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
@@ -274,7 +274,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
 - [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
 - [x] Rimossa CTASection da tutte le pagine (CTA resta solo nel footer)
-- [x] Footer: fascia CTA `FooterCtaBand` (prism `warmMix` corallo + glass trasparente) + corpo link `bg-brand-corallo`; keyword corallo e layout orizzontale
+- [x] Footer: fascia CTA `FooterCtaBand` (prism originale + `LightBeamButton` alone rotante) + corpo link `bg-brand-corallo`
 - [x] Regola sezioni bianche: classe `section-bianco` applicata su tutto il sito
 - [x] Navbar: pulsante "Hai un minuto?" nascosto su mobile/tablet
 - [x] Hero pagine servizi: layout due colonne con pillars card

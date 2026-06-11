@@ -660,6 +660,189 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
+/* ── Light beam button — alone bianco/corallo rotante ────────────── */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes light-beam-border-spin {
+  from {
+    --gradient-angle: 0deg;
+  }
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+@keyframes light-beam-glow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.light-beam-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.light-beam-btn:hover {
+  transform: scale(1.02);
+}
+
+.light-beam-btn:active {
+  transform: scale(0.98);
+}
+
+.light-beam-btn__label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.light-beam-btn__beam {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 2px;
+  animation: light-beam-border-spin 2.4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.light-beam-btn__glow {
+  position: absolute;
+  inset: -6px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    rgba(200, 80, 42, 0.55),
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  filter: blur(10px);
+  opacity: 0.75;
+  animation: light-beam-glow-spin 3.2s linear infinite;
+  pointer-events: none;
+}
+
+.light-beam-btn__inner {
+  position: absolute;
+  inset: 2px;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.light-beam-btn__shine {
+  position: absolute;
+  inset: 2px;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 255, 255, 0.55) 0%,
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 500ms ease;
+  pointer-events: none;
+}
+
+.light-beam-btn:hover .light-beam-btn__shine {
+  opacity: 1;
+}
+
+.light-beam-btn--glass {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-brand-corallo);
+  box-shadow:
+    0 0 22px -6px rgba(255, 255, 255, 0.9),
+    0 0 28px -4px rgba(200, 80, 42, 0.28);
+}
+
+.light-beam-btn--glass .light-beam-btn__inner {
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.light-beam-btn--glass:hover {
+  box-shadow:
+    0 0 26px -4px rgba(255, 255, 255, 1),
+    0 0 34px -2px rgba(200, 80, 42, 0.42);
+}
+
+.light-beam-btn--solid {
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0 0 24px -6px rgba(200, 80, 42, 0.45);
+}
+
+.light-beam-btn--solid .light-beam-btn__inner {
+  background: linear-gradient(
+    145deg,
+    var(--color-brand-corallo) 0%,
+    var(--color-brand-corallo-dark) 100%
+  );
+}
+
+.light-beam-btn--solid .light-beam-btn__label {
+  color: #ffffff;
+}
+
+.light-beam-btn {
+  font-size: 0.9375rem;
+  padding: 0.9rem 1.85rem;
+}
+
+.light-beam-btn--lg {
+  font-size: 1.0625rem;
+  padding: 1.15rem 2.35rem;
+  max-width: 22rem;
+}
+
+.light-beam-btn--lg .light-beam-btn__label {
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .light-beam-btn--lg {
+    font-size: 1.1875rem;
+    padding: 1.25rem 2.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light-beam-btn__beam,
+  .light-beam-btn__glow {
+    animation: none;
+  }
+}
+
 /* ── Glass pill CTA (stile Metodo FORGE, versione grande) ───────── */
 .btn-glass-pill {
   display: inline-flex;
