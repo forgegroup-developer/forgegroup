@@ -7,13 +7,8 @@ export const runtime = "nodejs";
 const FIELD_LABELS: Record<string, string> = {
   nome_attivita: "Nome attività",
   occupazione: "Di cosa si occupa",
-  fatturato: "Fatturato annuo",
   ostacolo: "Ostacolo principale",
   acquisizione_attuale: "Come acquisisce clienti oggi",
-  reparto_commerciale: "Reparto commerciale",
-  tempistiche: "Quando vuole iniziare",
-  budget: "Budget mensile Marketing & Vendite",
-  ruolo: "Ruolo in azienda",
   provenienza: "Come ci ha conosciuti",
   nome_cognome: "Nome e Cognome",
   telefono: "Telefono",
@@ -84,13 +79,8 @@ export async function POST(request: Request) {
   const requiredFields: (keyof typeof FIELD_LABELS)[] = [
     "nome_attivita",
     "occupazione",
-    "fatturato",
     "ostacolo",
     "acquisizione_attuale",
-    "reparto_commerciale",
-    "tempistiche",
-    "budget",
-    "ruolo",
     "provenienza",
     "nome_cognome",
     "telefono",
@@ -106,7 +96,7 @@ export async function POST(request: Request) {
   }
 
   const html = buildHtml(data);
-  const subject = `Nuova candidatura: ${data.nome_attivita} (${data.fatturato})`;
+  const subject = `Nuova candidatura: ${data.nome_attivita} (${data.nome_cognome})`;
   const fromEmail = process.env.RESEND_FROM || "Forge Group <onboarding@resend.dev>";
   const toEmail = process.env.RESEND_TO || "info@forgegroup.it";
 
