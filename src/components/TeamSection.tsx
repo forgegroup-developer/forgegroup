@@ -6,28 +6,28 @@ const team = [
     forgeRole: "Co-Founder",
     role: "Direttore marketing & Consulenza aziendale",
     roleNoWrap: true,
-    photo: "/images/team/foto-marco.png",
+    photo: "/images/team/foto-marco.webp",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
     name: "Gianpio Uva",
     forgeRole: "Co-Founder",
     role: "Direttore Commerciale & Sales Process",
-    photo: "/images/team/foto-gianpio.png",
+    photo: "/images/team/foto-gianpio.webp",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
   {
     name: "Francesco Chiumiento",
     forgeRole: "Partner",
     role: "Direttore Creative & Video Producer",
-    photo: "/images/team/foto-francesco.png",
+    photo: "/images/team/foto-francesco.webp",
     instagram: "https://www.instagram.com/chiums_films?igsh=MTl0ZWJsM2x4ZXh4Yw==",
   },
   {
     name: "Nicandro Grande",
     forgeRole: "Partner",
     role: "Consulente Crescita Digitale & Business Systems Expert",
-    photo: "/images/team/foto-nicandro.png",
+    photo: "/images/team/foto-nicandro.webp",
     linkedin:
       "https://www.linkedin.com/in/nicandrogrande?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
@@ -83,12 +83,11 @@ export default function TeamSection() {
                   <Image
                     src={member.photo}
                     alt={member.name}
-                    width={640}
-                    height={960}
+                    width={840}
+                    height={1260}
                     className="h-full w-full object-cover object-center"
                     sizes="(max-width: 640px) 260px, 280px"
-                    quality={95}
-                    unoptimized
+                    quality={85}
                   />
                 ) : (
                   <div
