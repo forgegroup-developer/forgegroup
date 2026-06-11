@@ -42,7 +42,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - **Niente** `backdrop-blur` sulle sezioni (come `section-coral`)
 - Variante bordo sopra e sotto: **`section-bianco-y`** (es. loghi clienti)
 - **Non** usare bianco pieno né trasparenza eccessiva (70% o meno) sulle sezioni di contenuto
-- **Eccezione:** fascia CTA del footer (`Footer.tsx`) resta **`bg-brand-bianco`** pieno
+- **Eccezione:** fascia CTA del footer (`FooterCtaBand`) usa **`bg-brand-panna`** + prism corallo, non `section-bianco`
 - Card, form, navbar e pill interne restano bianco pieno dove serve contrasto
 
 **Punteggiatura italiana (regola fissa):**
@@ -54,16 +54,24 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Per intervalli: `da X a Y` o `tra X e Y` (es. `da 1.500€ a 2.500€ / mese`)
 
 **CTA: testi consentiti**
-- Footer standard (tutte le pagine tranne casi studio): titolo *"Contattaci e parliamone davanti un caffè. Scopri come possiamo esserti utile."* + bottone **"HAI UN MINUTO?"**
-- Footer casi studio (`/casi-studio` e `/casi-studio/[slug]`): titolo *"Vuoi un sistema come questo per la tua azienda?"* + bottone **"OTTIENI UNA CONSULENZA GRATUITA"**
+- Footer standard (tutte le pagine tranne casi studio e `/contatti`):
+  - Riga 1: *"Contattaci e parliamone davanti un caffè."*
+  - Riga 2: *"Scopri come possiamo esserti utile."*
+  - Bottone: **"HAI UN MINUTO?"**
+- Footer casi studio (`/casi-studio` e `/casi-studio/[slug]`): *"Vuoi un sistema come questo per la tua azienda?"* + bottone **"OTTIENI UNA CONSULENZA GRATUITA"**
 - Navbar: **"Hai un minuto?"**
 - Pagina `/servizi` (hero e sezioni servizi): **"Ottieni una consulenza gratuita"**
 
-**Footer CTA strip (regola fissa):**
-- Presente su **tutte le pagine**, stesso componente `Footer.tsx`
-- Sfondo: **bianco** (`bg-brand-bianco`), testo nero con keyword corallo
-- Eyebrow (sempre uguale): *"✦ Pronto a smettere di improvvisare?"*
-- Solo testo titolo e bottone cambiano su `/casi-studio*`
+**Footer CTA band (regola fissa):**
+- Componente: `FooterCtaBand.tsx` (in `Footer.tsx`), nascosta su `/contatti`
+- Sfondo: prism WebGL corallo/pesca Forge + pannello glass centrale (`cta-glass-panel`)
+- Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
+- **Layout:** desktop testo a sinistra (max 2 righe) + bottone a destra sulla stessa fascia; mobile centrato in colonna
+- **Colori titolo:** testo **nero**; corallo **solo sulle keyword** (mai intere frasi corallo):
+  - Standard keyword: **caffè** · **esserti utile**
+  - Casi studio keyword: **tua azienda**
+- Sottolineatura hand-drawn (`HandDrawnUnderline`) sulle keyword al scroll
+- Bottone: `btn-corallo`; varianti label solo su `/casi-studio*`
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 
@@ -265,7 +273,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
 - [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
 - [x] Rimossa CTASection da tutte le pagine (CTA resta solo nel footer)
-- [x] Footer: fascia CTA bianca + corpo link `bg-brand-corallo`; varianti testo su `/casi-studio`
+- [x] Footer: fascia CTA `FooterCtaBand` (prism corallo + glass) + corpo link `bg-brand-corallo`; keyword corallo e layout orizzontale
 - [x] Regola sezioni bianche: classe `section-bianco` applicata su tutto il sito
 - [x] Navbar: pulsante "Hai un minuto?" nascosto su mobile/tablet
 - [x] Hero pagine servizi: layout due colonne con pillars card

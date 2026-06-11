@@ -26,29 +26,37 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
         />
       </div>
 
-      <div className="cta-glow-bg relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="cta-glass-panel mx-auto max-w-4xl px-8 py-12 text-center md:px-14 md:py-16">
-          <p className="mb-5 text-xs font-bold uppercase tracking-widest text-brand-corallo">
-            ✦ Pronto a smettere di improvvisare?
-          </p>
+      <div className="cta-glow-bg relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+        <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
+          <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:text-left">
+            <div className="min-w-0 flex-1">
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-corallo">
+                ✦ Pronto a smettere di improvvisare?
+              </p>
 
-          {isCaseStudy ? (
-            <h3 className="heading-section mx-auto max-w-3xl text-brand-nero">
-              Vuoi un sistema come questo per la{" "}
-              <HandDrawnUnderline>tua azienda?</HandDrawnUnderline>
-            </h3>
-          ) : (
-            <h3 className="heading-section mx-auto max-w-3xl text-brand-nero">
-              Contattaci e parliamone davanti un caffè.
-              <br />
-              <HandDrawnUnderline>
-                Scopri come possiamo esserti utile.
-              </HandDrawnUnderline>
-            </h3>
-          )}
+              {isCaseStudy ? (
+                <h3 className="heading-section text-brand-nero leading-snug">
+                  Vuoi un sistema come questo per la{" "}
+                  <HandDrawnUnderline>tua azienda</HandDrawnUnderline>?
+                </h3>
+              ) : (
+                <h3 className="heading-section text-brand-nero leading-snug">
+                  <span className="block">
+                    Contattaci e parliamone davanti un{" "}
+                    <HandDrawnUnderline>caffè</HandDrawnUnderline>.
+                  </span>
+                  <span className="mt-1 block md:mt-1.5">
+                    Scopri come possiamo{" "}
+                    <HandDrawnUnderline>esserti utile</HandDrawnUnderline>.
+                  </span>
+                </h3>
+              )}
+            </div>
 
-          <div className="mt-10 flex justify-center">
-            <Link href="/contatti" className="btn-corallo px-10 py-4 text-sm md:text-base">
+            <Link
+              href="/contatti"
+              className="btn-corallo shrink-0 px-8 py-3.5 text-sm md:px-10 md:py-4 md:text-base"
+            >
               {isCaseStudy ? "OTTIENI UNA CONSULENZA GRATUITA" : "HAI UN MINUTO?"}
             </Link>
           </div>
