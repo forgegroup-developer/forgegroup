@@ -47,17 +47,7 @@ function ExcerptWithHighlights({
   );
 }
 
-function CaseStudyCard({
-  c,
-  index,
-  total,
-}: {
-  c: (typeof caseStudies)[number];
-  index: number;
-  total: number;
-}) {
-  const num = String(index + 1).padStart(2, "0");
-  const totalStr = String(total).padStart(2, "0");
+function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
   const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
@@ -90,12 +80,9 @@ function CaseStudyCard({
           className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-white/10 blur-3xl"
         />
 
-        <div className="relative mb-4 flex shrink-0 items-center justify-between gap-4">
+        <div className="relative mb-4 shrink-0">
           <span className="rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
             {c.sector}
-          </span>
-          <span className="text-sm font-medium tabular-nums text-white/60">
-            {num} / {totalStr}
           </span>
         </div>
 
@@ -140,8 +127,6 @@ function CaseStudyCard({
 
 export default function CaseStudyStack() {
   const [reducedMotion, setReducedMotion] = useState(false);
-  const total = caseStudies.length;
-
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReducedMotion(mq.matches);
@@ -154,7 +139,7 @@ export default function CaseStudyStack() {
     return (
       <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
         {caseStudies.map((c, i) => (
-          <CaseStudyCard key={c.slug} c={c} index={i} total={total} />
+          <CaseStudyCard key={c.slug} c={c} />
         ))}
       </div>
     );
@@ -175,7 +160,7 @@ export default function CaseStudyStack() {
             minHeight: `${SCROLL_VH_PER_CARD}vh`,
           }}
         >
-          <CaseStudyCard c={c} index={i} total={total} />
+          <CaseStudyCard c={c} />
         </div>
       ))}
     </div>
