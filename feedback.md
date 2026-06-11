@@ -74,10 +74,9 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Bottone: `LightBeamButton` (`variant="glass"`, `size="lg"`, `fullWidth`); casi studio uppercase
 
 **Pulsanti primari (regola fissa):**
-- Usare **`LightBeamButton`** al posto di `btn-corallo` su tutto il sito
-- Contorno rotante **unificato** su tutti i pulsanti: **bianco → corallo → bianco** (alto contrasto)
-- Varianti: `solid` (fill corallo + testo bianco), `glass` (fill bianco + testo corallo)
-- Taglie: `sm` (navbar), `default`, `lg` (hero, form, footer)
+- **Tutto il sito:** `btn-corallo` (hero, navbar, form, servizi, blog, recensioni)
+- **Solo footer CTA:** `LightBeamButton` glass lg con contorno bianco-corallo rotante
+- Sidebar servizi (`ServiziTabCard`): pill outline corallo (non `LightBeamButton`)
 
 **Mai usare sul sito:** "senza impegno" (né in CTA né in microcopy)
 

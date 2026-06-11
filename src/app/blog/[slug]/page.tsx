@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
-import LightBeamButton from "@/components/LightBeamButton";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -163,7 +162,9 @@ export default async function ArticleDetail({ params }: Props) {
                     <p className="text-brand-grigio mb-6">
                       Se sei un imprenditore B2B con fatturato 350K+, ne parliamo entro 48 ore.
                     </p>
-                    <LightBeamButton href="/contatti">HAI UN MINUTO?</LightBeamButton>
+                    <Link href="/contatti" className="btn-corallo">
+                      HAI UN MINUTO?
+                    </Link>
                   </div>
                 );
               return null;

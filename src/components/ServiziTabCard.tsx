@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LightBeamButton from "@/components/LightBeamButton";
+import Link from "next/link";
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
 
@@ -84,19 +84,15 @@ export default function ServiziTabCard({
             ) : null}
 
             <Reveal delay={1} y={16} duration={0.75}>
-              <LightBeamButton
+              <Link
                 href="/contatti"
-                variant="glass"
-                size="sm"
-                className="mt-8 lg:mt-auto"
+                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
               >
-                <span className="inline-flex items-center gap-1.5 whitespace-nowrap">
-                  Ottieni una consulenza gratuita
-                  <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </LightBeamButton>
+                Ottieni una consulenza gratuita
+                <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </Reveal>
           </div>
 

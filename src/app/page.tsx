@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import LightBeamButton from "@/components/LightBeamButton";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -39,9 +38,9 @@ export default function Home() {
                 di acquisizione e vendita.
               </h1>
               <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <LightBeamButton href="/contatti" size="lg">
+                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
                   Hai un minuto?
-                </LightBeamButton>
+                </Link>
                 <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base">
                   Vedi i risultati
                 </Link>

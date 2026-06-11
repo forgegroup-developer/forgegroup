@@ -1,5 +1,4 @@
 import Link from "next/link";
-import LightBeamButton from "@/components/LightBeamButton";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText, { type TextSegment } from "@/components/HighlightedText";
 import Reveal from "@/components/Reveal";
@@ -57,7 +56,9 @@ export default function ClientReviewSection({
           {(primaryCta || secondaryCta) && (
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               {primaryCta && (
-                <LightBeamButton href={primaryCta.href}>{primaryCta.label}</LightBeamButton>
+                <Link href={primaryCta.href} className="btn-corallo">
+                  {primaryCta.label}
+                </Link>
               )}
               {secondaryCta && (
                 <Link href={secondaryCta.href} className="btn-ghost">
