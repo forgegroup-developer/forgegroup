@@ -33,6 +33,20 @@ export default function Navbar() {
     setMobileCasi(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const desktopNav = window.matchMedia("(min-width: 1024px)");
+    const closeOnDesktop = () => {
+      if (desktopNav.matches) {
+        setOpen(false);
+        setMobileCasi(false);
+      }
+    };
+
+    closeOnDesktop();
+    desktopNav.addEventListener("change", closeOnDesktop);
+    return () => desktopNav.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   return (
     <header className="sticky top-0 z-[100] isolate bg-brand-bianco border-b border-brand-bordo shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

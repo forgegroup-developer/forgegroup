@@ -75,12 +75,14 @@ body {
   line-height: 1.3;
 }
 
-.touch-target {
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+@layer components {
+  .touch-target {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .body-lg {
@@ -304,6 +306,13 @@ body {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav {
+    display: none !important;
+    pointer-events: none;
+  }
 }
 
 /* Underline animato */
