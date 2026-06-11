@@ -163,13 +163,14 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
 
 function ServiziHeroVideo({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative w-full rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero ${className}`}>
+    <div
+      className={`relative aspect-[9/16] w-full max-w-[min(100%,300px)] sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] mx-auto lg:ml-auto lg:mr-0 rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero ${className}`}
+    >
       <video
         controls
         preload="metadata"
         playsInline
-        poster={siteImages.gianpioReelPoster}
-        className="w-full block aspect-[9/16] max-h-[min(560px,80vh)] object-cover object-center mx-auto lg:ml-auto lg:max-w-sm xl:max-w-md"
+        className="absolute inset-0 h-full w-full object-contain"
         aria-label="Video reel Gianpio Forge Group"
       >
         <source src={siteImages.gianpioReel} type="video/mp4" />
@@ -216,7 +217,7 @@ export default function ServiziHub() {
 
           <div className="lg:hidden flex flex-col gap-10">
             <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
-            <ServiziHeroVideo className="max-w-md mx-auto w-full" />
+            <ServiziHeroVideo />
           </div>
         </div>
       </section>
