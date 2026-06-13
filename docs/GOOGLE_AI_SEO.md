@@ -20,7 +20,7 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | Favicon logo figurativo | ✅ Fatto |
 | Dominio live su `www.forgegroup.it` | ✅ Fatto |
 | Env Resend su Vercel | ✅ Fatto |
-| DNS Resend su OVH | ⏳ Verifica dominio su resend.com |
+| DNS Resend su OVH | ✅ Fatto |
 | Google Search Console + sitemap | ✅ Fatto |
 | Bing Webmaster Tools | ✅ Fatto |
 | Google Business Profile | ✅ Fatto |

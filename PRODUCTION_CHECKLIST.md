@@ -176,7 +176,7 @@ Report per il deploy su `https://www.forgegroup.it`.
 ## Cose da fare manualmente prima del deploy
 
 1. **DNS** — Puntare `forgegroup.it` e `www.forgegroup.it` a Vercel
-2. **Env vars su Vercel** — `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO` (vedi `.env.example`)
+2. **Env vars su Vercel** — ✅ `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO` (vedi `.env.example`)
 3. **Dominio canonical** — Verificare redirect apex → `www` se necessario
 4. **Test form reale** — Invio candidatura da mobile e desktop con email Resend attiva
 5. **Giro manuale** — Ogni pagina, ogni link, menu mobile, carousel, stepper contatti
@@ -187,6 +187,7 @@ Report per il deploy su `https://www.forgegroup.it`.
 10. **Test SEO post-DNS** — robots, sitemap, llms.txt, `/casi-studio` (200), mirror `/casi-studio/index.md`
 11. **Bing Webmaster** — ✅ verificato + sitemap inviata
 12. **Google Business Profile** — ✅ creato + descrizione servizi
+13. **DNS Resend su OVH** — ✅ DKIM + MX/SPF su `send` + verifica dominio Resend
 
 ---
 
