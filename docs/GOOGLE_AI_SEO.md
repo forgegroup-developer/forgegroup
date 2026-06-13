@@ -22,7 +22,7 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | Env Resend su Vercel | ✅ Fatto |
 | DNS Resend su OVH | ⏳ Verifica dominio su resend.com |
 | Google Search Console + sitemap | 🔲 Manuale |
-| Bing Webmaster Tools | 🔲 Opzionale |
+| Bing Webmaster Tools | ✅ Fatto |
 | Google Business Profile | 🔲 Opzionale |
 | Social `sameAs` in schema (URL reali) | 🔲 Quando avete link profili |
 
