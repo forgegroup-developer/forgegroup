@@ -13,7 +13,7 @@ export const SITE_NAME = "Forge Group Italia";
 export const SITE_TITLE_TEMPLATE = "%s | Forge Group Italia";
 
 export const SITE_DESCRIPTION =
-  "Forge Group Italia: acquisizione clienti B2B e growth hacking per imprese che vogliono sistemi prevedibili di marketing e vendita. Oltre 30 clienti soddisfatti, €350K+ generati in 12 mesi.";
+  "Aiutiamo imprese a migliorare i processi, acquisire clienti ed organizzare le vendite per crescere in modo prevedibile.";
 
 export const SITE_KEYWORDS = [
   "forge group italia",
@@ -21,6 +21,8 @@ export const SITE_KEYWORDS = [
   "growth hacking italia",
   "growth hacking",
   "acquisizione clienti",
+  "organizzare le vendite",
+  "crescere in modo prevedibile",
   "lead generation b2b italia",
   "marketing b2b italia",
   "agenzia marketing b2b",

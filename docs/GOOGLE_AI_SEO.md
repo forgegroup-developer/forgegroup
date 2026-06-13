@@ -4,6 +4,28 @@ Guida operativa per il lancio su `https://www.forgegroup.it` (dominio + Google S
 
 Configurazione centralizzata: `src/lib/seo/site.ts`
 
+**Titolo sito:** Forge Group Italia | Acquisizione Clienti B2B & Growth Hacking  
+**Meta description:** Aiutiamo imprese a migliorare i processi, acquisire clienti ed organizzare le vendite per crescere in modo prevedibile.
+
+---
+
+## Stato piano SEO
+
+| Voce | Stato |
+|------|--------|
+| Sitemap + robots.txt + llms.txt | ✅ Fatto |
+| Schema Organization / LocalBusiness / WebSite / FAQ | ✅ Fatto |
+| Mirror AI (`/index.md`) | ✅ Fatto |
+| Titolo + description centralizzati (`site.ts`) | ✅ Fatto |
+| Favicon logo figurativo | ✅ Fatto |
+| Dominio live su `www.forgegroup.it` | ✅ Fatto |
+| Env Resend su Vercel | ✅ Fatto |
+| DNS Resend su OVH | ⏳ Verifica dominio su resend.com |
+| Google Search Console + sitemap | 🔲 Manuale |
+| Bing Webmaster Tools | 🔲 Opzionale |
+| Google Business Profile | 🔲 Opzionale |
+| Social `sameAs` in schema (URL reali) | 🔲 Quando avete link profili |
+
 ---
 
 ## Inventario URL indicizzabili (sitemap)
@@ -124,4 +146,4 @@ Profilo attività collegato a Campania / area servita.
 
 ---
 
-*Ultimo aggiornamento: 11 giugno 2026 — pre-lancio dominio e Search Console.*
+*Ultimo aggiornamento: 11 giugno 2026 — titolo, description e checklist stato.*

@@ -76,8 +76,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   email: "info@forgegroup.it",
-  description:
-    "Forge Group Italia: acquisizione clienti B2B e growth hacking per imprese in Italia.",
+  description: SITE_DESCRIPTION,
   sameAs: [],
   contactPoint: {
     "@type": "ContactPoint",

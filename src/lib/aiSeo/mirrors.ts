@@ -37,7 +37,7 @@ const staticMirrors: Record<string, MirrorPage> = {
 # ${SITE_NAME}
 
 ## About
-${SITE_NAME}: acquisizione clienti B2B e growth hacking per imprese in Italia. Aiutiamo imprese B2B a passare dal disordine a un sistema prevedibile di acquisizione e vendita: dalle prime richieste al contratto firmato.
+${SITE_DESCRIPTION}
 
 ## Services and Pricing
 - **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead — budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
@@ -291,7 +291,7 @@ export function buildLlmsTxt(): string {
   return `# ${SITE_NAME}
 
 ## About
-${SITE_NAME}: acquisizione clienti B2B e growth hacking per imprenditori in Italia. Dalle prime richieste qualificate al contratto firmato: advertising, landing, prequalifica, CRM, formazione commerciale.
+${SITE_DESCRIPTION}
 
 ## Services and Pricing
 - Acquisizione clienti (Meta/Google, landing, lead qualificati): budget mensile tipico 1.500€–5.000€+ su progetto personalizzato
