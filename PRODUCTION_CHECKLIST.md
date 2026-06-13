@@ -183,9 +183,10 @@ Report per il deploy su `https://www.forgegroup.it`.
 6. **Lighthouse su preview Vercel** — Confrontare con numeri locali; CDN può migliorare LCP
 7. **Asset residui** — Valutare compressione PNG servizi (`imprenditore-*.png` 1MB+) e video recensione per produzione
 8. **npm install** su CI/Vercel dopo rimozione `ogl`
-9. **Google Search Console** — verifica `www.forgegroup.it` + sitemap `https://www.forgegroup.it/sitemap.xml` (checklist completa in `docs/GOOGLE_AI_SEO.md`)
+9. **Google Search Console** — ✅ verificato + sitemap inviata
 10. **Test SEO post-DNS** — robots, sitemap, llms.txt, `/casi-studio` (200), mirror `/casi-studio/index.md`
 11. **Bing Webmaster** — ✅ verificato + sitemap inviata
+12. **Google Business Profile** — ✅ creato + descrizione servizi
 
 ---
 

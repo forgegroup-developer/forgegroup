@@ -21,9 +21,9 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | Dominio live su `www.forgegroup.it` | ✅ Fatto |
 | Env Resend su Vercel | ✅ Fatto |
 | DNS Resend su OVH | ⏳ Verifica dominio su resend.com |
-| Google Search Console + sitemap | 🔲 Manuale |
+| Google Search Console + sitemap | ✅ Fatto |
 | Bing Webmaster Tools | ✅ Fatto |
-| Google Business Profile | 🔲 Opzionale |
+| Google Business Profile | ✅ Fatto |
 | Social `sameAs` in schema (URL reali) | 🔲 Quando avete link profili |
 
 ---
