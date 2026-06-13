@@ -178,7 +178,7 @@ Report per il deploy su `https://www.forgegroup.it`.
 1. **DNS** — Puntare `forgegroup.it` e `www.forgegroup.it` a Vercel
 2. **Env vars su Vercel** — ✅ `RESEND_API_KEY`, `RESEND_FROM`, `RESEND_TO` (vedi `.env.example`)
 3. **Dominio canonical** — Verificare redirect apex → `www` se necessario
-4. **Test form reale** — Invio candidatura da mobile e desktop con email Resend attiva
+4. **Test form reale** — ✅ candidatura arriva in inbox principale
 5. **Giro manuale** — Ogni pagina, ogni link, menu mobile, carousel, stepper contatti
 6. **Lighthouse su preview Vercel** — Confrontare con numeri locali; CDN può migliorare LCP
 7. **Asset residui** — Valutare compressione PNG servizi (`imprenditore-*.png` 1MB+) e video recensione per produzione
