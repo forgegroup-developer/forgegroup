@@ -15,6 +15,15 @@ export const SITE_TITLE_TEMPLATE = "%s | Forge Group Italia";
 export const SITE_DESCRIPTION =
   "Aiutiamo imprese a migliorare i processi, acquisire clienti ed organizzare le vendite per crescere in modo prevedibile.";
 
+/** Profili social ufficiali — footer, schema sameAs, documentazione */
+export const SOCIAL_PROFILES = {
+  facebook: "https://www.facebook.com/profile.php?id=61590577058663",
+  instagram: "https://www.instagram.com/forgegroupitalia/",
+  linkedin: "https://www.linkedin.com/company/forge-group-italia",
+} as const;
+
+export const SOCIAL_SAME_AS = Object.values(SOCIAL_PROFILES);
+
 export const SITE_KEYWORDS = [
   "forge group italia",
   "acquisizione clienti b2b",

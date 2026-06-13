@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import FooterCtaBand from "@/components/FooterCtaBand";
 import FooterNewsletter from "@/components/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
+import { SOCIAL_PROFILES } from "@/lib/seo/site";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
 
@@ -80,7 +81,7 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-3 mt-5">
                 <a
-                  href="https://www.instagram.com/"
+                  href={SOCIAL_PROFILES.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram Forge Group"
@@ -91,7 +92,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.linkedin.com/"
+                  href={SOCIAL_PROFILES.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Forge Group"
@@ -102,7 +103,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.facebook.com/"
+                  href={SOCIAL_PROFILES.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook Forge Group"

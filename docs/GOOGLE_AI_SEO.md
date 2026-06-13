@@ -24,7 +24,7 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | Google Search Console + sitemap | ✅ Fatto |
 | Bing Webmaster Tools | ✅ Fatto |
 | Google Business Profile | ✅ Fatto |
-| Social `sameAs` in schema (URL reali) | 🔲 Quando avete link profili |
+| Social `sameAs` in schema (URL reali) | ✅ Fatto |
 
 ---
 

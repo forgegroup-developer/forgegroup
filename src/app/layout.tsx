@@ -12,6 +12,7 @@ import {
   SITE_TITLE,
   SITE_TITLE_TEMPLATE,
   SITE_URL,
+  SOCIAL_SAME_AS,
 } from "@/lib/seo/site";
 
 const inter = Inter({
@@ -77,7 +78,7 @@ const organizationJsonLd = {
   logo: `${siteUrl}/logo.png`,
   email: "info@forgegroup.it",
   description: SITE_DESCRIPTION,
-  sameAs: [],
+  sameAs: [...SOCIAL_SAME_AS],
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@forgegroup.it",
@@ -96,6 +97,7 @@ const localBusinessJsonLd = {
   url: siteUrl,
   email: "info@forgegroup.it",
   priceRange: "€€€",
+  sameAs: [...SOCIAL_SAME_AS],
   address: {
     "@type": "PostalAddress",
     addressRegion: "Campania",
