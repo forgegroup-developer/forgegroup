@@ -4,6 +4,30 @@
  */
 export const SITE_URL = "https://www.forgegroup.it";
 
+/** Titolo principale — tab browser, Open Graph, posizionamento keyword */
+export const SITE_TITLE =
+  "Forge Group Italia | Acquisizione Clienti B2B & Growth Hacking";
+
+export const SITE_NAME = "Forge Group Italia";
+
+export const SITE_TITLE_TEMPLATE = "%s | Forge Group Italia";
+
+export const SITE_DESCRIPTION =
+  "Forge Group Italia: acquisizione clienti B2B e growth hacking per imprese che vogliono sistemi prevedibili di marketing e vendita. Oltre 30 clienti soddisfatti, €350K+ generati in 12 mesi.";
+
+export const SITE_KEYWORDS = [
+  "forge group italia",
+  "acquisizione clienti b2b",
+  "growth hacking italia",
+  "growth hacking",
+  "acquisizione clienti",
+  "lead generation b2b italia",
+  "marketing b2b italia",
+  "agenzia marketing b2b",
+  "sistemi di vendita b2b",
+  "agenzia marketing campania",
+];
+
 export type SeoRoute = {
   path: string;
   priority: number;

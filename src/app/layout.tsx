@@ -5,6 +5,14 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ClientSceneEffects from "@/components/ClientSceneEffects";
+import {
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_TITLE_TEMPLATE,
+  SITE_URL,
+} from "@/lib/seo/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,47 +28,36 @@ const stackSansNotch = Stack_Sans_Notch({
   display: "swap",
 });
 
-const siteUrl = "https://www.forgegroup.it";
+const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Forge Group - Growth Hacking Italia",
-    template: "%s | Forge Group",
+    default: SITE_TITLE,
+    template: SITE_TITLE_TEMPLATE,
   },
   icons: {
     icon: [{ url: "/icon-forge.png", type: "image/png" }],
     apple: [{ url: "/icon-forge.png", type: "image/png" }],
   },
-  description:
-    "Sistemi di acquisizione clienti e vendita B2B high-ticket. Oltre 30 clienti soddisfatti, €350K+ generati in 12 mesi, recensioni a 5 stelle.",
-  keywords: [
-    "agenzia marketing b2b",
-    "acquisizione clienti b2b",
-    "marketing a risposta diretta",
-    "sistemi di vendita b2b",
-    "agenzia marketing campania",
-    "agenzia marketing napoli",
-    "lead generation b2b italia",
-  ],
-  authors: [{ name: "Forge Group" }],
-  creator: "Forge Group",
-  publisher: "Forge Group",
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   openGraph: {
     type: "website",
     locale: "it_IT",
     url: siteUrl,
-    siteName: "Forge Group",
-    title: "Forge Group - Growth Hacking Italia",
-    description:
-      "Sistemi di acquisizione clienti e vendita B2B high-ticket. 30+ clienti soddisfatti, €350K+ generati in 12 mesi.",
-    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Group - Growth Hacking Italia",
-    description:
-      "Sistemi di acquisizione clienti e vendita B2B high-ticket per imprenditori che vogliono crescere davvero.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/logo.png"],
   },
   robots: {
@@ -75,12 +72,12 @@ const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${siteUrl}#organization`,
-  name: "Forge Group",
+  name: SITE_NAME,
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   email: "info@forgegroup.it",
   description:
-    "Agenzia di marketing a risposta diretta e sistemi di acquisizione clienti B2B high-ticket.",
+    "Forge Group Italia: acquisizione clienti B2B e growth hacking per imprese in Italia.",
   sameAs: [],
   contactPoint: {
     "@type": "ContactPoint",
@@ -95,7 +92,7 @@ const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${siteUrl}#localbusiness`,
-  name: "Forge Group",
+  name: SITE_NAME,
   image: `${siteUrl}/logo.png`,
   url: siteUrl,
   email: "info@forgegroup.it",
@@ -121,9 +118,8 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "@id": `${siteUrl}#website`,
   url: siteUrl,
-  name: "Forge Group",
-  description:
-    "Sistemi di acquisizione clienti e vendita B2B high-ticket per imprese in Italia.",
+  name: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   publisher: { "@id": `${siteUrl}#organization` },
   inLanguage: "it-IT",
 };

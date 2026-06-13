@@ -11,24 +11,22 @@ import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
 export const metadata: Metadata = {
-  title: "Forge Group - Growth Hacking Italia",
-  description:
-    "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile. Dalle prime contatti al contratto firmato: un sistema completo.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Forge Group - Growth Hacking Italia",
-    description:
-      "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "/",
-    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
+    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Group - Growth Hacking Italia",
-    description:
-      "Aiutiamo imprese B2B ad acquisire clienti, organizzare le vendite e crescere in modo prevedibile.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/logo.png"],
   },
 };
@@ -135,7 +133,12 @@ export default function Home() {
           <SectionHeader
             onCoral
             eyebrow="Perché Forge Group"
-            title="Azienda di Growth Hacking Italia"
+            title={
+              <>
+                Acquisizione Clienti B2B &{" "}
+                <span className="text-brand-corallo">Growth Hacking Italia</span>
+              </>
+            }
           />
           <Reveal>
             <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">

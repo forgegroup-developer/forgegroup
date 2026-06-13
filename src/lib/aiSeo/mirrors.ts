@@ -1,7 +1,7 @@
 import { articles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
 import { faqs } from "@/data/site";
-import { SITE_URL, STATIC_SEO_ROUTES, absoluteUrl } from "@/lib/seo/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, STATIC_SEO_ROUTES, absoluteUrl } from "@/lib/seo/site";
 
 export type MirrorPage = {
   title: string;
@@ -30,15 +30,14 @@ function toMarkdown(page: MirrorPage): string {
 
 const staticMirrors: Record<string, MirrorPage> = {
   "": {
-    title: "Forge Group | Sistema di Crescita per Imprese B2B",
-    description:
-      "Sistemi di acquisizione clienti e vendita B2B high-ticket per imprenditori in Italia.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: `${BASE}/`,
     body: `
-# Forge Group
+# ${SITE_NAME}
 
 ## About
-Forge Group è un'agenzia di marketing a risposta diretta specializzata in acquisizione clienti e processi di vendita B2B high-ticket. Aiutiamo imprese B2B a passare dal disordine a un sistema prevedibile di acquisizione e vendita: dalle prime richieste al contratto firmato.
+${SITE_NAME}: acquisizione clienti B2B e growth hacking per imprese in Italia. Aiutiamo imprese B2B a passare dal disordine a un sistema prevedibile di acquisizione e vendita: dalle prime richieste al contratto firmato.
 
 ## Services and Pricing
 - **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead — budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
@@ -289,10 +288,10 @@ export function buildLlmsTxt(): string {
     .map((r) => `- ${absoluteUrl(r.path)}`)
     .join("\n");
 
-  return `# Forge Group
+  return `# ${SITE_NAME}
 
 ## About
-Forge Group costruisce sistemi di acquisizione clienti e vendita B2B high-ticket per imprenditori in Italia. Dalle prime richieste qualificate al contratto firmato: advertising, landing, prequalifica, CRM, formazione commerciale.
+${SITE_NAME}: acquisizione clienti B2B e growth hacking per imprenditori in Italia. Dalle prime richieste qualificate al contratto firmato: advertising, landing, prequalifica, CRM, formazione commerciale.
 
 ## Services and Pricing
 - Acquisizione clienti (Meta/Google, landing, lead qualificati): budget mensile tipico 1.500€–5.000€+ su progetto personalizzato
