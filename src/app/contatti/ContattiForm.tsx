@@ -233,10 +233,19 @@ export default function ContattiForm() {
         <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
           Grazie. Adesso <span className="text-brand-corallo">analizziamo</span> il tuo caso.
         </h1>
-        <p className="text-lg text-brand-grigio leading-relaxed mb-8">
-          Abbiamo ricevuto le tue informazioni. Se riterremo che ci siano i presupposti per una collaborazione
-          profittevole per entrambi, ti contatteremo entro <strong>48 ore lavorative</strong>.
-        </p>
+        <div className="text-lg text-brand-grigio leading-relaxed mb-8 space-y-4 max-w-xl mx-auto">
+          <p>
+            Abbiamo ricevuto le tue informazioni e nei prossimi giorni faremo un&apos;analisi preliminare della
+            tua situazione prima ancora di sentirti.
+          </p>
+          <p>
+            Verrai contattato entro <strong>48 ore lavorative</strong>.
+          </p>
+          <p>
+            La chiamata ha un obiettivo solo: capire dove sei e dove vuoi arrivare. Se ha senso, ci fissiamo un
+            appuntamento e prendiamo un caffè insieme.
+          </p>
+        </div>
         <Link href="/" className="btn-ghost">
           Torna alla Home
         </Link>
