@@ -1,58 +1,27 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import {
+  buildContactAutoReplyHtml,
+  buildContactAutoReplySubject,
+  buildContactAutoReplyText,
+} from "@/lib/email/contactAutoReply";
+import {
+  buildContactInternalHtml,
+  buildContactInternalSubject,
+} from "@/lib/email/contactInternalNotification";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
-const FIELD_LABELS: Record<string, string> = {
-  nome_attivita: "Nome attività",
-  occupazione: "Di cosa si occupa",
-  ostacolo: "Ostacolo principale",
-  acquisizione_attuale: "Come acquisisce clienti oggi",
-  nome_cognome: "Nome e Cognome",
-  telefono: "Telefono",
-  email: "Email",
-};
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function buildHtml(data: Record<string, string>): string {
-  const rows = Object.entries(FIELD_LABELS)
-    .map(([key, label]) => {
-      const value = escapeHtml(String(data[key] ?? "n.d."));
-      return `
-        <tr>
-          <td style="padding:12px 16px;background:#fbf5f2;font-weight:600;color:#111;border-bottom:1px solid #e8d5cc;width:35%;vertical-align:top;">${label}</td>
-          <td style="padding:12px 16px;color:#111;border-bottom:1px solid #e8d5cc;vertical-align:top;white-space:pre-wrap;">${value}</td>
-        </tr>`;
-    })
-    .join("");
-
-  return `<!DOCTYPE html>
-<html lang="it">
-<body style="font-family:Arial,sans-serif;background:#ffffff;margin:0;padding:24px;">
-  <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #e8d5cc;border-radius:12px;overflow:hidden;">
-    <div style="background:#c8502a;color:#fff;padding:24px 28px;">
-      <p style="margin:0 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:2px;opacity:0.85;">✦ Forge Group: Nuova candidatura</p>
-      <h1 style="margin:0;font-size:24px;font-weight:800;">Nuovo lead di prequalifica</h1>
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      ${rows}
-    </table>
-    <div style="padding:20px 28px;background:#fbf5f2;font-size:12px;color:#4a4a4a;">
-      Lead generato dal form di candidatura su <strong>www.forgegroup.it</strong>.
-    </div>
-  </div>
-</body>
-</html>`;
-}
+const REQUIRED_FIELDS = [
+  "nome_attivita",
+  "occupazione",
+  "ostacolo",
+  "acquisizione_attuale",
+  "nome_cognome",
+  "telefono",
+  "email",
+] as const;
 
 export async function POST(request: Request) {
   const ip = getClientIp(request);
@@ -70,22 +39,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, message: "Payload JSON non valido." }, { status: 400 });
   }
 
-  // Honeypot anti-spam
   if (data.website?.trim()) {
     return NextResponse.json({ success: true, message: "Candidatura inviata con successo." });
   }
 
-  const requiredFields: (keyof typeof FIELD_LABELS)[] = [
-    "nome_attivita",
-    "occupazione",
-    "ostacolo",
-    "acquisizione_attuale",
-    "nome_cognome",
-    "telefono",
-    "email",
-  ];
-
-  const missing = requiredFields.filter((f) => !data[f] || String(data[f]).trim() === "");
+  const missing = REQUIRED_FIELDS.filter((f) => !data[f] || String(data[f]).trim() === "");
   if (missing.length) {
     return NextResponse.json(
       { success: false, message: `Campi obbligatori mancanti: ${missing.join(", ")}` },
@@ -93,16 +51,16 @@ export async function POST(request: Request) {
     );
   }
 
-  const html = buildHtml(data);
-  const subject = `Nuova candidatura: ${data.nome_attivita} (${data.nome_cognome})`;
   const fromEmail = process.env.RESEND_FROM || "Forge Group <onboarding@resend.dev>";
   const toEmail = process.env.RESEND_TO || "info@forgegroup.it";
+  const candidateEmail = String(data.email).trim();
 
   if (!process.env.RESEND_API_KEY) {
     if (process.env.NODE_ENV === "development") {
       console.log("\n=== [DEV] NUOVA CANDIDATURA (Resend non configurato) ===");
       console.log(JSON.stringify(data, null, 2));
-      console.log("=== Mittente:", fromEmail, "Destinatario:", toEmail, "===\n");
+      console.log("=== Mittente:", fromEmail, "Destinatario:", toEmail, "===");
+      console.log("=== Auto-reply a:", candidateEmail, "===\n");
       return NextResponse.json({
         success: true,
         message: "Candidatura ricevuta (modalità dev: email non inviata).",
@@ -116,20 +74,34 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const result = await resend.emails.send({
+
+    const internalResult = await resend.emails.send({
       from: fromEmail,
       to: [toEmail],
-      replyTo: data.email,
-      subject,
-      html,
+      replyTo: candidateEmail,
+      subject: buildContactInternalSubject(data),
+      html: buildContactInternalHtml(data),
     });
 
-    if (result.error) {
-      console.error("Resend error:", result.error);
+    if (internalResult.error) {
+      console.error("Resend internal notification error:", internalResult.error);
       return NextResponse.json(
         { success: false, message: "Errore durante l'invio dell'email." },
         { status: 500 }
       );
+    }
+
+    const autoReplyResult = await resend.emails.send({
+      from: fromEmail,
+      to: [candidateEmail],
+      replyTo: toEmail,
+      subject: buildContactAutoReplySubject(),
+      html: buildContactAutoReplyHtml(data.nome_cognome),
+      text: buildContactAutoReplyText(data.nome_cognome),
+    });
+
+    if (autoReplyResult.error) {
+      console.error("Resend auto-reply error:", autoReplyResult.error);
     }
 
     return NextResponse.json({
