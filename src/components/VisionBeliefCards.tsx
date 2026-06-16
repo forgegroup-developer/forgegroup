@@ -193,7 +193,7 @@ export default function VisionBeliefCards() {
         >
           Quello in cui
           <br />
-          <span className="italic">crediamo davvero</span>
+          <span className="italic text-brand-corallo">crediamo davvero</span>
         </h2>
 
         <div
