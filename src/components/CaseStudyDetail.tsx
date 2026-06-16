@@ -110,23 +110,55 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             )}
           </div>
 
+          <div>
+            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+
+            <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
+              <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
+                <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
+                  <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                    {ctx.label}
+                  </div>
+                  <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CHALLENGE */}
+      <section className="py-16 md:py-20 section-coral border-y">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[minmax(0,1fr)_280px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
             <div className="min-w-0">
-              <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+              <div className="copy-on-coral mb-8">
+                <p className="eyebrow-coral mb-4">✦ La Sfida</p>
+                <h2 className="heading-section leading-tight mb-6">
+                  Da dove <span>siamo partiti</span>.
+                </h2>
+                <p className="text-lg text-white/90 leading-relaxed">{c.challenge}</p>
+              </div>
 
-              <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
-                <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
-                  <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
-                    <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
-                      {ctx.label}
-                    </div>
-                    <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
-                  </div>
-                ))}
+              <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8">
+                <h3 className="text-lg font-semibold text-brand-nero mb-4">La diagnosi Forge:</h3>
+                <ul className="space-y-3">
+                  {c.diagnosis.map((d, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span
+                        className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5"
+                        aria-hidden
+                      >
+                        ✕
+                      </span>
+                      <span className="text-brand-nero">{d}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -139,36 +171,6 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 />
               </div>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* CHALLENGE */}
-      <section className="py-16 md:py-20 section-coral border-y">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="copy-on-coral mb-8">
-            <p className="eyebrow-coral mb-4">✦ La Sfida</p>
-            <h2 className="heading-section leading-tight mb-6">
-              Da dove <span>siamo partiti</span>.
-            </h2>
-            <p className="text-lg text-white/90 leading-relaxed">{c.challenge}</p>
-          </div>
-
-          <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8">
-            <h3 className="text-lg font-semibold text-brand-nero mb-4">La diagnosi Forge:</h3>
-            <ul className="space-y-3">
-              {c.diagnosis.map((d, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span
-                    className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5"
-                    aria-hidden
-                  >
-                    ✕
-                  </span>
-                  <span className="text-brand-nero">{d}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
