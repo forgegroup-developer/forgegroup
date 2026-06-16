@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import Reveal from "@/components/Reveal";
@@ -45,48 +46,40 @@ const editorialCards = [
   {
     photo: "/images/team/vision/marco-editorial.png",
     alt: "Marco Pio Cerbone al lavoro con Forge Group",
-    offset: "down" as const,
+    parallaxClass: "vision-card-offset-down",
   },
   {
     photo: "/images/team/vision/gianpio-editorial.png",
     alt: "Gianpio Uva al lavoro con Forge Group",
-    offset: "up" as const,
+    parallaxClass: "vision-card-offset-up",
+    stagger: true,
   },
   {
     photo: "/images/team/vision/francesco-editorial.png",
     alt: "Francesco Chiumiento al lavoro con Forge Group",
-    offset: "down" as const,
+    parallaxClass: "vision-card-offset-down",
   },
 ];
 
-function EditorialPhotoCard({
-  src,
-  alt,
-  sizes,
-  priority,
-}: {
-  src: string;
-  alt: string;
-  sizes: string;
-  priority?: boolean;
-}) {
+function EditorialPhotoCard({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna shadow-[0_16px_48px_-20px_rgba(17,17,17,0.18)]">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover object-center"
-        sizes={sizes}
-        quality={90}
-        priority={priority}
-      />
-      <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
+    <div className="rounded-3xl border border-brand-bordo bg-brand-bianco p-3 shadow-[0_20px_56px_-24px_rgba(17,17,17,0.22)] md:p-4">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-brand-panna">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover object-center"
+          sizes={sizes}
+          quality={90}
+        />
+        <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
+      </div>
     </div>
   );
 }
 
-function FoundersHeroPhoto({ priority }: { priority?: boolean }) {
+function FoundersHeroPhoto() {
   return (
     <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna shadow-[0_20px_56px_-24px_rgba(17,17,17,0.2)] sm:aspect-[21/9]">
       <Image
@@ -96,7 +89,6 @@ function FoundersHeroPhoto({ priority }: { priority?: boolean }) {
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 1152px"
         quality={90}
-        priority={priority}
       />
       <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
     </div>
@@ -104,54 +96,115 @@ function FoundersHeroPhoto({ priority }: { priority?: boolean }) {
 }
 
 export default function VisionSection() {
-  return (
-    <section className="relative overflow-hidden border-y section-visione py-16 md:py-24 lg:py-32">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--color-brand-pesca) 40%, transparent), transparent 45%), radial-gradient(circle at 80% 90%, color-mix(in srgb, var(--color-brand-corallo) 12%, transparent), transparent 50%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        aria-hidden
-        style={{
-          backgroundImage: "radial-gradient(circle, var(--color-brand-corallo) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
 
-      <div className={`${bricolage.variable} ${hanken.variable} relative z-10`}>
-        {/* Intestazione manifesto */}
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Reveal y={28} duration={1}>
-            <p className="eyebrow mb-6 text-center lg:text-left">✦ Visione</p>
-            <h1 className="heading-hero text-brand-nero mb-8 text-center lg:text-left text-balance">
+    const onScroll = () => {
+      const y = window.scrollY;
+      document.querySelectorAll<HTMLElement>(".vision-card-offset-up").forEach((el) => {
+        el.style.setProperty("--vision-parallax-up", `${y * -0.035}px`);
+      });
+      document.querySelectorAll<HTMLElement>(".vision-card-offset-down").forEach((el) => {
+        el.style.setProperty("--vision-parallax-down", `${y * 0.035}px`);
+      });
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Hero atmosferica — testo centrato su immagine */}
+      <section className="vision-hero-atmosphere relative flex min-h-[88dvh] items-center justify-center overflow-hidden border-b md:min-h-screen">
+        <div className="pointer-events-none absolute inset-0 z-0 select-none" aria-hidden>
+          <Image
+            src="/images/team/vision/hero-atmosphere.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover object-center opacity-55 mix-blend-multiply"
+            sizes="100vw"
+            quality={85}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-pesca-light/75 via-[#faece7]/88 to-[#faece7]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#faece7] via-transparent to-brand-pesca-light/30" />
+          <div
+            className="absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--color-brand-corallo) 1px, transparent 1px)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+        </div>
+
+        <div
+          className={`${bricolage.variable} ${hanken.variable} relative z-10 mx-auto w-full max-w-4xl px-4 py-28 text-center sm:px-6 md:py-36`}
+        >
+          <Reveal y={32} duration={1.1}>
+            <p className="eyebrow mb-6">✦ Visione</p>
+            <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
               Forge Group nasce da una <span className="text-brand-corallo">domanda semplice</span>.
             </h1>
-            <p className="text-xl md:text-2xl text-brand-grigio leading-relaxed text-center lg:text-left text-balance">
+            <p className="mx-auto max-w-2xl text-xl leading-relaxed text-brand-grigio md:text-2xl text-balance">
               Perché tante aziende che hanno tutto per crescere, non crescono?
             </p>
           </Reveal>
         </div>
+      </section>
 
-        {/* Corpo manifesto */}
-        <div className="mx-auto mt-12 max-w-3xl px-4 sm:px-6 lg:px-8 md:mt-16">
-          <div className="space-y-6 text-lg leading-relaxed text-brand-grigio md:space-y-8 md:text-xl md:leading-relaxed">
+      {/* Manifesto + card editoriali — 2 colonne */}
+      <section className="section-visione border-b py-16 md:py-24 lg:py-28">
+        <div
+          className={`${bricolage.variable} ${hanken.variable} mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 xl:gap-20 lg:px-8`}
+        >
+          {/* Colonna sinistra — testo manifesto */}
+          <div className="min-w-0 space-y-6 text-lg leading-relaxed text-brand-grigio md:space-y-8 md:text-xl md:leading-relaxed lg:sticky lg:top-28 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:pr-2">
             {manifestoParagraphs.map((paragraph, index) => (
               <Reveal key={index} delay={index + 1} y={22} duration={0.95}>
                 <p>{paragraph}</p>
               </Reveal>
             ))}
           </div>
+
+          {/* Colonna destra — card con foto */}
+          <div className="relative min-w-0">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.05]"
+              aria-hidden
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle, var(--color-brand-corallo) 1px, transparent 1px)",
+                backgroundSize: "36px 36px",
+              }}
+            />
+            <div className="relative flex flex-col gap-6 md:gap-8">
+              {editorialCards.map((card, index) => (
+                <Reveal
+                  key={card.photo}
+                  delay={index * 2}
+                  y={28}
+                  duration={1}
+                  className={`${card.parallaxClass}${card.stagger ? " md:mt-16 lg:mt-24" : ""}`}
+                >
+                  <EditorialPhotoCard
+                    src={card.photo}
+                    alt={card.alt}
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Galleria editoriale */}
+        {/* Founders — full width sotto il blocco 2 colonne */}
         <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6 lg:mt-28 lg:px-8">
           <Reveal y={28} duration={1}>
-            <FoundersHeroPhoto priority />
+            <FoundersHeroPhoto />
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
               {founders.map((founder) => (
                 <div key={founder.name} className="text-center sm:text-left">
@@ -171,36 +224,8 @@ export default function VisionSection() {
               ))}
             </div>
           </Reveal>
-
-          <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:mt-24 md:grid-cols-2 md:gap-8">
-            {editorialCards.map((card, index) => (
-              <Reveal
-                key={card.photo}
-                delay={index * 2}
-                y={24}
-                duration={0.95}
-                className={
-                  card.offset === "up"
-                    ? "md:mt-16 lg:mt-24"
-                    : index === editorialCards.length - 1
-                      ? "md:col-span-2 md:mx-auto md:max-w-md"
-                      : undefined
-                }
-              >
-                <EditorialPhotoCard
-                  src={card.photo}
-                  alt={card.alt}
-                  sizes={
-                    index === editorialCards.length - 1
-                      ? "(max-width: 768px) 100vw, 448px"
-                      : "(max-width: 768px) 100vw, 50vw"
-                  }
-                />
-              </Reveal>
-            ))}
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

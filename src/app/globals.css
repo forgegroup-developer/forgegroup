@@ -208,6 +208,44 @@ body {
   border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
 
+/* Visione — hero atmosferica */
+.vision-hero-atmosphere {
+  background-color: var(--color-brand-visione-bg);
+}
+
+@keyframes vision-float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.vision-float-soft {
+  animation: vision-float-soft 14s ease-in-out infinite;
+}
+
+.vision-card-offset-up {
+  transform: translateY(var(--vision-parallax-up, 0px));
+}
+
+.vision-card-offset-down {
+  transform: translateY(var(--vision-parallax-down, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vision-float-soft {
+    animation: none;
+  }
+
+  .vision-card-offset-up,
+  .vision-card-offset-down {
+    transform: none;
+  }
+}
+
 /* Forza bianco sulle classi utility con colore hardcoded dentro sezioni corallo */
 .section-coral .body-lg,
 .section-coral .eyebrow {

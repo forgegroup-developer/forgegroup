@@ -361,12 +361,10 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 
 **Sfondo sezione contenuto:** classe `section-visione` (`#FAECE7` al 92%, bordo come le altre sezioni).
 
-**Galleria team (sotto il testo):**
-- **Layout:** sezione unica `VisionSection.tsx` (hero manifesto + corpo + galleria), ispirata a layout editoriale a card con reveal on scroll
-- **Livello 1:** foto orizzontale founders (Marco + Gianpio), quasi full width, overlay `#C0471A` al 17,5%, nomi e ruoli affiancati sotto (Bricolage + Hanken)
-- **Livello 2:** card foto editoriali (Marco, Gianpio, Francesco) — solo immagine, **senza** nome/ruolo sotto; grid 2 colonne con offset verticale sulla seconda card; aspect `4/5`, `rounded-3xl`
-- Stesso overlay e bordi coerenti, ombre leggere (non pesanti)
-- **Animazione:** fade-in con `Reveal` + GSAP ScrollTrigger
+**Layout pagina:**
+- **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, titolo e domanda centrati (testi e colori brand invariati)
+- **Blocco 2 colonne:** sinistra manifesto (sticky su desktop) · destra card editoriali con foto dentro il frame (aspect 4/5, overlay corallo, **senza** testo team)
+- **Founders:** foto duo full width + nomi/ruoli sotto il blocco 2 colonne
 
 **Componenti:** `src/app/visione/page.tsx`, `VisionSection.tsx`.
 
