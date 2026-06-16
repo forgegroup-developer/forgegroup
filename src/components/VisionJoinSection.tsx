@@ -193,7 +193,7 @@ export default function VisionJoinSection() {
             Forge Group non è fatto solo di chi ci lavora oggi. È fatto di chi condivide lo stesso
             modo di stare al mondo: lealtà, trasparenza, umiltà, lavoro fatto bene. Non guardiamo
             prima al curriculum. Guardiamo chi sei. Se leggendo la nostra visione hai sentito che
-            è anche la tua, raccontaci chi sei e cosa potresti portare. Il resto lo scopriamo da lì.
+            è anche la tua, raccontaci chi sei e cosa potresti portare.
           </p>
         </div>
 
