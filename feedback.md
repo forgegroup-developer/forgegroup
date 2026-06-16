@@ -345,7 +345,7 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 - **Caso studio dettaglio:** h1 risultato → h2 cliente/sfida/sistema/risultati/video/prima-dopo/a chi serve → h3 step e diagnosi
 - **Contatti:** h1 → h2 step form (footer senza heading)
 - **Chi siamo e manifesto:** h1 hero → h2 Chi siamo / Valori / Chi NON accettiamo → h3 card valori
-- **Visione:** h1 hero → h3 nomi in galleria team editorial
+- **Visione:** h1 manifesto unico in `VisionSection` (nessun h2 intermedio)
 
 ---
 
@@ -362,15 +362,15 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 **Sfondo sezione contenuto:** classe `section-visione` (`#FAECE7` al 92%, bordo come le altre sezioni).
 
 **Galleria team (sotto il testo):**
-- **Livello 1:** foto orizzontale founders (Marco + Gianpio), quasi full width, overlay `#C0471A` al 17,5%, nomi affiancati sotto
-- **Livello 2:** grid 3 foto editoriali (Marco, Gianpio, Francesco) — solo asset in `public/images/team/vision/`, **mai** riutilizzare le foto del team home (`/images/team/foto-*`)
-- Stesso overlay e bordi arrotondati (`rounded-2xl` / `rounded-3xl`), niente ombre pesanti
-- **Font nomi:** Bricolage Grotesque · **Font ruoli:** Hanken Grotesk
-- **Animazione:** fade-in leggero con `Reveal` + GSAP ScrollTrigger
+- **Layout:** sezione unica `VisionSection.tsx` (hero manifesto + corpo + galleria), ispirata a layout editoriale a card con reveal on scroll
+- **Livello 1:** foto orizzontale founders (Marco + Gianpio), quasi full width, overlay `#C0471A` al 17,5%, nomi e ruoli affiancati sotto (Bricolage + Hanken)
+- **Livello 2:** card foto editoriali (Marco, Gianpio, Francesco) — solo immagine, **senza** nome/ruolo sotto; grid 2 colonne con offset verticale sulla seconda card; aspect `4/5`, `rounded-3xl`
+- Stesso overlay e bordi coerenti, ombre leggere (non pesanti)
+- **Animazione:** fade-in con `Reveal` + GSAP ScrollTrigger
 
-**Componenti:** `src/app/visione/page.tsx`, `VisionTeamGallery.tsx`.
+**Componenti:** `src/app/visione/page.tsx`, `VisionSection.tsx`.
 
-**Heading:** h1 hero → h3 nomi in galleria (nessun h2 intermedio sul testo: il manifesto è body dopo l'h1).
+**Heading:** h1 manifesto → nomi founders sotto la foto duo (testo, non h3); card editoriali senza heading
 
 ---
 
