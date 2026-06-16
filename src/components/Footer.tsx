@@ -57,6 +57,7 @@ export default function Footer() {
   const [openCol, setOpenCol] = useState<ColKey | null>(null);
   const pathname = usePathname();
   const isCaseStudy = pathname?.startsWith("/casi-studio") ?? false;
+  const isVisione = pathname === "/visione";
   const isContatti = pathname === "/contatti";
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
@@ -64,7 +65,7 @@ export default function Footer() {
   return (
     <footer>
       {/* CTA band — nascosta su /contatti */}
-      {!isContatti && <FooterCtaBand isCaseStudy={isCaseStudy} />}
+      {!isContatti && <FooterCtaBand isCaseStudy={isCaseStudy} isVisione={isVisione} />}
 
       {/* Corpo footer — sfondo corallo */}
       <div className="bg-brand-corallo">
