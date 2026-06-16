@@ -35,8 +35,7 @@ export default function VisionSection() {
           <Reveal y={32} duration={1.1}>
             <p className="eyebrow mb-6">✦ Visione</p>
             <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
-              <span className="text-brand-corallo">Forge Group</span> nasce da una{" "}
-              <span className="text-brand-corallo">domanda semplice</span>.
+              <span className="text-brand-corallo">Forge Group</span> nasce da una domanda semplice.
             </h1>
             <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-brand-nero md:text-2xl text-balance">
               Perché tante aziende che hanno tutto per crescere, non crescono?
