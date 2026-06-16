@@ -15,16 +15,17 @@ export default function PhoneScreenshotMockup({
   imageObjectPosition = "center 11%",
 }: PhoneScreenshotMockupProps) {
   return (
-    <div className={`relative mx-auto w-[min(100%,270px)] shrink-0 ${className}`}>
+    <div className={`relative mx-auto w-full max-w-[270px] shrink-0 ${className}`}>
       <div className="rounded-[2.35rem] border-[11px] border-brand-nero bg-brand-nero shadow-[0_28px_70px_-16px_rgba(17,17,17,0.38)]">
-        <div className="relative overflow-hidden rounded-[1.4rem] bg-brand-bianco aspect-[9/19.2]">
+        <div className="relative overflow-hidden rounded-[1.4rem] bg-brand-bianco">
           <Image
             src={src}
             alt={alt}
-            fill
-            className="object-cover"
-            style={{ objectPosition: imageObjectPosition }}
-            sizes="270px"
+            width={540}
+            height={1152}
+            className="block h-auto w-full object-cover"
+            style={{ objectPosition: imageObjectPosition, aspectRatio: "9 / 19.2" }}
+            sizes="(max-width: 640px) 260px, 270px"
             quality={90}
           />
           {/* Notch + mascherina superiore: nasconde ora e batteria */}

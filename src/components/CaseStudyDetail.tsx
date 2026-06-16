@@ -110,7 +110,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             )}
           </div>
 
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-12">
+          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[minmax(0,1fr)_280px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
 
@@ -118,7 +118,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
                   <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
                     <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
@@ -131,12 +131,11 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </div>
 
             {c.contextPhoneScreenshot && (
-              <div className="flex justify-center lg:justify-end lg:pt-2">
+              <div className="flex w-full justify-center md:justify-end md:sticky md:top-24 md:self-start">
                 <PhoneScreenshotMockup
                   src={c.contextPhoneScreenshot.src}
                   alt={c.contextPhoneScreenshot.alt}
                   imageObjectPosition={c.contextPhoneScreenshot.imageObjectPosition}
-                  className="lg:sticky lg:top-24"
                 />
               </div>
             )}
