@@ -37,9 +37,9 @@ const beliefCards: {
     number: "01",
     photo: "/images/team/vision/team-insieme.jpg",
     alt: "Il team Forge Group al lavoro",
-    title: "Entriamo, restiamo, costruiamo.",
+    title: "La risposta, quasi sempre, è la stessa.",
     subtitle:
-      "Non consegniamo campagne e spariamo. Lavoriamo fianco a fianco finché non gira da solo.",
+      "Non manca il prodotto. Non mancano le persone. Manca qualcuno che entra dentro, capisce come funziona davvero quell'azienda, e costruisce con loro qualcosa che regge nel tempo.",
     variant: "coral",
     rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "",
@@ -49,9 +49,9 @@ const beliefCards: {
     number: "02",
     photo: "/images/team/vision/team-lavoro.jpg",
     alt: "Il team Forge Group al lavoro",
-    title: "Un'azienda sana costruisce persone sane.",
+    title: "Entriamo, restiamo, costruiamo.",
     subtitle:
-      "Quello che ci interessa non è solo il numero a fine mese. È quello che succede dentro quando le cose iniziano ad andare bene.",
+      "Noi non consegniamo campagne e sparissimo. Lavoriamo fianco a fianco sul marketing, sul processo commerciale, sulla struttura. Finché non gira da solo.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:ml-0 md:mt-10 md:-ml-6 lg:-ml-8",
@@ -62,9 +62,9 @@ const beliefCards: {
     number: "03",
     photo: "/images/team/vision/marco-editorial.png",
     alt: "Marco Pio Cerbone al lavoro con Forge Group",
-    title: "Entriamo dentro, capiamo davvero.",
+    title: "Un'azienda sana costruisce persone sane.",
     subtitle:
-      "Manca qualcuno che capisce come funziona quell'azienda e costruisce con loro qualcosa che regge nel tempo.",
+      "Ma quello che ci interessa davvero non è solo il numero a fine mese. È quello che succede dentro quell'azienda quando le cose iniziano ad andare bene. Come cambia l'imprenditore. Come respira il suo team. Quanto tempo riesce finalmente a dedicare a quello che conta.",
     variant: "coral",
     rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "md:mt-4",
@@ -74,9 +74,9 @@ const beliefCards: {
     number: "04",
     photo: "/images/team/vision/francesco-editorial.png",
     alt: "Francesco Chiumiento al lavoro con Forge Group",
-    title: "Non cerchiamo clienti da gestire.",
+    title: "Cerchiamo imprenditori con cui costruire.",
     subtitle:
-      "Cerchiamo imprenditori con cui costruire. Lealtà, trasparenza e una bussola che non cambia.",
+      "Chi lavora con noi, cliente o collaboratore, trova un ambiente preciso. Fatto di lealtà, trasparenza, lavoro vero e una bussola di valori che non cambia in base alla convenienza. Non cerchiamo clienti da gestire. Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:ml-0 md:mt-14 md:-ml-6 lg:-ml-8",
@@ -103,11 +103,11 @@ function BeliefCard({
       className={`vision-belief-card group w-full max-w-[380px] transition-transform duration-500 ease-out hover:-translate-y-2 md:w-[420px] md:max-w-[420px] ${rotateClass}`}
     >
       <div
-        className={`flex aspect-[3/4] w-full flex-col rounded-[24px] p-7 ${
+        className={`flex min-h-[480px] w-full flex-col rounded-[24px] p-6 md:min-h-[520px] md:p-7 ${
           isCoral ? "bg-[#C0471A]" : "bg-[#2A2A2A]"
         }`}
       >
-        <div className="mb-5 flex items-start justify-between">
+        <div className="mb-4 flex shrink-0 items-start justify-between">
           <div
             className={`flex h-10 w-10 items-center justify-center rounded-full ${
               isCoral ? "bg-[#1A1A1A]/15" : "bg-white/10"
@@ -130,7 +130,20 @@ function BeliefCard({
           </span>
         </div>
 
-        <div className="relative mb-5 h-[200px] w-full overflow-hidden rounded-2xl">
+        <h3
+          className={`mb-4 shrink-0 text-balance leading-tight ${
+            isCoral ? "text-[#1A1A1A]" : "text-white"
+          }`}
+          style={{
+            fontFamily: "var(--font-vision-belief-title)",
+            fontSize: "clamp(1.25rem, 2.2vw, 1.75rem)",
+            fontWeight: 700,
+          }}
+        >
+          {title}
+        </h3>
+
+        <div className="relative mb-4 h-[110px] w-full shrink-0 overflow-hidden rounded-2xl md:h-[130px]">
           <Image
             src={photo}
             alt={alt}
@@ -141,30 +154,16 @@ function BeliefCard({
           />
         </div>
 
-        <div className="mt-auto">
-          <h3
-            className={`mb-3 text-balance leading-tight ${
-              isCoral ? "text-[#1A1A1A]" : "text-white"
-            }`}
-            style={{
-              fontFamily: "var(--font-vision-belief-title)",
-              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-              fontWeight: 700,
-            }}
-          >
-            {title}
-          </h3>
-          <p
-            className={isCoral ? "text-[#1A1A1A]/85" : "text-white/70"}
-            style={{
-              fontFamily: "var(--font-vision-belief-body)",
-              fontSize: "1rem",
-              lineHeight: 1.4,
-            }}
-          >
-            {subtitle}
-          </p>
-        </div>
+        <p
+          className={`min-h-0 flex-1 text-pretty ${isCoral ? "text-[#1A1A1A]/85" : "text-white/70"}`}
+          style={{
+            fontFamily: "var(--font-vision-belief-body)",
+            fontSize: "0.9375rem",
+            lineHeight: 1.45,
+          }}
+        >
+          {subtitle}
+        </p>
       </div>
     </article>
   );
