@@ -29,6 +29,12 @@ export type CaseStudy = {
   productLogoAlt?: string;
   /** URL della video recensione del caso studio, se disponibile */
   videoUrl?: string;
+  /** Screenshot Meta/dashboard in cornice telefono accanto al contesto */
+  contextPhoneScreenshot?: {
+    src: string;
+    alt: string;
+    imageObjectPosition?: string;
+  };
   /** Elenco "È pensato per chi…" */
   forWhom?: string[];
   /** Mostra il box citazione cliente (solo se testimonianza reale) */
@@ -168,6 +174,11 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     videoUrl: "/video-recensione.mp4",
+    contextPhoneScreenshot: {
+      src: "/images/casi-studio/disa-meta-ads-dashboard.png",
+      alt: "Dashboard Meta Ads con campagne lead generation DISA SRL",
+      imageObjectPosition: "center 13%",
+    },
   },
   {
     slug: "edilizia",

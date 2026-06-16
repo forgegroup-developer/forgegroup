@@ -3,6 +3,7 @@ import Link from "next/link";
 import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText from "@/components/HighlightedText";
+import PhoneScreenshotMockup from "@/components/PhoneScreenshotMockup";
 import type { CaseStudy } from "@/data/caseStudies";
 import { getCaseStudyImage, getCaseStudyImagePosition, siteImages } from "@/data/images";
 
@@ -91,7 +92,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
       {/* CONTEXT — titolo cliente e logo affiancati senza sovrapposizione */}
       <section className="relative z-10 section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative mb-8 grid gap-6 md:mb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-8">
             <h2 className="min-w-0 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold uppercase leading-[0.95] tracking-tight text-brand-nero">
               {clientName}
@@ -109,21 +110,36 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             )}
           </div>
 
-          <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-12">
+            <div className="min-w-0">
+              <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
 
-          <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
-            <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
-          </p>
+              <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
+                <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
+              </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
-              <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
-                <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
-                  {ctx.label}
-                </div>
-                <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
+                  <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
+                    <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                      {ctx.label}
+                    </div>
+                    <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {c.contextPhoneScreenshot && (
+              <div className="flex justify-center lg:justify-end lg:pt-2">
+                <PhoneScreenshotMockup
+                  src={c.contextPhoneScreenshot.src}
+                  alt={c.contextPhoneScreenshot.alt}
+                  imageObjectPosition={c.contextPhoneScreenshot.imageObjectPosition}
+                  className="lg:sticky lg:top-24"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
