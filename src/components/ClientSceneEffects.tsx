@@ -2,13 +2,17 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useAfterLcp } from "@/hooks/useAfterLcp";
 
 const Logo3DBackground = dynamic(() => import("@/components/Logo3DBackground"), { ssr: false });
 
 function useEnable3d() {
+  const afterLcp = useAfterLcp();
   const [enable3d, setEnable3d] = useState(false);
 
   useEffect(() => {
+    if (!afterLcp) return;
+
     const desktopQuery = window.matchMedia("(min-width: 1024px)");
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let idleId: number | undefined;
@@ -33,9 +37,9 @@ function useEnable3d() {
       };
 
       if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(mount, { timeout: 3000 });
+        idleId = window.requestIdleCallback(mount, { timeout: 2000 });
       } else {
-        timeoutId = setTimeout(mount, 2000);
+        timeoutId = setTimeout(mount, 1500);
       }
     };
 
@@ -58,7 +62,7 @@ function useEnable3d() {
       desktopQuery.removeEventListener("change", update);
       motionQuery.removeEventListener("change", update);
     };
-  }, []);
+  }, [afterLcp]);
 
   return enable3d;
 }

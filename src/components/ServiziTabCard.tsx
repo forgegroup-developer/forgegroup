@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import Reveal from "@/components/Reveal";
+import dynamic from "next/dynamic";
+
+const Reveal = dynamic(() => import("@/components/Reveal"));
 
 export type ServiziTabPoint = {
   title: ReactNode;

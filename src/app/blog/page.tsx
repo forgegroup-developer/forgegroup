@@ -1,10 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 import HeroGooeySection from "@/components/HeroGooeySection";
-import Reveal from "@/components/Reveal";
+import DeferredMount from "@/components/DeferredMount";
+
+const Reveal = dynamic(() => import("@/components/Reveal"));
 
 export const metadata: Metadata = {
   title: "Blog Marketing B2B | Intelligence",
@@ -43,6 +46,7 @@ export default function BlogHub() {
         </h1>
       </HeroGooeySection>
 
+      <DeferredMount minHeight="480px">
       <section className="py-16 md:py-20 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -81,6 +85,7 @@ export default function BlogHub() {
           </div>
         </div>
       </section>
+      </DeferredMount>
 
     </>
   );

@@ -1,7 +1,9 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText, { type TextSegment } from "@/components/HighlightedText";
-import Reveal from "@/components/Reveal";
+
+const Reveal = dynamic(() => import("@/components/Reveal"));
 
 type Cta = { label: string; href: string };
 

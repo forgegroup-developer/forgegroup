@@ -51,6 +51,17 @@ export const FORGE_LOGO_3D = {
   roomEnvironmentIntensity: 0.04,
 } as const;
 
+/** Impostazioni più leggere per lo sfondo fisso (z-index -10). */
+export const FORGE_LOGO_3D_BACKGROUND = {
+  ...FORGE_LOGO_3D,
+  pixelRatioMax: 1,
+  extrudeSettings: {
+    ...FORGE_LOGO_3D.extrudeSettings,
+    bevelSegments: 5,
+    curveSegments: 14,
+  },
+} as const;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ThreeModule = typeof import("three");
 
@@ -126,8 +137,30 @@ export function createForgeLogoMaterial(THREE: ThreeModule, color: number) {
   });
 }
 
-export function buildForgeLogoGroup(THREE: ThreeModule) {
-  const cfg = FORGE_LOGO_3D;
+type ForgeLogoBuildConfig = {
+  scale: number;
+  coralPoints: Array<[number, number]>;
+  peachPoints: Array<[number, number]>;
+  strokeWidth: number;
+  peachZ: number;
+  coralZ: number;
+  colors: { peach: number; coral: number };
+  extrudeSettings: {
+    depth: number;
+    bevelEnabled: boolean;
+    bevelThickness: number;
+    bevelSize: number;
+    bevelOffset: number;
+    bevelSegments: number;
+    curveSegments: number;
+  };
+};
+
+export function buildForgeLogoGroup(
+  THREE: ThreeModule,
+  config: ForgeLogoBuildConfig = FORGE_LOGO_3D
+) {
+  const cfg = config;
   const coralShape = strokeToShape(THREE, cfg.coralPoints, cfg.strokeWidth);
   const peachShape = strokeToShape(THREE, cfg.peachPoints, cfg.strokeWidth);
 

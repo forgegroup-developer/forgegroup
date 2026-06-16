@@ -1,4 +1,6 @@
-import Reveal from "@/components/Reveal";
+import dynamic from "next/dynamic";
+
+const Reveal = dynamic(() => import("@/components/Reveal"));
 
 const fasi = [
   {

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import {
   FORGE_LOGO_3D,
+  FORGE_LOGO_3D_BACKGROUND,
   addForgeLogoLights,
   buildForgeLogoGroup,
 } from "@/lib/forgeLogo3d";
@@ -43,7 +44,8 @@ export default function Logo3DBackground() {
         alpha: true,
         powerPreference: "high-performance",
       });
-      const getPixelCap = () => (W() < 768 ? 1 : FORGE_LOGO_3D.pixelRatioMax);
+      const getPixelCap = () =>
+        W() < 768 ? 1 : FORGE_LOGO_3D_BACKGROUND.pixelRatioMax;
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, getPixelCap()));
       renderer.setSize(W(), H());
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -70,7 +72,7 @@ export default function Logo3DBackground() {
         .texture;
 
       addForgeLogoLights(scene, THREE);
-      const logoGroup = buildForgeLogoGroup(THREE);
+      const logoGroup = buildForgeLogoGroup(THREE, FORGE_LOGO_3D_BACKGROUND);
       scene.add(logoGroup);
 
       const s = {
@@ -89,7 +91,13 @@ export default function Logo3DBackground() {
       const maxScroll = () =>
         Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
 
+      const startTime = performance.now();
+      let lastActivity = startTime;
+      let frameSkip = 0;
+      const idleMs = 2500;
+
       const onScroll = () => {
+        lastActivity = performance.now();
         const p = (window.scrollY || 0) / maxScroll();
         s.tpx = Math.cos(p * Math.PI * 3) * 2.6;
         s.tpy = -Math.sin(p * Math.PI * 2) * 0.7;
@@ -111,7 +119,6 @@ export default function Logo3DBackground() {
       cleanupFns.push(() => window.removeEventListener("resize", onResize));
 
       const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-      const startTime = performance.now();
 
       const draw = () => {
         const t = (performance.now() - startTime) / 1000;
@@ -128,6 +135,16 @@ export default function Logo3DBackground() {
 
       const animate = () => {
         if (disposed) return;
+        const idle = performance.now() - lastActivity > idleMs;
+        if (idle) {
+          frameSkip += 1;
+          if (frameSkip % 4 !== 0) {
+            rafId = requestAnimationFrame(animate);
+            return;
+          }
+        } else {
+          frameSkip = 0;
+        }
         draw();
         if (!document.hidden) rafId = requestAnimationFrame(animate);
       };
