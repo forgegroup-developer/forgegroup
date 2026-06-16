@@ -13,7 +13,7 @@ const team = [
     name: "Gianpio Uva",
     forgeRole: "Co-Founder",
     role: "Direttore Commerciale & Sales Process",
-    photo: "/images/team/foto-gianpio.webp",
+    photo: "/images/team/foto-gianpio.png",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
   {
