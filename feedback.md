@@ -357,7 +357,7 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 
 **Menu:** voce **Visione** subito dopo **Casi Studio** (navbar desktop e mobile). Link anche nel footer colonna Azienda.
 
-**Copy:** testo manifesto Visione approvato dal cliente — non modificare (eccezione alla regola «prodotto» e ai trattini: il testo è vincolante così com'è).
+**Copy:** testo manifesto Visione: niente trattini come punteggiatura (virgole, due punti o parentesi). Eccezione storica «prodotto» nel testo approvato.
 
 **Sfondo sezione contenuto:** classe `section-visione` (`#FAECE7` al 92%, bordo come le altre sezioni).
 
