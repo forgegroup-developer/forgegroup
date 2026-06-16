@@ -18,17 +18,17 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
           <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-600 font-bold mb-0.5">
             ✕ Prima
           </p>
-          <h3 className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
+          <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
             Senza sistema
-          </h3>
+          </p>
         </div>
         <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
           <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
             ✓ Dopo
           </p>
-          <h3 className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
+          <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
             Con Forge Group
-          </h3>
+          </p>
         </div>
       </div>
 

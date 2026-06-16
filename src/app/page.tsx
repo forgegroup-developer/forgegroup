@@ -175,17 +175,17 @@ export default function Home() {
                   <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-red-600 font-bold mb-0.5">
                     ✕ Non funziona
                   </p>
-                  <h3 className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
+                  <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
                     Le altre aziende
-                  </h3>
+                  </p>
                 </div>
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
                   <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
                     ✓ Funziona
                   </p>
-                  <h3 className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
+                  <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
                     Forge Group
-                  </h3>
+                  </p>
                 </div>
               </div>
 

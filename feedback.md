@@ -66,6 +66,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Sfondo: **`bg-brand-bianco`** semplice (nessun prism WebGL)
 - Pannello CTA: card bianca con bordo (`footer-cta-band .cta-glass-panel`)
 - Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
+- **Titolo CTA:** `<h2>` (sezione principale del footer, non `<h3>`)
 - **Layout:** titolo sopra, bottone **sotto** a tutta larghezza; testo pulsante su **una riga** (`whitespace-nowrap`)
 - **Colori titolo:** testo **nero**; corallo **solo sulla keyword** (mai intere frasi corallo):
   - Standard keyword: **caffè**
@@ -298,6 +299,51 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Sitemap aggiornata: rimosse route `/servizi/[slug]`; route `/casi-studio/[slug]` attive
 - [x] Video recensione integrato nel caso studio con poster homepage
 - [x] Rimossi trattini come punteggiatura da tutti i testi del sito (regola in feedback.md)
+- [x] Gerarchia heading accessibile: footer CTA `h2`, FAQ `h3`, tab confronto con `<p>`, footer nav senza heading (giugno 2026)
+
+---
+
+## 8. Gerarchia heading e accessibilità (regola fissa)
+
+Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (es. `h1 → h3` senza un `h2` intermedio). Una struttura corretta facilita la navigazione con tastiera e tecnologie assistive.
+
+### Schema per pagina
+
+| Livello | Uso | Componenti / esempi |
+|---------|-----|---------------------|
+| **h1** | Un solo titolo per pagina (hero) | `page.tsx`, hero servizi/casi studio/contatti/blog |
+| **h2** | Sezioni principali | `SectionHeader`, `MetodoForge`, `ClientiLogos`, `FooterCtaBand`, sezioni casi studio |
+| **h3** | Sottosezioni dentro una h2 | `ServiceCard`, `ServiziTabCard`, fasi FORGE, nomi team, domande FAQ, step casi studio |
+| **Non heading** | Etichette UI, nav footer, colonne tabella | Footer link columns (`<p>`), confronto prima/dopo (`<p>`) |
+
+### Regole operative
+
+1. **Una sola `h1` per pagina** — mai duplicarla nel footer o nella navbar.
+2. **Non saltare livelli** — dopo `h2` puoi usare `h3`, non `h4`. Dopo `h1` serve almeno un `h2` prima di qualsiasi `h3`.
+3. **`SectionHeader`** — resta sempre `h2` per i titoli di sezione.
+4. **`FooterCtaBand`** — titolo CTA in `h2` (sezione autonoma prima del footer link).
+5. **Footer colonne link** — titoli colonna in `<p>` stilizzato, **non** `h4` (evita `h2 → h4` su `/contatti` dove la CTA band è nascosta).
+6. **Tabelle confronto** (home + casi studio) — intestazioni colonna *Senza sistema / Con Forge Group* in `<p>`, non `h3`: non sono sezioni del documento.
+7. **`ServiziTabCard`** — titolo servizio in `h3` sotto l'`h2` «Le 3 macroaree».
+8. **`FAQAccordion`** — ogni domanda in `h3` > `button` (sotto l'`h2` della sezione FAQ).
+9. **Blog** — contenuto articolo: `h2` capitoli, `h3` sotto-capitoli; non iniziare un articolo con `h3` senza un `h2` precedente.
+10. **Form contatti** — `h1` hero + `h2` per ogni step (`AnimatedStepper` > `Step`).
+
+### Checklist prima di pubblicare una nuova pagina
+
+- [ ] Esiste una sola `h1`?
+- [ ] Ogni sezione visibile ha un `h2` (o è sotto-sezione `h3` di un `h2` esistente)?
+- [ ] Nessun salto `h2 → h4` o `h1 → h3`?
+- [ ] Etichette decorative (tabella, pill, nav) non usano tag heading?
+- [ ] Lighthouse Accessibility → audit «heading-order» verde?
+
+### Pagine di riferimento (outline corretto)
+
+- **Home:** h1 hero → h2 clienti/servizi/casi/confronto/team/FAQ → h3 card servizi, card casi, membri team, domande FAQ
+- **Servizi:** h1 → h2 macroaree + loghi + metodo FORGE → h3 tab servizi + fasi FORGE
+- **Casi studio hub:** h1 → h2 portfolio → h3 titoli card
+- **Caso studio dettaglio:** h1 risultato → h2 cliente/sfida/sistema/risultati/video/prima-dopo/a chi serve → h3 step e diagnosi
+- **Contatti:** h1 → h2 step form (footer senza heading)
 
 ---
 
@@ -319,3 +365,4 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [ ] Revisione SEO completa: meta title, description e structured data per ogni pagina
 - [ ] Aggiungere video testimonianze aggiuntive oltre al caso DISA
 - [ ] Valutare schema FAQ con markup JSON-LD per SEO
+- [x] Gerarchia heading accessibile su tutte le pagine (regola §8)

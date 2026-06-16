@@ -41,9 +41,9 @@ function MobileCol({
           +
         </span>
       </button>
-      <h4 className="hidden md:block text-xs uppercase tracking-widest text-white font-bold mb-4">
+      <p className="hidden md:block text-xs uppercase tracking-widest text-white font-bold mb-4">
         {title}
-      </h4>
+      </p>
       <div className={`accordion-content md:!grid-rows-[1fr] ${isOpen ? "open" : ""}`}>
         <div>
           <div className="pb-4 md:pb-0">{children}</div>

@@ -31,24 +31,26 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
                   : "border-brand-bordo bg-brand-bianco"
             }`}
           >
-            <button
-              onClick={() => setOpenIdx(isOpen ? null : idx)}
-              className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
-              aria-expanded={isOpen}
-            >
-              <span className="font-semibold text-brand-nero text-lg">{f.q}</span>
-              <span
-                className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
-                  isOpen
-                    ? "border-brand-corallo bg-brand-corallo text-white rotate-45"
-                    : "border-brand-bordo text-brand-grigio"
-                }`}
+            <h3 className="m-0">
+              <button
+                onClick={() => setOpenIdx(isOpen ? null : idx)}
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                aria-expanded={isOpen}
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-                </svg>
-              </span>
-            </button>
+                <span className="font-semibold text-brand-nero text-lg">{f.q}</span>
+                <span
+                  className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isOpen
+                      ? "border-brand-corallo bg-brand-corallo text-white rotate-45"
+                      : "border-brand-bordo text-brand-grigio"
+                  }`}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                </span>
+              </button>
+            </h3>
             <div className={`accordion-content ${isOpen ? "open" : ""}`}>
               <div>
                 <div className="px-6 pb-6 text-brand-grigio leading-relaxed">{f.a}</div>

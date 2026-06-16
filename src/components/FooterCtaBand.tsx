@@ -21,15 +21,15 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
               </p>
 
               {isCaseStudy ? (
-                <h3 className="heading-section text-brand-nero leading-snug">
+                <h2 className="heading-section text-brand-nero leading-snug">
                   Vuoi un sistema come questo per la{" "}
                   <HandDrawnUnderline>tua azienda</HandDrawnUnderline>?
-                </h3>
+                </h2>
               ) : (
-                <h3 className="heading-section text-brand-nero leading-snug">
+                <h2 className="heading-section text-brand-nero leading-snug">
                   Contattaci e parliamone davanti un{" "}
                   <HandDrawnUnderline>caffè</HandDrawnUnderline>.
-                </h3>
+                </h2>
               )}
             </div>
 
