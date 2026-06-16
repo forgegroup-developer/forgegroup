@@ -69,22 +69,34 @@ Report per il deploy su `https://www.forgegroup.it`.
 
 ## Fase 3 — Performance optimization
 
-### Lighthouse mobile (dopo ottimizzazioni, build production locale)
+### Lighthouse — baseline produzione (pre-ottimizzazione, giu 2026)
 
-| Pagina | Performance | LCP | CLS | Obiettivo ≥90 |
-|--------|-------------|-----|-----|---------------|
-| `/` | **40** | 13.8s | 0 | Non raggiunto |
-| `/servizi` | **51** | 6.4s | — | Non raggiunto |
-| `/contatti` | **63** | 6.1s | — | Non raggiunto |
+| Pagina | Desktop | Mobile | Bottleneck principale |
+|--------|---------|--------|------------------------|
+| `/` | **92** | **34–63** | Poster PNG 1.4MB + Three.js globale |
+| `/servizi` | — | ~75 | PNG servizi pesanti |
+| `/contatti` | — | ~71 | Framer Motion (lazy) |
+| `/casi-studio/software-b2b` | — | ~55 | Video poster come LCP |
 
-**Nota:** baseline "prima" non catturata in questa sessione. I punteggi riflettono lo stato post-ottimizzazione.
+Fonte: PageSpeed Insights / Lighthouse Lab su `https://www.forgegroup.it`.
 
-### Cause principali del gap Lighthouse
+### Lighthouse — dopo ottimizzazione (build production locale, giu 2026)
 
-1. **Three.js + GSAP globali** (`ClientSceneEffects`) su ogni pagina — scelta confermata dal cliente
-2. **Intro loader** con animazione iniziale
-3. Asset PNG servizi ancora >400KB–1.2MB (icon-* non usati in produzione?)
-4. Video recensione (`.mov` ~97MB, gitignored) — poster compresso a 270KB
+| Pagina | Desktop | LCP (desktop) | Mobile | LCP (mobile) | CLS |
+|--------|---------|---------------|--------|--------------|-----|
+| `/` | **61** | 5.0s | **80** | 5.4s | 0 |
+| `/servizi` | **72** | 4.0s | **87** | 4.0s | 0 |
+| `/contatti` | **66** | 6.0s | **74** | 6.0s | 0.12 |
+| `/casi-studio/software-b2b` | **79** | 3.2s | **93** | 3.2s | 0 |
+
+**Nota:** i punteggi Lab locali non includono CDN Vercel e possono divergere dal deploy (es. home desktop 61 locale vs 92 su produzione pre-fix). Il guadagno mobile atteso (+25–35 pt da 3D disabilitato sotto 1024px) è visibile su `/` (80) e `/casi-studio/software-b2b` (93).
+
+### Cause principali del gap Lighthouse (risolte in questo intervento)
+
+1. ~~Poster video PNG 1.4MB~~ → JPG 270KB + preload LCP homepage
+2. ~~Three.js globale su ogni pagina~~ → solo desktop ≥1024px (`ClientSceneEffects`)
+3. ~~`<video poster>` come elemento LCP~~ → click-to-play con `next/image` prioritario
+4. ~~PNG servizi 400–600KB~~ → WebP ~70–110KB; rimossi `icon-*.png` non referenziati (~3MB)
 
 ### Ottimizzazioni implementate
 
@@ -99,6 +111,10 @@ Report per il deploy su `https://www.forgegroup.it`.
 | Rimosso `unoptimized` su immagini case study | `CaseStudyStack`, `Carousel`, `Detail` |
 | Formati AVIF/WebP in config | `next.config.ts` |
 | Compressione JPEG blog/hero/poster | `public/images/blog/*.jpg`, `hero-growth.jpg`, `video-recensione-poster.jpg` |
+| Poster LCP JPG + `preload()` homepage | `images.ts`, `page.tsx` |
+| Video hero/case study click-to-play | `VideoClickToPlay.tsx`, `HeroVideoRecensione.tsx`, `CaseStudyDetail.tsx` |
+| Three.js solo desktop (≥1024px, no reduced-motion) | `ClientSceneEffects.tsx` |
+| Servizi PNG → WebP; rimossi icon-*.png morti | `ServiceCard.tsx`, `images.ts`, `public/images/servizi/` |
 
 ### Asset compressi (>200KB → sotto o vicino soglia)
 
@@ -109,12 +125,14 @@ Report per il deploy su `https://www.forgegroup.it`.
 | `blog/sistema-vendita-b2b-dalla-lead-al-contratto.jpg` | 1.8MB | 236KB |
 | `hero/hero-growth.jpg` | 1.7MB | 206KB |
 | `video-recensione-poster.jpg` | 2.2MB | 270KB |
+| `servizi/magnete.webp` | 510KB PNG | ~74KB |
+| `servizi/bersaglio.webp` | 491KB PNG | ~69KB |
+| `servizi/bussola.webp` | 614KB PNG | ~110KB |
 
 ### Mitigazioni future (non implementate)
 
-- Disabilitare 3D su mobile/tablet (stimato +25–35 punti Lighthouse)
-- Convertire PNG servizi/imprenditori in WebP
-- Poster statico al posto del video su mobile
+- Lazy-load aggressivo GSAP su mobile (marginal gains oltre 3D gate)
+- Poster statico al posto del video su mobile (click-to-play già mitiga LCP video)
 
 ---
 

@@ -1,6 +1,7 @@
 "use client";
 
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
+import VideoClickToPlay from "@/components/VideoClickToPlay";
 import { clientLogos } from "@/data/clientLogos";
 import { siteImages } from "@/data/images";
 
@@ -8,16 +9,13 @@ export default function HeroVideoRecensione() {
   return (
     <div className="w-full flex flex-col gap-4">
       <div className="relative w-full rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero">
-        <video
-          controls
-          preload="metadata"
-          playsInline
+        <VideoClickToPlay
+          src="/video-recensione.mp4"
           poster={siteImages.videoPoster}
-          className="w-full block aspect-video object-cover"
-        >
-          <source src="/video-recensione.mp4" type="video/mp4" />
-          Il tuo browser non supporta il video.
-        </video>
+          label="Video recensione DISA SRL"
+          priority
+          roundedClassName="rounded-none"
+        />
       </div>
 
       {/* Banner recensione */}
@@ -25,7 +23,7 @@ export default function HeroVideoRecensione() {
         <div className="flex gap-1 mb-4">
           {[0, 1, 2, 3, 4].map((i) => (
             <svg key={i} className="w-5 h-5 text-brand-corallo" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
+              <path d="M9.049 2.927c3.2-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
             </svg>
           ))}
         </div>

@@ -29,7 +29,7 @@ export const blogImages: Record<string, string> = {
 
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
-  videoPoster: "/images/video-recensione-poster.png",
+  videoPoster: "/images/video-recensione-poster.jpg",
   gianpioReel: "/video-gianpio-reel.mp4",
   gianpioReelPoster: "/images/team/gianpio-reel-poster.jpg",
   marcoReel: "/video-marco-reel.mp4",
@@ -46,9 +46,9 @@ export const heroShowcaseImages = {
 
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
-  acquisizione: "/images/servizi/magnete.png",
-  vendite: "/images/servizi/bersaglio.png",
-  consulenza: "/images/servizi/bussola.png",
+  acquisizione: "/images/servizi/magnete.webp",
+  vendite: "/images/servizi/bersaglio.webp",
+  consulenza: "/images/servizi/bussola.webp",
 } as const;
 
 export function getCaseStudyImage(slug: string): string {

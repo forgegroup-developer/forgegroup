@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import HeroGooeySection from "@/components/HeroGooeySection";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
@@ -32,6 +33,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  preload("/images/video-recensione-poster.jpg", { as: "image", fetchPriority: "high" });
+
   return (
     <>
       <JsonLdFAQ />

@@ -17,7 +17,7 @@ export const services: Service[] = [
       { text: "Il problema è che non ti trovano.", highlights: ["non ti trovano"] },
     ],
     href: "/servizi#acquisizione",
-    image: "/images/servizi/magnete.png",
+    image: "/images/servizi/magnete.webp",
   },
   {
     label: "02 · Processi di Vendita",
@@ -29,7 +29,7 @@ export const services: Service[] = [
       },
     ],
     href: "/servizi#vendite",
-    image: "/images/servizi/bersaglio.png",
+    image: "/images/servizi/bersaglio.webp",
   },
   {
     label: "03 · Consulenza & Formazione",
@@ -40,7 +40,7 @@ export const services: Service[] = [
       },
     ],
     href: "/servizi#consulenza",
-    image: "/images/servizi/bussola.png",
+    image: "/images/servizi/bussola.webp",
   },
 ];
 

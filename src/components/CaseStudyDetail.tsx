@@ -4,6 +4,7 @@ import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText from "@/components/HighlightedText";
 import PhoneScreenshotMockup from "@/components/PhoneScreenshotMockup";
+import VideoClickToPlay from "@/components/VideoClickToPlay";
 import type { CaseStudy } from "@/data/caseStudies";
 import { getCaseStudyImage, getCaseStudyImagePosition, siteImages } from "@/data/images";
 
@@ -256,15 +257,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
             <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
               <div className="min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
-                <video
-                  controls
-                  preload="metadata"
-                  playsInline
+                <VideoClickToPlay
+                  src={c.videoUrl}
                   poster={siteImages.videoPoster}
-                  className="block aspect-video w-full object-cover"
-                >
-                  <source src={c.videoUrl} type="video/mp4" />
-                </video>
+                  label={`Videorecensione ${clientName}`}
+                  roundedClassName="rounded-none"
+                />
               </div>
 
               <div className="min-w-0 rounded-2xl border border-brand-bordo bg-brand-panna px-5 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
