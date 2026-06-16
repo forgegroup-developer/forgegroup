@@ -187,9 +187,10 @@ ${articles.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}) — ${a.descriptio
     body: `
 # Privacy Policy Forge Group
 
-Informativa GDPR (aggiornata giugno 2026): titolare Forge Group Italia, form prequalifica, newsletter, responsabili Vercel e Resend, diritti dell'interessato e reclamo al Garante.
+Informativa GDPR (aggiornata giugno 2026).
 
-Titolare: Forge Group Italia — info@forgegroup.it
+Titolare: Marco Pio Cerbone, P.IVA 03247960648, Via Calore 97, 83036 Mirabella Eclano (AV).
+Denominazione commerciale: Forge Group Italia. Email: info@forgegroup.it
 `,
   },
   "cookie-policy": {
@@ -199,7 +200,8 @@ Titolare: Forge Group Italia — info@forgegroup.it
     body: `
 # Cookie Policy Forge Group
 
-Informativa cookie (giugno 2026): solo cookie tecnici necessari; nessun analytics o profilazione attivi. Hosting Vercel. Link alla Privacy Policy per i diritti GDPR.
+Informativa cookie (giugno 2026). Titolare: Marco Pio Cerbone, P.IVA 03247960648.
+Marchio: Forge Group Italia. Solo cookie tecnici; nessun analytics attivo.
 
 Sito: ${BASE}
 `,

@@ -54,7 +54,8 @@ export default function CookiePolicy() {
             <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
               Privacy Policy
             </Link>{" "}
-            di {LEGAL.controllerName} e descrive le modalità di utilizzo di cookie e tecnologie simili sul sito{" "}
+            di <strong>{LEGAL.controllerName}</strong>, operante con la denominazione commerciale{" "}
+            <strong>{LEGAL.controllerTradeName}</strong>, e descrive le modalità di utilizzo di cookie e tecnologie simili sul sito{" "}
             <a href={LEGAL.siteUrl} className="text-brand-corallo hover:underline">
               {LEGAL.siteUrl}
             </a>
@@ -63,7 +64,9 @@ export default function CookiePolicy() {
 
           <Section title="1. Titolare">
             <p className="text-brand-grigio leading-relaxed mb-6">
-              Titolare del trattamento: <strong>{LEGAL.controllerName}</strong>, {LEGAL.controllerLocation}. Email:{" "}
+              Titolare del trattamento: <strong>{LEGAL.controllerName}</strong>, Partita IVA {LEGAL.controllerVat}, con
+              sede in {LEGAL.controllerAddress}, operante con la denominazione commerciale{" "}
+              <strong>{LEGAL.controllerTradeName}</strong>. Email:{" "}
               <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
                 {LEGAL.controllerEmail}
               </a>

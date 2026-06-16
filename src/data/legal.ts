@@ -1,10 +1,14 @@
 /** Dati condivisi tra Privacy Policy e Cookie Policy — aggiornare qui le revisioni legali. */
 export const LEGAL = {
-  lastUpdated: "16 giugno 2026",
-  controllerName: "Forge Group Italia",
-  controllerShortName: "Forge Group",
+  lastUpdated: "17 giugno 2026",
+  /** Titolare del trattamento (persona fisica / P.IVA) */
+  controllerName: "Marco Pio Cerbone",
+  controllerVat: "03247960648",
+  controllerAddress: "Via Calore 97, 83036 Mirabella Eclano (AV), Italia",
   controllerEmail: "info@forgegroup.it",
-  controllerLocation: "Campania, Italia",
+  /** Denominazione commerciale del network */
+  controllerTradeName: "Forge Group Italia",
+  controllerShortName: "Forge Group",
   siteUrl: "https://www.forgegroup.it",
   garanteUrl: "https://www.garanteprivacy.it",
   garanteReclamiUrl: "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/4535524",

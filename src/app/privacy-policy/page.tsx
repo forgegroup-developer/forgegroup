@@ -50,8 +50,9 @@ export default function PrivacyPolicy() {
             Ultimo aggiornamento: {LEGAL.lastUpdated}
           </p>
           <p className="text-brand-grigio leading-relaxed mb-6">
-            La presente informativa descrive come {LEGAL.controllerName} (di seguito, il «Titolare» o «noi») tratta i
-            dati personali degli utenti che visitano il sito{" "}
+            La presente informativa descrive come <strong>{LEGAL.controllerName}</strong>, operante con la denominazione
+            commerciale <strong>{LEGAL.controllerTradeName}</strong> (di seguito, il «Titolare» o «noi»), tratta i dati
+            personali degli utenti che visitano il sito{" "}
             <a href={LEGAL.siteUrl} className="text-brand-corallo hover:underline">
               {LEGAL.siteUrl}
             </a>{" "}
@@ -61,12 +62,20 @@ export default function PrivacyPolicy() {
 
           <Section title="1. Titolare del trattamento">
             <p className="text-brand-grigio leading-relaxed mb-6">
-              Il Titolare del trattamento è <strong>{LEGAL.controllerName}</strong>, con sede operativa in{" "}
-              {LEGAL.controllerLocation}. Per qualsiasi richiesta relativa alla privacy è possibile contattarci all&apos;indirizzo{" "}
+              Il Titolare del trattamento dei dati personali raccolti tramite questo sito è{" "}
+              <strong>{LEGAL.controllerName}</strong>, Partita IVA {LEGAL.controllerVat}, con sede in{" "}
+              {LEGAL.controllerAddress}. Email:{" "}
               <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
                 {LEGAL.controllerEmail}
               </a>
               .
+            </p>
+            <p className="text-brand-grigio leading-relaxed mb-6">
+              <strong>{LEGAL.controllerTradeName}</strong> è la denominazione commerciale con cui opera una rete di
+              professionisti indipendenti nel settore del growth hacking e dell&apos;acquisizione clienti B2B. I servizi
+              erogati ai clienti possono coinvolgere, ove necessario, altri professionisti del network, secondo quanto
+              comunicato in fase contrattuale e nel rispetto della normativa applicabile in materia di protezione dei
+              dati personali.
             </p>
             <p className="text-brand-grigio leading-relaxed mb-6">
               Il Titolare non ha nominato un Responsabile della Protezione dei Dati (DPO), in quanto non ricorrono i
@@ -118,7 +127,7 @@ export default function PrivacyPolicy() {
                   </tr>
                   <tr className="border-b border-brand-bordo/60">
                     <td className="p-3 align-top">
-                      Invio di comunicazioni informative e commerciali relative a {LEGAL.controllerShortName} (newsletter)
+                      Invio di comunicazioni informative e commerciali relative a {LEGAL.controllerTradeName} (newsletter)
                     </td>
                     <td className="p-3 align-top">Art. 6, par. 1, lett. a) GDPR (consenso)</td>
                     <td className="p-3 align-top">Facoltativo</td>
@@ -287,12 +296,7 @@ export default function PrivacyPolicy() {
           </Section>
 
           <p className="text-sm text-brand-grigio-light mt-12 border-t border-brand-bordo pt-8">
-            Documento redatto in conformità al Regolamento (UE) 2016/679. Per integrazioni relative a dati societari
-            (ragione sociale completa, codice fiscale/P.IVA, sede legale) contattare{" "}
-            <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
-              {LEGAL.controllerEmail}
-            </a>
-            .
+            Documento redatto in conformità al Regolamento (UE) 2016/679.
           </p>
         </div>
       </article>
