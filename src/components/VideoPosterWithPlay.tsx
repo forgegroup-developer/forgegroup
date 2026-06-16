@@ -57,8 +57,8 @@ export default function VideoPosterWithPlay({
         className="group absolute inset-0 flex items-center justify-center bg-brand-nero/20 transition-colors hover:bg-brand-nero/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-corallo focus-visible:ring-offset-2"
         aria-label={`Riproduci video: ${label}`}
       >
-        <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/90 bg-brand-corallo/95 shadow-lg transition-transform group-hover:scale-105">
-          <svg className="ml-1 h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <span className="pointer-events-none flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md transition-transform duration-200 group-hover:scale-105">
+          <svg className="ml-0.5 h-[18px] w-[18px] shrink-0 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
             <path d="M8 5v14l11-7z" />
           </svg>
         </span>
