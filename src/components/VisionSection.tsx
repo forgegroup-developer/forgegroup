@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import VisionBeliefCards from "@/components/VisionBeliefCards";
+import VisionJoinSection from "@/components/VisionJoinSection";
 
 export default function VisionSection() {
   return (
@@ -46,6 +47,9 @@ export default function VisionSection() {
 
       {/* Manifesto narrato nelle card inclinate */}
       <VisionBeliefCards />
+
+      {/* Entra a far parte — al posto del footer CTA su questa pagina */}
+      <VisionJoinSection />
     </>
   );
 }

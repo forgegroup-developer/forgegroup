@@ -65,7 +65,7 @@ export default function Footer() {
   return (
     <footer>
       {/* CTA band — nascosta su /contatti */}
-      {!isContatti && <FooterCtaBand isCaseStudy={isCaseStudy} isVisione={isVisione} />}
+      {!isContatti && !isVisione && <FooterCtaBand isCaseStudy={isCaseStudy} />}
 
       {/* Corpo footer — sfondo corallo */}
       <div className="bg-brand-corallo">

@@ -6,10 +6,9 @@ import LightBeamButton from "@/components/LightBeamButton";
 
 type Props = {
   isCaseStudy?: boolean;
-  isVisione?: boolean;
 };
 
-export default function FooterCtaBand({ isCaseStudy = false, isVisione = false }: Props) {
+export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   const panel = (
     <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
       <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
@@ -47,14 +46,6 @@ export default function FooterCtaBand({ isCaseStudy = false, isVisione = false }
       </div>
     </div>
   );
-
-  if (isVisione) {
-    return (
-      <section className="footer-cta-band footer-cta-band--visione relative overflow-hidden border-t border-b border-white/10 bg-[#1A1A1A]">
-        {panel}
-      </section>
-    );
-  }
 
   return (
     <section className="footer-cta-band relative overflow-hidden border-t border-b border-brand-bordo">
