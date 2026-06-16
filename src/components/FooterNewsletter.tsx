@@ -54,7 +54,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
     <div className={isFeatured ? "" : "mt-5"}>
       {isFeatured ? (
         <div className="max-w-xl">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white/85">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
             Newsletter
           </p>
           <form onSubmit={handleSubmit}>
@@ -87,7 +87,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
                 placeholder="La tua email"
                 autoComplete="email"
                 disabled={status === "loading"}
-                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
+                className="min-w-0 flex-1 rounded-full border border-white/70 bg-white/20 px-4 py-3 text-base text-white placeholder:text-white/80 outline-none transition-colors focus:border-white focus:bg-white/25 disabled:opacity-60"
               />
               <button
                 type="submit"
@@ -108,9 +108,9 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               {message}
             </p>
           ) : null}
-          <p className="mt-2 text-[10px] leading-snug text-white/60">
+          <p className="mt-2 text-[10px] leading-snug text-brand-pesca-light">
             Iscrivendoti accetti la{" "}
-            <Link href="/privacy-policy" className="underline hover:text-white/80">
+            <Link href="/privacy-policy" className="font-semibold text-white underline underline-offset-2 hover:text-brand-pesca-light">
               Privacy Policy
             </Link>
             .
@@ -118,10 +118,10 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
         </div>
       ) : (
         <>
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-white/80">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-white">
             Newsletter
           </p>
-          <p className="mb-3 text-xs leading-snug text-white/85">
+          <p className="mb-3 text-xs leading-snug text-brand-pesca-light">
             Resta aggiornato su strategie e casi studio B2B.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
@@ -154,7 +154,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
                 placeholder="La tua email"
                 autoComplete="email"
                 disabled={status === "loading"}
-                className="min-w-0 flex-1 rounded-full border border-white/45 bg-white/10 px-3 py-3 text-base text-white placeholder:text-white/50 outline-none transition-colors focus:border-white focus:bg-white/15 disabled:opacity-60"
+                className="min-w-0 flex-1 rounded-full border border-white/70 bg-white/20 px-3 py-3 text-base text-white placeholder:text-white/80 outline-none transition-colors focus:border-white focus:bg-white/25 disabled:opacity-60"
               />
               <button
                 type="submit"
@@ -175,9 +175,9 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               {message}
             </p>
           ) : null}
-          <p className="mt-2 text-[10px] leading-snug text-white/60">
+          <p className="mt-2 text-[10px] leading-snug text-brand-pesca-light">
             Iscrivendoti accetti la{" "}
-            <Link href="/privacy-policy" className="underline hover:text-white/80">
+            <Link href="/privacy-policy" className="font-semibold text-white underline underline-offset-2 hover:text-brand-pesca-light">
               Privacy Policy
             </Link>
             .

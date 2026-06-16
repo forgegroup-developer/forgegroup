@@ -154,7 +154,7 @@ export default function SocialProof() {
               >
                 {stat.label}
               </p>
-              <p className="text-brand-grigio text-sm mt-1 font-medium leading-snug opacity-70 w-full max-w-full px-4">
+              <p className="text-brand-grigio-light text-sm mt-1 font-medium leading-snug w-full max-w-full px-4">
                 {stat.sublabel}
               </p>
               <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full border border-brand-bordo flex items-center justify-center">
