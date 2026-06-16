@@ -1,18 +1,25 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { preload } from "react-dom";
 import HeroGooeySection from "@/components/HeroGooeySection";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
-import Reveal from "@/components/Reveal";
 import ClientiLogos from "@/components/ClientiLogos";
-import SocialProof from "@/components/SocialProof";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
+import ClientSceneEffects from "@/components/ClientSceneEffects";
+import DeferredMount from "@/components/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
+
+const SocialProof = dynamic(() => import("@/components/SocialProof"), {
+  loading: () => <div className="min-h-[320px]" aria-hidden />,
+});
+
+const Reveal = dynamic(() => import("@/components/Reveal"));
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -37,6 +44,7 @@ export default function Home() {
 
   return (
     <>
+      <ClientSceneEffects />
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <HeroGooeySection
@@ -74,12 +82,15 @@ export default function Home() {
       </HeroGooeySection>
 
       {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
-      <SocialProof />
+      <DeferredMount minHeight="320px">
+        <SocialProof />
+      </DeferredMount>
 
       {/* S2b — LOGHI CLIENTI */}
       <ClientiLogos />
 
       {/* S3 — SERVIZI */}
+      <DeferredMount minHeight="520px">
       <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -102,8 +113,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </DeferredMount>
 
       {/* S5 — CASI STUDIO (stacking cards on scroll) */}
+      <DeferredMount minHeight="640px">
       <section id="casi-studio" className="py-20 md:py-28 section-bianco scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -129,8 +142,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </DeferredMount>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
+      <DeferredMount minHeight="480px">
       <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -222,11 +237,13 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+      </DeferredMount>
 
       {/* S7 — TEAM */}
       <TeamSection />
 
       {/* S8 — FAQ */}
+      <DeferredMount minHeight="360px">
       <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-coral border-y">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -243,6 +260,7 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+      </DeferredMount>
 
     </>
   );

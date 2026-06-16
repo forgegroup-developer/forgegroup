@@ -11,9 +11,41 @@ function useEnable3d() {
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 1024px)");
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    let cancelled = false;
+
+    const clearScheduled = () => {
+      if (idleId !== undefined && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+        idleId = undefined;
+      }
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+        timeoutId = undefined;
+      }
+    };
+
+    const scheduleMount = () => {
+      clearScheduled();
+      const mount = () => {
+        if (!cancelled) setEnable3d(true);
+      };
+
+      if ("requestIdleCallback" in window) {
+        idleId = window.requestIdleCallback(mount, { timeout: 3000 });
+      } else {
+        timeoutId = setTimeout(mount, 2000);
+      }
+    };
 
     const update = () => {
-      setEnable3d(desktopQuery.matches && !motionQuery.matches);
+      clearScheduled();
+      if (!desktopQuery.matches || motionQuery.matches) {
+        setEnable3d(false);
+        return;
+      }
+      scheduleMount();
     };
 
     update();
@@ -21,6 +53,8 @@ function useEnable3d() {
     motionQuery.addEventListener("change", update);
 
     return () => {
+      cancelled = true;
+      clearScheduled();
       desktopQuery.removeEventListener("change", update);
       motionQuery.removeEventListener("change", update);
     };

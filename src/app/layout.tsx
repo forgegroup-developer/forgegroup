@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ClientSceneEffects from "@/components/ClientSceneEffects";
 import {
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -134,7 +133,6 @@ export default function RootLayout({
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
       >
-        <ClientSceneEffects />
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(organizationJsonLd)}
         </Script>

@@ -1,24 +1,35 @@
-"use client";
-
+import Image from "next/image";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import VideoClickToPlay from "@/components/VideoClickToPlay";
+import VideoPosterWithPlay from "@/components/VideoPosterWithPlay";
 import { clientLogos } from "@/data/clientLogos";
 import { siteImages } from "@/data/images";
 
 export default function HeroVideoRecensione() {
   return (
     <div className="w-full flex flex-col gap-4">
-      <div className="relative w-full rounded-3xl overflow-hidden border border-brand-bordo shadow-2xl bg-brand-nero">
-        <VideoClickToPlay
+      <div className="relative w-full overflow-hidden rounded-3xl border border-brand-bordo shadow-2xl bg-brand-nero">
+        <VideoPosterWithPlay
           src="/video-recensione.mp4"
           poster={siteImages.videoPoster}
           label="Video recensione DISA SRL"
-          priority
-          roundedClassName="rounded-none"
-        />
+          videoClassName="w-full block aspect-video object-cover rounded-none"
+        >
+          <picture className="block w-full">
+            <source media="(max-width: 1023px)" srcSet={siteImages.videoPosterMobile} />
+            <Image
+              src={siteImages.videoPoster}
+              alt="Video recensione DISA SRL"
+              width={1280}
+              height={720}
+              priority
+              fetchPriority="high"
+              className="w-full block aspect-video object-cover"
+              sizes="(max-width: 1024px) 100vw, 574px"
+            />
+          </picture>
+        </VideoPosterWithPlay>
       </div>
 
-      {/* Banner recensione */}
       <div className="w-full rounded-2xl border border-brand-bordo bg-brand-panna/75 backdrop-blur-sm px-6 py-6 md:px-8 md:py-7 shadow-sm text-left">
         <div className="flex gap-1 mb-4">
           {[0, 1, 2, 3, 4].map((i) => (

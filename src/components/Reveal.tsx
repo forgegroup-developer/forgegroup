@@ -37,13 +37,12 @@ export default function Reveal({
       return;
     }
 
-    gsap.set(el, { opacity: 0, y, scale: 0.985, filter: "blur(6px)" });
+    gsap.set(el, { opacity: 0, y, scale: 0.985 });
 
     const tween = gsap.to(el, {
       opacity: 1,
       y: 0,
       scale: 1,
-      filter: "blur(0px)",
       duration,
       delay: delay * 0.1,
       ease: "expo.out",
