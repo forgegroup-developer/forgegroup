@@ -55,9 +55,9 @@ export default function Home() {
         className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
         innerClassName="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16"
       >
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-12 xl:gap-16 items-stretch">
-          {/* Mobile: poster prima (LCP preload); desktop: copy a sinistra */}
-          <div className="order-2 lg:order-1 flex flex-col justify-center gap-7 sm:gap-8 py-2 sm:py-4 lg:py-6 w-full min-w-0">
+        <div className="flex flex-col gap-10 sm:gap-12 lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-stretch">
+          {/* Mobile: titolo e CTA per primi (ordine DOM); desktop: colonna sinistra */}
+          <div className="flex flex-col justify-center gap-7 sm:gap-8 py-2 sm:py-4 lg:py-6 w-full min-w-0">
             <p className="hero-enter hero-enter-d1 self-center lg:self-start inline-flex items-center gap-2 eyebrow text-xs sm:text-sm md:text-base px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm text-center max-w-full text-balance">
               ✦ Vuoi aumentare il fatturato della tua azienda?
             </p>
@@ -80,7 +80,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 w-full min-w-0 flex flex-col justify-center mt-2 sm:mt-0">
+          {/* Mobile: video recensione sotto titolo e CTA; desktop: colonna destra */}
+          <div className="w-full min-w-0 flex flex-col justify-center lg:mt-0">
             <HeroVideoRecensione />
           </div>
         </div>

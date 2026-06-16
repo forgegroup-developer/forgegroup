@@ -31,25 +31,28 @@ export default function HeroVideoRecensione() {
           &rdquo;
         </blockquote>
 
-        <div className="mt-5 flex items-center gap-4 rounded-xl bg-brand-bianco/70 border border-brand-bordo px-4 py-3.5">
-          <CaseStudyClientLogo
-            src={clientLogos.disa.src}
-            alt={clientLogos.disa.alt}
-            variant="inline"
-            size="md"
-          />
-          <div className="flex-1 min-w-0">
-            <p
-              className="text-brand-nero font-bold text-sm leading-tight truncate"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              DISA SRL
-            </p>
-            <p className="text-brand-grigio text-xs mt-0.5 font-medium uppercase tracking-wide">
-              Software B2B
-            </p>
+        <div className="mt-5 flex flex-col gap-3 rounded-xl bg-brand-bianco/70 border border-brand-bordo px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4">
+          <div className="flex min-w-0 items-center gap-3 sm:flex-1">
+            <CaseStudyClientLogo
+              src={clientLogos.disa.src}
+              alt={clientLogos.disa.alt}
+              variant="inline"
+              size="sm"
+              className="shrink-0"
+            />
+            <div className="min-w-0">
+              <p
+                className="text-brand-nero font-bold text-sm leading-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                DISA SRL
+              </p>
+              <p className="text-brand-grigio text-xs mt-0.5 font-medium uppercase tracking-wide">
+                Software B2B
+              </p>
+            </div>
           </div>
-          <div className="flex shrink-0 flex-col items-end gap-0.5">
+          <div className="flex items-center justify-between gap-3 border-t border-brand-bordo/50 pt-2 sm:w-auto sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-0 sm:pt-0">
             <span className="text-brand-corallo font-bold text-sm leading-none">5/5</span>
             <span className="text-brand-grigio text-[10px] uppercase tracking-widest">Recensione</span>
           </div>

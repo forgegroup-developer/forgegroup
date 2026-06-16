@@ -51,7 +51,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
   const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
-    <article className="flex w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
+    <article className="flex w-full min-h-[440px] flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:min-h-0 md:h-[400px] md:flex-row">
       {/* Immagine — sinistra su desktop */}
       <div className="relative h-[200px] w-full shrink-0 overflow-hidden bg-brand-corallo md:h-full md:w-[55%]">
         <Image
@@ -89,7 +89,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
           {c.resultHeadline}
         </h3>
 
-        <p className="relative shrink-0 text-base leading-relaxed text-white/90 md:text-[15px]">
+        <p className="relative mb-3 line-clamp-3 shrink-0 text-base leading-relaxed text-white/90 md:mb-0 md:line-clamp-none md:text-[15px]">
           <ExcerptWithHighlights
             text={c.excerpt}
             highlights={c.excerptHighlights}
@@ -125,19 +125,29 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
 }
 
 export default function CaseStudyStack() {
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [useSimpleLayout, setUseSimpleLayout] = useState(true);
+
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const onChange = () => setReducedMotion(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
+    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqMobile = window.matchMedia("(max-width: 767px)");
+
+    const update = () => {
+      setUseSimpleLayout(mqMotion.matches || mqMobile.matches);
+    };
+
+    update();
+    mqMotion.addEventListener("change", update);
+    mqMobile.addEventListener("change", update);
+    return () => {
+      mqMotion.removeEventListener("change", update);
+      mqMobile.removeEventListener("change", update);
+    };
   }, []);
 
-  if (reducedMotion) {
+  if (useSimpleLayout) {
     return (
       <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
-        {caseStudies.map((c, i) => (
+        {caseStudies.map((c) => (
           <CaseStudyCard key={c.slug} c={c} />
         ))}
       </div>
@@ -152,7 +162,7 @@ export default function CaseStudyStack() {
       {caseStudies.map((c, i) => (
         <div
           key={c.slug}
-          className="sticky flex items-start justify-center"
+          className="sticky flex w-full items-start justify-center overflow-hidden"
           style={{
             top: `calc(${NAV_OFFSET_REM}rem + ${i * STACK_STEP_REM}rem)`,
             zIndex: i + 1,
