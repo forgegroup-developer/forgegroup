@@ -180,7 +180,7 @@ export default function VisionJoinSection() {
               fontWeight: 700,
             }}
           >
-            La <span className="text-brand-corallo">community</span> è il progetto vero.
+            La <span className="text-brand-corallo">community</span> è il vero progetto.
           </h2>
           <p
             className="mt-6 text-pretty text-white/75"
