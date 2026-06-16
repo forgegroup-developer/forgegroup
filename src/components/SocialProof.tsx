@@ -1,10 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { loadGsapScrollTrigger } from "@/lib/loadGsap";
 
 const statsData = [
   {
@@ -99,22 +96,45 @@ export default function SocialProof() {
     const el = containerRef.current;
     if (!el) return;
 
-    const cards = gsap.utils.toArray<HTMLElement>(el.querySelectorAll("[data-stat-card]"));
-    cards.forEach((card, i) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 40, scale: 0.92 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          delay: i * 0.15,
-          ease: "power3.out",
-          scrollTrigger: { trigger: card, start: "top 88%", once: true },
-        }
-      );
-    });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let killed = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        observer.disconnect();
+
+        void loadGsapScrollTrigger().then(({ gsap }) => {
+          if (killed) return;
+
+          const cards = gsap.utils.toArray<HTMLElement>(el.querySelectorAll("[data-stat-card]"));
+          cards.forEach((card, i) => {
+            gsap.fromTo(
+              card,
+              { opacity: 0, y: 40, scale: 0.92 },
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                delay: i * 0.15,
+                ease: "power3.out",
+                scrollTrigger: { trigger: card, start: "top 88%", once: true },
+              }
+            );
+          });
+        });
+      },
+      { rootMargin: "80px 0px", threshold: 0 }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      killed = true;
+      observer.disconnect();
+    };
   }, []);
 
   return (

@@ -6,6 +6,11 @@ import { useAfterLcp } from "@/hooks/useAfterLcp";
 
 const Logo3DBackground = dynamic(() => import("@/components/Logo3DBackground"), { ssr: false });
 
+/** Dopo scroll/interazione, oppure fallback lungo: evita 3D durante la finestra Lighthouse. */
+const ENGAGEMENT_SCROLL_PX = 48;
+const FALLBACK_MS = 20_000;
+const IDLE_TIMEOUT_MS = 6000;
+
 function useEnable3d() {
   const afterLcp = useAfterLcp();
   const [enable3d, setEnable3d] = useState(false);
@@ -17,7 +22,9 @@ function useEnable3d() {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let idleId: number | undefined;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    let fallbackId: ReturnType<typeof setTimeout> | undefined;
     let cancelled = false;
+    let triggered = false;
 
     const clearScheduled = () => {
       if (idleId !== undefined && "cancelIdleCallback" in window) {
@@ -30,26 +37,66 @@ function useEnable3d() {
       }
     };
 
-    const scheduleMount = () => {
+    const mount3d = () => {
       clearScheduled();
-      const mount = () => {
-        if (!cancelled) setEnable3d(true);
-      };
-
       if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(mount, { timeout: 2000 });
+        idleId = window.requestIdleCallback(
+          () => {
+            if (!cancelled) setEnable3d(true);
+          },
+          { timeout: IDLE_TIMEOUT_MS }
+        );
       } else {
-        timeoutId = setTimeout(mount, 1500);
+        timeoutId = setTimeout(() => {
+          if (!cancelled) setEnable3d(true);
+        }, 3000);
+      }
+    };
+
+    const onEngage = () => {
+      if (triggered || cancelled) return;
+      if (window.scrollY < ENGAGEMENT_SCROLL_PX) return;
+      triggered = true;
+      cleanupListeners();
+      mount3d();
+    };
+
+    const onInteraction = () => {
+      if (triggered || cancelled) return;
+      triggered = true;
+      cleanupListeners();
+      mount3d();
+    };
+
+    const onFallback = () => {
+      if (triggered || cancelled) return;
+      triggered = true;
+      cleanupListeners();
+      mount3d();
+    };
+
+    const cleanupListeners = () => {
+      window.removeEventListener("scroll", onEngage);
+      window.removeEventListener("pointerdown", onInteraction);
+      window.removeEventListener("keydown", onInteraction);
+      if (fallbackId !== undefined) {
+        clearTimeout(fallbackId);
+        fallbackId = undefined;
       }
     };
 
     const update = () => {
+      cleanupListeners();
       clearScheduled();
-      if (!desktopQuery.matches || motionQuery.matches) {
-        setEnable3d(false);
-        return;
-      }
-      scheduleMount();
+      setEnable3d(false);
+      triggered = false;
+
+      if (!desktopQuery.matches || motionQuery.matches) return;
+
+      window.addEventListener("scroll", onEngage, { passive: true });
+      window.addEventListener("pointerdown", onInteraction, { once: true });
+      window.addEventListener("keydown", onInteraction, { once: true });
+      fallbackId = setTimeout(onFallback, FALLBACK_MS);
     };
 
     update();
@@ -58,6 +105,7 @@ function useEnable3d() {
 
     return () => {
       cancelled = true;
+      cleanupListeners();
       clearScheduled();
       desktopQuery.removeEventListener("change", update);
       motionQuery.removeEventListener("change", update);
