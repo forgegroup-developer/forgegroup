@@ -247,12 +247,12 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={handleMobileCasiStudioTap}
-                className="flex w-full min-h-[52px] items-center justify-between py-3 group"
+                className="flex w-full items-center justify-between py-5 group"
                 aria-expanded={mobileCasi}
                 aria-label="Casi Studio — tocca due volte per tutti i casi studio"
               >
                 <span
-                  className={`text-[22px] font-bold uppercase tracking-tight transition-colors sm:text-[24px] ${
+                  className={`text-[28px] font-bold uppercase tracking-tight transition-colors ${
                     isCaseStudyActive
                       ? "text-brand-corallo"
                       : "text-white group-hover:text-brand-corallo"
