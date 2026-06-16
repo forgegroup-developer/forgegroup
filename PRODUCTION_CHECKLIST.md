@@ -91,6 +91,17 @@ Fonte: PageSpeed Insights / Lighthouse Lab su `https://www.forgegroup.it`.
 
 **Nota:** i punteggi Lab locali non includono CDN Vercel e possono divergere dal deploy (es. home desktop 61 locale vs 92 su produzione pre-fix). Il guadagno mobile atteso (+25–35 pt da 3D disabilitato sotto 1024px) è visibile su `/` (80) e `/casi-studio/software-b2b` (93).
 
+### Lighthouse — produzione post-deploy (`e9c3ef9`, giu 2026)
+
+| Pagina | Desktop | LCP | Mobile | LCP | CLS (mobile) |
+|--------|---------|-----|--------|-----|--------------|
+| `/` | **65** | 4.6s | **76** | 5.5s | 0 |
+| `/servizi` | **72** | 3.5s | **76** | 5.6s | 0 |
+| `/contatti` | **66** | 4.8s | **90** | 3.0s | 0.12 |
+| `/casi-studio/software-b2b` | **83** | 2.5s | **96** | 2.8s | 0 |
+
+Mobile: home **76** (da 34–63), contatti **90** (da ~71), DISA **96** (da ~55). Desktop home resta variabile in Lab (65 vs baseline 92); LCP poster/video mitigato ma TBT desktop ancora influenzato da GSAP/intro.
+
 ### Cause principali del gap Lighthouse (risolte in questo intervento)
 
 1. ~~Poster video PNG 1.4MB~~ → JPG 270KB + preload LCP homepage
