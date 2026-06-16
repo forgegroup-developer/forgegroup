@@ -1,33 +1,16 @@
-import Image from "next/image";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import VideoPosterWithPlay from "@/components/VideoPosterWithPlay";
+import VideoRecensionePoster from "@/components/VideoRecensionePoster";
 import { clientLogos } from "@/data/clientLogos";
-import { siteImages } from "@/data/images";
 
 export default function HeroVideoRecensione() {
   return (
     <div className="w-full flex flex-col gap-4">
       <div className="relative w-full overflow-hidden rounded-3xl border border-brand-bordo shadow-2xl bg-brand-nero">
-        <VideoPosterWithPlay
+        <VideoRecensionePoster
           src="/video-recensione.mp4"
-          poster={siteImages.videoPoster}
           label="Video recensione DISA SRL"
-          videoClassName="w-full block aspect-video object-cover rounded-none"
-        >
-          <picture className="block w-full">
-            <source media="(max-width: 1023px)" srcSet={siteImages.videoPosterMobile} />
-            <Image
-              src={siteImages.videoPoster}
-              alt="Video recensione DISA SRL"
-              width={1280}
-              height={720}
-              priority
-              fetchPriority="high"
-              className="w-full block aspect-video object-cover"
-              sizes="(max-width: 1024px) 100vw, 574px"
-            />
-          </picture>
-        </VideoPosterWithPlay>
+          priority
+        />
       </div>
 
       <div className="w-full rounded-2xl border border-brand-bordo bg-brand-panna/75 backdrop-blur-sm px-6 py-6 md:px-8 md:py-7 shadow-sm text-left">

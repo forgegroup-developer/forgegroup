@@ -4,9 +4,10 @@ import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
 import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
 import HighlightedText from "@/components/HighlightedText";
 import PhoneScreenshotMockup from "@/components/PhoneScreenshotMockup";
-import VideoClickToPlay from "@/components/VideoClickToPlay";
+import VideoRecensionePoster from "@/components/VideoRecensionePoster";
+import DeferredMount from "@/components/DeferredMount";
 import type { CaseStudy } from "@/data/caseStudies";
-import { getCaseStudyImage, getCaseStudyImagePosition, siteImages } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
 
 type Props = {
   c: CaseStudy;
@@ -255,13 +256,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               </h2>
             </div>
 
+            <DeferredMount minHeight="360px" rootMargin="320px 0px">
             <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
               <div className="min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
-                <VideoClickToPlay
+                <VideoRecensionePoster
                   src={c.videoUrl}
-                  poster={siteImages.videoPoster}
                   label={`Videorecensione ${clientName}`}
-                  roundedClassName="rounded-none"
                 />
               </div>
 
@@ -321,6 +321,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 </div>
               </div>
             </div>
+            </DeferredMount>
           </div>
         </section>
       )}

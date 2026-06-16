@@ -1,18 +1,17 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { preload } from "react-dom";
 import HeroGooeySection from "@/components/HeroGooeySection";
 import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
-import ClientiLogos from "@/components/ClientiLogos";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import TeamSection from "@/components/TeamSection";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import ClientSceneEffects from "@/components/ClientSceneEffects";
 import DeferredMount from "@/components/DeferredMount";
+import LcpPosterPreload from "@/components/LcpPosterPreload";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
 const SocialProof = dynamic(() => import("@/components/SocialProof"), {
@@ -20,6 +19,10 @@ const SocialProof = dynamic(() => import("@/components/SocialProof"), {
 });
 
 const Reveal = dynamic(() => import("@/components/Reveal"));
+
+const ClientiLogos = dynamic(() => import("@/components/ClientiLogos"), {
+  loading: () => <div className="min-h-[280px]" aria-hidden />,
+});
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -40,10 +43,9 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  preload("/images/video-recensione-poster.jpg", { as: "image", fetchPriority: "high" });
-
   return (
     <>
+      <LcpPosterPreload />
       <ClientSceneEffects />
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
@@ -87,7 +89,9 @@ export default function Home() {
       </DeferredMount>
 
       {/* S2b — LOGHI CLIENTI */}
-      <ClientiLogos />
+      <DeferredMount minHeight="280px">
+        <ClientiLogos />
+      </DeferredMount>
 
       {/* S3 — SERVIZI */}
       <DeferredMount minHeight="520px">
