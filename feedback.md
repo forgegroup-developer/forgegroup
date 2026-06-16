@@ -345,7 +345,7 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 - **Caso studio dettaglio:** h1 risultato → h2 cliente/sfida/sistema/risultati/video/prima-dopo/a chi serve → h3 step e diagnosi
 - **Contatti:** h1 → h2 step form (footer senza heading)
 - **Chi siamo e manifesto:** h1 hero → h2 Chi siamo / Valori / Chi NON accettiamo → h3 card valori
-- **Visione:** h1 manifesto unico in `VisionSection` (nessun h2 intermedio)
+- **Visione:** h1 in hero · h2 blocco card scuro · h3 titoli nelle card
 
 ---
 
@@ -362,14 +362,14 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 **Sfondo sezione contenuto:** classe `section-visione` (`#FAECE7` al 92%, bordo come le altre sezioni).
 
 **Layout pagina:**
-- **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, titolo e domanda centrati (testi e colori brand invariati)
-- **Titolo sezione h2** centrato: *Costruiamo con chi ha il coraggio di crescere sul serio* (keyword corallo in corsivo)
-- **Blocco 2 colonne:** sinistra manifesto (sticky su desktop) · destra card stile Superdesign (aspect 4/5, corallo/nero alternati, icona + badge numero + **solo foto** + divider; **zero** titoli/descrizioni testo team)
-- **Founders:** foto duo grande full width, **senza** nomi/ruoli sotto
+- **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, h1 e domanda centrati
+- **Manifesto:** testo vincolante a colonna singola centrata (`max-w-3xl`)
+- **Blocco card inclinate** (`VisionBeliefCards`): full-width `#1A1A1A`, h2 *Quello in cui crediamo davvero*, 2 card affiancate ruotate (-4° / +4°), overlap e sfalsamento, GSAP ScrollTrigger
+- **Founders:** foto duo grande, senza didascalie
 
-**Componenti:** `src/app/visione/page.tsx`, `VisionSection.tsx`.
+**Heading:** h1 in hero · h2 blocco card scuro · card con h3 titolo interno
 
-**Heading:** h1 in hero · h2 titolo sezione card · card editoriali e foto founders senza heading
+**Componenti:** `src/app/visione/page.tsx`, `VisionSection.tsx`, `VisionBeliefCards.tsx`.
 
 ---
 
