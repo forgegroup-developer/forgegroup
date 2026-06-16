@@ -1,7 +1,12 @@
 "use client";
 
 import { type ReactNode, useRef, useState } from "react";
+import VideoPlayGlassButton from "@/components/VideoPlayGlassButton";
 
+/**
+ * Click-to-play unico per tutti i video del sito.
+ * Usato da: HeroVideoRecensione, VideoRecensionePoster, ReelHeroVideo (home, servizi, casi studio).
+ */
 type VideoPosterWithPlayProps = {
   src: string;
   poster: string;
@@ -57,11 +62,7 @@ export default function VideoPosterWithPlay({
         className="group absolute inset-0 flex items-center justify-center bg-brand-nero/20 transition-colors hover:bg-brand-nero/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-corallo focus-visible:ring-offset-2"
         aria-label={`Riproduci video: ${label}`}
       >
-        <span className="pointer-events-none flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md transition-transform duration-200 group-hover:scale-105">
-          <svg className="ml-0.5 h-[18px] w-[18px] shrink-0 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        </span>
+        <VideoPlayGlassButton />
       </button>
     </div>
   );

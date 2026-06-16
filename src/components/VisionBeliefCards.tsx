@@ -122,10 +122,10 @@ function BeliefCard({
             quality={90}
           />
 
-          <div className="absolute left-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md">
+          <div className="glass-chip absolute left-4 top-4 z-10 flex h-10 w-10 items-center justify-center">
             <Icon className={`h-5 w-5 ${iconClassName}`} strokeWidth={1.75} aria-hidden />
           </div>
-          <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-md">
+          <span className="glass-chip absolute right-4 top-4 z-10 px-3 py-1.5 text-sm font-medium">
             {number}
           </span>
         </div>

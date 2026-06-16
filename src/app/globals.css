@@ -1017,6 +1017,15 @@ button:disabled .light-beam-btn__glow {
   pointer-events: none;
 }
 
+/* ── Glass chip (badge card visione, play video) ───────────────── */
+.glass-chip {
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 /* ── CTA glass panel (footer band) ─────────────────────────────── */
 .cta-glass-panel {
   position: relative;
