@@ -243,16 +243,16 @@ export default function Navbar() {
               <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
             </Link>
 
-            <div className="border-b border-white/10">
+            <div className="overflow-hidden border-b border-white/10 bg-brand-nero">
               <button
                 type="button"
                 onClick={handleMobileCasiStudioTap}
-                className="w-full flex items-center justify-between py-5 group"
+                className="flex w-full min-h-[52px] items-center justify-between py-3 group"
                 aria-expanded={mobileCasi}
                 aria-label="Casi Studio — tocca due volte per tutti i casi studio"
               >
                 <span
-                  className={`text-[28px] font-bold uppercase tracking-tight transition-colors ${
+                  className={`text-[22px] font-bold uppercase tracking-tight transition-colors sm:text-[24px] ${
                     isCaseStudyActive
                       ? "text-brand-corallo"
                       : "text-white group-hover:text-brand-corallo"
@@ -261,9 +261,9 @@ export default function Navbar() {
                   Casi Studio
                 </span>
                 <span
-                  className={`text-2xl font-light transition-all duration-300 ${
+                  className={`text-xl font-light transition-all duration-300 ${
                     mobileCasi
-                      ? "text-brand-corallo rotate-45"
+                      ? "rotate-45 text-brand-corallo"
                       : "text-white/30 group-hover:text-brand-corallo"
                   }`}
                 >
@@ -271,17 +271,19 @@ export default function Navbar() {
                 </span>
               </button>
               <div
-                className={`accordion-content${mobileCasi ? " open" : ""}`}
+                className={`overflow-hidden bg-brand-nero transition-[max-height,opacity] duration-300 ease-out ${
+                  mobileCasi ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
+                }`}
                 aria-hidden={!mobileCasi}
                 inert={!mobileCasi ? true : undefined}
               >
-                <div className="pb-4 pl-2 space-y-0">
+                <div className="space-y-0 pb-3 pl-2">
                   {caseStudies.map((c) => (
                     <Link
                       key={c.slug}
                       href={`/casi-studio/${c.slug}`}
                       onClick={closeMenu}
-                      className="flex items-center gap-2 py-2.5 text-base font-medium text-white/60 hover:text-brand-corallo transition-colors"
+                      className="flex items-center gap-2 py-2 text-base font-medium text-white/60 transition-colors hover:text-brand-corallo"
                     >
                       <span className="text-brand-corallo text-xs">✦</span>
                       {c.shortTitle}
@@ -290,7 +292,7 @@ export default function Navbar() {
                   <Link
                     href="/casi-studio"
                     onClick={closeMenu}
-                    className="block text-xs uppercase tracking-widest text-brand-corallo font-bold pt-2 pb-1"
+                    className="block pb-1 pt-2 text-xs font-bold uppercase tracking-widest text-brand-corallo"
                   >
                     Tutti i casi →
                   </Link>
