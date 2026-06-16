@@ -187,9 +187,9 @@ ${articles.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}) — ${a.descriptio
     body: `
 # Privacy Policy Forge Group
 
-Informativa sul trattamento dei dati personali per visitatori del sito e candidature via form contatti.
+Informativa GDPR (aggiornata giugno 2026): titolare Forge Group Italia, form prequalifica, newsletter, responsabili Vercel e Resend, diritti dell'interessato e reclamo al Garante.
 
-Titolare: Forge Group — info@forgegroup.it
+Titolare: Forge Group Italia — info@forgegroup.it
 `,
   },
   "cookie-policy": {
@@ -199,7 +199,9 @@ Titolare: Forge Group — info@forgegroup.it
     body: `
 # Cookie Policy Forge Group
 
-Descrizione delle tipologie di cookie e modalità di gestione del consenso sul sito ${BASE}.
+Informativa cookie (giugno 2026): solo cookie tecnici necessari; nessun analytics o profilazione attivi. Hosting Vercel. Link alla Privacy Policy per i diritti GDPR.
+
+Sito: ${BASE}
 `,
   },
 };
