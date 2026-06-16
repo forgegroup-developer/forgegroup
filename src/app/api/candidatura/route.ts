@@ -4,6 +4,11 @@ import {
   buildCandidaturaInternalHtml,
   buildCandidaturaInternalSubject,
 } from "@/lib/email/candidaturaInternalNotification";
+import {
+  FORGE_INTERNAL_EMAIL,
+  getInternalNotificationEmail,
+  getResendFromEmail,
+} from "@/lib/email/resendConfig";
 import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
@@ -53,14 +58,14 @@ export async function POST(request: Request) {
     );
   }
 
-  const fromEmail = process.env.RESEND_FROM || "Forge Group <onboarding@resend.dev>";
-  const toEmail = process.env.RESEND_TO || "info@forgegroup.it";
+  const fromEmail = getResendFromEmail();
+  const toEmail = getInternalNotificationEmail();
 
   if (!process.env.RESEND_API_KEY) {
     if (process.env.NODE_ENV === "development") {
       console.log("\n=== [DEV] CANDIDATURA TEAM (Resend non configurato) ===");
       console.log(JSON.stringify(data, null, 2));
-      console.log("=== Destinatario:", toEmail, "===\n");
+      console.log("=== Destinatario:", toEmail, `(default: ${FORGE_INTERNAL_EMAIL})`, "===\n");
       return NextResponse.json({
         success: true,
         message: "Candidatura ricevuta (modalità dev: email non inviata).",

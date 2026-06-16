@@ -7,7 +7,8 @@ import { usePathname } from "next/navigation";
 import FooterCtaBand from "@/components/FooterCtaBand";
 import FooterNewsletter from "@/components/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
-import { SOCIAL_PROFILES } from "@/lib/seo/site";
+import { LEGAL } from "@/data/legal";
+import { SITE_DESCRIPTION, SOCIAL_PROFILES } from "@/lib/seo/site";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
 
@@ -78,7 +79,7 @@ export default function Footer() {
                 <Image src="/logo-transparent.png" alt="Forge Group" width={48} height={48} className="h-12 w-auto shrink-0" />
               </Link>
               <p className="text-sm text-white leading-relaxed">
-                Azienda di Growth Hacking in Italia.
+                {SITE_DESCRIPTION}
               </p>
               <div className="flex items-center gap-3 mt-5">
                 <a
@@ -134,6 +135,15 @@ export default function Footer() {
                       <span>Il nostro sistema</span>
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/contatti"
+                      className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2"
+                    >
+                      <span className="text-white shrink-0">✦</span>
+                      <span>Consulenza gratuita</span>
+                    </Link>
+                  </li>
                 </ul>
               </MobileCol>
 
@@ -175,15 +185,15 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
+                    <Link href="/visione#entra-a-far-parte" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
                       <span className="text-white shrink-0">✦</span>
-                      <span>Blog Intelligence</span>
+                      <span>Entra a far parte</span>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contatti" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
+                    <Link href="/blog" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
                       <span className="text-white shrink-0">✦</span>
-                      <span>Hai un minuto?</span>
+                      <span>Blog</span>
                     </Link>
                   </li>
                 </ul>
@@ -196,14 +206,14 @@ export default function Footer() {
               >
                 <ul className="space-y-3">
                   <li>
-                    <a href="mailto:info@forgegroup.it" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
+                    <a href={`mailto:${LEGAL.controllerEmail}`} className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
                       <span className="text-white shrink-0">✦</span>
-                      <span>info@forgegroup.it</span>
+                      <span>{LEGAL.controllerEmail}</span>
                     </a>
                   </li>
                   <li className="pt-2">
                     <Link href="/contatti" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
-                      Prequalifica →
+                      Hai un minuto? →
                     </Link>
                   </li>
                 </ul>
