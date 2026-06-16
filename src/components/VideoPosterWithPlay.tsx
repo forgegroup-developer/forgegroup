@@ -31,18 +31,20 @@ export default function VideoPosterWithPlay({
 
   if (playing) {
     return (
-      <video
-        ref={videoRef}
-        controls
-        autoPlay
-        preload="none"
-        playsInline
-        poster={poster}
-        className={videoClassName}
-      >
-        <source src={src} type="video/mp4" />
-        Il tuo browser non supporta il video.
-      </video>
+      <div className={className}>
+        <video
+          ref={videoRef}
+          controls
+          autoPlay
+          preload="none"
+          playsInline
+          poster={poster}
+          className={videoClassName}
+        >
+          <source src={src} type="video/mp4" />
+          Il tuo browser non supporta il video.
+        </video>
+      </div>
     );
   }
 

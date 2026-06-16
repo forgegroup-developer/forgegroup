@@ -203,6 +203,7 @@ export function AnimatedStepper({
           isCompleted={isCompleted}
           currentStep={currentStep}
           direction={direction}
+          minContentHeight={isTypeform ? 320 : undefined}
           className={`${isTypeform ? "px-6 md:px-8" : "px-8"} ${contentClassName}`}
         >
           {stepsArray[currentStep - 1]}
@@ -252,19 +253,23 @@ function StepContentWrapper({
   direction,
   children,
   className = "",
+  minContentHeight,
 }: {
   isCompleted: boolean;
   currentStep: number;
   direction: number;
   children: ReactNode;
   className?: string;
+  minContentHeight?: number;
 }) {
-  const [parentHeight, setParentHeight] = useState(0);
+  const [parentHeight, setParentHeight] = useState(minContentHeight ?? 0);
 
   return (
     <motion.div
       style={{ position: "relative", overflow: "hidden" }}
-      animate={{ height: isCompleted ? 0 : parentHeight || "auto" }}
+      animate={{
+        height: isCompleted ? 0 : Math.max(parentHeight, minContentHeight ?? 0) || "auto",
+      }}
       transition={{ type: "spring", damping: 25, stiffness: 200 }}
       className={className}
     >
