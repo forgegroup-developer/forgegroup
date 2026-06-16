@@ -18,37 +18,76 @@ const manifestoParagraphs = [
 
 const editorialCards = [
   {
+    number: "01",
     photo: "/images/team/vision/marco-editorial.png",
     alt: "Marco Pio Cerbone al lavoro con Forge Group",
+    variant: "coral" as const,
     parallaxClass: "vision-card-offset-down",
   },
   {
+    number: "02",
     photo: "/images/team/vision/gianpio-editorial.png",
     alt: "Gianpio Uva al lavoro con Forge Group",
+    variant: "dark" as const,
     parallaxClass: "vision-card-offset-up",
     stagger: true,
   },
   {
+    number: "03",
     photo: "/images/team/vision/francesco-editorial.png",
     alt: "Francesco Chiumiento al lavoro con Forge Group",
+    variant: "coral" as const,
     parallaxClass: "vision-card-offset-down",
   },
 ];
 
-function EditorialPhotoCard({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+const cardVariantStyles = {
+  coral: {
+    shell: "bg-brand-corallo shadow-[0_20px_56px_-24px_rgba(200,80,42,0.35)] hover:shadow-[0_24px_64px_-20px_rgba(200,80,42,0.45)]",
+    badge: "border-black/20 text-brand-nero",
+  },
+  dark: {
+    shell: "bg-brand-nero border border-white/10 shadow-[0_20px_56px_-24px_rgba(17,17,17,0.45)] hover:border-brand-corallo/50",
+    badge: "border-white/15 text-brand-bianco/80",
+  },
+};
+
+function EditorialPhotoCard({
+  src,
+  alt,
+  number,
+  variant,
+  sizes,
+}: {
+  src: string;
+  alt: string;
+  number: string;
+  variant: keyof typeof cardVariantStyles;
+  sizes: string;
+}) {
+  const styles = cardVariantStyles[variant];
+
   return (
-    <div className="rounded-3xl border border-brand-bordo bg-brand-bianco p-3 shadow-[0_20px_56px_-24px_rgba(17,17,17,0.22)] md:p-4">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-brand-panna">
+    <div
+      className={`group relative aspect-[4/5] w-full overflow-hidden rounded-3xl p-3 transition-shadow duration-500 md:p-4 ${styles.shell}`}
+    >
+      <div className="relative h-full w-full overflow-hidden rounded-2xl bg-brand-panna">
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-cover object-center"
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
           sizes={sizes}
           quality={90}
         />
         <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
       </div>
+      <span
+        className={`absolute right-6 top-6 z-10 rounded-full border px-3 py-1 text-sm font-medium md:right-8 md:top-8 ${styles.badge}`}
+        aria-hidden
+      >
+        {number}
+      </span>
     </div>
   );
 }
@@ -163,6 +202,8 @@ export default function VisionSection() {
                   <EditorialPhotoCard
                     src={card.photo}
                     alt={card.alt}
+                    number={card.number}
+                    variant={card.variant}
                     sizes="(max-width: 1024px) 100vw, 42vw"
                   />
                 </Reveal>
