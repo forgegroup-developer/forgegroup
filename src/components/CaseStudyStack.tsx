@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
@@ -8,6 +9,10 @@ import {
   getCaseStudyImageFit,
   getCaseStudyImagePosition,
 } from "@/data/images";
+
+const NAV_OFFSET_REM = 5;
+const STACK_STEP_REM = 1.25;
+const SCROLL_VH_PER_CARD = 85;
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -118,10 +123,52 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
 }
 
 export default function CaseStudyStack() {
+  const [useSimpleLayout, setUseSimpleLayout] = useState(true);
+
+  useEffect(() => {
+    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqMobile = window.matchMedia("(max-width: 767px)");
+
+    const update = () => {
+      setUseSimpleLayout(mqMotion.matches || mqMobile.matches);
+    };
+
+    update();
+    mqMotion.addEventListener("change", update);
+    mqMobile.addEventListener("change", update);
+    return () => {
+      mqMotion.removeEventListener("change", update);
+      mqMobile.removeEventListener("change", update);
+    };
+  }, []);
+
+  if (useSimpleLayout) {
+    return (
+      <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
+        {caseStudies.map((c) => (
+          <CaseStudyCard key={c.slug} c={c} />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
-      {caseStudies.map((c) => (
-        <CaseStudyCard key={c.slug} c={c} />
+    <div
+      className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
+      style={{ height: `${caseStudies.length * SCROLL_VH_PER_CARD}vh` }}
+    >
+      {caseStudies.map((c, i) => (
+        <div
+          key={c.slug}
+          className="sticky flex w-full items-start justify-center overflow-hidden"
+          style={{
+            top: `calc(${NAV_OFFSET_REM}rem + ${i * STACK_STEP_REM}rem)`,
+            zIndex: i + 1,
+            minHeight: `${SCROLL_VH_PER_CARD}vh`,
+          }}
+        >
+          <CaseStudyCard c={c} />
+        </div>
       ))}
     </div>
   );
