@@ -33,7 +33,7 @@ export default function VideoRecensionePoster({
           priority={priority}
           fetchPriority={priority ? "high" : "auto"}
           className="w-full block aspect-video object-cover"
-          sizes="(max-width: 1024px) 100vw, 574px"
+          sizes="(max-width: 1023px) 100vw, (max-width: 1024px) 574px, 574px"
         />
       </picture>
     </VideoPosterWithPlay>
