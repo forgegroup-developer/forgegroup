@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
@@ -9,10 +8,6 @@ import {
   getCaseStudyImageFit,
   getCaseStudyImagePosition,
 } from "@/data/images";
-
-const NAV_OFFSET_REM = 5;
-const STACK_STEP_REM = 1.25;
-const SCROLL_VH_PER_CARD = 85;
 
 function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -51,8 +46,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
   const imageFit = getCaseStudyImageFit(c.slug);
 
   return (
-    <article className="flex w-full min-h-[440px] flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:min-h-0 md:h-[400px] md:flex-row">
-      {/* Immagine — sinistra su desktop */}
+    <article className="flex h-[480px] w-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-[0_24px_64px_-16px_rgba(17,17,17,0.2)] transition-shadow duration-300 md:h-[400px] md:flex-row">
       <div className="relative h-[200px] w-full shrink-0 overflow-hidden bg-brand-corallo md:h-full md:w-[55%]">
         <Image
           src={getCaseStudyImage(c.slug)}
@@ -72,14 +66,13 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
         />
       </div>
 
-      {/* Contenuto — destra su desktop */}
       <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden bg-brand-corallo p-6 md:w-[45%] md:p-8">
         <div
           aria-hidden
           className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-white/10 blur-3xl"
         />
 
-        <div className="relative mb-4 shrink-0">
+        <div className="relative mb-3 shrink-0">
           <span className="rounded-full border border-white/40 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-white">
             {c.sector}
           </span>
@@ -89,7 +82,7 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
           {c.resultHeadline}
         </h3>
 
-        <p className="relative mb-3 line-clamp-3 shrink-0 text-base leading-relaxed text-white/90 md:mb-0 md:line-clamp-none md:text-[15px]">
+        <p className="relative line-clamp-3 shrink-0 text-base leading-relaxed text-white/90 md:text-[15px]">
           <ExcerptWithHighlights
             text={c.excerpt}
             highlights={c.excerptHighlights}
@@ -125,52 +118,10 @@ function CaseStudyCard({ c }: { c: (typeof caseStudies)[number] }) {
 }
 
 export default function CaseStudyStack() {
-  const [useSimpleLayout, setUseSimpleLayout] = useState(true);
-
-  useEffect(() => {
-    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mqMobile = window.matchMedia("(max-width: 767px)");
-
-    const update = () => {
-      setUseSimpleLayout(mqMotion.matches || mqMobile.matches);
-    };
-
-    update();
-    mqMotion.addEventListener("change", update);
-    mqMobile.addEventListener("change", update);
-    return () => {
-      mqMotion.removeEventListener("change", update);
-      mqMobile.removeEventListener("change", update);
-    };
-  }, []);
-
-  if (useSimpleLayout) {
-    return (
-      <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
-        {caseStudies.map((c) => (
-          <CaseStudyCard key={c.slug} c={c} />
-        ))}
-      </div>
-    );
-  }
-
   return (
-    <div
-      className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"
-      style={{ height: `${caseStudies.length * SCROLL_VH_PER_CARD}vh` }}
-    >
-      {caseStudies.map((c, i) => (
-        <div
-          key={c.slug}
-          className="sticky flex w-full items-start justify-center overflow-hidden"
-          style={{
-            top: `calc(${NAV_OFFSET_REM}rem + ${i * STACK_STEP_REM}rem)`,
-            zIndex: i + 1,
-            minHeight: `${SCROLL_VH_PER_CARD}vh`,
-          }}
-        >
-          <CaseStudyCard c={c} />
-        </div>
+    <div className="mx-auto max-w-5xl space-y-6 px-4 sm:px-6 lg:px-8">
+      {caseStudies.map((c) => (
+        <CaseStudyCard key={c.slug} c={c} />
       ))}
     </div>
   );
