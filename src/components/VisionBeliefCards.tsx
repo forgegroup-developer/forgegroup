@@ -32,6 +32,7 @@ const beliefCards: {
   wrapClass: string;
   icon: LucideIcon;
   iconClassName?: string;
+  photoObjectPosition?: string;
 }[] = [
   {
     number: "01",
@@ -44,6 +45,7 @@ const beliefCards: {
     rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "",
     icon: Star,
+    photoObjectPosition: "center 30%",
   },
   {
     number: "02",
@@ -54,7 +56,7 @@ const beliefCards: {
       "Noi non consegniamo campagne e sparissimo. Lavoriamo fianco a fianco sul marketing, sul processo commerciale, sulla struttura. Finché non gira da solo.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
-    wrapClass: "max-md:ml-0 md:mt-10 md:-ml-6 lg:-ml-8",
+    wrapClass: "max-md:mt-0 md:mt-10 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
   },
@@ -79,7 +81,7 @@ const beliefCards: {
       "Chi lavora con noi, cliente o collaboratore, trova un ambiente preciso. Fatto di lealtà, trasparenza, lavoro vero e una bussola di valori che non cambia in base alla convenienza. Non cerchiamo clienti da gestire. Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
-    wrapClass: "max-md:ml-0 md:mt-14 md:-ml-6 lg:-ml-8",
+    wrapClass: "max-md:mt-0 md:mt-14 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
   },
@@ -95,75 +97,60 @@ function BeliefCard({
   rotateClass,
   icon: Icon,
   iconClassName = "",
+  photoObjectPosition = "center",
 }: (typeof beliefCards)[number]) {
   const isCoral = variant === "coral";
 
   return (
     <article
-      className={`vision-belief-card group w-full max-w-[380px] transition-transform duration-500 ease-out hover:-translate-y-2 md:w-[420px] md:max-w-[420px] ${rotateClass}`}
+      className={`vision-belief-card group h-full w-full max-w-[380px] transition-transform duration-500 ease-out hover:-translate-y-2 md:w-[420px] md:max-w-[420px] ${rotateClass}`}
     >
       <div
-        className={`flex min-h-[480px] w-full flex-col rounded-[24px] p-6 md:min-h-[520px] md:p-7 ${
+        className={`flex h-full w-full flex-col overflow-hidden rounded-[24px] ${
           isCoral ? "bg-[#C0471A]" : "bg-[#2A2A2A]"
         }`}
       >
-        <div className="mb-4 flex shrink-0 items-start justify-between">
-          <div
-            className={`flex h-10 w-10 items-center justify-center rounded-full ${
-              isCoral ? "bg-[#1A1A1A]/15" : "bg-white/10"
-            }`}
-          >
-            <Icon
-              className={`h-5 w-5 ${isCoral ? "text-[#1A1A1A]" : "text-white"} ${iconClassName}`}
-              strokeWidth={1.75}
-              aria-hidden
-            />
-          </div>
-          <span
-            className={`rounded-full px-3 py-1 text-sm font-medium ${
-              isCoral
-                ? "bg-[#1A1A1A]/15 text-[#1A1A1A]"
-                : "bg-white/10 text-white"
-            }`}
-          >
-            {number}
-          </span>
-        </div>
-
-        <h3
-          className={`mb-4 shrink-0 text-balance leading-tight ${
-            isCoral ? "text-[#1A1A1A]" : "text-white"
-          }`}
-          style={{
-            fontFamily: "var(--font-vision-belief-title)",
-            fontSize: "clamp(1.25rem, 2.2vw, 1.75rem)",
-            fontWeight: 700,
-          }}
-        >
-          {title}
-        </h3>
-
-        <div className="relative mb-4 h-[110px] w-full shrink-0 overflow-hidden rounded-2xl md:h-[130px]">
+        <div className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-t-[24px] md:h-[300px]">
           <Image
             src={photo}
             alt={alt}
             fill
-            className="object-cover object-center"
+            className="object-cover"
+            style={{ objectPosition: photoObjectPosition }}
             sizes="(max-width: 768px) 100vw, 420px"
             quality={90}
           />
+
+          <div className="absolute left-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-md">
+            <Icon className={`h-5 w-5 ${iconClassName}`} strokeWidth={1.75} aria-hidden />
+          </div>
+          <span className="absolute right-4 top-4 z-10 rounded-full bg-black/35 px-3 py-1.5 text-sm font-medium text-white backdrop-blur-md">
+            {number}
+          </span>
         </div>
 
-        <p
-          className={`min-h-0 flex-1 text-pretty ${isCoral ? "text-[#1A1A1A]/85" : "text-white/70"}`}
-          style={{
-            fontFamily: "var(--font-vision-belief-body)",
-            fontSize: "0.9375rem",
-            lineHeight: 1.45,
-          }}
-        >
-          {subtitle}
-        </p>
+        <div className="flex flex-1 flex-col p-8">
+          <h3
+            className={`text-balance leading-[1.1] ${isCoral ? "text-[#1A1A1A]" : "text-white"}`}
+            style={{
+              fontFamily: "var(--font-vision-belief-title)",
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
+              fontWeight: 700,
+            }}
+          >
+            {title}
+          </h3>
+          <p
+            className={`mt-4 text-pretty ${isCoral ? "text-[#1A1A1A]/85" : "text-white/70"}`}
+            style={{
+              fontFamily: "var(--font-vision-belief-body)",
+              fontSize: "1rem",
+              lineHeight: 1.45,
+            }}
+          >
+            {subtitle}
+          </p>
+        </div>
       </div>
     </article>
   );
@@ -185,7 +172,7 @@ export default function VisionBeliefCards() {
 
     let ctxCleanup: (() => void) | undefined;
 
-    void loadGsapScrollTrigger().then(({ gsap, ScrollTrigger }) => {
+    void loadGsapScrollTrigger().then(({ gsap }) => {
       gsap.set(wraps, { opacity: 0, y: 60 });
 
       const tween = gsap.to(wraps, {
@@ -234,12 +221,12 @@ export default function VisionBeliefCards() {
 
         <div
           ref={cardsWrapRef}
-          className="relative mx-auto grid max-w-[920px] grid-cols-1 place-items-center gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12"
+          className="relative mx-auto grid max-w-[920px] grid-cols-1 items-stretch justify-items-center gap-8 md:grid-cols-2 md:gap-8"
         >
           {beliefCards.map((card) => (
             <div
               key={card.number}
-              className={`vision-belief-card-wrap flex shrink-0 justify-center ${card.wrapClass}`}
+              className={`vision-belief-card-wrap flex h-full w-full justify-center ${card.wrapClass}`}
             >
               <BeliefCard {...card} />
             </div>
