@@ -39,7 +39,7 @@ export default function VisionSection() {
               <span className="text-brand-corallo">Forge Group</span> nasce da una domanda semplice.
             </h1>
             <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-brand-nero md:text-2xl text-balance">
-              Perché tante aziende che hanno tutto per crescere, non crescono?
+              &ldquo;Perché tante aziende che hanno tutto per crescere, non crescono?&rdquo;
             </p>
           </Reveal>
         </div>
