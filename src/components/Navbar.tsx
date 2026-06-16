@@ -159,6 +159,14 @@ export default function Navbar() {
               </div>
             </div>
             <Link
+              href="/visione"
+              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
+                isActive("/visione") ? "text-brand-corallo active" : "text-brand-nero"
+              }`}
+            >
+              Visione
+            </Link>
+            <Link
               href="/blog"
               className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
                 isActive("/blog") ? "text-brand-corallo active" : "text-brand-nero"
@@ -289,6 +297,17 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+
+            <Link
+              href="/visione"
+              onClick={closeMenu}
+              className="flex items-center justify-between py-5 border-b border-white/10 group"
+            >
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">
+                Visione
+              </span>
+              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+            </Link>
 
             <Link
               href="/blog"

@@ -241,7 +241,7 @@ Caso studio reale, slug `hotel-hospitality`. **Nome pagina:** Hospitality. Clien
 
 ## 5. Landing Page Servizi (`/servizi`)
 
-Sotto-pagine servizi (`/servizi/acquisizione-clienti`, ecc.) **non pubblicate**: codice conservato in `src/_drafts/servizi/[slug]/`.
+Sotto-pagine servizi (`/servizi/acquisizione-clienti`, ecc.) **non pubblicate**: redirect 301 → `/servizi` (contenuto rimosso dal repo, giugno 2026).
 
 La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 
@@ -292,7 +292,7 @@ La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 - [x] Naming uniformato a "DISA SRL" + software "SOS APPALTI" (home, hub, caso studio)
 - [x] Pagine servizi: sezioni "Ti riconosci in questo?" (painPoints) e "È per te" (forWho) in palette
 - [x] Foto Gianpio ricentrata (object-position per-membro nella TeamSection)
-- [x] Sotto-pagine servizi archiviate in `src/_drafts/` (non accessibili, redirect 301 → `/servizi`)
+- [x] Sotto-pagine servizi rimosse dal repo; redirect 301 → `/servizi`
 - [x] `/casi-studio` hub con card + `/casi-studio/[slug]` per ogni caso (DISA/SOS APPALTI su `software-b2b`)
 - [x] `/servizi` trasformata in landing page a 4 sezioni + CTA
 - [x] Navbar e Footer semplificati: link diretti senza sotto-menu
@@ -344,12 +344,38 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 - **Casi studio hub:** h1 → h2 portfolio → h3 titoli card
 - **Caso studio dettaglio:** h1 risultato → h2 cliente/sfida/sistema/risultati/video/prima-dopo/a chi serve → h3 step e diagnosi
 - **Contatti:** h1 → h2 step form (footer senza heading)
+- **Chi siamo e manifesto:** h1 hero → h2 Chi siamo / Valori / Chi NON accettiamo → h3 card valori
+- **Visione:** h1 hero → h3 nomi in galleria team editorial
+
+---
+
+## 9. Pagina Visione (`/visione`)
+
+**URL:** `/visione` — pagina autonoma nel menu principale (dopo Casi Studio).
+
+**Redirect legacy:** `/chi-siamo-e-manifesto` → `/visione` (301).
+
+**Menu:** voce **Visione** subito dopo **Casi Studio** (navbar desktop e mobile). Link anche nel footer colonna Azienda.
+
+**Copy:** testo manifesto Visione approvato dal cliente — non modificare (eccezione alla regola «prodotto» e ai trattini: il testo è vincolante così com'è).
+
+**Sfondo sezione contenuto:** classe `section-visione` (`#FAECE7` al 92%, bordo come le altre sezioni).
+
+**Galleria team (sotto il testo):**
+- **Livello 1:** foto orizzontale founders (Marco + Gianpio), quasi full width, overlay `#C0471A` al 17,5%, nomi affiancati sotto
+- **Livello 2:** grid 3 foto editoriali (Marco, Gianpio, Francesco) — solo asset in `public/images/team/vision/`, **mai** riutilizzare le foto del team home (`/images/team/foto-*`)
+- Stesso overlay e bordi arrotondati (`rounded-2xl` / `rounded-3xl`), niente ombre pesanti
+- **Font nomi:** Bricolage Grotesque · **Font ruoli:** Hanken Grotesk
+- **Animazione:** fade-in leggero con `Reveal` + GSAP ScrollTrigger
+
+**Componenti:** `src/app/visione/page.tsx`, `VisionTeamGallery.tsx`.
+
+**Heading:** h1 hero → h3 nomi in galleria (nessun h2 intermedio sul testo: il manifesto è body dopo l'h1).
 
 ---
 
 ## 7. Modifiche da fare (backlog)
 
-- [ ] Ripubblicare sotto-pagine servizi quando pronte (bozze in `src/_drafts/servizi/`)
 - [ ] Ottenere loghi clienti in SVG/PNG con sfondo trasparente per versione monocromatica corallo
 - [x] Caso studio Edilizia B2C aggiunto (`/casi-studio/edilizia`, cliente Tetti Top)
 - [x] Caso studio Edilizia B2B / ROVI aggiunto (`/casi-studio/arredo-commerciale`, progetto attivo)

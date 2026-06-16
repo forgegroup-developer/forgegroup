@@ -168,6 +168,12 @@ export default function Footer() {
               >
                 <ul className="space-y-2">
                   <li>
+                    <Link href="/visione" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
+                      <span className="text-white shrink-0">✦</span>
+                      <span>Visione</span>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/blog" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
                       <span className="text-white shrink-0">✦</span>
                       <span>Blog Intelligence</span>

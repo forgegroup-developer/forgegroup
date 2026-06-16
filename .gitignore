@@ -23,6 +23,7 @@
 # misc
 .cursor/
 .venv-logos/
+.lighthouse-reports/
 .DS_Store
 *.pem
 

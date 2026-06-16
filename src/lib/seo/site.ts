@@ -52,9 +52,9 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
   { path: "/", priority: 1, changeFrequency: "weekly", inLlmsMainPages: true },
   { path: "/servizi", priority: 0.9, changeFrequency: "monthly", inLlmsMainPages: true },
   { path: "/casi-studio", priority: 0.9, changeFrequency: "monthly", inLlmsMainPages: true },
+  { path: "/visione", priority: 0.8, changeFrequency: "monthly", inLlmsMainPages: true },
   { path: "/contatti", priority: 0.9, changeFrequency: "yearly", inLlmsMainPages: true },
   { path: "/blog", priority: 0.8, changeFrequency: "weekly", inLlmsMainPages: true },
-  { path: "/chi-siamo-e-manifesto", priority: 0.7, changeFrequency: "monthly", inLlmsMainPages: true },
   { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
   { path: "/cookie-policy", priority: 0.3, changeFrequency: "yearly" },
 ];

@@ -4,6 +4,7 @@
   --color-brand-bianco: #ffffff;
   --color-brand-panna: #fbf5f2;
   --color-brand-pesca-light: #faf0ec;
+  --color-brand-visione-bg: #faece7;
   --color-brand-pesca: #e8b9a5;
   --color-brand-corallo: #c8502a;
   --color-brand-corallo-dark: #a93f1e;
@@ -197,6 +198,12 @@ body {
 .section-bianco-y {
   background-color: rgba(255, 255, 255, 0.9);
   background-color: color-mix(in srgb, var(--color-brand-bianco) 90%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
+}
+
+.section-visione {
+  background-color: color-mix(in srgb, var(--color-brand-visione-bg) 92%, transparent);
   border-top: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
@@ -610,40 +617,6 @@ body {
 
 .btn-corallo:hover::after {
   animation: btnShimmer 0.55s ease-out forwards;
-}
-
-/* ── Magnetic cursor (service cards) ─────────────────────────────── */
-.services-magnetic-area {
-  position: relative;
-}
-
-.magnetic-cursor {
-  position: fixed;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-brand-corallo);
-  background: rgba(200, 80, 42, 0.07);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 0.2s ease;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-brand-corallo);
-  backdrop-filter: blur(4px);
-}
-
-.magnetic-cursor.visible {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
 }
 
 /* ── Glassmorphism mobile overlay ────────────────────────────────── */

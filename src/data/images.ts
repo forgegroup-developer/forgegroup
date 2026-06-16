@@ -38,14 +38,6 @@ export const siteImages = {
   marcoReelPoster: "/images/team/marco-reel-poster.jpg",
 } as const;
 
-/** Grafiche showcase hero — doppio marquee verticale */
-export const heroShowcaseImages = {
-  consulenza: "/images/hero/hero-consulenza.png",
-  crmIntegrato: "/images/hero/hero-crm-integrato.png",
-  metaAds: "/images/hero/hero-meta-ads.png",
-  formazioneCommerciale: "/images/hero/hero-formazione-commerciale.png",
-} as const;
-
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
   acquisizione: "/images/servizi/magnete.webp",

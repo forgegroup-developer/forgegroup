@@ -37,7 +37,7 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | `/casi-studio` | 0.9 | Hub casi studio |
 | `/contatti` | 0.9 | Prequalifica |
 | `/blog` | 0.8 | Hub articoli |
-| `/chi-siamo-e-manifesto` | 0.7 | Manifesto |
+| `/visione` | 0.8 | Manifesto e team |
 | `/casi-studio/software-b2b` | 0.8 | Caso DISA |
 | `/casi-studio/edilizia` | 0.8 | |
 | `/casi-studio/arredo-commerciale` | 0.8 | |

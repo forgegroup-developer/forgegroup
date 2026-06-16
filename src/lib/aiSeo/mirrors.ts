@@ -147,24 +147,21 @@ ${caseStudies
 Candida la tua azienda: ${BASE}/contatti
 `,
   },
-  "chi-siamo-e-manifesto": {
-    title: "Chi Siamo e Manifesto | Forge Group",
-    description: "Manifesto, valori e metodo Forge Group: sistemi di acquisizione B2B, non campagne generiche.",
-    url: `${BASE}/chi-siamo-e-manifesto`,
+  visione: {
+    title: "Visione | Forge Group",
+    description:
+      "La visione di Forge Group: entriamo nelle aziende, restiamo e costruiamo sistemi che reggono. Lealtà, trasparenza, imprenditori con cui crescere.",
+    url: `${BASE}/visione`,
     body: `
-# Chi Siamo e Manifesto
+# Visione Forge Group
 
-Forge Group non è un'agenzia creativa generica. Costruiamo sistemi di acquisizione clienti e vendita per imprese B2B.
+Forge Group nasce da una domanda semplice: perché tante aziende che hanno tutto per crescere, non crescono?
 
-## Valori
-- Trasparenza: numeri reali, report onesti
-- Concretezza: KPI di business misurabili
-- Velocità: decisioni ed esecuzione rapide
-- Responsabilità: risultati condivisi con il cliente
-- Crescita continua e comunicazione integra
+Non consegniamo campagne e sparissimo. Entriamo, restiamo, lavoriamo fianco a fianco sul marketing, sul processo commerciale e sulla struttura.
 
-## Per chi lavoriamo
-Imprenditori B2B che vogliono crescita prevedibile, non più passaparola casuale.
+Cerchiamo imprenditori con cui costruire, non clienti da gestire.
+
+Contatto: ${BASE}/contatti
 `,
   },
   blog: {

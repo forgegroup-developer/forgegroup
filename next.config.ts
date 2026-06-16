@@ -74,6 +74,11 @@ const nextConfig: NextConfig = {
         destination: "/servizi",
         permanent: true,
       },
+      {
+        source: "/chi-siamo-e-manifesto",
+        destination: "/visione",
+        permanent: true,
+      },
     ];
   },
 };

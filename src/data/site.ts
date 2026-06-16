@@ -24,30 +24,3 @@ export const faqs = [
     a: "Preferiamo che le aziende abbiano già dei commerciali attivi e operativi sul territorio, in quanto ci occupiamo di costruire per te il processo di vendita della tua attività. Qualora tu non abbia commerciali attivi, li troviamo noi per te e li formiamo. L'importante è che tu sia pronto a lavorare per far crescere la tua azienda.",
   },
 ];
-
-export const testimonials = [
-  {
-    text: "Abbiamo smesso di vendere licenze e iniziato a vendere risultati. Il prezzo è triplicato e i clienti pagano volentieri perché capiscono cosa stanno comprando. Forge ci ha rimesso i numeri sotto controllo.",
-    author: "Cliente SaaS HR Tech",
-    role: "CEO & Founder",
-    sector: "Software B2B",
-  },
-  {
-    text: "Per la prima volta ho iniziato a scegliere io i clienti, non il contrario. Quest'anno chiudiamo con il margine più alto della nostra storia. Non avrei mai pensato possibile dall'edilizia.",
-    author: "Cliente Edilizia",
-    role: "Amministratore Unico",
-    sector: "Edilizia High-Ticket",
-  },
-  {
-    text: "Finalmente sappiamo esattamente quanto ci costa ogni cliente, da quale canale arriva e quanto margine porta. Non vivo più alla giornata. Lavoro con la testa libera.",
-    author: "Cliente Gruppo Alberghiero",
-    role: "Direttore Generale",
-    sector: "Hotel & Hospitality",
-  },
-];
-
-export const stats = [
-  { value: "30+", label: "Imprese aiutate a crescere" },
-  { value: "€350K+", label: "Generati per i nostri clienti in 12 mesi" },
-  { value: "5 ★", label: "Recensioni verificate" },
-];
