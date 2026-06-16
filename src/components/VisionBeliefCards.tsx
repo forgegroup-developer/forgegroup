@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ArrowUpRight, Star } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import { loadGsapScrollTrigger } from "@/lib/loadGsap";
 
@@ -20,7 +21,18 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
-const beliefCards = [
+const beliefCards: {
+  number: string;
+  photo: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  variant: "coral" | "dark";
+  rotateClass: string;
+  wrapClass: string;
+  icon: LucideIcon;
+  iconClassName?: string;
+}[] = [
   {
     number: "01",
     photo: "/images/team/vision/team-insieme.jpg",
@@ -28,7 +40,7 @@ const beliefCards = [
     title: "Entriamo, restiamo, costruiamo.",
     subtitle:
       "Non consegniamo campagne e spariamo. Lavoriamo fianco a fianco finché non gira da solo.",
-    variant: "coral" as const,
+    variant: "coral",
     rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "",
     icon: Star,
@@ -40,9 +52,34 @@ const beliefCards = [
     title: "Un'azienda sana costruisce persone sane.",
     subtitle:
       "Quello che ci interessa non è solo il numero a fine mese. È quello che succede dentro quando le cose iniziano ad andare bene.",
-    variant: "dark" as const,
+    variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:ml-0 md:mt-10 md:-ml-6 lg:-ml-8",
+    icon: ArrowUpRight,
+    iconClassName: "-rotate-45",
+  },
+  {
+    number: "03",
+    photo: "/images/team/vision/marco-editorial.png",
+    alt: "Marco Pio Cerbone al lavoro con Forge Group",
+    title: "Entriamo dentro, capiamo davvero.",
+    subtitle:
+      "Manca qualcuno che capisce come funziona quell'azienda e costruisce con loro qualcosa che regge nel tempo.",
+    variant: "coral",
+    rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
+    wrapClass: "md:mt-4",
+    icon: Star,
+  },
+  {
+    number: "04",
+    photo: "/images/team/vision/francesco-editorial.png",
+    alt: "Francesco Chiumiento al lavoro con Forge Group",
+    title: "Non cerchiamo clienti da gestire.",
+    subtitle:
+      "Cerchiamo imprenditori con cui costruire. Lealtà, trasparenza e una bussola che non cambia.",
+    variant: "dark",
+    rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
+    wrapClass: "max-md:ml-0 md:mt-14 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
   },
@@ -198,7 +235,7 @@ export default function VisionBeliefCards() {
 
         <div
           ref={cardsWrapRef}
-          className="relative mx-auto flex max-w-[920px] flex-col items-center justify-center gap-8 md:flex-row md:items-start md:gap-8"
+          className="relative mx-auto grid max-w-[920px] grid-cols-1 place-items-center gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12"
         >
           {beliefCards.map((card) => (
             <div
