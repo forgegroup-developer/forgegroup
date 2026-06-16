@@ -365,7 +365,6 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 - **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, h1 e domanda centrati
 - **Manifesto:** testo vincolante a colonna singola centrata (`max-w-3xl`)
 - **Blocco card inclinate** (`VisionBeliefCards`): full-width `#1A1A1A`, h2 *Quello in cui crediamo davvero*, 2 card affiancate ruotate (-4° / +4°), overlap e sfalsamento, GSAP ScrollTrigger
-- **Founders:** foto duo grande, senza didascalie
 
 **Heading:** h1 in hero · h2 blocco card scuro · card con h3 titolo interno
 

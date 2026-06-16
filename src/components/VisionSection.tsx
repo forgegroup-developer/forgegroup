@@ -4,8 +4,6 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import VisionBeliefCards from "@/components/VisionBeliefCards";
 
-const CORAL_OVERLAY = "bg-[#C0471A]/[0.175]";
-
 const manifestoParagraphs = [
   "La risposta, quasi sempre, è la stessa. Non manca il prodotto. Non mancano le persone. Manca qualcuno che entra dentro, capisce come funziona davvero quell'azienda, e costruisce con loro qualcosa che regge nel tempo.",
   "Noi non consegniamo campagne e sparissimo. Entriamo, restiamo, lavoriamo fianco a fianco — sul marketing, sul processo commerciale, sulla struttura. Finché non gira da solo.",
@@ -15,22 +13,6 @@ const manifestoParagraphs = [
   "Non cerchiamo clienti da gestire. Cerchiamo imprenditori con cui costruire.",
   "Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
 ];
-
-function FoundersHeroPhoto() {
-  return (
-    <div className="relative min-h-[340px] w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna shadow-[0_24px_64px_-24px_rgba(17,17,17,0.24)] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px] xl:min-h-[720px]">
-      <Image
-        src="/images/team/vision/founders-duo.png"
-        alt="Marco Pio Cerbone e Gianpio Uva, co-founder di Forge Group"
-        fill
-        className="object-cover object-center"
-        sizes="(max-width: 768px) 100vw, 1400px"
-        quality={90}
-      />
-      <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
-    </div>
-  );
-}
 
 export default function VisionSection() {
   return (
@@ -87,15 +69,6 @@ export default function VisionSection() {
 
       {/* Card inclinate — blocco scuro full-width */}
       <VisionBeliefCards />
-
-      {/* Founders duo */}
-      <section className="section-visione border-b py-16 md:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal y={28} duration={1}>
-            <FoundersHeroPhoto />
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 }
