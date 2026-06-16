@@ -2,22 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import Reveal from "@/components/Reveal";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-vision-name",
-  display: "swap",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-vision-role",
-  display: "swap",
-});
 
 const CORAL_OVERLAY = "bg-[#C0471A]/[0.175]";
 
@@ -29,17 +14,6 @@ const manifestoParagraphs = [
   "Chi lavora con noi — cliente o collaboratore — trova un ambiente preciso. Fatto di lealtà, trasparenza, lavoro vero e una bussola di valori che non cambia in base alla convenienza.",
   "Non cerchiamo clienti da gestire. Cerchiamo imprenditori con cui costruire.",
   "Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
-];
-
-const founders = [
-  {
-    name: "Marco Pio Cerbone",
-    role: "Co-Founder · Direttore marketing & Consulenza aziendale",
-  },
-  {
-    name: "Gianpio Uva",
-    role: "Co-Founder · Direttore Commerciale & Sales Process",
-  },
 ];
 
 const editorialCards = [
@@ -81,13 +55,13 @@ function EditorialPhotoCard({ src, alt, sizes }: { src: string; alt: string; siz
 
 function FoundersHeroPhoto() {
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna shadow-[0_20px_56px_-24px_rgba(17,17,17,0.2)] sm:aspect-[21/9]">
+    <div className="relative min-h-[340px] w-full overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna shadow-[0_24px_64px_-24px_rgba(17,17,17,0.24)] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px] xl:min-h-[720px]">
       <Image
         src="/images/team/vision/founders-duo.png"
         alt="Marco Pio Cerbone e Gianpio Uva, co-founder di Forge Group"
         fill
         className="object-cover object-center"
-        sizes="(max-width: 768px) 100vw, 1152px"
+        sizes="(max-width: 768px) 100vw, 1400px"
         quality={90}
       />
       <div className={`pointer-events-none absolute inset-0 ${CORAL_OVERLAY}`} aria-hidden />
@@ -141,9 +115,7 @@ export default function VisionSection() {
           />
         </div>
 
-        <div
-          className={`${bricolage.variable} ${hanken.variable} relative z-10 mx-auto w-full max-w-4xl px-4 py-28 text-center sm:px-6 md:py-36`}
-        >
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 text-center sm:px-6 md:py-36">
           <Reveal y={32} duration={1.1}>
             <p className="eyebrow mb-6">✦ Visione</p>
             <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
@@ -158,9 +130,7 @@ export default function VisionSection() {
 
       {/* Manifesto + card editoriali — 2 colonne */}
       <section className="section-visione border-b py-16 md:py-24 lg:py-28">
-        <div
-          className={`${bricolage.variable} ${hanken.variable} mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 xl:gap-20 lg:px-8`}
-        >
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 xl:gap-20 lg:px-8">
           {/* Colonna sinistra — testo manifesto */}
           <div className="min-w-0 space-y-6 text-lg leading-relaxed text-brand-grigio md:space-y-8 md:text-xl md:leading-relaxed lg:sticky lg:top-28 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto lg:pr-2">
             {manifestoParagraphs.map((paragraph, index) => (
@@ -201,28 +171,10 @@ export default function VisionSection() {
           </div>
         </div>
 
-        {/* Founders — full width sotto il blocco 2 colonne */}
-        <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6 lg:mt-28 lg:px-8">
+        {/* Founders — foto duo grande, senza didascalie */}
+        <div className="mx-auto mt-20 w-full max-w-7xl px-4 sm:px-6 lg:mt-28 lg:px-8">
           <Reveal y={28} duration={1}>
             <FoundersHeroPhoto />
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
-              {founders.map((founder) => (
-                <div key={founder.name} className="text-center sm:text-left">
-                  <p
-                    className="text-lg font-semibold text-brand-nero md:text-xl"
-                    style={{ fontFamily: "var(--font-vision-name)" }}
-                  >
-                    {founder.name}
-                  </p>
-                  <p
-                    className="mt-1 text-sm leading-snug text-brand-grigio md:text-base"
-                    style={{ fontFamily: "var(--font-vision-role)" }}
-                  >
-                    {founder.role}
-                  </p>
-                </div>
-              ))}
-            </div>
           </Reveal>
         </div>
       </section>

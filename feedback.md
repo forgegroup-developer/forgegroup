@@ -364,11 +364,11 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 **Layout pagina:**
 - **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, titolo e domanda centrati (testi e colori brand invariati)
 - **Blocco 2 colonne:** sinistra manifesto (sticky su desktop) · destra card editoriali con foto dentro il frame (aspect 4/5, overlay corallo, **senza** testo team)
-- **Founders:** foto duo full width + nomi/ruoli sotto il blocco 2 colonne
+- **Founders:** foto duo grande full width, **senza** nomi/ruoli sotto
 
 **Componenti:** `src/app/visione/page.tsx`, `VisionSection.tsx`.
 
-**Heading:** h1 manifesto → nomi founders sotto la foto duo (testo, non h3); card editoriali senza heading
+**Heading:** h1 manifesto; card editoriali e foto founders senza heading
 
 ---
 
