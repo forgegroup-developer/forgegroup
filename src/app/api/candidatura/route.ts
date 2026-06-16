@@ -8,7 +8,7 @@ import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
-const REQUIRED_FIELDS = ["nome_cognome", "email", "occupazione", "racconto"] as const;
+const REQUIRED_FIELDS = ["nome_cognome", "email", "telefono", "occupazione", "racconto"] as const;
 
 export async function POST(request: Request) {
   const ip = getClientIp(request);

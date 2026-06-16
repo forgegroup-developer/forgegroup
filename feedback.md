@@ -364,7 +364,7 @@ Lighthouse e gli screen reader richiedono che i titoli **non saltino livelli** (
 **Layout pagina:**
 - **Hero atmosferica** (`vision-hero-atmosphere`): immagine di sfondo + gradienti pesca, h1 e domanda centrati
 - **Blocco card inclinate** (`VisionBeliefCards`): manifesto narrato in **4 card**, griglia 2×2, sfondo `#1A1A1A`, GSAP ScrollTrigger
-- **Entra a far parte** (`VisionJoinSection`): sfondo `#FAECE7`, form candidatura team → `/api/candidatura` (Resend a info@forgegroup.it). **Nessun** footer CTA band su `/visione`
+- **Entra a far parte** (`VisionJoinSection`): sfondo `#1A1A1A` (come card), form glass, telefono obbligatorio → `/api/candidatura`
 
 **Heading:** h1 in hero · h2 blocco card scuro · card con h3 titolo interno
 
