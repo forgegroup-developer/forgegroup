@@ -84,6 +84,7 @@ const beliefCards: {
     wrapClass: "max-md:mt-0 md:mt-14 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
+    photoObjectPosition: "center 22%",
   },
 ];
 
