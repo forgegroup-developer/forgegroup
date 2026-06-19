@@ -29,9 +29,9 @@ const serviziTabs: ServiziTab[] = [
     title: "Acquisizione Clienti",
     intro: (
       <>
-        Il tuo telefono squilla.
+        I tuoi potenziali clienti <span>ci sono</span>.
         <br />
-        Sono clienti pronti a <span>comprare</span>.
+        Li stai intercettando?
       </>
     ),
     points: [
@@ -46,10 +46,11 @@ const serviziTabs: ServiziTab[] = [
       {
         title: (
           <>
-            Ogni euro investito in pubblicità <span>torna indietro moltiplicato</span>.
+            Progettiamo campagne per generare richieste che il commerciale{" "}
+            <span>può convertire</span>.
           </>
         ),
-        body: "Campagne progettate per generare richieste reali da persone con budget, non click casuali.",
+        body: "Con costi per contatto misurabili, non click casuali.",
       },
       {
         title: (
@@ -69,19 +70,18 @@ const serviziTabs: ServiziTab[] = [
     title: "Processi di Vendita",
     intro: (
       <>
-        Il tuo commerciale <span>chiude</span>.
-        <br />
-        Sempre.
+        Il tuo commerciale chiude quando arrivano <span>contatti giusti</span>?
       </>
     ),
     points: [
       {
         title: (
           <>
-            Al telefono arrivano solo <span>persone pronte a firmare</span>.
+            Quando i contatti sono qualificati, il commerciale{" "}
+            <span>lavora meglio</span>.
           </>
         ),
-        body: "Prequalifichiamo ogni contatto con materiale mirato, così il tuo team non perde un minuto con chi non è pronto ad acquistare.",
+        body: "Prequalifichiamo ogni richiesta così il team non perde tempo su chi non è pronto ad acquistare.",
       },
       {
         title: (
@@ -113,9 +113,9 @@ const serviziTabs: ServiziTab[] = [
     ),
     intro: (
       <>
-        Finalmente <span>sai</span>
+        Mettiamo nero su bianco dove vuoi <span>arrivare</span>
         <br />
-        dove stai andando.
+        nei prossimi 12 mesi.
       </>
     ),
     points: [

@@ -78,7 +78,7 @@ const beliefCards: {
     alt: "Francesco Chiumiento al lavoro con Forge Group",
     title: "Cerchiamo imprenditori con cui costruire.",
     subtitle:
-      "Chi lavora con noi, cliente o collaboratore, trova un ambiente preciso. Fatto di lealtà, trasparenza, lavoro vero e una bussola di valori che non cambia in base alla convenienza. Non cerchiamo clienti da gestire. Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
+      "Chi lavora con noi, cliente o collaboratore, trova un ambiente preciso. Lavoriamo con lealtà e trasparenza. Cerchiamo imprenditori con cui costruire insieme nel tempo. Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:mt-0 md:mt-14 md:-ml-6 lg:-ml-8",

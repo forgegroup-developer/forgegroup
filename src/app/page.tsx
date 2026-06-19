@@ -134,11 +134,14 @@ export default function Home() {
             maxWidth="4xl"
             title={
               <>
-                Risultati <span className="text-brand-corallo">verificati</span>. Sei pronto a diventare il{" "}
-                <span className="text-brand-corallo">nostro prossimo caso studio</span>?
+                Risultati <span className="text-brand-corallo">verificati</span> in casi reali.{" "}
+                <span className="text-brand-corallo">Vuoi capire se un percorso simile ha senso per la tua azienda?</span>
               </>
             }
           />
+          <p className="mx-auto max-w-4xl -mt-6 mb-8 text-center text-lg text-brand-grigio text-balance">
+            Parliamone: ogni contesto è diverso.
+          </p>
         </div>
         <LazyCaseStudyStack />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
@@ -173,19 +176,13 @@ export default function Home() {
               {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-red-600 font-bold mb-0.5">
-                    ✕ Non funziona
-                  </p>
                   <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
-                    Le altre aziende
+                    Cosa succede spesso
                   </p>
                 </div>
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
-                    ✓ Funziona
-                  </p>
                   <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
-                    Forge Group
+                    Come lavoriamo noi
                   </p>
                 </div>
               </div>

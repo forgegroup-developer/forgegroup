@@ -13,8 +13,8 @@ export const services: Service[] = [
   {
     label: "01 · Acquisizione Clienti",
     lines: [
-      { text: "I tuoi potenziali clienti esistono.", highlights: ["potenziali clienti"] },
-      { text: "Il problema è che non ti trovano.", highlights: ["non ti trovano"] },
+      { text: "I tuoi potenziali clienti ci sono.", highlights: ["potenziali clienti"] },
+      { text: "Li stai intercettando?", highlights: ["intercettando"] },
     ],
     href: "/servizi#acquisizione",
     image: "/images/servizi/magnete.webp",

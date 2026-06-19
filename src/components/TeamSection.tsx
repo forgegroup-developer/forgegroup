@@ -144,8 +144,8 @@ export default function TeamSection() {
 
         <div className="mt-20 md:mt-28 pt-16 border-t border-brand-bordo">
           <h2 className="heading-section text-brand-nero max-w-3xl mx-auto mb-12">
-            Forge Group è una realtà formata dai{" "}
-            <span className="text-brand-corallo">migliori talenti del settore</span>.
+            Un team di specialisti che lavorano{" "}
+            <span className="text-brand-corallo">insieme sul tuo progetto</span>.
           </h2>
 
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
