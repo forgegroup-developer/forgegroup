@@ -356,15 +356,15 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <div className="copy-on-coral mb-8">
               <p className="eyebrow-coral mb-4">✦ A chi serve</p>
               <h2 className="heading-section font-semibold leading-tight">
-                {c.slug === "edilizia" ? (
+                {c.slug === "hotel-hospitality" ? (
                   <>
-                    Per imprese che fanno bene il lavoro e vogliono un{" "}
-                    <span>flusso più prevedibile</span>.
+                    Per strutture ricettive che vogliono un{" "}
+                    <span>flusso di prenotazioni più prevedibile</span>.
                   </>
                 ) : (
                   <>
-                    È pensato per chi fa un ottimo lavoro, ma è stanco di{" "}
-                    <span>rincorrere i clienti</span>.
+                    Per imprese che fanno bene il lavoro e vogliono un{" "}
+                    <span>flusso più prevedibile</span>.
                   </>
                 )}
               </h2>

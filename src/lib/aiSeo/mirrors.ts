@@ -40,9 +40,9 @@ const staticMirrors: Record<string, MirrorPage> = {
 ${SITE_DESCRIPTION}
 
 ## Services and Pricing
-- **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead — budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
-- **Processi di vendita**: CRM, script, pipeline, formazione commerciale — integrato nel progetto di crescita
-- **Consulenza e formazione**: strategia, posizionamento, team commerciale — per imprese B2B con fatturato strutturato
+- **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead: budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
+- **Processi di vendita**: CRM, script, pipeline, formazione commerciale: integrato nel progetto di crescita
+- **Consulenza e formazione**: strategia, posizionamento, team commerciale: per imprese B2B con fatturato strutturato
 
 Non vendiamo pacchetti fissi: dopo la prequalifica costruiamo un percorso su misura. Budget indicativo prequalifica form: da 1.500€/mese a oltre 5.000€/mese per Marketing & Vendite.
 
@@ -81,9 +81,9 @@ ${faqs.map((f) => `**${f.q}**\n${f.a}`).join("\n\n")}
 # Servizi Forge Group
 
 ## Tre pilastri
-1. **Acquisizione clienti** — portare richieste qualificate, non curiosi
-2. **Processi di vendita** — convertire lead in contratti con CRM, script e follow-up
-3. **Consulenza e formazione** — strategia, posizionamento, team commerciale
+1. **Acquisizione clienti**: portare richieste qualificate, non curiosi
+2. **Processi di vendita**: convertire lead in contratti con CRM, script e follow-up
+3. **Consulenza e formazione**: strategia, posizionamento, team commerciale
 
 ## Acquisizione clienti
 Campagne advertising, landing page, moduli di prequalifica, presenza Google Business, contenuti orientati alla conversione.
@@ -139,7 +139,7 @@ Portfolio di risultati misurabili per imprese B2B: acquisizione clienti, process
 ${caseStudies
   .map(
     (c) =>
-      `- [${c.shortTitle}](${BASE}/casi-studio/${c.slug}) — ${c.resultHeadline}. ${c.hubExcerpt}`
+      `- [${c.shortTitle}](${BASE}/casi-studio/${c.slug}): ${c.resultHeadline}. ${c.hubExcerpt}`
   )
   .join("\n")}
 
@@ -174,7 +174,7 @@ Contatto: ${BASE}/contatti
 Articoli tecnici per imprenditori e direttori vendite B2B.
 
 ## Articoli
-${articles.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}) — ${a.description}`).join("\n")}
+${articles.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
 `,
   },
   "privacy-policy": {
@@ -225,7 +225,7 @@ ${c.excerpt}
 ${c.challenge}
 
 ## Risultati chiave
-${c.results.map((r) => `- **${r.value}** — ${r.label}${r.detail ? `: ${r.detail}` : ""}`).join("\n")}
+${c.results.map((r) => `- **${r.value}**: ${r.label}${r.detail ? `: ${r.detail}` : ""}`).join("\n")}
 
 ## CTA
 Scopri i servizi: ${BASE}/servizi
@@ -302,7 +302,7 @@ ${SITE_DESCRIPTION}
 Non ci sono pacchetti fissi pubblici: ogni progetto nasce dalla prequalifica su ${BASE}/contatti
 
 ## Locations
-Italia — focus Campania (Napoli, Salerno, Caserta, Avellino, Benevento). Clienti attivi in tutta Italia.
+Italia, focus Campania (Napoli, Salerno, Caserta, Avellino, Benevento). Clienti attivi in tutta Italia.
 
 ## Contact
 - Email: info@forgegroup.it

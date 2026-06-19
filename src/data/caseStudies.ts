@@ -92,31 +92,31 @@ export const caseStudies: CaseStudy[] = [
         step: "01",
         title: "Comunicazione & posizionamento",
         description:
-          "Riscritto il modo in cui SOS APPALTI si presenta online: messaggi chiari su cosa fa, per chi e perché conviene, così chi arriva capisce subito il valore del software.",
+          "Con DISA abbiamo riscritto il modo in cui SOS APPALTI si presenta online: messaggi chiari su cosa fa, per chi e perché conviene, così chi arriva capisce subito il valore del software.",
       },
       {
         step: "02",
         title: "Contenuti professionali",
         description:
-          "Realizzati video professionali e infografiche con il nostro videomaker per spiegare il software e costruire fiducia prima ancora del contatto commerciale.",
+          "Con DISA e il nostro videomaker abbiamo realizzato video professionali e infografiche per spiegare il software e costruire fiducia prima ancora del contatto commerciale.",
       },
       {
         step: "03",
         title: "Sistema di acquisizione Meta Ads",
         description:
-          "Individuato e costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
+          "Insieme al team commerciale di DISA abbiamo costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
       },
       {
         step: "04",
         title: "Form di qualifica",
         description:
-          "Campagne con form per raccogliere le informazioni chiave: al commerciale arrivano contatti già consapevoli e interessati, non più nomi a freddo.",
+          "Abbiamo integrato nelle campagne form per raccogliere le informazioni chiave: al commerciale arrivano contatti già consapevoli e interessati, non più nomi a freddo.",
       },
       {
         step: "05",
         title: "Lancio geolocalizzato e crescita in Italia",
         description:
-          "Partenza su un'area a 250 km dalla sede per validare il sistema, oggi pronto a essere replicato in tutta Italia con risultati in crescita.",
+          "Abbiamo avviato il sistema su un'area a 250 km dalla sede per validarlo insieme a DISA; oggi è pronto a essere replicato in tutta Italia con risultati in crescita.",
       },
     ],
     results: [
@@ -211,31 +211,31 @@ export const caseStudies: CaseStudy[] = [
         step: "01",
         title: "Sito web ad alte performance",
         description:
-          "Abbiamo costruito un sito veloce e persuasivo, ottimizzato in modo geolocalizzato per le zone esatte in cui l'azienda opera. Chi cerca, trova Tetti Top e capisce subito perché sceglierla.",
+          "Con Tetti Top abbiamo costruito un sito veloce e persuasivo, ottimizzato in modo geolocalizzato per le zone esatte in cui l'azienda opera. Chi cerca, trova Tetti Top e capisce subito perché sceglierla.",
       },
       {
         step: "02",
         title: "Modulo di pre-qualifica",
         description:
-          "Prima del primo contatto, un modulo intelligente raccoglie le informazioni chiave per qualificare il potenziale cliente, incluso il budget a disposizione. Solo richieste reali, niente perditempo.",
+          "Insieme a Tetti Top abbiamo introdotto un modulo che, prima del primo contatto, raccoglie le informazioni chiave per qualificare il potenziale cliente, incluso il budget a disposizione. Solo richieste reali, niente perditempo.",
       },
       {
         step: "03",
         title: "Chiamate di pre-qualifica",
         description:
-          "Ogni contatto passa attraverso una chiamata di pre-qualifica: si verifica se ci sono i presupposti e si fissa l'appuntamento solo quando ha senso davvero.",
+          "Ogni contatto passa attraverso una chiamata di pre-qualifica: insieme al team verifichiamo se ci sono i presupposti e fissiamo l'appuntamento solo quando ha senso davvero.",
       },
       {
         step: "04",
         title: "Sopralluoghi qualificati",
         description:
-          "Il titolare incontra solo clienti già caldi e selezionati. Sopralluoghi mirati, con tecnico e titolare presenti: si va da chi è pronto a decidere, non da chi sta solo guardando le vetrine.",
+          "Con Tetti Top abbiamo strutturato sopralluoghi mirati: il titolare incontra solo clienti già caldi e selezionati, con tecnico e titolare presenti, da chi è pronto a decidere.",
       },
       {
         step: "05",
         title: "Presenza online completa",
         description:
-          "Gestione social, ottimizzazione del profilo Google Business, video recensione di un cliente soddisfatto e raccolta di materiale video aziendale. Tutta la comunicazione orientata ad attrarre e selezionare le persone giuste.",
+          "Con Tetti Top abbiamo curato social, profilo Google Business, video recensione di un cliente soddisfatto e materiale video aziendale. Tutta la comunicazione orientata ad attrarre e selezionare le persone giuste.",
       },
     ],
     results: [
@@ -320,46 +320,46 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: [
       "Acquisizione clienti solo passaparola: nessun canale attivo o prevedibile",
       "Progettazione gratuita ceduta a lead non qualificati: 36 progetti persi ogni anno senza ritorno",
-      "Vendita artigianale: agenda cartacea, WhatsApp, zero CRM e zero pipeline",
+      "Vendita non strutturata: agenda cartacea, WhatsApp, nessun CRM né pipeline",
       "Media di 10 incontri per chiudere un contratto, senza script né protocolli definiti",
-      "70% dei lead erano sognatori senza budget né urgenza reale: nessun filtro all'ingresso",
+      "La maggior parte dei lead arrivava senza budget né urgenza definita: nessun filtro all'ingresso",
     ],
     system: [
       {
         step: "01",
         title: "Posizionamento & comunicazione",
         description:
-          "Ridefinito il modo in cui ROVI si presenta: da showroom a partner progettuale premium per attività commerciali. Messaggi chiari su chi serve, cosa offre e perché sceglierla rispetto alla concorrenza.",
+          "Con ROVI abbiamo ridefinito il modo in cui si presenta: da showroom a partner progettuale premium per attività commerciali. Messaggi chiari su chi serve, cosa offre e perché sceglierla rispetto alla concorrenza.",
       },
       {
         step: "02",
         title: "Processi commerciali strutturati",
         description:
-          "Costruiti tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow-up definito giorno per giorno.",
+          "Insieme a ROVI abbiamo costruito tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow-up definito giorno per giorno.",
       },
       {
         step: "03",
         title: "Progettazione a pagamento",
         description:
-          "Introdotto un sistema di progettazione a pagamento che filtra i perditempo, monetizza il lavoro consulenziale e aumenta il commitment del cliente prima della firma del contratto.",
+          "Con ROVI abbiamo introdotto un sistema di progettazione a pagamento che filtra le richieste non in target, monetizza il lavoro consulenziale e aumenta il commitment del cliente prima della firma del contratto.",
       },
       {
         step: "04",
         title: "Prequalifica & filtro lead",
         description:
-          "Definito un gate di prequalifica all'ingresso di ogni processo: domande su budget, stato immobile e tempistiche, per intercettare solo chi è pronto ad acquistare.",
+          "Insieme al team commerciale abbiamo definito un gate di prequalifica all'ingresso di ogni processo: domande su budget, stato immobile e tempistiche, per intercettare solo chi è pronto ad acquistare.",
       },
       {
         step: "05",
         title: "Sistema di acquisizione Meta Ads",
         description:
-          "Campagne Facebook e Instagram per intercettare chi sta aprendo o rinnovando un'attività commerciale, con form di qualifica integrati per non ricevere più nomi a freddo.",
+          "Con ROVI abbiamo avviato campagne Facebook e Instagram per intercettare chi sta aprendo o rinnovando un'attività commerciale, con form di qualifica integrati per non ricevere più nomi a freddo.",
       },
       {
         step: "06",
         title: "Pipeline vendita & appuntamenti",
         description:
-          "Strutturato un sistema di appuntamenti intermedi con schede operative, budget progressivi e meccaniche di commitment che guidano ogni cliente verso la firma in modo prevedibile.",
+          "Insieme a ROVI abbiamo strutturato un sistema di appuntamenti intermedi con schede operative, budget progressivi e meccaniche di commitment che guidano ogni cliente verso la firma in modo prevedibile.",
       },
     ],
     resultsEyebrow: "Dove siamo adesso",
@@ -367,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
     resultsHeadingHighlight: "operativo",
     results: [
       { value: "3", label: "Processi commerciali", detail: "Strutturati e attivi da subito" },
-      { value: "A pagamento", label: "Progettazione", detail: "Zero perditempo da oggi" },
+      { value: "A pagamento", label: "Progettazione", detail: "Meno tempo perso in trattative non allineate" },
       { value: "Live", label: "Meta Ads", detail: "Da zero acquisizione a canale attivo" },
       { value: "40 anni", label: "Di esperienza", detail: "Ora con un sistema scalabile dietro" },
     ],
@@ -388,7 +388,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Progettazione",
         before: "Gratuita: 36 progetti persi ogni anno senza ritorno",
-        after: "A pagamento: filtra i perditempo e monetizza la consulenza",
+        after: "A pagamento: filtra le richieste non in target e monetizza la consulenza",
       },
       {
         aspect: "Vendita",
@@ -397,7 +397,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Prequalifica",
-        before: "70% lead senza budget né urgenza reale",
+        before: "La maggior parte dei lead senza budget né urgenza definita",
         after: "Gate su budget, stato immobile e tempistiche",
       },
       {
@@ -407,16 +407,16 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Obiettivo",
-        before: "Crescita legata al passaparola e alla fortuna",
+        before: "Crescita legata soprattutto al passaparola",
         after: "+300k fatturato aggiuntivo in 12 mesi (traguardo in corso)",
       },
     ],
     statusBadge: "Progetto attivo · aggiornamenti in arrivo",
     forWhom: [
       "Studi di arredo e progettazione B2B con ticket alto e passaparola come unico canale",
-      "Aziende che regalano consulenza e progettazione a lead non qualificati",
+      "Aziende che offrono consulenza e progettazione a lead non ancora qualificati",
       "Titolari con team commerciale informale che vogliono processi, script e pipeline",
-      "Chi vuole aprire un canale Meta Ads senza ricevere più nomi a freddo",
+      "Chi vuole aprire un canale Meta Ads con form di qualifica integrati",
     ],
     ...caseStudyLogosBySlug["arredo-commerciale"],
   },
@@ -441,40 +441,40 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "L'hotel era appena passato di mano. Nessuno storico utile, presenza online da ricostruire, e l'obiettivo del titolare era uno solo: iniziare ad acquisire prenotazioni fin dal primo giorno. Lo scenario più difficile, partire da zero, con il cronometro acceso.",
     diagnosis: [
-      "Partenza da zero: nuova gestione, nessuno slancio ereditato, camere vuote che non aspettano",
-      "Invisibile online: schede OTA da sistemare, foto deboli, nessun posizionamento. Chi cercava non lo sceglieva",
-      "Zero riprova sociale: senza recensioni nessuno prenota, e senza prenotazioni non arrivano recensioni",
+      "Partenza da zero: nuova gestione, nessuno slancio ereditato, camere da riempire subito",
+      "Presenza online da ricostruire: schede OTA da sistemare, foto deboli, nessun posizionamento. Chi cercava non trovava la struttura",
+      "Poca riprova sociale: senza recensioni recenti è difficile convertire, e senza prenotazioni non arrivano recensioni",
     ],
     system: [
       {
         step: "01",
         title: "Consulenza e formazione iniziale",
         description:
-          "Abbiamo inquadrato il modello di business e l'obiettivo reale del titolare: lanciare la struttura e iniziare a raccogliere prenotazioni da subito. Strategia prima dell'azione.",
+          "Insieme al titolare abbiamo inquadrato il modello di business e l'obiettivo reale: lanciare la struttura e iniziare a raccogliere prenotazioni da subito. Strategia prima dell'azione.",
       },
       {
         step: "02",
         title: "Controllo e ottimizzazione di tutte le piattaforme",
         description:
-          "Abbiamo preso la proprietà di tutte le piattaforme, le abbiamo sistemate e messe a punto. Ogni canale allineato, coerente, pronto a convertire.",
+          "Con la nuova gestione abbiamo preso in carico tutte le piattaforme, le abbiamo sistemate e messe a punto. Ogni canale allineato, coerente, pronto a convertire.",
       },
       {
         step: "03",
         title: "Contenuti e fotografia professionale",
         description:
-          "Abbiamo prodotto foto e contenuti studiati per attirare l'attenzione e far desiderare la struttura. Nell'hospitality si vende con gli occhi: l'immagine giusta è metà della prenotazione.",
+          "Abbiamo prodotto con il titolare foto e contenuti studiati per attirare l'attenzione e far desiderare la struttura. Nell'hospitality si vende con gli occhi: l'immagine giusta è metà della prenotazione.",
       },
       {
         step: "04",
         title: "Sito, posizionamento, Google Business e recensioni",
         description:
-          "Presenza propria oltre alle OTA: sito posizionato, profilo Google Business curato e un sistema per raccogliere recensioni in modo continuo, alimentando la riprova sociale che fa scattare le prenotazioni.",
+          "Insieme alla gestione abbiamo costruito presenza propria oltre alle OTA: sito posizionato, profilo Google Business curato e un sistema per raccogliere recensioni in modo continuo, alimentando la riprova sociale che fa scattare le prenotazioni.",
       },
       {
         step: "05",
         title: "Lancio su tutte le OTA con campagne sponsorizzate",
         description:
-          "Con le fondamenta pronte, abbiamo lanciato la struttura su tutte le piattaforme OTA, supportandola con campagne sponsorizzate mirate sulle piattaforme stesse. È qui che sono arrivate le 258 prenotazioni.",
+          "Con le fondamenta pronte, abbiamo lanciato insieme al titolare la struttura su tutte le piattaforme OTA, supportandola con campagne sponsorizzate mirate sulle piattaforme stesse. È qui che sono arrivate le 258 prenotazioni.",
       },
     ],
     results: [
@@ -500,7 +500,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Presenza online",
         before: "OTA trascurate, foto deboli, nessun posizionamento",
-        after: "Piattaforme ottimizzate, sito, Google Business e contenuti pro",
+        after: "Piattaforme ottimizzate, sito, Google Business e contenuti professionali",
       },
       {
         aspect: "Riprova sociale",
@@ -527,7 +527,7 @@ export const caseStudies: CaseStudy[] = [
       "Risultato misurato sulle prenotazioni effettivamente raccolte nelle prime 48 ore dal lancio sulle piattaforme. Le fondamenta costruite prima del lancio (presenza, contenuti, recensioni) continuano a sostenere la struttura nel tempo.",
     forWhom: [
       "Hotel, B&B e strutture ricettive sotto nuova gestione o in fase di rilancio",
-      "Chi ha schede OTA trascurate, foto deboli e poche recensioni recenti",
+      "Chi ha schede OTA da sistemare, immagini deboli e poche recensioni recenti",
       "Titolari che vogliono occupazione da subito, non tra sei mesi",
       "Chi vuole una presenza online che continua a portare prenotazioni, non solo uno sprint iniziale",
     ],

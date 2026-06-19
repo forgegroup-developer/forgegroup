@@ -105,7 +105,7 @@ Esempi colonna sinistra (pattern, non accuse):
 | Evitare | Preferire |
 |---------|-----------|
 | Sei pronto a diventare il nostro prossimo caso studio? | Vuoi capire se un percorso simile ha senso per la tua azienda? |
-| (solo claim) | Risultati verificati **in casi reali** + *Parliamone: ogni contesto è diverso.* |
+| (solo claim) | Risultati verificati **in casi reali**. *Vuoi capire se un percorso simile ha senso per la tua azienda?* |
 
 Collegare sempre i numeri a **contesto** (settore, punto di partenza, cliente quando pubblicato).
 
