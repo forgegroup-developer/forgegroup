@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Casi Studio | Forge Group",
     description:
-      "Risultati verificati in acquisizione clienti e crescita B2B. Vuoi capire se un percorso simile ha senso per la tua azienda?",
+      "Risultati verificati in acquisizione clienti e crescita B2B. Vuoi capire se un approccio simile ha senso anche per la tua azienda?",
     url: "/casi-studio",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Casi Studio" }],
   },
@@ -36,7 +36,7 @@ function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
       <h1 className="heading-hero text-brand-nero mb-6">
         Risultati{" "}
         <span className="text-brand-corallo">verificati</span> in casi reali.{" "}
-        <span className="text-brand-corallo">Vuoi capire se un percorso simile ha senso per la tua azienda?</span>
+        <span className="text-brand-corallo">Vuoi capire se un approccio simile ha senso anche per la tua azienda?</span>
       </h1>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
         Ottieni una consulenza gratuita
