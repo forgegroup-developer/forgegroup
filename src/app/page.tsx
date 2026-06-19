@@ -130,9 +130,6 @@ export default function Home() {
               </>
             }
           />
-          <p className="mx-auto max-w-4xl -mt-6 mb-8 text-center text-lg text-brand-grigio text-balance">
-            Parliamone: ogni contesto è diverso.
-          </p>
         </div>
         <LazyCaseStudyStack />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
