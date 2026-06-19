@@ -4,7 +4,7 @@ import ContattiFormLoader from "./ContattiFormLoader";
 export const metadata: Metadata = {
   title: "Candida la Tua Azienda",
   description:
-    "Compila il questionario di prequalifica Forge Group. Accettiamo solo imprese B2B con fatturato 350K+ e visione di crescita. Risposta entro 48 ore.",
+    "Compila il questionario di prequalifica Forge Group. Lavoriamo al meglio con imprese B2B da 350K+ di fatturato e visione di crescita. Risposta entro 48 ore.",
   alternates: { canonical: "/contatti" },
   robots: { index: true, follow: true },
   openGraph: {

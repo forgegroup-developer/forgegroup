@@ -47,7 +47,7 @@ export const articles: Article[] = [
       { type: "h3", text: "1. Posizionamento" },
       {
         type: "p",
-        text: "Devi smettere di essere 'un'agenzia/un'impresa/uno studio professionale come tanti'. Devi essere LA scelta ovvia per un segmento specifico. In Campania funziona soprattutto quando ti specializzi per settore (edilizia commerciale, hospitality, software B2B).",
+        text: "Devi smettere di essere 'un'agenzia/un'impresa/uno studio professionale come tanti'. Devi essere la scelta ovvia per un segmento specifico. In Campania funziona soprattutto quando ti specializzi per settore (edilizia commerciale, hospitality, software B2B).",
       },
       { type: "h3", text: "2. Asset a risposta diretta" },
       {

@@ -5,7 +5,7 @@ export const faqs = [
   },
   {
     q: "In quanto tempo vedrò i primi risultati?",
-    a: "I primi lead qualificati arrivano tipicamente nei primi 30-60 giorni. I primi contratti firmati, spesso dopo 90 giorni dall'avvio dei lavori. Risultati strutturali sul fatturato dal sesto mese in poi. Diffida di chi promette clienti in 7 giorni: non è realistico per un sistema B2B solido.",
+    a: "I primi lead qualificati arrivano tipicamente nei primi 30-60 giorni. I primi contratti firmati arrivano spesso dopo 90 giorni dall'avvio dei lavori. Risultati strutturali sul fatturato dal sesto mese in poi. In B2B i risultati duraturi nascono da metodo e continuità, non da promesse immediate.",
   },
   {
     q: "Lavorate con qualsiasi settore?",
