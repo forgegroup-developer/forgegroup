@@ -52,8 +52,11 @@ function getClientDisplayName(c: CaseStudy): string {
   return c.shortTitle;
 }
 
+const COLLABORATIVE_VISUAL_SLUGS = new Set(["software-b2b", "edilizia"]);
+
 export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   const clientName = getClientDisplayName(c);
+  const collaborativeVisual = COLLABORATIVE_VISUAL_SLUGS.has(c.slug);
   return (
     <>
       {/* HERO */}
@@ -151,12 +154,19 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 <ul className="space-y-3">
                   {c.diagnosis.map((d, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span
-                        className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5"
-                        aria-hidden
-                      >
-                        ✕
-                      </span>
+                      {collaborativeVisual ? (
+                        <span
+                          className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
+                          aria-hidden
+                        />
+                      ) : (
+                        <span
+                          className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center shrink-0 mt-0.5"
+                          aria-hidden
+                        >
+                          ✕
+                        </span>
+                      )}
                       <span className="text-brand-nero">{d}</span>
                     </li>
                   ))}
@@ -340,7 +350,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               </span>
               {!c.evolutionHeading && "."}
             </h2>
-            <CaseStudyBeforeAfter rows={c.beforeAfter} />
+            <CaseStudyBeforeAfter
+              rows={c.beforeAfter}
+              variant={collaborativeVisual ? "collaborative" : "default"}
+            />
             {c.statusBadge && (
               <p className="mt-8 flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-brand-corallo">
                 <span className="w-2 h-2 rounded-full bg-brand-corallo animate-pulse" aria-hidden />
@@ -358,8 +371,17 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <div className="copy-on-coral mb-8">
               <p className="eyebrow-coral mb-4">✦ A chi serve</p>
               <h2 className="heading-section font-semibold leading-tight">
-                È pensato per chi fa un ottimo lavoro, ma è stanco di{" "}
-                <span>rincorrere i clienti</span>.
+                {c.slug === "edilizia" ? (
+                  <>
+                    Per imprese che fanno bene il lavoro e vogliono un{" "}
+                    <span>flusso più prevedibile</span>.
+                  </>
+                ) : (
+                  <>
+                    È pensato per chi fa un ottimo lavoro, ma è stanco di{" "}
+                    <span>rincorrere i clienti</span>.
+                  </>
+                )}
               </h2>
             </div>
             <ul className="space-y-3">

@@ -84,8 +84,8 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: [
       "Nessun canale di acquisizione prevedibile: tutto dipendeva da passaparola e referenze personali",
       "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
-      "Commerciali in trasferta su appuntamenti senza reale interesse, con tassi di chiusura bassi",
-      "Mercato di fatto limitato al territorio vicino, impossibile da scalare",
+      "Molte trasferte commerciali, spesso su appuntamenti con poco interesse reale",
+      "Mercato di fatto limitato al territorio vicino, difficile da scalare oltre la zona vicina",
     ],
     system: [
       {
@@ -159,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Commerciali",
-        before: "Trasferte per appuntamenti a freddo, tasso di chiusura basso",
+        before: "Trasferte per appuntamenti a freddo, poche chiusure",
         after: "Appuntamenti con clienti interessati e pronti a firmare",
       },
       {
@@ -187,7 +187,7 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Edilizia B2C",
     resultHeadline: "4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerpt:
-      "Abbiamo trasformato Tetti Top, azienda edile che viveva di passaparola, in un sistema che porta 4 richieste qualificate al mese.",
+      "Con Tetti Top, azienda edile che viveva di passaparola, abbiamo messo a punto un sistema che porta 4 richieste qualificate al mese.",
     hubExcerpt: "Tetti Top: 4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerptHighlights: ["4 clienti qualificati", "senza pubblicità", "azienda di famiglia"],
     metaDescription:
@@ -202,9 +202,9 @@ export const caseStudies: CaseStudy[] = [
       "Tetti Top sapeva fare un lavoro eccellente. Il problema non era la qualità: i clienti arrivavano a caso, senza un sistema, impossibili da prevedere. Mesi pieni e mesi vuoti, risposte a chiunque chiedeva un preventivo e zero visibilità online per chi cercava un'impresa nella zona. Lo stesso scenario di quasi ogni PMI edile.",
     diagnosis: [
       "Flusso imprevedibile: mesi pieni e mesi vuoti, nessun modo di pianificare crescita o assunzioni",
-      "Nessuna selezione: si rispondeva anche a chi cercava solo il prezzo più basso e non avrebbe mai comprato",
+      "Nessun filtro in ingresso: si rispondeva anche a richieste orientate solo al prezzo più basso",
       "Invisibile online: chi cercava un'azienda nella zona non trovava Tetti Top",
-      "Tempo prezioso bruciato su contatti che non chiudevano mai",
+      "Molto tempo su contatti che non portavano a contratto",
     ],
     system: [
       {
@@ -270,7 +270,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Sopralluoghi",
-        before: "Tempo sprecato su contatti che non chiudevano",
+        before: "Molto tempo su contatti che non portavano a contratto",
         after: "Solo clienti caldi, titolare e tecnico su appuntamenti mirati",
       },
       {
@@ -288,7 +288,7 @@ export const caseStudies: CaseStudy[] = [
       "I 175.000€ + IVA rappresentano il valore del preventivo più alto generato dal sistema. Lo riportiamo per trasparenza: indica la qualità delle trattative che il sistema è in grado di portare al tavolo.",
     forWhom: [
       "Aziende a conduzione familiare che vivono di passaparola e vogliono un flusso prevedibile",
-      "Titolari nell'edilizia e nei servizi tecnici che perdono tempo con contatti non qualificati",
+      "Titolari nell'edilizia e nei servizi tecnici che vogliono dedicare meno tempo a contatti non in target",
       "Imprenditori che vogliono scegliere i clienti, non accettare chiunque pur di lavorare",
       "Chi vuole un sistema che resti, non una campagna che si spegne quando smetti di pagare",
     ],

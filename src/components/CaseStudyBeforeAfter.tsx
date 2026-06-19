@@ -7,27 +7,35 @@ export type BeforeAfterRow = {
 
 type Props = {
   rows: BeforeAfterRow[];
+  /** Pallini neutri come tabella home, senza ✕/✓ */
+  variant?: "default" | "collaborative";
 };
 
-export default function CaseStudyBeforeAfter({ rows }: Props) {
+export default function CaseStudyBeforeAfter({ rows, variant = "default" }: Props) {
+  const collaborative = variant === "collaborative";
+
   return (
     <div className="rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
       {/* Intestazioni — sempre 2 colonne anche su mobile */}
       <div className="grid grid-cols-1 sm:grid-cols-2 sm:divide-x divide-brand-bordo border-b border-brand-bordo">
         <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50 border-b border-brand-bordo sm:border-b-0">
-          <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-600 font-bold mb-0.5">
-            ✕ Prima
-          </p>
+          {!collaborative && (
+            <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-600 font-bold mb-0.5">
+              ✕ Prima
+            </p>
+          )}
           <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
-            Senza sistema
+            {collaborative ? "Prima" : "Senza sistema"}
           </p>
         </div>
         <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
-          <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
-            ✓ Dopo
-          </p>
+          {!collaborative && (
+            <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-700 font-bold mb-0.5">
+              ✓ Dopo
+            </p>
+          )}
           <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
-            Con Forge Group
+            {collaborative ? "Dopo" : "Con Forge Group"}
           </p>
         </div>
       </div>
@@ -40,39 +48,61 @@ export default function CaseStudyBeforeAfter({ rows }: Props) {
           }`}
         >
           <div className="flex items-start gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 bg-red-50/70 border-b border-brand-bordo/40 sm:border-b-0">
-            <span
-              className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] md:text-xs font-bold shadow-sm"
-              aria-hidden
-            >
-              ✕
-            </span>
+            {collaborative ? (
+              <span
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
+                aria-hidden
+              />
+            ) : (
+              <span
+                className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] md:text-xs font-bold shadow-sm"
+                aria-hidden
+              >
+                ✕
+              </span>
+            )}
             <div className="min-w-0">
               {row.aspect && (
                 <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-700/80 font-bold mb-1">
                   {row.aspect}
                 </p>
               )}
-              <span className="text-sm md:text-base leading-relaxed text-red-950/85 font-medium">
+              <span
+                className={`text-sm md:text-base leading-relaxed text-red-950/85 ${
+                  collaborative ? "text-xs md:text-sm leading-snug font-medium pt-0.5" : "font-medium"
+                }`}
+              >
                 {row.before}
               </span>
             </div>
           </div>
           <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-emerald-50/80">
-            <span
-              className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
-              aria-hidden
-            >
-              <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-              </svg>
-            </span>
+            {collaborative ? (
+              <span
+                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600/80"
+                aria-hidden
+              />
+            ) : (
+              <span
+                className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
+                aria-hidden
+              >
+                <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+            )}
             <div className="min-w-0">
               {row.aspect && (
                 <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-800/80 font-bold mb-1">
                   {row.aspect}
                 </p>
               )}
-              <span className="text-sm md:text-base leading-relaxed font-semibold text-emerald-950">
+              <span
+                className={`text-sm md:text-base leading-relaxed text-emerald-950 ${
+                  collaborative ? "text-xs md:text-sm leading-snug font-semibold pt-0.5" : "font-semibold"
+                }`}
+              >
                 {row.after}
               </span>
             </div>
