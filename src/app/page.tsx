@@ -13,10 +13,6 @@ import DeferredMount from "@/components/DeferredMount";
 import LcpPosterPreload from "@/components/LcpPosterPreload";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
-const SocialProof = dynamic(() => import("@/components/SocialProof"), {
-  loading: () => <div className="min-h-[320px]" aria-hidden />,
-});
-
 const Reveal = dynamic(() => import("@/components/Reveal"));
 
 const ClientiLogos = dynamic(() => import("@/components/ClientiLogos"), {
@@ -89,12 +85,7 @@ export default function Home() {
 
       <ClientSceneEffects />
 
-      {/* S2 — RIPROVA SOCIALE (3 card, numeri count-up) */}
-      <DeferredMount minHeight="320px">
-        <SocialProof />
-      </DeferredMount>
-
-      {/* S2b — LOGHI CLIENTI */}
+      {/* S2 — LOGHI CLIENTI */}
       <DeferredMount minHeight="280px">
         <ClientiLogos />
       </DeferredMount>

@@ -33,15 +33,12 @@ function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
       <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
         ✦ Casi Studio
       </p>
-      <h1 className="heading-hero text-brand-nero mb-4">
+      <h1 className="heading-hero text-brand-nero mb-6">
         Risultati{" "}
         <span className="text-brand-corallo">verificati</span> in casi reali.{" "}
         <span className="text-brand-corallo">Vuoi capire se un percorso simile ha senso per la tua azienda?</span>
       </h1>
-      <p className="text-lg text-brand-grigio mb-6 text-balance max-w-2xl">
-        Parliamone: ogni contesto è diverso.
-      </p>
-      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
+      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
         Ottieni una consulenza gratuita
       </Link>
     </div>
