@@ -38,10 +38,10 @@ const serviziTabs: ServiziTab[] = [
       {
         title: (
           <>
-            Smetti di rincorrere. <span>Inizia a scegliere</span>.
+            Vuoi <span>scegliere i contatti</span> invece di rincorrerli?
           </>
         ),
-        body: "Costruiamo un sistema che porta ogni mese contatti qualificati, mentre tu ti concentri sul lavoro che sai fare meglio.",
+        body: "Costruiamo con te un sistema che porta ogni mese contatti qualificati, mentre ti concentri sul lavoro che sai fare meglio.",
       },
       {
         title: (
@@ -55,10 +55,10 @@ const serviziTabs: ServiziTab[] = [
       {
         title: (
           <>
-            I tuoi contenuti diventano <span>appuntamenti in agenda</span>.
+            Comunicazione che <span>scalda il contatto</span> e prepara il commerciale.
           </>
         ),
-        body: "Costruiamo una comunicazione che scalda il contatto e lo consegna già convinto al tuo commerciale.",
+        body: "Costruiamo contenuti che fanno capire il valore dei tuoi prodotti e servizi prima ancora del primo appuntamento.",
       },
     ],
   },
@@ -86,18 +86,18 @@ const serviziTabs: ServiziTab[] = [
       {
         title: (
           <>
-            Hai un reparto commerciale che <span>funziona anche senza di te</span>.
+            Un team che vende con <span>processo chiaro</span>, anche quando non sei in sala.
           </>
         ),
-        body: "Selezioniamo o formiamo le persone giuste per costruire un team che vende in autonomia, ogni giorno.",
+        body: "Selezioniamo o formiamo con te le persone giuste per costruire un reparto che lavora con metodo, ogni giorno.",
       },
       {
         title: (
           <>
-            I tuoi commerciali <span>convertono di più</span>, ogni mese.
+            I tuoi commerciali <span>convertono di più</span>, mese dopo mese.
           </>
         ),
-        body: "Costruiamo un percorso di formazione su misura che trasforma il tuo team in una macchina da chiusura.",
+        body: "Costruiamo un percorso di formazione su misura per far crescere le chiusure del team, con costanza nel tempo.",
       },
     ],
   },
@@ -138,10 +138,10 @@ const serviziTabs: ServiziTab[] = [
       {
         title: (
           <>
-            Prendi decisioni come un imprenditore che <span>sa cosa guardare</span>.
+            Decisioni basate sui <span>dati che contano</span> per il tuo settore.
           </>
         ),
-        body: "Ti diamo chiarezza sui dati che contano e costruiamo insieme la strategia di crescita per il tuo settore.",
+        body: "Ti diamo chiarezza sui numeri utili e costruiamo insieme la strategia di crescita per la tua azienda.",
       },
     ],
   },
@@ -167,7 +167,7 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
 export const metadata: Metadata = {
   title: "Servizi | Sistema di acquisizione e vendita B2B",
   description:
-    "La tua azienda sta perdendo clienti ogni giorno. Costruiamo il sistema che in 90 giorni ha generato €126.500 di nuovo fatturato per un cliente B2B. Acquisizione, vendita e consulenza integrati.",
+    "Scopri come costruiamo acquisizione e vendita B2B integrati. Caso DISA: €126.500 di nuovo fatturato in 90 giorni. Acquisizione clienti, processi di vendita e consulenza.",
   alternates: { canonical: "/servizi" },
   openGraph: {
     title: "Servizi Forge Group | Acquisizione, vendita e consulenza B2B",

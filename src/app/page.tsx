@@ -65,7 +65,7 @@ export default function Home() {
               <h1 className="hero-enter hero-enter-d2 heading-hero heading-hero-home text-brand-nero max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
                 Portiamo la tua azienda{" "}
                 <span className="text-brand-corallo">
-                  dal disordine a un sistema prevedibile
+                  verso un sistema prevedibile
                 </span>{" "}
                 di acquisizione e vendita.
               </h1>
@@ -190,24 +190,24 @@ export default function Home() {
               {/* Righe allineate — sempre 2 colonne */}
               {[
                 {
-                  other: "Ti vendono visibilità, non clienti",
-                  forge: "Costruiamo un sistema che porta clienti paganti",
+                  other: "Spesso il focus resta su reach e like, non sui contratti",
+                  forge: "Costruiamo con te un sistema orientato a clienti paganti",
                 },
                 {
-                  other: "Nessun contatto con i tuoi commerciali",
-                  forge: "Lavoriamo e formiamo il tuo reparto commerciale",
+                  other: "Poco coinvolgimento del reparto commerciale",
+                  forge: "Lavoriamo e formiamo con te il reparto commerciale",
                 },
                 {
-                  other: "Ti presentano report di visualizzazioni e like ai post",
-                  forge: "Dati misurabili, previsione di clienti e fatturato per i prossimi anni",
+                  other: "Report su visualizzazioni e metriche di vanità",
+                  forge: "Dati misurabili su contatti, clienti e fatturato",
                 },
                 {
-                  other: "Pacchetti uguali per tutti, senza strategia",
+                  other: "Pacchetti standard, poca personalizzazione",
                   forge: "Strategia su misura in base al livello della tua azienda",
                 },
                 {
-                  other: "Smettono di lavorare se smetti di pagare",
-                  forge: "Creiamo un sistema che resta di tua proprietà",
+                  other: "Dipendenza continua dal fornitore esterno",
+                  forge: "Creiamo con te un sistema che resta di tua proprietà",
                 },
               ].map((row, idx) => (
                 <div
@@ -216,24 +216,18 @@ export default function Home() {
                 >
                   <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-red-50/70 hover:bg-red-50 transition-colors">
                     <span
-                      className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-[10px] md:text-xs font-bold shadow-sm"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
                       aria-hidden
-                    >
-                      ✕
-                    </span>
+                    />
                     <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium pt-0.5">
                       {row.other}
                     </span>
                   </div>
                   <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-emerald-50/80 hover:bg-emerald-50 transition-colors">
                     <span
-                      className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600/80"
                       aria-hidden
-                    >
-                      <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
+                    />
                     <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950 pt-0.5">
                       {row.forge}
                     </span>

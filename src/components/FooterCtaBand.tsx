@@ -15,7 +15,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="w-full">
             <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-corallo">
-              ✦ Pronto a smettere di improvvisare?
+              ✦ Pronto a mettere ordine nel tuo sistema di acquisizione?
             </p>
 
             {isCaseStudy ? (

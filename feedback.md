@@ -8,8 +8,17 @@
 ## 1. Voce e Tono del Brand
 
 **Chi siamo:**  
-Forge Group è la prima realtà italiana di Growth Hacking pensata per imprese B2B.  
-Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entra nel business del cliente, costruisce un sistema di acquisizione e vendita prevedibile, e lo fa crescere con dati e metodo.
+Forge Group è una realtà di Growth Hacking pensata per imprese B2B.  
+Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entra nel business del cliente, costruisce con lui un sistema di acquisizione e vendita prevedibile, e lo fa crescere con dati e metodo.
+
+**Tono collaborativo (regola fissa, giugno 2026):**
+- Preferire **domande** e **situazioni riconoscibili** a sentenze assolute (*sempre, ogni, la risposta è*)
+- Usare **«con te» / «insieme»** quando Forge costruisce qualcosa
+- Descrivere **pattern di mercato** («spesso succede che…») invece di attaccare «le agenzie» o «le altre aziende»
+- Evitare promesse totali (*macchina da chiusura, gira da solo, funziona senza di te*)
+- FAQ e copy informativi: **risposta onesta**, non reframe da venditore (*«La domanda che ti faccio è…»*)
+- Tabella confronto Home: colonne **«Cosa succede spesso»** / **«Come lavoriamo noi»**; righe descrittive, non accusatorie
+- Checklist pre-pubblicazione: giudica la situazione o il visitatore? ci sono assoluti? c’è «con te»? suonerebbe naturale detto a voce?
 
 **Tono:**
 - Diretto, concreto, senza gergo vuoto
@@ -65,7 +74,7 @@ Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entr
 - Componente: `FooterCtaBand.tsx` (in `Footer.tsx`), nascosta su `/contatti`
 - Sfondo: **`bg-brand-bianco`** semplice (nessun prism WebGL)
 - Pannello CTA: card bianca con bordo (`footer-cta-band .cta-glass-panel`)
-- Eyebrow (sempre uguale, corallo): *"✦ Pronto a smettere di improvvisare?"*
+- Eyebrow (sempre uguale, corallo): *"✦ Pronto a mettere ordine nel tuo sistema di acquisizione?"*
 - **Titolo CTA:** `<h2>` (sezione principale del footer, non `<h3>`)
 - **Layout:** titolo sopra, bottone **sotto** a tutta larghezza; testo pulsante su **una riga** (`whitespace-nowrap`)
 - **Colori titolo:** testo **nero**; corallo **solo sulla keyword** (mai intere frasi corallo):
@@ -93,7 +102,7 @@ Acronimo **F.O.R.G.E.** — una fase per lettera, con descrizione e pill «Per t
 | **O** | Organizzazione | basi solide, niente più caos |
 | **R** | Reputazione | i clienti ti scelgono prima ancora di chiamarti |
 | **G** | Gestione | contatti che si trasformano in incassi |
-| **E** | Economia | numeri reali, non vanity metrics |
+| **E** | Economia | metriche che contano sul fatturato |
 
 **Schema visivo:** strip lettere F.O.R.G.E., righe con lettera grande + testo verticale, descrizione e pill. Footer: «rincorre → sceglie». Componente: `MetodoForge.tsx`.
 
@@ -246,38 +255,21 @@ Sotto-pagine servizi (`/servizi/acquisizione-clienti`, ecc.) **non pubblicate**:
 La pagina `/servizi` è ora una landing page conversion-focused con 4 sezioni:
 
 ### Sezione 1: Hero
-- **Headline:** "La tua azienda sta perdendo clienti ogni giorno. E il problema non è il mercato."
-- **Sottotitolo:** sistema che in 90 giorni ha generato 126.500€ per un cliente B2B
+- **Headline:** "Scopri come aumentiamo il fatturato della tua azienda."
 - **CTA:** "Ottieni una consulenza gratuita" → `/contatti`
-- **Microcopy:** "Solo 3 posti disponibili questo mese."
+- **Meta description:** caso DISA €126.500 in 90 giorni + acquisizione, vendita, consulenza (no fear-based)
 
-### Sezione 2: Agitazione del dolore
-- **Titolo:** "Fermati un secondo. Riconosci questa situazione?"
-- 4 domande con risposta (formato Q&A)
-- **Chiusura:** "Non è colpa tua. Nessuno ti ha mai costruito un sistema vero. Noi lo facciamo."
-
-### Sezione 3: I tre servizi
-- **Titolo:** "Riconosci qualcuno di questi problemi?"
-- 01 Acquisizione Clienti / 02 Processi di Vendita / 03 Consulenza e Formazione
-- **Sidebar card:** numero grande corallo, titolo servizio corallo, divisorio, domanda intro con keyword corallo, foto imprenditore PNG scontornato nello spazio centrale sopra CTA, pulsante glass corallo su due righe (*Ottieni* / *una consulenza gratuita*) con freccia
-- **Asset sidebar:** PNG scontornati in `public/images/servizi/` (`imprenditore-acquisizione`, `imprenditore-vendite`, `imprenditrice-consulenza`). Ogni immagine deve rispecchiare la domanda intro sopra (es. consulenza: imprenditrice stanca, «stai crescendo o lavorando di più?»). Sfondo piatto uniforme in generazione, niente oggetti che sovrappongono il corpo, per facilitare rembg.
-- Colonna destra: card domanda + reframe (pattern domanda → risposta breve)
+### Sezione 2: Tab servizi (3 blocchi)
+- Intro in forma di **domanda** dove possibile (acquisizione, vendite, consulenza)
+- Punti con tono collaborativo (*con te*, tempi realistici, niente assoluti)
 - Anchor: `#acquisizione`, `#vendite`, `#consulenza`
-
-### Sezione 4: Prova sociale
-- **Titolo:** "Non ti chiediamo di fidarti. Ti chiediamo di guardare i numeri."
-- Card con cliente B2B software, partenza, azione, risultato 126.500€ in 90 giorni
-- Link: "Leggi il caso completo →" verso `/casi-studio`
-
-### CTA finale
-- Ripetizione CTA verso `/contatti`
 
 ---
 
 ## 6. Modifiche implementate (log)
 
 - [x] Sezioni corallo con palette leggibile (bianco/nero/pesca-light per testi e keyword)
-- [x] Tabelle comparative sempre a 2 colonne su mobile con ✕/✓ e separatori
+- [x] Tabelle comparative Home: colonne «Cosa succede spesso» / «Come lavoriamo noi»; tono collaborativo (giugno 2026)
 - [x] Rimossa CTASection da tutte le pagine (CTA resta solo nel footer)
 - [x] Footer: fascia CTA `FooterCtaBand` (prism originale + `LightBeamButton` alone rotante) + corpo link `bg-brand-corallo`
 - [x] Regola sezioni bianche: classe `section-bianco` applicata su tutto il sito

@@ -38,9 +38,9 @@ const beliefCards: {
     number: "01",
     photo: "/images/team/vision/team-insieme.jpg",
     alt: "Il team Forge Group al lavoro",
-    title: "La risposta, quasi sempre, è la stessa.",
+    title: "Spesso il problema non è quello che pensi.",
     subtitle:
-      "Non manca il prodotto. Non mancano le persone. Manca qualcuno che entra dentro, capisce come funziona davvero quell'azienda, e costruisce con loro qualcosa che regge nel tempo.",
+      "Non mancano i prodotti e servizi. Non mancano le persone. Manca qualcuno che entra dentro, capisce come funziona davvero quell'azienda, e costruisce con loro qualcosa che regge nel tempo.",
     variant: "coral",
     rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "",
@@ -53,7 +53,7 @@ const beliefCards: {
     alt: "Il team Forge Group al lavoro",
     title: "Entriamo, restiamo, costruiamo.",
     subtitle:
-      "Noi non consegniamo campagne e sparissimo. Lavoriamo fianco a fianco sul marketing, sul processo commerciale, sulla struttura. Finché non gira da solo.",
+      "Restiamo fianco a fianco sul marketing, sul processo commerciale, sulla struttura. Lavoriamo con te finché il sistema regge con meno intervento nostro.",
     variant: "dark",
     rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:mt-0 md:mt-10 md:-ml-6 lg:-ml-8",
@@ -217,7 +217,7 @@ export default function VisionBeliefCards() {
         >
           Quello in cui
           <br />
-          <span className="italic text-brand-corallo">crediamo davvero</span>
+          <span className="italic text-brand-corallo">in cui crediamo</span>
         </h2>
 
         <div

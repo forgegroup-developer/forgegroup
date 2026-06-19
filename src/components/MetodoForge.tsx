@@ -8,7 +8,7 @@ const fasi = [
     verticalLabel: "FORMAZIONE",
     title: "Formazione",
     description:
-      "Partiamo da un percorso di consulenza e formazione per inquadrare il tuo modello di business, gli obiettivi reali e dove si rompe oggi la tua acquisizione clienti. Prima di agire, capiamo. Nessuna soluzione preconfezionata.",
+      "Partiamo da un percorso di consulenza e formazione per inquadrare il tuo modello di business, gli obiettivi reali e dove si rompe oggi la tua acquisizione clienti. Prima di agire, capiamo insieme. Partiamo dal tuo modello, non da un copia-incolla.",
     takeaway: "una strategia su misura, non un copia-incolla",
   },
   {
@@ -16,7 +16,7 @@ const fasi = [
     verticalLabel: "ORGANIZZAZIONE",
     title: "Organizzazione",
     description:
-      "Sistemiamo le fondamenta: piattaforme, sito, contenuti, presenza online e processi interni. Mettiamo ordine dove oggi c'è improvvisazione, così la macchina è pronta a vendere prima ancora di accenderla.",
+      "Sistemiamo le fondamenta: piattaforme, sito, contenuti, presenza online e processi interni. Mettiamo ordine dove i processi non sono ancora allineati, così la macchina è pronta a vendere prima ancora di accenderla.",
     takeaway: "basi solide, niente più caos",
   },
   {
@@ -24,7 +24,7 @@ const fasi = [
     verticalLabel: "REPUTAZIONE",
     title: "Reputazione",
     description:
-      "Costruiamo posizionamento e riprova sociale: Google My Business, recensioni raccolte in modo continuo, presenza digitale coerente su tutte le piattaforme. È la fiducia che fa scattare il contatto, e di questa fiducia ci prendiamo la piena responsabilità.",
+      "Costruiamo posizionamento e riprova sociale: Google My Business, recensioni raccolte in modo continuo, presenza digitale coerente su tutte le piattaforme. È la fiducia che fa scattare il contatto, e lavoriamo con te per costruirla con continuità.",
     takeaway: "i clienti ti scelgono prima ancora di chiamarti",
   },
   {
@@ -41,7 +41,7 @@ const fasi = [
     title: "Economia",
     description:
       "Misuriamo tutto in termini economici: più clienti, più margine, crescita prevedibile e scalabile. L'obiettivo non è \"fare marketing\": è far crescere il tuo fatturato in modo concreto e sostenibile nel tempo.",
-    takeaway: "numeri reali, non vanity metrics",
+    takeaway: "metriche che contano sul fatturato",
   },
 ] as const;
 

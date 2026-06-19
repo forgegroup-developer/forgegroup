@@ -331,7 +331,7 @@ Ogni pagina principale ha una versione markdown senza navigazione o script. Aggi
 ${mirrorList}
 
 ## What Makes Us Different
-Non vendiamo gestione social o vanity metrics. Entriamo nelle aziende per costruire acquisizione, vendita e processi misurabili sul fatturato.
+Lavoriamo con le imprese B2B su acquisizione, vendita e processi misurabili sul fatturato. Entriamo in azienda fianco a fianco, non ci fermiamo a visibilità e report.
 
 ## Frequently Asked Questions
 ${faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
