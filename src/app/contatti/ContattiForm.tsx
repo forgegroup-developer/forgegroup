@@ -129,7 +129,7 @@ export default function ContattiForm() {
 
       if (!response.ok) {
         const j = await response.json().catch(() => ({}));
-        throw new Error(j.message || "Errore durante l'invio della candidatura.");
+        throw new Error(j.message || "Errore durante l'invio del modulo.");
       }
 
       setSuccess(true);
@@ -242,7 +242,7 @@ export default function ContattiForm() {
             Verrai contattato entro <strong>48 ore lavorative</strong>.
           </p>
           <p>
-            La chiamata ha un obiettivo solo: capire dove sei e dove vuoi arrivare. Se ha senso, ci fissiamo un
+            La chiamata ha un solo obiettivo: capire dove sei e dove vuoi arrivare. Se ha senso, ci fissiamo un
             appuntamento e prendiamo un caffè insieme.
           </p>
         </div>

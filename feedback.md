@@ -11,7 +11,8 @@
 Forge Group è una realtà di Growth Hacking pensata per imprese B2B.  
 Non siamo un'agenzia che "fa comunicazione": siamo un partner operativo che entra nel business del cliente, costruisce con lui un sistema di acquisizione e vendita prevedibile, e lo fa crescere con dati e metodo.
 
-**Tono collaborativo (regola fissa, giugno 2026):**
+**Tono collaborativo (regola fissa, giugno 2026):**  
+Guida estesa e esempi before/after → [`feedback-comunicazione-collaborativa.md`](feedback-comunicazione-collaborativa.md)
 - Preferire **domande** e **situazioni riconoscibili** a sentenze assolute (*sempre, ogni, la risposta è*)
 - Usare **«con te» / «insieme»** quando Forge costruisce qualcosa
 - Descrivere **pattern di mercato** («spesso succede che…») invece di attaccare «le agenzie» o «le altre aziende»

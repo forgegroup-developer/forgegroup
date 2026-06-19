@@ -72,7 +72,7 @@ export const caseStudies: CaseStudy[] = [
     hubExcerpt: "DISA SRL: €126.500 in 90 giorni. Costo per contatto €1,48.",
     excerptHighlights: ["€126.500", "90 giorni", "€1,48"],
     metaDescription:
-      "Caso studio Software B2B: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
+      "Caso studio Software B2B: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
     context: [
       { label: "Settore", value: "Software B2B" },
       { label: "Azienda", value: "DISA SRL, software SOS APPALTI" },
@@ -83,7 +83,7 @@ export const caseStudies: CaseStudy[] = [
       "DISA SRL fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
     diagnosis: [
       "Nessun canale di acquisizione prevedibile: tutto dipendeva da passaparola e referenze personali",
-      "Contatti non consapevoli: chi incontravano non conosceva il software né ne percepiva l'utilità",
+      "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
       "Commerciali in trasferta su appuntamenti senza reale interesse, con tassi di chiusura bassi",
       "Mercato di fatto limitato al territorio vicino, impossibile da scalare",
     ],
@@ -335,7 +335,7 @@ export const caseStudies: CaseStudy[] = [
         step: "02",
         title: "Processi commerciali strutturati",
         description:
-          "Costruiti tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow up definito giorno per giorno.",
+          "Costruiti tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow-up definito giorno per giorno.",
       },
       {
         step: "03",
@@ -393,7 +393,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Vendita",
         before: "Agenda cartacea, WhatsApp, nessun CRM né pipeline",
-        after: "3 processi commerciali con script e follow up giornalieri",
+        after: "3 processi commerciali con script e follow-up giornalieri",
       },
       {
         aspect: "Prequalifica",
@@ -427,8 +427,8 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Hospitality",
     resultHeadline: "258 prenotazioni in 48 ore.",
     excerpt:
-      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, +20.000€ di prenotazioni",
-    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, +20.000€ di prenotazioni",
+      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, per un valore di oltre 20.000€.",
+    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, per un valore di oltre 20.000€.",
     excerptHighlights: ["258 prenotazioni", "48 ore", "+20.000€"],
     metaDescription:
       "Caso studio Hospitality: lancio hotel sotto nuova gestione con 258 prenotazioni in 48 ore e +20.000€ di valore. OTA, contenuti, Google Business e campagne sponsorizzate.",
@@ -442,7 +442,7 @@ export const caseStudies: CaseStudy[] = [
       "L'hotel era appena passato di mano. Nessuno storico utile, presenza online da ricostruire, e l'obiettivo del titolare era uno solo: iniziare ad acquisire prenotazioni fin dal primo giorno. Lo scenario più difficile, partire da zero, con il cronometro acceso.",
     diagnosis: [
       "Partenza da zero: nuova gestione, nessuno slancio ereditato, camere vuote che non aspettano",
-      "Invisibile online: schede OTA da sistemare, foto deboli, nessun posizionamento. Chi cercava, non sceglieva",
+      "Invisibile online: schede OTA da sistemare, foto deboli, nessun posizionamento. Chi cercava non lo sceglieva",
       "Zero riprova sociale: senza recensioni nessuno prenota, e senza prenotazioni non arrivano recensioni",
     ],
     system: [

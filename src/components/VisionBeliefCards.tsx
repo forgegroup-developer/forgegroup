@@ -215,7 +215,7 @@ export default function VisionBeliefCards() {
             fontWeight: 700,
           }}
         >
-          Quello in cui
+          Quello
           <br />
           <span className="italic text-brand-corallo">in cui crediamo</span>
         </h2>

@@ -249,7 +249,7 @@ export default function Navbar() {
                 onClick={handleMobileCasiStudioTap}
                 className="flex w-full items-center justify-between py-5 group"
                 aria-expanded={mobileCasi}
-                aria-label="Casi Studio — tocca due volte per tutti i casi studio"
+                aria-label="Casi Studio: tocca due volte per tutti i casi studio"
               >
                 <span
                   className={`text-[28px] font-bold uppercase tracking-tight transition-colors ${

@@ -17,7 +17,7 @@ function escapeHtml(str: string): string {
 
 export function buildCandidaturaInternalSubject(data: Record<string, string>): string {
   const name = String(data.nome_cognome ?? "").trim() || "Nuova candidatura";
-  return `Forge Group | Entra a far parte — ${name}`;
+  return `Forge Group | Entra a far parte | ${name}`;
 }
 
 export function buildCandidaturaInternalHtml(data: Record<string, string>): string {
