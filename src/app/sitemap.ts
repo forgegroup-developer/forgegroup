@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
-import { STATIC_SEO_ROUTES, SITE_URL, absoluteUrl } from "@/lib/seo/site";
+import { getIndexableStaticRoutes, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = STATIC_SEO_ROUTES.map((route) => ({
+  const staticRoutes: MetadataRoute.Sitemap = getIndexableStaticRoutes().map((route) => ({
     url: absoluteUrl(route.path),
     lastModified: now,
     changeFrequency: route.changeFrequency,

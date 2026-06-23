@@ -69,7 +69,7 @@ export default function Home() {
                 <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
                   Hai un minuto?
                 </Link>
-                <Link href="/#casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
+                <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
                   Vedi i risultati
                 </Link>
               </div>
@@ -91,7 +91,6 @@ export default function Home() {
       </DeferredMount>
 
       {/* S3 — SERVIZI */}
-      <DeferredMount minHeight="520px">
       <section className="py-20 md:py-28 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -112,12 +111,16 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="/servizi" className="btn-ghost px-8 py-4 text-sm md:text-base">
+              Scopri tutti i servizi B2B
+            </Link>
+          </div>
         </div>
       </section>
-      </DeferredMount>
 
       {/* S5 — CASI STUDIO (stacking cards on scroll) */}
-      <DeferredMount minHeight="640px">
       <section id="casi-studio" className="py-20 md:py-28 section-bianco scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -143,7 +146,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      </DeferredMount>
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">

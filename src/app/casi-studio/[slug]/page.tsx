@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Script from "next/script";
 import CaseStudyDetail from "@/components/CaseStudyDetail";
+import SeoHubNav from "@/components/SeoHubNav";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 
@@ -63,10 +63,11 @@ export default async function CasoStudioDetail({ params }: Props) {
 
   return (
     <>
-      <Script id={`ld-breadcrumb-${c.slug}`} type="application/ld+json" strategy="afterInteractive">
+      <script id={`ld-breadcrumb-${c.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbJsonLd)}
-      </Script>
+      </script>
       <CaseStudyDetail c={c} showBackLink />
+      <SeoHubNav currentPath={`/casi-studio/${c.slug}`} showCaseStudies showArticles />
     </>
   );
 }

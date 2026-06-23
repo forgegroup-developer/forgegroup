@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/ForgeGradientBackground";
 import MetodoForge from "@/components/MetodoForge";
+import SeoHubNav from "@/components/SeoHubNav";
 import SectionHeader from "@/components/SectionHeader";
 import ClientiLogos from "@/components/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
@@ -242,6 +243,8 @@ export default function ServiziHub() {
       <ClientiLogos />
 
       <MetodoForge />
+
+      <SeoHubNav currentPath="/servizi" showCaseStudies />
     </>
   );
 }

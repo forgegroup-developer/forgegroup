@@ -41,23 +41,72 @@ export const SITE_KEYWORDS = [
 
 export type SeoRoute = {
   path: string;
+  label: string;
   priority: number;
   changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   /** Incluso in llms.txt come pagina HTML principale */
   inLlmsMainPages?: boolean;
+  /** false = esclusa da sitemap (es. pagine legali con noindex) */
+  indexable?: boolean;
 };
 
-/** Pagine statiche indicizzabili (escluse policy legali da llms main se preferito) */
+/** Pagine statiche — policy legali presenti ma non in sitemap (noindex) */
 export const STATIC_SEO_ROUTES: SeoRoute[] = [
-  { path: "/", priority: 1, changeFrequency: "weekly", inLlmsMainPages: true },
-  { path: "/servizi", priority: 0.9, changeFrequency: "monthly", inLlmsMainPages: true },
-  { path: "/casi-studio", priority: 0.9, changeFrequency: "monthly", inLlmsMainPages: true },
-  { path: "/visione", priority: 0.8, changeFrequency: "monthly", inLlmsMainPages: true },
-  { path: "/contatti", priority: 0.9, changeFrequency: "yearly", inLlmsMainPages: true },
-  { path: "/blog", priority: 0.8, changeFrequency: "weekly", inLlmsMainPages: true },
-  { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" },
-  { path: "/cookie-policy", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/", label: "Home", priority: 1, changeFrequency: "weekly", inLlmsMainPages: true },
+  {
+    path: "/servizi",
+    label: "Servizi B2B",
+    priority: 0.9,
+    changeFrequency: "monthly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/casi-studio",
+    label: "Casi studio",
+    priority: 0.9,
+    changeFrequency: "monthly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/visione",
+    label: "Visione",
+    priority: 0.8,
+    changeFrequency: "monthly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/contatti",
+    label: "Contatti",
+    priority: 0.9,
+    changeFrequency: "yearly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/blog",
+    label: "Blog",
+    priority: 0.8,
+    changeFrequency: "weekly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/privacy-policy",
+    label: "Privacy policy",
+    priority: 0.3,
+    changeFrequency: "yearly",
+    indexable: false,
+  },
+  {
+    path: "/cookie-policy",
+    label: "Cookie policy",
+    priority: 0.3,
+    changeFrequency: "yearly",
+    indexable: false,
+  },
 ];
+
+export function getIndexableStaticRoutes(): SeoRoute[] {
+  return STATIC_SEO_ROUTES.filter((route) => route.indexable !== false);
+}
 
 export function absoluteUrl(path: string): string {
   if (path === "/" || path === "") return `${SITE_URL}/`;

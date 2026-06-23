@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 import HeroGooeySection from "@/components/HeroGooeySection";
-import DeferredMount from "@/components/DeferredMount";
+import SeoHubNav from "@/components/SeoHubNav";
 
 const Reveal = dynamic(() => import("@/components/Reveal"));
 
@@ -44,9 +44,20 @@ export default function BlogHub() {
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
           Leggi i nostri <span className="text-brand-corallo">articoli</span>
         </h1>
+        <p className="mx-auto max-w-2xl text-base leading-relaxed text-brand-grigio md:text-lg">
+          Guide pratiche su acquisizione clienti B2B, processi di vendita e crescita per imprese in
+          Campania e in Italia. Per un percorso su misura, scopri i{" "}
+          <Link href="/servizi" className="font-semibold text-brand-corallo hover:underline">
+            nostri servizi
+          </Link>{" "}
+          o i{" "}
+          <Link href="/casi-studio" className="font-semibold text-brand-corallo hover:underline">
+            casi studio
+          </Link>
+          .
+        </p>
       </HeroGooeySection>
 
-      <DeferredMount minHeight="480px">
       <section className="py-16 md:py-20 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -85,8 +96,8 @@ export default function BlogHub() {
           </div>
         </div>
       </section>
-      </DeferredMount>
 
+      <SeoHubNav currentPath="/blog" showCaseStudies showArticles />
     </>
   );
 }

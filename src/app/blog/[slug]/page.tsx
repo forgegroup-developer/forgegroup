@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Script from "next/script";
+import SeoHubNav from "@/components/SeoHubNav";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 
@@ -83,12 +83,12 @@ export default async function ArticleDetail({ params }: Props) {
 
   return (
     <>
-      <Script id={`ld-article-${a.slug}`} type="application/ld+json" strategy="afterInteractive">
+      <script id={`ld-article-${a.slug}`} type="application/ld+json">
         {JSON.stringify(articleJsonLd)}
-      </Script>
-      <Script id={`ld-breadcrumb-${a.slug}`} type="application/ld+json" strategy="afterInteractive">
+      </script>
+      <script id={`ld-breadcrumb-${a.slug}`} type="application/ld+json">
         {JSON.stringify(breadcrumbJsonLd)}
-      </Script>
+      </script>
 
       <article>
         <header className="pt-16 pb-10 md:pt-24 md:pb-12 section-coral border-b">
@@ -223,6 +223,7 @@ export default async function ArticleDetail({ params }: Props) {
         </section>
       )}
 
+      <SeoHubNav currentPath={`/blog/${a.slug}`} showCaseStudies showArticles />
     </>
   );
 }

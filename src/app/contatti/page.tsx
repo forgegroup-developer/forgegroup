@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
+import SeoHubNav from "@/components/SeoHubNav";
 
 export const metadata: Metadata = {
   title: "Candida la Tua Azienda",
@@ -23,5 +25,29 @@ export const metadata: Metadata = {
 };
 
 export default function ContattiPage() {
-  return <ContattiFormLoader />;
+  return (
+    <>
+      <section className="border-b border-brand-bordo bg-brand-bianco py-10 md:py-12">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <p className="text-sm leading-relaxed text-brand-grigio md:text-base">
+            Prima di candidarti, puoi leggere i nostri{" "}
+            <Link href="/servizi" className="font-semibold text-brand-corallo hover:underline">
+              servizi B2B
+            </Link>
+            , i{" "}
+            <Link href="/casi-studio" className="font-semibold text-brand-corallo hover:underline">
+              casi studio
+            </Link>{" "}
+            e la{" "}
+            <Link href="/visione" className="font-semibold text-brand-corallo hover:underline">
+              visione
+            </Link>{" "}
+            di Forge Group.
+          </p>
+        </div>
+      </section>
+      <ContattiFormLoader />
+      <SeoHubNav currentPath="/contatti" showCaseStudies showArticles />
+    </>
+  );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,6 +11,8 @@ import {
   SITE_TITLE_TEMPLATE,
   SITE_URL,
   SOCIAL_SAME_AS,
+  absoluteUrl,
+  getIndexableStaticRoutes,
 } from "@/lib/seo/site";
 
 const inter = Inter({
@@ -65,7 +66,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  alternates: { canonical: siteUrl },
 };
 
 const organizationJsonLd = {
@@ -124,6 +124,18 @@ const websiteJsonLd = {
   inLanguage: "it-IT",
 };
 
+const siteNavigationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Pagine principali Forge Group",
+  itemListElement: getIndexableStaticRoutes().map((route, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: route.label,
+    url: absoluteUrl(route.path),
+  })),
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -133,19 +145,18 @@ export default function RootLayout({
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
       >
-        <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
+        <script id="ld-org" type="application/ld+json">
           {JSON.stringify(organizationJsonLd)}
-        </Script>
-        <Script
-          id="ld-localbusiness"
-          type="application/ld+json"
-          strategy="afterInteractive"
-        >
+        </script>
+        <script id="ld-localbusiness" type="application/ld+json">
           {JSON.stringify(localBusinessJsonLd)}
-        </Script>
-        <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
+        </script>
+        <script id="ld-website" type="application/ld+json">
           {JSON.stringify(websiteJsonLd)}
-        </Script>
+        </script>
+        <script id="ld-site-nav" type="application/ld+json">
+          {JSON.stringify(siteNavigationJsonLd)}
+        </script>
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

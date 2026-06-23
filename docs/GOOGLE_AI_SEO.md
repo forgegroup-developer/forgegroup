@@ -43,8 +43,8 @@ Configurazione centralizzata: `src/lib/seo/site.ts`
 | `/casi-studio/arredo-commerciale` | 0.8 | |
 | `/casi-studio/hotel-hospitality` | 0.8 | |
 | `/blog/come-acquisire-clienti-b2b-campania` | 0.7 | |
-| `/privacy-policy` | 0.3 | noindex in metadata |
-| `/cookie-policy` | 0.3 | noindex in metadata |
+| `/privacy-policy` | — | noindex, **esclusa da sitemap** |
+| `/cookie-policy` | — | noindex, **esclusa da sitemap** |
 
 **Sitemap:** https://www.forgegroup.it/sitemap.xml  
 **Robots:** https://www.forgegroup.it/robots.txt  
