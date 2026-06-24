@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
-import SeoHubNav from "@/components/SeoHubNav";
 
 export const metadata: Metadata = {
   title: "Candida la Tua Azienda",
@@ -47,7 +46,6 @@ export default function ContattiPage() {
         </div>
       </section>
       <ContattiFormLoader />
-      <SeoHubNav currentPath="/contatti" showCaseStudies showArticles />
     </>
   );
 }

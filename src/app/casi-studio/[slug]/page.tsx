@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import CaseStudyDetail from "@/components/CaseStudyDetail";
-import SeoHubNav from "@/components/SeoHubNav";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 
@@ -67,7 +66,6 @@ export default async function CasoStudioDetail({ params }: Props) {
         {JSON.stringify(breadcrumbJsonLd)}
       </script>
       <CaseStudyDetail c={c} showBackLink />
-      <SeoHubNav currentPath={`/casi-studio/${c.slug}`} showCaseStudies showArticles />
     </>
   );
 }

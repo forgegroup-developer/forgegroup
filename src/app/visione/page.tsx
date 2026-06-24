@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import VisionSection from "@/components/VisionSection";
-import SeoHubNav from "@/components/SeoHubNav";
 
 export const metadata: Metadata = {
   title: "Visione",
@@ -22,10 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function VisionePage() {
-  return (
-    <>
-      <VisionSection />
-      <SeoHubNav currentPath="/visione" showCaseStudies />
-    </>
-  );
+  return <VisionSection />;
 }

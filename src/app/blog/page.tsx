@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { articles } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 import HeroGooeySection from "@/components/HeroGooeySection";
-import SeoHubNav from "@/components/SeoHubNav";
 
 const Reveal = dynamic(() => import("@/components/Reveal"));
 
@@ -96,8 +95,6 @@ export default function BlogHub() {
           </div>
         </div>
       </section>
-
-      <SeoHubNav currentPath="/blog" showCaseStudies showArticles />
     </>
   );
 }

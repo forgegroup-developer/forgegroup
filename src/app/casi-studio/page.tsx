@@ -4,7 +4,6 @@ import HeroGooeySection from "@/components/HeroGooeySection";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import ReelHeroVideo from "@/components/ReelHeroVideo";
 import SectionHeader from "@/components/SectionHeader";
-import SeoHubNav from "@/components/SeoHubNav";
 import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
 import { siteImages } from "@/data/images";
 
@@ -91,8 +90,6 @@ export default function CasiStudioHub() {
         </div>
         <LazyCaseStudyStack />
       </section>
-
-      <SeoHubNav currentPath="/casi-studio" showCaseStudies showArticles />
     </>
   );
 }

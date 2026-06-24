@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import SeoHubNav from "@/components/SeoHubNav";
 import { articles, getArticleBySlug } from "@/data/articles";
 import { getBlogImage } from "@/data/images";
 
@@ -223,7 +222,6 @@ export default async function ArticleDetail({ params }: Props) {
         </section>
       )}
 
-      <SeoHubNav currentPath={`/blog/${a.slug}`} showCaseStudies showArticles />
     </>
   );
 }
