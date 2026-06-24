@@ -4,7 +4,7 @@ const team = [
   {
     name: "Marco Pio Cerbone",
     forgeRole: "Co-Founder",
-    role: "Direttore marketing & Consulenza aziendale",
+    role: "Responsabile marketing & Consulenza aziendale",
     roleNoWrap: true,
     photo: "/images/team/foto-marco.webp",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
@@ -12,14 +12,14 @@ const team = [
   {
     name: "Gianpio Uva",
     forgeRole: "Co-Founder",
-    role: "Direttore Commerciale & Sales Process",
+    role: "Responsabile Commerciale & Sales Process",
     photo: "/images/team/foto-gianpio.jpg",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
   },
   {
     name: "Francesco Chiumiento",
     forgeRole: "Partner",
-    role: "Direttore Creative & Video Producer",
+    role: "Responsabile Creative & Video Producer",
     photo: "/images/team/foto-francesco.webp",
     instagram: "https://www.instagram.com/chiums_films?igsh=MTl0ZWJsM2x4ZXh4Yw==",
   },
