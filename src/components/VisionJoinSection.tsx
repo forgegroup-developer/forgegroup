@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { sendGAEvent } from "@next/third-parties/google";
 import { loadGsapScrollTrigger } from "@/lib/loadGsap";
 
 const bricolage = Bricolage_Grotesque({
@@ -148,6 +149,7 @@ export default function VisionJoinSection() {
         return;
       }
 
+      sendGAEvent("event", "generate_lead", { form_name: "candidatura" });
       setSuccess(true);
     } catch {
       setError("Errore di connessione. Riprova tra poco.");

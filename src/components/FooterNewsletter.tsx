@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FormEvent, useState } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 type Props = {
   variant?: "compact" | "featured";
@@ -39,6 +40,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
         return;
       }
 
+      sendGAEvent("event", "newsletter_signup", {});
       setStatus("success");
       setMessage("Iscrizione ricevuta. Grazie!");
       setEmail("");

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { sendGAEvent } from "@next/third-parties/google";
 import AnimatedStepper, { Step } from "@/components/AnimatedStepper";
 import HeroGooeySection from "@/components/HeroGooeySection";
 
@@ -132,6 +133,7 @@ export default function ContattiForm() {
         throw new Error(j.message || "Errore durante l'invio del modulo.");
       }
 
+      sendGAEvent("event", "generate_lead", { form_name: "contatti" });
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return true;
