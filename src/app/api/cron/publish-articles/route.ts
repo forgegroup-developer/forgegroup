@@ -5,7 +5,7 @@ import { articles, categoryToSlug } from "@/data/articles";
 export const runtime = "nodejs";
 
 /**
- * Chiamato da Vercel Cron ogni ora per rendere visibili gli articoli
+ * Chiamato da Vercel Cron ogni giorno (09:00 ora di Roma) per rendere visibili gli articoli
  * la cui publishAt è scaduta (ISR + revalidazione on-demand).
  */
 export async function GET(request: Request) {
