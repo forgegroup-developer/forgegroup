@@ -5,6 +5,7 @@ import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import ReelHeroVideo from "@/components/ReelHeroVideo";
 import SectionHeader from "@/components/SectionHeader";
 import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
+import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { siteImages } from "@/data/images";
 
 export const metadata: Metadata = {
@@ -90,6 +91,14 @@ export default function CasiStudioHub() {
         </div>
         <LazyCaseStudyStack />
       </section>
+
+      <RelatedBlogLinks
+        slugs={[
+          "agenzia-marketing-b2b-napoli",
+          "agenzia-marketing-b2b-campania-checklist",
+          "sistema-vendita-b2b-dalla-lead-al-contratto",
+        ]}
+      />
     </>
   );
 }

@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
-import { articles } from "@/data/articles";
+import { getCategories, getPublishedArticles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
-import { getIndexableStaticRoutes, SITE_URL, absoluteUrl } from "@/lib/seo/site";
+import { getBlogImage } from "@/data/images";
+import { getIndexableStaticRoutes, absoluteUrl } from "@/lib/seo/site";
+
+export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -20,12 +23,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const articleRoutes: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: absoluteUrl(`/blog/${a.slug}`),
-    lastModified: new Date(a.date),
-    changeFrequency: "monthly",
-    priority: 0.7,
+  const categoryRoutes: MetadataRoute.Sitemap = getCategories().map((cat) => ({
+    url: absoluteUrl(`/blog/categoria/${cat.slug}`),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.6,
   }));
 
-  return [...staticRoutes, ...caseRoutes, ...articleRoutes];
+  const articleRoutes: MetadataRoute.Sitemap = getPublishedArticles().map((a) => ({
+    url: absoluteUrl(`/blog/${a.slug}`),
+    lastModified: new Date(a.updatedDate ?? a.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+    images: [absoluteUrl(getBlogImage(a.slug))],
+  }));
+
+  return [...staticRoutes, ...caseRoutes, ...categoryRoutes, ...articleRoutes];
 }

@@ -1,4 +1,4 @@
-import { articles } from "@/data/articles";
+import { articles, getPublishedArticles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
 import { faqs } from "@/data/site";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, STATIC_SEO_ROUTES, absoluteUrl } from "@/lib/seo/site";
@@ -174,7 +174,7 @@ Contatto: ${BASE}/contatti
 Articoli tecnici per imprenditori e direttori vendite B2B.
 
 ## Articoli
-${articles.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
+${getPublishedArticles().map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
 `,
   },
   "privacy-policy": {
@@ -233,7 +233,7 @@ Scopri i servizi: ${BASE}/servizi
   };
 }
 
-for (const a of articles) {
+for (const a of getPublishedArticles()) {
   const contentMd = a.content
     .map((block) => {
       if (block.type === "h2") return `## ${block.text}`;

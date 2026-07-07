@@ -1,12 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
-import { articles } from "@/data/articles";
-import { getBlogImage } from "@/data/images";
+import ArticleList from "@/components/blog/ArticleList";
+import BlogSidebar from "@/components/blog/BlogSidebar";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { filterArticles } from "@/data/articles";
 import HeroGooeySection from "@/components/HeroGooeySection";
-
-const Reveal = dynamic(() => import("@/components/Reveal"));
 
 export const metadata: Metadata = {
   title: "Blog Marketing B2B | Intelligence",
@@ -27,21 +25,31 @@ export const metadata: Metadata = {
   },
 };
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("it-IT", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
+export const revalidate = 3600;
 
-export default function BlogHub() {
+type Props = {
+  searchParams: Promise<{ q?: string; categoria?: string }>;
+};
+
+export default async function BlogHub({ searchParams }: Props) {
+  const { q, categoria } = await searchParams;
+  const filtered = filterArticles({ q, category: categoria });
+
+  const heading =
+    q?.trim() ? `Risultati per "${q.trim()}"` : "Leggi i nostri articoli";
+
   return (
     <>
       <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
-          Leggi i nostri <span className="text-brand-corallo">articoli</span>
+          {q?.trim() ? (
+            <>Risultati <span className="text-brand-corallo">ricerca</span></>
+          ) : (
+            <>
+              Leggi i nostri <span className="text-brand-corallo">articoli</span>
+            </>
+          )}
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-brand-grigio md:text-lg">
           Guide pratiche su acquisizione clienti B2B, processi di vendita e crescita per imprese in
@@ -55,43 +63,32 @@ export default function BlogHub() {
           </Link>
           .
         </p>
+        <div className="mt-8 flex justify-center">
+          <Breadcrumbs
+            variant="dark"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Blog" },
+            ]}
+          />
+        </div>
       </HeroGooeySection>
 
-      <section className="py-16 md:py-20 section-coral border-y">
+      <section className="py-16 md:py-20 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {articles.map((a, idx) => (
-              <Reveal key={a.slug} delay={(idx % 3) as 0 | 1 | 2 | 3}>
-              <Link
-                href={`/blog/${a.slug}`}
-                className="group bg-brand-bianco border border-brand-bordo rounded-3xl overflow-hidden hover:border-brand-corallo hover:shadow-xl transition-all flex flex-col h-full"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={getBlogImage(a.slug)}
-                    alt={a.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-nero/50 via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 inline-block text-xs uppercase tracking-widest text-brand-corallo font-bold bg-brand-bianco/95 backdrop-blur-sm px-3 py-1 rounded-full">
-                    {a.category}
-                  </span>
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h2 className="text-lg font-semibold text-brand-nero mb-3 group-hover:text-brand-corallo transition-colors leading-snug">
-                    {a.title}
-                  </h2>
-                  <p className="text-sm text-brand-grigio mb-6 flex-grow">{a.excerpt}</p>
-                  <div className="flex items-center justify-between text-xs text-brand-grigio-light pt-4 border-t border-brand-bordo">
-                    <span>{formatDate(a.date)}</span>
-                    <span>{a.readTime} di lettura</span>
-                  </div>
-                </div>
-              </Link>
-              </Reveal>
-            ))}
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
+            <div>
+              <h2 className="sr-only">{heading}</h2>
+              <ArticleList
+                articles={filtered}
+                emptyMessage={
+                  q?.trim()
+                    ? "Nessun articolo corrisponde alla ricerca. Prova con altre parole chiave."
+                    : "Nessun articolo disponibile al momento."
+                }
+              />
+            </div>
+            <BlogSidebar searchQuery={q ?? ""} />
           </div>
         </div>
       </section>

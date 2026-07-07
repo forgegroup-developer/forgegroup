@@ -8,6 +8,7 @@ import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCar
 import HeroGooeySection from "@/components/HeroGooeySection";
 import ReelHeroVideo from "@/components/ReelHeroVideo";
 import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
+import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { serviziSidebarImages, siteImages } from "@/data/images";
 
 type ServiziTab = {
@@ -242,6 +243,14 @@ export default function ServiziHub() {
       <ClientiLogos />
 
       <MetodoForge />
+
+      <RelatedBlogLinks
+        slugs={[
+          "come-acquisire-clienti-b2b-campania",
+          "sistema-vendita-b2b-dalla-lead-al-contratto",
+          "quanto-costa-lead-generation-b2b",
+        ]}
+      />
     </>
   );
 }

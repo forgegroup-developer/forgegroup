@@ -123,6 +123,11 @@ const websiteJsonLd = {
   description: SITE_DESCRIPTION,
   publisher: { "@id": `${siteUrl}#organization` },
   inLanguage: "it-IT",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const siteNavigationJsonLd = {
