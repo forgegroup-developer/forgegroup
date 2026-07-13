@@ -4,7 +4,11 @@ import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { getArticlesByCategory, getCategories, getCategoryFromSlug, getCategorySlugsForBuild } from "@/data/articles";
+import {
+  getArticlesByCategory,
+  getCategoryFromSlug,
+  getCategorySlugsForBuild,
+} from "@/lib/blog/articlesAsync";
 import HeroGooeySection from "@/components/HeroGooeySection";
 
 type Props = { params: Promise<{ category: string }> };
@@ -12,12 +16,13 @@ type Props = { params: Promise<{ category: string }> };
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return getCategorySlugsForBuild().map((category) => ({ category }));
+  const slugs = await getCategorySlugsForBuild();
+  return slugs.map((category) => ({ category }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
-  const categoryName = getCategoryFromSlug(category);
+  const categoryName = await getCategoryFromSlug(category);
   if (!categoryName) return {};
 
   return {
@@ -40,10 +45,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogCategoryPage({ params }: Props) {
   const { category } = await params;
-  const categoryName = getCategoryFromSlug(category);
+  const categoryName = await getCategoryFromSlug(category);
   if (!categoryName) notFound();
 
-  const categoryArticles = getArticlesByCategory(category);
+  const categoryArticles = await getArticlesByCategory(category);
 
   return (
     <>

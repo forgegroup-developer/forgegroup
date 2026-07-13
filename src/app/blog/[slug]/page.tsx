@@ -8,12 +8,14 @@ import FaqAccordion from "@/components/blog/FaqAccordion";
 import InlineLinkText from "@/components/blog/InlineLinkText";
 import {
   ARTICLE_AUTHOR,
-  articles,
   categoryToSlug,
   countArticleWords,
-  getArticleBySlug,
-  getRecentArticles,
 } from "@/data/articles";
+import {
+  getAllArticlesForBuild,
+  getArticleBySlug,
+  getPublishedArticles,
+} from "@/lib/blog/articlesAsync";
 import { getBlogImage } from "@/data/images";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
@@ -22,12 +24,13 @@ export const revalidate = 3600;
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  const all = await getAllArticlesForBuild();
+  return all.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const a = getArticleBySlug(slug);
+  const a = await getArticleBySlug(slug);
   if (!a) return {};
 
   const modified = a.updatedDate ?? a.date;
@@ -67,7 +70,7 @@ function formatDate(iso: string) {
 
 export default async function ArticleDetail({ params }: Props) {
   const { slug } = await params;
-  const a = getArticleBySlug(slug);
+  const a = await getArticleBySlug(slug);
   if (!a) notFound();
 
   const modified = a.updatedDate ?? a.date;
@@ -103,11 +106,12 @@ export default async function ArticleDetail({ params }: Props) {
     },
   };
 
-  const prevArticle = getRecentArticles(articles.length, a.slug)
-    .filter((x) => new Date(x.date) < new Date(a.date))
+  const allPublished = await getPublishedArticles();
+  const prevArticle = allPublished
+    .filter((x) => x.slug !== a.slug && new Date(x.date) < new Date(a.date))
     .sort((x, y) => new Date(y.date).getTime() - new Date(x.date).getTime())[0];
-  const nextArticle = getRecentArticles(articles.length, a.slug)
-    .filter((x) => new Date(x.date) > new Date(a.date))
+  const nextArticle = allPublished
+    .filter((x) => x.slug !== a.slug && new Date(x.date) > new Date(a.date))
     .sort((x, y) => new Date(x.date).getTime() - new Date(y.date).getTime())[0];
 
   return (

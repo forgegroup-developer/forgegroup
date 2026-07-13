@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getCategories, getPublishedArticles, getRecentArticles } from "@/data/articles";
+import {
+  getCategories,
+  getPublishedArticles,
+  getRecentArticles,
+} from "@/lib/blog/articlesAsync";
 import { getBlogImage } from "@/data/images";
 import BlogSidebarNewsletter from "@/components/blog/BlogSidebarNewsletter";
 
@@ -17,9 +21,10 @@ function formatDate(iso: string) {
   });
 }
 
-export default function BlogSidebar({ excludeSlug, searchQuery = "" }: Props) {
-  const recent = getRecentArticles(3, excludeSlug);
-  const categories = getCategories();
+export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Props) {
+  const recent = await getRecentArticles(3, excludeSlug);
+  const categories = await getCategories();
+  const publishedCount = (await getPublishedArticles()).length;
 
   return (
     <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
@@ -123,7 +128,7 @@ export default function BlogSidebar({ excludeSlug, searchQuery = "" }: Props) {
         <BlogSidebarNewsletter />
       </div>
 
-      {getPublishedArticles().length === 0 && (
+      {publishedCount === 0 && (
         <p className="text-sm text-brand-grigio">Nessun articolo disponibile.</p>
       )}
     </aside>

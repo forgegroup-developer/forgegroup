@@ -1,4 +1,4 @@
-import { getPublishedArticles } from "@/data/articles";
+import { getPublishedArticles } from "@/lib/blog/articlesAsync";
 import { getBlogImage } from "@/data/images";
 import { SITE_NAME, absoluteUrl } from "@/lib/seo/site";
 
@@ -14,7 +14,7 @@ function escapeXml(value: string): string {
 export const revalidate = 3600;
 
 export async function GET() {
-  const sorted = getPublishedArticles().sort(
+  const sorted = (await getPublishedArticles()).sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 

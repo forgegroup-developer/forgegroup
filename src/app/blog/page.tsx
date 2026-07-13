@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { filterArticles } from "@/data/articles";
+import { filterArticles } from "@/lib/blog/articlesAsync";
 import HeroGooeySection from "@/components/HeroGooeySection";
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ type Props = {
 
 export default async function BlogHub({ searchParams }: Props) {
   const { q, categoria } = await searchParams;
-  const filtered = filterArticles({ q, category: categoria });
+  const filtered = await filterArticles({ q, category: categoria });
 
   const heading =
     q?.trim() ? `Risultati per "${q.trim()}"` : "Leggi i nostri articoli";
