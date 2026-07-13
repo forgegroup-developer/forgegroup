@@ -66,7 +66,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
                 >
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-brand-bordo">
                     <Image
-                      src={getBlogImage(article.slug)}
+                      src={getBlogImage(article.slug, article.featuredImage)}
                       alt=""
                       fill
                       className="object-cover"

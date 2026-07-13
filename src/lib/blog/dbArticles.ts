@@ -11,6 +11,7 @@ type DbArticleRow = {
   tags: string[];
   faqs: Article["faqs"];
   content: Article["content"];
+  featured_image: string | null;
   date: string | null;
   updated_date: string | null;
 };
@@ -26,6 +27,7 @@ function mapRow(row: DbArticleRow): Article {
     tags: row.tags ?? [],
     faqs: row.faqs ?? [],
     content: row.content ?? [],
+    featuredImage: row.featured_image?.trim() || undefined,
     date: row.date ?? new Date().toISOString().slice(0, 10),
     updatedDate: row.updated_date ?? undefined,
   };
@@ -40,7 +42,7 @@ export async function fetchDbPublishedArticles(): Promise<Article[]> {
     const sql = neon(url);
     const rows = (await sql`
       SELECT slug, title, description, category, excerpt, read_time,
-             tags, faqs, content, date, updated_date
+             tags, faqs, content, featured_image, date, updated_date
       FROM articles
       WHERE status = 'published'
       ORDER BY date DESC NULLS LAST

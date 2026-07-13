@@ -11,9 +11,11 @@ export type ArticleFaq = {
 };
 
 export type ArticleContentBlock = {
-  type: "p" | "h2" | "h3" | "ul" | "quote" | "cta";
+  type: "p" | "h2" | "h3" | "ul" | "quote" | "cta" | "image";
   text?: string;
   items?: string[];
+  src?: string;
+  alt?: string;
 };
 
 export type Article = {
@@ -30,6 +32,8 @@ export type Article = {
   tags?: string[];
   faqs?: ArticleFaq[];
   content: ArticleContentBlock[];
+  /** Copertina da ForgeFlow (override immagine predefinita per slug) */
+  featuredImage?: string;
 };
 
 export const ARTICLE_AUTHOR = "Forge Group";

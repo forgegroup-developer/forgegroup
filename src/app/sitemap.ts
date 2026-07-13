@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(a.updatedDate ?? a.date),
     changeFrequency: "monthly",
     priority: 0.7,
-    images: [absoluteUrl(getBlogImage(a.slug))],
+    images: [absoluteUrl(getBlogImage(a.slug, a.featuredImage))],
   }));
 
   return [...staticRoutes, ...caseRoutes, ...categoryRoutes, ...articleRoutes];

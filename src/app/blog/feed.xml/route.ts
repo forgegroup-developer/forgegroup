@@ -22,7 +22,7 @@ export async function GET() {
     .map((article) => {
       const link = absoluteUrl(`/blog/${article.slug}`);
       const pubDate = new Date(article.date).toUTCString();
-      const image = absoluteUrl(getBlogImage(article.slug));
+      const image = absoluteUrl(getBlogImage(article.slug, article.featuredImage));
 
       return `
     <item>

@@ -42,7 +42,7 @@ export default function ArticleList({
               className="relative aspect-[16/10] md:aspect-auto md:w-2/5 md:min-h-[220px] shrink-0 overflow-hidden"
             >
               <Image
-                src={getBlogImage(article.slug)}
+                src={getBlogImage(article.slug, article.featuredImage)}
                 alt={article.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

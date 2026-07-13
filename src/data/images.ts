@@ -61,6 +61,7 @@ export function getCaseStudyImageFit(slug: string): "cover" | "contain" {
   return getCaseStudyImageLayout(slug).fit;
 }
 
-export function getBlogImage(slug: string): string {
+export function getBlogImage(slug: string, featuredImage?: string): string {
+  if (featuredImage?.trim()) return featuredImage.trim();
   return blogImages[slug] ?? siteImages.heroGrowth;
 }

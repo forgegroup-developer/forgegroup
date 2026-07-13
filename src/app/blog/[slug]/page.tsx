@@ -49,13 +49,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: a.date,
       modifiedTime: modified,
       section: a.category,
-      images: [{ url: getBlogImage(a.slug), width: 1200, height: 750, alt: a.title }],
+      images: [{ url: getBlogImage(a.slug, a.featuredImage), width: 1200, height: 750, alt: a.title }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${a.title} | Forge Group`,
       description: a.description,
-      images: [getBlogImage(a.slug)],
+      images: [getBlogImage(a.slug, a.featuredImage)],
     },
   };
 }
@@ -75,7 +75,7 @@ export default async function ArticleDetail({ params }: Props) {
 
   const modified = a.updatedDate ?? a.date;
   const articleUrl = absoluteUrl(`/blog/${a.slug}`);
-  const imageUrl = absoluteUrl(getBlogImage(a.slug));
+  const imageUrl = absoluteUrl(getBlogImage(a.slug, a.featuredImage));
   const wordCount = countArticleWords(a);
   const categorySlug = categoryToSlug(a.category);
 
@@ -156,7 +156,7 @@ export default async function ArticleDetail({ params }: Props) {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
             <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-brand-bordo shadow-md">
               <Image
-                src={getBlogImage(a.slug)}
+                src={getBlogImage(a.slug, a.featuredImage)}
                 alt={a.title}
                 fill
                 className="object-cover"
@@ -237,6 +237,18 @@ export default async function ArticleDetail({ params }: Props) {
                           HAI UN MINUTO?
                         </Link>
                       </div>
+                    );
+                  if (block.type === "image" && block.src?.trim())
+                    return (
+                      <figure key={i} className="my-8 overflow-hidden rounded-2xl">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={block.src}
+                          alt={block.alt ?? ""}
+                          className="w-full object-cover"
+                          loading="lazy"
+                        />
+                      </figure>
                     );
                   return null;
                 })}
