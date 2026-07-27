@@ -32,8 +32,6 @@ export const blogImages: Record<string, string> = {
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
   videoPoster: "/images/video-recensione-poster.jpg",
-  /** Derivato da PNG originale 1920×1080, ridimensionato a 640px */
-  videoPosterMobile: "/images/video-recensione-poster-mobile.jpg",
   gianpioReel: "/video-gianpio-reel.mp4",
   gianpioReelPoster: "/images/team/gianpio-reel-poster.jpg",
   marcoReel: "/video-marco-reel.mp4",

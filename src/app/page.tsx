@@ -10,7 +10,6 @@ import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import ClientSceneEffects from "@/components/ClientSceneEffects";
 import DeferredMount from "@/components/DeferredMount";
-import LcpPosterPreload from "@/components/LcpPosterPreload";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
 const Reveal = dynamic(() => import("@/components/Reveal"));
@@ -44,7 +43,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <LcpPosterPreload />
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <HeroGooeySection

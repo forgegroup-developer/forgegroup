@@ -23,19 +23,20 @@ export default function VideoRecensionePoster({
       className="relative w-full"
       videoClassName={videoClassName}
     >
-      <picture className="block w-full">
-        <source media="(max-width: 1023px)" srcSet={siteImages.videoPosterMobile} />
-        <Image
-          src={siteImages.videoPoster}
-          alt={label}
-          width={1280}
-          height={720}
-          priority={priority}
-          fetchPriority={priority ? "high" : "auto"}
-          className="w-full block aspect-video object-cover"
-          sizes="(max-width: 1023px) 100vw, (max-width: 1024px) 574px, 574px"
-        />
-      </picture>
+      {/* Solo next/image: il <picture> con il JPG grezzo faceva scaricare due
+          volte l'LCP (155 KB non ottimizzati in più su desktop) e su mobile
+          bypassava del tutto AVIF/WebP. Con priority Next emette da sé il
+          preload della variante ottimizzata. */}
+      <Image
+        src={siteImages.videoPoster}
+        alt={label}
+        width={1280}
+        height={720}
+        priority={priority}
+        fetchPriority={priority ? "high" : "auto"}
+        className="w-full block aspect-video object-cover"
+        sizes="(max-width: 1023px) 100vw, 574px"
+      />
     </VideoPosterWithPlay>
   );
 }
