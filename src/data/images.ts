@@ -1,3 +1,5 @@
+import { isAllowedRemoteImage } from "./imageHosts";
+
 /** Percorsi immagini professionali in /public/images */
 export const caseStudyImages: Record<string, string> = {
   "software-b2b": "/images/casi-studio/software-b2b.jpg",
@@ -62,6 +64,9 @@ export function getCaseStudyImageFit(slug: string): "cover" | "contain" {
 }
 
 export function getBlogImage(slug: string, featuredImage?: string): string {
-  if (featuredImage?.trim()) return featuredImage.trim();
+  const src = featuredImage?.trim();
+  // Percorsi locali sempre validi; URL remoti solo dagli host in remotePatterns,
+  // altrimenti next/image risponde 400 e l'immagine risulta rotta.
+  if (src && (src.startsWith("/") || isAllowedRemoteImage(src))) return src;
   return blogImages[slug] ?? siteImages.heroGrowth;
 }

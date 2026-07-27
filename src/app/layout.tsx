@@ -125,7 +125,7 @@ const websiteJsonLd = {
   inLanguage: "it-IT",
   potentialAction: {
     "@type": "SearchAction",
-    target: `${siteUrl}/blog?q={search_term_string}`,
+    target: `${siteUrl}/blog/cerca?q={search_term_string}`,
     "query-input": "required name=search_term_string",
   },
 };

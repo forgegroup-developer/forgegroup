@@ -30,7 +30,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
     <aside className="space-y-8 lg:sticky lg:top-28 lg:self-start">
       <div className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5 shadow-sm">
         <h2 className="text-lg font-semibold text-brand-nero mb-4">Cerca</h2>
-        <form action="/blog" method="get" className="flex gap-2">
+        <form action="/blog/cerca" method="get" className="flex gap-2">
           <label htmlFor="blog-sidebar-search" className="sr-only">
             Cerca nel blog
           </label>

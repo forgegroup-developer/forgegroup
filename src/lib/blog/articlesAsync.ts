@@ -1,3 +1,4 @@
+import { cache } from "react";
 import {
   articles,
   categoryToSlug,
@@ -9,18 +10,25 @@ import {
 } from "@/lib/blog/publishing";
 import { fetchDbPublishedArticles } from "@/lib/blog/dbArticles";
 
-async function mergedArticles(): Promise<Article[]> {
+/**
+ * `cache()` deduplica per richiesta: una pagina del blog chiama più helper
+ * (lista + sidebar + categorie) e senza questo ognuno apriva la sua query Neon,
+ * in sequenza. Ora la lettura del DB avviene una volta sola per render.
+ */
+const mergedArticles = cache(async function mergedArticles(): Promise<Article[]> {
   const fromDb = await fetchDbPublishedArticles();
   const dbSlugs = new Set(fromDb.map((a) => a.slug));
   const localOnly = articles.filter((a) => !dbSlugs.has(a.slug));
   return [...localOnly, ...fromDb];
-}
+});
 
-export async function getPublishedArticles(): Promise<Article[]> {
-  return filterPublishedArticles(await mergedArticles()).sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-}
+export const getPublishedArticles = cache(
+  async function getPublishedArticles(): Promise<Article[]> {
+    return filterPublishedArticles(await mergedArticles()).sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+);
 
 export async function getCategorySlugsForBuild(): Promise<string[]> {
   const merged = await mergedArticles();
@@ -68,35 +76,20 @@ export async function getRecentArticles(
     .slice(0, limit);
 }
 
-export async function filterArticles(options?: {
-  q?: string;
-  category?: string;
-}): Promise<Article[]> {
-  const merged = await mergedArticles();
-  let result = await getPublishedArticles();
+/** Ricerca testuale del blog. Il filtro per categoria vive su /blog/categoria/[slug]. */
+export async function searchArticles(query: string): Promise<Article[]> {
+  const published = await getPublishedArticles();
+  const q = query.trim().toLowerCase();
+  if (!q) return published;
 
-  if (options?.category) {
-    const category =
-      (await getCategoryFromSlug(options.category)) ??
-      merged.find((a) => a.category === options.category)?.category;
-    if (category) {
-      result = result.filter((a) => a.category === category);
-    } else {
-      result = [];
-    }
-  }
-
-  if (options?.q?.trim()) {
-    const q = options.q.trim().toLowerCase();
-    result = result.filter(
-      (a) =>
-        a.title.toLowerCase().includes(q) ||
-        a.description.toLowerCase().includes(q) ||
-        a.excerpt.toLowerCase().includes(q) ||
-        a.category.toLowerCase().includes(q) ||
-        a.tags?.some((t) => t.toLowerCase().includes(q))
-    );
-  }
+  const result = published.filter(
+    (a) =>
+      a.title.toLowerCase().includes(q) ||
+      a.description.toLowerCase().includes(q) ||
+      a.excerpt.toLowerCase().includes(q) ||
+      a.category.toLowerCase().includes(q) ||
+      a.tags?.some((t) => t.toLowerCase().includes(q))
+  );
 
   return result.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()

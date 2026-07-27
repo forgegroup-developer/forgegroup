@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
+import { allowedImageHosts } from "./src/data/imageHosts";
 
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
+    // Copertine articoli generate da ForgeFlow: senza questo next/image torna 400.
+    remotePatterns: allowedImageHosts.map((hostname) => ({
+      protocol: "https" as const,
+      hostname,
+      pathname: "/api/media/**",
+    })),
   },
   async headers() {
     return [
@@ -32,6 +39,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // La ricerca del blog è passata da /blog?q= alla rotta dedicata.
+      {
+        source: "/blog",
+        has: [{ type: "query", key: "q", value: "(?<q>.*)" }],
+        destination: "/blog/cerca?q=:q",
+        permanent: true,
+      },
       // Legacy service URLs → landing servizi
       {
         source: "/servizi/advertising-lead-generation",

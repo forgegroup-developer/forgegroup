@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { filterArticles } from "@/lib/blog/articlesAsync";
+import { getPublishedArticles } from "@/lib/blog/articlesAsync";
 import HeroGooeySection from "@/components/HeroGooeySection";
 
 export const metadata: Metadata = {
@@ -25,31 +25,20 @@ export const metadata: Metadata = {
   },
 };
 
+// Nessun searchParams qui: leggerli renderebbe la rotta dinamica e questo
+// `revalidate` verrebbe ignorato (ogni visita = query a Neon). La ricerca sta
+// su /blog/cerca, così l'hub resta prerenderizzato e servito dalla CDN.
 export const revalidate = 3600;
 
-type Props = {
-  searchParams: Promise<{ q?: string; categoria?: string }>;
-};
-
-export default async function BlogHub({ searchParams }: Props) {
-  const { q, categoria } = await searchParams;
-  const filtered = await filterArticles({ q, category: categoria });
-
-  const heading =
-    q?.trim() ? `Risultati per "${q.trim()}"` : "Leggi i nostri articoli";
+export default async function BlogHub() {
+  const articoli = await getPublishedArticles();
 
   return (
     <>
       <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
-          {q?.trim() ? (
-            <>Risultati <span className="text-brand-corallo">ricerca</span></>
-          ) : (
-            <>
-              Leggi i nostri <span className="text-brand-corallo">articoli</span>
-            </>
-          )}
+          Leggi i nostri <span className="text-brand-corallo">articoli</span>
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-brand-grigio md:text-lg">
           Guide pratiche su acquisizione clienti B2B, processi di vendita e crescita per imprese in
@@ -78,17 +67,13 @@ export default async function BlogHub({ searchParams }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
             <div>
-              <h2 className="sr-only">{heading}</h2>
+              <h2 className="sr-only">Leggi i nostri articoli</h2>
               <ArticleList
-                articles={filtered}
-                emptyMessage={
-                  q?.trim()
-                    ? "Nessun articolo corrisponde alla ricerca. Prova con altre parole chiave."
-                    : "Nessun articolo disponibile al momento."
-                }
+                articles={articoli}
+                emptyMessage="Nessun articolo disponibile al momento."
               />
             </div>
-            <BlogSidebar searchQuery={q ?? ""} />
+            <BlogSidebar />
           </div>
         </div>
       </section>
