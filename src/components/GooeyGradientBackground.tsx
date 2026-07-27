@@ -12,8 +12,38 @@ export default function GooeyGradientBackground({
   className = "",
 }: GooeyGradientBackgroundProps) {
   const filterId = useId().replace(/:/g, "");
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const interactiveRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
+
+  // Il fondale è decorativo e sta in cima alla pagina: fuori dal viewport (o a
+  // tab nascosta) continuava comunque ad animarsi, e ogni frame costringeva la
+  // GPU a rifiltrare il livello (goo + blur 40px). Qui le animazioni vengono
+  // messe in pausa quando non si vede nulla — nessuna differenza visiva.
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    let onScreen = true;
+    const sync = () => {
+      wrapper.classList.toggle("forge-gooey-paused", !onScreen || document.hidden);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        sync();
+      },
+      { rootMargin: "100px" }
+    );
+    observer.observe(wrapper);
+    document.addEventListener("visibilitychange", sync);
+
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+    };
+  }, []);
 
   useEffect(() => {
     const interactive = interactiveRef.current;
@@ -42,35 +72,49 @@ export default function GooeyGradientBackground({
     let tgY = 0;
     let frame = 0;
 
-    const handlePointerMove = (event: PointerEvent) => {
-      tgX = event.clientX;
-      tgY = event.clientY;
-    };
-
     const animate = () => {
+      frame = 0;
+
       // Con un video della hero in riproduzione, non scrivere trasformazioni:
       // il blob interattivo resta fermo, il livello filtrato (goo + blur) resta
       // statico e il compositor lo mette in cache invece di rifiltrarlo a ogni
       // frame. Così il decode video non compete con la GPU (fix stutter).
-      if (document.documentElement.dataset.videoPlaying !== "true") {
-        curX += (tgX - curX) / 20;
-        curY += (tgY - curY) / 20;
-        interactive.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+      if (document.documentElement.dataset.videoPlaying === "true") return;
+
+      curX += (tgX - curX) / 20;
+      curY += (tgY - curY) / 20;
+      interactive.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+
+      // L'inseguimento è asintotico: senza questa soglia il loop scriveva una
+      // trasformazione a ogni frame per sempre, anche a puntatore fermo, e ogni
+      // scrittura ricalcolava il livello filtrato. Sotto mezzo pixel si ferma.
+      if (Math.abs(tgX - curX) < 0.5 && Math.abs(tgY - curY) < 0.5) {
+        curX = tgX;
+        curY = tgY;
+        return;
       }
       frame = requestAnimationFrame(animate);
     };
 
+    const handlePointerMove = (event: PointerEvent) => {
+      tgX = event.clientX;
+      tgY = event.clientY;
+      if (!frame) frame = requestAnimationFrame(animate);
+    };
+
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
-    frame = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);
-      cancelAnimationFrame(frame);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 
   return (
-    <div className={`forge-gooey-wrapper relative h-full w-full overflow-hidden ${reduced ? "forge-gooey-reduced " : ""}${className}`.trim()}>
+    <div
+      ref={wrapperRef}
+      className={`forge-gooey-wrapper relative h-full w-full overflow-hidden ${reduced ? "forge-gooey-reduced " : ""}${className}`.trim()}
+    >
       <div className="forge-gooey-bg pointer-events-none absolute inset-0" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" className="absolute h-0 w-0" aria-hidden="true">
           <defs>

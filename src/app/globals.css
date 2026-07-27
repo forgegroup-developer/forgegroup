@@ -1328,6 +1328,14 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   animation-play-state: paused !important;
 }
 
+/* Fondale fuori dal viewport o tab in secondo piano: blob fermi. Il livello
+   filtrato (goo + blur 40px) smette di essere ricalcolato a ogni frame mentre
+   l'utente legge il resto della pagina. Nessuna differenza visiva: quando
+   torna in vista le animazioni riprendono. */
+.forge-gooey-paused .forge-gooey-blob {
+  animation-play-state: paused !important;
+}
+
 /* HW debole (rilevato lato client): fondale gooey statico. Il gradiente resta,
    ma i blob non si animano → il livello filtrato non viene ricalcolato a ogni
    frame. Il blob interattivo viene nascosto (era mosso via JS, qui disattivo). */
