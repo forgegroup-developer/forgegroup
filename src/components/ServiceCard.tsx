@@ -9,30 +9,35 @@ export type Service = {
   image: string;
 };
 
+/**
+ * I titoli dicono il problema, non il servizio: "Acquisizione clienti" e
+ * "Processi di vendita" sono categorie da agenzia, e un imprenditore edile
+ * non si racconta la giornata con quelle parole.
+ */
 export const services: Service[] = [
   {
-    label: "01 · Acquisizione Clienti",
+    label: "01 · Le richieste",
     lines: [
-      { text: "I tuoi potenziali clienti ci sono.", highlights: ["potenziali clienti"] },
-      { text: "Li stai intercettando?", highlights: ["intercettando"] },
+      { text: "Il lavoro lo sai fare.", highlights: ["lavoro"] },
+      { text: "Ma chi ti cerca, ti trova?", highlights: ["ti trova"] },
     ],
     href: "/servizi#acquisizione",
     image: "/images/servizi/magnete.webp",
   },
   {
-    label: "02 · Processi di Vendita",
+    label: "02 · La trattativa",
     lines: [
-      { text: "Avere richieste non basta.", highlights: ["richieste"] },
+      { text: "Sopralluogo fatto, preventivo mandato.", highlights: ["preventivo mandato"] },
       {
-        text: "Il problema è quante ne stai davvero convertendo.",
-        highlights: ["davvero convertendo"],
+        text: "E poi più nessuno che richiama.",
+        highlights: ["nessuno che richiama"],
       },
     ],
     href: "/servizi#vendite",
     image: "/images/servizi/bersaglio.webp",
   },
   {
-    label: "03 · Consulenza & Formazione",
+    label: "03 · I numeri",
     lines: [
       {
         text: "Stai crescendo, o stai solo lavorando di più?",

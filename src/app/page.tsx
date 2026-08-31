@@ -117,11 +117,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             onCoral
-            eyebrow="I Nostri Servizi"
+            eyebrow="Cosa facciamo"
             title={
               <>
-                Ti affianchiamo nella{" "}
-                <span className="text-brand-corallo">crescita della tua azienda</span>.
+                Ti affianchiamo dal primo contatto{" "}
+                <span className="text-brand-corallo">alla firma del contratto</span>.
               </>
             }
           />
@@ -136,7 +136,7 @@ export default function Home() {
 
           <div className="mt-10 flex justify-center">
             <Link href="/servizi" className="btn-ghost px-8 py-4 text-sm md:text-base">
-              Scopri tutti i servizi B2B
+              Scopri come lavoriamo
             </Link>
           </div>
         </div>
