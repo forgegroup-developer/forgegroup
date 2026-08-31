@@ -94,7 +94,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="shrink-0 rounded-full border border-white bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-brand-corallo transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
+                className="shrink-0 rounded-full border border-white bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-brand-corallo-text transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
               >
                 {status === "loading" ? "..." : "Iscriviti"}
               </button>
@@ -161,7 +161,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="touch-target shrink-0 rounded-full border border-white bg-white px-4 text-xs font-bold uppercase tracking-wide text-brand-corallo transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
+                className="touch-target shrink-0 rounded-full border border-white bg-white px-4 text-xs font-bold uppercase tracking-wide text-brand-corallo-text transition-colors hover:bg-brand-pesca-light disabled:opacity-60"
               >
                 {status === "loading" ? "..." : "Iscriviti"}
               </button>

@@ -53,7 +53,7 @@ export default function ArticleList({
               <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-brand-grigio-light">
                 <Link
                   href={`/blog/categoria/${categoryToSlug(article.category)}`}
-                  className="font-bold text-brand-corallo hover:underline"
+                  className="font-bold text-brand-corallo-text hover:underline"
                 >
                   {article.category}
                 </Link>
@@ -63,14 +63,14 @@ export default function ArticleList({
                 <span>di {ARTICLE_AUTHOR}</span>
               </div>
               <h2 className="mb-3 text-xl font-semibold leading-snug text-brand-nero md:text-2xl">
-                <Link href={`/blog/${article.slug}`} className="group-hover:text-brand-corallo transition-colors">
+                <Link href={`/blog/${article.slug}`} className="group-hover:text-brand-corallo-text transition-colors">
                   {article.title}
                 </Link>
               </h2>
               <p className="mb-5 text-brand-grigio leading-relaxed line-clamp-3">{article.excerpt}</p>
               <Link
                 href={`/blog/${article.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-bold text-brand-corallo hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-bold text-brand-corallo-text hover:underline"
               >
                 Continua a leggere
                 <span aria-hidden>→</span>

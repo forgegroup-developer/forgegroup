@@ -343,19 +343,46 @@ export function Step({
   children,
   title,
   required = true,
+  fieldId,
+  titleId,
 }: {
   children: ReactNode;
   title?: string;
   required?: boolean;
+  /** id del campo che questo titolo etichetta: lo rende una <label> vera */
+  fieldId?: string;
+  /** id del titolo, per gli step che si collegano via aria-labelledby */
+  titleId?: string;
 }) {
+  const titleCls =
+    "block text-2xl md:text-3xl font-semibold text-brand-nero leading-snug mb-6 md:mb-8";
+
+  const titleContent = (
+    <>
+      {title}
+      {required && (
+        <>
+          <span aria-hidden="true" className="text-brand-corallo-text ml-1">
+            *
+          </span>
+          <span className="sr-only"> (campo obbligatorio)</span>
+        </>
+      )}
+    </>
+  );
+
   return (
     <div className="py-4 md:py-6">
-      {title && (
-        <h2 className="text-2xl md:text-3xl font-semibold text-brand-nero leading-snug mb-6 md:mb-8">
-          {title}
-          {required && <span className="text-brand-corallo ml-1">*</span>}
-        </h2>
-      )}
+      {title &&
+        (fieldId ? (
+          <label id={titleId} htmlFor={fieldId} className={titleCls}>
+            {titleContent}
+          </label>
+        ) : (
+          <h2 id={titleId} className={titleCls}>
+            {titleContent}
+          </h2>
+        ))}
       <div>{children}</div>
     </div>
   );

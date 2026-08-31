@@ -24,12 +24,12 @@ function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 
   return (
     <Reveal delay={delay} y={18} duration={0.85}>
       <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-corallo/50 hover:shadow-lg hover:shadow-brand-corallo/10">
-        <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo">
+        <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo-text">
           {title}
         </p>
         <div className="mt-4 flex items-start gap-3 border-t border-brand-pesca/40 pt-4">
           <span
-            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-corallo/10 text-brand-corallo text-sm font-bold"
+            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-corallo/10 text-brand-corallo-text text-sm font-bold"
             aria-hidden
           >
             ✦
@@ -88,7 +88,7 @@ export default function ServiziTabCard({
             <Reveal delay={1} y={16} duration={0.75}>
               <Link
                 href="/contatti"
-                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
+                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
               >
                 Ottieni una consulenza gratuita
                 <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>

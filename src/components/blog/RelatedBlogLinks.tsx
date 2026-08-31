@@ -28,14 +28,14 @@ export default function RelatedBlogLinks({ slugs, title = "Approfondisci sul blo
               href={`/blog/${article.slug}`}
               className="group rounded-2xl border border-brand-bordo bg-brand-panna p-6 hover:border-brand-corallo hover:shadow-md transition-all"
             >
-              <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
+              <p className="eyebrow mb-3">
                 {article.category}
               </p>
-              <h3 className="text-lg font-semibold text-brand-nero mb-2 group-hover:text-brand-corallo transition-colors leading-snug">
+              <h3 className="text-lg font-semibold text-brand-nero mb-2 group-hover:text-brand-corallo-text transition-colors leading-snug">
                 {article.title}
               </h3>
               <p className="text-sm text-brand-grigio line-clamp-2 mb-3">{article.excerpt}</p>
-              <span className="text-sm font-bold text-brand-corallo">Leggi l&apos;articolo →</span>
+              <span className="text-sm font-bold text-brand-corallo-text">Leggi l&apos;articolo →</span>
             </Link>
           ))}
         </div>

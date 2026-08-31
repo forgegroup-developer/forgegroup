@@ -123,7 +123,7 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
       />
       <div className="relative z-[2] flex flex-1 flex-col justify-between p-8">
         <div className="flex flex-col gap-3">
-          <span className="text-brand-corallo text-xs font-bold uppercase tracking-widest">
+          <span className="text-brand-corallo-text text-xs font-bold uppercase tracking-widest">
             {item.label}
           </span>
           <h3
@@ -141,7 +141,7 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
             ))}
           </h3>
         </div>
-        <span className="inline-flex w-fit self-start items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo shadow-sm transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
+        <span className="inline-flex w-fit self-start items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
           → Scopri come
         </span>
       </div>

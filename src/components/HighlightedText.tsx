@@ -5,7 +5,7 @@ export default function HighlightedText({ segments }: { segments: TextSegment[] 
     <>
       {segments.map((segment, i) =>
         segment.highlight ? (
-          <span key={i} className="text-brand-corallo">
+          <span key={i} className="text-brand-corallo-text">
             {segment.text}
           </span>
         ) : (

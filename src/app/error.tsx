@@ -19,7 +19,7 @@ export default function Error({
   return (
     <section className="min-h-[60vh] flex items-center justify-center py-20 px-4 section-bianco">
       <div className="max-w-xl text-center">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Errore</p>
+        <p className="eyebrow mb-4">✦ Errore</p>
         <h1 className="heading-section font-semibold text-brand-nero mb-4">
           Qualcosa è andato <span className="text-brand-corallo">storto</span>
         </h1>

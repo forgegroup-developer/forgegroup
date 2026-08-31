@@ -26,7 +26,7 @@ export default async function BlogSearch({ searchParams }: Props) {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
+        <p className="eyebrow mb-6">✦ Blog</p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
           Risultati <span className="text-brand-corallo">ricerca</span>
         </h1>
@@ -35,7 +35,7 @@ export default async function BlogSearch({ searchParams }: Props) {
             ? `${risultati.length} ${risultati.length === 1 ? "articolo" : "articoli"} per "${query}".`
             : "Scrivi una parola chiave nel riquadro di ricerca per filtrare gli articoli."}{" "}
           Torna a{" "}
-          <Link href="/blog" className="font-semibold text-brand-corallo hover:underline">
+          <Link href="/blog" className="font-semibold text-brand-corallo-text hover:underline">
             tutti gli articoli
           </Link>
           .

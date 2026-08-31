@@ -224,7 +224,7 @@ export default async function ArticleDetail({ params }: Props) {
                         key={i}
                         className="bg-brand-panna border-2 border-brand-corallo rounded-2xl p-6 md:p-8 my-8 text-center"
                       >
-                        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
+                        <p className="eyebrow mb-3">
                           ✦ Vuoi applicarlo alla tua azienda?
                         </p>
                         <h3 className="text-xl font-semibold md:text-3xl text-brand-nero mb-4">

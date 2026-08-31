@@ -34,7 +34,7 @@ function ExcerptWithHighlights({
     <>
       {parts.map((part, i) =>
         highlights.includes(part) ? (
-          <span key={i} className="text-brand-corallo">
+          <span key={i} className="text-brand-corallo-text">
             {part}
           </span>
         ) : (
@@ -113,7 +113,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">+ Il Contesto</p>
+            <p className="eyebrow mb-6">+ Il Contesto</p>
 
             <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
               <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
@@ -122,7 +122,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
                 <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
-                  <div className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-2">
+                  <div className="eyebrow mb-2">
                     {ctx.label}
                   </div>
                   <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
@@ -179,7 +179,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       <section className="py-16 md:py-24 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ La Soluzione</p>
+            <p className="eyebrow mb-4">✦ La Soluzione</p>
             <h2 className="heading-section font-semibold text-brand-nero leading-tight">
               Il sistema che <span className="text-brand-corallo">abbiamo implementato</span>.
             </h2>
@@ -221,7 +221,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8 text-center hover:border-brand-corallo transition-colors"
               >
                 <div
-                  className={`font-semibold text-brand-corallo mb-2 ${
+                  className={`font-semibold text-brand-corallo-text mb-2 ${
                     compactValue ? "text-xl md:text-2xl leading-snug" : "text-4xl md:text-5xl"
                   }`}
                 >
@@ -246,7 +246,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         <section className="border-b border-brand-bordo py-10 sm:py-16 md:py-24 section-bianco">
           <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
             <div className="mb-6 sm:mb-10 max-w-2xl">
-              <p className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-widest text-brand-corallo">
+              <p className="mb-3 sm:mb-4 eyebrow">
                 ✦ Videorecensione
               </p>
               <h2 className="heading-section font-semibold leading-tight text-brand-nero text-balance">
@@ -310,7 +310,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   <div className="flex items-center justify-between gap-2 border-t border-brand-bordo pt-3 sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-t-0 sm:pt-0">
                     <span className="text-xs uppercase tracking-widest text-brand-grigio sm:hidden">Recensione</span>
                     <div className="flex flex-col items-end gap-0.5">
-                      <span className="text-sm font-bold leading-none text-brand-corallo">5/5</span>
+                      <span className="text-sm font-bold leading-none text-brand-corallo-text">5/5</span>
                       <span className="hidden text-[10px] uppercase tracking-widest text-brand-grigio sm:block">
                         Recensione
                       </span>
@@ -328,7 +328,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       {c.beforeAfter.length > 0 && (
         <section className="py-16 md:py-24 section-bianco">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">
+            <p className="eyebrow mb-4">
               ✦ {c.evolutionEyebrow ?? "Prima e dopo"}
             </p>
             <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-8">
@@ -340,7 +340,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </h2>
             <CaseStudyBeforeAfter rows={c.beforeAfter} />
             {c.statusBadge && (
-              <p className="mt-8 flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-brand-corallo">
+              <p className="mt-8 flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-brand-corallo-text">
                 <span className="w-2 h-2 rounded-full bg-brand-corallo animate-pulse" aria-hidden />
                 {c.statusBadge}
               </p>

@@ -6,9 +6,19 @@
   --color-brand-pesca-light: #faf0ec;
   --color-brand-visione-bg: #faece7;
   --color-brand-pesca: #e8b9a5;
+  /* Corallo: fill/grafica. Non usare come colore di testo sotto i 24px:
+     su bianco puro dà 4.53:1 e scende sotto 4.5:1 su panna, pesca-light,
+     visione-bg, nero e ovunque la scena 3D traspaia da .section-bianco. */
   --color-brand-corallo: #c8502a;
   --color-brand-corallo-dark: #a93f1e;
+  /* Testo corallo su superfici chiare: 6.15:1 bianco, 5.69:1 panna,
+     5.48:1 pesca-light, 5.33:1 visione-bg. */
+  --color-brand-corallo-text: #a93f1e;
+  /* Testo corallo su superfici scure: 6.99:1 su nero #111111. */
+  --color-brand-corallo-on-dark: #e8825c;
   --color-brand-nero: #111111;
+  /* Superficie scura sopraelevata: card sul fondo nero. */
+  --color-brand-nero-soft: #2a2a2a;
   --color-brand-grigio: #4a4a4a;
   --color-brand-grigio-light: #525252;
   --color-brand-bordo: #e8d5cc;
@@ -20,6 +30,9 @@
 html {
   background-color: var(--color-brand-bianco);
   overflow-x: clip;
+  /* Palette progettata solo per il tema chiaro: impedisce al browser di
+     applicare inversioni automatiche che romperebbero i contrasti. */
+  color-scheme: only light;
 }
 
 body {
@@ -32,10 +45,31 @@ body {
   overflow-x: clip;
 }
 
+/* Anello di focus: il colore passa da un token cosi' le sezioni scure e
+   corallo possono ridichiararlo e restare sopra 3:1 (WCAG 2.2 SC 1.4.11).
+   Nessun border-radius qui: in questa regola stilerebbe l'ELEMENTO, non
+   l'outline, squadrando le pill rounded-full nel momento del focus. */
+:root {
+  --focus-ring: var(--color-brand-corallo-text);
+}
+
 *:focus-visible {
-  outline: 2px solid var(--color-brand-corallo);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
-  border-radius: 4px;
+}
+
+/* Superfici scure e corallo: anello di focus bianco.
+   ~= e non *=: deve matchare la classe intera. Con *= rientrava anche
+   bg-brand-corallo/5 (opzione selezionata del form, su fondo bianco), che
+   avrebbe avuto un anello di focus bianco su bianco. */
+.section-coral,
+.copy-on-coral,
+.mobile-nav,
+[class~="bg-brand-corallo"],
+[class~="bg-brand-nero"],
+[class~="bg-brand-nero-soft"],
+[class~="bg-brand-corallo-dark"] {
+  --focus-ring: #ffffff;
 }
 
 ::selection {
@@ -102,7 +136,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-brand-corallo);
+  color: var(--color-brand-corallo-text);
 }
 
 /* ── Sezioni corallo (tinta intensa, allineata all'hub servizi) ─── */
@@ -259,7 +293,8 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.85);
+  /* Bianco pieno: 4.53:1 su corallo. All'85% scendeva a 3.72:1. */
+  color: #ffffff;
 }
 
 .copy-on-coral .heading-section,
@@ -1423,3 +1458,87 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   }
 }
 
+
+/* ── Preferenze di sistema: trasparenza, contrasto, movimento ─────── */
+
+/* "Riduci trasparenza": le superfici glass diventano opache. Con 16
+   backdrop-filter nel foglio, senza questo blocco la preferenza non
+   produceva alcun effetto. */
+@media (prefers-reduced-transparency: reduce) {
+  .cta-glass-panel,
+  .btn-glass-pill,
+  .btn-ghost,
+  .glass-nav-overlay {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .cta-glass-panel {
+    background: var(--color-brand-bianco) !important;
+    border-color: var(--color-brand-bordo) !important;
+  }
+
+  .btn-glass-pill,
+  .btn-ghost {
+    background: var(--color-brand-bianco) !important;
+  }
+}
+
+/* "Aumenta contrasto": superfici piene e bordi piu' marcati. */
+@media (prefers-contrast: more) {
+  .cta-glass-panel,
+  .btn-glass-pill,
+  .btn-ghost {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: var(--color-brand-bianco) !important;
+  }
+
+  .cta-glass-panel,
+  .btn-glass-pill {
+    border-width: 2px;
+    border-color: var(--color-brand-corallo-text) !important;
+  }
+
+  *:focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Rete di sicurezza per "Riduci movimento": i blocchi mirati qui sopra
+   restano, questo copre le animazioni nuove che nascono non protette. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Skip link ────────────────────────────────────────────────────── */
+/* Fuori schermo finche' non riceve il focus da tastiera: senza, si
+   attraversano logo, cinque voci di menu e la CTA su ogni pagina. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--color-brand-nero);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus-visible {
+  top: 0;
+}
+
+#contenuto:focus {
+  outline: none;
+}

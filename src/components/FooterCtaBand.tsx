@@ -14,7 +14,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
       <div className="cta-glass-panel mx-auto max-w-5xl px-6 py-8 md:px-10 md:py-10">
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="w-full">
-            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-corallo">
+            <p className="mb-3 eyebrow">
               ✦ Pronto a mettere ordine nel tuo sistema di acquisizione?
             </p>
 

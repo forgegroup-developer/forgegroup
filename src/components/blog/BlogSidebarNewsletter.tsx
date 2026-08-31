@@ -82,7 +82,7 @@ export default function BlogSidebarNewsletter() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-brand-corallo hover:bg-brand-pesca-light transition-colors disabled:opacity-60"
+          className="rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-brand-corallo-text hover:bg-brand-pesca-light transition-colors disabled:opacity-60"
         >
           {status === "loading" ? "..." : "Iscriviti"}
         </button>

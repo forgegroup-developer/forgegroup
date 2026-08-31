@@ -30,15 +30,15 @@ export default function ContattiPage() {
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
           <p className="text-sm leading-relaxed text-brand-grigio md:text-base">
             Prima di candidarti, puoi leggere i nostri{" "}
-            <Link href="/servizi" className="font-semibold text-brand-corallo hover:underline">
+            <Link href="/servizi" className="font-semibold text-brand-corallo-text hover:underline">
               servizi B2B
             </Link>
             , i{" "}
-            <Link href="/casi-studio" className="font-semibold text-brand-corallo hover:underline">
+            <Link href="/casi-studio" className="font-semibold text-brand-corallo-text hover:underline">
               casi studio
             </Link>{" "}
             e la{" "}
-            <Link href="/visione" className="font-semibold text-brand-corallo hover:underline">
+            <Link href="/visione" className="font-semibold text-brand-corallo-text hover:underline">
               visione
             </Link>{" "}
             di Forge Group.

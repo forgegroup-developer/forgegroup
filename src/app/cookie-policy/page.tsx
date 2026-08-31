@@ -26,7 +26,7 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-2 mb-6">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 text-brand-nero">
-          <span className="text-brand-corallo shrink-0">✦</span>
+          <span aria-hidden="true" className="text-brand-corallo shrink-0">✦</span>
           <span>{item}</span>
         </li>
       ))}
@@ -38,7 +38,7 @@ export default function CookiePolicy() {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Cookie Policy</p>
+        <p className="eyebrow mb-6">✦ Cookie Policy</p>
         <h1 className="heading-section font-semibold text-brand-nero leading-tight">
           Informativa sui cookie e tecnologie simili
         </h1>
@@ -51,12 +51,12 @@ export default function CookiePolicy() {
           </p>
           <p className="text-brand-grigio leading-relaxed mb-6">
             La presente Cookie Policy integra la{" "}
-            <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
+            <Link href="/privacy-policy" className="text-brand-corallo-text hover:underline">
               Privacy Policy
             </Link>{" "}
             di <strong>{LEGAL.controllerName}</strong>, operante con la denominazione commerciale{" "}
             <strong>{LEGAL.controllerTradeName}</strong>, e descrive le modalità di utilizzo di cookie e tecnologie simili sul sito{" "}
-            <a href={LEGAL.siteUrl} className="text-brand-corallo hover:underline">
+            <a href={LEGAL.siteUrl} className="text-brand-corallo-text hover:underline">
               {LEGAL.siteUrl}
             </a>
             .
@@ -67,7 +67,7 @@ export default function CookiePolicy() {
               Titolare del trattamento: <strong>{LEGAL.controllerName}</strong>, Partita IVA {LEGAL.controllerVat}, con
               sede in {LEGAL.controllerAddress}, operante con la denominazione commerciale{" "}
               <strong>{LEGAL.controllerTradeName}</strong>. Email:{" "}
-              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
+              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo-text hover:underline">
                 {LEGAL.controllerEmail}
               </a>
               .
@@ -122,7 +122,7 @@ export default function CookiePolicy() {
                     href={p.privacyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-corallo text-sm hover:underline mt-2 inline-block"
+                    className="text-brand-corallo-text text-sm hover:underline mt-2 inline-block"
                   >
                     Informativa privacy del fornitore →
                   </a>
@@ -183,11 +183,11 @@ export default function CookiePolicy() {
               consenso (eventuali cookie non tecnici futuri), la base giuridica sarà il consenso ex art. 6, par. 1,
               lett. a) GDPR. Per l&apos;esercizio dei diritti previsti dagli artt. 15-22 GDPR e per maggiori
               informazioni sul trattamento dei dati personali, consulta la{" "}
-              <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
+              <Link href="/privacy-policy" className="text-brand-corallo-text hover:underline">
                 Privacy Policy
               </Link>{" "}
               o scrivi a{" "}
-              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
+              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo-text hover:underline">
                 {LEGAL.controllerEmail}
               </a>
               .
@@ -204,7 +204,7 @@ export default function CookiePolicy() {
 
           <p className="text-sm text-brand-grigio-light mt-12 border-t border-brand-bordo pt-8">
             Per domande su cookie e privacy:{" "}
-            <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
+            <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo-text hover:underline">
               {LEGAL.controllerEmail}
             </a>
             .

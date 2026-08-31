@@ -40,7 +40,7 @@ const initialForm: FormState = {
 };
 
 const inputCls =
-  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3.5 text-white placeholder:text-white/40 backdrop-blur-sm transition-all focus:border-[#C0471A] focus:outline-none focus:ring-[3px] focus:ring-[#C0471A]/20";
+  "w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3.5 text-white placeholder:text-white/70 backdrop-blur-sm transition-all focus:border-brand-corallo-on-dark focus:outline-none focus:ring-[3px] focus:ring-brand-corallo-on-dark/25";
 
 const labelCls = "mb-2 block text-[0.9rem] font-medium text-white";
 
@@ -162,13 +162,13 @@ export default function VisionJoinSection() {
     <section
       ref={sectionRef}
       id="entra-a-far-parte"
-      className={`${bricolage.variable} ${hanken.variable} scroll-mt-24 bg-[#1A1A1A] py-[72px] md:py-[120px]`}
+      className={`${bricolage.variable} ${hanken.variable} scroll-mt-24 bg-brand-nero py-[72px] md:py-[120px]`}
       aria-labelledby="vision-join-heading"
     >
       <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-10 px-6 md:grid-cols-2 md:gap-16">
         <div ref={copyRef}>
           <p
-            className="text-[0.85rem] font-semibold uppercase tracking-[0.1em] text-[#C0471A]"
+            className="text-[0.85rem] font-semibold uppercase tracking-[0.1em] text-brand-corallo-on-dark"
             style={{ fontFamily: "var(--font-vision-join-body)" }}
           >
             Entra a far parte
@@ -305,14 +305,14 @@ export default function VisionJoinSection() {
                     required
                     checked={form.privacy}
                     onChange={(e) => update("privacy", e.target.checked)}
-                    className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 bg-white/10 text-[#C0471A] focus:ring-[#C0471A]/20"
+                    className="mt-1 h-4 w-4 shrink-0 rounded border-white/30 bg-white/10 text-brand-corallo-on-dark focus:ring-brand-corallo-on-dark/25"
                   />
                   <span
                     className="text-[0.85rem] leading-snug text-white/70"
                     style={{ fontFamily: "var(--font-vision-join-body)" }}
                   >
                     Ho letto e accetto la{" "}
-                    <Link href="/privacy-policy" className="text-brand-corallo underline underline-offset-2 hover:text-[#A93D16]">
+                    <Link href="/privacy-policy" className="text-brand-corallo-on-dark underline underline-offset-2 hover:text-white">
                       privacy policy
                     </Link>
                   </span>
@@ -327,7 +327,7 @@ export default function VisionJoinSection() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#C0471A] px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#A93D16] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base md:w-auto md:px-8"
+                  className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-corallo-dark px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base md:w-auto md:px-8"
                   style={{ fontFamily: "var(--font-vision-join-body)" }}
                 >
                   {submitting ? "Invio in corso..." : "Entra a far parte di Forge Group"}

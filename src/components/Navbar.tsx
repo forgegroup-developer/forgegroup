@@ -105,16 +105,16 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-8">
             <Link
               href="/"
-              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
-                pathname === "/" ? "text-brand-corallo active" : "text-brand-nero"
+              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo-text ${
+                pathname === "/" ? "text-brand-corallo-text active" : "text-brand-nero"
               }`}
             >
               Home
             </Link>
             <Link
               href="/servizi"
-              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
-                isActive("/servizi") ? "text-brand-corallo active" : "text-brand-nero"
+              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo-text ${
+                isActive("/servizi") ? "text-brand-corallo-text active" : "text-brand-nero"
               }`}
             >
               Servizi
@@ -122,8 +122,8 @@ export default function Navbar() {
             <div className="nav-dropdown-trigger relative">
               <Link
                 href="/casi-studio"
-                className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo flex items-center gap-1 ${
-                  isCaseStudyActive ? "text-brand-corallo active" : "text-brand-nero"
+                className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo-text flex items-center gap-1 ${
+                  isCaseStudyActive ? "text-brand-corallo-text active" : "text-brand-nero"
                 }`}
               >
                 Casi Studio
@@ -140,8 +140,8 @@ export default function Navbar() {
                       className="block px-4 py-3 rounded-md hover:bg-brand-pesca-light transition-colors group"
                     >
                       <div className="flex items-start gap-3">
-                        <span className="text-brand-corallo mt-1 shrink-0">✦</span>
-                        <div className="font-semibold text-brand-nero group-hover:text-brand-corallo transition-colors">
+                        <span aria-hidden="true" className="text-brand-corallo mt-1 shrink-0">✦</span>
+                        <div className="font-semibold text-brand-nero group-hover:text-brand-corallo-text transition-colors">
                           {c.shortTitle}
                         </div>
                       </div>
@@ -150,7 +150,7 @@ export default function Navbar() {
                   <div className="border-t border-brand-bordo mt-2 pt-2">
                     <Link
                       href="/casi-studio"
-                      className="block px-4 py-2 text-xs uppercase tracking-widest text-brand-corallo font-bold hover:bg-brand-pesca-light rounded-md"
+                      className="block px-4 py-2 eyebrow hover:bg-brand-pesca-light rounded-md"
                     >
                       Tutti i casi studio →
                     </Link>
@@ -160,16 +160,16 @@ export default function Navbar() {
             </div>
             <Link
               href="/visione"
-              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
-                isActive("/visione") ? "text-brand-corallo active" : "text-brand-nero"
+              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo-text ${
+                isActive("/visione") ? "text-brand-corallo-text active" : "text-brand-nero"
               }`}
             >
               Visione
             </Link>
             <Link
               href="/blog"
-              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo ${
-                isActive("/blog") ? "text-brand-corallo active" : "text-brand-nero"
+              className={`underline-grow text-sm font-medium transition-colors hover:text-brand-corallo-text ${
+                isActive("/blog") ? "text-brand-corallo-text active" : "text-brand-nero"
               }`}
             >
               Blog
@@ -206,9 +206,9 @@ export default function Navbar() {
               <Image src="/logo-transparent.png" alt="Forge Group" width={44} height={44} className="h-10 w-auto" />
               <div>
                 <div className="font-semibold text-base tracking-tight text-white leading-none">
-                  FORGE<span className="text-brand-corallo">GROUP</span>
+                  FORGE<span className="text-brand-corallo-on-dark">GROUP</span>
                 </div>
-                <div className="text-[10px] uppercase tracking-widest text-white/40 mt-0.5">
+                <div className="text-[10px] uppercase tracking-widest text-white/70 mt-0.5">
                   Growth Hacking Italia
                 </div>
               </div>
@@ -230,8 +230,8 @@ export default function Navbar() {
               onClick={closeMenu}
               className="flex items-center justify-between py-5 border-b border-white/10 group"
             >
-              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Home</span>
-              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo-on-dark transition-colors">Home</span>
+              <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
             <Link
@@ -239,8 +239,8 @@ export default function Navbar() {
               onClick={closeMenu}
               className="flex items-center justify-between py-5 border-b border-white/10 group"
             >
-              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Servizi</span>
-              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo-on-dark transition-colors">Servizi</span>
+              <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
             <div className="overflow-hidden border-b border-white/10 bg-brand-nero">
@@ -254,8 +254,8 @@ export default function Navbar() {
                 <span
                   className={`text-[28px] font-bold uppercase tracking-tight transition-colors ${
                     isCaseStudyActive
-                      ? "text-brand-corallo"
-                      : "text-white group-hover:text-brand-corallo"
+                      ? "text-brand-corallo-on-dark"
+                      : "text-white group-hover:text-brand-corallo-on-dark"
                   }`}
                 >
                   Casi Studio
@@ -263,8 +263,8 @@ export default function Navbar() {
                 <span
                   className={`text-xl font-light transition-all duration-300 ${
                     mobileCasi
-                      ? "rotate-45 text-brand-corallo"
-                      : "text-white/30 group-hover:text-brand-corallo"
+                      ? "rotate-45 text-brand-corallo-on-dark"
+                      : "text-white/60 group-hover:text-brand-corallo-on-dark"
                   }`}
                 >
                   +
@@ -283,16 +283,16 @@ export default function Navbar() {
                       key={c.slug}
                       href={`/casi-studio/${c.slug}`}
                       onClick={closeMenu}
-                      className="flex items-center gap-2 py-2 text-base font-medium text-white/60 transition-colors hover:text-brand-corallo"
+                      className="flex items-center gap-2 py-2 text-base font-medium text-white/60 transition-colors hover:text-brand-corallo-on-dark"
                     >
-                      <span className="text-brand-corallo text-xs">✦</span>
+                      <span aria-hidden="true" className="text-brand-corallo-on-dark text-xs">✦</span>
                       {c.shortTitle}
                     </Link>
                   ))}
                   <Link
                     href="/casi-studio"
                     onClick={closeMenu}
-                    className="block pb-1 pt-2 text-xs font-bold uppercase tracking-widest text-brand-corallo"
+                    className="block pb-1 pt-2 text-xs font-bold uppercase tracking-widest text-brand-corallo-on-dark"
                   >
                     Tutti i casi →
                   </Link>
@@ -305,10 +305,10 @@ export default function Navbar() {
               onClick={closeMenu}
               className="flex items-center justify-between py-5 border-b border-white/10 group"
             >
-              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo-on-dark transition-colors">
                 Visione
               </span>
-              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+              <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
             <Link
@@ -316,12 +316,12 @@ export default function Navbar() {
               onClick={closeMenu}
               className="flex items-center justify-between py-5 border-b border-white/10 group"
             >
-              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo transition-colors">Blog</span>
-              <span className="text-white/30 group-hover:text-brand-corallo transition-colors text-xl">→</span>
+              <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo-on-dark transition-colors">Blog</span>
+              <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
             <div className="pt-8 pb-4">
-              <a href="mailto:info@forgegroup.it" className="block text-sm text-white/40 hover:text-white/70 transition-colors">
+              <a href="mailto:info@forgegroup.it" className="block text-sm text-white/70 hover:text-white transition-colors">
                 info@forgegroup.it
               </a>
             </div>

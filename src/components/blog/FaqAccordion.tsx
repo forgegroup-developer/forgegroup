@@ -55,7 +55,7 @@ export default function FaqAccordion({ faqs, title = "Domande frequenti" }: Prop
                 >
                   <span>{faq.q}</span>
                   <span
-                    className={`shrink-0 text-brand-corallo text-xl transition-transform ${isOpen ? "rotate-45" : ""}`}
+                    className={`shrink-0 text-brand-corallo-text text-xl transition-transform ${isOpen ? "rotate-45" : ""}`}
                     aria-hidden
                   >
                     +

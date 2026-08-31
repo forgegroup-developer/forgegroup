@@ -45,7 +45,7 @@ const collaborators = [
 ];
 
 const chipOutlineClass =
-  "inline-flex items-center rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-semibold text-brand-corallo shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-corallo/10";
+  "inline-flex items-center rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-semibold text-brand-corallo-text shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-corallo/10";
 
 function LinkedInIcon() {
   return (
@@ -102,7 +102,7 @@ export default function TeamSection() {
                 )}
               </div>
               <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">{member.name}</h3>
-              <p className="text-brand-corallo text-sm font-semibold leading-snug mb-1">
+              <p className="text-brand-corallo-text text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}
               </p>
               <p

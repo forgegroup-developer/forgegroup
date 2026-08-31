@@ -47,7 +47,7 @@ export default function ServiziHeroScrollCue({
       type="button"
       onClick={scrollDown}
       aria-label="Scorri verso il basso"
-      className={`absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-brand-grigio transition-all duration-500 hover:text-brand-corallo focus-visible:text-brand-corallo ${
+      className={`absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-brand-grigio transition-all duration-500 hover:text-brand-corallo-text focus-visible:text-brand-corallo-text ${
         visible ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
     >

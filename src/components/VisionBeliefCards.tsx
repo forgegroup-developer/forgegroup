@@ -108,7 +108,7 @@ function BeliefCard({
     >
       <div
         className={`flex h-full w-full flex-col overflow-hidden rounded-[24px] ${
-          isCoral ? "bg-[#C0471A]" : "bg-[#2A2A2A]"
+          isCoral ? "bg-brand-corallo-dark" : "bg-brand-nero-soft"
         }`}
       >
         <div className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-t-[24px] md:h-[300px]">
@@ -132,7 +132,7 @@ function BeliefCard({
 
         <div className="flex flex-1 flex-col p-8">
           <h3
-            className={`text-balance leading-[1.1] ${isCoral ? "text-[#1A1A1A]" : "text-white"}`}
+            className="text-balance leading-[1.1] text-white"
             style={{
               fontFamily: "var(--font-vision-belief-title)",
               fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
@@ -142,7 +142,7 @@ function BeliefCard({
             {title}
           </h3>
           <p
-            className={`mt-4 text-pretty ${isCoral ? "text-[#1A1A1A]/85" : "text-white/70"}`}
+            className={`mt-4 text-pretty ${isCoral ? "text-white" : "text-white/70"}`}
             style={{
               fontFamily: "var(--font-vision-belief-body)",
               fontSize: "1rem",
@@ -201,7 +201,7 @@ export default function VisionBeliefCards() {
   return (
     <section
       ref={sectionRef}
-      className={`${bricolage.variable} ${hanken.variable} vision-belief-section overflow-hidden bg-[#1A1A1A] py-16 md:py-[120px]`}
+      className={`${bricolage.variable} ${hanken.variable} vision-belief-section overflow-hidden bg-brand-nero py-16 md:py-[120px]`}
       aria-labelledby="vision-belief-heading"
     >
       <div className="mx-auto max-w-[1200px] px-6">

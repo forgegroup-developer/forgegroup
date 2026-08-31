@@ -21,7 +21,7 @@ function escapeRegExp(s: string) {
 function ExcerptWithHighlights({
   text,
   highlights,
-  highlightClassName = "text-brand-corallo",
+  highlightClassName = "text-brand-corallo-text",
 }: {
   text: string;
   highlights?: string[];

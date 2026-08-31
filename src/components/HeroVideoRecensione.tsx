@@ -27,7 +27,7 @@ export default function HeroVideoRecensione() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           &ldquo;
-          <span className="text-brand-corallo">126.500€ di fatturato in 90 giorni</span>, non me lo aspettavo. Ero scettico all&apos;inizio.
+          <span className="text-brand-corallo-text">126.500€ di fatturato in 90 giorni</span>, non me lo aspettavo. Ero scettico all&apos;inizio.
           &rdquo;
         </blockquote>
 
@@ -53,7 +53,7 @@ export default function HeroVideoRecensione() {
             </div>
           </div>
           <div className="flex items-center justify-between gap-3 border-t border-brand-bordo/50 pt-2 sm:w-auto sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-0 sm:pt-0">
-            <span className="text-brand-corallo font-bold text-sm leading-none">5/5</span>
+            <span className="text-brand-corallo-text font-bold text-sm leading-none">5/5</span>
             <span className="text-brand-grigio text-[10px] uppercase tracking-widest">Recensione</span>
           </div>
         </div>

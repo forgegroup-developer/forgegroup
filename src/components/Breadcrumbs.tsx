@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items, className = "", variant = "dark" }:
   const linkClass =
     variant === "light"
       ? "text-white/90 hover:text-white hover:underline"
-      : "text-brand-grigio hover:text-brand-corallo hover:underline";
+      : "text-brand-grigio hover:text-brand-corallo-text hover:underline";
   const currentClass = variant === "light" ? "text-white" : "text-brand-nero";
 
   const breadcrumbJsonLd = {

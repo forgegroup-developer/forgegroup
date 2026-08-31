@@ -25,7 +25,7 @@ export default function InlineLinkText({ text }: { text: string }) {
       <Link
         key={key++}
         href={href}
-        className="font-semibold text-brand-corallo underline underline-offset-2 hover:opacity-80"
+        className="font-semibold text-brand-corallo-text underline underline-offset-2 hover:opacity-80"
         {...(!isInternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {label}

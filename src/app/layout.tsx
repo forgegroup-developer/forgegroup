@@ -163,8 +163,13 @@ export default function RootLayout({
         <script id="ld-site-nav" type="application/ld+json">
           {JSON.stringify(siteNavigationJsonLd)}
         </script>
+        <a href="#contenuto" className="skip-link">
+          Salta al contenuto
+        </a>
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main id="contenuto" tabIndex={-1} className="flex-grow">
+          {children}
+        </main>
         <Footer />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

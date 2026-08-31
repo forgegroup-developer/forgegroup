@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, CSSProperties, ReactNode } from "react";
 
 /** Beam rotante unificato: bianco → corallo → bianco (tutti i pulsanti) */
-export const FORGE_BEAM: [string, string, string] = ["#ffffff", "#d95830", "#ffffff"];
+export const FORGE_BEAM: [string, string, string] = ["#ffffff", "#c8502a", "#ffffff"];
 
 /** @deprecated Alias di FORGE_BEAM */
 export const FORGE_BEAM_GLASS = FORGE_BEAM;
