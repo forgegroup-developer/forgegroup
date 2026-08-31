@@ -1592,6 +1592,13 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   color: var(--color-brand-nero);
 }
 
+/* Variante per i numeri messi in colonna (griglia a tre): la scala piena
+   e' pensata per un dato a tutta larghezza e qui manda le cifre a capo. */
+.stat-number-col {
+  font-size: clamp(2.25rem, 3.2vw + 0.6rem, 3.25rem);
+  line-height: 1;
+}
+
 /* Occhiello con marcatore: l'asterisco e' decorativo, sta in
    ::before cosi' non finisce negli screen reader ne' nel testo
    copiato. */
