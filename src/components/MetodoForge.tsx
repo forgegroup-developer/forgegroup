@@ -57,7 +57,10 @@ export default function MetodoForge({
   const coral = onCoral || className.includes("section-coral");
 
   return (
-    <section className={`relative overflow-hidden py-20 md:py-24 lg:py-28 ${className}`}>
+    <section
+      id="metodo"
+      className={`relative overflow-hidden scroll-mt-24 py-20 md:py-24 lg:py-28 ${className}`}
+    >
       {!coral && (
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_400px_at_85%_-5%,rgba(200,80,42,0.06),transparent_60%)]"

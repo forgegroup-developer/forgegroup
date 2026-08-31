@@ -39,7 +39,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
             className={`footer-cta-beam-btn${isCaseStudy ? " text-sm uppercase tracking-wide" : ""}`}
           >
             {isCaseStudy
-              ? "OTTIENI UNA CONSULENZA GRATUITA"
+              ? "PRENOTA UNA CONSULENZA"
               : "Scopri come possiamo esserti utile"}
           </LightBeamButton>
         </div>

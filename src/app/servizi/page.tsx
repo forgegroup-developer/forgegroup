@@ -159,7 +159,7 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
         <span className="text-brand-corallo">fatturato</span> della tua azienda.
       </h1>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
-        Ottieni una consulenza gratuita
+        Prenota una consulenza
       </Link>
     </div>
   );

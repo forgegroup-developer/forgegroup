@@ -35,8 +35,12 @@ export default function SectionHeader({
     <div
       className={`${widthClass} ${alignClass} mb-12 md:mb-16 ${onCoral ? "copy-on-coral" : ""}`}
     >
+      {/* Il marcatore dell'occhiello arriva da .eyebrow-mark::before:
+          decorativo, quindi fuori dal testo copiabile e dagli screen reader. */}
       {eyebrow && (
-        <p className={onCoral ? "eyebrow-coral mb-4" : "eyebrow mb-4"}>✦ {eyebrow}</p>
+        <p className={onCoral ? "eyebrow-coral eyebrow-mark mb-4" : "eyebrow eyebrow-mark mb-4"}>
+          {eyebrow}
+        </p>
       )}
       <h2
         className={`heading-section ${onCoral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}

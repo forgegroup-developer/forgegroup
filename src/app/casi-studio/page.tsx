@@ -40,7 +40,7 @@ function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
         <span className="text-brand-corallo">Vuoi capire se un approccio simile ha senso anche per la tua azienda?</span>
       </h1>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-        Ottieni una consulenza gratuita
+        Prenota una consulenza
       </Link>
     </div>
   );

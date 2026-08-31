@@ -62,125 +62,6 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "software-b2b",
-    sector: "Software B2B",
-    title: "Software B2B: €126.500 in 90 giorni",
-    shortTitle: "Software B2B",
-    resultHeadline: "€126.500 in 90 giorni",
-    excerpt:
-      "Come abbiamo portato DISA SRL da zero acquisizione a €126.500 in 90 giorni, con un costo per contatto di soli €1,48.",
-    hubExcerpt: "DISA SRL: €126.500 in 90 giorni. Costo per contatto €1,48.",
-    excerptHighlights: ["€126.500", "90 giorni", "€1,48"],
-    metaDescription:
-      "Caso studio Software B2B: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
-    context: [
-      { label: "Settore", value: "Software B2B" },
-      { label: "Azienda", value: "DISA SRL, software SOS APPALTI" },
-      { label: "Ticket medio", value: "Oltre 12.000€" },
-      { label: "Mercato", value: "Italia" },
-    ],
-    challenge:
-      "DISA SRL fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
-    diagnosis: [
-      "Nessun canale di acquisizione prevedibile: tutto dipendeva da passaparola e referenze personali",
-      "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
-      "Molte trasferte commerciali, spesso su appuntamenti con poco interesse reale",
-      "Mercato di fatto limitato al territorio vicino, difficile da scalare oltre la zona vicina",
-    ],
-    system: [
-      {
-        step: "01",
-        title: "Comunicazione & posizionamento",
-        description:
-          "Con DISA abbiamo riscritto il modo in cui SOS APPALTI si presenta online: messaggi chiari su cosa fa, per chi e perché conviene, così chi arriva capisce subito il valore del software.",
-      },
-      {
-        step: "02",
-        title: "Contenuti professionali",
-        description:
-          "Con DISA e il nostro videomaker abbiamo realizzato video professionali e infografiche per spiegare il software e costruire fiducia prima ancora del contatto commerciale.",
-      },
-      {
-        step: "03",
-        title: "Sistema di acquisizione Meta Ads",
-        description:
-          "Insieme al team commerciale di DISA abbiamo costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
-      },
-      {
-        step: "04",
-        title: "Form di qualifica",
-        description:
-          "Abbiamo integrato nelle campagne form per raccogliere le informazioni chiave: al commerciale arrivano contatti già consapevoli e interessati, non più nomi a freddo.",
-      },
-      {
-        step: "05",
-        title: "Lancio geolocalizzato e crescita in Italia",
-        description:
-          "Abbiamo avviato il sistema su un'area a 250 km dalla sede per validarlo insieme a DISA; oggi è pronto a essere replicato in tutta Italia con risultati in crescita.",
-      },
-    ],
-    results: [
-      { value: "+126k", label: "Fatturato generato", detail: "Nei primi 90 giorni" },
-      { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
-      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
-      { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
-    ],
-    quote: {
-      text: "126.500€ di fatturato, non me lo aspettavo. Ero scettico all'inizio: questo metodo per me ha funzionato. Lo consiglio a tutte le aziende che vogliono crescere sul mercato.",
-      author: "DISA SRL",
-      role: "CEO & Founder · Software B2B",
-    },
-    quoteSegments: [
-      { text: "126.500€ di fatturato", highlight: true },
-      { text: ", non me lo aspettavo. Ero scettico all'inizio: " },
-      { text: "questo metodo", highlight: true },
-      { text: " per me " },
-      { text: "ha funzionato", highlight: true },
-      { text: ". " },
-      { text: "Lo consiglio", highlight: true },
-      { text: " a tutte le aziende che vogliono " },
-      { text: "crescere sul mercato", highlight: true },
-      { text: "." },
-    ],
-    ...caseStudyLogosBySlug["software-b2b"],
-    evolutionEyebrow: "Cosa è successo dopo",
-    evolutionHeading: "Prima e",
-    evolutionHeadingHighlight: "dopo",
-    beforeAfter: [
-      {
-        aspect: "Acquisizione",
-        before: "Solo passaparola, chiamate e referenze personali",
-        after: "Campagne Meta Ads attive con form di qualifica",
-      },
-      {
-        aspect: "Contatti",
-        before: "Persone che non conoscevano SOS APPALTI",
-        after: "Lead già consapevoli e in target (+550 generati)",
-      },
-      {
-        aspect: "Commerciali",
-        before: "Trasferte per appuntamenti a freddo, poche chiusure",
-        after: "Appuntamenti con clienti interessati e pronti a firmare",
-      },
-      {
-        aspect: "Fatturato",
-        before: "Crescita imprevedibile, legata al passaparola",
-        after: "+126k nei primi 90 giorni, +350k ad oggi",
-      },
-      {
-        aspect: "Scalabilità",
-        before: "Mercato limitato al territorio vicino",
-        after: "Sistema di proprietà dell'azienda, scalabile in tutta Italia",
-      },
-    ],
-    videoUrl: "/video-recensione.mp4",
-    contextPhoneScreenshot: {
-      src: "/images/casi-studio/disa-meta-ads-dashboard.png",
-      alt: "Dashboard Meta Ads con campagne lead generation DISA SRL",
-      imageObjectPosition: "center 13%",
-    },
-  },
-  {
     slug: "edilizia",
     sector: "Edilizia B2C",
     title: "Edilizia B2C: 4 clienti qualificati al mese senza pubblicità",
@@ -421,117 +302,123 @@ export const caseStudies: CaseStudy[] = [
     ...caseStudyLogosBySlug["arredo-commerciale"],
   },
   {
-    slug: "hotel-hospitality",
-    sector: "Hospitality",
-    title: "Hospitality: 258 prenotazioni in 48 ore",
-    shortTitle: "Hospitality",
-    resultHeadline: "258 prenotazioni in 48 ore.",
+    slug: "software-b2b",
+    sector: "Software B2B",
+    title: "Software B2B: €126.500 in 90 giorni",
+    shortTitle: "Software B2B",
+    resultHeadline: "€126.500 in 90 giorni",
     excerpt:
-      "Lancio da zero di un hotel sotto nuova gestione: 258 prenotazioni in 48 ore, per un valore di oltre 20.000€.",
-    hubExcerpt: "Hotel nuova gestione: 258 prenotazioni in 48 ore, per un valore di oltre 20.000€.",
-    excerptHighlights: ["258 prenotazioni", "48 ore", "+20.000€"],
+      "Come abbiamo portato DISA SRL da zero acquisizione a €126.500 in 90 giorni, con un costo per contatto di soli €1,48.",
+    hubExcerpt: "DISA SRL: €126.500 in 90 giorni. Costo per contatto €1,48.",
+    excerptHighlights: ["€126.500", "90 giorni", "€1,48"],
     metaDescription:
-      "Caso studio Hospitality: lancio hotel sotto nuova gestione con 258 prenotazioni in 48 ore e +20.000€ di valore. OTA, contenuti, Google Business e campagne sponsorizzate.",
+      "Caso studio Software B2B: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
     context: [
-      { label: "Settore", value: "Hospitality" },
-      { label: "Struttura", value: "Hotel sotto nuova gestione" },
-      { label: "Obiettivo", value: "Occupazione da subito, non in stagione" },
-      { label: "Mercato", value: "Prenotazioni via OTA e presenza diretta" },
+      { label: "Settore", value: "Software B2B" },
+      { label: "Azienda", value: "DISA SRL, software SOS APPALTI" },
+      { label: "Ticket medio", value: "Oltre 12.000€" },
+      { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "L'hotel era appena passato di mano. Nessuno storico utile, presenza online da ricostruire, e l'obiettivo del titolare era uno solo: iniziare ad acquisire prenotazioni fin dal primo giorno. Lo scenario più difficile, partire da zero, con il cronometro acceso.",
+      "DISA SRL fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
     diagnosis: [
-      "Partenza da zero: nuova gestione, nessuno slancio ereditato, camere da riempire subito",
-      "Presenza online da ricostruire: schede OTA da sistemare, foto deboli, nessun posizionamento. Chi cercava non trovava la struttura",
-      "Poca riprova sociale: senza recensioni recenti è difficile convertire, e senza prenotazioni non arrivano recensioni",
+      "Nessun canale di acquisizione prevedibile: tutto dipendeva da passaparola e referenze personali",
+      "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
+      "Molte trasferte commerciali, spesso su appuntamenti con poco interesse reale",
+      "Mercato di fatto limitato al territorio vicino, difficile da scalare oltre la zona vicina",
     ],
     system: [
       {
         step: "01",
-        title: "Consulenza e formazione iniziale",
+        title: "Comunicazione & posizionamento",
         description:
-          "Insieme al titolare abbiamo inquadrato il modello di business e l'obiettivo reale: lanciare la struttura e iniziare a raccogliere prenotazioni da subito. Strategia prima dell'azione.",
+          "Con DISA abbiamo riscritto il modo in cui SOS APPALTI si presenta online: messaggi chiari su cosa fa, per chi e perché conviene, così chi arriva capisce subito il valore del software.",
       },
       {
         step: "02",
-        title: "Controllo e ottimizzazione di tutte le piattaforme",
+        title: "Contenuti professionali",
         description:
-          "Con la nuova gestione abbiamo preso in carico tutte le piattaforme, le abbiamo sistemate e messe a punto. Ogni canale allineato, coerente, pronto a convertire.",
+          "Con DISA e il nostro videomaker abbiamo realizzato video professionali e infografiche per spiegare il software e costruire fiducia prima ancora del contatto commerciale.",
       },
       {
         step: "03",
-        title: "Contenuti e fotografia professionale",
+        title: "Sistema di acquisizione Meta Ads",
         description:
-          "Abbiamo prodotto con il titolare foto e contenuti studiati per attirare l'attenzione e far desiderare la struttura. Nell'hospitality si vende con gli occhi: l'immagine giusta è metà della prenotazione.",
+          "Insieme al team commerciale di DISA abbiamo costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
       },
       {
         step: "04",
-        title: "Sito, posizionamento, Google Business e recensioni",
+        title: "Form di qualifica",
         description:
-          "Insieme alla gestione abbiamo costruito presenza propria oltre alle OTA: sito posizionato, profilo Google Business curato e un sistema per raccogliere recensioni in modo continuo, alimentando la riprova sociale che fa scattare le prenotazioni.",
+          "Abbiamo integrato nelle campagne form per raccogliere le informazioni chiave: al commerciale arrivano contatti già consapevoli e interessati, non più nomi a freddo.",
       },
       {
         step: "05",
-        title: "Lancio su tutte le OTA con campagne sponsorizzate",
+        title: "Lancio geolocalizzato e crescita in Italia",
         description:
-          "Con le fondamenta pronte, abbiamo lanciato insieme al titolare la struttura su tutte le piattaforme OTA, supportandola con campagne sponsorizzate mirate sulle piattaforme stesse. È qui che sono arrivate le 258 prenotazioni.",
+          "Abbiamo avviato il sistema su un'area a 250 km dalla sede per validarlo insieme a DISA; oggi è pronto a essere replicato in tutta Italia con risultati in crescita.",
       },
     ],
     results: [
-      { value: "258+", label: "Prenotazioni raccolte", detail: "Nelle prime 48 ore dal lancio" },
-      { value: "48h", label: "Dal go-live", detail: "Dalla messa online della struttura" },
-      { value: "+20K€", label: "Valore generato", detail: "Sulle prenotazioni raccolte" },
-      { value: "0", label: "Punto di partenza", detail: "Gestione appena cambiata, calendario vuoto" },
+      { value: "+126k", label: "Fatturato generato", detail: "Nei primi 90 giorni" },
+      { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
+      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
+      { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
     ],
     quote: {
-      text: "Nelle prime 48 ore dal lancio: oltre 258 prenotazioni raccolte, per un valore di +20.000€.",
-      author: "Sistema Forge Group",
-      role: "Lancio struttura ricettiva · nuova gestione",
+      text: "126.500€ di fatturato, non me lo aspettavo. Ero scettico all'inizio: questo metodo per me ha funzionato. Lo consiglio a tutte le aziende che vogliono crescere sul mercato.",
+      author: "DISA SRL",
+      role: "CEO & Founder · Software B2B",
     },
-    evolutionEyebrow: "Prima e dopo",
-    evolutionHeading: "Il confronto",
-    evolutionHeadingHighlight: "reale",
+    quoteSegments: [
+      { text: "126.500€ di fatturato", highlight: true },
+      { text: ", non me lo aspettavo. Ero scettico all'inizio: " },
+      { text: "questo metodo", highlight: true },
+      { text: " per me " },
+      { text: "ha funzionato", highlight: true },
+      { text: ". " },
+      { text: "Lo consiglio", highlight: true },
+      { text: " a tutte le aziende che vogliono " },
+      { text: "crescere sul mercato", highlight: true },
+      { text: "." },
+    ],
+    ...caseStudyLogosBySlug["software-b2b"],
+    evolutionEyebrow: "Cosa è successo dopo",
+    evolutionHeading: "Prima e",
+    evolutionHeadingHighlight: "dopo",
     beforeAfter: [
       {
-        aspect: "Gestione",
-        before: "Hotel appena passato di mano, zero storico utile",
-        after: "Lancio operativo con occupazione fin dal primo giorno",
+        aspect: "Acquisizione",
+        before: "Solo passaparola, chiamate e referenze personali",
+        after: "Campagne Meta Ads attive con form di qualifica",
       },
       {
-        aspect: "Presenza online",
-        before: "OTA trascurate, foto deboli, nessun posizionamento",
-        after: "Piattaforme ottimizzate, sito, Google Business e contenuti professionali",
+        aspect: "Contatti",
+        before: "Persone che non conoscevano SOS APPALTI",
+        after: "Lead già consapevoli e in target (+550 generati)",
       },
       {
-        aspect: "Riprova sociale",
-        before: "Poche o nessuna recensione recente",
-        after: "Sistema di raccolta recensioni attivo e continuo",
+        aspect: "Commerciali",
+        before: "Trasferte per appuntamenti a freddo, poche chiusure",
+        after: "Appuntamenti con clienti interessati e pronti a firmare",
       },
       {
-        aspect: "Prenotazioni",
-        before: "Calendario vuoto, pressione di riempire subito",
-        after: "258+ prenotazioni nelle prime 48 ore",
+        aspect: "Fatturato",
+        before: "Crescita imprevedibile, legata al passaparola",
+        after: "+126k nei primi 90 giorni, +350k ad oggi",
       },
       {
-        aspect: "Valore",
-        before: "Nessun fatturato prevedibile al cambio gestione",
-        after: "+20.000€ di valore generato in 48 ore",
-      },
-      {
-        aspect: "Canali",
-        before: "Nessuna campagna strutturata sulle OTA",
-        after: "Lancio su tutte le OTA con ads mirate",
+        aspect: "Scalabilità",
+        before: "Mercato limitato al territorio vicino",
+        after: "Sistema di proprietà dell'azienda, scalabile in tutta Italia",
       },
     ],
-    resultNote:
-      "Risultato misurato sulle prenotazioni effettivamente raccolte nelle prime 48 ore dal lancio sulle piattaforme. Le fondamenta costruite prima del lancio (presenza, contenuti, recensioni) continuano a sostenere la struttura nel tempo.",
-    forWhom: [
-      "Hotel, B&B e strutture ricettive sotto nuova gestione o in fase di rilancio",
-      "Chi ha schede OTA da sistemare, immagini deboli e poche recensioni recenti",
-      "Titolari che vogliono occupazione da subito, non tra sei mesi",
-      "Chi vuole una presenza online che continua a portare prenotazioni, non solo uno sprint iniziale",
-    ],
-    ...caseStudyLogosBySlug["hotel-hospitality"],
+    videoUrl: "/video-recensione.mp4",
+    contextPhoneScreenshot: {
+      src: "/images/casi-studio/disa-meta-ads-dashboard.png",
+      alt: "Dashboard Meta Ads con campagne lead generation DISA SRL",
+      imageObjectPosition: "center 13%",
+    },
   },
 ];
 

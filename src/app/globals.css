@@ -8,7 +8,7 @@
   --color-brand-pesca: #e8b9a5;
   /* Corallo: fill/grafica. Non usare come colore di testo sotto i 24px:
      su bianco puro dà 4.53:1 e scende sotto 4.5:1 su panna, pesca-light,
-     visione-bg, nero e ovunque la scena 3D traspaia da .section-bianco. */
+     visione-bg e nero. */
   --color-brand-corallo: #c8502a;
   --color-brand-corallo-dark: #a93f1e;
   /* Testo corallo su superfici chiare: 6.15:1 bianco, 5.69:1 panna,
@@ -36,7 +36,9 @@ html {
 }
 
 body {
-  /* trasparente per lasciar trasparire lo sfondo 3D globale (Logo3DBackground) */
+  /* Trasparente: il fondo lo dipinge html. Serviva a lasciar passare la scena
+     3D globale, rimossa dal sito; resta perche' le sezioni sono semitrasparenti
+     e si appoggiano al fondo di html. */
   background-color: transparent;
   color: var(--color-brand-nero);
   font-family: var(--font-sans);
@@ -1541,4 +1543,220 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 
 #contenuto:focus {
   outline: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REDESIGN EDILIZIA — fondamenta tipografiche e di sezione
+   Stack Sans Notch spinto a display: pesi 700, tracking negativo
+   marcato, scala molto piu' alta. Il font era gia' in uso a 600 e
+   a corpi piccoli: qui cambia la scala, non la famiglia.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Scala manifesto — headline che occupano la schermata.
+   line-height sotto 1 regge solo su 2-3 parole per riga: usare
+   text-balance sull'elemento per evitare righe orfane. */
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7.5vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--color-brand-nero);
+}
+
+/* Variante per la hero a due colonne: la colonna testo e' meta' pagina,
+   quindi il clamp su vw della scala piena mandava l'headline a 117px e
+   spingeva riga del rischio e CTA sotto la piega. */
+.heading-display-hero {
+  font-size: clamp(2.125rem, 3.4vw + 0.5rem, 3.5rem);
+  line-height: 1.03;
+}
+
+/* Titoli di sezione: stessa logica, un gradino sotto. */
+.heading-section-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--color-brand-nero);
+}
+
+/* Numero-prova: il dato da leggere a tre metri di distanza. */
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 7rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  color: var(--color-brand-nero);
+}
+
+/* Occhiello con marcatore: l'asterisco e' decorativo, sta in
+   ::before cosi' non finisce negli screen reader ne' nel testo
+   copiato. */
+.eyebrow-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eyebrow-mark::before {
+  content: "✳";
+  font-size: 1.1em;
+  line-height: 1;
+  color: var(--color-brand-corallo-text);
+}
+
+.section-notte .eyebrow-mark::before,
+.copy-on-coral .eyebrow-mark::before {
+  color: currentColor;
+}
+
+/* Fondo sabbia: la terra di mezzo tra il bianco e il corallo.
+   Serve a dare ritmo — bianco, sabbia, notte, corallo — invece
+   dell'alternanza a due tempi bianco/corallo di adesso. */
+.section-sabbia {
+  background-color: var(--color-brand-panna);
+}
+
+/* Sezione notte: fondale scuro a tutta larghezza. Il corallo qui
+   passa al token -on-dark (6.99:1 su #111111). */
+.section-notte {
+  background-color: var(--color-brand-nero);
+  color: #ffffff;
+  --focus-ring: #ffffff;
+}
+
+.section-notte .heading-display,
+.section-notte .heading-section-xl,
+.section-notte .heading-section,
+.section-notte .heading-card,
+.section-notte .stat-number,
+.section-notte h1,
+.section-notte h2,
+.section-notte h3 {
+  color: #ffffff;
+}
+
+.section-notte .eyebrow,
+.section-notte .text-brand-corallo,
+.section-notte .heading-display span,
+.section-notte .heading-section-xl span,
+.section-notte .stat-number span {
+  color: var(--color-brand-corallo-on-dark);
+}
+
+.section-notte .body-lg,
+.section-notte p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.section-notte .card-xl {
+  background-color: var(--color-brand-nero-soft);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Card a raggio ampio: un solo raggio per tutto il sito. */
+.card-xl {
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-brand-bordo);
+  background-color: var(--color-brand-bianco);
+}
+
+/* Link-freccia: sostituisce i bottoni fantasma nei punti in cui
+   la CTA e' secondaria e non deve competere col corallo. */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--color-brand-nero);
+  text-decoration: none;
+}
+
+.section-notte .arrow-link {
+  color: #ffffff;
+}
+
+.arrow-link::after {
+  content: "↗";
+  color: var(--color-brand-corallo-text);
+  transition: transform 200ms ease;
+}
+
+.section-notte .arrow-link::after {
+  color: var(--color-brand-corallo-on-dark);
+}
+
+.arrow-link:hover::after {
+  transform: translate(2px, -2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link::after {
+    transition: none;
+  }
+}
+
+/* Riga-dato: il filetto sottile sopra il numero, come nei blocchi
+   statistica di riferimento. */
+.stat-rule {
+  border-top: 1px solid var(--color-brand-bordo);
+  padding-top: 1.5rem;
+}
+
+.section-notte .stat-rule {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Muro di cantiere: fondale decorativo della hero ─────────────
+   Disegnato, non fotografato. Due livelli annidati perche' ognuno
+   porta una sola maschera (mask-composite non e' abbastanza diffuso):
+   il contenitore sfuma i corsi alti — il muro "non e' finito" — e il
+   figlio ritaglia la trama dei mattoni da una tinta presa dal token,
+   cosi' il colore resta dentro la palette e non e' cablato nell'SVG.
+   Trama a corsi sfalsati 120x60: due mattoni per corso, giunti
+   verticali spostati di mezzo mattone sul corso successivo. */
+.muro-cantiere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to top, #000 30%, transparent 88%);
+  mask-image: linear-gradient(to top, #000 30%, transparent 88%);
+}
+
+.muro-cantiere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-brand-corallo);
+  opacity: 0.13;
+  --trama-mattoni: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='120'%20height='60'%3E%3Cpath%20d='M0%201H120M0%2031H120M0%201V31M60%201V31M30%2031V60M90%2031V60'%20stroke='%23000'%20stroke-width='2'%20fill='none'/%3E%3C/svg%3E");
+  -webkit-mask-image: var(--trama-mattoni);
+  mask-image: var(--trama-mattoni);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+
+/* Su schermi stretti i corsi vanno rimpiccioliti, altrimenti un
+   mattone occupa mezzo telefono e la trama non si legge piu'. */
+@media (max-width: 640px) {
+  .muro-cantiere::before {
+    -webkit-mask-size: 84px 42px;
+    mask-size: 84px 42px;
+  }
+}
+
+/* Aggancio per il futuro: quando arrivano le foto dei cantieri veri
+   basta passare --foto-cantiere alla sezione e il muro disegnato
+   lascia il posto allo scatto, con lo stesso velo e la stessa sfumatura. */
+.muro-cantiere[style*="--foto-cantiere"]::before {
+  background-color: transparent;
+  background-image: var(--foto-cantiere);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.28;
+  -webkit-mask-image: none;
+  mask-image: none;
 }

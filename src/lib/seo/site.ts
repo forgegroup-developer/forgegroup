@@ -4,16 +4,18 @@
  */
 export const SITE_URL = "https://www.forgegroup.it";
 
-/** Titolo principale — tab browser, Open Graph, posizionamento keyword */
+/** Titolo principale — tab browser, Open Graph, posizionamento keyword.
+    Cluster A (marketing impresa edile) + categoria rivendicata. Fuori il
+    cluster growth hacking: parlava a marketer, non a imprenditori edili. */
 export const SITE_TITLE =
-  "Forge Group Italia | Acquisizione Clienti B2B & Growth Hacking";
+  "Acquisizione clienti per imprese edili | Forge Group";
 
 export const SITE_NAME = "Forge Group Italia";
 
 export const SITE_TITLE_TEMPLATE = "%s | Forge Group Italia";
 
 export const SITE_DESCRIPTION =
-  "Aiutiamo imprese a migliorare i processi, acquisire clienti ed organizzare le vendite per crescere in modo prevedibile.";
+  "Richieste qualificate, processi di vendita e formazione commerciale per le imprese edili. Non ci fermiamo al contatto: entriamo nella trattativa con te.";
 
 /** Profili social ufficiali — footer, schema sameAs, documentazione */
 export const SOCIAL_PROFILES = {
@@ -26,17 +28,17 @@ export const SOCIAL_SAME_AS = Object.values(SOCIAL_PROFILES);
 
 export const SITE_KEYWORDS = [
   "forge group italia",
-  "acquisizione clienti b2b",
-  "growth hacking italia",
-  "growth hacking",
-  "acquisizione clienti",
-  "organizzare le vendite",
-  "crescere in modo prevedibile",
-  "lead generation b2b italia",
-  "marketing b2b italia",
-  "agenzia marketing b2b",
-  "sistemi di vendita b2b",
-  "agenzia marketing campania",
+  "marketing impresa edile",
+  "marketing per imprese edili",
+  "trovare clienti impresa edile",
+  "pubblicita impresa edile",
+  "acquisizione clienti imprese edili",
+  "reparto commerciale esterno edilizia",
+  "ricerca personale edile",
+  "controllo di gestione impresa edile",
+  "sito web impresa edile",
+  "marketing per serramentisti",
+  "crm edilizia",
 ];
 
 export type SeoRoute = {

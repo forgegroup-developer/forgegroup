@@ -8,7 +8,6 @@ import FAQAccordion from "@/components/FAQAccordion";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
-import ClientSceneEffects from "@/components/ClientSceneEffects";
 import DeferredMount from "@/components/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
@@ -46,29 +45,41 @@ export default function Home() {
       <JsonLdFAQ />
       {/* S1 — HERO full-viewport */}
       <HeroGooeySection
+        muro
         className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
-        innerClassName="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16"
+        innerClassName="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-10"
       >
         <div className="flex flex-col gap-10 sm:gap-12 lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-stretch">
           {/* Mobile: titolo e CTA per primi (ordine DOM); desktop: colonna sinistra */}
-          <div className="flex flex-col justify-center gap-7 sm:gap-8 py-2 sm:py-4 lg:py-6 w-full min-w-0">
-            <p className="hero-enter hero-enter-d1 self-center lg:self-start inline-flex items-center gap-2 eyebrow text-xs sm:text-sm md:text-base px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm text-center max-w-full text-balance">
-              ✦ Vuoi aumentare il fatturato della tua azienda?
+          <div className="flex flex-col justify-center gap-5 sm:gap-6 py-2 sm:py-3 lg:py-2 w-full min-w-0">
+            <p className="hero-enter hero-enter-d1 self-center lg:self-start eyebrow eyebrow-mark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm max-w-full text-balance">
+              Specializzati nell'edilizia — in tutta Italia
             </p>
-            <div className="flex flex-col gap-5 sm:gap-6 lg:gap-5 w-full min-w-0">
-              <h1 className="hero-enter hero-enter-d2 heading-hero heading-hero-home text-brand-nero max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Portiamo la tua azienda{" "}
-                <span className="text-brand-corallo">
-                  verso un sistema prevedibile
-                </span>{" "}
-                di acquisizione e vendita.
+            <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
+              <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
+                Acquisiamo clienti per le{" "}
+                <span className="text-brand-corallo-text">imprese edili</span>{" "}
+                e ti portiamo fino alla firma.
               </h1>
-              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
-                <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
-                  Hai un minuto?
+              {/* Stack di benefici + differenziatore. Il differenziatore e'
+                  quello gia' rivendicato nella tabella comparativa del sito:
+                  non ci si ferma al contatto, si entra nella trattativa. */}
+              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
+                Richieste qualificate, un processo di vendita che regge e un
+                commerciale addestrato a chiudere.{" "}
+                <strong className="font-semibold text-brand-nero">
+                  Non ci fermiamo al contatto: entriamo nella trattativa con te.
+                </strong>
+              </p>
+              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
+                <Link
+                  href="/contatti"
+                  className="btn-corallo px-8 py-4 text-sm md:text-base text-center sm:whitespace-nowrap"
+                >
+                  Sì, voglio una consulenza
                 </Link>
-                <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
-                  Vedi i risultati
+                <Link href="/servizi#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
+                  Voglio prima conoscere il Metodo FORGE
                 </Link>
               </div>
             </div>
@@ -80,8 +91,6 @@ export default function Home() {
           </div>
         </div>
       </HeroGooeySection>
-
-      <ClientSceneEffects />
 
       {/* S2 — LOGHI CLIENTI */}
       <DeferredMount minHeight="280px">
@@ -136,7 +145,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
             <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
-              Hai un minuto?
+              Voglio il check-up della mia provincia
             </Link>
             <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
               Vedi tutti i casi studio

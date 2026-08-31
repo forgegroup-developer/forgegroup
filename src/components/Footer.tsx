@@ -141,7 +141,7 @@ export default function Footer() {
                       className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2"
                     >
                       <span className="text-white shrink-0">✦</span>
-                      <span>Consulenza gratuita</span>
+                      <span>Prenota una consulenza</span>
                     </Link>
                   </li>
                 </ul>
@@ -213,7 +213,7 @@ export default function Footer() {
                   </li>
                   <li className="pt-2">
                     <Link href="/contatti" className="text-xs uppercase tracking-widest text-white font-bold hover:text-brand-pesca-light transition-colors">
-                      Hai un minuto? →
+                      Candida la tua azienda →
                     </Link>
                   </li>
                 </ul>

@@ -178,7 +178,7 @@ export default function Navbar() {
 
           <div className="hidden lg:block">
             <Link href="/contatti" className="btn-corallo text-sm">
-              Hai un minuto?
+              Candida la tua azienda
             </Link>
           </div>
 
