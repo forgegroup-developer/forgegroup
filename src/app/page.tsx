@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -52,9 +53,23 @@ export default function Home() {
         <div className="flex flex-col gap-10 sm:gap-12 lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-stretch">
           {/* Mobile: titolo e CTA per primi (ordine DOM); desktop: colonna sinistra */}
           <div className="flex flex-col justify-center gap-5 sm:gap-6 py-2 sm:py-3 lg:py-2 w-full min-w-0">
-            <p className="hero-enter hero-enter-d1 self-center lg:self-start eyebrow eyebrow-mark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm max-w-full text-balance">
-              Specializzati nell'edilizia — in tutta Italia
-            </p>
+            {/* Marchio e occhiello sulla stessa riga: il logo resta sopra al
+                titolo senza rubare la fascia verticale in cui cade la CTA, e
+                senza sembrare una seconda copia orfana di quello in navbar.
+                priority: e' nel viewport iniziale. */}
+            <div className="hero-enter hero-enter-d1 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+              <Image
+                src="/logo-transparent.png"
+                alt="Forge Group"
+                width={120}
+                height={120}
+                priority
+                className="h-11 w-auto sm:h-12"
+              />
+              <p className="eyebrow eyebrow-mark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm max-w-full text-balance">
+                Specializzati nell'edilizia — in tutta Italia
+              </p>
+            </div>
             <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
               <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
                 Acquisiamo clienti per le{" "}

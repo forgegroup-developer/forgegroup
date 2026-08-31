@@ -1760,3 +1760,22 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   -webkit-mask-image: none;
   mask-image: none;
 }
+
+/* Sfumatura di fondo delle hero: riproduce l'aria dei blob animati
+   (bianco in alto a sinistra, pesca verso destra) con due gradienti
+   radiali statici, senza filtri ne' animazioni. */
+.hero-fondale {
+  background:
+    radial-gradient(
+      120% 95% at 78% 42%,
+      color-mix(in srgb, var(--color-brand-pesca) 58%, transparent) 0%,
+      transparent 62%
+    ),
+    radial-gradient(85% 70% at 6% 4%, var(--color-brand-bianco) 0%, transparent 58%),
+    linear-gradient(
+      158deg,
+      var(--color-brand-panna) 0%,
+      var(--color-brand-bianco) 48%,
+      var(--color-brand-pesca-light) 100%
+    );
+}
