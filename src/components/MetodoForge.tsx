@@ -54,7 +54,10 @@ export default function MetodoForge({
   className = "section-bianco",
   onCoral = false,
 }: MetodoForgeProps) {
-  const coral = onCoral || className.includes("section-coral");
+  // Vale per corallo e per notte: cambia solo il fondo, la logica dei
+  // colori del testo e' la stessa — chiaro su scuro.
+  const coral =
+    onCoral || className.includes("section-coral") || className.includes("section-notte");
 
   return (
     <section
@@ -95,13 +98,19 @@ export default function MetodoForge({
                   >
                     {fase.letter}
                   </span>
-                  <span className="hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 text-brand-nero">
+                  <span className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
+                      coral ? "text-white/70" : "text-brand-nero"
+                    }`}>
                     {fase.verticalLabel}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 !text-brand-corallo">
+                  <h3
+                    className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
+                      coral ? "!text-brand-corallo-on-dark" : "!text-brand-corallo"
+                    }`}
+                  >
                     {fase.title}
                   </h3>
                   <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>

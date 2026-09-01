@@ -7,6 +7,7 @@ import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
+import MetodoForge from "@/components/MetodoForge";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import DeferredMount from "@/components/DeferredMount";
@@ -93,7 +94,7 @@ export default function Home() {
                 >
                   Sì, voglio una consulenza
                 </Link>
-                <Link href="/servizi#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
+                <Link href="#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
                   Voglio prima conoscere il Metodo FORGE
                 </Link>
               </div>
@@ -141,6 +142,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* S4 — METODO FORGE
+          Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
+          trasforma il servizio in un prodotto riconoscibile. Sta in home, su
+          fondo notte, tra il "cosa facciamo" e la prova dei risultati. */}
+      <DeferredMount minHeight="640px" rootMargin="320px 0px">
+        <MetodoForge className="section-notte" />
+      </DeferredMount>
 
       {/* S5 — CASI STUDIO (stacking cards on scroll) */}
       <section id="casi-studio" className="py-20 md:py-28 section-bianco scroll-mt-24">
