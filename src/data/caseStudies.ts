@@ -178,15 +178,15 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "arredo-commerciale",
     sector: "Edilizia B2B",
-    title: "Edilizia B2B: arredamento negozi, sistema nuovo da zero",
+    title: "Edilizia B2B: 30.000 € chiusi nei primi 3 mesi",
     shortTitle: "Edilizia B2B",
-    resultHeadline: "40 anni di storia. Un sistema nuovo da zero.",
+    resultHeadline: "30.000 € chiusi nei primi 3 mesi, con quasi 200.000 € di trattative ancora aperte.",
     excerpt:
-      "ROVI Srl, arredamento negozi: ha scelto di smettere di dipendere dal passaparola e costruire un sistema di acquisizione e vendita.",
-    hubExcerpt: "ROVI Srl: arredamento negozi. Sistema commerciale nuovo, progetto attivo.",
-    excerptHighlights: ["arredamento negozi", "40 anni", "progetto attivo"],
+      "ROVI Srl, arredamento negozi: da sola dipendenza dal passaparola a 30.000 € chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte.",
+    hubExcerpt: "ROVI Srl: 30.000 € chiusi in 3 mesi e quasi 200.000 € di trattative aperte.",
+    excerptHighlights: ["30.000 €", "3 mesi", "200.000 € di trattative aperte"],
     metaDescription:
-      "Caso studio Edilizia B2B: ROVI Srl, arredamento negozi e attività commerciali. Da passaparola a processi commerciali, Meta Ads e progettazione a pagamento. Progetto attivo, obiettivo +300k in 12 mesi.",
+      "Caso studio Edilizia B2B: ROVI Srl, arredamento negozi. Da sola dipendenza dal passaparola a 30.000 € di contratti chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte, con processi commerciali, Meta Ads e progettazione a pagamento.",
     context: [
       { label: "Settore", value: "Edilizia B2B" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
@@ -201,7 +201,7 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: [
       "Acquisizione clienti solo passaparola: nessun canale attivo o prevedibile",
       "Progettazione gratuita ceduta a lead non qualificati: 36 progetti persi ogni anno senza ritorno",
-      "Vendita non strutturata: agenda cartacea, WhatsApp, nessun CRM né pipeline",
+      "Vendita non strutturata: agenda cartacea, WhatsApp, nessuno storico delle trattative",
       "Media di 10 incontri per chiudere un contratto, senza script né protocolli definiti",
       "La maggior parte dei lead arrivava senza budget né urgenza definita: nessun filtro all'ingresso",
     ],
@@ -247,10 +247,10 @@ export const caseStudies: CaseStudy[] = [
     resultsHeading: "Il sistema è",
     resultsHeadingHighlight: "operativo",
     results: [
+      { value: "30K€", label: "Contratti chiusi", detail: "Nei primi 3 mesi di lavoro insieme" },
+      { value: "~200K€", label: "Trattative aperte", detail: "Valore generato e ancora in corso" },
       { value: "3", label: "Processi commerciali", detail: "Strutturati e attivi da subito" },
       { value: "A pagamento", label: "Progettazione", detail: "Meno tempo perso in trattative non allineate" },
-      { value: "Live", label: "Meta Ads", detail: "Da zero acquisizione a canale attivo" },
-      { value: "40 anni", label: "Di esperienza", detail: "Ora con un sistema scalabile dietro" },
     ],
     quote: {
       text: "Progetto in corso con Forge Group.",
@@ -258,8 +258,8 @@ export const caseStudies: CaseStudy[] = [
       role: "Arredamento negozi e attività commerciali",
     },
     evolutionEyebrow: "Cosa succede ora",
-    evolutionHeading: "I dati arriveranno.",
-    evolutionHeadingHighlight: "Il sistema è già lì.",
+    evolutionHeading: "I primi numeri ci sono.",
+    evolutionHeadingHighlight: "Il sistema continua a lavorare.",
     beforeAfter: [
       {
         aspect: "Acquisizione",
@@ -273,7 +273,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Vendita",
-        before: "Agenda cartacea, WhatsApp, nessun CRM né pipeline",
+        before: "Agenda cartacea, WhatsApp, nessuno storico delle trattative",
         after: "3 processi commerciali con script e follow-up giornalieri",
       },
       {
@@ -292,11 +292,11 @@ export const caseStudies: CaseStudy[] = [
         after: "+300k fatturato aggiuntivo in 12 mesi (traguardo in corso)",
       },
     ],
-    statusBadge: "Progetto attivo · aggiornamenti in arrivo",
+    statusBadge: "Progetto attivo · primi contratti chiusi",
     forWhom: [
       "Studi di arredo e progettazione B2B con ticket alto e passaparola come unico canale",
       "Aziende che offrono consulenza e progettazione a lead non ancora qualificati",
-      "Titolari con team commerciale informale che vogliono processi, script e pipeline",
+      "Titolari con team commerciale informale che vogliono processi, script e trattative tracciate",
       "Chi vuole aprire un canale Meta Ads con form di qualifica integrati",
     ],
     ...caseStudyLogosBySlug["arredo-commerciale"],

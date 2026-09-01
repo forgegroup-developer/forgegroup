@@ -41,7 +41,7 @@ ${SITE_DESCRIPTION}
 
 ## Services and Pricing
 - **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead: budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
-- **Processi di vendita**: CRM, script, pipeline, formazione commerciale: integrato nel progetto di crescita
+- **Processi di vendita**: CRM, script, gestione delle trattative, formazione commerciale: integrato nel progetto di crescita
 - **Consulenza e formazione**: strategia, posizionamento, team commerciale: per imprese B2B con fatturato strutturato
 
 Non vendiamo pacchetti fissi: dopo la prequalifica costruiamo un percorso su misura. Budget indicativo prequalifica form: da 1.500€/mese a oltre 5.000€/mese per Marketing & Vendite.
@@ -296,7 +296,7 @@ ${SITE_DESCRIPTION}
 
 ## Services and Pricing
 - Acquisizione clienti (Meta/Google, landing, lead qualificati): budget mensile tipico 1.500€–5.000€+ su progetto personalizzato
-- Processi di vendita (CRM, script, pipeline, formazione): incluso nel percorso di crescita
+- Processi di vendita (CRM, script, gestione delle trattative, formazione): incluso nel percorso di crescita
 - Consulenza e formazione strategica: per imprese B2B con margini strutturati
 
 Non ci sono pacchetti fissi pubblici: ogni progetto nasce dalla prequalifica su ${BASE}/contatti

@@ -169,7 +169,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Perche i lead non diventano contratti" },
       {
         type: "p",
-        text: "Se il passaggio tra marketing e commerciale e confuso, ogni venditore lavora in modo diverso. Questo crea ritardi nei ricontatti, call poco preparate, offerte non allineate al problema reale e follow-up incoerenti. Il risultato e una pipeline piena ma improduttiva.",
+        text: "Se il passaggio tra marketing e commerciale e confuso, ogni venditore lavora in modo diverso. Questo crea ritardi nei ricontatti, call poco preparate, offerte non allineate al problema reale e follow-up incoerenti. Il risultato sono tante trattative aperte e pochissime chiuse.",
       },
       { type: "h2", text: "I 7 passi di un sistema di vendita B2B che funziona" },
       {
@@ -205,7 +205,7 @@ export const articles: Article[] = [
         type: "p",
         text: "Chi non compra oggi puo comprare tra 30-90 giorni. Inserisci questi lead in sequenze email con casi studio e contenuti utili.",
       },
-      { type: "h3", text: "7. Review settimanale della pipeline" },
+      { type: "h3", text: "7. Review settimanale delle trattative" },
       {
         type: "p",
         text: "Monitora quattro metriche: lead-to-call, call-to-proposta, proposta-to-chiusura e tempo medio di chiusura. Se una metrica scende, intervieni subito.",
@@ -272,7 +272,7 @@ export const articles: Article[] = [
       {
         type: "ul",
         items: [
-          "Parla di obiettivi di fatturato e pipeline, non solo di traffico",
+          "Parla di obiettivi di fatturato e di trattative aperte, non solo di traffico",
           "Definisce un ICP chiaro prima di lanciare campagne",
           "Integra landing page, CRM e follow-up nel progetto",
           "Mostra casi studio con numeri verificabili",

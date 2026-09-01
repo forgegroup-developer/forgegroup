@@ -21,10 +21,10 @@ const prove = [
     href: "/casi-studio/edilizia",
   },
   {
-    valore: "4",
-    etichetta: "Clienti qualificati al mese, senza un euro di pubblicità",
-    cliente: "Tetti Top",
-    href: "/casi-studio/edilizia",
+    valore: "30K€",
+    etichetta: "Chiusi nei primi 3 mesi",
+    cliente: "ROVI Arredo Negozi",
+    href: "/casi-studio/arredo-commerciale",
   },
 ];
 
