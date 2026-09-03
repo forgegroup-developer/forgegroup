@@ -63,18 +63,18 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "edilizia",
-    sector: "Edilizia B2C",
-    title: "Edilizia B2C: 4 clienti qualificati al mese senza pubblicità",
-    shortTitle: "Edilizia B2C",
+    sector: "Coperture e lattoneria",
+    title: "Coperture e lattoneria: 4 clienti qualificati al mese senza pubblicità",
+    shortTitle: "Coperture e lattoneria",
     resultHeadline: "4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerpt:
       "Con Tetti Top, azienda edile che viveva di passaparola, abbiamo messo a punto un sistema che porta 4 richieste qualificate al mese.",
     hubExcerpt: "Tetti Top: 4 clienti qualificati al mese, senza spendere un euro in pubblicità.",
     excerptHighlights: ["4 clienti qualificati", "senza pubblicità", "azienda di famiglia"],
     metaDescription:
-      "Caso studio Edilizia B2C: come Tetti Top, azienda a conduzione familiare, ha raggiunto 4 clienti qualificati al mese senza spendere un euro in pubblicità, con preventivi fino a 175.000€ + IVA.",
+      "Caso studio coperture e lattoneria: come Tetti Top, azienda a conduzione familiare, ha raggiunto 4 clienti qualificati al mese senza spendere un euro in pubblicità, con preventivi fino a 175.000€ + IVA.",
     context: [
-      { label: "Settore", value: "Edilizia B2C" },
+      { label: "Settore", value: "Coperture, tetti e lattoneria" },
       { label: "Azienda", value: "Tetti Top" },
       { label: "Modello", value: "Azienda a conduzione familiare" },
       { label: "Mercato", value: "Locale, geolocalizzato" },
@@ -177,18 +177,18 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "arredo-commerciale",
-    sector: "Edilizia B2B",
-    title: "Edilizia B2B: 30.000 € chiusi nei primi 3 mesi",
-    shortTitle: "Edilizia B2B",
+    sector: "Arredamento negozi",
+    title: "Arredamento negozi: 30.000 € chiusi nei primi 3 mesi",
+    shortTitle: "Arredamento negozi",
     resultHeadline: "30.000 € chiusi nei primi 3 mesi, con quasi 200.000 € di trattative ancora aperte.",
     excerpt:
       "ROVI Srl, arredamento negozi: da sola dipendenza dal passaparola a 30.000 € chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte.",
     hubExcerpt: "ROVI Srl: 30.000 € chiusi in 3 mesi e quasi 200.000 € di trattative aperte.",
     excerptHighlights: ["30.000 €", "3 mesi", "200.000 € di trattative aperte"],
     metaDescription:
-      "Caso studio Edilizia B2B: ROVI Srl, arredamento negozi. Da sola dipendenza dal passaparola a 30.000 € di contratti chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte, con processi commerciali, Meta Ads e progettazione a pagamento.",
+      "Caso studio arredamento negozi: ROVI Srl. Da sola dipendenza dal passaparola a 30.000 € di contratti chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte, con processi commerciali, Meta Ads e progettazione a pagamento.",
     context: [
-      { label: "Settore", value: "Edilizia B2B" },
+      { label: "Settore", value: "Arredamento negozi e locali commerciali" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
       { label: "Azienda", value: "ROVI Srl" },
       { label: "Ticket medio", value: "+25.000€" },
@@ -303,19 +303,19 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "software-b2b",
-    sector: "Software B2B",
-    title: "Software B2B: €126.500 in 90 giorni",
-    shortTitle: "Software B2B",
+    sector: "Software per l'edilizia",
+    title: "Software per l'edilizia: 126.500 € in 90 giorni",
+    shortTitle: "Software per l'edilizia",
     resultHeadline: "€126.500 in 90 giorni",
     excerpt:
       "Come abbiamo portato DISA SRL da zero acquisizione a €126.500 in 90 giorni, con un costo per contatto di soli €1,48.",
     hubExcerpt: "DISA SRL: €126.500 in 90 giorni. Costo per contatto €1,48.",
     excerptHighlights: ["€126.500", "90 giorni", "€1,48"],
     metaDescription:
-      "Caso studio Software B2B: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
+      "Caso studio software per l'edilizia: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
     context: [
-      { label: "Settore", value: "Software B2B" },
-      { label: "Azienda", value: "DISA SRL, software SOS APPALTI" },
+      { label: "Settore", value: "Software per l'edilizia — gare d'appalto" },
+      { label: "Azienda", value: "DISA SRL — SOS APPALTI, software per le gare d'appalto" },
       { label: "Ticket medio", value: "Oltre 12.000€" },
       { label: "Mercato", value: "Italia" },
     ],

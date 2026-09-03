@@ -84,10 +84,10 @@ export default function Home() {
                 e restiamo con te fino alla firma.
               </h1>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Pubblicità, filtro delle richieste, trattativa preparata e
-                commerciale addestrato a chiudere.{" "}
+                Facciamo la pubblicità, filtriamo le richieste che arrivano,
+                prepariamo la trattativa e addestriamo chi la conduce.{" "}
                 <strong className="font-semibold text-brand-nero">
-                  Dal primo contatto alla firma del contratto.
+                  Dal primo contatto fino alla firma del contratto.
                 </strong>
               </p>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">

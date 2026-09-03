@@ -37,7 +37,7 @@ const tappe: Tappa[] = [
       </>
     ),
     testo:
-      "Sabato mattina, furgone, metro. Il cliente ti mostra il lavoro da fare, ti chiede il preventivo, ti dice che ti fa sapere. Quel sopralluogo l'hai pagato tu: in gasolio, in ore, in sabato.",
+      "Ci vai il sabato mattina, perché durante la settimana sei in cantiere. Prendi le misure, ascolti quello che il cliente ha in mente, gli spieghi come si potrebbe fare. Lui ti dice che ci pensa e che ti fa sapere. Quel sopralluogo però l'hai pagato tu, in gasolio e in ore, e non c'è nessuna riga in fattura che lo copra.",
     imgAttesa: "01-sopralluogo.webp",
     alt: "Titolare durante un sopralluogo dal cliente",
   },
@@ -45,12 +45,12 @@ const tappe: Tappa[] = [
     n: "02",
     domanda: (
       <>
-        Quanti preventivi hai mandato questo mese?{" "}
-        <span className="text-brand-corallo-text">E quanti ti hanno richiamato?</span>
+        Quanti preventivi hai mandato questo mese, e quanti{" "}
+        <span className="text-brand-corallo-text">ti hanno richiamato</span>?
       </>
     ),
     testo:
-      "Il preventivo l'hai preparato tu, la sera, dopo il lavoro. L'hai mandato. Poi silenzio — e nemmeno un no, che almeno ti direbbe dove hai sbagliato.",
+      "Il preventivo lo prepari la sera, quando finalmente hai un'ora di calma. Lo controlli, lo mandi, e poi cominci ad aspettare. Nella maggior parte dei casi non arriva nemmeno un no, che almeno ti direbbe se il problema era il prezzo, i tempi o qualcosa che non sei riuscito a spiegare bene.",
     imgAttesa: "02-preventivo.webp",
     alt: "Preventivo preparato la sera sul tavolo di casa",
   },
@@ -63,7 +63,7 @@ const tappe: Tappa[] = [
       </>
     ),
     testo:
-      "Non perché fosse più bravo di te. Perché ha richiamato lui, ha spiegato meglio, ed era l'unico ancora in gioco il giorno in cui il cliente ha deciso.",
+      "Quasi mai succede perché l'altro fosse più bravo di te. Succede perché ha richiamato mentre tu stavi aspettando, ha avuto modo di spiegare meglio quello che offriva, ed è rimasto l'unico ancora in gioco nel momento in cui il cliente ha deciso.",
     imgAttesa: "03-concorrente.webp",
     alt: "Il lavoro affidato a un concorrente",
   },
@@ -71,12 +71,12 @@ const tappe: Tappa[] = [
     n: "04",
     domanda: (
       <>
-        A fine anno hai fatturato di più.{" "}
-        <span className="text-brand-corallo-text">In tasca però è rimasto uguale?</span>
+        A fine anno hai fatturato di più, ma in tasca{" "}
+        <span className="text-brand-corallo-text">è rimasto uguale</span>?
       </>
     ),
     testo:
-      "Più contratti, più persone da coordinare, più telefonate a cui rispondere. E il margine che si assottiglia, perché per prendere il lavoro il prezzo l'hai limato tu.",
+      "È il paradosso di quasi tutte le imprese che crescono senza un sistema dietro: più contratti vuol dire più persone da coordinare, più fornitori da rincorrere e più telefonate a cui rispondere. E intanto il margine si assottiglia, perché per portare a casa il lavoro il prezzo l'hai limato tu.",
     imgAttesa: "04-margine.webp",
     alt: "Titolare che controlla i conti dell'azienda a fine anno",
   },
@@ -151,28 +151,42 @@ export default function PercorsoDomande() {
             In quel vuoto <span className="text-brand-corallo-text">ci mettiamo noi</span>.
           </h3>
           <p className="body-lg mt-6">
-            Costruiamo il sistema che ti porta le richieste — siamo specializzati
-            in pubblicità per imprese edili — e poi restiamo dentro il processo
-            di vendita insieme a te.{" "}
+            Costruiamo il sistema che ti porta le richieste, perché la
+            pubblicità per le aziende dell&apos;edilizia è quello che sappiamo
+            fare. Poi però non ce ne andiamo: restiamo dentro il processo di
+            vendita insieme a te, fino al momento in cui il cliente firma.{" "}
             <strong className="font-semibold text-brand-nero">
-              Si chiama Dal Contatto alla Firma, ed è esattamente quello che
-              copre.
+              Lo chiamiamo Dal Contatto alla Firma, ed è esattamente il
+              perimetro che copre.
             </strong>
           </p>
           <p className="body-lg mt-4">
-            Le agenzie ti consegnano il contatto e si fermano lì. È esattamente
-            il punto in cui il lavoro si perde.
+            Le agenzie invece ti consegnano il contatto e da lì in poi sei da
+            solo. È proprio il punto in cui il lavoro si perde.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="/contatti"
-              className="btn-corallo px-8 py-4 text-center text-sm sm:whitespace-nowrap md:text-base"
-            >
-              Candida la tua impresa
-            </Link>
-            <Link href="#metodo" className="arrow-link text-sm md:text-base">
-              Guarda come lavoriamo
-            </Link>
+
+          <div className="mt-8 rounded-2xl border border-brand-bordo bg-brand-panna/70 p-6 sm:p-7">
+            <p className="eyebrow eyebrow-mark mb-3 flex">Come si comincia</p>
+            <p className="text-base font-semibold leading-snug text-brand-nero md:text-lg">
+              Con uno studio di fattibilità.
+            </p>
+            <p className="body-lg mt-3">
+              Prima di progetti e preventivi guardiamo i tuoi numeri e il tuo
+              modo di lavorare, e ti diciamo se un sistema di acquisizione ha
+              senso per la tua impresa. A volte la risposta è no, e te lo
+              diciamo lo stesso.
+            </p>
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                href="/contatti"
+                className="btn-corallo px-8 py-4 text-center text-sm sm:whitespace-nowrap md:text-base"
+              >
+                Richiedi lo studio di fattibilità
+              </Link>
+              <Link href="#metodo" className="arrow-link text-sm md:text-base">
+                Guarda prima come lavoriamo
+              </Link>
+            </div>
           </div>
         </div>
       </div>
