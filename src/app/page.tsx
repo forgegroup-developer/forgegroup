@@ -8,6 +8,7 @@ import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import MetodoForge from "@/components/MetodoForge";
+import PercorsoDomande from "@/components/PercorsoDomande";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import DeferredMount from "@/components/DeferredMount";
@@ -72,20 +73,26 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
+              {/* Prima si dice cosa facciamo, e per chi: "contratti" invece
+                  di "cantieri" perche' il perimetro comprende serramentisti,
+                  impiantisti, fotovoltaico, arredo e chi vende all'edilizia,
+                  non solo chi apre cantieri. La domanda che apriva qui e'
+                  scesa nel percorso, dove ha il suo contesto. */}
               <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Acquisiamo clienti per le{" "}
-                <span className="text-brand-corallo-text">imprese edili</span>{" "}
-                e ti portiamo fino alla firma.
+                Portiamo contratti alle{" "}
+                <span className="text-brand-corallo-text">aziende dell'edilizia</span>{" "}
+                e restiamo con te fino alla firma.
               </h1>
-              {/* Stack di benefici + differenziatore. Il differenziatore e'
-                  quello gia' rivendicato nella tabella comparativa del sito:
-                  non ci si ferma al contatto, si entra nella trattativa. */}
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Richieste qualificate, un processo di vendita che regge e un
+                Pubblicità, filtro delle richieste, trattativa preparata e
                 commerciale addestrato a chiudere.{" "}
                 <strong className="font-semibold text-brand-nero">
-                  Non ci fermiamo al contatto: entriamo nella trattativa con te.
+                  Dal primo contatto alla firma del contratto.
                 </strong>
+              </p>
+              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">
+                Imprese edili, serramentisti, impiantisti, arredo commerciale,
+                fornitori e software per il settore.
               </p>
               <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
                 <Link
@@ -107,6 +114,9 @@ export default function Home() {
           </div>
         </div>
       </HeroGooeySection>
+
+      {/* S1b — IL PERCORSO: le quattro domande legate dal filo */}
+      <PercorsoDomande />
 
       {/* S2 — LOGHI CLIENTI */}
       <DeferredMount minHeight="280px">
@@ -179,15 +189,14 @@ export default function Home() {
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-notte border-y">
+      <section className="py-20 md:py-28 section-sabbia border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            onCoral
-            eyebrow="Perché Forge Group"
+            eyebrow="Il confronto"
             title={
               <>
-                Acquisizione Clienti B2B &{" "}
-                <span className="text-brand-corallo">Growth Hacking Italia</span>
+                Dove si ferma un'agenzia.{" "}
+                <span className="text-brand-corallo-text">Dove arriviamo noi.</span>
               </>
             }
           />
@@ -197,12 +206,12 @@ export default function Home() {
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
                   <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
-                    Cosa succede spesso
+                    L'agenzia che ti consegna il contatto
                   </p>
                 </div>
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
                   <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
-                    Come lavoriamo noi
+                    Forge Group
                   </p>
                 </div>
               </div>
@@ -210,24 +219,24 @@ export default function Home() {
               {/* Righe allineate — sempre 2 colonne */}
               {[
                 {
-                  other: "Spesso il focus resta su reach e like, non sui contratti",
-                  forge: "Costruiamo con te un sistema orientato a clienti paganti",
+                  other: "Ti consegna il contatto e il suo lavoro finisce lì",
+                  forge: "Restiamo dentro fino alla firma del contratto",
                 },
                 {
-                  other: "Poco coinvolgimento del reparto commerciale",
-                  forge: "Lavoriamo e formiamo con te il reparto commerciale",
+                  other: "Ti manda chiunque abbia lasciato un numero",
+                  forge: "Filtriamo prima del sopralluogo: chi non può comprare non ci arriva",
                 },
                 {
-                  other: "Report su visualizzazioni e metriche di vanità",
-                  forge: "Dati misurabili su contatti, clienti e fatturato",
+                  other: "Il preventivo mandato è affare tuo",
+                  forge: "Prepariamo la trattativa e ti addestriamo a chiuderla",
                 },
                 {
-                  other: "Pacchetti standard, poca personalizzazione",
-                  forge: "Strategia su misura in base al livello della tua azienda",
+                  other: "Report su visualizzazioni, clic e copertura",
+                  forge: "Si contano i cantieri firmati e il margine che lasciano",
                 },
                 {
-                  other: "Dipendenza continua dal fornitore esterno",
-                  forge: "Creiamo con te un sistema che resta di tua proprietà",
+                  other: "Non ha mai visto un cantiere del tuo settore",
+                  forge: "In cantiere ci veniamo, e in edilizia abbiamo numeri veri",
                 },
               ].map((row, idx) => (
                 <div

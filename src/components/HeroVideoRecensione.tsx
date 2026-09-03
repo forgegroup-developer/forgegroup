@@ -14,6 +14,8 @@ export default function HeroVideoRecensione() {
       </div>
 
       <div className="w-full rounded-2xl border border-brand-bordo bg-brand-panna/75 backdrop-blur-sm px-6 py-6 md:px-8 md:py-7 shadow-sm text-left">
+        <p className="eyebrow eyebrow-mark mb-4 flex">Era scettico anche lui</p>
+
         <div className="flex gap-1 mb-4">
           {[0, 1, 2, 3, 4].map((i) => (
             <svg key={i} className="w-5 h-5 text-brand-corallo" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
@@ -30,6 +32,12 @@ export default function HeroVideoRecensione() {
           <span className="text-brand-corallo-text">126.500€ di fatturato in 90 giorni</span>, non me lo aspettavo. Ero scettico all&apos;inizio.
           &rdquo;
         </blockquote>
+
+        <p className="mb-1 text-sm leading-relaxed text-brand-grigio">
+          Se hai già speso con un&apos;agenzia e non è successo niente, essere
+          diffidenti è la reazione giusta. Nessuno dei nostri clienti ha detto
+          di sì al primo incontro.
+        </p>
 
         <div className="mt-5 flex flex-col gap-3 rounded-xl bg-brand-bianco/70 border border-brand-bordo px-4 py-3.5 sm:flex-row sm:items-center sm:gap-4">
           <div className="flex min-w-0 items-center gap-3 sm:flex-1">
@@ -48,7 +56,7 @@ export default function HeroVideoRecensione() {
                 DISA SRL
               </p>
               <p className="text-brand-grigio text-xs mt-0.5 font-medium uppercase tracking-wide">
-                Software B2B
+                Software per l&apos;edilizia
               </p>
             </div>
           </div>

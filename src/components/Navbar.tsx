@@ -164,7 +164,7 @@ export default function Navbar() {
                 isActive("/visione") ? "text-brand-corallo-text active" : "text-brand-nero"
               }`}
             >
-              Visione
+              Lavora con noi
             </Link>
             <Link
               href="/blog"
@@ -306,7 +306,7 @@ export default function Navbar() {
               className="flex items-center justify-between py-5 border-b border-white/10 group"
             >
               <span className="text-[28px] font-bold uppercase tracking-tight text-white group-hover:text-brand-corallo-on-dark transition-colors">
-                Visione
+                Lavora con noi
               </span>
               <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>

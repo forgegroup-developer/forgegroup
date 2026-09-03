@@ -71,7 +71,7 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
   },
   {
     path: "/visione",
-    label: "Visione",
+    label: "Lavora con noi",
     priority: 0.8,
     changeFrequency: "monthly",
     inLlmsMainPages: true,

@@ -1582,6 +1582,17 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   color: var(--color-brand-nero);
 }
 
+/* Domanda di tappa: corpo da lettera, non da manifesto. Le domande sono
+   lunghe e vanno su piu' righe: oltre questa misura si smette di leggerle. */
+.heading-domanda {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.6vw + 0.9rem, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-nero);
+}
+
 /* Numero-prova: il dato da leggere a tre metri di distanza. */
 .stat-number {
   font-family: var(--font-display);
@@ -1624,7 +1635,8 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
    Serve a dare ritmo — bianco, sabbia, notte, corallo — invece
    dell'alternanza a due tempi bianco/corallo di adesso. */
 .section-sabbia {
-  background-color: var(--color-brand-panna);
+  background-color: #f3e9e2;
+  border-color: color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
 
 /* Sezione notte: fondale scuro a tutta larghezza. Il corallo qui
@@ -1785,4 +1797,79 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
       var(--color-brand-bianco) 48%,
       var(--color-brand-pesca-light) 100%
     );
+}
+
+/* ── Percorso a tappe: nodi numerati e filo che si disegna ───────
+   Il filo lega le quattro domande in un percorso unico. Cresce
+   dall'alto quando la tappa entra in campo: scaleY invece di
+   height, cosi' l'animazione sta sul compositor. */
+.percorso-nodo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 2px solid var(--color-brand-corallo);
+  background-color: var(--color-brand-bianco);
+  color: var(--color-brand-corallo-text);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transform: scale(0.55);
+  opacity: 0;
+  transition:
+    transform 500ms cubic-bezier(0.34, 1.4, 0.64, 1),
+    opacity 400ms ease;
+}
+
+.percorso-nodo.is-visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.percorso-filo {
+  display: block;
+  width: 2px;
+  flex: 1 1 auto;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-corallo),
+    color-mix(in srgb, var(--color-brand-corallo) 25%, transparent)
+  );
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1100ms cubic-bezier(0.4, 0, 0.2, 1) 120ms;
+}
+
+.percorso-filo.is-visible {
+  transform: scaleY(1);
+}
+
+@media (min-width: 640px) {
+  .percorso-nodo {
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Segnaposto delle illustrazioni: mostra la trama del muro invece di un
+   rettangolo grigio, cosi' la sezione regge anche prima delle foto. */
+.percorso-segnaposto {
+  overflow: hidden;
+  background-color: var(--color-brand-panna);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .percorso-nodo,
+  .percorso-filo {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
 }

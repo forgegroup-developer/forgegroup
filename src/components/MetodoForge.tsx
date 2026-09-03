@@ -77,7 +77,8 @@ export default function MetodoForge({
             <h2
               className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
             >
-              Il metodo <span className="text-brand-corallo">FORGE</span> in 5 step
+              Dal Contatto alla Firma:{" "}
+              <span className="text-brand-corallo">il metodo FORGE</span> in 5 step
             </h2>
           </div>
         </Reveal>

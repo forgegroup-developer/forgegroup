@@ -181,7 +181,7 @@ export default function Footer() {
                   <li>
                     <Link href="/visione" className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2">
                       <span className="text-white shrink-0">✦</span>
-                      <span>Visione</span>
+                      <span>Lavora con noi</span>
                     </Link>
                   </li>
                   <li>
