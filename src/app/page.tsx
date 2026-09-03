@@ -114,15 +114,14 @@ export default function Home() {
       </DeferredMount>
 
       {/* S3 — SERVIZI */}
-      <section className="py-20 md:py-28 section-coral border-y">
+      <section className="py-20 md:py-28 section-bianco border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            onCoral
             eyebrow="Cosa facciamo"
             title={
               <>
                 Ti affianchiamo dal primo contatto{" "}
-                <span className="text-brand-corallo">alla firma del contratto</span>.
+                <span className="text-brand-corallo-text">alla firma del contratto</span>.
               </>
             }
           />
@@ -148,7 +147,7 @@ export default function Home() {
           trasforma il servizio in un prodotto riconoscibile. Sta in home, su
           fondo notte, tra il "cosa facciamo" e la prova dei risultati. */}
       <DeferredMount minHeight="640px" rootMargin="320px 0px">
-        <MetodoForge className="section-notte" />
+        <MetodoForge className="section-coral" />
       </DeferredMount>
 
       {/* S5 — CASI STUDIO (stacking cards on scroll) */}
@@ -180,7 +179,7 @@ export default function Home() {
 
       {/* S6 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-coral border-y">
+      <section className="py-20 md:py-28 section-notte border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             onCoral
