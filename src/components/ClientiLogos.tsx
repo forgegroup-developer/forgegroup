@@ -21,8 +21,8 @@ const prove = [
     href: "/casi-studio/edilizia",
   },
   {
-    valore: "30K€",
-    etichetta: "Chiusi nei primi 3 mesi",
+    valore: "25K€",
+    etichetta: "Chiusi in quattro mesi",
     cliente: "ROVI Arredo Negozi",
     href: "/casi-studio/arredo-commerciale",
   },

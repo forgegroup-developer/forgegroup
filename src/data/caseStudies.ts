@@ -178,15 +178,15 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "arredo-commerciale",
     sector: "Arredamento negozi",
-    title: "Arredamento negozi: 30.000 € chiusi nei primi 3 mesi",
+    title: "Arredamento negozi: 25.000 € chiusi in 4 mesi",
     shortTitle: "Arredamento negozi",
-    resultHeadline: "30.000 € chiusi nei primi 3 mesi, con quasi 200.000 € di trattative ancora aperte.",
+    resultHeadline: "25.000 € chiusi in quattro mesi, con oltre 200.000 € di trattative ancora aperte.",
     excerpt:
-      "ROVI Srl, arredamento negozi: da sola dipendenza dal passaparola a 30.000 € chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte.",
-    hubExcerpt: "ROVI Srl: 30.000 € chiusi in 3 mesi e quasi 200.000 € di trattative aperte.",
-    excerptHighlights: ["30.000 €", "3 mesi", "200.000 € di trattative aperte"],
+      "ROVI Srl, arredamento negozi: da sola dipendenza dal passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte in cinque.",
+    hubExcerpt: "ROVI Srl: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+    excerptHighlights: ["25.000 €", "quattro mesi", "200.000 € di trattative aperte"],
     metaDescription:
-      "Caso studio arredamento negozi: ROVI Srl. Da sola dipendenza dal passaparola a 30.000 € di contratti chiusi nei primi 3 mesi e quasi 200.000 € di trattative aperte, con processi commerciali, Meta Ads e progettazione a pagamento.",
+      "Caso studio arredamento negozi: ROVI Srl. Da sola dipendenza dal passaparola a 25.000 € di contratti chiusi in quattro mesi e oltre 200.000 € di trattative aperte in cinque, con processi commerciali, Meta Ads e progettazione a pagamento.",
     context: [
       { label: "Settore", value: "Arredamento negozi e locali commerciali" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
@@ -247,8 +247,8 @@ export const caseStudies: CaseStudy[] = [
     resultsHeading: "Il sistema è",
     resultsHeadingHighlight: "operativo",
     results: [
-      { value: "30K€", label: "Contratti chiusi", detail: "Nei primi 3 mesi di lavoro insieme" },
-      { value: "~200K€", label: "Trattative aperte", detail: "Valore generato e ancora in corso" },
+      { value: "25K€", label: "Contratti chiusi", detail: "Nei primi quattro mesi di lavoro insieme" },
+      { value: "+200K€", label: "Trattative aperte", detail: "Valore generato in cinque mesi, ancora in corso" },
       { value: "3", label: "Processi commerciali", detail: "Strutturati e attivi da subito" },
       { value: "A pagamento", label: "Progettazione", detail: "Meno tempo perso in trattative non allineate" },
     ],
