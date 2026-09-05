@@ -1572,6 +1572,17 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   line-height: 1.03;
 }
 
+/* Frase-promessa in hero: e' un periodo intero, non uno slogan. Alla
+   scala display piena diventerebbe un muro di sei righe. */
+.heading-display-frase {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.1vw + 0.7rem, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--color-brand-nero);
+}
+
 /* Titoli di sezione: stessa logica, un gradino sotto. */
 .heading-section-xl {
   font-family: var(--font-display);
@@ -1871,5 +1882,94 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
     transition: none;
     transform: none;
     opacity: 1;
+  }
+}
+
+/* ── Pulsanti della hero ─────────────────────────────────────────
+   Piu' grandi dei bottoni di servizio, con la freccia in un tondo
+   che scorre al passaggio. La freccia da' la direzione: dice che
+   di la' si va avanti, non che si apre un menu. */
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem 1.25rem 1.75rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: left;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    background-color 200ms ease;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero-freccia {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 220ms cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.btn-hero:hover .btn-hero-freccia {
+  transform: translateX(4px);
+}
+
+/* Caldo: chiede lo studio di fattibilita' */
+.btn-hero-caldo {
+  background-color: var(--color-brand-corallo);
+  color: #ffffff;
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--color-brand-corallo) 80%, transparent);
+}
+
+.btn-hero-caldo:hover {
+  background-color: var(--color-brand-corallo-dark);
+  box-shadow: 0 16px 38px -14px color-mix(in srgb, var(--color-brand-corallo) 90%, transparent);
+}
+
+.btn-hero-caldo .btn-hero-freccia {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Freddo: porta al metodo, per chi non e' ancora pronto a farsi contattare */
+.btn-hero-freddo {
+  border: 2px solid var(--color-brand-corallo);
+  background-color: color-mix(in srgb, var(--color-brand-bianco) 70%, transparent);
+  color: var(--color-brand-corallo-text);
+  backdrop-filter: blur(4px);
+}
+
+.btn-hero-freddo:hover {
+  background-color: var(--color-brand-bianco);
+}
+
+.btn-hero-freddo .btn-hero-freccia {
+  background-color: color-mix(in srgb, var(--color-brand-corallo) 14%, transparent);
+  color: var(--color-brand-corallo-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-hero,
+  .btn-hero-freccia {
+    transition: none;
+  }
+  .btn-hero:hover {
+    transform: none;
+  }
+  .btn-hero:hover .btn-hero-freccia {
+    transform: none;
   }
 }

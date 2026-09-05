@@ -67,43 +67,47 @@ export default function Home() {
           />
 
           <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark rounded-full border border-brand-bordo bg-brand-bianco/85 px-5 py-2.5 text-xs shadow-sm backdrop-blur-sm sm:text-sm">
-            Specializzati nell&apos;edilizia — in tutta Italia
+            Specializzati nell&apos;acquisizione clienti in edilizia
           </p>
 
           {/* Il claim in tre mosse: clienti che pagano il tuo prezzo — via
               chi tratta solo sul prezzo — diventi il riferimento della zona.
               Il prezzo in prima riga perche' e' la ferita vera: chi fa questo
               mestiere al Sud non perde i lavori, li perde a ribasso. */}
-          <h1 className="hero-enter hero-enter-d2 heading-display max-w-4xl text-balance">
-            Chiudi più contratti,{" "}
-            <span className="text-brand-corallo-text">al prezzo che chiedi tu.</span>
+          {/* L'H1 e' la promessa per intero, non uno slogan: e' lunga
+              apposta, perche' in tre righe dice tutto il perimetro del
+              servizio — chi portiamo, chi togliamo, e fin dove restiamo.
+              Scala ridotta rispetto al display pieno: una frase di venti
+              parole a 3rem diventa un muro. */}
+          <h1 className="hero-enter hero-enter-d2 heading-display-frase max-w-4xl text-balance">
+            Ti portiamo clienti che possono permettersi il tuo lavoro,
+            scartiamo chi tratta solo sul prezzo e restiamo in trattativa con te{" "}
+            <span className="text-brand-corallo-text">fino alla firma.</span>
           </h1>
 
           <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-lg leading-relaxed text-brand-grigio sm:text-xl">
-            Ti portiamo clienti che possono permettersi il tuo lavoro, scartiamo
-            chi tratta solo sul prezzo e restiamo in trattativa con te fino alla
-            firma.
+            Chiudi più contratti al prezzo che chiedi tu, senza perdere i sabati
+            con chi cerca solo un preventivo da confrontare.
           </p>
 
           <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-base leading-relaxed text-brand-nero sm:text-lg">
-            <strong className="font-semibold">Basta sabati persi</strong> con chi
-            cerca solo un preventivo da confrontare. È il metodo{" "}
+            È il metodo{" "}
             <strong className="font-semibold">Dal Contatto alla Firma</strong>:
             quello che ti fa diventare il nome che fanno nella tua zona.
           </p>
 
           <div className="hero-enter hero-enter-d3 mt-2 flex w-full max-w-2xl flex-col items-stretch gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/contatti"
-              className="btn-corallo flex-1 px-7 py-5 text-center text-sm leading-snug md:text-base"
-            >
-              Sì, voglio lo studio di fattibilità per la mia impresa
+            <Link href="/contatti" className="btn-hero btn-hero-caldo flex-1 text-sm md:text-base">
+              <span>Sì, voglio lo studio di fattibilità per la mia impresa</span>
+              <span className="btn-hero-freccia" aria-hidden>
+                →
+              </span>
             </Link>
-            <Link
-              href="#metodo"
-              className="flex-1 rounded-full border-2 border-brand-corallo px-7 py-5 text-center text-sm font-bold leading-snug text-brand-corallo-text transition-colors hover:bg-brand-corallo/10 md:text-base"
-            >
-              Voglio prima conoscere il metodo Dal Contatto alla Firma
+            <Link href="#metodo" className="btn-hero btn-hero-freddo flex-1 text-sm md:text-base">
+              <span>Voglio prima conoscere il metodo Dal Contatto alla Firma</span>
+              <span className="btn-hero-freccia" aria-hidden>
+                ↓
+              </span>
             </Link>
           </div>
 
