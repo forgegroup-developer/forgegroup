@@ -46,127 +46,111 @@ export default function Home() {
   return (
     <>
       <JsonLdFAQ />
-      {/* S1 — HERO full-viewport */}
+      {/* S1 — HERO ampia, centrata.
+          Impianto a tutta larghezza: il claim al centro e due pulsanti,
+          uno caldo e uno freddo. Lo sfondo e' predisposto per ricevere una
+          fotografia: basta passare --foto-hero alla sezione e il muro
+          disegnato lascia il posto allo scatto, velo e sfumatura compresi. */}
       <HeroGooeySection
         muro
         className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
-        innerClassName="w-full max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-10"
+        innerClassName="w-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-14"
       >
-        <div className="flex flex-col gap-10 sm:gap-12 lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-stretch">
-          {/* Mobile: titolo e CTA per primi (ordine DOM); desktop: colonna sinistra */}
-          <div className="flex flex-col justify-center gap-5 sm:gap-6 py-2 sm:py-3 lg:py-2 w-full min-w-0">
-            {/* Marchio e occhiello sulla stessa riga: il logo resta sopra al
-                titolo senza rubare la fascia verticale in cui cade la CTA, e
-                senza sembrare una seconda copia orfana di quello in navbar.
-                priority: e' nel viewport iniziale. */}
-            <div className="hero-enter hero-enter-d1 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
-              <Image
-                src="/logo-transparent.png"
-                alt="Forge Group"
-                width={120}
-                height={120}
-                priority
-                className="h-11 w-auto sm:h-12"
-              />
-              <p className="eyebrow eyebrow-mark text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm max-w-full text-balance">
-                Specializzati nell'edilizia — in tutta Italia
-              </p>
-            </div>
-            <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
-              {/* Il claim in tre mosse: clienti che pagano il tuo prezzo —
-                  via chi tratta solo sul prezzo — diventi il riferimento
-                  della zona. Il prezzo in prima riga perche' e' la ferita
-                  vera: l'imprenditore edile non perde i lavori, li perde a
-                  ribasso contro chi non fattura. */}
-              <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Chiudi più contratti,{" "}
-                <span className="text-brand-corallo-text">
-                  al prezzo che chiedi tu.
-                </span>
-              </h1>
-              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Ti portiamo clienti che possono permettersi il tuo lavoro,
-                scartiamo chi tratta solo sul prezzo e restiamo in trattativa
-                con te fino alla firma.{" "}
-                <strong className="font-semibold text-brand-nero">
-                  Basta sabati persi con chi cerca solo un preventivo da
-                  confrontare.
-                </strong>
-              </p>
-              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base leading-relaxed text-brand-grigio">
-                È il metodo{" "}
-                <strong className="font-semibold text-brand-nero">
-                  Dal Contatto alla Firma
-                </strong>
-                : quello che ti fa diventare il nome che fanno nella tua zona.
-              </p>
-              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">
-                Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
-                commerciale e fornitori del settore.
-              </p>
-              <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
-                <Link
-                  href="/contatti"
-                  className="btn-corallo px-8 py-4 text-sm md:text-base text-center sm:whitespace-nowrap"
-                >
-                  Richiedi lo studio di fattibilità
-                </Link>
-                <Link href="#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
-                  Guarda prima come lavoriamo
-                </Link>
-              </div>
-            </div>
+        <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
+          <Image
+            src="/logo-transparent.png"
+            alt="Forge Group"
+            width={140}
+            height={140}
+            priority
+            className="hero-enter hero-enter-d1 h-14 w-auto sm:h-16"
+          />
+
+          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark rounded-full border border-brand-bordo bg-brand-bianco/85 px-5 py-2.5 text-xs shadow-sm backdrop-blur-sm sm:text-sm">
+            Specializzati nell&apos;edilizia — in tutta Italia
+          </p>
+
+          {/* Il claim in tre mosse: clienti che pagano il tuo prezzo — via
+              chi tratta solo sul prezzo — diventi il riferimento della zona.
+              Il prezzo in prima riga perche' e' la ferita vera: chi fa questo
+              mestiere al Sud non perde i lavori, li perde a ribasso. */}
+          <h1 className="hero-enter hero-enter-d2 heading-display max-w-4xl text-balance">
+            Chiudi più contratti,{" "}
+            <span className="text-brand-corallo-text">al prezzo che chiedi tu.</span>
+          </h1>
+
+          <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-lg leading-relaxed text-brand-grigio sm:text-xl">
+            Ti portiamo clienti che possono permettersi il tuo lavoro, scartiamo
+            chi tratta solo sul prezzo e restiamo in trattativa con te fino alla
+            firma.
+          </p>
+
+          <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-base leading-relaxed text-brand-nero sm:text-lg">
+            <strong className="font-semibold">Basta sabati persi</strong> con chi
+            cerca solo un preventivo da confrontare. È il metodo{" "}
+            <strong className="font-semibold">Dal Contatto alla Firma</strong>:
+            quello che ti fa diventare il nome che fanno nella tua zona.
+          </p>
+
+          <div className="hero-enter hero-enter-d3 mt-2 flex w-full max-w-2xl flex-col items-stretch gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/contatti"
+              className="btn-corallo flex-1 px-7 py-5 text-center text-sm leading-snug md:text-base"
+            >
+              Sì, voglio lo studio di fattibilità per la mia impresa
+            </Link>
+            <Link
+              href="#metodo"
+              className="flex-1 rounded-full border-2 border-brand-corallo px-7 py-5 text-center text-sm font-bold leading-snug text-brand-corallo-text transition-colors hover:bg-brand-corallo/10 md:text-base"
+            >
+              Voglio prima conoscere il metodo Dal Contatto alla Firma
+            </Link>
           </div>
 
-          {/* Colonna destra: la garanzia di trasparenza.
-              Prende il posto del video, che era DISA — software — davanti a
-              un lattoniere, e che un potenziale cliente ci ha segnalato come
-              lento. Qui invece c'e' l'unica cosa che i concorrenti non
-              dicono, pesa zero e si legge in quattro secondi su rete mobile. */}
-          <div className="w-full min-w-0 flex flex-col justify-center lg:mt-0">
-            <div className="hero-enter hero-enter-d3 card-xl border-l-4 border-l-brand-corallo p-6 sm:p-8 shadow-lg">
-              <p className="eyebrow eyebrow-mark mb-5 flex">
-                La garanzia di trasparenza
-              </p>
-              <ul className="space-y-5">
-                {[
-                  {
-                    t: "Sai sempre dove finiscono i tuoi soldi",
-                    d: "Quanto va in pubblicità e quanto a noi, separato. Ogni mese.",
-                  },
-                  {
-                    t: "Non parli con dieci persone diverse",
-                    d: "Hai i tuoi consulenti dedicati, sempre gli stessi.",
-                  },
-                  {
-                    t: "Prima di partire sai se ha senso",
-                    d: "Si comincia da uno studio di fattibilità. A volte la risposta è no, e te la diciamo.",
-                  },
-                  {
-                    t: "Formazione per te e per chi lavora con te",
-                    d: "Consulenza e percorsi per il titolare e per chi sta in trattativa.",
-                  },
-                ].map((g) => (
-                  <li key={g.t} className="flex gap-3.5">
-                    <span
-                      className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-corallo"
-                      aria-hidden
-                    />
-                    <span>
-                      <span className="block font-semibold leading-snug text-brand-nero">
-                        {g.t}
-                      </span>
-                      <span className="mt-1 block text-sm leading-relaxed text-brand-grigio">
-                        {g.d}
-                      </span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <p className="hero-enter hero-enter-d3 max-w-2xl text-sm text-brand-grigio">
+            Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
+            commerciale e fornitori del settore.
+          </p>
         </div>
       </HeroGooeySection>
+
+      {/* S1a — LA GARANZIA DI TRASPARENZA
+          Esce dalla hero e diventa una fascia sotto: e' la prima obiezione
+          che il lettore porta con se', e va letta subito dopo il claim. */}
+      <section className="section-bianco border-b py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+          <p className="eyebrow eyebrow-mark mb-8 flex justify-center">
+            La garanzia di trasparenza
+          </p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            {[
+              {
+                t: "Sai dove finiscono i tuoi soldi",
+                d: "Quanto va in pubblicità e quanto a noi, separato. Ogni mese.",
+              },
+              {
+                t: "Non parli con dieci persone diverse",
+                d: "Hai i tuoi consulenti dedicati, sempre gli stessi.",
+              },
+              {
+                t: "Prima di partire sai se ha senso",
+                d: "Si comincia da uno studio di fattibilità. A volte la risposta è no, e te la diciamo.",
+              },
+              {
+                t: "Formazione per te e per chi lavora con te",
+                d: "Consulenza e percorsi per il titolare e per chi sta in trattativa.",
+              },
+            ].map((g) => (
+              <div key={g.t} className="border-t-2 border-brand-corallo pt-5">
+                <p className="font-display font-bold leading-snug text-brand-nero">
+                  {g.t}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-brand-grigio">{g.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* S1b — IL PERCORSO: le quattro domande legate dal filo */}
       <PercorsoDomande />
