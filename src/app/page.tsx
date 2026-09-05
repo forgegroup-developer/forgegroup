@@ -9,6 +9,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
 import MetodoForge from "@/components/MetodoForge";
 import PercorsoDomande from "@/components/PercorsoDomande";
+import RegistroContatti from "@/components/RegistroContatti";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import DeferredMount from "@/components/DeferredMount";
@@ -78,31 +79,35 @@ export default function Home() {
                   impiantisti, fotovoltaico, arredo e chi vende all'edilizia,
                   non solo chi apre cantieri. La domanda che apriva qui e'
                   scesa nel percorso, dove ha il suo contesto. */}
+              {/* La Grande Idea. La terza riga e' quella che fa il lavoro:
+                  lo assolve mentre lo diagnostica. Non e' pigrizia, e'
+                  che in un'impresa edile passa tutto dal titolare — e alle
+                  sei di sera il titolare e' ancora in cantiere. */}
               <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Portiamo contratti alle{" "}
-                <span className="text-brand-corallo-text">aziende dell'edilizia</span>{" "}
-                e restiamo con te fino alla firma.
+                Il lavoro non l'hai perso.{" "}
+                <span className="text-brand-corallo-text">È ancora lì.</span>
               </h1>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Facciamo la pubblicità, filtriamo le richieste che arrivano,
-                prepariamo la trattativa e addestriamo chi la conduce.{" "}
+                Dentro un preventivo che nessuno ha più richiamato. E quel
+                nessuno sei tu, perché alle sei di sera sei ancora in cantiere.{" "}
                 <strong className="font-semibold text-brand-nero">
-                  Dal primo contatto fino alla firma del contratto.
+                  Noi ti portiamo le richieste giuste, scartiamo quelle che non
+                  compreranno mai e restiamo con te fino alla firma.
                 </strong>
               </p>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">
-                Imprese edili, serramentisti, impiantisti, arredo commerciale,
-                fornitori e software per il settore.
+                Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
+                commerciale e fornitori del settore.
               </p>
               <div className="hero-enter hero-enter-d3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto lg:mx-0">
                 <Link
                   href="/contatti"
                   className="btn-corallo px-8 py-4 text-sm md:text-base text-center sm:whitespace-nowrap"
                 >
-                  Sì, voglio una consulenza
+                  Richiedi lo studio di fattibilità
                 </Link>
-                <Link href="#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
-                  Voglio prima conoscere il Metodo FORGE
+                <Link href="#registro" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
+                  Guarda prima come lavoriamo
                 </Link>
               </div>
             </div>
@@ -151,6 +156,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* S3b — IL REGISTRO DEI CONTATTI
+          Risponde all'obiezione che ferma piu' trattative di ogni altra:
+          "non so come lavorate davvero". Sta qui perche' la domanda nasce
+          dopo il problema e prima del metodo. */}
+      <DeferredMount minHeight="900px" rootMargin="320px 0px">
+        <RegistroContatti />
+      </DeferredMount>
 
       {/* S4 — METODO FORGE
           Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
