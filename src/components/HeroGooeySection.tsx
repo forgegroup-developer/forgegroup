@@ -8,6 +8,8 @@ type HeroGooeySectionProps = {
   muro?: boolean;
   /** Fondo scuro con velo: serve quando sotto c'e' una fotografia. */
   scura?: boolean;
+  /** Passa --foto-hero per mettere una fotografia sotto al velo. */
+  style?: React.CSSProperties;
 };
 
 /**
@@ -27,10 +29,12 @@ export default function HeroGooeySection({
   after,
   muro = true,
   scura = false,
+  style,
 }: HeroGooeySectionProps) {
   return (
     <section id={id} className="relative overflow-hidden">
       <div
+        style={style}
         className={`relative h-full w-full overflow-hidden ${scura ? "hero-scura " : ""}${className}`.trim()}
       >
         {!scura && <div className="hero-fondale pointer-events-none absolute inset-0" aria-hidden />}

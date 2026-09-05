@@ -54,6 +54,7 @@ export default function Home() {
       <HeroGooeySection
         muro
         scura
+        style={{ "--foto-hero": "url('/images/hero/hero-team.jpg')" } as React.CSSProperties}
         className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
         innerClassName="w-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-14"
       >
