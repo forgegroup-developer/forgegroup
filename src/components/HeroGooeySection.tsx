@@ -6,6 +6,8 @@ type HeroGooeySectionProps = {
   after?: React.ReactNode;
   /** Fondale "muro in costruzione". Attivo di default su tutte le hero. */
   muro?: boolean;
+  /** Fondo scuro con velo: serve quando sotto c'e' una fotografia. */
+  scura?: boolean;
 };
 
 /**
@@ -24,11 +26,14 @@ export default function HeroGooeySection({
   innerClassName = "",
   after,
   muro = true,
+  scura = false,
 }: HeroGooeySectionProps) {
   return (
     <section id={id} className="relative overflow-hidden">
-      <div className={`relative h-full w-full overflow-hidden ${className}`.trim()}>
-        <div className="hero-fondale pointer-events-none absolute inset-0" aria-hidden />
+      <div
+        className={`relative h-full w-full overflow-hidden ${scura ? "hero-scura " : ""}${className}`.trim()}
+      >
+        {!scura && <div className="hero-fondale pointer-events-none absolute inset-0" aria-hidden />}
         {/* Il muro sta sopra la sfumatura e sotto il contenuto: e' decorativo,
             quindi aria-hidden e senza eventi puntatore. */}
         {muro && <div className="muro-cantiere" aria-hidden />}

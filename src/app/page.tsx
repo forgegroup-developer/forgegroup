@@ -53,12 +53,13 @@ export default function Home() {
           disegnato lascia il posto allo scatto, velo e sfumatura compresi. */}
       <HeroGooeySection
         muro
+        scura
         className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
         innerClassName="w-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-14"
       >
         <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
           <Image
-            src="/logo-transparent.png"
+            src="/logo-bianco.png"
             alt="Forge Group"
             width={140}
             height={140}
@@ -66,7 +67,7 @@ export default function Home() {
             className="hero-enter hero-enter-d1 h-14 w-auto sm:h-16"
           />
 
-          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark rounded-full border border-brand-bordo bg-brand-bianco/85 px-5 py-2.5 text-xs shadow-sm backdrop-blur-sm sm:text-sm">
+          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello rounded-full border border-brand-bordo bg-brand-bianco/85 px-5 py-2.5 text-xs shadow-sm backdrop-blur-sm sm:text-sm">
             Specializzati nell&apos;acquisizione clienti in edilizia
           </p>
 
