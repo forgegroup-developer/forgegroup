@@ -73,24 +73,32 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
-              {/* La formula dell'offerta, in ordine: risultato — metodo —
-                  senza-pain. Il "senza perdere i sabati" e' il dettaglio che
-                  fa scattare il riconoscimento: e' il sacrificio vero, non
-                  una categoria astratta. */}
+              {/* Il claim in tre mosse: clienti che pagano il tuo prezzo —
+                  via chi tratta solo sul prezzo — diventi il riferimento
+                  della zona. Il prezzo in prima riga perche' e' la ferita
+                  vera: l'imprenditore edile non perde i lavori, li perde a
+                  ribasso contro chi non fattura. */}
               <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Chiudi più contratti.{" "}
+                Chiudi più contratti,{" "}
                 <span className="text-brand-corallo-text">
-                  Senza perdere i sabati con chi non comprerà mai.
+                  al prezzo che chiedi tu.
                 </span>
               </h1>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Aiutiamo gli imprenditori dell&apos;edilizia a chiudere più
-                contratti con il metodo{" "}
+                Ti portiamo clienti che possono permettersi il tuo lavoro,
+                scartiamo chi tratta solo sul prezzo e restiamo in trattativa
+                con te fino alla firma.{" "}
+                <strong className="font-semibold text-brand-nero">
+                  Basta sabati persi con chi cerca solo un preventivo da
+                  confrontare.
+                </strong>
+              </p>
+              <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base leading-relaxed text-brand-grigio">
+                È il metodo{" "}
                 <strong className="font-semibold text-brand-nero">
                   Dal Contatto alla Firma
                 </strong>
-                : ti portiamo le richieste, scartiamo chi cerca solo un prezzo
-                al metro quadro e restiamo in trattativa con te fino alla firma.
+                : quello che ti fa diventare il nome che fanno nella tua zona.
               </p>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">
                 Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
