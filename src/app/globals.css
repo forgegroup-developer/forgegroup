@@ -1568,7 +1568,7 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
    quindi il clamp su vw della scala piena mandava l'headline a 117px e
    spingeva riga del rischio e CTA sotto la piega. */
 .heading-display-hero {
-  font-size: clamp(2.125rem, 3.4vw + 0.5rem, 3.5rem);
+  font-size: clamp(2rem, 3vw + 0.5rem, 3.1rem);
   line-height: 1.03;
 }
 

@@ -3,7 +3,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/HeroGooeySection";
-import HeroVideoRecensione from "@/components/HeroVideoRecensione";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
 import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
@@ -74,26 +73,24 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:gap-5 w-full min-w-0">
-              {/* Prima si dice cosa facciamo, e per chi: "contratti" invece
-                  di "cantieri" perche' il perimetro comprende serramentisti,
-                  impiantisti, fotovoltaico, arredo e chi vende all'edilizia,
-                  non solo chi apre cantieri. La domanda che apriva qui e'
-                  scesa nel percorso, dove ha il suo contesto. */}
-              {/* La Grande Idea. La terza riga e' quella che fa il lavoro:
-                  lo assolve mentre lo diagnostica. Non e' pigrizia, e'
-                  che in un'impresa edile passa tutto dal titolare — e alle
-                  sei di sera il titolare e' ancora in cantiere. */}
+              {/* La formula dell'offerta, in ordine: risultato — metodo —
+                  senza-pain. Il "senza perdere i sabati" e' il dettaglio che
+                  fa scattare il riconoscimento: e' il sacrificio vero, non
+                  una categoria astratta. */}
               <h1 className="hero-enter hero-enter-d2 heading-display heading-display-hero max-w-2xl mx-auto lg:mx-0 text-center lg:text-left text-balance">
-                Il lavoro non l'hai perso.{" "}
-                <span className="text-brand-corallo-text">È ancora lì.</span>
+                Chiudi più contratti.{" "}
+                <span className="text-brand-corallo-text">
+                  Senza perdere i sabati con chi non comprerà mai.
+                </span>
               </h1>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-base sm:text-lg leading-relaxed text-brand-grigio">
-                Dentro un preventivo che nessuno ha più richiamato. E quel
-                nessuno sei tu, perché alle sei di sera sei ancora in cantiere.{" "}
+                Aiutiamo gli imprenditori dell&apos;edilizia a chiudere più
+                contratti con il metodo{" "}
                 <strong className="font-semibold text-brand-nero">
-                  Noi ti portiamo le richieste giuste, scartiamo quelle che non
-                  compreranno mai e restiamo con te fino alla firma.
+                  Dal Contatto alla Firma
                 </strong>
+                : ti portiamo le richieste, scartiamo chi cerca solo un prezzo
+                al metro quadro e restiamo in trattativa con te fino alla firma.
               </p>
               <p className="hero-enter hero-enter-d3 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-sm text-brand-grigio">
                 Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
@@ -106,16 +103,59 @@ export default function Home() {
                 >
                   Richiedi lo studio di fattibilità
                 </Link>
-                <Link href="#registro" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
+                <Link href="#metodo" className="arrow-link justify-center sm:justify-start text-sm md:text-base">
                   Guarda prima come lavoriamo
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Mobile: video recensione sotto titolo e CTA; desktop: colonna destra */}
+          {/* Colonna destra: la garanzia di trasparenza.
+              Prende il posto del video, che era DISA — software — davanti a
+              un lattoniere, e che un potenziale cliente ci ha segnalato come
+              lento. Qui invece c'e' l'unica cosa che i concorrenti non
+              dicono, pesa zero e si legge in quattro secondi su rete mobile. */}
           <div className="w-full min-w-0 flex flex-col justify-center lg:mt-0">
-            <HeroVideoRecensione />
+            <div className="hero-enter hero-enter-d3 card-xl border-l-4 border-l-brand-corallo p-6 sm:p-8 shadow-lg">
+              <p className="eyebrow eyebrow-mark mb-5 flex">
+                La garanzia di trasparenza
+              </p>
+              <ul className="space-y-5">
+                {[
+                  {
+                    t: "Sai sempre dove finiscono i tuoi soldi",
+                    d: "Quanto va in pubblicità e quanto a noi, separato. Ogni mese.",
+                  },
+                  {
+                    t: "Non parli con dieci persone diverse",
+                    d: "Hai i tuoi consulenti dedicati, sempre gli stessi.",
+                  },
+                  {
+                    t: "Prima di partire sai se ha senso",
+                    d: "Si comincia da uno studio di fattibilità. A volte la risposta è no, e te la diciamo.",
+                  },
+                  {
+                    t: "Formazione per te e per chi lavora con te",
+                    d: "Consulenza e percorsi per il titolare e per chi sta in trattativa.",
+                  },
+                ].map((g) => (
+                  <li key={g.t} className="flex gap-3.5">
+                    <span
+                      className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-corallo"
+                      aria-hidden
+                    />
+                    <span>
+                      <span className="block font-semibold leading-snug text-brand-nero">
+                        {g.t}
+                      </span>
+                      <span className="mt-1 block text-sm leading-relaxed text-brand-grigio">
+                        {g.d}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </HeroGooeySection>
