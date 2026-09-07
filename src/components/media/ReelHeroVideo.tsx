@@ -1,5 +1,5 @@
 import Image from "next/image";
-import VideoPosterWithPlay from "@/components/VideoPosterWithPlay";
+import VideoPosterWithPlay from "@/components/media/VideoPosterWithPlay";
 
 type ReelHeroVideoProps = {
   src: string;

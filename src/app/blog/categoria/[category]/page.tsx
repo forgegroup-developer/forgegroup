@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import {
   getArticlesByCategory,
   getCategoryFromSlug,
   getCategorySlugsForBuild,
 } from "@/lib/blog/articlesAsync";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type Props = { params: Promise<{ category: string }> };
 

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import CaseStudyDetail from "@/components/CaseStudyDetail";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import CaseStudyDetail from "@/components/casi-studio/CaseStudyDetail";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 

@@ -1,5 +1,5 @@
-import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import VideoRecensionePoster from "@/components/VideoRecensionePoster";
+import CaseStudyClientLogo from "@/components/casi-studio/CaseStudyClientLogo";
+import VideoRecensionePoster from "@/components/media/VideoRecensionePoster";
 import { clientLogos } from "@/data/clientLogos";
 
 export default function HeroVideoRecensione() {

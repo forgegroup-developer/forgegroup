@@ -1,5 +1,5 @@
-import type { BeforeAfterRow } from "@/components/CaseStudyBeforeAfter";
-import type { TextSegment } from "@/components/HighlightedText";
+import type { BeforeAfterRow } from "@/components/casi-studio/CaseStudyBeforeAfter";
+import type { TextSegment } from "@/components/ui/HighlightedText";
 import { caseStudyLogosBySlug } from "@/data/clientLogos";
 
 export type CaseStudy = {

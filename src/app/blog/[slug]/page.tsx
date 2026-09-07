@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import FaqAccordion from "@/components/blog/FaqAccordion";
 import InlineLinkText from "@/components/blog/InlineLinkText";
 import {

@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import ForgeGradientBackground from "@/components/ForgeGradientBackground";
-import MetodoForge from "@/components/MetodoForge";
-import SectionHeader from "@/components/SectionHeader";
-import ClientiLogos from "@/components/ClientiLogos";
-import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import HeroGooeySection from "@/components/HeroGooeySection";
-import ReelHeroVideo from "@/components/ReelHeroVideo";
-import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
+import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
+import MetodoForge from "@/components/sezioni/MetodoForge";
+import SectionHeader from "@/components/ui/SectionHeader";
+import ClientiLogos from "@/components/sezioni/ClientiLogos";
+import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
+import ReelHeroVideo from "@/components/media/ReelHeroVideo";
+import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { serviziSidebarImages, siteImages } from "@/data/images";
 

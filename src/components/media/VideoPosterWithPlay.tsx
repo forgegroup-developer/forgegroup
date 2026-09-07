@@ -1,7 +1,7 @@
 "use client";
 
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import VideoPlayGlassButton from "@/components/VideoPlayGlassButton";
+import VideoPlayGlassButton from "@/components/media/VideoPlayGlassButton";
 
 /**
  * Segnala globalmente se un video è in riproduzione, così il fondale gooey

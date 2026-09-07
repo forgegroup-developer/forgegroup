@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { searchArticles } from "@/lib/blog/articlesAsync";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 // Pagina di servizio: dinamica per forza di cose (dipende da ?q=) e fuori
 // dall'indice, così /blog resta prerenderizzato e servito dalla CDN.

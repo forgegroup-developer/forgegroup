@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
-import AnimatedStepper, { Step } from "@/components/AnimatedStepper";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import AnimatedStepper, { Step } from "@/components/sezioni/AnimatedStepper";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type FormData = {
   nome_attivita: string;

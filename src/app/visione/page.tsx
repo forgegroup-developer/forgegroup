@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import VisionSection from "@/components/VisionSection";
+import VisionSection from "@/components/sezioni/VisionSection";
 
 export const metadata: Metadata = {
   title: "Lavora con noi",

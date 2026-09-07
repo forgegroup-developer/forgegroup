@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-const Reveal = dynamic(() => import("@/components/Reveal"));
+const Reveal = dynamic(() => import("@/components/ui/Reveal"));
 
 const fasi = [
   {

@@ -1,10 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import HeroGooeySection from "@/components/HeroGooeySection";
-import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
-import ReelHeroVideo from "@/components/ReelHeroVideo";
-import SectionHeader from "@/components/SectionHeader";
-import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
+import LazyCaseStudyStack from "@/components/casi-studio/LazyCaseStudyStack";
+import ReelHeroVideo from "@/components/media/ReelHeroVideo";
+import SectionHeader from "@/components/ui/SectionHeader";
+import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { siteImages } from "@/data/images";
 

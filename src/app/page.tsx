@@ -2,28 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import HeroGooeySection from "@/components/HeroGooeySection";
-import SectionHeader from "@/components/SectionHeader";
-import FAQAccordion from "@/components/FAQAccordion";
-import CasiStudioCarousel from "@/components/CasiStudioCarousel";
-import MetodoForge from "@/components/MetodoForge";
-import ConfrontoCaos from "@/components/ConfrontoCaos";
-import PercheSceglierci from "@/components/PercheSceglierci";
-import PerChiSiPerChiNo from "@/components/PerChiSiPerChiNo";
-import VideoScettico from "@/components/VideoScettico";
-import GaranziaTrasparenza from "@/components/GaranziaTrasparenza";
-import ServiceCard, { services } from "@/components/ServiceCard";
-import JsonLdFAQ from "@/components/JsonLdFAQ";
-import DeferredMount from "@/components/DeferredMount";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
+import SectionHeader from "@/components/ui/SectionHeader";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
+import MetodoForge from "@/components/sezioni/MetodoForge";
+import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
+import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
+import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
+import VideoScettico from "@/components/sezioni/VideoScettico";
+import GaranziaTrasparenza from "@/components/sezioni/GaranziaTrasparenza";
+import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
+import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
+import DeferredMount from "@/components/ui/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
-const Reveal = dynamic(() => import("@/components/Reveal"));
+const Reveal = dynamic(() => import("@/components/ui/Reveal"));
 
-const ClientiLogos = dynamic(() => import("@/components/ClientiLogos"), {
+const ClientiLogos = dynamic(() => import("@/components/sezioni/ClientiLogos"), {
   loading: () => <div className="min-h-[280px]" aria-hidden />,
 });
 
-const TeamSection = dynamic(() => import("@/components/TeamSection"), {
+const TeamSection = dynamic(() => import("@/components/sezioni/TeamSection"), {
   loading: () => <div className="min-h-[480px]" aria-hidden />,
 });
 

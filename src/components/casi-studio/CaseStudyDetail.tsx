@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import CaseStudyBeforeAfter from "@/components/CaseStudyBeforeAfter";
-import CaseStudyClientLogo from "@/components/CaseStudyClientLogo";
-import HighlightedText from "@/components/HighlightedText";
-import PhoneScreenshotMockup from "@/components/PhoneScreenshotMockup";
-import VideoRecensionePoster from "@/components/VideoRecensionePoster";
-import DeferredMount from "@/components/DeferredMount";
+import CaseStudyBeforeAfter from "@/components/casi-studio/CaseStudyBeforeAfter";
+import CaseStudyClientLogo from "@/components/casi-studio/CaseStudyClientLogo";
+import HighlightedText from "@/components/ui/HighlightedText";
+import PhoneScreenshotMockup from "@/components/media/PhoneScreenshotMockup";
+import VideoRecensionePoster from "@/components/media/VideoRecensionePoster";
+import DeferredMount from "@/components/ui/DeferredMount";
 import type { CaseStudy } from "@/data/caseStudies";
 import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
 

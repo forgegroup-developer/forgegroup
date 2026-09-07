@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Reveal from "@/components/Reveal";
-import VisionBeliefCards from "@/components/VisionBeliefCards";
-import VisionJoinSection from "@/components/VisionJoinSection";
+import Reveal from "@/components/ui/Reveal";
+import VisionBeliefCards from "@/components/sezioni/VisionBeliefCards";
+import VisionJoinSection from "@/components/sezioni/VisionJoinSection";
 
 export default function VisionSection() {
   return (
