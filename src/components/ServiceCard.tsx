@@ -102,7 +102,7 @@ export default function ServiceCard({ item, compact = false }: { item: Service; 
   return (
     <Link
       href={item.href}
-      className={`group relative flex h-full ${
+      className={`superficie-chiara group relative flex h-full ${
         compact
           ? "min-h-[320px] sm:min-h-[380px] lg:min-h-[440px]"
           : "min-h-[360px] sm:min-h-[420px] lg:min-h-[500px]"

@@ -110,7 +110,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               {message}
             </p>
           ) : null}
-          <p className="mt-2 text-[10px] leading-snug text-brand-pesca-light">
+          <p className="mt-2 text-xs leading-snug text-white/90">
             Iscrivendoti accetti la{" "}
             <Link href="/privacy-policy" className="font-semibold text-white underline underline-offset-2 hover:text-brand-pesca-light">
               Privacy Policy
@@ -177,7 +177,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
               {message}
             </p>
           ) : null}
-          <p className="mt-2 text-[10px] leading-snug text-brand-pesca-light">
+          <p className="mt-2 text-xs leading-snug text-white/90">
             Iscrivendoti accetti la{" "}
             <Link href="/privacy-policy" className="font-semibold text-white underline underline-offset-2 hover:text-brand-pesca-light">
               Privacy Policy

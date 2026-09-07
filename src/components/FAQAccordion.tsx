@@ -21,7 +21,7 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
         return (
           <div
             key={idx}
-            className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
+            className={`superficie-chiara border rounded-2xl overflow-hidden transition-all duration-300 ${
               isOpen
                 ? onCoral
                   ? "border-brand-corallo bg-brand-bianco shadow-md"

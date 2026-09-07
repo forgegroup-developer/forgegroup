@@ -57,7 +57,10 @@ export default function MetodoForge({
   // Vale per corallo e per notte: cambia solo il fondo, la logica dei
   // colori del testo e' la stessa — chiaro su scuro.
   const coral =
-    onCoral || className.includes("section-coral") || className.includes("section-notte");
+    onCoral ||
+    className.includes("section-coral") ||
+    className.includes("section-mattone") ||
+    className.includes("section-notte");
 
   return (
     <section
@@ -77,8 +80,8 @@ export default function MetodoForge({
             <h2
               className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
             >
-              Dal Contatto alla Firma:{" "}
-              <span className="text-brand-corallo">il metodo FORGE</span> in 5 step
+              <span className="text-brand-corallo">Metodo FORGE</span> — Dal
+              Contatto alla Firma, in 5 step
             </h2>
           </div>
         </Reveal>
@@ -93,14 +96,16 @@ export default function MetodoForge({
               >
                 <div className="flex items-baseline gap-1 sm:gap-1.5">
                   <span
-                    className={`font-display font-extrabold text-[clamp(4.2rem,9vw,7rem)] leading-[0.8] transition-colors duration-300 group-hover:text-brand-corallo-dark ${
-                      coral ? "text-brand-pesca-light group-hover:text-white" : "text-brand-corallo"
+                    className={`font-display font-extrabold text-[clamp(4.2rem,9vw,7rem)] leading-[0.8] transition-colors duration-300 ${
+                      coral
+                        ? "text-white/45 group-hover:text-white"
+                        : "text-brand-corallo group-hover:text-brand-corallo-dark"
                     }`}
                   >
                     {fase.letter}
                   </span>
                   <span className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
-                      coral ? "text-white/70" : "text-brand-nero"
+                      coral ? "text-white/90" : "text-brand-nero"
                     }`}>
                     {fase.verticalLabel}
                   </span>
@@ -109,7 +114,7 @@ export default function MetodoForge({
                 <div>
                   <h3
                     className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
-                      coral ? "!text-brand-corallo-on-dark" : "!text-brand-corallo"
+                      coral ? "!text-white" : "!text-brand-corallo"
                     }`}
                   >
                     {fase.title}

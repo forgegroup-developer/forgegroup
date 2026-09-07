@@ -60,16 +60,19 @@ export default function Footer() {
   const isCaseStudy = pathname?.startsWith("/casi-studio") ?? false;
   const isVisione = pathname === "/visione";
   const isContatti = pathname === "/contatti";
+  const isHome = pathname === "/";
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
 
   return (
     <footer>
       {/* CTA band — nascosta su /contatti */}
-      {!isContatti && !isVisione && <FooterCtaBand isCaseStudy={isCaseStudy} />}
+      {!isContatti && !isVisione && !isHome && (
+        <FooterCtaBand isCaseStudy={isCaseStudy} />
+      )}
 
       {/* Corpo footer — sfondo corallo */}
-      <div className="bg-brand-corallo">
+      <div className="bg-brand-mattone">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
 

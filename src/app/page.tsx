@@ -5,10 +5,13 @@ import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/HeroGooeySection";
 import SectionHeader from "@/components/SectionHeader";
 import FAQAccordion from "@/components/FAQAccordion";
-import LazyCaseStudyStack from "@/components/LazyCaseStudyStack";
+import CasiStudioCarousel from "@/components/CasiStudioCarousel";
 import MetodoForge from "@/components/MetodoForge";
-import PercorsoDomande from "@/components/PercorsoDomande";
-import RegistroContatti from "@/components/RegistroContatti";
+import ConfrontoCaos from "@/components/ConfrontoCaos";
+import PercheSceglierci from "@/components/PercheSceglierci";
+import PerChiSiPerChiNo from "@/components/PerChiSiPerChiNo";
+import VideoScettico from "@/components/VideoScettico";
+import GaranziaTrasparenza from "@/components/GaranziaTrasparenza";
 import ServiceCard, { services } from "@/components/ServiceCard";
 import JsonLdFAQ from "@/components/JsonLdFAQ";
 import DeferredMount from "@/components/DeferredMount";
@@ -46,131 +49,168 @@ export default function Home() {
   return (
     <>
       <JsonLdFAQ />
-      {/* S1 — HERO ampia, centrata.
-          Impianto a tutta larghezza: il claim al centro e due pulsanti,
-          uno caldo e uno freddo. Lo sfondo e' predisposto per ricevere una
-          fotografia: basta passare --foto-hero alla sezione e il muro
-          disegnato lascia il posto allo scatto, velo e sfumatura compresi. */}
+      {/* S1 — HERO a due colonne.
+          Testo a sinistra, i due fondatori a destra a tutta altezza.
+          Il sito si apre su un telefono, su WhatsApp, subito dopo una
+          chiamata a freddo: le prime due domande che si fa chi apre il
+          link sono "cosa fate" e "chi siete". Cosi' stanno tutt'e due
+          nello stesso schermo, senza dover scorrere.
+          Il marchio non si ripete qui: sta gia' nell'intestazione. */}
       <HeroGooeySection
         muro
-        scura
-        style={{ "--foto-hero": "url('/images/hero/hero-team.jpg')" } as React.CSSProperties}
-        className="lg:min-h-[calc(100dvh-80px)] lg:flex lg:items-center"
-        innerClassName="w-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-14"
+        className=""
+        innerClassName="hero-split"
       >
-        <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
-          <Image
-            src="/logo-bianco.png"
-            alt="Forge Group"
-            width={140}
-            height={140}
-            priority
-            className="hero-enter hero-enter-d1 h-14 w-auto sm:h-16"
-          />
-
-          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello rounded-full border border-brand-bordo bg-brand-bianco/85 px-5 py-2.5 text-xs shadow-sm backdrop-blur-sm sm:text-sm">
+        <div className="order-2 flex flex-col justify-center gap-5 px-5 py-12 sm:gap-6 sm:px-6 sm:py-14 lg:order-1 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20 xl:pl-16">
+          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Specializzati nell&apos;acquisizione clienti in edilizia
           </p>
 
-          {/* Il claim in tre mosse: clienti che pagano il tuo prezzo — via
-              chi tratta solo sul prezzo — diventi il riferimento della zona.
-              Il prezzo in prima riga perche' e' la ferita vera: chi fa questo
-              mestiere al Sud non perde i lavori, li perde a ribasso. */}
-          {/* L'H1 e' la promessa per intero, non uno slogan: e' lunga
-              apposta, perche' in tre righe dice tutto il perimetro del
-              servizio — chi portiamo, chi togliamo, e fin dove restiamo.
-              Scala ridotta rispetto al display pieno: una frase di venti
-              parole a 3rem diventa un muro. */}
-          <h1 className="hero-enter hero-enter-d2 heading-display-frase max-w-4xl text-balance">
-            Ti portiamo clienti che possono permettersi il tuo lavoro,
-            scartiamo chi tratta solo sul prezzo e restiamo in trattativa con te{" "}
-            <span className="text-brand-corallo-text">fino alla firma.</span>
+          {/* L'H1 e' la promessa per intero, non uno slogan: dice chi
+              portiamo, chi togliamo e fin dove restiamo. In corallo solo
+              i due punti che il lettore deve portarsi via se legge
+              soltanto quelli: che i clienti possono pagarlo, e che non
+              lo lasciamo solo in trattativa. */}
+          {/* Impianto preso dalla hero di Gasparotto: "Aumenta margini,
+              utili aziendali e compensi personali grazie al controllo dei
+              numeri." Verbo all'imperativo, tre benefici in fila di cui
+              due marcati, poi "grazie al" e il nome del meccanismo. Il
+              lettore sa in dieci parole cosa ottiene e con che cosa.
+              La promessa per intero — chi portiamo, chi togliamo, fin dove
+              restiamo — scende nella riga sotto, dove c'e' spazio per
+              dirla senza spezzare il titolo. */}
+          <h1 className="hero-enter hero-enter-d2 heading-display-frase text-pretty">
+            Acquisisci clienti disposti a{" "}
+            <span className="text-brand-corallo no-spezza">pagarti quanto chiedi</span>,
+            chiudi più contratti e diventa{" "}
+            <span className="text-brand-corallo no-spezza">il riferimento della tua zona</span>{" "}
+            grazie al Metodo FORGE.
           </h1>
 
-          <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-lg leading-relaxed text-brand-grigio sm:text-xl">
-            Chiudi più contratti al prezzo che chiedi tu, senza perdere i sabati
-            con chi cerca solo un preventivo da confrontare.
+          <p className="hero-enter hero-enter-d3 text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
+            Ti portiamo richieste da chi il lavoro può pagarlo, scartiamo chi
+            tratta solo sul prezzo e restiamo in trattativa con te{" "}
+            <strong className="font-semibold text-brand-nero">
+              fino alla firma
+            </strong>
+            . Senza perdere i sabati con chi cerca solo un preventivo da
+            confrontare.
           </p>
 
-          <p className="hero-enter hero-enter-d3 max-w-2xl text-balance text-base leading-relaxed text-brand-nero sm:text-lg">
-            È il metodo{" "}
-            <strong className="font-semibold">Dal Contatto alla Firma</strong>:
-            quello che ti fa diventare il nome che fanno nella tua zona.
+          <p className="hero-enter hero-enter-d3 firma-fondatori">
+            Il Metodo FORGE l&apos;abbiamo costruito noi due,{" "}
+            <strong className="font-semibold text-brand-nero">
+              Marco e Gianpio
+            </strong>
+            , su oltre ventimila contatti gestiti e partendo da imprese che
+            oggi lavorano con un metodo, senza rincorrere i clienti.
           </p>
 
-          <div className="hero-enter hero-enter-d3 mt-2 flex w-full max-w-2xl flex-col items-stretch gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contatti" className="btn-hero btn-hero-caldo flex-1 text-sm md:text-base">
-              <span>Sì, voglio lo studio di fattibilità per la mia impresa</span>
+          {/* I due pulsanti si specchiano. Il segno dice dove porta il
+              tasto prima ancora di leggerlo: freccia obliqua per la
+              pagina dedicata, freccia in basso per il metodo, che sta
+              piu' giu' in questa stessa pagina. */}
+          <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:flex-row">
+            <Link
+              href="/contatti"
+              className="btn-hero btn-hero-caldo btn-hero-sinistra flex-1 text-sm md:text-base"
+            >
+              <span>Voglio lo studio di fattibilità per la mia impresa</span>
               <span className="btn-hero-freccia" aria-hidden>
-                →
+                ↗
               </span>
             </Link>
-            <Link href="#metodo" className="btn-hero btn-hero-freddo flex-1 text-sm md:text-base">
-              <span>Voglio prima conoscere il metodo Dal Contatto alla Firma</span>
+            <Link
+              href="#metodo"
+              className="btn-hero btn-hero-freddo btn-hero-destra flex-1 text-sm md:text-base"
+            >
+              <span>Prima voglio vedere il Metodo FORGE</span>
               <span className="btn-hero-freccia" aria-hidden>
                 ↓
               </span>
             </Link>
           </div>
 
-          <p className="hero-enter hero-enter-d3 max-w-2xl text-sm text-brand-grigio">
-            Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
-            commerciale e fornitori del settore.
-          </p>
         </div>
-      </HeroGooeySection>
 
-      {/* S1a — LA GARANZIA DI TRASPARENZA
-          Esce dalla hero e diventa una fascia sotto: e' la prima obiezione
-          che il lettore porta con se', e va letta subito dopo il claim. */}
-      <section className="section-bianco border-b py-14 md:py-16">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-8 flex justify-center">
-            La garanzia di trasparenza
-          </p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-            {[
-              {
-                t: "Sai dove finiscono i tuoi soldi",
-                d: "Quanto va in pubblicità e quanto a noi, separato. Ogni mese.",
-              },
-              {
-                t: "Non parli con dieci persone diverse",
-                d: "Hai i tuoi consulenti dedicati, sempre gli stessi.",
-              },
-              {
-                t: "Prima di partire sai se ha senso",
-                d: "Si comincia da uno studio di fattibilità. A volte la risposta è no, e te la diciamo.",
-              },
-              {
-                t: "Formazione per te e per chi lavora con te",
-                d: "Consulenza e percorsi per il titolare e per chi sta in trattativa.",
-              },
-            ].map((g) => (
-              <div key={g.t} className="border-t-2 border-brand-corallo pt-5">
-                <p className="font-display font-bold leading-snug text-brand-nero">
-                  {g.t}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-brand-grigio">{g.d}</p>
-              </div>
-            ))}
+        <div className="hero-foto order-1 lg:order-2">
+          <div className="hero-foto-cornice">
+            <Image
+              src="/images/team/vision/founders-duo.png"
+              alt="I due fondatori di Forge Group"
+              fill
+              priority
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
+            {/* La firma sta sulla foto, non sotto: sotto era una riga
+                grigia che nessuno legge. Il velo in basso e' li' apposta
+                per reggerla. */}
+            <p className="hero-foto-firma">
+              <span aria-hidden>✳</span>
+              I fondatori di Forge Group
+            </p>
           </div>
         </div>
-      </section>
 
-      {/* S1b — IL PERCORSO: le quattro domande legate dal filo */}
-      <PercorsoDomande />
+        {/* Il perimetro dei mestieri, con lo stesso asterisco
+            dell'occhiello in cima: e' la nota a piede della promessa, e
+            sta sotto entrambe le colonne perche' vale per tutta la hero. */}
+        <p className="hero-enter hero-enter-d3 riga-mestieri order-3">
+          <span className="riga-mestieri-asterisco" aria-hidden>
+            ✳
+          </span>
+          Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
+          commerciale, software per l&apos;edilizia e fornitori del settore.
+        </p>
+
+      </HeroGooeySection>
 
       {/* S2 — LOGHI CLIENTI */}
       <DeferredMount minHeight="280px">
         <ClientiLogos />
       </DeferredMount>
 
-      {/* S3 — SERVIZI */}
-      <section className="py-20 md:py-28 section-bianco border-y">
+      {/* S2b — PERCHE' SCEGLIERE FORGE GROUP
+          Il problema detto come elenco di abitudini, non come accusa.
+          Sta qui perche' il lettore ha appena visto i numeri dei clienti
+          e deve capire cosa lo separa da quei numeri. */}
+      <DeferredMount minHeight="560px" rootMargin="320px 0px">
+        <PercheSceglierci />
+      </DeferredMount>
+
+      {/* S3b — IL REGISTRO DEI CONTATTI
+          Risponde all'obiezione che ferma piu' trattative di ogni altra:
+          "non so come lavorate davvero". Sta qui perche' la domanda nasce
+          dopo il problema e prima del metodo. */}
+      <DeferredMount minHeight="900px" rootMargin="320px 0px">
+        <ConfrontoCaos />
+      </DeferredMount>
+
+      {/* S4 — METODO FORGE
+          Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
+          trasforma il servizio in un prodotto riconoscibile. Sta in home, su
+          fondo notte, tra il "cosa facciamo" e la prova dei risultati. */}
+      <DeferredMount minHeight="640px" rootMargin="320px 0px">
+        <MetodoForge className="section-mattone" />
+      </DeferredMount>
+
+      {/* S5b — LA GARANZIA DI TRASPARENZA
+          Il punto esatto in cui il lettore si chiede "si', ma come faccio
+          a controllarvi". Il CRM e' l'unica risposta che dimostra invece
+          di dichiarare. */}
+      <DeferredMount minHeight="520px" rootMargin="320px 0px">
+        <GaranziaTrasparenza />
+      </DeferredMount>
+
+      {/* S6 — SERVIZI
+          Stavano prima del metodo: si elencava cosa facciamo a un lettore
+          che non sapeva ancora perche' gli servisse, e si spezzava in due
+          il blocco del problema. Qui arrivano dopo che il metodo ha un
+          nome, e diventano "cosa c'e' dentro". */}
+      <section className="py-20 md:py-28 section-sabbia border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            eyebrow="Cosa facciamo"
+            eyebrow="Cosa facciamo per te"
             title={
               <>
                 Ti affianchiamo dal primo contatto{" "}
@@ -188,59 +228,17 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <Link href="/servizi" className="btn-ghost px-8 py-4 text-sm md:text-base">
-              Scopri come lavoriamo
+            <Link href="/servizi" className="btn-ghost">
+              Vedi il Metodo FORGE, i 5 step
             </Link>
           </div>
         </div>
       </section>
 
-      {/* S3b — IL REGISTRO DEI CONTATTI
-          Risponde all'obiezione che ferma piu' trattative di ogni altra:
-          "non so come lavorate davvero". Sta qui perche' la domanda nasce
-          dopo il problema e prima del metodo. */}
-      <DeferredMount minHeight="900px" rootMargin="320px 0px">
-        <RegistroContatti />
-      </DeferredMount>
 
-      {/* S4 — METODO FORGE
-          Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
-          trasforma il servizio in un prodotto riconoscibile. Sta in home, su
-          fondo notte, tra il "cosa facciamo" e la prova dei risultati. */}
-      <DeferredMount minHeight="640px" rootMargin="320px 0px">
-        <MetodoForge className="section-coral" />
-      </DeferredMount>
-
-      {/* S5 — CASI STUDIO (stacking cards on scroll) */}
-      <section id="casi-studio" className="py-20 md:py-28 section-bianco scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Casi Studio"
-            maxWidth="4xl"
-            title={
-              <>
-                Risultati <span className="text-brand-corallo">verificati</span> in casi reali.{" "}
-                <span className="text-brand-corallo">Vuoi capire se un percorso simile ha senso per la tua azienda?</span>
-              </>
-            }
-          />
-        </div>
-        <LazyCaseStudyStack />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14">
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4">
-            <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base text-center">
-              Voglio il check-up della mia provincia
-            </Link>
-            <Link href="/casi-studio" className="btn-ghost px-8 py-4 text-sm md:text-base text-center">
-              Vedi tutti i casi studio
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* S6 — CONFRONTO (tabella comparativa unificata) */}
+      {/* S7 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-sabbia border-y">
+      <section className="py-20 md:py-28 section-bianco border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Il confronto"
@@ -255,13 +253,13 @@ export default function Home() {
             <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
               {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
-                <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50">
-                  <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
+                <div className="px-4 py-3 md:px-8 md:py-5 bg-brand-panna">
+                  <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
                     L'agenzia che ti consegna il contatto
                   </p>
                 </div>
-                <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
-                  <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
+                <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,#1f7a5c_10%,#ffffff)]">
+                  <p className="text-xs md:text-base font-bold text-[#155c45] uppercase tracking-wide leading-snug">
                     Forge Group
                   </p>
                 </div>
@@ -294,21 +292,21 @@ export default function Home() {
                   key={row.other}
                   className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
                 >
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-red-50/70 hover:bg-red-50 transition-colors">
+                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-brand-panna/70 hover:bg-brand-panna transition-colors">
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-corallo"
                       aria-hidden
                     />
-                    <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium pt-0.5">
+                    <span className="text-xs md:text-sm leading-snug text-brand-grigio font-medium pt-0.5">
                       {row.other}
                     </span>
                   </div>
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-emerald-50/80 hover:bg-emerald-50 transition-colors">
+                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,#1f7a5c_8%,#ffffff)] hover:bg-[color-mix(in_srgb,#1f7a5c_14%,#ffffff)] transition-colors">
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600/80"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1f7a5c]"
                       aria-hidden
                     />
-                    <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950 pt-0.5">
+                    <span className="text-xs md:text-sm leading-snug font-semibold text-brand-nero pt-0.5">
                       {row.forge}
                     </span>
                   </div>
@@ -320,6 +318,19 @@ export default function Home() {
       </section>
       </DeferredMount>
 
+      {/* S5 — CASI STUDIO, uno alla volta */}
+      <DeferredMount minHeight="720px" rootMargin="320px 0px">
+        <CasiStudioCarousel />
+      </DeferredMount>
+
+      {/* S6b — PER CHI E' SCETTICO
+          Quattro imprenditori su quattro, nelle conoscitive, avevano gia'
+          provato con un'agenzia. Qui non si argomenta: parla uno che era
+          nella stessa posizione, e la sua prima frase e' "ero scettico". */}
+      <DeferredMount minHeight="560px" rootMargin="320px 0px">
+        <VideoScettico />
+      </DeferredMount>
+
       {/* S7 — TEAM */}
       <DeferredMount minHeight="480px" rootMargin="320px 0px">
         <TeamSection />
@@ -327,14 +338,15 @@ export default function Home() {
 
       {/* S8 — FAQ */}
       <DeferredMount minHeight="360px">
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-coral border-y">
+      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-mattone">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            onCoral
             eyebrow="Domande Frequenti"
             title={
               <>
-                Quello che gli <span>imprenditori</span> ci chiedono sempre.
+                Quello che gli{" "}
+                <span className="text-brand-corallo-text">imprenditori edili</span>{" "}
+                ci chiedono sempre.
               </>
             }
           />
@@ -343,6 +355,15 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+      </DeferredMount>
+
+
+      {/* S9 — IL FILTRO
+          Chiude la pagina qualificando invece di chiedere: chi si
+          riconosce a destra non ci fa perdere una conoscitiva, chi si
+          riconosce a sinistra scrive gia' convinto. */}
+      <DeferredMount minHeight="620px">
+        <PerChiSiPerChiNo />
       </DeferredMount>
 
     </>
