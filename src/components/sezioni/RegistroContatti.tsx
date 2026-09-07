@@ -6,29 +6,14 @@ import Link from "next/link";
  * nelle conoscitive, non lamentavano risultati scarsi — lamentavano di non
  * aver potuto vedere niente.
  *
- * Struttura in due tempi: a sinistra il caos di come si tengono oggi le
- * richieste, a destra il registro. Poi la ricostruzione del registro vero.
+ * Mostra il registro vero, ricostruito: la sua voce prima e dopo, poi la
+ * tabella. Il disordine di partenza lo disegna gia' il blocco sopra
+ * (ConfrontoCaos): qui si entra dentro il registro e basta.
  *
  * ⚠️ I dati della tabella sono ANONIMIZZATI: nessun nome, nessun recapito,
  * nessun riferimento a persone reali. Le note riproducono la forma di quelle
  * vere, non il contenuto.
  */
-
-const caos = [
-  "Quello di marzo l'ho richiamato?",
-  "Sta sul quaderno o su WhatsApp?",
-  "Quanti preventivi ho mandato questo mese?",
-  "Il numero ce l'ha qualcuno in ufficio",
-  "Tanto se è interessato richiama lui",
-  "Poi lo richiamo io, appena scendo dal cantiere",
-  "Questo aveva un budget o guardava e basta?",
-];
-
-const ordine = [
-  "Ogni richiesta entra nel registro con budget, tempi e chi decide.",
-  "Chi non comprerà mai viene scartato prima che tu prenda il furgone.",
-  "Su ogni contatto vedi a che punto è, chi l'ha sentito e quando si richiama.",
-];
 
 /** Fasi reali del sistema, con i dati d'esempio resi anonimi. */
 const righe = [
@@ -97,39 +82,6 @@ export default function RegistroContatti() {
           persona che la segue. Non un report che ti arriva a fine mese — un
           registro che apri tu, quando vuoi.
         </p>
-
-        {/* Caos → ordine */}
-        <div className="mb-12 grid gap-6 md:mb-16 md:grid-cols-2 md:gap-8">
-          <div className="card-xl border-l-4 border-l-red-400 p-6 sm:p-8">
-            <p className="mb-5 text-xs font-bold uppercase tracking-widest text-red-800">
-              Oggi
-            </p>
-            <ul className="space-y-3">
-              {caos.map((frase) => (
-                <li key={frase} className="flex gap-3 text-sm leading-snug text-brand-grigio sm:text-base">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400" aria-hidden />
-                  <span className="italic">&ldquo;{frase}&rdquo;</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="card-xl border-l-4 border-l-brand-corallo p-6 sm:p-8">
-            <p className="mb-5 text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
-              Con il registro
-            </p>
-            <ol className="space-y-5">
-              {ordine.map((frase, i) => (
-                <li key={frase} className="flex gap-4">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-brand-corallo font-display text-xs font-bold text-brand-corallo-text">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm leading-snug text-brand-nero sm:text-base">{frase}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
 
         {/* Prima e dopo, nella sua voce */}
         <div className="mb-12 grid gap-4 md:mb-16 md:grid-cols-2 md:gap-6">

@@ -58,7 +58,7 @@ const tappe: Tappa[] = [
     n: "03",
     domanda: (
       <>
-        Ti è capitato di scoprire che il lavoro l'ha preso un altro{" "}
+        Ti è capitato di scoprire che il lavoro l&apos;ha preso un altro{" "}
         <span className="text-brand-corallo-text">per duemila euro in meno</span>?
       </>
     ),
@@ -172,9 +172,8 @@ export default function PercorsoDomande() {
             </p>
             <p className="body-lg mt-3">
               Prima di progetti e preventivi guardiamo i tuoi numeri e il tuo
-              modo di lavorare, e ti diciamo se un sistema di acquisizione ha
-              senso per la tua impresa. A volte la risposta è no, e te lo
-              diciamo lo stesso.
+              modo di lavorare, e ti diciamo se ha senso lavorare insieme.
+              A volte la risposta è no, e te lo diciamo lo stesso.
             </p>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link

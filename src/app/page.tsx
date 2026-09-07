@@ -8,6 +8,8 @@ import FAQAccordion from "@/components/ui/FAQAccordion";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
+import PercorsoDomande from "@/components/sezioni/PercorsoDomande";
+import RegistroContatti from "@/components/sezioni/RegistroContatti";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -178,12 +180,30 @@ export default function Home() {
         <PercheSceglierci />
       </DeferredMount>
 
+      {/* S3 — IL PERCORSO, IN QUATTRO DOMANDE
+          Il corpo della lettera: dove si perde il lavoro, raccontato in
+          ordine cronologico e sempre come domanda. La conclusione la tira
+          lui: se gliela affermiamo noi, si difende. Le quattro scene sono
+          quelle gia' testate al telefono nel playbook. */}
+      <DeferredMount minHeight="900px" rootMargin="320px 0px">
+        <PercorsoDomande />
+      </DeferredMount>
+
       {/* S3b — IL REGISTRO DEI CONTATTI
           Risponde all'obiezione che ferma piu' trattative di ogni altra:
           "non so come lavorate davvero". Sta qui perche' la domanda nasce
           dopo il problema e prima del metodo. */}
       <DeferredMount minHeight="900px" rootMargin="320px 0px">
         <ConfrontoCaos />
+      </DeferredMount>
+
+      {/* S3c — IL REGISTRO DEI CONTATTI
+          La prova visiva: il lavoro non l'ha perso, e' scritto qui dentro.
+          Il blocco sopra disegna il disordine, questo mostra il registro
+          vero, con la colonna delle note che e' la trattativa messa per
+          iscritto. Dati anonimizzati. */}
+      <DeferredMount minHeight="960px" rootMargin="320px 0px">
+        <RegistroContatti />
       </DeferredMount>
 
       {/* S4 — METODO FORGE
@@ -244,7 +264,7 @@ export default function Home() {
             eyebrow="Il confronto"
             title={
               <>
-                Dove si ferma un'agenzia.{" "}
+                Dove si ferma un&apos;agenzia.{" "}
                 <span className="text-brand-corallo-text">Dove arriviamo noi.</span>
               </>
             }
@@ -255,7 +275,7 @@ export default function Home() {
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-brand-panna">
                   <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
-                    L'agenzia che ti consegna il contatto
+                    L&apos;agenzia che ti consegna il contatto
                   </p>
                 </div>
                 <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,#1f7a5c_10%,#ffffff)]">
@@ -281,7 +301,7 @@ export default function Home() {
                 },
                 {
                   other: "Report su visualizzazioni, clic e copertura",
-                  forge: "Si contano i cantieri firmati e il margine che lasciano",
+                  forge: "Si contano i contratti firmati e il margine che lasciano",
                 },
                 {
                   other: "Non ha mai visto un cantiere del tuo settore",
