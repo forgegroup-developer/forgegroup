@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import { LEGAL, LEGAL_PROCESSORS } from "@/data/legal";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ function BulletList({ items }: { items: string[] }) {
     <ul className="space-y-2 mb-6">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 text-brand-nero">
-          <span className="text-brand-corallo shrink-0">✦</span>
+          <span aria-hidden="true" className="text-brand-corallo shrink-0">✦</span>
           <span>{item}</span>
         </li>
       ))}
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Privacy Policy</p>
+        <p className="eyebrow mb-6">✦ Privacy Policy</p>
         <h1 className="heading-section font-semibold text-brand-nero leading-tight">
           Informativa sul trattamento dei dati personali
         </h1>
@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
             La presente informativa descrive come <strong>{LEGAL.controllerName}</strong>, operante con la denominazione
             commerciale <strong>{LEGAL.controllerTradeName}</strong> (di seguito, il «Titolare» o «noi»), tratta i dati
             personali degli utenti che visitano il sito{" "}
-            <a href={LEGAL.siteUrl} className="text-brand-corallo hover:underline">
+            <a href={LEGAL.siteUrl} className="text-brand-corallo-text hover:underline">
               {LEGAL.siteUrl}
             </a>{" "}
             e utilizzano i servizi ivi offerti, in conformità al Regolamento (UE) 2016/679 («GDPR») e al D.Lgs. 196/2003
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
               Il Titolare del trattamento dei dati personali raccolti tramite questo sito è{" "}
               <strong>{LEGAL.controllerName}</strong>, Partita IVA {LEGAL.controllerVat}, con sede in{" "}
               {LEGAL.controllerAddress}. Email:{" "}
-              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
+              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo-text hover:underline">
                 {LEGAL.controllerEmail}
               </a>
               .
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
                     href={p.privacyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-brand-corallo text-sm hover:underline mt-2 inline-block"
+                    className="text-brand-corallo-text text-sm hover:underline mt-2 inline-block"
                   >
                     Informativa privacy del fornitore →
                   </a>
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
             />
             <p className="text-brand-grigio leading-relaxed mb-6">
               Per esercitare i diritti scrivi a{" "}
-              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo hover:underline">
+              <a href={`mailto:${LEGAL.controllerEmail}`} className="text-brand-corallo-text hover:underline">
                 {LEGAL.controllerEmail}
               </a>
               , indicando l&apos;oggetto «Richiesta privacy GDPR». Risponderemo entro un mese, prorogabile di due mesi
@@ -253,7 +253,7 @@ export default function PrivacyPolicy() {
                 href={LEGAL.garanteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-corallo hover:underline"
+                className="text-brand-corallo-text hover:underline"
               >
                 www.garanteprivacy.it
               </a>
@@ -262,7 +262,7 @@ export default function PrivacyPolicy() {
                 href={LEGAL.garanteReclamiUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-corallo hover:underline"
+                className="text-brand-corallo-text hover:underline"
               >
                 come presentare reclamo
               </a>
@@ -280,7 +280,7 @@ export default function PrivacyPolicy() {
           <Section title="11. Cookie e tecnologie simili">
             <p className="text-brand-grigio leading-relaxed mb-6">
               Per informazioni su cookie e strumenti di tracciamento utilizzati sul sito, consulta la nostra{" "}
-              <Link href="/cookie-policy" className="text-brand-corallo hover:underline">
+              <Link href="/cookie-policy" className="text-brand-corallo-text hover:underline">
                 Cookie Policy
               </Link>
               .

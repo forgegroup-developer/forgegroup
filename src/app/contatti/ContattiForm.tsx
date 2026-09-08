@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
-import AnimatedStepper, { Step } from "@/components/AnimatedStepper";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import AnimatedStepper, { Step } from "@/components/sezioni/AnimatedStepper";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type FormData = {
   nome_attivita: string;
@@ -70,6 +70,8 @@ const steps: FormStep[] = [
   { name: "telefono", label: "Telefono", type: "tel", placeholder: "+39 333 1234567" },
   { name: "email", label: "Email", type: "email", placeholder: "nome@azienda.it" },
 ];
+
+const ERROR_ID = "form-errore-step";
 
 const inputCls =
   "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-5 py-4 text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
@@ -162,9 +164,19 @@ export default function ContattiForm() {
   };
 
   const renderField = (step: FormStep) => {
+    const fieldId = `campo-${step.name}`;
+    const describedBy = stepError ? ERROR_ID : undefined;
+
     if (step.type === "select" && step.options) {
       return (
-        <div className="space-y-3">
+        <div
+          role="radiogroup"
+          aria-labelledby={`titolo-${step.name}`}
+          aria-required="true"
+          aria-invalid={stepError ? true : undefined}
+          aria-describedby={describedBy}
+          className="space-y-3"
+        >
           {step.options.map((opt) => {
             const selected = form[step.name] === opt.value;
             const stepIsLast = steps.indexOf(step) === steps.length - 1;
@@ -172,6 +184,8 @@ export default function ContattiForm() {
               <button
                 key={opt.value}
                 type="button"
+                role="radio"
+                aria-checked={selected}
                 onClick={() => {
                   updateField(step.name, opt.value);
                   if (!stepIsLast) {
@@ -180,7 +194,7 @@ export default function ContattiForm() {
                 }}
                 className={`w-full text-left rounded-xl border-2 px-5 py-4 text-base md:text-lg transition-all duration-200 ${
                   selected
-                    ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero shadow-sm"
+                    ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero font-semibold shadow-sm"
                     : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50 hover:bg-brand-panna/50"
                 }`}
               >
@@ -195,11 +209,16 @@ export default function ContattiForm() {
     if (step.type === "textarea") {
       return (
         <textarea
+          id={fieldId}
           ref={inputRef as React.RefObject<HTMLTextAreaElement>}
           value={form[step.name]}
           onChange={(e) => updateField(step.name, e.target.value)}
           rows={step.rows ?? 4}
           placeholder={step.placeholder}
+          required
+          aria-required="true"
+          aria-invalid={stepError ? true : undefined}
+          aria-describedby={describedBy}
           className={`${inputCls} resize-y min-h-[140px]`}
         />
       );
@@ -207,14 +226,25 @@ export default function ContattiForm() {
 
     return (
       <input
+        id={fieldId}
         ref={inputRef as React.RefObject<HTMLInputElement>}
         type={step.type}
         value={form[step.name]}
         onChange={(e) => updateField(step.name, e.target.value)}
         placeholder={step.placeholder}
+        required
+        aria-required="true"
+        aria-invalid={stepError ? true : undefined}
+        aria-describedby={describedBy}
         className={inputCls}
         autoComplete={
-          step.type === "email" ? "email" : step.type === "tel" ? "tel" : "organization"
+          step.type === "email"
+            ? "email"
+            : step.type === "tel"
+              ? "tel"
+              : step.name === "nome_cognome"
+                ? "name"
+                : "organization"
         }
       />
     );
@@ -231,7 +261,7 @@ export default function ContattiForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-4">✦ Candidatura ricevuta</p>
+        <p className="eyebrow mb-4">✦ Candidatura ricevuta</p>
         <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
           Grazie. Adesso <span className="text-brand-corallo">analizziamo</span> il tuo caso.
         </h1>
@@ -258,7 +288,7 @@ export default function ContattiForm() {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+        <p className="eyebrow mb-6">
           ✦ Prequalifica Strategica
         </p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
@@ -289,7 +319,12 @@ export default function ContattiForm() {
             renderFooter={({ currentStep, handleBack, handleNext, isLastStep: last }) => (
               <>
                 {stepError && (
-                  <p className="mb-4 text-sm font-medium text-brand-corallo" role="alert" aria-live="polite">
+                  <p
+                    id={ERROR_ID}
+                    className="mb-4 text-sm font-medium text-brand-corallo-text"
+                    role="alert"
+                    aria-live="polite"
+                  >
                     {stepError}
                   </p>
                 )}
@@ -336,7 +371,7 @@ export default function ContattiForm() {
                 {last && (
                   <p className="text-xs text-center text-brand-grigio-light mt-6">
                     Inviando il modulo accetti la nostra{" "}
-                    <Link href="/privacy-policy" className="text-brand-corallo hover:underline">
+                    <Link href="/privacy-policy" className="text-brand-corallo-text hover:underline">
                       Privacy Policy
                     </Link>
                     . I tuoi dati saranno usati solo per valutare la candidatura.
@@ -346,7 +381,12 @@ export default function ContattiForm() {
             )}
           >
             {steps.map((step) => (
-              <Step key={step.name} title={step.label}>
+              <Step
+                key={step.name}
+                title={step.label}
+                titleId={`titolo-${step.name}`}
+                fieldId={step.type === "select" ? undefined : `campo-${step.name}`}
+              >
                 {renderField(step)}
               </Step>
             ))}

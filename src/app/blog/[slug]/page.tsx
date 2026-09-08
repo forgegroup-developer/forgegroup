@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import FaqAccordion from "@/components/blog/FaqAccordion";
 import InlineLinkText from "@/components/blog/InlineLinkText";
 import {
@@ -224,7 +224,7 @@ export default async function ArticleDetail({ params }: Props) {
                         key={i}
                         className="bg-brand-panna border-2 border-brand-corallo rounded-2xl p-6 md:p-8 my-8 text-center"
                       >
-                        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-3">
+                        <p className="eyebrow mb-3">
                           ✦ Vuoi applicarlo alla tua azienda?
                         </p>
                         <h3 className="text-xl font-semibold md:text-3xl text-brand-nero mb-4">

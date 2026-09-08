@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import { searchArticles } from "@/lib/blog/articlesAsync";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 // Pagina di servizio: dinamica per forza di cose (dipende da ?q=) e fuori
 // dall'indice, così /blog resta prerenderizzato e servito dalla CDN.
@@ -26,7 +26,7 @@ export default async function BlogSearch({ searchParams }: Props) {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">✦ Blog</p>
+        <p className="eyebrow mb-6">✦ Blog</p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
           Risultati <span className="text-brand-corallo">ricerca</span>
         </h1>
@@ -35,7 +35,7 @@ export default async function BlogSearch({ searchParams }: Props) {
             ? `${risultati.length} ${risultati.length === 1 ? "articolo" : "articoli"} per "${query}".`
             : "Scrivi una parola chiave nel riquadro di ricerca per filtrare gli articoli."}{" "}
           Torna a{" "}
-          <Link href="/blog" className="font-semibold text-brand-corallo hover:underline">
+          <Link href="/blog" className="font-semibold text-brand-corallo-text hover:underline">
             tutti gli articoli
           </Link>
           .

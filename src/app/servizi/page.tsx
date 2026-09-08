@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import ForgeGradientBackground from "@/components/ForgeGradientBackground";
-import MetodoForge from "@/components/MetodoForge";
-import SectionHeader from "@/components/SectionHeader";
-import ClientiLogos from "@/components/ClientiLogos";
-import ServiziTabCard, { type ServiziTabPoint } from "@/components/ServiziTabCard";
-import HeroGooeySection from "@/components/HeroGooeySection";
-import ReelHeroVideo from "@/components/ReelHeroVideo";
-import ServiziHeroScrollCue from "@/components/ServiziHeroScrollCue";
+import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
+import MetodoForge from "@/components/sezioni/MetodoForge";
+import SectionHeader from "@/components/ui/SectionHeader";
+import ClientiLogos from "@/components/sezioni/ClientiLogos";
+import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
+import ReelHeroVideo from "@/components/media/ReelHeroVideo";
+import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { serviziSidebarImages, siteImages } from "@/data/images";
 
@@ -159,28 +159,28 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
         <span className="text-brand-corallo">fatturato</span> della tua azienda.
       </h1>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
-        Ottieni una consulenza gratuita
+        Prenota una consulenza
       </Link>
     </div>
   );
 }
 
 export const metadata: Metadata = {
-  title: "Servizi | Sistema di acquisizione e vendita B2B",
+  title: "Servizi | Il Metodo FORGE, dal contatto alla firma",
   description:
-    "Scopri come costruiamo acquisizione e vendita B2B integrati. Caso DISA: €126.500 di nuovo fatturato in 90 giorni. Acquisizione clienti, processi di vendita e consulenza.",
+    "Cosa facciamo per un'impresa edile: ti portiamo richieste da chi il lavoro può pagarlo, filtriamo chi non comprerà mai e restiamo in trattativa con te fino alla firma. Caso DISA: 126.500 € di nuovo fatturato in 90 giorni.",
   alternates: { canonical: "/servizi" },
   openGraph: {
-    title: "Servizi Forge Group | Acquisizione, vendita e consulenza B2B",
+    title: "Servizi Forge Group | Il Metodo FORGE per le imprese edili",
     description:
-      "Sistema integrato di acquisizione clienti, processi di vendita e consulenza per imprese B2B.",
+      "Richieste qualificate, trattativa seguita fino alla firma e il registro dove vedi a che punto sta ognuna.",
     url: "/servizi",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Servizi Forge Group",
-    description: "Acquisizione clienti, vendita e consulenza B2B integrati.",
+    description: "Dal contatto alla firma: il Metodo FORGE per le imprese edili.",
     images: ["/logo.png"],
   },
 };

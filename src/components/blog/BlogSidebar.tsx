@@ -77,7 +77,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
                     <p className="text-[11px] uppercase tracking-wide text-brand-grigio-light mb-1">
                       {formatDate(article.date)}
                     </p>
-                    <p className="text-sm font-semibold text-brand-nero leading-snug group-hover:text-brand-corallo transition-colors line-clamp-2">
+                    <p className="text-sm font-semibold text-brand-nero leading-snug group-hover:text-brand-corallo-text transition-colors line-clamp-2">
                       {article.title}
                     </p>
                   </div>
@@ -96,7 +96,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
               <li key={cat.slug}>
                 <Link
                   href={`/blog/categoria/${cat.slug}`}
-                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-brand-grigio hover:bg-brand-panna hover:text-brand-corallo transition-colors"
+                  className="flex items-center justify-between rounded-lg px-3 py-2 text-sm text-brand-grigio hover:bg-brand-panna hover:text-brand-corallo-text transition-colors"
                 >
                   <span>{cat.name}</span>
                   <span className="text-xs text-brand-grigio-light">({cat.count})</span>
@@ -113,7 +113,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
           Vuoi costruire un sistema di acquisizione clienti prevedibile?
         </p>
         <p className="text-sm text-brand-nero mb-1">
-          <a href="mailto:info@forgegroup.it" className="font-semibold text-brand-corallo hover:underline">
+          <a href="mailto:info@forgegroup.it" className="font-semibold text-brand-corallo-text hover:underline">
             info@forgegroup.it
           </a>
         </p>

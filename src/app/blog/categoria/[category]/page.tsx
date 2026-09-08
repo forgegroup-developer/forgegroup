@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ArticleList from "@/components/blog/ArticleList";
 import BlogSidebar from "@/components/blog/BlogSidebar";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import {
   getArticlesByCategory,
   getCategoryFromSlug,
   getCategorySlugsForBuild,
 } from "@/lib/blog/articlesAsync";
-import HeroGooeySection from "@/components/HeroGooeySection";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type Props = { params: Promise<{ category: string }> };
 
@@ -53,7 +53,7 @@ export default async function BlogCategoryPage({ params }: Props) {
   return (
     <>
       <HeroGooeySection innerClassName="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-xs uppercase tracking-widest text-brand-corallo font-bold mb-6">
+        <p className="eyebrow mb-6">
           ✦ {categoryName}
         </p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight mb-6">
@@ -61,7 +61,7 @@ export default async function BlogCategoryPage({ params }: Props) {
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-brand-grigio md:text-lg">
           Tutti gli articoli nella categoria {categoryName}. Torna all&apos;{" "}
-          <Link href="/blog" className="font-semibold text-brand-corallo hover:underline">
+          <Link href="/blog" className="font-semibold text-brand-corallo-text hover:underline">
             archivio completo
           </Link>
           .
