@@ -166,21 +166,21 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
 }
 
 export const metadata: Metadata = {
-  title: "Servizi | Sistema di acquisizione e vendita B2B",
+  title: "Servizi | Il Metodo FORGE, dal contatto alla firma",
   description:
-    "Scopri come costruiamo acquisizione e vendita B2B integrati. Caso DISA: €126.500 di nuovo fatturato in 90 giorni. Acquisizione clienti, processi di vendita e consulenza.",
+    "Cosa facciamo per un'impresa edile: ti portiamo richieste da chi il lavoro può pagarlo, filtriamo chi non comprerà mai e restiamo in trattativa con te fino alla firma. Caso DISA: 126.500 € di nuovo fatturato in 90 giorni.",
   alternates: { canonical: "/servizi" },
   openGraph: {
-    title: "Servizi Forge Group | Acquisizione, vendita e consulenza B2B",
+    title: "Servizi Forge Group | Il Metodo FORGE per le imprese edili",
     description:
-      "Sistema integrato di acquisizione clienti, processi di vendita e consulenza per imprese B2B.",
+      "Richieste qualificate, trattativa seguita fino alla firma e il registro dove vedi a che punto sta ognuna.",
     url: "/servizi",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Servizi Forge Group",
-    description: "Acquisizione clienti, vendita e consulenza B2B integrati.",
+    description: "Dal contatto alla firma: il Metodo FORGE per le imprese edili.",
     images: ["/logo.png"],
   },
 };

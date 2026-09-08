@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { righeRegistro, stileFase } from "@/data/registro";
 
 /**
  * Il blocco che risponde all'obiezione che ferma piu' trattative di ogni
@@ -16,57 +17,6 @@ import Link from "next/link";
  */
 
 /** Fasi reali del sistema, con i dati d'esempio resi anonimi. */
-const righe = [
-  {
-    richiesta: "Ristrutturazione attività esistente",
-    zona: "Provincia di Napoli",
-    fase: "1° APP. DI REVISIONE",
-    tono: "avanti" as const,
-    nota: "Locale 50 mq, ristrutturazione completa. Ha già altri tre preventivi: 22, 28 e 33 mila. Non ha ancora un tecnico.",
-    quando: "Giovedì 20 · 9:30",
-  },
-  {
-    richiesta: "Nuova attività, arredo e progettazione",
-    zona: "Provincia di Avellino",
-    fase: "DA RICHIAMARE",
-    tono: "attesa" as const,
-    nota: "Budget indicativo confermato in chiamata. Deve parlare con la proprietà del locale prima di decidere.",
-    quando: "1 settembre",
-  },
-  {
-    richiesta: "Ha un progetto e cerca chi lo realizzi",
-    zona: "Provincia di Caserta",
-    fase: "NON RISPONDE",
-    tono: "fermo" as const,
-    nota: "Due chiamate, mattina e pomeriggio. Mandato messaggio su WhatsApp.",
-    quando: "Richiamo a 48h",
-  },
-  {
-    richiesta: "Solo informazioni, nessun budget",
-    zona: "Fuori zona",
-    fase: "SQUALIFICATO",
-    tono: "scartato" as const,
-    nota: "Chiedeva un prezzo al metro quadro. Nessun lavoro in programma. Chiuso prima del sopralluogo.",
-    quando: "—",
-  },
-  {
-    richiesta: "Ristrutturazione attività esistente",
-    zona: "Provincia di Salerno",
-    fase: "CONTRATTO",
-    tono: "chiuso" as const,
-    nota: "Progetto approvato in sede. Piano dei lavori firmato.",
-    quando: "Chiuso",
-  },
-];
-
-const stileFase: Record<string, string> = {
-  avanti: "bg-amber-50 text-amber-900 border-amber-200",
-  attesa: "bg-sky-50 text-sky-900 border-sky-200",
-  fermo: "bg-neutral-100 text-neutral-700 border-neutral-300",
-  scartato: "bg-red-50 text-red-900 border-red-200",
-  chiuso: "bg-emerald-50 text-emerald-900 border-emerald-300",
-};
-
 export default function RegistroContatti() {
   return (
     <section id="registro" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
@@ -125,7 +75,7 @@ export default function RegistroContatti() {
                 </tr>
               </thead>
               <tbody>
-                {righe.map((r) => (
+                {righeRegistro.map((r) => (
                   <tr key={r.nota} className="border-b border-brand-bordo/60 last:border-0 align-top">
                     <td className="px-5 py-4 text-sm font-semibold text-brand-nero">{r.richiesta}</td>
                     <td className="px-5 py-4 text-sm text-brand-grigio">{r.zona}</td>

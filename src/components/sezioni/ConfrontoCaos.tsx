@@ -38,7 +38,7 @@ const fili: ReadonlyArray<readonly [number, number]> = [
 const passi = [
   {
     t: "Ti portiamo richieste da chi il lavoro può pagarlo",
-    d: "Le intercettiamo noi, non aspettiamo il passaparola. E prima di passartele le sentiamo al telefono.",
+    d: "Le intercettiamo noi, non aspettiamo il passaparola.",
   },
   {
     t: "Chi non comprerà mai lo fermiamo prima del furgone",
@@ -46,7 +46,11 @@ const passi = [
   },
   {
     t: "Restiamo in trattativa con te fino alla firma",
-    d: "Ogni richiesta ha una data, uno stato e una persona che la segue. Lo apri quando vuoi e vedi a che punto è.",
+    d: "Prepariamo l'incontro insieme a te, e dopo il preventivo il cliente si richiama. Non aspettiamo che si faccia vivo lui.",
+  },
+  {
+    t: "Non ti portiamo solo le richieste: ti diamo il sistema per gestirle",
+    d: "Ogni richiesta ha una data, uno stato e una persona che la segue. Lo apri dal telefono quando vuoi e vedi a che punto è.",
   },
 ];
 

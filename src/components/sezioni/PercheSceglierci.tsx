@@ -59,6 +59,11 @@ export default function PercheSceglierci() {
         </div>
 
         <div className="superficie-chiara rounded-3xl border border-brand-bordo bg-brand-panna p-7 shadow-lg sm:p-9">
+          {/* La domanda apre e chiude l'elenco: in mezzo lui si conta dentro
+              da solo, e nessuna riga lo sta accusando. */}
+          <p className="mb-4 font-display text-lg font-bold text-brand-corallo-text sm:text-xl">
+            Sei un&apos;impresa edile?
+          </p>
           <p className="mb-1 font-display text-3xl font-bold leading-none text-brand-nero sm:text-4xl">
             L&apos;80% delle imprese edili
           </p>
@@ -78,6 +83,10 @@ export default function PercheSceglierci() {
               </li>
             ))}
           </ul>
+
+          <p className="mt-7 border-t border-brand-bordo pt-6 font-display text-lg font-bold leading-snug text-brand-nero sm:text-xl">
+            Anche tu ti ritrovi in questa dinamica?
+          </p>
         </div>
       </div>
     </section>

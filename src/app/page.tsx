@@ -9,7 +9,7 @@ import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercorsoDomande from "@/components/sezioni/PercorsoDomande";
-import RegistroContatti from "@/components/sezioni/RegistroContatti";
+import RegistroSintesi from "@/components/sezioni/RegistroSintesi";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -96,7 +96,8 @@ export default function Home() {
               fino alla firma
             </strong>
             . Senza perdere i sabati con chi cerca solo un preventivo da
-            confrontare.
+            confrontare, senza rincorrere nessuno e senza che tu debba
+            diventare un esperto di pubblicità.
           </p>
 
           <p className="hero-enter hero-enter-d3 firma-fondatori">
@@ -197,13 +198,13 @@ export default function Home() {
         <ConfrontoCaos />
       </DeferredMount>
 
-      {/* S3c — IL REGISTRO DEI CONTATTI
-          La prova visiva: il lavoro non l'ha perso, e' scritto qui dentro.
-          Il blocco sopra disegna il disordine, questo mostra il registro
-          vero, con la colonna delle note che e' la trattativa messa per
-          iscritto. Dati anonimizzati. */}
-      <DeferredMount minHeight="960px" rootMargin="320px 0px">
-        <RegistroContatti />
+      {/* S3c — IL REGISTRO, DETTO CORTO
+          In revisione: in home il registro si nomina, non si spiega. Resta
+          la frase che regge tutto — non aumentiamo solo le richieste, ti
+          diamo anche come gestirle — con tre righe vere del registro. Il
+          resto sta su /il-tuo-registro. */}
+      <DeferredMount minHeight="620px" rootMargin="320px 0px">
+        <RegistroSintesi />
       </DeferredMount>
 
       {/* S4 — METODO FORGE

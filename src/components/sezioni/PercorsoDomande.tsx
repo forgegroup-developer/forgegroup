@@ -98,8 +98,12 @@ function TappaBlocco({ tappa, ultima }: { tappa: Tappa; ultima: boolean }) {
         <h3 className="heading-domanda text-balance">{tappa.domanda}</h3>
         <p className="body-lg mt-5 max-w-2xl">{tappa.testo}</p>
 
-        <figure className="mt-8 overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco">
-          {tappa.img ? (
+        {/* La fotografia compare solo quando c'e'. Un segnaposto con
+            scritto "illustrazione in arrivo" e' un cartello da cantiere
+            aperto: su un sito che si regge sulla credibilita' costa piu'
+            di quanto valga. */}
+        {tappa.img && (
+          <figure className="mt-8 overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco">
             <Image
               src={tappa.img}
               alt={tappa.alt ?? ""}
@@ -108,22 +112,8 @@ function TappaBlocco({ tappa, ultima }: { tappa: Tappa; ultima: boolean }) {
               className="h-auto w-full object-cover"
               sizes="(max-width: 768px) 100vw, 720px"
             />
-          ) : (
-            /* Segnaposto finche' non arrivano gli scatti: mostra il muro di
-               cantiere invece di un rettangolo grigio. */
-            <div className="percorso-segnaposto relative aspect-[16/9] w-full">
-              <span className="muro-cantiere" />
-              <span className="relative z-10 flex h-full flex-col items-center justify-center gap-1 px-4 text-center">
-                <span className="text-xs font-semibold uppercase tracking-widest text-brand-grigio">
-                  Illustrazione in arrivo
-                </span>
-                <code className="text-[0.7rem] text-brand-grigio-light">
-                  /images/percorso/{tappa.imgAttesa}
-                </code>
-              </span>
-            </div>
-          )}
-        </figure>
+          </figure>
+        )}
       </div>
     </div>
   );

@@ -57,8 +57,15 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
   { path: "/", label: "Home", priority: 1, changeFrequency: "weekly", inLlmsMainPages: true },
   {
     path: "/servizi",
-    label: "Servizi B2B",
+    label: "Servizi",
     priority: 0.9,
+    changeFrequency: "monthly",
+    inLlmsMainPages: true,
+  },
+  {
+    path: "/il-tuo-registro",
+    label: "Il registro dei tuoi contatti",
+    priority: 0.8,
     changeFrequency: "monthly",
     inLlmsMainPages: true,
   },
