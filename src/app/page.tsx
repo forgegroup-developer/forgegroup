@@ -8,7 +8,6 @@ import FAQAccordion from "@/components/ui/FAQAccordion";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
-import CrmSintesi from "@/components/sezioni/CrmSintesi";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -189,14 +188,6 @@ export default function Home() {
         <ConfrontoCaos />
       </DeferredMount>
 
-      {/* S3c — IL REGISTRO, DETTO CORTO
-          In revisione: in home il CRM si nomina, non si spiega. Resta
-          la frase che regge tutto — non aumentiamo solo le richieste, ti
-          diamo anche come gestirle — con tre righe vere del CRM. Il
-          resto sta su /crm-gestionale-edilizia. */}
-      <DeferredMount minHeight="620px" rootMargin="320px 0px">
-        <CrmSintesi />
-      </DeferredMount>
 
       {/* S4 — METODO FORGE
           Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
