@@ -8,7 +8,7 @@ import FAQAccordion from "@/components/ui/FAQAccordion";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
-import RegistroSintesi from "@/components/sezioni/RegistroSintesi";
+import CrmSintesi from "@/components/sezioni/CrmSintesi";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -190,12 +190,12 @@ export default function Home() {
       </DeferredMount>
 
       {/* S3c — IL REGISTRO, DETTO CORTO
-          In revisione: in home il registro si nomina, non si spiega. Resta
+          In revisione: in home il CRM si nomina, non si spiega. Resta
           la frase che regge tutto — non aumentiamo solo le richieste, ti
-          diamo anche come gestirle — con tre righe vere del registro. Il
-          resto sta su /il-tuo-registro. */}
+          diamo anche come gestirle — con tre righe vere del CRM. Il
+          resto sta su /crm-gestionale-edilizia. */}
       <DeferredMount minHeight="620px" rootMargin="320px 0px">
-        <RegistroSintesi />
+        <CrmSintesi />
       </DeferredMount>
 
       {/* S4 — METODO FORGE

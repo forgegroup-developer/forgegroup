@@ -173,7 +173,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Servizi Forge Group | Il Metodo FORGE per le imprese edili",
     description:
-      "Richieste qualificate, trattativa seguita fino alla firma e il registro dove vedi a che punto sta ognuna.",
+      "Richieste qualificate, trattativa seguita fino alla firma e il CRM gestionale dove vedi a che punto sta ognuna.",
     url: "/servizi",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
   },

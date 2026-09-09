@@ -63,8 +63,8 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
     inLlmsMainPages: true,
   },
   {
-    path: "/il-tuo-registro",
-    label: "Il registro dei tuoi contatti",
+    path: "/crm-gestionale-edilizia",
+    label: "CRM gestionale per imprese edili",
     priority: 0.8,
     changeFrequency: "monthly",
     inLlmsMainPages: true,

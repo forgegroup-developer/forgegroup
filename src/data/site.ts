@@ -10,11 +10,11 @@
 export const faqs = [
   {
     q: "Ho già speso con un'agenzia e non è cambiato niente. Perché con voi dovrebbe andare diversamente?",
-    a: "È la frase che sentiamo più spesso, e non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. Poi, dal primo giorno, vedi il registro dove finiscono le richieste e vedi quanto va in pubblicità, separato da quello che prendiamo noi. E se a un certo punto non sta funzionando, te lo diciamo noi per primi e si ferma.",
+    a: "È la frase che sentiamo più spesso, e non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. Poi, dal primo giorno, vedi il CRM gestionale dove finiscono le richieste e vedi quanto va in pubblicità, separato da quello che prendiamo noi. E se a un certo punto non sta funzionando, te lo diciamo noi per primi e si ferma.",
   },
   {
     q: "Non so come lavorate davvero. Come faccio a controllarvi?",
-    a: "Apri il registro dal telefono quando vuoi. Dentro c'è ogni richiesta con la data, lo stato e la persona che la sta seguendo: chi va richiamato oggi, chi aspetta un preventivo, chi si è fermato. Non è un report che ti arriva a fine mese, è la stessa schermata che guardiamo noi.",
+    a: "Apri il CRM gestionale dal telefono quando vuoi. Dentro c'è ogni richiesta con la data, lo stato e la persona che la sta seguendo: chi va richiamato oggi, chi aspetta un preventivo, chi si è fermato. Non è un report che ti arriva a fine mese, è la stessa schermata che guardiamo noi.",
   },
   {
     q: "Quanto costa lavorare con voi?",
@@ -50,6 +50,6 @@ export const faqs = [
   },
   {
     q: "Lavorate solo in Campania o in tutta Italia?",
-    a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia; il resto del lavoro si porta avanti a distanza, con il registro aperto da entrambe le parti.",
+    a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia; il resto del lavoro si porta avanti a distanza, con il CRM aperto da entrambe le parti.",
   },
 ];

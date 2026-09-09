@@ -39,6 +39,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // La pagina del CRM ha cambiato nome il 9 settembre 2026: era
+      // /il-tuo-registro, "registro" e' stato scartato perche' in edilizia
+      // evoca il giornale dei lavori e nessuno lo cerca.
+      {
+        source: "/il-tuo-registro",
+        destination: "/crm-gestionale-edilizia",
+        permanent: true,
+      },
       // La ricerca del blog è passata da /blog?q= alla rotta dedicata.
       {
         source: "/blog",

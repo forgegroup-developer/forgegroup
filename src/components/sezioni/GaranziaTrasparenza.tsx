@@ -20,8 +20,8 @@ import Link from "next/link";
 
 const garanzie = [
   {
-    t: "Il registro dei contatti è tuo",
-    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il registro, aperto.",
+    t: "Il CRM gestionale è tuo",
+    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il CRM, aperto.",
   },
   {
     t: "Sai dove finiscono i tuoi soldi",

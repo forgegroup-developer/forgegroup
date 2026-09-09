@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { righeRegistro, stileFase } from "@/data/registro";
+import { righeCrm, stileFase } from "@/data/crm";
 
 /**
  * Il blocco che risponde all'obiezione che ferma piu' trattative di ogni
@@ -7,9 +7,10 @@ import { righeRegistro, stileFase } from "@/data/registro";
  * nelle conoscitive, non lamentavano risultati scarsi — lamentavano di non
  * aver potuto vedere niente.
  *
- * Mostra il registro vero, ricostruito: la sua voce prima e dopo, poi la
+ * Mostra il CRM gestionale vero, ricostruito: la sua voce prima e dopo,
  * tabella. Il disordine di partenza lo disegna gia' il blocco sopra
- * (ConfrontoCaos): qui si entra dentro il registro e basta.
+ * poi la tabella. Il disordine di partenza lo disegna gia' il blocco
+ * sopra: qui si entra dentro il CRM e basta.
  *
  * ⚠️ I dati della tabella sono ANONIMIZZATI: nessun nome, nessun recapito,
  * nessun riferimento a persone reali. Le note riproducono la forma di quelle
@@ -17,9 +18,9 @@ import { righeRegistro, stileFase } from "@/data/registro";
  */
 
 /** Fasi reali del sistema, con i dati d'esempio resi anonimi. */
-export default function RegistroContatti() {
+export default function CrmGestionale() {
   return (
-    <section id="registro" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
+    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="eyebrow eyebrow-mark mb-4 flex">Come lavoriamo</p>
         <h2 className="heading-section-xl mb-6 max-w-3xl text-balance">
@@ -28,9 +29,9 @@ export default function RegistroContatti() {
         </h2>
         <p className="body-lg mb-12 max-w-2xl md:mb-16">
           Prima ancora della pubblicità, la prima cosa che mettiamo in piedi è
-          questa: un registro dove ogni richiesta ha un budget, una data e una
+          questo: un CRM gestionale dove ogni richiesta ha un budget, una data e
           persona che la segue. Non un report che ti arriva a fine mese — un
-          registro che apri tu, quando vuoi.
+          un CRM che apri tu, quando vuoi.
         </p>
 
         {/* Prima e dopo, nella sua voce */}
@@ -45,17 +46,17 @@ export default function RegistroContatti() {
           <div className="rounded-2xl bg-emerald-50 p-6 sm:p-7">
             <p className="mb-2 text-sm font-bold text-emerald-900">Come va dopo</p>
             <p className="text-base italic leading-relaxed text-emerald-950/90">
-              &ldquo;Apro il registro e vedo ogni richiesta a che punto è. E in
+              &ldquo;Apro il CRM e vedo ogni richiesta a che punto è. E in
               cantiere ci vado per lavorare, non per rincorrere il telefono.&rdquo;
             </p>
           </div>
         </div>
 
-        {/* La ricostruzione del registro */}
+        {/* La ricostruzione del CRM gestionale */}
         <div className="overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-bordo bg-brand-panna px-5 py-4">
             <p className="font-display text-sm font-bold text-brand-nero">
-              Registro contatti — esempio
+              CRM gestionale — esempio
             </p>
             <p className="text-xs text-brand-grigio">Dati anonimizzati</p>
           </div>
@@ -75,7 +76,7 @@ export default function RegistroContatti() {
                 </tr>
               </thead>
               <tbody>
-                {righeRegistro.map((r) => (
+                {righeCrm.map((r) => (
                   <tr key={r.nota} className="border-b border-brand-bordo/60 last:border-0 align-top">
                     <td className="px-5 py-4 text-sm font-semibold text-brand-nero">{r.richiesta}</td>
                     <td className="px-5 py-4 text-sm text-brand-grigio">{r.zona}</td>

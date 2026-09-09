@@ -1,12 +1,12 @@
 /**
- * Le righe del registro dei contatti, usate sia dal blocco corto in home
- * sia dalla pagina /il-tuo-registro.
+ * Le righe del CRM gestionale, usate sia dal blocco corto in home sia
+ * dalla pagina /crm-gestionale-edilizia.
  *
  * ⚠️ Dati ANONIMIZZATI: nessun nome, nessun recapito, nessun riferimento a
  * persone reali. Le note riproducono la forma di quelle vere, non il
  * contenuto.
  */
-export type RigaRegistro = {
+export type RigaCrm = {
   richiesta: string;
   zona: string;
   fase: string;
@@ -15,7 +15,7 @@ export type RigaRegistro = {
   quando: string;
 };
 
-export const righeRegistro: RigaRegistro[] = [
+export const righeCrm: RigaCrm[] = [
   {
     richiesta: "Ristrutturazione attività esistente",
     zona: "Provincia di Napoli",
@@ -58,7 +58,7 @@ export const righeRegistro: RigaRegistro[] = [
   },
 ];
 
-export const stileFase: Record<RigaRegistro["tono"], string> = {
+export const stileFase: Record<RigaCrm["tono"], string> = {
   avanti: "bg-amber-50 text-amber-900 border-amber-200",
   attesa: "bg-sky-50 text-sky-900 border-sky-200",
   fermo: "bg-neutral-100 text-neutral-700 border-neutral-300",
