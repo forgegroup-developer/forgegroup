@@ -10,6 +10,8 @@ type HeroGooeySectionProps = {
   scura?: boolean;
   /** Passa --foto-hero per mettere una fotografia sotto al velo. */
   style?: React.CSSProperties;
+  /** Niente sfumatura e niente reticolo: solo il fondo panna. */
+  pulita?: boolean;
 };
 
 /**
@@ -30,17 +32,27 @@ export default function HeroGooeySection({
   muro = true,
   scura = false,
   style,
+  pulita = false,
 }: HeroGooeySectionProps) {
+  // Con "pulita" restano solo il testo e la fotografia: la sfumatura pesca e
+  // il reticolo da disegno tecnico spariscono. Sul telefono, dove la hero e'
+  // gia' testo su fotografia, erano un terzo strato che rubava attenzione.
+  const fondale = pulita ? false : true;
   return (
-    <section id={id} className="relative overflow-hidden">
+    <section
+      id={id}
+      className={`relative overflow-hidden${pulita ? " bg-brand-panna" : ""}`}
+    >
       <div
         style={style}
         className={`relative h-full w-full overflow-hidden ${scura ? "hero-scura " : ""}${className}`.trim()}
       >
-        {!scura && <div className="hero-fondale pointer-events-none absolute inset-0" aria-hidden />}
+        {!scura && fondale && (
+          <div className="hero-fondale pointer-events-none absolute inset-0" aria-hidden />
+        )}
         {/* Il muro sta sopra la sfumatura e sotto il contenuto: e' decorativo,
             quindi aria-hidden e senza eventi puntatore. */}
-        {muro && <div className="muro-cantiere" aria-hidden />}
+        {muro && !pulita && <div className="muro-cantiere" aria-hidden />}
         <div className={`relative ${innerClassName}`}>{children}</div>
       </div>
       {after}

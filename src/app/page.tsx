@@ -57,7 +57,7 @@ export default function Home() {
           nello stesso schermo, senza dover scorrere.
           Il marchio non si ripete qui: sta gia' nell'intestazione. */}
       <HeroGooeySection
-        muro
+        pulita
         className=""
         innerClassName="hero-split"
       >

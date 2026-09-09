@@ -1,76 +1,82 @@
 "use client";
 
-import { type ReactNode, useRef, useEffect } from "react";
-import { loadGsapScrollTrigger } from "@/lib/loadGsap";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
+  /** 0-3: sfalsa l'entrata delle schede affiancate. */
   delay?: number;
+  /** Accettati per compatibilita' con le chiamate esistenti: il movimento
+      ora e' fissato nel CSS, quindi non vengono usati. */
   y?: number;
   duration?: number;
   stagger?: number;
 };
 
-export default function Reveal({
-  children,
-  className = "",
-  delay = 0,
-  y = 40,
-  duration = 1.2,
-}: RevealProps) {
+/**
+ * L'entrata in scena dei blocchi: salgono di poco mentre compaiono.
+ *
+ * Prima girava su GSAP caricato al volo: l'osservatore scattava, poi si
+ * aspettava la libreria dalla rete, e solo dopo il blocco veniva portato a
+ * opacita' zero per farlo rientrare. Fra i due momenti il contenuto era gia'
+ * a schermo, quindi spariva e ricompariva; e se la libreria arrivava tardi —
+ * o il blocco era gia' oltre il punto di innesco, cosa che qui succede
+ * spesso perche' le sezioni si montano da sole scorrendo — restava a zero
+ * per sempre. Erano le schede del Metodo che non comparivano.
+ *
+ * Adesso e' solo CSS piu' un osservatore: niente rete, niente attesa,
+ * nessuno stato da cui non si torna indietro. E se JavaScript non parte, il
+ * contenuto resta visibile invece di sparire.
+ */
+export default function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [armato, setArmato] = useState(false);
+  const [visibile, setVisibile] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const menoMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (menoMovimento || typeof IntersectionObserver === "undefined") {
+      setVisibile(true);
+      return;
+    }
 
-    if (prefersReduced) return;
+    // Da qui in poi il blocco parte nascosto: lo diciamo solo ora, cosi' chi
+    // non ha JavaScript se lo tiene visibile.
+    setArmato(true);
 
-    let tweenKill: (() => void) | undefined;
-
-    const observer = new IntersectionObserver(
+    const osservatore = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
-        observer.disconnect();
-
-        void loadGsapScrollTrigger().then(({ gsap }) => {
-          gsap.set(el, { opacity: 0, y, scale: 0.985 });
-
-          const tween = gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration,
-            delay: delay * 0.1,
-            ease: "expo.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 90%",
-              once: true,
-            },
-          });
-
-          tweenKill = () => tween.kill();
-        });
+        setVisibile(true);
+        osservatore.disconnect();
       },
-      { rootMargin: "120px 0px", threshold: 0 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 }
     );
 
-    observer.observe(el);
+    osservatore.observe(el);
+
+    // Rete di sicurezza: se per qualunque motivo l'osservatore non scatta,
+    // dopo un secondo e mezzo il blocco si mostra lo stesso.
+    const salvagente = window.setTimeout(() => setVisibile(true), 1500);
 
     return () => {
-      observer.disconnect();
-      tweenKill?.();
+      osservatore.disconnect();
+      window.clearTimeout(salvagente);
     };
-  }, [delay, y, duration]);
+  }, []);
+
+  const stato = armato ? (visibile ? "reveal is-visible" : "reveal") : "";
 
   return (
-    <div ref={ref} className={className}>
+    <div
+      ref={ref}
+      className={`${stato} ${className}`.trim()}
+      style={armato && !visibile ? { transitionDelay: `${delay * 90}ms` } : undefined}
+    >
       {children}
     </div>
   );
