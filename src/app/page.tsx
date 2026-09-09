@@ -8,7 +8,6 @@ import FAQAccordion from "@/components/ui/FAQAccordion";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
-import PercorsoDomande from "@/components/sezioni/PercorsoDomande";
 import RegistroSintesi from "@/components/sezioni/RegistroSintesi";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
@@ -181,14 +180,6 @@ export default function Home() {
         <PercheSceglierci />
       </DeferredMount>
 
-      {/* S3 — IL PERCORSO, IN QUATTRO DOMANDE
-          Il corpo della lettera: dove si perde il lavoro, raccontato in
-          ordine cronologico e sempre come domanda. La conclusione la tira
-          lui: se gliela affermiamo noi, si difende. Le quattro scene sono
-          quelle gia' testate al telefono nel playbook. */}
-      <DeferredMount minHeight="900px" rootMargin="320px 0px">
-        <PercorsoDomande />
-      </DeferredMount>
 
       {/* S3b — IL REGISTRO DEI CONTATTI
           Risponde all'obiezione che ferma piu' trattative di ogni altra:
