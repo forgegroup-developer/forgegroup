@@ -1,12 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
-import LazyCaseStudyStack from "@/components/casi-studio/LazyCaseStudyStack";
-import ReelHeroVideo from "@/components/media/ReelHeroVideo";
-import SectionHeader from "@/components/ui/SectionHeader";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
-import { siteImages } from "@/data/images";
 
 export const metadata: Metadata = {
   title: "Casi Studio | Risultati verificati B2B",
@@ -57,39 +54,13 @@ export default function CasiStudioHub() {
           <ServiziHeroScrollCue heroId="casi-studio-hero" targetId="casi-studio-contenuto" />
         }
       >
-        <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
-          <CasiStudioHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
-          <ReelHeroVideo
-            src={siteImages.marcoReel}
-            poster={siteImages.marcoReelPoster}
-            label="Video reel Marco Forge Group"
-          />
-        </div>
-
-        <div className="lg:hidden flex flex-col gap-10">
-          <CasiStudioHeroCopy className="flex flex-col items-center justify-center text-center" />
-          <ReelHeroVideo
-            src={siteImages.marcoReel}
-            poster={siteImages.marcoReelPoster}
-            label="Video reel Marco Forge Group"
-          />
-        </div>
+        <CasiStudioHeroCopy className="mx-auto flex max-w-2xl flex-col items-center text-center" />
       </HeroGooeySection>
 
       <section id="casi-studio-contenuto" className="scroll-mt-24 py-20 md:py-28 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Portfolio"
-            maxWidth="4xl"
-            title={
-              <>
-                Storie di crescita{" "}
-                <span className="text-brand-corallo">concrete</span> per imprese B2B
-              </>
-            }
-          />
         </div>
-        <LazyCaseStudyStack />
+        <CasiStudioCarousel />
       </section>
 
       <RelatedBlogLinks

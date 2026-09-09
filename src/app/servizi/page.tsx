@@ -6,10 +6,9 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
-import ReelHeroVideo from "@/components/media/ReelHeroVideo";
 import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
-import { serviziSidebarImages, siteImages } from "@/data/images";
+import { serviziSidebarImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
@@ -195,23 +194,7 @@ export default function ServiziHub() {
         innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         after={<ServiziHeroScrollCue />}
       >
-        <div className="hidden lg:flex lg:items-center lg:gap-10 xl:gap-12">
-          <ServiziHeroCopy className="flex flex-col items-start text-left max-w-xl lg:max-w-lg" />
-          <ReelHeroVideo
-            src={siteImages.gianpioReel}
-            poster={siteImages.gianpioReelPoster}
-            label="Video reel Gianpio Forge Group"
-          />
-        </div>
-
-        <div className="lg:hidden flex flex-col gap-10">
-          <ServiziHeroCopy className="flex flex-col items-center justify-center text-center" />
-          <ReelHeroVideo
-            src={siteImages.gianpioReel}
-            poster={siteImages.gianpioReelPoster}
-            label="Video reel Gianpio Forge Group"
-          />
-        </div>
+        <ServiziHeroCopy className="mx-auto flex max-w-2xl flex-col items-center text-center" />
       </HeroGooeySection>
 
       {/* TRE SERVIZI — layout originale, copy LP */}

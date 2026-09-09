@@ -34,7 +34,7 @@ export const faqs = [
   },
   {
     q: "Non mi servono clienti, mi servono persone che lavorano. Potete aiutarmi?",
-    a: "Su questo oggi ti diciamo di no. La ricerca di operai e maestranze non è il nostro lavoro, e preferiamo dirtelo subito invece di venderti un'altra cosa. Se il problema numero uno della tua impresa è quello, non siamo noi che ti servono adesso.",
+    a: "Sì, e lo abbiamo già fatto. Funziona come per i clienti: l'annuncio lo mettiamo in giro noi, chi si candida risponde a un modulo che chiede esperienza, patente, mezzo proprio e da quando è disponibile, poi lo sentiamo al telefono. A te arrivano solo quelli che hanno senso far venire in sede, con scritto accanto chi è già stato chiamato e cosa ha risposto. Chi cerca lavoro e chi cerca operai usa le stesse parole su internet: il filtro serve a non farti perdere pomeriggi con la persona sbagliata.",
   },
   {
     q: "Non mi conviene assumere una persona che se ne occupi internamente?",

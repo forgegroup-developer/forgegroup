@@ -28,9 +28,8 @@ const media: Record<string, { src: string; video?: boolean; alt: string }> = {
     alt: "Arredamento negozi",
   },
   "software-b2b": {
-    src: "/video-recensione.mp4",
-    video: true,
-    alt: "Videorecensione del titolare",
+    src: "/images/casi-studio/software-b2b.jpg",
+    alt: "Software per l'edilizia e gare d'appalto",
   },
 };
 
