@@ -144,7 +144,7 @@ export default function Footer() {
                       className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2"
                     >
                       <span className="text-white shrink-0">✦</span>
-                      <span>Prenota una consulenza</span>
+                      <span>Richiedi lo studio di fattibilità</span>
                     </Link>
                   </li>
                 </ul>
