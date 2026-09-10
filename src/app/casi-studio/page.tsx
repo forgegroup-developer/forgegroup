@@ -8,19 +8,19 @@ import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 export const metadata: Metadata = {
   title: "Casi Studio | Risultati verificati B2B",
   description:
-    "Casi studio Forge Group: risultati misurabili in acquisizione clienti, vendita e crescita per imprese B2B. Scopri come abbiamo generato nuovo fatturato per i nostri clienti.",
+    "Tre imprese, tre mestieri: coperture, arredamento negozi, software per l'edilizia. Da dove siamo partiti, cosa abbiamo fatto e quanto è entrato, con i numeri veri.",
   alternates: { canonical: "/casi-studio" },
   openGraph: {
     title: "Casi Studio | Forge Group",
     description:
-      "Risultati verificati in acquisizione clienti e crescita B2B. Vuoi capire se un approccio simile ha senso anche per la tua azienda?",
+      "Coperture, arredamento negozi, software per l'edilizia: tre casi con i numeri veri e il nome sotto.",
     url: "/casi-studio",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Casi Studio" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Casi Studio | Forge Group",
-    description: "Risultati verificati per imprese B2B in Campania e in Italia.",
+    description: "Tre imprese, tre mestieri, numeri veri.",
     images: ["/logo.png"],
   },
 };
@@ -31,13 +31,16 @@ function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
       <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
         ✦ Casi Studio
       </p>
-      <h1 className="heading-hero text-brand-nero mb-6">
-        Risultati{" "}
-        <span className="text-brand-corallo">verificati</span> in casi reali.{" "}
-        <span className="text-brand-corallo">Vuoi capire se un approccio simile ha senso anche per la tua azienda?</span>
+      <h1 className="heading-hero text-brand-nero mb-6 text-balance">
+        Cerca l&apos;impresa che fa il tuo mestiere.{" "}
+        <span className="text-brand-corallo">I numeri sono veri, con il nome sotto.</span>
       </h1>
+      <p className="body-lg mb-8 text-pretty">
+        Coperture, arredamento negozi, software per l&apos;edilizia. Per ognuna
+        trovi da dove siamo partiti, cosa abbiamo fatto e quanto è entrato.
+      </p>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-        Prenota una consulenza
+        Richiedi lo studio di fattibilità
       </Link>
     </div>
   );
@@ -47,6 +50,7 @@ export default function CasiStudioHub() {
   return (
     <>
       <HeroGooeySection
+        pulita
         id="casi-studio-hero"
         className="pt-16 pb-24 md:pt-24 md:pb-32"
         innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"

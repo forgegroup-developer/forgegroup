@@ -151,14 +151,19 @@ function ServiziHeroCopy({ className = "" }: { className?: string }) {
   return (
     <div className={className}>
       <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
-        ✦ I Nostri Servizi
+        ✦ Il Metodo FORGE
       </p>
-      <h1 className="heading-hero text-brand-nero mb-6">
-        Scopri come aumentiamo il{" "}
-        <span className="text-brand-corallo">fatturato</span> della tua azienda.
+      <h1 className="heading-hero text-brand-nero mb-6 text-balance">
+        Dal primo contatto{" "}
+        <span className="text-brand-corallo">alla firma del contratto.</span>
       </h1>
-      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base mt-2">
-        Prenota una consulenza
+      <p className="body-lg mb-8 text-pretty">
+        Ti portiamo richieste da chi il lavoro può pagarlo, scartiamo chi tratta
+        solo sul prezzo e restiamo in trattativa con te fino alla firma. Qui
+        sotto trovi come, passo per passo.
+      </p>
+      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
+        Richiedi lo studio di fattibilità
       </Link>
     </div>
   );
@@ -187,8 +192,10 @@ export const metadata: Metadata = {
 export default function ServiziHub() {
   return (
     <>
-      {/* HERO — layout originale, copy LP */}
+      {/* HERO — stesso fondo pulito della home, senza video: il reel
+          funziona sui social, non qui. */}
       <HeroGooeySection
+        pulita
         id="servizi-hero"
         className="pt-16 pb-24 md:pt-24 md:pb-32"
         innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
