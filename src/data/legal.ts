@@ -1,30 +1,32 @@
-/** Dati condivisi tra Privacy Policy e Cookie Policy — aggiornare qui le revisioni legali. */
+/**
+ * Dati legali del sito. Privacy e cookie policy vivono su iubenda
+ * (progetto www.forgegroup.it, account info@forgegroup.it): i testi si
+ * aggiornano lì, qui restano solo i dati che il sito mostra da sé.
+ */
+
+/** Le due ditte che usano il sito, contitolari del trattamento (art. 26 GDPR). */
+export const LEGAL_CONTROLLERS = [
+  {
+    name: "Marco Pio Cerbone",
+    vat: "03247960648",
+    address: "Via Calore 97, 83036 Mirabella Eclano (AV), Italia",
+  },
+  {
+    name: "Gianpio Uva",
+    vat: "03215850649",
+    address: "Contrada Fosso Cavallo 38, Fontanarosa (AV), Italia",
+  },
+] as const;
+
 export const LEGAL = {
-  lastUpdated: "17 giugno 2026",
-  /** Titolare del trattamento (persona fisica / P.IVA) */
-  controllerName: "Marco Pio Cerbone",
-  controllerVat: "03247960648",
-  controllerAddress: "Via Calore 97, 83036 Mirabella Eclano (AV), Italia",
   controllerEmail: "info@forgegroup.it",
   /** Denominazione commerciale del network */
   controllerTradeName: "Forge Group Italia",
-  controllerShortName: "Forge Group",
-  siteUrl: "https://www.forgegroup.it",
-  garanteUrl: "https://www.garanteprivacy.it",
-  garanteReclamiUrl: "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/4535524",
 } as const;
 
-export const LEGAL_PROCESSORS = [
-  {
-    name: "Vercel Inc.",
-    role: "Hosting del sito web e infrastruttura cloud",
-    location: "Stati Uniti d'America / Unione Europea",
-    privacyUrl: "https://vercel.com/legal/privacy-policy",
-  },
-  {
-    name: "Resend Inc.",
-    role: "Invio e gestione delle email transazionali (form contatti, newsletter, risposte automatiche)",
-    location: "Stati Uniti d'America",
-    privacyUrl: "https://resend.com/legal/privacy-policy",
-  },
-] as const;
+export const IUBENDA = {
+  /** Widget unico: banner cookie, Google Consent Mode v2 e pulsante preferenze. */
+  widgetSrc: "https://embeds.iubenda.com/widgets/af3f75e3-fc09-4603-b4ca-7976ac49c5c5.js",
+  privacyPolicyUrl: "https://www.iubenda.com/privacy-policy/44776503",
+  cookiePolicyUrl: "https://www.iubenda.com/privacy-policy/44776503/cookie-policy",
+} as const;

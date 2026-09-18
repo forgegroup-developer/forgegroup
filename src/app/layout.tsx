@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
+import { IUBENDA } from "@/data/legal";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -151,6 +153,9 @@ export default function RootLayout({
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
       >
+        {/* Prima di GA: il widget imposta il consenso Google a "negato"
+            finché il visitatore non sceglie dal banner (Consent Mode v2). */}
+        <Script id="iubenda" src={IUBENDA.widgetSrc} strategy="beforeInteractive" />
         <script id="ld-org" type="application/ld+json">
           {JSON.stringify(organizationJsonLd)}
         </script>

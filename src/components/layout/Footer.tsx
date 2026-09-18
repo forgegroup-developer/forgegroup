@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import FooterCtaBand from "@/components/layout/FooterCtaBand";
 import FooterNewsletter from "@/components/layout/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
-import { LEGAL } from "@/data/legal";
+import { LEGAL, LEGAL_CONTROLLERS } from "@/data/legal";
 import { SITE_DESCRIPTION, SOCIAL_PROFILES } from "@/lib/seo/site";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
@@ -233,7 +233,12 @@ export default function Footer() {
         {/* Bottom bar — bordo superiore semitrasparente */}
         <div className="border-t border-white/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white">
-            <p>© {year} Forge Group. Tutti i diritti riservati.</p>
+            <div className="text-center md:text-left space-y-1">
+              <p>© {year} {LEGAL.controllerTradeName}. Tutti i diritti riservati.</p>
+              <p>
+                {LEGAL_CONTROLLERS.map((c) => `${c.name} · P.IVA ${c.vat}`).join(" — ")}
+              </p>
+            </div>
             <div className="flex items-center gap-6">
               <Link href="/privacy-policy" className="hover:text-brand-pesca-light transition-colors">
                 Privacy Policy

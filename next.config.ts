@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { allowedImageHosts } from "./src/data/imageHosts";
+import { IUBENDA } from "./src/data/legal";
 
 const nextConfig: NextConfig = {
   images: {
@@ -39,6 +40,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Privacy e cookie policy stanno su iubenda dal 18 settembre 2026:
+      // i vecchi indirizzi restano validi per i link già sparsi nel sito.
+      {
+        source: "/privacy-policy",
+        destination: IUBENDA.privacyPolicyUrl,
+        permanent: false,
+      },
+      {
+        source: "/cookie-policy",
+        destination: IUBENDA.cookiePolicyUrl,
+        permanent: false,
+      },
       // La pagina del CRM ha cambiato nome il 9 settembre 2026: era
       // /il-tuo-registro, "registro" e' stato scartato perche' in edilizia
       // evoca il giornale dei lavori e nessuno lo cerca.

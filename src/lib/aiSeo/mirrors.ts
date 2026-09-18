@@ -1,6 +1,7 @@
 import { articles, getPublishedArticles } from "@/data/articles";
 import { caseStudies } from "@/data/caseStudies";
 import { faqs } from "@/data/site";
+import { IUBENDA, LEGAL, LEGAL_CONTROLLERS } from "@/data/legal";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL, STATIC_SEO_ROUTES, absoluteUrl } from "@/lib/seo/site";
 
 export type MirrorPage = {
@@ -184,10 +185,12 @@ ${getPublishedArticles().map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a
     body: `
 # Privacy Policy Forge Group
 
-Informativa GDPR (aggiornata giugno 2026).
+Informativa GDPR gestita su iubenda: ${IUBENDA.privacyPolicyUrl}
 
-Titolare: Marco Pio Cerbone, P.IVA 03247960648, Via Calore 97, 83036 Mirabella Eclano (AV).
-Denominazione commerciale: Forge Group Italia. Email: info@forgegroup.it
+Contitolari del trattamento (Forge Group Italia):
+${LEGAL_CONTROLLERS.map((c) => `- ${c.name}, P.IVA ${c.vat}, ${c.address}`).join("\n")}
+
+Email: ${LEGAL.controllerEmail}
 `,
   },
   "cookie-policy": {
@@ -197,10 +200,11 @@ Denominazione commerciale: Forge Group Italia. Email: info@forgegroup.it
     body: `
 # Cookie Policy Forge Group
 
-Informativa cookie (giugno 2026). Titolare: Marco Pio Cerbone, P.IVA 03247960648.
-Marchio: Forge Group Italia. Solo cookie tecnici; nessun analytics attivo.
+Informativa cookie gestita su iubenda: ${IUBENDA.cookiePolicyUrl}
 
-Sito: ${BASE}
+Il sito usa Google Analytics 4 solo dopo il consenso dato dal banner cookie
+(Google Consent Mode v2). Le preferenze si cambiano in ogni momento dal
+pulsante privacy in basso nella pagina.
 `,
   },
 };
