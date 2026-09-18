@@ -19,6 +19,8 @@ export const LEGAL_CONTROLLERS = [
 ] as const;
 
 export const LEGAL = {
+  /** P.IVA mostrata nel footer (art. 35 DPR 633/72): quella di Marco, senza nome. */
+  siteVat: LEGAL_CONTROLLERS[0].vat,
   controllerEmail: "info@forgegroup.it",
   /** Denominazione commerciale del network */
   controllerTradeName: "Forge Group Italia",

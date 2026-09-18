@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import FooterCtaBand from "@/components/layout/FooterCtaBand";
 import FooterNewsletter from "@/components/layout/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
-import { LEGAL, LEGAL_CONTROLLERS } from "@/data/legal";
+import { LEGAL } from "@/data/legal";
 import { SITE_DESCRIPTION, SOCIAL_PROFILES } from "@/lib/seo/site";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
@@ -236,7 +236,7 @@ export default function Footer() {
             <div className="text-center md:text-left space-y-1">
               <p>© {year} {LEGAL.controllerTradeName}. Tutti i diritti riservati.</p>
               <p>
-                {LEGAL_CONTROLLERS.map((c) => `${c.name} · P.IVA ${c.vat}`).join(" — ")}
+                P.IVA {LEGAL.siteVat}
               </p>
             </div>
             <div className="flex items-center gap-6">
