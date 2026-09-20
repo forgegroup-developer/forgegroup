@@ -17,8 +17,12 @@ const SOGLIA_SCROLL = 320;
  * ed e' dove lo mettono tutti, quindi dove lo si cerca. Sta sopra al
  * pulsante delle preferenze cookie di iubenda, che occupa l'angolo.
  *
- * Corallo e non verde: il corallo sul sito vuol dire "qui si clicca", e
- * il verde sta solo nel blocco confronto. Il segno basta a riconoscerlo.
+ * Verde WhatsApp (#25D366), unica eccezione al sistema di colore del
+ * sito: su telefono il tasto e' solo un'icona, e in corallo si perdeva
+ * fra gli altri pulsanti. Quel verde non e' un colore nostro: e' il
+ * segnale che tutti conoscono, e per questo funziona. Il segno resta
+ * bianco, come nel marchio; la scritta invece e' verde scuro, perche'
+ * il bianco su quel verde si ferma a 2:1 e non si legge.
  */
 export default function WhatsAppFlottante() {
   const pathname = usePathname() ?? "/";
@@ -54,12 +58,12 @@ export default function WhatsAppFlottante() {
       rel="noopener noreferrer"
       data-wa="flottante"
       aria-label={WHATSAPP.etichetta}
-      className="fixed right-4 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-[90] flex h-14 min-w-14 items-center justify-center rounded-full bg-brand-corallo px-3.5 text-white shadow-[0_12px_28px_-10px_rgba(111,42,18,0.55)] transition-colors hover:bg-brand-corallo-dark print:hidden"
+      className="fixed right-4 bottom-[calc(4.75rem+env(safe-area-inset-bottom))] z-[90] flex h-14 min-w-14 items-center justify-center rounded-full bg-[#25D366] px-3.5 text-white shadow-[0_12px_28px_-10px_rgba(7,59,42,0.6)] transition-colors hover:bg-[#1fbe5a] print:hidden"
     >
       <IconaWhatsApp className="h-7 w-7 shrink-0" />
       <span
         aria-hidden
-        className={`overflow-hidden whitespace-nowrap text-sm font-semibold transition-[max-width,opacity,margin] duration-300 motion-reduce:transition-none ${
+        className={`overflow-hidden whitespace-nowrap text-sm font-semibold text-[#06301f] transition-[max-width,opacity,margin] duration-300 motion-reduce:transition-none ${
           ritirato
             ? "ml-0 max-w-0 opacity-0"
             : "ml-0 max-w-0 opacity-0 sm:ml-2.5 sm:mr-1.5 sm:max-w-[12rem] sm:opacity-100"
