@@ -187,6 +187,7 @@ export default function Navbar() {
               href={WHATSAPP.href}
               target="_blank"
               rel="noopener noreferrer"
+              data-wa="testata"
               className="flex items-center gap-2 text-sm font-semibold text-brand-corallo-text hover:underline"
             >
               <IconaWhatsApp className="h-4 w-4" />
@@ -197,32 +198,19 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Su telefono WhatsApp sta fuori dal menu, sempre in vista: chi
-              arriva da un link su WhatsApp risponde da li', con un tocco. */}
-          <div className="flex items-center gap-1 lg:hidden">
-            <a
-              href={WHATSAPP.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="touch-target text-brand-corallo"
-              aria-label={WHATSAPP.etichetta}
-            >
-              <IconaWhatsApp className="h-6 w-6" />
-            </a>
-            <button
-              onClick={() => {
-                setMobileCasi(false);
-                setOpen(true);
-              }}
-              className="touch-target -mr-1 text-brand-corallo"
-              aria-label="Apri menu"
-              aria-expanded={open}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+          <button
+            onClick={() => {
+              setMobileCasi(false);
+              setOpen(true);
+            }}
+            className="touch-target lg:hidden -mr-1 text-brand-corallo"
+            aria-label="Apri menu"
+            aria-expanded={open}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -353,6 +341,7 @@ export default function Navbar() {
                 href={WHATSAPP.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-wa="menu"
                 onClick={closeMenu}
                 className="flex items-center gap-2 text-base font-semibold text-white hover:text-brand-corallo-on-dark transition-colors"
               >

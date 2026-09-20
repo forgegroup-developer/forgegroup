@@ -51,6 +51,7 @@ export default function ContattiPage() {
               href={WHATSAPP.href}
               target="_blank"
               rel="noopener noreferrer"
+              data-wa="contatti"
               className="whitespace-nowrap font-semibold text-brand-corallo-text hover:underline"
             >
               <IconaWhatsApp className="mr-1.5 inline-block h-4 w-4 align-[-0.15em]" />
