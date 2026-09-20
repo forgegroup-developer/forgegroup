@@ -2739,3 +2739,54 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
     transition: none;
   }
 }
+
+/* ── Banner cookie iubenda ───────────────────────────────────────────────
+   Il piano gratuito di iubenda non lascia scegliere i colori: il banner esce
+   blu, fuori dal sistema bianco / panna / corallo / mattone. Vive dentro la
+   pagina, quindi lo rivestiamo qui. iubenda inietta le sue regole con
+   !important da uno <style> che arriva dopo questo foglio, percio' servono
+   "html body" davanti e !important: e' l'unico modo per avere la meglio.
+   Corretti anche tre difetti misurati il 20 settembre 2026: nessun contorno
+   di messa a fuoco, pulsanti alti 36px (Apple ne chiede 44) e 3px soli fra
+   "Rifiuta" e "Accetta". Il marchio "Created with iubenda" resta dov'e',
+   come prevede il piano gratuito. */
+html body #iubenda-cs-banner .iubenda-cs-content,
+html body #iubenda-cs-banner .iubenda-cs-content .iub-p {
+  font-size: 15px !important;
+}
+
+html body #iubenda-cs-banner .iubenda-cs-opt-group button.iubenda-cs-accept-btn,
+html body #iubenda-cs-banner .iubenda-cs-opt-group button.iubenda-cs-reject-btn {
+  background-color: var(--color-brand-mattone) !important;
+  color: #ffffff !important;
+  min-height: 44px !important;
+}
+
+/* Misurati 3px fra i due pulsanti: con questi 14px si arriva a 17px,
+   perche' "Rifiuta" e "Accetta" sono scelte opposte e vanno distanziate. */
+html body #iubenda-cs-banner .iubenda-cs-opt-group button.iubenda-cs-accept-btn {
+  margin-left: 14px !important;
+}
+
+html body #iubenda-cs-banner .iubenda-cs-opt-group button.iubenda-cs-customize-btn {
+  background-color: transparent !important;
+  color: var(--color-brand-mattone) !important;
+  border: 1px solid var(--color-brand-mattone) !important;
+  min-height: 44px !important;
+}
+
+html body #iubenda-cs-banner a.iubenda-cs-cookie-policy-lnk {
+  color: var(--color-brand-corallo-text) !important;
+}
+
+/* iubenda segna il pulsante a fuoco con la classe .focus e impone un
+   contorno azzurro con !important da uno <style> suo: per vincere ripetiamo
+   l'id e copriamo sia :focus sia :focus-visible. Il corallo sul bianco del
+   banner sta a 4,38:1, sopra il 3:1 che le WCAG chiedono a un contorno. */
+html body #iubenda-cs-banner#iubenda-cs-banner button:focus,
+html body #iubenda-cs-banner#iubenda-cs-banner button:focus-visible,
+html body #iubenda-cs-banner#iubenda-cs-banner a:focus,
+html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
+  outline: 3px solid var(--color-brand-corallo) !important;
+  outline-offset: 2px !important;
+}
