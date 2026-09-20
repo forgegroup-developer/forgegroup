@@ -2739,3 +2739,44 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
     transition: none;
   }
 }
+
+/* ── Banner cookie iubenda ───────────────────────────────────────────────
+   Il piano gratuito di iubenda non lascia scegliere i colori, e di suo il
+   banner esce blu su nero: fuori dal sistema bianco / panna / corallo /
+   mattone. Il banner pero' vive dentro la pagina, quindi lo rivestiamo qui.
+   Corretti anche tre difetti misurati il 20 settembre 2026: nessun contorno
+   di messa a fuoco, pulsanti alti 36px (Apple ne chiede 44) e 8px soli fra
+   "Rifiuta" e "Accetta". Il marchio "Created with iubenda" resta al suo
+   posto, come prevede il piano gratuito. */
+#iubenda-cs-banner .iubenda-cs-content {
+  font-size: 15px;
+}
+
+#iubenda-cs-banner .iubenda-cs-accept-btn,
+#iubenda-cs-banner .iubenda-cs-reject-btn {
+  background: var(--color-brand-mattone);
+  color: #ffffff;
+  min-height: 44px;
+}
+
+/* 8px di suo + 8px qui: 16px fra due scelte opposte. */
+#iubenda-cs-banner .iubenda-cs-accept-btn {
+  margin-left: 8px;
+}
+
+#iubenda-cs-banner .iubenda-cs-customize-btn {
+  background: transparent;
+  color: var(--color-brand-mattone);
+  border: 1px solid var(--color-brand-mattone);
+  min-height: 44px;
+}
+
+#iubenda-cs-banner .iubenda-cs-cookie-policy-lnk {
+  color: var(--color-brand-corallo-text);
+}
+
+#iubenda-cs-banner button:focus-visible,
+#iubenda-cs-banner a:focus-visible {
+  outline: 3px solid var(--color-brand-corallo);
+  outline-offset: 2px;
+}

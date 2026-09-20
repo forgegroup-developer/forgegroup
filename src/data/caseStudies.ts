@@ -110,7 +110,7 @@ export const caseStudies: CaseStudy[] = [
         step: "04",
         title: "Sopralluoghi qualificati",
         description:
-          "Con Tetti Top abbiamo strutturato sopralluoghi mirati: il titolare incontra solo clienti già caldi e selezionati, con tecnico e titolare presenti, da chi è pronto a decidere.",
+          "Con Tetti Top abbiamo strutturato sopralluoghi mirati: il titolare incontra solo clienti già caldi e selezionati, con tecnico e titolare presenti, da chi è pronto a decidere. E abbiamo introdotto il sopralluogo a pagamento, in un mercato dove tutti lo regalano: chi lo prenota ha già deciso di fare sul serio.",
       },
       {
         step: "05",

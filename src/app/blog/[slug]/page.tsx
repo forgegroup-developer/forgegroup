@@ -231,7 +231,7 @@ export default async function ArticleDetail({ params }: Props) {
                           {block.text || "Compila la prequalifica"}
                         </h3>
                         <p className="text-brand-grigio mb-6">
-                          Se sei un imprenditore B2B con fatturato 350K+, ne parliamo entro 48 ore.
+                          Se hai un&apos;impresa edile e ti ci ritrovi, ne parliamo entro 48 ore.
                         </p>
                         <Link href="/contatti" className="btn-corallo">
                           HAI UN MINUTO?
