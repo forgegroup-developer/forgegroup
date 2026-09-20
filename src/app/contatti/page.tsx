@@ -1,24 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
+import { TELEFONO, WHATSAPP } from "@/data/contatti";
+import IconaWhatsApp from "@/components/ui/IconaWhatsApp";
 
 export const metadata: Metadata = {
   title: "Candida la Tua Azienda",
   description:
-    "Compila il questionario di prequalifica Forge Group. Lavoriamo al meglio con imprese B2B da 350K+ di fatturato e visione di crescita. Risposta entro 48 ore.",
+    "Richiedi lo studio di fattibilità per la tua impresa edile: poche domande, e ti rispondiamo entro 48 ore lavorative.",
   alternates: { canonical: "/contatti" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Candida la Tua Azienda | Forge Group",
     description:
-      "Compila il questionario di prequalifica Forge Group. Risposta entro 48 ore lavorative.",
+      "Richiedi lo studio di fattibilità per la tua impresa edile. Risposta entro 48 ore lavorative.",
     url: "/contatti",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Candida la Tua Azienda | Forge Group",
-    description: "Prequalifica strategica per imprese B2B in crescita.",
+    description: "Lo studio di fattibilità per la tua impresa edile.",
     images: ["/logo.png"],
   },
 };
@@ -31,7 +33,7 @@ export default function ContattiPage() {
           <p className="text-sm leading-relaxed text-brand-grigio md:text-base">
             Prima di candidarti, puoi leggere i nostri{" "}
             <Link href="/servizi" className="font-semibold text-brand-corallo-text hover:underline">
-              servizi B2B
+              servizi
             </Link>
             , i{" "}
             <Link href="/casi-studio" className="font-semibold text-brand-corallo-text hover:underline">
@@ -42,6 +44,26 @@ export default function ContattiPage() {
               visione
             </Link>{" "}
             di Forge Group.
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-brand-grigio md:text-base">
+            Fai prima con un messaggio?{" "}
+            <a
+              href={WHATSAPP.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap font-semibold text-brand-corallo-text hover:underline"
+            >
+              <IconaWhatsApp className="mr-1.5 inline-block h-4 w-4 align-[-0.15em]" />
+              {WHATSAPP.etichetta}
+            </a>{" "}
+            o chiamaci al{" "}
+            <a
+              href={TELEFONO.href}
+              className="whitespace-nowrap font-semibold text-brand-corallo-text hover:underline"
+            >
+              {TELEFONO.etichetta}
+            </a>
+            .
           </p>
         </div>
       </section>

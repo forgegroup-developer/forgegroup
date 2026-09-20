@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { caseStudies } from "@/data/caseStudies";
+import { TELEFONO, WHATSAPP } from "@/data/contatti";
+import IconaWhatsApp from "@/components/ui/IconaWhatsApp";
 
 const MOBILE_CASI_DOUBLE_TAP_MS = 320;
 
@@ -176,25 +178,47 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-5">
+            <a
+              href={WHATSAPP.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-semibold text-brand-corallo-text hover:underline"
+            >
+              <IconaWhatsApp className="h-4 w-4" />
+              {TELEFONO.etichetta}
+            </a>
             <Link href="/contatti" className="btn-corallo text-sm">
               Candida la tua azienda
             </Link>
           </div>
 
-          <button
-            onClick={() => {
-              setMobileCasi(false);
-              setOpen(true);
-            }}
-            className="touch-target lg:hidden -mr-1 text-brand-corallo"
-            aria-label="Apri menu"
-            aria-expanded={open}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* Su telefono WhatsApp sta fuori dal menu, sempre in vista: chi
+              arriva da un link su WhatsApp risponde da li', con un tocco. */}
+          <div className="flex items-center gap-1 lg:hidden">
+            <a
+              href={WHATSAPP.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="touch-target text-brand-corallo"
+              aria-label={WHATSAPP.etichetta}
+            >
+              <IconaWhatsApp className="h-6 w-6" />
+            </a>
+            <button
+              onClick={() => {
+                setMobileCasi(false);
+                setOpen(true);
+              }}
+              className="touch-target -mr-1 text-brand-corallo"
+              aria-label="Apri menu"
+              aria-expanded={open}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -209,7 +233,7 @@ export default function Navbar() {
                   FORGE<span className="text-brand-corallo-on-dark">GROUP</span>
                 </div>
                 <div className="text-[10px] uppercase tracking-widest text-white/70 mt-0.5">
-                  Growth Hacking Italia
+                  Dal contatto alla firma
                 </div>
               </div>
             </Link>
@@ -320,7 +344,20 @@ export default function Navbar() {
               <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
-            <div className="pt-8 pb-4">
+            <div className="pt-8 pb-4 space-y-3">
+              <a
+                href={WHATSAPP.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="flex items-center gap-2 text-base font-semibold text-white hover:text-brand-corallo-on-dark transition-colors"
+              >
+                <IconaWhatsApp className="h-5 w-5" />
+                {WHATSAPP.etichetta}
+              </a>
+              <a href={TELEFONO.href} className="block text-sm text-white/70 hover:text-white transition-colors">
+                Chiamaci: {TELEFONO.etichetta}
+              </a>
               <a href="mailto:info@forgegroup.it" className="block text-sm text-white/70 hover:text-white transition-colors">
                 info@forgegroup.it
               </a>
