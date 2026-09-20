@@ -2,16 +2,13 @@
  * Recapiti diretti. Il sito si apre da un link su WhatsApp, su un
  * telefono, subito dopo una chiamata: chi legge deve poter rispondere
  * dallo stesso posto da cui e' arrivato, senza compilare niente.
+ *
+ * Per scelta della proprieta' il numero non si scrive in pagina, ne'
+ * in testata ne' nella hero: c'e' solo il tasto WhatsApp fisso.
  */
 
-/** Numero unico, telefono e WhatsApp: +39 393 042 6090 */
+/** Numero WhatsApp: +39 393 042 6090 */
 const NUMERO_E164 = "393930426090";
-
-export const TELEFONO = {
-  /** Come si legge in pagina */
-  etichetta: "393 042 6090",
-  href: `tel:+${NUMERO_E164}`,
-} as const;
 
 const MESSAGGIO_BASE =
   "Buongiorno, vi scrivo dal sito di Forge Group. Vorrei capire come lavorate.";
@@ -55,6 +52,4 @@ export function whatsappHref(pathname = "/"): string {
 
 export const WHATSAPP = {
   etichetta: "Scrivici su WhatsApp",
-  /** Link col messaggio base, per i punti che non conoscono la pagina */
-  href: whatsappHref(),
 } as const;

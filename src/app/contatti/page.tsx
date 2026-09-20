@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
-import { TELEFONO, WHATSAPP } from "@/data/contatti";
-import IconaWhatsApp from "@/components/ui/IconaWhatsApp";
 
 export const metadata: Metadata = {
   title: "Candida la Tua Azienda",
@@ -44,27 +42,6 @@ export default function ContattiPage() {
               visione
             </Link>{" "}
             di Forge Group.
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-brand-grigio md:text-base">
-            Fai prima con un messaggio?{" "}
-            <a
-              href={WHATSAPP.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-wa="contatti"
-              className="whitespace-nowrap font-semibold text-brand-corallo-text hover:underline"
-            >
-              <IconaWhatsApp className="mr-1.5 inline-block h-4 w-4 align-[-0.15em]" />
-              {WHATSAPP.etichetta}
-            </a>{" "}
-            o chiamaci al{" "}
-            <a
-              href={TELEFONO.href}
-              className="whitespace-nowrap font-semibold text-brand-corallo-text hover:underline"
-            >
-              {TELEFONO.etichetta}
-            </a>
-            .
           </p>
         </div>
       </section>

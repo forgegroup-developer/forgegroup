@@ -5,8 +5,6 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { caseStudies } from "@/data/caseStudies";
-import { TELEFONO, WHATSAPP } from "@/data/contatti";
-import IconaWhatsApp from "@/components/ui/IconaWhatsApp";
 
 const MOBILE_CASI_DOUBLE_TAP_MS = 320;
 
@@ -182,17 +180,7 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-5">
-            <a
-              href={WHATSAPP.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-wa="testata"
-              className="flex items-center gap-2 text-sm font-semibold text-brand-corallo-text hover:underline"
-            >
-              <IconaWhatsApp className="h-4 w-4" />
-              {TELEFONO.etichetta}
-            </a>
+          <div className="hidden lg:block">
             <Link href="/contatti" className="btn-corallo text-sm">
               Candida la tua azienda
             </Link>
@@ -336,21 +324,7 @@ export default function Navbar() {
               <span aria-hidden="true" className="text-white/60 group-hover:text-brand-corallo-on-dark transition-colors text-xl">→</span>
             </Link>
 
-            <div className="pt-8 pb-4 space-y-3">
-              <a
-                href={WHATSAPP.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-wa="menu"
-                onClick={closeMenu}
-                className="flex items-center gap-2 text-base font-semibold text-white hover:text-brand-corallo-on-dark transition-colors"
-              >
-                <IconaWhatsApp className="h-5 w-5" />
-                {WHATSAPP.etichetta}
-              </a>
-              <a href={TELEFONO.href} className="block text-sm text-white/70 hover:text-white transition-colors">
-                Chiamaci: {TELEFONO.etichetta}
-              </a>
+            <div className="pt-8 pb-4">
               <a href="mailto:info@forgegroup.it" className="block text-sm text-white/70 hover:text-white transition-colors">
                 info@forgegroup.it
               </a>
