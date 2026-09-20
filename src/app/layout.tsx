@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Stack_Sans_Notch } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import AnalyticsDopoConsenso from "@/components/analytics/AnalyticsDopoConsenso";
 import Script from "next/script";
 import { IUBENDA } from "@/data/legal";
 import "./globals.css";
@@ -179,7 +179,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppFlottante />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          <AnalyticsDopoConsenso gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
       </body>
     </html>
