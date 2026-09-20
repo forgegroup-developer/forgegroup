@@ -52,6 +52,20 @@ const nextConfig: NextConfig = {
         destination: IUBENDA.cookiePolicyUrl,
         permanent: false,
       },
+      // Gli indirizzi che il playbook delle chiamate detta al telefono e
+      // che si mandano su WhatsApp: corti, puliti, facili da scrivere a
+      // mano. Temporanei apposta: la piattaforma di copy prevede che
+      // diventino pagine vere, e un 308 resterebbe in cache per sempre.
+      {
+        source: "/tetti-top",
+        destination: "/casi-studio/edilizia",
+        permanent: false,
+      },
+      {
+        source: "/disa",
+        destination: "/casi-studio/software-b2b",
+        permanent: false,
+      },
       // La pagina del CRM ha cambiato nome il 9 settembre 2026: era
       // /il-tuo-registro, "registro" e' stato scartato perche' in edilizia
       // evoca il giornale dei lavori e nessuno lo cerca.

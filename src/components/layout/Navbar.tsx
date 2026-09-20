@@ -12,6 +12,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileCasi, setMobileCasi] = useState(false);
   const pathname = usePathname();
+  // Cambiata pagina, il menu si chiude: anche col tasto indietro del
+  // browser, dove nessun onClick passa. Lo stato si corregge durante il
+  // render e non in un effect, che farebbe un render in piu' a vuoto.
+  const [paginaVista, setPaginaVista] = useState(pathname);
+  if (pathname !== paginaVista) {
+    setPaginaVista(pathname);
+    setOpen(false);
+    setMobileCasi(false);
+  }
   const router = useRouter();
   const mobileCasiTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mobileCasiTapCountRef = useRef(0);
@@ -58,11 +67,6 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [open]);
-
-  useEffect(() => {
-    setOpen(false);
-    setMobileCasi(false);
-  }, [pathname]);
 
   useEffect(() => {
     return () => {
@@ -209,7 +213,7 @@ export default function Navbar() {
                   FORGE<span className="text-brand-corallo-on-dark">GROUP</span>
                 </div>
                 <div className="text-[10px] uppercase tracking-widest text-white/70 mt-0.5">
-                  Growth Hacking Italia
+                  Dal contatto alla firma
                 </div>
               </div>
             </Link>

@@ -6,6 +6,7 @@ import { IUBENDA } from "@/data/legal";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFlottante from "@/components/layout/WhatsAppFlottante";
 import {
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -176,6 +177,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppFlottante />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
