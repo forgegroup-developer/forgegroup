@@ -66,7 +66,7 @@ export const faqs = [
   },
   {
     q: "I miei clienti guardano solo il prezzo. Cosa cambia?",
-    a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha venduto sopralluoghi a 400 euro in un mercato dove tutti li regalano, ed è arrivata a preventivi fino a 175.000 euro. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
+    a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha messo il sopralluogo a pagamento in un mercato dove tutti lo regalano, ed è arrivata a preventivi fino a 175.000 euro. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
   },
   {
     q: "Non mi servono clienti, mi servono persone che lavorano. Potete aiutarmi?",
