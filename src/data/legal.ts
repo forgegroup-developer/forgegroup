@@ -14,7 +14,7 @@ export const LEGAL_CONTROLLERS = [
   {
     name: "Gianpio Uva",
     vat: "03215850649",
-    address: "Contrada Fosso Cavallo 38, Fontanarosa (AV), Italia",
+    address: "Contrada Fosso Cavallo 38, 83040 Fontanarosa (AV), Italia",
   },
 ] as const;
 
