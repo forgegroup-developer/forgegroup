@@ -7,6 +7,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
+import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
@@ -18,10 +19,6 @@ import DeferredMount from "@/components/ui/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
 const Reveal = dynamic(() => import("@/components/ui/Reveal"));
-
-const ClientiLogos = dynamic(() => import("@/components/sezioni/ClientiLogos"), {
-  loading: () => <div className="min-h-[280px]" aria-hidden />,
-});
 
 const TeamSection = dynamic(() => import("@/components/sezioni/TeamSection"), {
   loading: () => <div className="min-h-[480px]" aria-hidden />,
@@ -173,35 +170,39 @@ export default function Home() {
       </HeroGooeySection>
 
       {/* S2 — LOGHI CLIENTI */}
-      <DeferredMount minHeight="280px">
-        <ClientiLogos />
-      </DeferredMount>
+      {/* Dalla hero al Metodo le sezioni si montano subito, non in
+          DeferredMount. Sono solo testo e immagini, senza JavaScript loro:
+          rimandarle non faceva risparmiare niente. In compenso partivano
+          da segnaposti piu' bassi del vero (280 contro 667, 560 contro 819,
+          900 contro 1387 px) e crescevano di oltre 1.100px mentre il
+          pulsante "Guarda il Metodo FORGE" faceva scorrere la pagina: si
+          arrivava su "Gestione" invece che sul titolo. */}
+      <ClientiLogos />
 
       {/* S2b — PERCHE' SCEGLIERE FORGE GROUP
           Il problema detto come elenco di abitudini, non come accusa.
           Sta qui perche' il lettore ha appena visto i numeri dei clienti
           e deve capire cosa lo separa da quei numeri. */}
-      <DeferredMount minHeight="560px" rootMargin="320px 0px">
-        <PercheSceglierci />
-      </DeferredMount>
+      <PercheSceglierci />
 
 
       {/* S3b — IL REGISTRO DEI CONTATTI
           Risponde all'obiezione che ferma piu' trattative di ogni altra:
           "non so come lavorate davvero". Sta qui perche' la domanda nasce
           dopo il problema e prima del metodo. */}
-      <DeferredMount minHeight="900px" rootMargin="320px 0px">
-        <ConfrontoCaos />
-      </DeferredMount>
+      <ConfrontoCaos />
 
 
       {/* S4 — METODO FORGE
           Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
           trasforma il servizio in un prodotto riconoscibile. Sta in home, su
-          fondo notte, tra il "cosa facciamo" e la prova dei risultati. */}
-      <DeferredMount minHeight="640px" rootMargin="320px 0px">
-        <MetodoForge className="section-mattone" />
-      </DeferredMount>
+          fondo notte, tra il "cosa facciamo" e la prova dei risultati.
+          Montato subito, non in DeferredMount: dentro quello #metodo non
+          esisteva finche' non ci si scorreva vicino, quindi il pulsante
+          "Guarda il Metodo FORGE" della hero non portava da nessuna parte,
+          la sezione compariva a scatti e il server mandava a Google un
+          riquadro vuoto. E' solo testo, montarlo subito non costa niente. */}
+      <MetodoForge className="section-mattone" />
 
       {/* S5b — LA GARANZIA DI TRASPARENZA
           Il punto esatto in cui il lettore si chiede "si', ma come faccio

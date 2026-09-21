@@ -1,7 +1,10 @@
-import dynamic from "next/dynamic";
-
-const Reveal = dynamic(() => import("@/components/ui/Reveal"));
-
+/* Niente animazione d'entrata, per scelta della proprieta' (21 settembre
+   2026). Reveal faceva sparire i passi appena partiva JavaScript per poi
+   farli riapparire in dissolvenza, dopo un secondo e mezzo li mostrava
+   comunque anche fuori schermo, e il ritardo fra un passo e l'altro valeva
+   solo quando sparivano: chi arrivava lento non vedeva niente, chi arrivava
+   veloce vedeva un lampo. Il Metodo e' la sezione da leggere con calma:
+   sta ferma. */
 const fasi = [
   {
     letter: "F",
@@ -75,65 +78,62 @@ export default function MetodoForge({
       )}
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <h2
-              className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
-            >
-              <span className="text-brand-corallo">Metodo FORGE</span> — Dal
-              Contatto alla Firma, in 5 step
-            </h2>
-          </div>
-        </Reveal>
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2
+            className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
+          >
+            <span className="text-brand-corallo">Metodo FORGE</span> — Dal
+            Contatto alla Firma, in 5 step
+          </h2>
+        </div>
 
         <div>
           {fasi.map((fase, idx) => (
-            <Reveal key={fase.letter} delay={(idx % 4) as 0 | 1 | 2 | 3}>
-              <article
-                className={`grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-2 sm:gap-9 items-center py-8 md:py-9 border-t ${
-                  coral ? "border-white/15" : "border-brand-bordo"
-                } ${idx === fasi.length - 1 ? (coral ? "border-b border-white/15" : "border-b border-brand-bordo") : ""} group`}
-              >
-                <div className="flex items-baseline gap-1 sm:gap-1.5">
-                  <span
-                    className={`font-display font-extrabold text-[clamp(4.2rem,9vw,7rem)] leading-[0.8] transition-colors duration-300 ${
-                      coral
-                        ? "text-white/45 group-hover:text-white"
-                        : "text-brand-corallo group-hover:text-brand-corallo-dark"
-                    }`}
-                  >
-                    {fase.letter}
-                  </span>
-                  <span className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
-                      coral ? "text-white/90" : "text-brand-nero"
-                    }`}>
-                    {fase.verticalLabel}
-                  </span>
-                </div>
+            <article
+              key={fase.letter}
+              className={`grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-2 sm:gap-9 items-center py-8 md:py-9 border-t ${
+                coral ? "border-white/15" : "border-brand-bordo"
+              } ${idx === fasi.length - 1 ? (coral ? "border-b border-white/15" : "border-b border-brand-bordo") : ""} group`}
+            >
+              <div className="flex items-baseline gap-1 sm:gap-1.5">
+                <span
+                  className={`font-display font-extrabold text-[clamp(4.2rem,9vw,7rem)] leading-[0.8] transition-colors duration-300 ${
+                    coral
+                      ? "text-white/45 group-hover:text-white"
+                      : "text-brand-corallo group-hover:text-brand-corallo-dark"
+                  }`}
+                >
+                  {fase.letter}
+                </span>
+                <span className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
+                    coral ? "text-white/90" : "text-brand-nero"
+                  }`}>
+                  {fase.verticalLabel}
+                </span>
+              </div>
 
-                <div>
-                  <h3
-                    className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
-                      coral ? "!text-white" : "!text-brand-corallo"
-                    }`}
-                  >
-                    {fase.title}
-                  </h3>
-                  <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>
-                    {fase.description}
-                  </p>
-                  <span
-                    className={`inline-flex w-fit items-center gap-1.5 mt-4 rounded-full border-2 bg-transparent px-5 py-2.5 text-sm font-bold normal-case shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 ${
-                      coral
-                        ? "border-white text-white hover:bg-white/10"
-                        : "border-brand-corallo text-brand-corallo"
-                    }`}
-                  >
-                    Per te: {fase.takeaway}
-                  </span>
-                </div>
-              </article>
-            </Reveal>
+              <div>
+                <h3
+                  className={`font-display font-bold text-[clamp(1.35rem,2.4vw,1.9rem)] tracking-tight mb-2.5 ${
+                    coral ? "!text-white" : "!text-brand-corallo"
+                  }`}
+                >
+                  {fase.title}
+                </h3>
+                <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>
+                  {fase.description}
+                </p>
+                <span
+                  className={`inline-flex w-fit items-center gap-1.5 mt-4 rounded-full border-2 bg-transparent px-5 py-2.5 text-sm font-bold normal-case shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 ${
+                    coral
+                      ? "border-white text-white hover:bg-white/10"
+                      : "border-brand-corallo text-brand-corallo"
+                  }`}
+                >
+                  Per te: {fase.takeaway}
+                </span>
+              </div>
+            </article>
           ))}
         </div>
       </div>
