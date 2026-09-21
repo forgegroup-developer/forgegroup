@@ -51,17 +51,21 @@ export default function Home() {
       <JsonLdFAQ />
       {/* S1 — HERO a due colonne.
           Testo a sinistra, i due fondatori a destra a tutta altezza.
-          Il sito si apre su un telefono, su WhatsApp, subito dopo una
-          chiamata a freddo: le prime due domande che si fa chi apre il
-          link sono "cosa fate" e "chi siete". Cosi' stanno tutt'e due
-          nello stesso schermo, senza dover scorrere.
+          Da telefono prima il testo e poi la foto: chi apre il link deve
+          sapere cosa facciamo prima di vedere chi siamo. Con la foto in
+          cima il titolo cominciava a meta' schermo e i pulsanti finivano
+          sotto la piega (misurato il 21 settembre 2026, scelta della
+          proprieta').
+          La hero sta nello stesso contenitore del menu: a tutta larghezza
+          il testo partiva 280px piu' a sinistra del logo e il paragrafo
+          arrivava a 103 caratteri per riga.
           Il marchio non si ripete qui: sta gia' nell'intestazione. */}
       <HeroGooeySection
         pulita
         className=""
-        innerClassName="hero-split"
+        innerClassName="hero-split mx-auto max-w-7xl"
       >
-        <div className="order-2 flex flex-col justify-center gap-5 px-5 py-12 sm:gap-6 sm:px-6 sm:py-14 lg:order-1 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20 xl:pl-16">
+        <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20">
           <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Specializzati nell&apos;acquisizione clienti in edilizia
           </p>
@@ -107,25 +111,27 @@ export default function Home() {
             oggi lavorano con un metodo, senza rincorrere i clienti.
           </p>
 
-          {/* I due pulsanti si specchiano. Il segno dice dove porta il
-              tasto prima ancora di leggerlo: freccia obliqua per la
-              pagina dedicata, freccia in basso per il metodo, che sta
-              piu' giu' in questa stessa pagina. */}
-          <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:flex-row">
+          {/* Due pulsanti larghi quanto il loro testo: prima erano due
+              lastre da 505x84 quasi uguali, e l'occhio non capiva quale
+              fosse quello da premere. Il segno dice dove porta il tasto
+              prima ancora di leggerlo: freccia obliqua per la pagina
+              dedicata, freccia in basso per il metodo, piu' giu' in questa
+              stessa pagina. */}
+          <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href="/contatti"
-              className="btn-hero btn-hero-caldo btn-hero-sinistra flex-1 text-sm md:text-base"
+              className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
             >
-              <span>Voglio lo studio di fattibilità per la mia impresa</span>
+              <span>Richiedi lo studio di fattibilità</span>
               <span className="btn-hero-freccia" aria-hidden>
                 ↗
               </span>
             </Link>
             <Link
               href="#metodo"
-              className="btn-hero btn-hero-freddo btn-hero-destra flex-1 text-sm md:text-base"
+              className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
             >
-              <span>Prima voglio vedere il Metodo FORGE</span>
+              <span>Guarda il Metodo FORGE</span>
               <span className="btn-hero-freccia" aria-hidden>
                 ↓
               </span>
@@ -134,7 +140,7 @@ export default function Home() {
 
         </div>
 
-        <div className="hero-foto order-1 lg:order-2">
+        <div className="hero-foto order-2">
           <div className="hero-foto-cornice">
             <Image
               src="/images/team/vision/founders-duo.png"

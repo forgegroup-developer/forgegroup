@@ -2041,19 +2041,24 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 
 /* Colonna della fotografia. Lo scatto sta dentro un riquadro
    arrotondato, non a filo del bordo: cosi' si legge come un ritratto
-   messo li' apposta. Su schermo stretto la colonna sta sopra al testo
-   e si accorcia — a tutta altezza su un telefono spingerebbe il claim
-   sotto la piega. */
+   messo li' apposta. Su schermo stretto la colonna sta sotto al testo
+   e si accorcia: il primo schermo del telefono e' per le parole. */
 .hero-foto {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1.25rem 0.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-foto {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .hero-foto {
-    padding: 5rem 3rem 0 0;
+    padding: 5rem 2rem 0 0;
   }
 }
 
@@ -2142,6 +2147,22 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
    sezione di questa stessa pagina. */
 .btn-hero-sinistra {
   text-align: left;
+}
+
+/* Hero della home: pulsanti larghi quanto il testo e alti 56px, non piu'
+   lastre da 84. Da telefono restano a tutta larghezza, uno sotto l'altro,
+   perche' li' e' il pollice a doverli prendere. */
+.btn-hero-compatto {
+  min-height: 3.5rem;
+  gap: 0.9rem;
+  border-radius: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.4rem;
+}
+
+.btn-hero-compatto .btn-hero-freccia {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
 }
 
 .btn-hero-destra {
@@ -2459,10 +2480,17 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
-  padding: 1.75rem 1.25rem 3rem;
+  padding: 1.75rem 1rem 3rem;
   font-size: 0.9rem;
   line-height: 1.55;
   color: var(--color-brand-grigio);
+}
+
+@media (min-width: 640px) {
+  .riga-mestieri {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
