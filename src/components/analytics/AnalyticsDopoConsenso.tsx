@@ -21,8 +21,27 @@ type ConsensoIubenda = {
   cs?: { consent?: { purposes?: Record<string, boolean> } };
 };
 
+/**
+ * Chi torna ha gia' scelto, e la scelta sta nel cookie _iub_cs-<sito> fin dal
+ * primo byte della pagina. Leggerlo da li' fa partire Analytics subito, senza
+ * aspettare che il JavaScript di iubenda finisca di girare: aspettandolo, la
+ * prima visita di pagina partiva dopo 7,5 secondi, e chi usciva prima non
+ * veniva contato.
+ */
+function sceltaSalvata(): Record<string, boolean> | undefined {
+  const riga = document.cookie.split("; ").find((c) => c.startsWith("_iub_cs-"));
+  if (!riga) return undefined;
+  try {
+    const valore = decodeURIComponent(riga.slice(riga.indexOf("=") + 1));
+    return (JSON.parse(valore) as { purposes?: Record<string, boolean> }).purposes;
+  } catch {
+    return undefined;
+  }
+}
+
 function misurazioneAccettata(): boolean {
   if (typeof window === "undefined") return false;
+  if (sceltaSalvata()?.[FINALITA_MISURAZIONE] === true) return true;
   const iub = (window as unknown as { _iub?: ConsensoIubenda })._iub;
   return iub?.cs?.consent?.purposes?.[FINALITA_MISURAZIONE] === true;
 }
