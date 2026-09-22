@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Reveal from "@/components/ui/Reveal";
 import VisionBeliefCards from "@/components/sezioni/VisionBeliefCards";
 import VisionJoinSection from "@/components/sezioni/VisionJoinSection";
 
@@ -33,7 +32,7 @@ export default function VisionSection() {
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 text-center sm:px-6 md:py-36">
-          <Reveal y={32} duration={1.1}>
+          <div>
             <p className="eyebrow mb-6">✦ Visione</p>
             <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
               <span className="text-brand-corallo">Forge Group</span> nasce da una domanda semplice.
@@ -41,7 +40,7 @@ export default function VisionSection() {
             <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-brand-nero md:text-2xl text-balance">
               &ldquo;Perché tante aziende che hanno tutto per crescere, non crescono?&rdquo;
             </p>
-          </Reveal>
+          </div>
         </div>
       </section>
 

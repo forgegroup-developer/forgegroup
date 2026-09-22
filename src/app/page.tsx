@@ -18,7 +18,6 @@ import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import DeferredMount from "@/components/ui/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
 
-const Reveal = dynamic(() => import("@/components/ui/Reveal"));
 
 const TeamSection = dynamic(() => import("@/components/sezioni/TeamSection"), {
   loading: () => <div className="min-h-[480px]" aria-hidden />,
@@ -230,10 +229,10 @@ export default function Home() {
           />
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
-            {services.map((item, idx) => (
-              <Reveal key={item.label} delay={idx}>
+            {services.map((item) => (
+              <div key={item.label}>
                 <ServiceCard item={item} />
-              </Reveal>
+              </div>
             ))}
           </div>
 
@@ -259,7 +258,7 @@ export default function Home() {
               </>
             }
           />
-          <Reveal>
+          <div>
             <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
               {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
               <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
@@ -323,7 +322,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
       </DeferredMount>
@@ -360,9 +359,9 @@ export default function Home() {
               </>
             }
           />
-          <Reveal>
+          <div>
             <FAQAccordion onCoral />
-          </Reveal>
+          </div>
         </div>
       </section>
       </DeferredMount>

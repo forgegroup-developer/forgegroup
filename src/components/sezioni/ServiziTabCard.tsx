@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import dynamic from "next/dynamic";
 
-const Reveal = dynamic(() => import("@/components/ui/Reveal"));
 
 export type ServiziTabPoint = {
   title: ReactNode;
@@ -20,9 +18,9 @@ type Props = {
   sidebarImageAlt?: string;
 };
 
-function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 | 3 }) {
+function PointCard({ title, body }: ServiziTabPoint) {
   return (
-    <Reveal delay={delay} y={18} duration={0.85}>
+    <div>
       <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-corallo/50 hover:shadow-lg hover:shadow-brand-corallo/10">
         <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo-text">
           {title}
@@ -37,7 +35,7 @@ function PointCard({ title, body, delay }: ServiziTabPoint & { delay: 0 | 1 | 2 
           <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">{body}</p>
         </div>
       </div>
-    </Reveal>
+    </div>
   );
 }
 
@@ -51,14 +49,14 @@ export default function ServiziTabCard({
   sidebarImageAlt,
 }: Props) {
   return (
-    <Reveal y={32} duration={1}>
+    <div>
       <article
         id={id}
         className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
       >
         <div className="flex flex-col lg:flex-row">
           <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[620px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
-            <Reveal delay={0} y={20} duration={0.8}>
+            <div>
               <div>
                 <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
                   {number}
@@ -71,7 +69,7 @@ export default function ServiziTabCard({
                   {intro}
                 </p>
               </div>
-            </Reveal>
+            </div>
 
             {sidebarImage ? (
               <div className="relative mt-6 hidden min-h-[220px] flex-1 lg:block">
@@ -85,7 +83,7 @@ export default function ServiziTabCard({
               </div>
             ) : null}
 
-            <Reveal delay={1} y={16} duration={0.75}>
+            <div>
               <Link
                 href="/contatti"
                 className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
@@ -95,16 +93,16 @@ export default function ServiziTabCard({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-            </Reveal>
+            </div>
           </div>
 
           <div className="flex flex-1 flex-col gap-4 p-6 md:gap-5 md:p-8 lg:py-10">
             {points.map((point, idx) => (
-              <PointCard key={idx} {...point} delay={(Math.min(idx, 3)) as 0 | 1 | 2 | 3} />
+              <PointCard key={idx} {...point} />
             ))}
           </div>
         </div>
       </article>
-    </Reveal>
+    </div>
   );
 }
