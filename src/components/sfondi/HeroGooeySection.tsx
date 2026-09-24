@@ -4,6 +4,9 @@ type HeroGooeySectionProps = {
   className?: string;
   innerClassName?: string;
   after?: React.ReactNode;
+  /** Strato che va dietro al contenuto, dentro il ritaglio della hero:
+      serve alla variante con la fotografia di sfondo. */
+  before?: React.ReactNode;
   /** Fondale "muro in costruzione". Attivo di default su tutte le hero. */
   muro?: boolean;
   /** Fondo scuro con velo: serve quando sotto c'e' una fotografia. */
@@ -29,6 +32,7 @@ export default function HeroGooeySection({
   className = "pt-16 pb-12 md:pt-24 md:pb-16",
   innerClassName = "",
   after,
+  before,
   muro = true,
   scura = false,
   style,
@@ -53,6 +57,7 @@ export default function HeroGooeySection({
         {/* Il muro sta sopra la sfumatura e sotto il contenuto: e' decorativo,
             quindi aria-hidden e senza eventi puntatore. */}
         {muro && !pulita && <div className="muro-cantiere" aria-hidden />}
+        {before}
         <div className={`relative ${innerClassName}`}>{children}</div>
       </div>
       {after}

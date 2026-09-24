@@ -2814,3 +2814,39 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
 .iubenda-tp-btn {
   display: none !important;
 }
+
+/* ── Hero con la fotografia di sfondo ─────────────────────────────
+   Variante di HeroPagina: la foto va dietro al testo invece che in
+   una colonna a fianco.
+
+   Il velo non e' un vezzo. Senza, il contrasto del titolo dipende da
+   com'e' esposta la fotografia: basta una zona chiara nel punto
+   sbagliato e una riga diventa illeggibile, e non te ne accorgi finche'
+   non cambi lo scatto. Con il velo di panna il testo resta lo stesso
+   nero su chiaro di tutto il sito, qualunque foto ci sia sotto.
+
+   Sul telefono il velo e' piu' fitto: lo schermo e' piccolo, la foto si
+   vede poco lo stesso, e li' la leggibilita' vale piu' dell'atmosfera. */
+.hero-sfondo-foto {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-sfondo-velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--color-brand-panna) 96%, transparent) 0%,
+    color-mix(in srgb, var(--color-brand-panna) 92%, transparent) 48%,
+    color-mix(in srgb, var(--color-brand-panna) 74%, transparent) 100%
+  );
+}
+
+@media (max-width: 1023px) {
+  .hero-sfondo-velo {
+    background: color-mix(in srgb, var(--color-brand-panna) 94%, transparent);
+  }
+}

@@ -208,10 +208,10 @@ export default function ServiziHub() {
           testo: "Guarda le tre macroaree",
           freccia: "↓",
         }}
+        foto="sfondo"
         immagine={{
           src: "/images/hero/cantiere-rete.webp",
           alt: "Cantiere di un'impresa edile",
-          didascalia: "Il metodo, passo per passo",
         }}
       />
 

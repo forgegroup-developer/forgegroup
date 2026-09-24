@@ -41,6 +41,17 @@ type Props = {
   primario: Pulsante;
   secondario?: Pulsante;
   immagine: { src: string; alt: string; didascalia?: string };
+  /**
+   * "colonna" mette la foto a destra, come in home.
+   * "sfondo" la manda dietro al testo, a tutta larghezza.
+   *
+   * Con lo sfondo la foto e' decorativa, quindi porta alt vuoto e un
+   * velo di panna sopra: il testo resta lo stesso nero su chiaro della
+   * home, e il contrasto non dipende da com'e' esposta la fotografia.
+   * Senza quel velo basta una zona chiara dello scatto per rendere
+   * illeggibile una riga, e non te ne accorgi finche' non cambi foto.
+   */
+  foto?: "colonna" | "sfondo";
 };
 
 export default function HeroPagina({
@@ -51,14 +62,42 @@ export default function HeroPagina({
   primario,
   secondario,
   immagine,
+  foto = "colonna",
 }: Props) {
+  const sfondo = foto === "sfondo";
+
   return (
     <HeroGooeySection
       pulita
-      className=""
-      innerClassName="hero-split mx-auto max-w-7xl"
+      className={sfondo ? "hero-sfondo" : ""}
+      innerClassName={
+        sfondo
+          ? "relative z-10 mx-auto max-w-7xl"
+          : "hero-split mx-auto max-w-7xl"
+      }
+      before={
+        sfondo ? (
+          <div className="hero-sfondo-foto" aria-hidden>
+            <Image
+              src={immagine.src}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: "cover", objectPosition: "50% 45%" }}
+            />
+            <div className="hero-sfondo-velo" />
+          </div>
+        ) : undefined
+      }
     >
-      <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20">
+      <div
+        className={
+          sfondo
+            ? "flex max-w-3xl flex-col gap-5 px-4 pb-16 pt-12 sm:gap-6 sm:px-6 sm:pt-16 lg:pl-8 lg:pt-24 lg:pb-24"
+            : "order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20"
+        }
+      >
         <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
           {occhiello}
         </p>
@@ -99,23 +138,25 @@ export default function HeroPagina({
         </div>
       </div>
 
-      <div className="hero-foto order-2">
-        <div className="hero-foto-cornice">
-          <Image
-            src={immagine.src}
-            alt={immagine.alt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 48vw, 100vw"
-          />
-          {immagine.didascalia && (
-            <p className="hero-foto-firma">
-              <span aria-hidden>✳</span>
-              {immagine.didascalia}
-            </p>
-          )}
+      {!sfondo && (
+        <div className="hero-foto order-2">
+          <div className="hero-foto-cornice">
+            <Image
+              src={immagine.src}
+              alt={immagine.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
+            {immagine.didascalia && (
+              <p className="hero-foto-firma">
+                <span aria-hidden>✳</span>
+                {immagine.didascalia}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </HeroGooeySection>
   );
 }
