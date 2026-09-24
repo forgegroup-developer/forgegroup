@@ -7,21 +7,21 @@ import { getPublishedArticles } from "@/lib/blog/articlesAsync";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 export const metadata: Metadata = {
-  title: "Blog Marketing B2B | Intelligence",
+  title: "Blog per imprese edili: clienti, preventivi e margini",
   description:
-    "Strategie avanzate di acquisizione clienti, vendita high-ticket e processi commerciali B2B. Articoli tecnici per imprenditori e direttori vendite.",
+    "Come arrivano i clienti a un'impresa edile, perché i preventivi restano senza risposta e dove si perdono i margini. Articoli per chi l'impresa la porta avanti.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog Forge Group | Marketing B2B e acquisizione clienti",
+    title: "Blog Forge Group | Clienti, preventivi e margini in edilizia",
     description:
-      "Articoli su acquisizione clienti, vendita high-ticket e processi commerciali B2B.",
+      "Come arrivano i clienti a un'impresa edile, perché i preventivi restano senza risposta e dove si perdono i margini.",
     url: "/blog",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Blog" }],
   },
   twitter: {
     card: "summary",
     title: "Blog Forge Group",
-    description: "Intelligence su marketing B2B e acquisizione clienti.",
+    description: "Clienti, preventivi e margini per le imprese edili.",
   },
 };
 
@@ -41,8 +41,10 @@ export default async function BlogHub() {
           Leggi i nostri <span className="text-brand-corallo">articoli</span>
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-brand-grigio md:text-lg">
-          Guide pratiche su acquisizione clienti B2B, processi di vendita e crescita per imprese in
-          Campania e in Italia. Per un percorso su misura, scopri i{" "}
+          Come arrivano i clienti a un&apos;impresa edile, perché i preventivi
+          restano senza risposta e dove si perdono i margini. Un pezzo alla
+          volta, scritto per chi l&apos;impresa la porta avanti. Per il resto,
+          guarda i{" "}
           <Link href="/servizi" className="font-semibold text-brand-corallo-text hover:underline">
             nostri servizi
           </Link>{" "}

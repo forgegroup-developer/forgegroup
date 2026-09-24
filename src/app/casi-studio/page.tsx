@@ -6,21 +6,21 @@ import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 
 export const metadata: Metadata = {
-  title: "Casi Studio | Risultati verificati B2B",
+  title: "Casi studio: imprese edili, con i numeri e il nome sotto",
   description:
-    "Tre imprese, tre mestieri: coperture, arredamento negozi, software per l'edilizia. Da dove siamo partiti, cosa abbiamo fatto e quanto è entrato, con i numeri veri.",
+    "Coperture, arredamento negozi, software per l'edilizia. Per ognuna: com'era prima, cosa abbiamo messo in piedi e quanto è entrato. Numeri veri, con il nome dell'impresa sotto.",
   alternates: { canonical: "/casi-studio" },
   openGraph: {
-    title: "Casi Studio | Forge Group",
+    title: "Casi studio imprese edili | Forge Group",
     description:
-      "Coperture, arredamento negozi, software per l'edilizia: tre casi con i numeri veri e il nome sotto.",
+      "Coperture, arredamento negozi, software per l'edilizia: com'era prima, cosa è cambiato, quanto è entrato.",
     url: "/casi-studio",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Casi Studio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Casi Studio | Forge Group",
-    description: "Tre imprese, tre mestieri, numeri veri.",
+    title: "Casi studio imprese edili | Forge Group",
+    description: "Tre imprese, tre mestieri, i numeri con il nome sotto.",
     images: ["/logo.png"],
   },
 };
@@ -37,7 +37,9 @@ function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
       </h1>
       <p className="body-lg mb-8 text-pretty">
         Coperture, arredamento negozi, software per l&apos;edilizia. Per ognuna
-        trovi da dove siamo partiti, cosa abbiamo fatto e quanto è entrato.
+        c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e quanto è
+        entrato. Se un numero ti sembra strano, il nome dell&apos;impresa è
+        lì sotto: si può chiedere a loro.
       </p>
       <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
         Richiedi lo studio di fattibilità
