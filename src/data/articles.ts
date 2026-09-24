@@ -70,7 +70,7 @@ export const articles: Article[] = [
       },
       {
         q: "Perché le campagne pubblicitarie non portano clienti che comprano?",
-        a: "Di solito manca uno dei quattro pilastri: posizionamento chiaro, asset a risposta diretta, targeting preciso o processo commerciale strutturato. Senza tutti e quattro, il budget si disperde.",
+        a: "Di solito manca uno dei quattro pilastri: posizionamento chiaro, pagine e materiali fatti per far chiedere un preventivo, pubblicita' mirata o un processo di vendita scritto. Senza tutti e quattro, il budget si disperde.",
       },
     ],
     content: [
@@ -102,7 +102,7 @@ export const articles: Article[] = [
         type: "p",
         text: "Devi smettere di essere 'un'agenzia/un'impresa/uno studio professionale come tanti'. Devi essere la scelta ovvia per un segmento specifico. In Campania funziona soprattutto quando ti specializzi per settore (edilizia commerciale, hospitality, software B2B).",
       },
-      { type: "h3", text: "2. Asset a risposta diretta" },
+      { type: "h3", text: "2. Le pagine che fanno chiedere un preventivo" },
       {
         type: "p",
         text: "Servono landing page, VSL, lead magnet costruiti con la tecnica del marketing a risposta diretta. Ogni elemento ha un solo obiettivo: portare il visitatore al passo successivo. Niente brochure aziendali, niente 'chi siamo' in homepage.",
@@ -260,7 +260,7 @@ export const articles: Article[] = [
       },
       {
         q: "In quanto tempo capisco se la collaborazione funziona?",
-        a: "In 60-90 giorni dovresti gia avere segnali chiari su qualita lead e performance del funnel.",
+        a: "In 60-90 giorni dovresti gia' vedere chiaramente che tipo di richieste arrivano e quante diventano appuntamenti.",
       },
     ],
     content: [
@@ -322,7 +322,7 @@ export const articles: Article[] = [
       },
       {
         type: "cta",
-        text: "Vuoi capire se il tuo funnel attuale e davvero scalabile?",
+        text: "Vuoi capire se il modo in cui oggi arrivano e si lavorano le richieste regge la crescita?",
       },
     ],
   },
@@ -372,7 +372,7 @@ export const articles: Article[] = [
         items: [
           "Spesa pubblicitaria (ad spend) su Meta, Google o LinkedIn",
           "Gestione e ottimizzazione delle campagne",
-          "Creazione di landing page e asset a risposta diretta",
+          "Creazione delle pagine e dei materiali che fanno chiedere un preventivo",
           "CRM e automazioni di follow-up",
           "Eventuale consulenza su processo commerciale",
         ],
@@ -495,7 +495,7 @@ export const articles: Article[] = [
       { type: "h2", text: "Checklist: processo commerciale" },
       {
         type: "p",
-        text: "Un punto spesso ignorato: l'agenzia deve occuparsi anche di cosa succede dopo il lead. Se non parla mai di follow-up, script o CRM, il rischio e ricevere contatti che poi si perdono nel tuo funnel interno. Approfondisci nella guida al [sistema di vendita B2B dalla lead al contratto](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
+        text: "Un punto spesso ignorato: l'agenzia deve occuparsi anche di cosa succede dopo il lead. Se non parla mai di follow-up, script o CRM, il rischio e' ricevere contatti che poi si perdono dentro l'azienda. Approfondisci nella guida al [sistema di vendita B2B dalla lead al contratto](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
       },
       {
         type: "quote",

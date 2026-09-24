@@ -103,7 +103,7 @@ export const caseStudies: CaseStudy[] = [
     system: [
       {
         step: "01",
-        title: "Sito web ad alte performance",
+        title: "Un sito che fa chiedere il preventivo",
         description:
           "Con Tetti Top abbiamo costruito un sito veloce e persuasivo, ottimizzato in modo geolocalizzato per le zone esatte in cui l'azienda opera. Chi cerca, trova Tetti Top e capisce subito perché sceglierla.",
       },
@@ -159,8 +159,8 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Selezione",
-        before: "Preventivi a chiunque chiedeva, anche non in target",
-        after: "Modulo e chiamate di prequalifica con budget",
+        before: "Preventivi a chiunque li chiedesse",
+        after: "Un modulo e le domande sul budget, prima di muoversi",
       },
       {
         aspect: "Sopralluoghi",
@@ -182,7 +182,7 @@ export const caseStudies: CaseStudy[] = [
       "I 175.000€ + IVA rappresentano il valore del preventivo più alto generato dal sistema. Lo riportiamo per trasparenza: indica la qualità delle trattative che il sistema è in grado di portare al tavolo.",
     forWhom: [
       "Aziende a conduzione familiare che vivono di passaparola e vogliono un flusso prevedibile",
-      "Titolari nell'edilizia e nei servizi tecnici che vogliono dedicare meno tempo a contatti non in target",
+      "Titolari nell'edilizia e nei servizi tecnici che vogliono smettere di perdere sabati con chi non può pagare il lavoro",
       "Imprenditori che vogliono scegliere i clienti, non accettare chiunque pur di lavorare",
       "Chi vuole un sistema che resti, non una campagna che si spegne quando smetti di pagare",
     ],
@@ -227,21 +227,21 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "02",
-        title: "Processi commerciali strutturati",
+        title: "Tre percorsi di vendita, scritti",
         description:
-          "Insieme a ROVI abbiamo costruito tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow-up definito giorno per giorno.",
+          "Insieme a ROVI abbiamo scritto tre percorsi di vendita, uno per tipo di lavoro, ognuno con le parole da dire, le domande da fare prima di muoversi, cosa rispondere alle obiezioni e ogni quanto si risente il cliente.",
       },
       {
         step: "03",
         title: "Progettazione a pagamento",
         description:
-          "Con ROVI abbiamo introdotto un sistema di progettazione a pagamento che filtra le richieste non in target, monetizza il lavoro consulenziale e aumenta il commitment del cliente prima della firma del contratto.",
+          "Con ROVI il progetto si fa pagare. Chi non ha budget si ferma prima, il lavoro di progettazione smette di essere regalato, e chi paga per un progetto ha gia' deciso che fara' il lavoro.",
       },
       {
         step: "04",
-        title: "Prequalifica & filtro lead",
+        title: "Le domande prima del sopralluogo",
         description:
-          "Insieme al team commerciale abbiamo definito un gate di prequalifica all'ingresso di ogni processo: domande su budget, stato immobile e tempistiche, per intercettare solo chi è pronto ad acquistare.",
+          "Con chi risponde al telefono abbiamo messo tre domande all'ingresso di ogni percorso: che budget ha in mente, com'è messo l'immobile ed entro quando vuole iniziare. Chi non risponde a queste non vale un viaggio.",
       },
       {
         step: "05",
@@ -251,9 +251,9 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "06",
-        title: "Pipeline vendita & appuntamenti",
+        title: "Il percorso della richiesta, fino all'appuntamento",
         description:
-          "Insieme a ROVI abbiamo strutturato un sistema di appuntamenti intermedi con schede operative, budget progressivi e meccaniche di commitment che guidano ogni cliente verso la firma in modo prevedibile.",
+          "Insieme a ROVI abbiamo messo degli appuntamenti in mezzo, ognuno con la sua scheda e una cifra che si fa più precisa, così a ogni passo il cliente mette qualcosa di suo e guidano ogni cliente verso la firma in modo prevedibile.",
       },
     ],
     resultsEyebrow: "Dove siamo adesso",
@@ -282,22 +282,22 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Progettazione",
         before: "Gratuita: 36 progetti persi ogni anno senza ritorno",
-        after: "A pagamento: filtra le richieste non in target e monetizza la consulenza",
+        after: "A pagamento: si ferma chi non ha budget, e il progetto smette di essere regalato",
       },
       {
         aspect: "Vendita",
         before: "Agenda cartacea, WhatsApp, nessuno storico delle trattative",
-        after: "3 processi commerciali con script e follow-up giornalieri",
+        after: "Tre percorsi scritti, con le parole da dire e quando risentire",
       },
       {
-        aspect: "Prequalifica",
-        before: "La maggior parte dei lead senza budget né urgenza definita",
-        after: "Gate su budget, stato immobile e tempistiche",
+        aspect: "Le domande in ingresso",
+        before: "Quasi tutte le richieste senza budget né una data",
+        after: "Budget, stato dell'immobile e tempi, chiesti prima",
       },
       {
         aspect: "Chiusura",
         before: "10 incontri per contratto, senza protocolli",
-        after: "Appuntamenti strutturati con schede e commitment progressivo",
+        after: "Appuntamenti con una scheda ciascuno, e a ogni passo il cliente ci mette del suo",
       },
       {
         aspect: "Obiettivo",
@@ -309,7 +309,7 @@ export const caseStudies: CaseStudy[] = [
     forWhom: [
       "Studi di arredo e progettazione B2B con ticket alto e passaparola come unico canale",
       "Aziende che offrono consulenza e progettazione a lead non ancora qualificati",
-      "Titolari con team commerciale informale che vogliono processi, script e trattative tracciate",
+      "Titolari che vendono da sé o con due persone, e vogliono un metodo scritto e le trattative sotto controllo",
       "Chi vuole aprire un canale Meta Ads con form di qualifica integrati",
     ],
     ...caseStudyLogosBySlug["arredo-commerciale"],
@@ -357,11 +357,11 @@ export const caseStudies: CaseStudy[] = [
         step: "03",
         title: "Sistema di acquisizione Meta Ads",
         description:
-          "Insieme al team commerciale di DISA abbiamo costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
+          "Insieme a chi vende in DISA abbiamo costruito un metodo per far arrivare richieste da Meta, con il budget mensile tenuto sotto controllo e campagne mirate per parlare alle aziende che quel software lo userebbero davvero.",
       },
       {
         step: "04",
-        title: "Form di qualifica",
+        title: "Le domande nel modulo",
         description:
           "Abbiamo integrato nelle campagne form per raccogliere le informazioni chiave: al commerciale arrivano contatti già consapevoli e interessati, non più nomi a freddo.",
       },
@@ -375,7 +375,7 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { value: "+126k", label: "Fatturato generato", detail: "Nei primi 90 giorni" },
       { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
-      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
+      { value: "+550", label: "Contatti generati", detail: "Già informati e con il problema in casa" },
       { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
     ],
     quote: {
@@ -408,7 +408,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Contatti",
         before: "Persone che non conoscevano SOS APPALTI",
-        after: "Lead già consapevoli e in target (+550 generati)",
+        after: "Contatti già informati, con il problema in casa (+550)",
       },
       {
         aspect: "Commerciali",
@@ -423,7 +423,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Scalabilità",
         before: "Mercato limitato al territorio vicino",
-        after: "Sistema di proprietà dell'azienda, scalabile in tutta Italia",
+        after: "Il sistema è dell'azienda, e regge su tutta Italia",
       },
     ],
     videoUrl: "/video-recensione.mp4",

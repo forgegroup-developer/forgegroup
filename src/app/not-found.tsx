@@ -9,14 +9,14 @@ export default function NotFound() {
           Pagina non <span className="text-brand-corallo">trovata</span>
         </h1>
         <p className="text-base text-brand-grigio leading-relaxed mb-8">
-          Il link che hai seguito non esiste o è stato spostato. Torna alla home o contattaci.
+          Il link che hai seguito non esiste o è stato spostato. Torna alla home, oppure candida la tua impresa.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href="/" className="btn-corallo px-8 py-4">
             Torna alla Home
           </Link>
           <Link href="/contatti" className="btn-ghost px-8 py-4">
-            Contattaci
+            Candida la tua impresa
           </Link>
         </div>
       </div>
