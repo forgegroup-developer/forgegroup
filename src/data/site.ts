@@ -7,13 +7,24 @@
  * Vincoli della proprieta': nessun prezzo, mai "gratuito" ne' "senza
  * impegno", "contratti" e non "commesse", solo numeri verificabili.
  */
-export const faqs = [
+export type Faq = {
+  q: string;
+  a: string;
+  /** Le sei che restano in home: diffidenza, meccanismo, aspettative,
+      onesta', soldi, tempi. Le altre stanno in /servizi, dove chi vuole
+      capire come si lavora le va a cercare davvero. */
+  home?: boolean;
+};
+
+export const faqs: Faq[] = [
   {
     q: "Ho già speso con un'agenzia e non è cambiato niente. Perché con voi dovrebbe andare diversamente?",
+    home: true,
     a: "È la frase che sentiamo più spesso: c'è chi ha cambiato due agenzie, chi tredici. Non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. E dal primo giorno vedi dove finiscono le richieste e quanto va in pubblicità, separato da quello che prendiamo noi.",
   },
   {
     q: "Mi garantite un numero di clienti?",
+    home: true,
     a: "No, e diffida di chi ti dice di sì. Quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è: all'inizio possiamo fare una stima, e resta una stima. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
   },
   {
@@ -22,10 +33,12 @@ export const faqs = [
   },
   {
     q: "Cosa succede se non sta funzionando?",
+    home: true,
     a: "Te lo diciamo noi per primi, con i numeri davanti, e decidiamo insieme se sospendere le campagne o cambiare strada. È la cosa che quasi tutti gli imprenditori con cui abbiamo parlato rimproveravano all'agenzia di prima: le campagne non andavano, nessuno lo diceva, e il canone si pagava lo stesso.",
   },
   {
     q: "Quanto costa lavorare con voi?",
+    home: true,
     a: "Dipende da cosa ti serve: solo la pubblicità, oppure anche i processi di vendita e l'affiancamento sulle trattative. Per questo prima guardiamo i tuoi numeri, quante richieste ricevi, quante diventano contratti e quanto vale in media un lavoro per te, e solo dopo ti facciamo un'offerta. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
   },
   {
@@ -34,6 +47,7 @@ export const faqs = [
   },
   {
     q: "Le chiamate ai contatti le fate voi o le devo fare io?",
+    home: true,
     a: "Le fai tu, o chi risponde al telefono per te. Non chiamiamo noi al posto tuo, e non è per risparmiare lavoro: è che il cliente deve sentire la tua azienda, non un centralino di qualcun altro. Quello che facciamo è mettere in condizione di farle bene chi le fa: le domande da porre e in che ordine, cosa rispondere quando ti dice che ci deve pensare, ogni quanto si richiama. E il filtro lo mettiamo prima, con il modulo: tipo di lavoro, tempi, budget e zona ce li hai scritti davanti prima di alzare la cornetta.",
   },
   {
@@ -58,6 +72,7 @@ export const faqs = [
   },
   {
     q: "In quanto tempo si vedono i risultati?",
+    home: true,
     a: "Il primo mese serve a provare e aggiustare le campagne. Poi c'è da mettere in conto che in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri, spesso una seconda persona che deve dire la sua. Se qualcuno ti dice che in due settimane si firma, ti sta raccontando una cosa che in questo settore non succede.",
   },
   {
@@ -77,3 +92,6 @@ export const faqs = [
     a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia e si lavora a stretta di mano; il resto si porta avanti a distanza, con il CRM aperto da entrambe le parti.",
   },
 ];
+
+/** Le domande che restano in home. L'ordine e' quello dell'elenco sopra. */
+export const faqsHome = faqs.filter((f) => f.home);

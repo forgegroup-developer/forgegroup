@@ -1,10 +1,15 @@
-import { faqs } from "@/data/site";
+import { faqs, type Faq } from "@/data/site";
 
-export default function JsonLdFAQ() {
+/**
+ * Lo schema deve corrispondere a quello che si vede in pagina: la home
+ * mostra le sei di `faqsHome`, /servizi le mostra tutte. Per questo le
+ * voci si passano dall'esterno invece di prendere sempre l'elenco intero.
+ */
+export default function JsonLdFAQ({ items = faqs }: { items?: Faq[] }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: items.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: {
