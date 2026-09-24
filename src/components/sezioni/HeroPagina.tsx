@@ -19,6 +19,10 @@ import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
  *
  * REGOLA: le pagine non si scrivono una hero per conto loro. Se serve
  * una variante, si aggiunge qui.
+ *
+ * Sul titolo: no-spezza tiene unite due o tre parole, non una frase.
+ * La colonna del testo e' il 60 per cento di 1280px, quindi una riga
+ * lunga marcata nowrap esce dalla colonna e finisce sotto la foto.
  */
 
 type Pulsante = {

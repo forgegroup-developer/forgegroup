@@ -177,10 +177,8 @@ export default function ServiziHub() {
         occhiello="Il Metodo FORGE"
         titolo={
           <>
-            Le richieste le filtriamo prima.{" "}
-            <span className="text-brand-corallo no-spezza">
-              Le trattative le guardiamo ogni settimana
-            </span>
+            Le richieste le filtriamo prima. Le trattative le guardiamo{" "}
+            <span className="text-brand-corallo no-spezza">ogni settimana</span>
             , una per una.
           </>
         }

@@ -33,11 +33,9 @@ export default function CasiStudioHub() {
         occhiello="Casi studio"
         titolo={
           <>
-            Cerca l&apos;impresa che fa il tuo mestiere.{" "}
-            <span className="text-brand-corallo no-spezza">
-              I numeri sono veri
-            </span>
-            , con il nome sotto.
+            Cerca l&apos;impresa che fa il tuo mestiere. I numeri sono{" "}
+            <span className="text-brand-corallo no-spezza">veri</span>, con il
+            nome sotto.
           </>
         }
         testo={
