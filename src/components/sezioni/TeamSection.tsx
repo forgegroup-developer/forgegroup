@@ -65,7 +65,7 @@ function InstagramIcon() {
 
 export default function TeamSection() {
   return (
-    <section className="py-20 md:py-28 section-sabbia border-y">
+    <section className="py-14 md:py-20 section-sabbia border-y">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="eyebrow mb-4">✦ Il Nostro Team</p>
         <h2 className="heading-section text-brand-nero max-w-2xl mx-auto mb-16">

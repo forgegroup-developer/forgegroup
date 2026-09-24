@@ -18,7 +18,7 @@ export default function RelatedBlogLinks({ slugs, title = "Approfondisci sul blo
   if (items.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-20 section-bianco border-t border-brand-bordo">
+    <section className="py-12 md:py-16 section-bianco border-t border-brand-bordo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-semibold text-brand-nero mb-8">{title}</h2>
         <div className="grid gap-6 md:grid-cols-3">

@@ -219,7 +219,7 @@ export default function ServiziHub() {
       <ForgeGradientBackground
         as="section"
         id="servizi-contenuto"
-        className="scroll-mt-24 py-16 md:py-24 section-coral section-coral-gradient"
+        className="scroll-mt-24 py-12 md:py-16 section-coral section-coral-gradient"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -249,7 +249,7 @@ export default function ServiziHub() {
           La domanda "e se non funziona?" si chiude prima di cominciare,
           con la selezione, non dopo con un rimborso. Decisione della
           proprieta' del 24/09/2026. */}
-      <section className="section-bianco border-y py-20 md:py-28">
+      <section className="section-bianco border-y py-14 md:py-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Prima di cominciare</p>
           <h2 className="heading-section-xl mb-6 text-balance">
@@ -310,7 +310,7 @@ export default function ServiziHub() {
       {/* Le domande di questa pagina: quelle su come si lavora. Le altre
           stanno dove il dubbio nasce (prezzo e prova nei casi studio,
           controllo nel CRM, ingresso nei contatti). */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
+      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande frequenti"

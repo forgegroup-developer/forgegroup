@@ -121,7 +121,7 @@ function TappaBlocco({ tappa, ultima }: { tappa: Tappa; ultima: boolean }) {
 
 export default function PercorsoDomande() {
   return (
-    <section className="section-sabbia border-y py-20 md:py-28">
+    <section className="section-sabbia border-y py-14 md:py-20">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
         <p className="eyebrow eyebrow-mark mb-4 flex">Dove si perde un lavoro</p>
         <h2 className="heading-section-xl mb-14 text-balance md:mb-20">

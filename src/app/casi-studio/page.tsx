@@ -1,6 +1,6 @@
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -64,21 +64,19 @@ export default function CasiStudioHub() {
           testo: "Guarda i tre casi",
           freccia: "↓",
         }}
+        foto="sfondo"
         immagine={{
-          src: "/images/casi-studio/edilizia.jpg",
-          alt: "Copertura realizzata da un'impresa edile seguita da Forge Group",
-          didascalia: "Tetti Top, coperture",
+          src: "/images/casi-studio/arredo-commerciale.jpg",
+          alt: "Negozio arredato da un'impresa seguita da Forge Group",
         }}
       />
 
-      <section id="casi-studio-contenuto" className="scroll-mt-24 py-20 md:py-28 section-bianco">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <CasiStudioElenco />
-        </div>
+      <section id="casi-studio-contenuto" className="scroll-mt-24 py-14 md:py-20 section-bianco">
+        <CasiStudioCarousel />
       </section>
 
       {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
+      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
           <h2 className="heading-section-xl mb-10 text-balance">

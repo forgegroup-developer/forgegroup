@@ -134,7 +134,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       </section>
 
       {/* CHALLENGE */}
-      <section className="py-16 md:py-20 section-coral border-y">
+      <section className="py-12 md:py-16 section-coral border-y">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[minmax(0,1fr)_280px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
             <div className="min-w-0">
@@ -176,7 +176,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       </section>
 
       {/* SISTEMA */}
-      <section className="py-16 md:py-24 section-bianco">
+      <section className="py-12 md:py-16 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <p className="eyebrow mb-4">✦ La Soluzione</p>
@@ -201,7 +201,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       </section>
 
       {/* RISULTATI */}
-      <section className="py-16 md:py-24 section-coral border-y">
+      <section className="py-12 md:py-16 section-coral border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12 copy-on-coral">
             <p className="eyebrow-coral mb-4">✦ {c.resultsEyebrow ?? "I Risultati"}</p>
@@ -243,7 +243,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
       {/* VIDEO RECENSIONE */}
       {c.videoUrl && (
-        <section className="border-b border-brand-bordo py-10 sm:py-16 md:py-24 section-bianco">
+        <section className="border-b border-brand-bordo py-10 sm:py-12 md:py-16 section-bianco">
           <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
             <div className="mb-6 sm:mb-10 max-w-2xl">
               <p className="mb-3 sm:mb-4 eyebrow">
@@ -326,7 +326,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
       {/* PRIMA / DOPO */}
       {c.beforeAfter.length > 0 && (
-        <section className="py-16 md:py-24 section-bianco">
+        <section className="py-12 md:py-16 section-bianco">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="eyebrow mb-4">
               ✦ {c.evolutionEyebrow ?? "Prima e dopo"}
@@ -351,7 +351,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
       {/* A CHI SERVE */}
       {c.forWhom && c.forWhom.length > 0 && (
-        <section className="py-16 md:py-24 section-coral border-y">
+        <section className="py-12 md:py-16 section-coral border-y">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="copy-on-coral mb-8">
               <p className="eyebrow-coral mb-4">✦ A chi serve</p>

@@ -52,7 +52,7 @@ export default async function BlogSearch({ searchParams }: Props) {
         </div>
       </HeroGooeySection>
 
-      <section className="py-16 md:py-20 section-bianco">
+      <section className="py-12 md:py-16 section-bianco">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
             <div>

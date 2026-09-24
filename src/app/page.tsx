@@ -57,12 +57,29 @@ export default function Home() {
           il testo partiva 280px piu' a sinistra del logo e il paragrafo
           arrivava a 103 caratteri per riga.
           Il marchio non si ripete qui: sta gia' nell'intestazione. */}
+      {/* La foto non sta piu' in una colonna a fianco ma dietro al testo,
+          come nelle pagine interne: due colonne spezzavano la lettura e
+          lasciavano mezza schermata alla fotografia. Il velo di panna
+          tiene il contrasto del titolo indipendente dallo scatto. */}
       <HeroGooeySection
         pulita
-        className=""
-        innerClassName="hero-split mx-auto max-w-7xl"
+        className="hero-sfondo"
+        innerClassName="relative z-10 mx-auto max-w-7xl"
+        before={
+          <div className="hero-sfondo-foto" aria-hidden>
+            <Image
+              src="/images/casi-studio/edilizia.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: "cover", objectPosition: "60% 50%" }}
+            />
+            <div className="hero-sfondo-velo" />
+          </div>
+        }
       >
-        <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20">
+        <div className="flex max-w-3xl flex-col gap-5 px-4 pb-10 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:pb-16 lg:pl-8 lg:pt-20">
           <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Specializzati nell&apos;acquisizione clienti in edilizia
           </p>
@@ -137,29 +154,10 @@ export default function Home() {
 
         </div>
 
-        <div className="hero-foto order-2">
-          <div className="hero-foto-cornice">
-            <Image
-              src="/images/team/vision/founders-duo.png"
-              alt="I due fondatori di Forge Group"
-              fill
-              priority
-              sizes="(min-width: 1024px) 48vw, 100vw"
-            />
-            {/* La firma sta sulla foto, non sotto: sotto era una riga
-                grigia che nessuno legge. Il velo in basso e' li' apposta
-                per reggerla. */}
-            <p className="hero-foto-firma">
-              <span aria-hidden>✳</span>
-              I fondatori di Forge Group
-            </p>
-          </div>
-        </div>
-
         {/* Il perimetro dei mestieri, con lo stesso asterisco
             dell'occhiello in cima: e' la nota a piede della promessa, e
             sta sotto entrambe le colonne perche' vale per tutta la hero. */}
-        <p className="hero-enter hero-enter-d3 riga-mestieri order-3">
+        <p className="hero-enter hero-enter-d3 riga-mestieri">
           <span className="riga-mestieri-asterisco" aria-hidden>
             ✳
           </span>
@@ -217,7 +215,7 @@ export default function Home() {
           che non sapeva ancora perche' gli servisse, e si spezzava in due
           il blocco del problema. Qui arrivano dopo che il metodo ha un
           nome, e diventano "cosa c'e' dentro". */}
-      <section className="py-20 md:py-28 section-sabbia border-y">
+      <section className="py-14 md:py-20 section-sabbia border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Cosa facciamo per te"
@@ -248,7 +246,7 @@ export default function Home() {
 
       {/* S7 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-bianco border-y">
+      <section className="py-14 md:py-20 section-bianco border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Il confronto"
@@ -348,7 +346,7 @@ export default function Home() {
 
       {/* S8 — FAQ */}
       <DeferredMount minHeight="360px">
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-mattone">
+      <section id="faq" className="scroll-mt-24 py-14 md:py-20 section-mattone">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande Frequenti"

@@ -18,7 +18,7 @@ const punti = [
 
 export default function CrmSintesi() {
   return (
-    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
+    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-14 md:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-8">
         <div>
           <p className="eyebrow eyebrow-mark mb-4 flex">Come lavoriamo</p>
