@@ -2,6 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import CrmGestionale from "@/components/sezioni/CrmGestionale";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
+import { faqsPagina } from "@/data/site";
 import { SITE_NAME } from "@/lib/seo/site";
 
 /**
@@ -171,6 +174,19 @@ export default function CrmGestionalePage() {
           </div>
         </div>
       </section>
+
+      {/* Le domande che nascono proprio qui: controllare il lavoro, e quanto costa lo strumento. */}
+      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
+          <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
+          <h2 className="heading-section-xl mb-10 text-balance">
+            Sul gestionale, <span className="text-brand-corallo-text">quello che ci chiedono</span>.
+          </h2>
+          <FAQAccordion items={faqsPagina("crm")} />
+        </div>
+      </section>
+
+      <JsonLdFAQ items={faqsPagina("crm")} />
     </>
   );
 }

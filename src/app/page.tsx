@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import { faqsHome } from "@/data/site";
+import { faqsPagina } from "@/data/site";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <JsonLdFAQ items={faqsHome} />
+      <JsonLdFAQ items={faqsPagina("home")} />
       {/* S1 — HERO a due colonne.
           Testo a sinistra, i due fondatori a destra a tutta altezza.
           Da telefono prima il testo e poi la foto: chi apre il link deve
@@ -361,11 +361,11 @@ export default function Home() {
             }
           />
           <div>
-            <FAQAccordion onCoral items={faqsHome} />
+            <FAQAccordion onCoral items={faqsPagina("home")} />
           </div>
           <p className="mt-8 text-center copy-on-coral">
             <Link href="/servizi#domande" className="arrow-link text-sm md:text-base">
-              Le altre domande che ci fanno, con le risposte
+              Altre domande su come si lavora
             </Link>
           </p>
         </div>

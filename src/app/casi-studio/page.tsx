@@ -4,6 +4,9 @@ import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
+import { faqsPagina } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Casi studio: imprese edili, con i numeri e il nome sotto",
@@ -68,6 +71,19 @@ export default function CasiStudioHub() {
         </div>
         <CasiStudioCarousel />
       </section>
+
+      {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}
+      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
+          <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
+          <h2 className="heading-section-xl mb-10 text-balance">
+            Hai visto i numeri.{" "}<span className="text-brand-corallo-text">Adesso le domande</span>.
+          </h2>
+          <FAQAccordion items={faqsPagina("casi-studio")} />
+        </div>
+      </section>
+
+      <JsonLdFAQ items={faqsPagina("casi-studio")} />
 
       <RelatedBlogLinks
         slugs={[

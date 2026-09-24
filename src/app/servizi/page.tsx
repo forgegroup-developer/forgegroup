@@ -9,6 +9,7 @@ import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
+import { faqsPagina } from "@/data/site";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { serviziSidebarImages } from "@/data/images";
 
@@ -302,27 +303,25 @@ export default function ServiziHub() {
         </div>
       </section>
 
-      {/* TUTTE LE DOMANDE.
-          In home ne restano sei: erano troppe e facevano muro. Qui ci
-          sono tutte, perche' questa e' la pagina dove uno che vuole
-          capire come si lavora le va a cercare. */}
+      {/* Le domande di questa pagina: quelle su come si lavora. Le altre
+          stanno dove il dubbio nasce (prezzo e prova nei casi studio,
+          controllo nel CRM, ingresso nei contatti). */}
       <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande frequenti"
             title={
               <>
-                Quello che gli{" "}
-                <span className="text-brand-corallo-text">imprenditori edili</span>{" "}
-                ci chiedono sempre.
+                Come si lavora,{" "}
+                <span className="text-brand-corallo-text">nel concreto</span>.
               </>
             }
           />
-          <FAQAccordion />
+          <FAQAccordion items={faqsPagina("servizi")} />
         </div>
       </section>
 
-      <JsonLdFAQ />
+      <JsonLdFAQ items={faqsPagina("servizi")} />
 
       <RelatedBlogLinks
         slugs={[
