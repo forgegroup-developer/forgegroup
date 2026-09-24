@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import FooterCtaBand from "@/components/layout/FooterCtaBand";
 import FooterNewsletter from "@/components/layout/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
-import { LEGAL } from "@/data/legal";
+import { IUBENDA, LEGAL } from "@/data/legal";
 import { SITE_DESCRIPTION, SOCIAL_PROFILES } from "@/lib/seo/site";
 
 type ColKey = "servizi" | "casi" | "azienda" | "contatti";
@@ -239,13 +239,37 @@ export default function Footer() {
                 P.IVA {LEGAL.siteVat}
               </p>
             </div>
-            <div className="flex items-center gap-6">
-              <Link href="/privacy-policy" className="hover:text-brand-pesca-light transition-colors">
+            {/* Link diretti a iubenda: /privacy-policy e /cookie-policy
+                restano come redirect per i link gia' in giro, ma qui non
+                ha senso far fare un salto in piu' a chi clicca.
+
+                Il tasto preferenze sta qui perche' il pallino flottante
+                di iubenda e' nascosto: copriva il tasto WhatsApp. La
+                classe iubenda-cs-preferences-link e' quella a cui
+                iubenda aggancia l'apertura del pannello. */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
+              <a
+                href={IUBENDA.privacyPolicyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-pesca-light transition-colors"
+              >
                 Privacy Policy
-              </Link>
-              <Link href="/cookie-policy" className="hover:text-brand-pesca-light transition-colors">
+              </a>
+              <a
+                href={IUBENDA.cookiePolicyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-pesca-light transition-colors"
+              >
                 Cookie Policy
-              </Link>
+              </a>
+              <button
+                type="button"
+                className="iubenda-cs-preferences-link hover:text-brand-pesca-light transition-colors"
+              >
+                Preferenze cookie
+              </button>
             </div>
           </div>
         </div>
