@@ -68,6 +68,19 @@ export default function Navbar() {
     };
   }, [open]);
 
+  /* Esc chiude il menu. E' quello che si aspetta chiunque abbia aperto
+     un pannello a schermo intero, e per chi naviga da tastiera e' l'unica
+     via d'uscita rapida: il tasto di chiusura sta in cima al pannello e
+     ci si arriva solo tornando indietro con il Tab. */
+  useEffect(() => {
+    if (!open) return;
+    const suEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    document.addEventListener("keydown", suEsc);
+    return () => document.removeEventListener("keydown", suEsc);
+  }, [open]);
+
   useEffect(() => {
     return () => {
       if (mobileCasiTapTimerRef.current) clearTimeout(mobileCasiTapTimerRef.current);

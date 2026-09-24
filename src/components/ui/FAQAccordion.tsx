@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { faqs, type Faq } from "@/data/site";
 
 type Props = {
@@ -11,6 +11,10 @@ type Props = {
 
 export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  /* Le domande possono comparire su piu' pagine, e due accordion nella
+     stessa pagina genererebbero id uguali: useId da' un prefisso suo a
+     ogni istanza. */
+  const base = useId();
 
   return (
     <div className="space-y-3">
@@ -31,9 +35,11 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
           >
             <h3 className="m-0">
               <button
+                id={`${base}-d${idx}`}
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                 aria-expanded={isOpen}
+                aria-controls={`${base}-r${idx}`}
               >
                 <span className="font-semibold text-brand-nero text-lg">{f.q}</span>
                 <span
@@ -49,7 +55,20 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
                 </span>
               </button>
             </h3>
-            <div className={`accordion-content ${isOpen ? "open" : ""}`}>
+            {/* La risposta chiusa sparisce all'occhio con
+                grid-template-rows: 0fr, ma senza inert resterebbe
+                nell'albero di accessibilita': un lettore di schermo
+                leggerebbe tutte le risposte come se fossero aperte, e
+                col Tab si finirebbe dentro un pannello invisibile.
+                inert la toglie da tutti e due i giri senza rompere
+                l'animazione, che display:none invece bloccherebbe. */}
+            <div
+              id={`${base}-r${idx}`}
+              role="region"
+              aria-labelledby={`${base}-d${idx}`}
+              inert={!isOpen}
+              className={`accordion-content ${isOpen ? "open" : ""}`}
+            >
               <div>
                 <div className="px-6 pb-6 text-brand-grigio leading-relaxed">{f.a}</div>
               </div>
