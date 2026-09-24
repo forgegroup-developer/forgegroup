@@ -2837,16 +2837,28 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
 .hero-sfondo-velo {
   position: absolute;
   inset: 0;
+  /* Fitto dove c'e' il testo, quasi assente dove non c'e'. La colonna
+     del testo arriva al 60 per cento circa: da li' in poi il velo cala
+     in fretta e la fotografia si vede per quello che e'. */
   background: linear-gradient(
     100deg,
-    color-mix(in srgb, var(--color-brand-panna) 96%, transparent) 0%,
-    color-mix(in srgb, var(--color-brand-panna) 92%, transparent) 48%,
-    color-mix(in srgb, var(--color-brand-panna) 74%, transparent) 100%
+    color-mix(in srgb, var(--color-brand-panna) 93%, transparent) 0%,
+    color-mix(in srgb, var(--color-brand-panna) 88%, transparent) 42%,
+    color-mix(in srgb, var(--color-brand-panna) 55%, transparent) 68%,
+    color-mix(in srgb, var(--color-brand-panna) 22%, transparent) 100%
   );
 }
 
 @media (max-width: 1023px) {
+  /* Sul telefono il testo occupa tutta la larghezza, quindi il velo
+     non puo' aprirsi di lato: si apre verso il basso, dove finisce il
+     testo e la foto puo' respirare. */
   .hero-sfondo-velo {
-    background: color-mix(in srgb, var(--color-brand-panna) 94%, transparent);
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-brand-panna) 94%, transparent) 0%,
+      color-mix(in srgb, var(--color-brand-panna) 90%, transparent) 70%,
+      color-mix(in srgb, var(--color-brand-panna) 62%, transparent) 100%
+    );
   }
 }
