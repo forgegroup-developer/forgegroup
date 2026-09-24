@@ -17,6 +17,19 @@ export type CaseStudy = {
   diagnosis: string[];
   system: { step: string; title: string; description: string }[];
   results: { value: string; label: string; detail?: string }[];
+  /**
+   * ATTENZIONE. Si rende solo dove c'e' videoUrl, cioe' dove esiste una
+   * testimonianza filmata: e' il video a garantire che la frase sia del
+   * cliente. Li' compare fra virgolette, con le stelle e la scritta
+   * "Recensione".
+   *
+   * Sugli altri casi questo campo NON va in pagina, ed e' voluto: il
+   * testo di Tetti Top e' una descrizione scritta da noi, e quello di
+   * ROVI e' un segnaposto ("Progetto in corso"). Presentarli come
+   * recensioni con un voto sarebbe una recensione inventata.
+   *
+   * Prima di renderli altrove servono le frasi vere dei due titolari.
+   */
   quote: { text: string; author: string; role: string };
   /** Frasi da evidenziare in corallo nell'anteprima carousel */
   excerptHighlights?: string[];

@@ -115,7 +115,7 @@ export const articles: Article[] = [
       { type: "h3", text: "4. Processo commerciale" },
       {
         type: "p",
-        text: "Il lead deve essere richiamato entro 5 minuti, gestito con script testati, inserito in un CRM e seguito con follow-up automatizzato. Senza questo, l'80% dei lead si perde per strada. Se vuoi vedere il framework completo passo per passo, leggi la guida al [sistema di vendita B2B dalla lead al contratto](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
+        text: "Il lead deve essere richiamato entro 5 minuti, gestito con script testati, inserito in un CRM e seguito con follow-up automatizzato. Senza questo i contatti si perdono per strada, e il bello e' che non te ne accorgi: nessuno segna chi ha smesso di rispondere. Se vuoi vedere il framework completo passo per passo, leggi la guida al [sistema di vendita B2B dalla lead al contratto](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
       },
       {
         type: "p",
@@ -146,7 +146,7 @@ export const articles: Article[] = [
     faqs: [
       {
         q: "Qual e il tempo massimo per contattare un lead B2B?",
-        a: "Idealmente entro 5 minuti per i lead caldi e comunque entro 30 minuti. Oltre questo tempo, il tasso di risposta cala drasticamente.",
+        a: "Il prima possibile, e la differenza la fa l'ordine di grandezza: dieci minuti non sono come due giorni. Chi ha chiesto un preventivo di solito lo ha chiesto anche ad altri, quindi chi richiama per primo parla con uno che ha ancora il problema in testa.",
       },
       {
         q: "Serve davvero un CRM per vendere di piu?",

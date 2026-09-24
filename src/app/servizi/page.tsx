@@ -208,11 +208,11 @@ export default function ServiziHub() {
           testo: "Guarda le tre macroaree",
           freccia: "↓",
         }}
-        foto="sfondo"
-        immagine={{
-          src: "/images/hero/scrivania-progetto.webp",
-          alt: "Disegni, squadra e livella sul tavolo di un'impresa edile",
-        }}
+        /* Pagina pulita, senza fotografia: le uniche disponibili sono
+           di repertorio e sotto un titolo rubano l'occhio senza dire
+           niente. Stessa scelta dei casi studio, cosi' le pagine
+           interne si assomigliano fra loro. */
+        foto="nessuna"
       />
 
       {/* TRE SERVIZI — layout originale, copy LP */}

@@ -222,7 +222,7 @@ export const scheduledArticles: Article[] = [
       { type: "h3", text: "4. Processo commerciale che chiude" },
       {
         type: "p",
-        text: "Script, follow-up, CRM. Un lead che non viene richiamato entro 5 minuti ha il 80% di probabilità in meno di convertire. Vedi il [sistema di vendita B2B in 7 passi](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
+        text: "Script, follow-up, CRM. Un contatto richiamato dopo tre giorni ha gia' parlato con qualcun altro. Vedi il [sistema di vendita B2B in 7 passi](/blog/sistema-vendita-b2b-dalla-lead-al-contratto).",
       },
       {
         type: "quote",
