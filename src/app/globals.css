@@ -2814,3 +2814,51 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
 .iubenda-tp-btn {
   display: none !important;
 }
+
+/* ── Hero con la fotografia di sfondo ─────────────────────────────
+   Variante di HeroPagina: la foto va dietro al testo invece che in
+   una colonna a fianco.
+
+   Il velo non e' un vezzo. Senza, il contrasto del titolo dipende da
+   com'e' esposta la fotografia: basta una zona chiara nel punto
+   sbagliato e una riga diventa illeggibile, e non te ne accorgi finche'
+   non cambi lo scatto. Con il velo di panna il testo resta lo stesso
+   nero su chiaro di tutto il sito, qualunque foto ci sia sotto.
+
+   Sul telefono il velo e' piu' fitto: lo schermo e' piccolo, la foto si
+   vede poco lo stesso, e li' la leggibilita' vale piu' dell'atmosfera. */
+.hero-sfondo-foto {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-sfondo-velo {
+  position: absolute;
+  inset: 0;
+  /* Fitto dove c'e' il testo, quasi assente dove non c'e'. La colonna
+     del testo arriva al 60 per cento circa: da li' in poi il velo cala
+     in fretta e la fotografia si vede per quello che e'. */
+  background: linear-gradient(
+    100deg,
+    color-mix(in srgb, var(--color-brand-panna) 92%, transparent) 0%,
+    color-mix(in srgb, var(--color-brand-panna) 86%, transparent) 40%,
+    color-mix(in srgb, var(--color-brand-panna) 38%, transparent) 66%,
+    color-mix(in srgb, var(--color-brand-panna) 8%, transparent) 100%
+  );
+}
+
+@media (max-width: 1023px) {
+  /* Sul telefono il testo occupa tutta la larghezza, quindi il velo
+     non puo' aprirsi di lato: si apre verso il basso, dove finisce il
+     testo e la foto puo' respirare. */
+  .hero-sfondo-velo {
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-brand-panna) 94%, transparent) 0%,
+      color-mix(in srgb, var(--color-brand-panna) 90%, transparent) 70%,
+      color-mix(in srgb, var(--color-brand-panna) 62%, transparent) 100%
+    );
+  }
+}

@@ -1,8 +1,6 @@
-import Link from "next/link";
+import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
-import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -28,43 +26,50 @@ export const metadata: Metadata = {
   },
 };
 
-function CasiStudioHeroCopy({ className = "" }: { className?: string }) {
-  return (
-    <div className={className}>
-      <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco">
-        ✦ Casi Studio
-      </p>
-      <h1 className="heading-hero text-brand-nero mb-6 text-balance">
-        Cerca l&apos;impresa che fa il tuo mestiere.{" "}
-        <span className="text-brand-corallo">I numeri sono veri, con il nome sotto.</span>
-      </h1>
-      <p className="body-lg mb-8 text-pretty">
-        Coperture, arredamento negozi, software per l&apos;edilizia. Per ognuna
-        c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e quanto è
-        entrato. Se un numero ti sembra strano, il nome dell&apos;impresa è
-        lì sotto: si può chiedere a loro.
-      </p>
-      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-        Richiedi lo studio di fattibilità
-      </Link>
-    </div>
-  );
-}
-
 export default function CasiStudioHub() {
   return (
     <>
-      <HeroGooeySection
-        pulita
-        id="casi-studio-hero"
-        className="pt-16 pb-24 md:pt-24 md:pb-32"
-        innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        after={
-          <ServiziHeroScrollCue heroId="casi-studio-hero" targetId="casi-studio-contenuto" />
+      <HeroPagina
+        occhiello="Casi studio"
+        titolo={
+          <>
+            Cerca l&apos;impresa che fa il tuo mestiere. I numeri sono{" "}
+            <span className="text-brand-corallo no-spezza">veri</span>, con il
+            nome sotto.
+          </>
         }
-      >
-        <CasiStudioHeroCopy className="mx-auto flex max-w-2xl flex-col items-center text-center" />
-      </HeroGooeySection>
+        testo={
+          <>
+            Coperture, arredamento negozi, software per l&apos;edilizia. Per
+            ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
+            <strong className="font-semibold text-brand-nero">
+              quanto è entrato
+            </strong>
+            .
+          </>
+        }
+        nota={
+          <>
+            Se un numero ti sembra strano, il nome dell&apos;impresa è lì
+            sotto: si può chiedere a loro.
+          </>
+        }
+        primario={{
+          href: "/contatti",
+          testo: "Richiedi lo studio di fattibilità",
+          freccia: "↗",
+        }}
+        secondario={{
+          href: "#casi-studio-contenuto",
+          testo: "Guarda i tre casi",
+          freccia: "↓",
+        }}
+        immagine={{
+          src: "/images/casi-studio/edilizia.jpg",
+          alt: "Copertura realizzata da un'impresa edile seguita da Forge Group",
+          didascalia: "Tetti Top, coperture",
+        }}
+      />
 
       <section id="casi-studio-contenuto" className="scroll-mt-24 py-20 md:py-28 section-bianco">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
