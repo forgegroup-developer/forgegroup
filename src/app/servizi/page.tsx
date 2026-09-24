@@ -210,8 +210,8 @@ export default function ServiziHub() {
         }}
         foto="sfondo"
         immagine={{
-          src: "/images/hero/cantiere-rete.webp",
-          alt: "Cantiere di un'impresa edile",
+          src: "/images/hero/scrivania-progetto.webp",
+          alt: "Disegni, squadra e livella sul tavolo di un'impresa edile",
         }}
       />
 
