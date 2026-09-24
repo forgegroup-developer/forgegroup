@@ -2754,3 +2754,16 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
   outline: 3px solid var(--color-brand-corallo) !important;
   outline-offset: 2px !important;
 }
+
+/* ── Pallino delle preferenze cookie di iubenda ───────────────────
+   Iubenda piazza un tasto flottante in basso a destra con z-index
+   massimo, esattamente sopra il tasto WhatsApp. Lo nascondiamo.
+
+   Il consenso resta revocabile: in fondo al footer c'e' un tasto
+   "Preferenze cookie" con la classe iubenda-cs-preferences-link, che
+   e' quella a cui iubenda aggancia l'apertura del pannello. Se un
+   giorno si toglie quel tasto dal footer, va rimessa questa regola,
+   altrimenti non si possono piu' cambiare le preferenze. */
+.iubenda-tp-btn {
+  display: none !important;
+}
