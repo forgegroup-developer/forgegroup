@@ -2842,10 +2842,10 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
      in fretta e la fotografia si vede per quello che e'. */
   background: linear-gradient(
     100deg,
-    color-mix(in srgb, var(--color-brand-panna) 93%, transparent) 0%,
-    color-mix(in srgb, var(--color-brand-panna) 88%, transparent) 42%,
-    color-mix(in srgb, var(--color-brand-panna) 55%, transparent) 68%,
-    color-mix(in srgb, var(--color-brand-panna) 22%, transparent) 100%
+    color-mix(in srgb, var(--color-brand-panna) 92%, transparent) 0%,
+    color-mix(in srgb, var(--color-brand-panna) 86%, transparent) 40%,
+    color-mix(in srgb, var(--color-brand-panna) 38%, transparent) 66%,
+    color-mix(in srgb, var(--color-brand-panna) 8%, transparent) 100%
   );
 }
 

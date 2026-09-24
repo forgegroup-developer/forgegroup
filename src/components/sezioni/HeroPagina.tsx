@@ -84,7 +84,7 @@ export default function HeroPagina({
               fill
               priority
               sizes="100vw"
-              style={{ objectFit: "cover", objectPosition: "50% 45%" }}
+              style={{ objectFit: "cover", objectPosition: "72% 62%" }}
             />
             <div className="hero-sfondo-velo" />
           </div>
