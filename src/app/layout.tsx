@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Stack_Sans_Notch } from "next/font/google";
+import { Inter } from "next/font/google";
 import AnalyticsDopoConsenso from "@/components/analytics/AnalyticsDopoConsenso";
 import Script from "next/script";
 import { IUBENDA } from "@/data/legal";
@@ -19,17 +19,17 @@ import {
   getIndexableStaticRoutes,
 } from "@/lib/seo/site";
 
+/**
+ * Un font solo per tutto il sito, lo stesso del CRM: chi passa dal sito
+ * al gestionale non deve accorgersi di aver cambiato prodotto.
+ *
+ * L'800 serve ai titoli: senza il font spezzettato la differenza fra
+ * titolo e testo la fa il peso, non la famiglia.
+ */
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-const stackSansNotch = Stack_Sans_Notch({
-  variable: "--font-stack",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
@@ -149,7 +149,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="it" className={`${inter.variable} ${stackSansNotch.variable} antialiased`}>
+    <html lang="it" className={`${inter.variable} antialiased`}>
       <body
         className="min-h-screen flex flex-col text-brand-nero"
         style={{ backgroundColor: "transparent" }}
