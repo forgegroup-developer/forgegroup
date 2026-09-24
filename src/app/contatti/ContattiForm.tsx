@@ -263,19 +263,23 @@ export default function ContattiForm() {
         </div>
         <p className="eyebrow mb-4">✦ Candidatura ricevuta</p>
         <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
-          Grazie. Adesso <span className="text-brand-corallo">analizziamo</span> il tuo caso.
+          Grazie. Adesso <span className="text-brand-corallo">guardiamo i tuoi numeri</span>.
         </h1>
         <div className="text-lg text-brand-grigio leading-relaxed mb-8 space-y-4 max-w-xl mx-auto">
           <p>
-            Abbiamo ricevuto le tue informazioni e nei prossimi giorni faremo un&apos;analisi preliminare della
-            tua situazione prima ancora di sentirti.
+            Prima di sentirti ci guardiamo la tua impresa e la tua zona, così
+            quando ti chiamiamo sappiamo già di cosa stiamo parlando e non ti
+            facciamo perdere venti minuti a raccontarci quello che hai già
+            scritto.
           </p>
           <p>
-            Verrai contattato entro <strong>48 ore lavorative</strong>.
+            Ti chiamiamo entro <strong>48 ore lavorative</strong>.
           </p>
           <p>
-            La chiamata ha un solo obiettivo: capire dove sei e dove vuoi arrivare. Se ha senso, ci fissiamo un
-            appuntamento e prendiamo un caffè insieme.
+            Quella chiamata serve a capire se ci sono i presupposti per
+            lavorare insieme. Se ci sono, fissiamo un appuntamento: di persona
+            se sei in una zona dove arriviamo, altrimenti in videochiamata. Se
+            non ci sono, te lo diciamo lì.
           </p>
         </div>
         <Link href="/" className="btn-ghost">
@@ -289,10 +293,11 @@ export default function ContattiForm() {
     <>
       <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="eyebrow mb-6">
-          ✦ Prequalifica Strategica
+          ✦ Studio di fattibilità
         </p>
         <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
-          Candida la tua <span className="text-brand-corallo">azienda</span>.
+          Candida la tua{" "}
+          <span className="text-brand-corallo">impresa</span>.
         </h1>
       </HeroGooeySection>
 
