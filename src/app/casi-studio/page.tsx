@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
-import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
+import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
 import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
@@ -67,9 +67,9 @@ export default function CasiStudioHub() {
       </HeroGooeySection>
 
       <section id="casi-studio-contenuto" className="scroll-mt-24 py-20 md:py-28 section-bianco">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+          <CasiStudioElenco />
         </div>
-        <CasiStudioCarousel />
       </section>
 
       {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}

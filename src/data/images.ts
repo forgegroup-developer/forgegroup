@@ -1,5 +1,52 @@
 import { isAllowedRemoteImage } from "./imageHosts";
 
+/**
+ * ══════════════════════════════════════════════════════════════════
+ * LE REGOLE DELLE IMMAGINI. Leggere prima di aggiungerne una.
+ *
+ * Scritte il 24/09/2026 insieme a quelle dei font e dei pulsanti, per
+ * lo stesso motivo: senza una regola scritta ogni pagina nuova fa a
+ * modo suo, e dopo sei mesi non si capisce piu' niente.
+ *
+ * 1. I PERCORSI STANNO SOLO QUI.
+ *    Nessun componente scrive "/images/..." a mano. Se serve una
+ *    immagine nuova si aggiunge a questo file e si passa dall'helper.
+ *    Un percorso scritto in due posti diventa due percorsi diversi il
+ *    giorno in cui si rinomina il file.
+ *
+ * 2. SEMPRE next/image, MAI <img>.
+ *    E' quello che ridimensiona, converte in formato moderno e serve
+ *    la misura giusta al telefono. Un <img> manda l'originale intero.
+ *
+ * 3. CON fill SERVE SEMPRE sizes.
+ *    Senza, il browser scarica la versione piu' grande anche su un
+ *    telefono. E' l'errore che pesa di piu' e non si vede.
+ *
+ * 4. priority SOLO SOPRA LA PIEGA, UNA PER PAGINA.
+ *    Se sono tutte prioritarie, nessuna lo e'.
+ *    Tutto il resto resta lazy, che e' il comportamento normale.
+ *
+ * 5. IL CONTENITORE HA UN RAPPORTO FISSO.
+ *    aspect-ratio in CSS, cosi' lo spazio e' gia' riservato e la
+ *    pagina non salta mentre carica.
+ *
+ * 6. PESO MASSIMO DEL FILE SORGENTE: 300 KB.
+ *    Sopra, si ricomprime prima di metterlo in public. next/image
+ *    riduce quello che serve, ma parte sempre dall'originale.
+ *
+ * 7. L'ALT DICE COSA SI VEDE.
+ *    "Copertura in lamiera posata su un capannone", non
+ *    "edilizia.jpg" e non "immagine". Se l'immagine e' decorativa,
+ *    alt="" e basta: un alt inventato e' peggio di nessun alt.
+ *
+ * 8. FOTO VERE DOVE C'E' UNA PROVA.
+ *    Nei casi studio e accanto ai numeri vanno i lavori veri delle
+ *    imprese. Una foto di repertorio accanto a un numero fa dubitare
+ *    anche del numero.
+ * ══════════════════════════════════════════════════════════════════
+ */
+
+
 /** Percorsi immagini professionali in /public/images */
 export const caseStudyImages: Record<string, string> = {
   "software-b2b": "/images/casi-studio/software-b2b.jpg",
