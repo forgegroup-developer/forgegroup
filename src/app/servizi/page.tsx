@@ -241,6 +241,53 @@ export default function ServiziHub() {
         </div>
       </ForgeGradientBackground>
 
+      {/* IL SOPRALLUOGO A PAGAMENTO.
+          Dalla ricerca del 24/09/2026: il mercato e' pieno di
+          "sopralluogo gratis", "due settimane gratis", "preventivo
+          gratis". Nessuno degli otto operatori analizzati insegna
+          all'impresa a farselo pagare. E' l'unica posizione davvero
+          contraria che Forge ha, e stava sepolta dentro una FAQ.
+
+          Si scrive come direzione di lavoro, mai come risultato
+          garantito, e la cifra non si scrive mai: decisioni della
+          proprieta' del 20 e del 24 settembre 2026. */}
+      <section className="section-sabbia border-y py-14 md:py-20">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+          <p className="eyebrow eyebrow-mark mb-4 flex">Dove vogliamo arrivare</p>
+          <h2 className="heading-section-xl mb-6 text-balance">
+            Il sopralluogo, un giorno,{" "}
+            <span className="text-brand-corallo-text">te lo fai pagare</span>.
+          </h2>
+
+          <p className="body-lg mb-5 max-w-2xl">
+            Nel tuo settore lo regalano tutti. Tu monti in macchina, fai
+            quaranta minuti di strada, prendi le misure, torni a casa e la
+            sera rimetti tutto in un preventivo. Se poi quello sparisce, quel
+            sabato lo hai pagato tu.
+          </p>
+
+          <p className="body-lg mb-5 max-w-2xl">
+            Tetti Top, che fa coperture, oggi il sopralluogo lo fa pagare. E i
+            piani dei lavori arrivano fino a{" "}
+            <strong className="font-semibold text-brand-nero">175.000 euro</strong>
+            . Non perché abbia alzato il prezzo: perché chi accetta di pagare
+            per vederti arrivare ha già deciso che il lavoro lo vuole fare.
+          </p>
+
+          <p className="body-lg mb-8 max-w-2xl">
+            Portarci un&apos;impresa è uno degli obiettivi che ci mettiamo. Non
+            ci riusciamo con tutti e non dipende solo da noi: prima devi avere
+            lavori da mostrare, un modo di presentarti che regga, e qualcuno
+            che sappia dirlo al telefono. È esattamente quello che costruiamo
+            nei mesi prima.
+          </p>
+
+          <Link href="/casi-studio/edilizia" className="arrow-link text-sm md:text-base">
+            Come ci è arrivata Tetti Top
+          </Link>
+        </div>
+      </section>
+
       <ClientiLogos />
 
       <MetodoForge />
@@ -329,8 +376,8 @@ export default function ServiziHub() {
 
       <RelatedBlogLinks
         slugs={[
-          "come-acquisire-clienti-b2b-campania",
           "sistema-vendita-b2b-dalla-lead-al-contratto",
+          "come-farsi-pagare-di-piu-prodotti-servizi",
           "quanto-costa-lead-generation-b2b",
         ]}
       />

@@ -5,6 +5,7 @@ import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
+import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import { SITE_NAME } from "@/lib/seo/site";
 
 /**
@@ -187,6 +188,15 @@ export default function CrmGestionalePage() {
       </section>
 
       <JsonLdFAQ items={faqsPagina("crm")} />
+
+      {/* Questa pagina non rimandava a niente: era un vicolo cieco. */}
+      <RelatedBlogLinks
+        slugs={[
+          "perche-clienti-spariscono-dopo-preventivo",
+          "aumentare-clienti-smettere-passaparola",
+          "come-aumentare-numero-clienti-attivita",
+        ]}
+      />
     </>
   );
 }

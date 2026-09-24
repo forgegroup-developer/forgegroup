@@ -90,10 +90,13 @@ export default function CasiStudioHub() {
       <JsonLdFAQ items={faqsPagina("casi-studio")} />
 
       <RelatedBlogLinks
+        /* Chi ha appena letto i numeri di qualcun altro si chiede perche'
+           a lui non succede. Questi tre rispondono a quello, e fino a
+           oggi non ricevevano nessun link da fuori il blog. */
         slugs={[
-          "agenzia-marketing-b2b-napoli",
-          "agenzia-marketing-b2b-campania-checklist",
-          "sistema-vendita-b2b-dalla-lead-al-contratto",
+          "perche-clienti-spariscono-dopo-preventivo",
+          "gare-appalto-vs-clienti-privati-pagano",
+          "come-smettere-dipendere-passaparola",
         ]}
       />
     </>

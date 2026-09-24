@@ -140,6 +140,15 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
+                      href="/crm-gestionale-edilizia"
+                      className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2"
+                    >
+                      <span className="text-white shrink-0">✦</span>
+                      <span>Il CRM gestionale</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/contatti"
                       className="text-sm text-white hover:text-brand-pesca-light transition-colors flex items-start gap-2"
                     >
