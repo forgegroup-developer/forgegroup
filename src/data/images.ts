@@ -31,11 +31,8 @@ export const blogImages: Record<string, string> = {
 
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
+  /** Copertina della videorecensione DISA, l'unico video del sito. */
   videoPoster: "/images/video-recensione-poster.jpg",
-  gianpioReel: "/video-gianpio-reel.mp4",
-  gianpioReelPoster: "/images/team/gianpio-reel-poster.jpg",
-  marcoReel: "/video-marco-reel.mp4",
-  marcoReelPoster: "/images/team/marco-reel-poster.jpg",
 } as const;
 
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */

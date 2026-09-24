@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/layout/Breadcrumbs";
 import CaseStudyDetail from "@/components/casi-studio/CaseStudyDetail";
+import JsonLdVideoRecensione from "@/components/casi-studio/JsonLdVideoRecensione";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import { getCaseStudyImage } from "@/data/images";
 
@@ -48,6 +49,14 @@ export default async function CasoStudioDetail({ params }: Props) {
 
   return (
     <>
+      {/* Durata e data non si indovinano: 85,9 s letti dal file con
+          ffprobe, e il 29 maggio 2026 e' il giorno in cui il video e'
+          entrato nel repo, cioe' quando e' andato online. */}
+      <JsonLdVideoRecensione
+        caso={c}
+        durataSecondi={85.9}
+        dataPubblicazione="2026-05-29"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
         <Breadcrumbs
           items={[
