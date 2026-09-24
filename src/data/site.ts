@@ -7,91 +7,118 @@
  * Vincoli della proprieta': nessun prezzo, mai "gratuito" ne' "senza
  * impegno", "contratti" e non "commesse", solo numeri verificabili.
  */
+/** Le pagine che possono ospitare una domanda. */
+export type PaginaFaq =
+  | "home"
+  | "servizi"
+  | "crm"
+  | "contatti"
+  | "casi-studio";
+
 export type Faq = {
   q: string;
   a: string;
-  /** Le sei che restano in home: diffidenza, meccanismo, aspettative,
-      onesta', soldi, tempi. Le altre stanno in /servizi, dove chi vuole
-      capire come si lavora le va a cercare davvero. */
-  home?: boolean;
+  /**
+   * Dove compare la domanda. Una domanda sta dove il dubbio nasce
+   * davvero, non dove c'e' spazio: cosi' ogni pagina ne porta poche e
+   * pertinenti invece di un muro uguale per tutti.
+   *
+   * Due domande stanno apposta su due pagine, perche' il dubbio torna in
+   * tutti e due i posti: "chi fa le chiamate" (home e servizi) e
+   * "mi garantite un numero" (home e casi studio, dove uno ha appena
+   * letto i numeri di qualcun altro e si chiede se valgono per lui).
+   */
+  pagine: PaginaFaq[];
 };
 
 export const faqs: Faq[] = [
   {
     q: "Ho già speso con un'agenzia e non è cambiato niente. Perché con voi dovrebbe andare diversamente?",
-    home: true,
+    pagine: ["home"],
     a: "È la frase che sentiamo più spesso: c'è chi ha cambiato due agenzie, chi tredici. Non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. E dal primo giorno vedi dove finiscono le richieste e quanto va in pubblicità, separato da quello che prendiamo noi.",
   },
   {
     q: "Mi garantite un numero di clienti?",
-    home: true,
+    pagine: ["home", "casi-studio"],
     a: "No, e diffida di chi ti dice di sì. Quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è: all'inizio possiamo fare una stima, e resta una stima. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
   },
   {
     q: "Non so come lavorate davvero. Come faccio a controllarvi?",
+    pagine: ["crm"],
     a: "Apri il CRM gestionale dal telefono quando vuoi. Dentro c'è ogni richiesta con la data, lo stato e la persona che la sta seguendo: chi va richiamato oggi, chi aspetta un preventivo, chi si è fermato. Non è un report che ti arriva a fine mese, è la stessa schermata che guardiamo noi.",
   },
   {
     q: "Cosa succede se non sta funzionando?",
-    home: true,
+    pagine: ["home"],
     a: "Te lo diciamo noi per primi, con i numeri davanti, e decidiamo insieme se sospendere le campagne o cambiare strada. È la cosa che quasi tutti gli imprenditori con cui abbiamo parlato rimproveravano all'agenzia di prima: le campagne non andavano, nessuno lo diceva, e il canone si pagava lo stesso.",
   },
   {
     q: "Quanto costa lavorare con voi?",
-    home: true,
+    pagine: ["home"],
     a: "Dipende da cosa ti serve: solo la pubblicità, oppure anche i processi di vendita e l'affiancamento sulle trattative. Per questo prima guardiamo i tuoi numeri, quante richieste ricevi, quante diventano contratti e quanto vale in media un lavoro per te, e solo dopo ti facciamo un'offerta. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
   },
   {
     q: "Lo studio di fattibilità mi obbliga a qualcosa?",
+    pagine: ["contatti"],
     a: "No. Guardiamo la tua zona, i tuoi prodotti e come gestisci oggi le richieste, e ti diciamo se secondo noi ha senso lavorare insieme. Ti resta in mano comunque, anche se decidi di non andare avanti. Non te lo nascondiamo: noi veniamo all'incontro con l'idea di iniziare a lavorare con te.",
   },
   {
     q: "Le chiamate ai contatti le fate voi o le devo fare io?",
-    home: true,
+    pagine: ["home", "servizi"],
     a: "Le fai tu, o chi risponde al telefono per te. Non chiamiamo noi al posto tuo, e non è per risparmiare lavoro: è che il cliente deve sentire la tua azienda, non un centralino di qualcun altro. Quello che facciamo è mettere in condizione di farle bene chi le fa: le domande da porre e in che ordine, cosa rispondere quando ti dice che ci deve pensare, ogni quanto si richiama. E il filtro lo mettiamo prima, con il modulo: tipo di lavoro, tempi, budget e zona ce li hai scritti davanti prima di alzare la cornetta.",
   },
   {
     q: "Ho già dei venditori bravi: mi servono solo i contatti. Si può?",
+    pagine: ["servizi"],
     a: "Sì. C'è chi ci chiede solo la pubblicità e le richieste, perché la vendita la sa fare benissimo da solo. In quel caso il nostro lavoro si ferma al contatto già filtrato. L'affiancamento in trattativa lo aggiungiamo solo se serve.",
   },
   {
     q: "Posso fare pubblicità a più prodotti, o solo a uno?",
+    pagine: ["servizi"],
     a: "A tutti quelli che vuoi. Non ci sono pacchetti bloccati su un solo prodotto: si possono fare campagne separate per infissi, cancelli, caldaie o quello che vendi. Di solito si parte da quelli che ti lasciano più margine, e lo decidiamo insieme guardando i tuoi numeri.",
   },
   {
     q: "La mia zona è piccola: funziona lo stesso?",
+    pagine: ["contatti"],
     a: "È proprio la prima cosa che guardiamo. Una campagna pensata per una città da un milione di abitanti non funziona in una zona da trecentomila, e c'è chi l'ha scoperto dopo aver pagato. Per questo si parte dallo studio di fattibilità: se il tuo bacino non regge, te lo diciamo prima.",
   },
   {
     q: "I video e le foto per la pubblicità chi li fa?",
+    pagine: ["servizi"],
     a: "Noi. Veniamo in azienda o in cantiere con il nostro videomaker e giriamo i contenuti con te, pensati per chi deve comprare da te. Se hai già foto dei lavori fatti, prima e dopo, le usiamo volentieri: sono spesso le più convincenti.",
   },
   {
     q: "Il CRM gestionale ha costi a parte, licenze o assistenza?",
+    pagine: ["crm"],
     a: "No. È compreso nel lavoro, per tutta la durata. Niente licenza da rinnovare dopo trenta giorni, niente assistenza da pagare a parte: sappiamo che è una delle cose che più fanno arrabbiare chi ha già comprato un programma.",
   },
   {
     q: "In quanto tempo si vedono i risultati?",
-    home: true,
+    pagine: ["home"],
     a: "Il primo mese serve a provare e aggiustare le campagne. Poi c'è da mettere in conto che in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri, spesso una seconda persona che deve dire la sua. Se qualcuno ti dice che in due settimane si firma, ti sta raccontando una cosa che in questo settore non succede.",
   },
   {
     q: "Quanto dura il contratto?",
+    pagine: ["contatti"],
     a: "Sei mesi o un anno, lo scegli tu. Meno di così non ha senso, proprio per quei tre o quattro mesi fra la richiesta e la firma: fermarsi prima vuol dire pagare la parte di lavoro più pesante, quella iniziale, e non vederne i frutti.",
   },
   {
     q: "I miei clienti guardano solo il prezzo. Cosa cambia?",
+    pagine: ["casi-studio"],
     a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha messo il sopralluogo a pagamento in un mercato dove tutti lo regalano, ed è arrivata a preventivi fino a 175.000 euro. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
   },
   {
     q: "Non mi conviene assumere una persona che se ne occupi internamente?",
+    pagine: ["servizi"],
     a: "È l'alternativa vera, e va guardata coi numeri. Una persona interna è un costo fisso ogni mese, va formata, e nei primi mesi impara. Noi arriviamo con un metodo già usato su imprese come la tua. Se invece in azienda hai già qualcuno bravo, tanto meglio: lavoriamo con lui.",
   },
   {
     q: "Lavorate solo in Campania o in tutta Italia?",
+    pagine: ["contatti"],
     a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia e si lavora a stretta di mano; il resto si porta avanti a distanza, con il CRM aperto da entrambe le parti.",
   },
 ];
 
-/** Le domande che restano in home. L'ordine e' quello dell'elenco sopra. */
-export const faqsHome = faqs.filter((f) => f.home);
+/** Le domande di una pagina, nell'ordine dell'elenco qui sopra. */
+export const faqsPagina = (pagina: PaginaFaq) =>
+  faqs.filter((f) => f.pagine.includes(pagina));
