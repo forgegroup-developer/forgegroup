@@ -21,7 +21,8 @@ function setVideoPlaying(active: boolean) {
 
 /**
  * Click-to-play unico per tutti i video del sito.
- * Usato da: HeroVideoRecensione, VideoRecensionePoster, ReelHeroVideo (home, servizi, casi studio).
+ * Usato da VideoRecensionePoster, che a oggi serve solo la videorecensione
+ * di DISA nel suo caso studio.
  */
 type VideoPosterWithPlayProps = {
   src: string;
