@@ -4,6 +4,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
+import {
+  getCaseStudyImage,
+  getCaseStudyImageFit,
+  getCaseStudyImagePosition,
+} from "@/data/images";
 
 /**
  * I casi studio, uno alla volta.
@@ -18,26 +23,10 @@ import { caseStudies } from "@/data/caseStudies";
  * scritto a mano dentro il componente.
  */
 
-const media: Record<string, { src: string; video?: boolean; alt: string }> = {
-  edilizia: {
-    src: "/images/casi-studio/edilizia.jpg",
-    alt: "Coperture e lattoneria",
-  },
-  "arredo-commerciale": {
-    src: "/images/casi-studio/arredo-commerciale.jpg",
-    alt: "Arredamento negozi",
-  },
-  "software-b2b": {
-    src: "/images/casi-studio/software-b2b.jpg",
-    alt: "Software per l'edilizia e gare d'appalto",
-  },
-};
-
 export default function CasiStudioCarousel() {
   const [i, setI] = useState(0);
   const totale = caseStudies.length;
   const caso = caseStudies[i];
-  const m = media[caso.slug];
   const regione = useRef<HTMLDivElement>(null);
 
   const vai = useCallback(
@@ -128,27 +117,20 @@ export default function CasiStudioCarousel() {
               </Link>
             </div>
 
+            {/* I percorsi stanno in data/images.ts, regola 1: prima
+                questo componente teneva una seconda lista tutta sua. */}
             <div className="carosello-media">
-              {m?.video ? (
-                <video
-                  key={caso.slug}
-                  src={m.src}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  aria-label={m.alt}
-                />
-              ) : (
-                m && (
-                  <Image
-                    key={caso.slug}
-                    src={m.src}
-                    alt={m.alt}
-                    fill
-                    sizes="(min-width: 1024px) 44vw, 100vw"
-                  />
-                )
-              )}
+              <Image
+                key={caso.slug}
+                src={getCaseStudyImage(caso.slug)}
+                alt={`${caso.sector}: ${caso.shortTitle}`}
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                style={{
+                  objectFit: getCaseStudyImageFit(caso.slug),
+                  objectPosition: getCaseStudyImagePosition(caso.slug),
+                }}
+              />
             </div>
           </div>
 
