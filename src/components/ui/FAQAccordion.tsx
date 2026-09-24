@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/data/site";
-
-type FAQItem = { q: string; a: string };
+import { faqs, type Faq } from "@/data/site";
 
 type Props = {
-  items?: FAQItem[];
+  items?: Faq[];
   /** Card bianche su sfondo corallo */
   onCoral?: boolean;
 };
