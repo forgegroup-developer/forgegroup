@@ -1,11 +1,10 @@
 import Link from "next/link";
+import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
-import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
-import ServiziHeroScrollCue from "@/components/ui/ServiziHeroScrollCue";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -150,31 +149,6 @@ const serviziTabs: ServiziTab[] = [
   },
 ];
 
-function ServiziHeroCopy({ className = "" }: { className?: string }) {
-  return (
-    <div className={className}>
-      <p className="inline-flex items-center gap-2 eyebrow mb-6 px-4 py-2 rounded-full border border-brand-bordo bg-brand-bianco/85 backdrop-blur-sm shadow-sm">
-        ✦ Il Metodo FORGE
-      </p>
-      <h1 className="heading-hero text-brand-nero mb-6 text-balance">
-        Le richieste le filtriamo prima.{" "}
-        <span className="text-brand-corallo">
-          Le trattative le guardiamo ogni settimana, una per una.
-        </span>
-      </h1>
-      <p className="body-lg mb-8 text-pretty">
-        La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
-        richiesta ti arrivi. Poi una consulenza al mese in azienda, e quattro
-        chiamate al mese dedicate solo alle trattative aperte. Qui sotto c’è
-        come, passo per passo.
-      </p>
-      <Link href="/contatti" className="btn-corallo px-8 py-4 text-sm md:text-base">
-        Richiedi lo studio di fattibilità
-      </Link>
-    </div>
-  );
-}
-
 export const metadata: Metadata = {
   title: "Servizi per imprese edili | Il Metodo FORGE",
   description:
@@ -199,17 +173,49 @@ export const metadata: Metadata = {
 export default function ServiziHub() {
   return (
     <>
-      {/* HERO — stesso fondo pulito della home, senza video: il reel
-          funziona sui social, non qui. */}
-      <HeroGooeySection
-        pulita
-        id="servizi-hero"
-        className="pt-16 pb-24 md:pt-24 md:pb-32"
-        innerClassName="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        after={<ServiziHeroScrollCue />}
-      >
-        <ServiziHeroCopy className="mx-auto flex max-w-2xl flex-col items-center text-center" />
-      </HeroGooeySection>
+      <HeroPagina
+        occhiello="Il Metodo FORGE"
+        titolo={
+          <>
+            Le richieste le filtriamo prima.{" "}
+            <span className="text-brand-corallo no-spezza">
+              Le trattative le guardiamo ogni settimana
+            </span>
+            , una per una.
+          </>
+        }
+        testo={
+          <>
+            La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
+            richiesta ti arrivi. Poi una consulenza al mese in azienda, e{" "}
+            <strong className="font-semibold text-brand-nero">
+              quattro chiamate al mese
+            </strong>{" "}
+            dedicate solo alle trattative aperte.
+          </>
+        }
+        nota={
+          <>
+            Le chiamate ai contatti restano tue: noi diamo le parole e il
+            metodo a chi risponde al telefono in azienda.
+          </>
+        }
+        primario={{
+          href: "/contatti",
+          testo: "Richiedi lo studio di fattibilità",
+          freccia: "↗",
+        }}
+        secondario={{
+          href: "#servizi-contenuto",
+          testo: "Guarda le tre macroaree",
+          freccia: "↓",
+        }}
+        immagine={{
+          src: "/images/hero/cantiere-rete.webp",
+          alt: "Cantiere di un'impresa edile",
+          didascalia: "Il metodo, passo per passo",
+        }}
+      />
 
       {/* TRE SERVIZI — layout originale, copy LP */}
       <ForgeGradientBackground
