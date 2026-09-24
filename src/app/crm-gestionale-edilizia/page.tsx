@@ -14,14 +14,14 @@ import { SITE_NAME } from "@/lib/seo/site";
  */
 
 export const metadata: Metadata = {
-  title: "CRM gestionale per imprese edili",
+  title: "CRM per imprese edili: dove finiscono le richieste",
   description:
-    "Il CRM gestionale dove finiscono tutte le richieste della tua impresa edile: stato, data e persona che la segue. Lo apri dal telefono quando vuoi. È compreso nel Metodo FORGE.",
+    "Un gestionale tiene il cantiere. Questo tiene la trattativa: ogni richiesta della tua impresa edile con stato, data e persona che la segue. Lo apri dal telefono, in cantiere.",
   alternates: { canonical: "/crm-gestionale-edilizia" },
   openGraph: {
-    title: "CRM gestionale per imprese edili | Forge Group",
+    title: "CRM per imprese edili | Forge Group",
     description:
-      "Ogni richiesta con uno stato, una data e una persona che la segue. Lo apri quando vuoi e vedi a che punto sta la trattativa.",
+      "I gestionali tengono il cantiere. Questo tiene la trattativa che deve diventare cantiere: stato, data e persona che la segue.",
     url: "/crm-gestionale-edilizia",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: SITE_NAME }],
   },
@@ -38,7 +38,7 @@ const fasi = [
     n: "O",
     nome: "Organizzazione",
     testo:
-      "Qui il CRM nasce. Ogni richiesta che arriva — dalla pubblicità, dal passaparola, dal cartello in cantiere — entra con budget, tempi e chi decide.",
+      "Qui il CRM nasce. Ogni richiesta che arriva, dalla pubblicità, dal passaparola o dal cartello in cantiere, entra con budget, tempi e chi decide.",
   },
   {
     n: "R",
@@ -83,13 +83,50 @@ export default function CrmGestionalePage() {
           <p className="body-lg max-w-2xl">
             Quasi tutte le imprese con cui parliamo non hanno un posto solo
             dove stanno scritte le richieste. Stanno sul quaderno, su WhatsApp,
-            nella testa di chi ha risposto al telefono. Il CRM gestionale è la prima
-            cosa che mettiamo in piedi, prima ancora della pubblicità.
+            nella testa di chi ha risposto al telefono. Poi arriva la settimana
+            storta, tre cantieri aperti e un fornitore che sbaglia la consegna,
+            e il preventivo da 60.000 euro resta in fondo a una chat. Il CRM
+            gestionale è la prima cosa che mettiamo in piedi, prima ancora della
+            pubblicità.
           </p>
         </div>
       </div>
 
       <CrmGestionale />
+
+      {/* POSIZIONAMENTO CONTRO I GESTIONALI DI CANTIERE.
+          Dalla ricerca del 24/09/2026: i gestionali del settore presidiano
+          costi, ore e marginalita' di commessa, cioe' il dopo-firma. La
+          trattativa prima della firma non la tiene nessuno. */}
+      <section className="section-sabbia border-y py-20 md:py-28">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
+          <p className="eyebrow eyebrow-mark mb-4 flex">
+            Se hai già un gestionale
+          </p>
+          <h2 className="heading-section-xl mb-6 text-balance">
+            Questo non te lo sostituisce.{" "}
+            <span className="text-brand-corallo-text">
+              Tiene la parte che quello non guarda.
+            </span>
+          </h2>
+          <p className="body-lg mb-5 max-w-2xl">
+            I gestionali per l’edilizia servono a tenere il cantiere: i costi,
+            le ore, le bolle, i rapportini, quanto ti è rimasto su quella
+            commessa. Guardano quello che succede dopo che il cliente ha
+            firmato. Se ne hai uno e ti trovi bene, tienilo.
+          </p>
+          <p className="body-lg mb-5 max-w-2xl">
+            Questo tiene quello che viene prima. La richiesta arrivata martedì.
+            Il sopralluogo fissato per sabato. Il piano dei lavori mandato a
+            marzo e mai più richiamato. È la parte dove i soldi si perdono senza
+            che nessuno se ne accorga.
+          </p>
+          <p className="body-lg max-w-2xl font-semibold text-brand-nero">
+            Un cantiere che va male lo vedi nei numeri a fine lavori. Una
+            trattativa persa non la vedi mai.
+          </p>
+        </div>
+      </section>
 
       <section className="section-bianco border-y py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
