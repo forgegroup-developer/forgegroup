@@ -29,7 +29,7 @@ const abitudini = [
 
 export default function PercheSceglierci() {
   return (
-    <section id="perche" className="section-mattone scroll-mt-24 py-20 md:py-28">
+    <section id="perche" className="section-mattone scroll-mt-24 py-14 md:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         <div className="flex flex-col justify-center">
           <p className="mb-6">

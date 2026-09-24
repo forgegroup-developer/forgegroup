@@ -39,7 +39,7 @@ const garanzie = [
 
 export default function GaranziaTrasparenza() {
   return (
-    <section id="trasparenza" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section id="trasparenza" className="section-bianco scroll-mt-24 border-y py-14 md:py-20">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
           <span className="eyebrow-rule">La garanzia di trasparenza</span>

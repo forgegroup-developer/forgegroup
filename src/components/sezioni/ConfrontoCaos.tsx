@@ -56,7 +56,7 @@ const passi = [
 
 export default function ConfrontoCaos() {
   return (
-    <section id="confronto-caos" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section id="confronto-caos" className="section-bianco scroll-mt-24 border-y py-14 md:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="eyebrow-rule mb-6">Controllo del lavoro</p>
         <h2 className="heading-section-xl mb-14 max-w-4xl text-balance">

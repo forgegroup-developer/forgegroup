@@ -22,7 +22,7 @@ type Props = {
 
 export default function FooterCtaBand({ isCaseStudy = false }: Props) {
   return (
-    <section className="section-sabbia border-y py-16 md:py-20">
+    <section className="section-sabbia border-y py-12 md:py-16">
       <div className="mx-auto max-w-3xl px-5 text-center sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
           <span className="eyebrow-rule">Il primo passo</span>

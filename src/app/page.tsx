@@ -217,7 +217,7 @@ export default function Home() {
           che non sapeva ancora perche' gli servisse, e si spezzava in due
           il blocco del problema. Qui arrivano dopo che il metodo ha un
           nome, e diventano "cosa c'e' dentro". */}
-      <section className="py-20 md:py-28 section-sabbia border-y">
+      <section className="py-14 md:py-20 section-sabbia border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Cosa facciamo per te"
@@ -248,7 +248,7 @@ export default function Home() {
 
       {/* S7 — CONFRONTO (tabella comparativa unificata) */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-bianco border-y">
+      <section className="py-14 md:py-20 section-bianco border-y">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Il confronto"
@@ -348,7 +348,7 @@ export default function Home() {
 
       {/* S8 — FAQ */}
       <DeferredMount minHeight="360px">
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-mattone">
+      <section id="faq" className="scroll-mt-24 py-14 md:py-20 section-mattone">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="Domande Frequenti"

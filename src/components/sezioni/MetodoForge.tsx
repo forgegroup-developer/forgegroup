@@ -68,7 +68,7 @@ export default function MetodoForge({
   return (
     <section
       id="metodo"
-      className={`relative overflow-hidden scroll-mt-24 py-20 md:py-24 lg:py-28 ${className}`}
+      className={`relative overflow-hidden scroll-mt-24 py-14 md:py-20 lg:py-28 ${className}`}
     >
       {!coral && (
         <div

@@ -50,7 +50,7 @@ export default function CasiStudioCarousel() {
   return (
     <section
       id="casi-studio"
-      className="section-mattone scroll-mt-24 py-20 md:py-28"
+      className="section-mattone scroll-mt-24 py-14 md:py-20"
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
@@ -91,8 +91,10 @@ export default function CasiStudioCarousel() {
                 {caso.excerpt}
               </p>
 
-              <div className="mt-1 grid grid-cols-2 gap-6">
-                {caso.results.slice(0, 2).map((r) => (
+              {/* Tutti i numeri del caso: prima se ne vedevano due e gli
+                  altri restavano invisibili anche a chi era arrivato fin qui. */}
+              <div className="mt-1 grid grid-cols-2 gap-x-6 gap-y-5">
+                {caso.results.map((r) => (
                   <div key={r.label} className="carosello-numero">
                     <p className="font-display text-3xl font-bold leading-none text-white sm:text-4xl">
                       {r.value}

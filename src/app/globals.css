@@ -109,6 +109,15 @@
    Si sceglie per lunghezza del testo, non per importanza: una frase
    lunga alla scala manifesto diventa un muro di sei righe.
 
+   SPAZIATURA VERTICALE. Due misure, non dodici.
+   sezione normale   py-14 md:py-20
+   sezione stretta   py-12 md:py-16   (blocchi brevi, cornici, nastri)
+   Prima le sezioni erano quasi tutte a py-20 md:py-28: 112px sopra e
+   112px sotto, cioe' 224px di vuoto fra una sezione e l'altra. Su un
+   telefono si scorreva molto per vedere poco. Se una sezione ha bisogno
+   di piu' aria della misura normale, quasi sempre il problema e' che ha
+   dentro troppa roba.
+
    PULSANTI. Due intenzioni per due taglie, piu' un link.
    Intenzione:
      primario   corallo pieno, l'unica azione che vogliamo davvero.

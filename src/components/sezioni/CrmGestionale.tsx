@@ -20,7 +20,7 @@ import { righeCrm, stileFase } from "@/data/crm";
 /** Fasi reali del sistema, con i dati d'esempio resi anonimi. */
 export default function CrmGestionale() {
   return (
-    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
+    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-14 md:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="eyebrow eyebrow-mark mb-4 flex">Come lavoriamo</p>
         <h2 className="heading-section-xl mb-6 max-w-3xl text-balance">

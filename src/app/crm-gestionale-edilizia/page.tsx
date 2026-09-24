@@ -101,7 +101,7 @@ export default function CrmGestionalePage() {
           Dalla ricerca del 24/09/2026: i gestionali del settore presidiano
           costi, ore e marginalita' di commessa, cioe' il dopo-firma. La
           trattativa prima della firma non la tiene nessuno. */}
-      <section className="section-sabbia border-y py-20 md:py-28">
+      <section className="section-sabbia border-y py-14 md:py-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">
             Se hai già un gestionale
@@ -131,7 +131,7 @@ export default function CrmGestionalePage() {
         </div>
       </section>
 
-      <section className="section-bianco border-y py-20 md:py-28">
+      <section className="section-bianco border-y py-14 md:py-20">
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Dove sta, nel metodo</p>
           <h2 className="heading-section-xl mb-6 text-balance">
@@ -176,7 +176,7 @@ export default function CrmGestionalePage() {
       </section>
 
       {/* Le domande che nascono proprio qui: controllare il lavoro, e quanto costa lo strumento. */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
+      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
           <h2 className="heading-section-xl mb-10 text-balance">
