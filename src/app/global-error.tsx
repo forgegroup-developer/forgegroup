@@ -7,6 +7,12 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  /* Unica pagina dove gli esadecimali si scrivono a mano, ed e' voluto:
+     global-error sostituisce l'intero documento quando l'app va giu', e
+     in quel momento il foglio di stile puo' non essere stato caricato.
+     Senza CSS non esistono i token, quindi i colori vanno messi per
+     esteso. Sono panna, nero, corallo e bianco del sistema: se cambiano
+     in globals.css vanno cambiati anche qui. */
   return (
     <html lang="it">
       <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#fbf5f2", color: "#111" }}>

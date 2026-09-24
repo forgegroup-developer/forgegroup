@@ -428,7 +428,7 @@ function StepIndicator({
           complete: {
             scale: 1,
             backgroundColor: "var(--color-brand-corallo)",
-            color: "#ffffff",
+            color: "var(--color-brand-bianco)",
             borderColor: "var(--color-brand-corallo)",
           },
         }}

@@ -76,7 +76,7 @@ export default function ConfrontoCaos() {
                 aria-label="Otto domande che un imprenditore si fa sulle proprie richieste, collegate fra loro da un groviglio di fili: nessuna informazione sta in un posto solo."
                 className="h-auto w-full"
               >
-                <g stroke="#c8502a" strokeWidth="1.6" opacity="0.55">
+                <g stroke="var(--color-brand-corallo)" strokeWidth="1.6" opacity="0.55">
                   {fili.map(([a, b]) => (
                     <line
                       key={`${a}-${b}`}
@@ -89,12 +89,12 @@ export default function ConfrontoCaos() {
                 </g>
                 {nodi.map((n) => (
                   <g key={n.righe.join()}>
-                    <circle cx={n.x} cy={n.y} r="15" fill="#c8502a" />
+                    <circle cx={n.x} cy={n.y} r="15" fill="var(--color-brand-corallo)" />
                     <text
                       x={n.x}
                       y={n.y + 6}
                       textAnchor="middle"
-                      fill="#ffffff"
+                      fill="var(--color-brand-bianco)"
                       fontSize="18"
                       fontWeight="700"
                     >
@@ -104,7 +104,7 @@ export default function ConfrontoCaos() {
                       x={n.x + n.tx}
                       y={n.y + n.ty}
                       textAnchor={n.anc}
-                      fill="#1c1917"
+                      fill="var(--color-brand-nero)"
                       fontSize="15.5"
                       fontWeight="600"
                     >
