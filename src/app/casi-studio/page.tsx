@@ -64,11 +64,12 @@ export default function CasiStudioHub() {
           testo: "Guarda i tre casi",
           freccia: "↓",
         }}
-        foto="sfondo"
-        immagine={{
-          src: "/images/casi-studio/arredo-commerciale.jpg",
-          alt: "Negozio arredato da un'impresa seguita da Forge Group",
-        }}
+        /* Niente foto: le uniche disponibili sono due volti in primo
+           piano che rubano l'occhio al titolo, e uno screenshot del
+           gestionale pieno di riquadri. E poco sotto ci sono gia' le
+           immagini dei tre casi, che devono essere loro a farsi
+           guardare. */
+        foto="nessuna"
       />
 
       <section id="casi-studio-contenuto" className="scroll-mt-24 py-14 md:py-20 section-bianco">

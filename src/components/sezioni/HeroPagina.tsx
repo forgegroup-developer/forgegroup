@@ -40,10 +40,13 @@ type Props = {
   nota?: ReactNode;
   primario: Pulsante;
   secondario?: Pulsante;
-  immagine: { src: string; alt: string; didascalia?: string };
+  immagine?: { src: string; alt: string; didascalia?: string };
   /**
-   * "colonna" mette la foto a destra, come in home.
+   * "colonna" mette la foto a destra.
    * "sfondo" la manda dietro al testo, a tutta larghezza.
+   * "nessuna" non ne mette: da usare quando non c'e' una fotografia
+   *   adatta. Una foto sbagliata dietro un titolo fa piu' danno del
+   *   fondo pieno, perche' ruba l'occhio senza dire niente.
    *
    * Con lo sfondo la foto e' decorativa, quindi porta alt vuoto e un
    * velo di panna sopra: il testo resta lo stesso nero su chiaro della
@@ -51,7 +54,7 @@ type Props = {
    * Senza quel velo basta una zona chiara dello scatto per rendere
    * illeggibile una riga, e non te ne accorgi finche' non cambi foto.
    */
-  foto?: "colonna" | "sfondo";
+  foto?: "colonna" | "sfondo" | "nessuna";
 };
 
 export default function HeroPagina({
@@ -64,19 +67,20 @@ export default function HeroPagina({
   immagine,
   foto = "colonna",
 }: Props) {
-  const sfondo = foto === "sfondo";
+  const sfondo = foto === "sfondo" && !!immagine;
+  const colonna = foto === "colonna" && !!immagine;
 
   return (
     <HeroGooeySection
       pulita
       className={sfondo ? "hero-sfondo" : ""}
       innerClassName={
-        sfondo
-          ? "relative z-10 mx-auto max-w-7xl"
-          : "hero-split mx-auto max-w-7xl"
+        colonna
+          ? "hero-split mx-auto max-w-7xl"
+          : "relative z-10 mx-auto max-w-7xl"
       }
       before={
-        sfondo ? (
+        sfondo && immagine ? (
           <div className="hero-sfondo-foto" aria-hidden>
             <Image
               src={immagine.src}
@@ -93,7 +97,7 @@ export default function HeroPagina({
     >
       <div
         className={
-          sfondo
+          !colonna
             ? "flex max-w-3xl flex-col gap-5 px-4 pb-16 pt-12 sm:gap-6 sm:px-6 sm:pt-16 lg:pl-8 lg:pt-24 lg:pb-24"
             : "order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20"
         }
@@ -138,7 +142,7 @@ export default function HeroPagina({
         </div>
       </div>
 
-      {!sfondo && (
+      {colonna && immagine && (
         <div className="hero-foto order-2">
           <div className="hero-foto-cornice">
             <Image
