@@ -14,7 +14,7 @@ export const faqs = [
   },
   {
     q: "Mi garantite un numero di clienti?",
-    a: "No, e diffida di chi te lo garantisce. Quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è: all'inizio possiamo fare una stima, non una promessa. Quello che garantiamo è ciò che dipende da noi: che vedi tutto, che le richieste vengono sentite prima di passartele, e che se qualcosa non va te lo diciamo noi.",
+    a: "No, e diffida di chi ti dice di sì. Quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è: all'inizio possiamo fare una stima, e resta una stima. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
   },
   {
     q: "Non so come lavorate davvero. Come faccio a controllarvi?",
@@ -26,7 +26,7 @@ export const faqs = [
   },
   {
     q: "Quanto costa lavorare con voi?",
-    a: "Dipende da cosa ti serve: solo la pubblicità, oppure anche le chiamate ai contatti e l'affiancamento in trattativa. Per questo prima guardiamo i tuoi numeri — quante richieste ricevi, quante diventano contratti, quanto vale in media un lavoro per te — e solo dopo ti facciamo un'offerta. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
+    a: "Dipende da cosa ti serve: solo la pubblicità, oppure anche i processi di vendita e l'affiancamento sulle trattative. Per questo prima guardiamo i tuoi numeri, quante richieste ricevi, quante diventano contratti e quanto vale in media un lavoro per te, e solo dopo ti facciamo un'offerta. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
   },
   {
     q: "Lo studio di fattibilità mi obbliga a qualcosa?",
@@ -34,7 +34,7 @@ export const faqs = [
   },
   {
     q: "Le chiamate ai contatti le fate voi o le devo fare io?",
-    a: "Come preferisci. Se in azienda c'è qualcuno che può richiamare in giornata, ti prepariamo le domande da fare e lo affianchiamo. Se no, le prime chiamate le facciamo noi: chiediamo budget, tempi e chi decide, e a te arriva solo chi ha senso andare a trovare.",
+    a: "Le fai tu, o chi risponde al telefono per te. Non chiamiamo noi al posto tuo, e non è per risparmiare lavoro: è che il cliente deve sentire la tua azienda, non un centralino di qualcun altro. Quello che facciamo è mettere in condizione di farle bene chi le fa: le domande da porre e in che ordine, cosa rispondere quando ti dice che ci deve pensare, ogni quanto si richiama. E il filtro lo mettiamo prima, con il modulo: tipo di lavoro, tempi, budget e zona ce li hai scritti davanti prima di alzare la cornetta.",
   },
   {
     q: "Ho già dei venditori bravi: mi servono solo i contatti. Si può?",
@@ -58,7 +58,7 @@ export const faqs = [
   },
   {
     q: "In quanto tempo si vedono i risultati?",
-    a: "Il primo mese serve a provare e aggiustare le campagne. Poi c'è da mettere in conto che in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri, spesso una seconda persona che deve dire la sua. Se qualcuno ti promette contratti in due settimane, ti sta raccontando una cosa che in questo settore non succede.",
+    a: "Il primo mese serve a provare e aggiustare le campagne. Poi c'è da mettere in conto che in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri, spesso una seconda persona che deve dire la sua. Se qualcuno ti dice che in due settimane si firma, ti sta raccontando una cosa che in questo settore non succede.",
   },
   {
     q: "Quanto dura il contratto?",
@@ -67,10 +67,6 @@ export const faqs = [
   {
     q: "I miei clienti guardano solo il prezzo. Cosa cambia?",
     a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha messo il sopralluogo a pagamento in un mercato dove tutti lo regalano, ed è arrivata a preventivi fino a 175.000 euro. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
-  },
-  {
-    q: "Non mi servono clienti, mi servono persone che lavorano. Potete aiutarmi?",
-    a: "Sì, e lo abbiamo già fatto. Funziona come per i clienti: l'annuncio lo mettiamo in giro noi, chi si candida risponde a un modulo che chiede esperienza, patente, mezzo proprio e da quando è disponibile, poi lo sentiamo al telefono. A te arrivano solo quelli che hanno senso far venire in sede, con scritto accanto chi è già stato chiamato e cosa ha risposto.",
   },
   {
     q: "Non mi conviene assumere una persona che se ne occupi internamente?",
