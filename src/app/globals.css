@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════════
+   LE REGOLE DEL COLORE. Leggere prima di scrivere un colore.
+
+   Terza regola scritta il 24/09/2026, dopo quelle dei font e delle
+   immagini, per lo stesso motivo: il sistema era stato deciso il
+   5 settembre, ma nel codice erano ricomparsi esadecimali a mano.
+
+   1. NESSUN ESADECIMALE FUORI DA QUI.
+      Nei componenti si usano solo i token. Un #c8502a scritto a mano
+      e' un corallo che non cambiera' mai insieme agli altri.
+
+   2. QUATTRO LIVELLI DI SUPERFICIE, TUTTI CALDI.
+      bianco    ciò che si legge
+      panna     respiro, alternanza, card (.section-sabbia)
+      corallo   enfasi (.section-coral)
+      mattone   spina dorsale (.section-mattone)
+
+   3. CORALLO PIENO UNA VOLTA PER PAGINA.
+      Il corallo deve poter dire "qui si clicca". Quando faceva da
+      fondale a ventidue sezioni non lo diceva piu', e i pulsanti
+      dentro quelle sezioni dovevano diventare bianchi per farsi
+      vedere. Se serve una seconda sezione d'enfasi, e' panna.
+
+   4. LO SCURO DELLA MARCA E' IL MATTONE, NON IL NERO.
+      Il nero resta solo dove c'e' un apparecchio: cornice di un video,
+      finto telefono, barra di navigazione. Mai come fondo di sezione.
+
+   5. IL CORALLO NON SI USA COME TESTO SOTTO I 24px.
+      Su bianco da' 4.53:1 e su panna scende sotto la soglia. Per il
+      testo c'e' corallo-text, e su fondo scuro corallo-on-dark.
+
+   6. IL VERDE ESISTE SOLO NEL CONFRONTO CAOS/ORDINE.
+      Servono due esiti opposti e il corallo li' e' gia' occupato.
+      Fuori da quel blocco, mai.
+
+   7. UNICA ECCEZIONE AL SISTEMA: IL VERDE WHATSAPP.
+      #25D366 sul tasto fisso, deciso dalla proprieta' il 20/09/2026.
+      Non e' un colore del sito: e' il segnale che tutti riconoscono.
+   ══════════════════════════════════════════════════════════════════ */
+
 @theme {
   --color-brand-bianco: #ffffff;
   --color-brand-panna: #fbf5f2;
+  /* Crema di passaggio. Era stata eliminata a settembre insieme a
+     visione-bg perche' stavano a otto punti dalla panna e sembravano
+     bianchi sbagliati: e' rientrata da sola. Vedi la nota in fondo. */
   --color-brand-pesca-light: #faf0ec;
-  --color-brand-visione-bg: #faece7;
   --color-brand-pesca: #e8b9a5;
-  /* Corallo: fill/grafica. Non usare come colore di testo sotto i 24px:
-     su bianco puro dà 4.53:1 e scende sotto 4.5:1 su panna, pesca-light,
-     visione-bg e nero. */
+  /* Corallo: fill e grafica. Come testo solo sopra i 24px, vedi regola 5. */
   --color-brand-corallo: #c8502a;
+  /* Un solo valore per il corallo scuro, due nomi per due mestieri:
+     cosi' non possono piu' scostarsi l'uno dall'altro come prima,
+     quando erano due esadecimali identici scritti due volte. */
   --color-brand-corallo-dark: #a93f1e;
+  /* Testo corallo su superfici chiare: 6.15:1 bianco, 5.69:1 panna. */
+  --color-brand-corallo-text: var(--color-brand-corallo-dark);
   /* Lo scuro della marca: non il nero, un corallo cotto. Bianco sopra: 9,8:1 */
   --color-brand-mattone: #6f2a12;
   /* Un gradino sotto il mattone, per il piede della pagina: la CTA
      finale e' mattone e senza questo si saldava al footer. Bianco: 14,5:1 */
   --color-brand-mattone-scuro: #4a1a0a;
-  /* Testo corallo su superfici chiare: 6.15:1 bianco, 5.69:1 panna,
-     5.48:1 pesca-light, 5.33:1 visione-bg. */
-  --color-brand-corallo-text: #a93f1e;
   /* Testo corallo su superfici scure: 6.99:1 su nero #111111. */
   --color-brand-corallo-on-dark: #e8825c;
+  /* Il verde del confronto caos/ordine, regola 6. Prima era scritto a
+     mano in quattro punti della home. */
+  --color-brand-verde: #1f7a5c;
+  /* Testo verde su fondo chiaro: il #1f7a5c pieno non regge sotto i 24px. */
+  --color-brand-verde-text: #155c45;
   --color-brand-nero: #111111;
   /* Superficie scura sopraelevata: card sul fondo nero. */
   --color-brand-nero-soft: #2a2a2a;
@@ -291,14 +338,14 @@ body {
 }
 
 .section-visione {
-  background-color: color-mix(in srgb, var(--color-brand-visione-bg) 92%, transparent);
+  background-color: color-mix(in srgb, var(--color-brand-pesca-light) 92%, transparent);
   border-top: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--color-brand-bordo) 70%, transparent);
 }
 
 /* Visione — hero atmosferica */
 .vision-hero-atmosphere {
-  background-color: var(--color-brand-visione-bg);
+  background-color: var(--color-brand-pesca-light);
 }
 
 @keyframes vision-float-soft {

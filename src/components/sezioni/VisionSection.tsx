@@ -19,8 +19,8 @@ export default function VisionSection() {
             sizes="100vw"
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-pesca-light/25 via-transparent to-[#faece7]/95" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#faece7]/80 via-transparent to-brand-pesca-light/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-pesca-light/25 via-transparent to-brand-pesca-light/95" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-pesca-light/80 via-transparent to-brand-pesca-light/20" />
           <div
             className="absolute inset-0 opacity-[0.05]"
             style={{

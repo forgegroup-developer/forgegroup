@@ -268,8 +268,8 @@ export default function Home() {
                     L&apos;agenzia che ti consegna il contatto
                   </p>
                 </div>
-                <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,#1f7a5c_10%,#ffffff)]">
-                  <p className="text-xs md:text-base font-bold text-[#155c45] uppercase tracking-wide leading-snug">
+                <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,var(--color-brand-verde)_10%,var(--color-brand-bianco))]">
+                  <p className="text-xs md:text-base font-bold text-brand-verde-text uppercase tracking-wide leading-snug">
                     Forge Group
                   </p>
                 </div>
@@ -311,9 +311,9 @@ export default function Home() {
                       {row.other}
                     </span>
                   </div>
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,#1f7a5c_8%,#ffffff)] hover:bg-[color-mix(in_srgb,#1f7a5c_14%,#ffffff)] transition-colors">
+                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,var(--color-brand-verde)_8%,var(--color-brand-bianco))] hover:bg-[color-mix(in_srgb,var(--color-brand-verde)_14%,var(--color-brand-bianco))] transition-colors">
                     <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1f7a5c]"
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-verde"
                       aria-hidden
                     />
                     <span className="text-xs md:text-sm leading-snug font-semibold text-brand-nero pt-0.5">
