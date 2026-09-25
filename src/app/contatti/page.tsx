@@ -82,13 +82,13 @@ export default function ContattiPage() {
       <ContattiFormLoader />
 
       {/* Le domande che nascono proprio qui: cosa comporta candidarsi, la zona, la durata. */}
-      <section id="domande" className="scroll-mt-24 section-bianco border-y py-14 md:py-20">
+      <section id="domande" className="scroll-mt-24 section-mattone py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
           <h2 className="heading-section-xl mb-10 text-balance">
             Prima di compilare, <span className="text-brand-corallo-text">quello che chiedono tutti</span>.
           </h2>
-          <FAQAccordion items={faqsPagina("contatti")} />
+          <FAQAccordion onCoral items={faqsPagina("contatti")} />
         </div>
       </section>
 

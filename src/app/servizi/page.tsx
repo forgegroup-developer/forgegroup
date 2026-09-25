@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroPagina from "@/components/sezioni/HeroPagina";
+import StrisciaProve from "@/components/sezioni/StrisciaProve";
 import type { Metadata } from "next";
 import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
 import MetodoForge from "@/components/sezioni/MetodoForge";
@@ -215,6 +216,8 @@ export default function ServiziHub() {
         foto="nessuna"
       />
 
+      <StrisciaProve />
+
       {/* TRE SERVIZI — layout originale, copy LP */}
       <ForgeGradientBackground
         as="section"
@@ -357,9 +360,10 @@ export default function ServiziHub() {
       {/* Le domande di questa pagina: quelle su come si lavora. Le altre
           stanno dove il dubbio nasce (prezzo e prova nei casi studio,
           controllo nel CRM, ingresso nei contatti). */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-14 md:py-20">
+      <section id="domande" className="scroll-mt-24 section-mattone py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <SectionHeader
+            onCoral
             eyebrow="Domande frequenti"
             title={
               <>
@@ -368,7 +372,7 @@ export default function ServiziHub() {
               </>
             }
           />
-          <FAQAccordion items={faqsPagina("servizi")} />
+          <FAQAccordion onCoral items={faqsPagina("servizi")} />
         </div>
       </section>
 

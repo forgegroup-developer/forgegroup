@@ -1,6 +1,6 @@
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
+import CasiStudioGriglia from "@/components/casi-studio/CasiStudioGriglia";
 import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -73,17 +73,19 @@ export default function CasiStudioHub() {
       />
 
       <section id="casi-studio-contenuto" className="scroll-mt-24 py-14 md:py-20 section-bianco">
-        <CasiStudioCarousel />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <CasiStudioGriglia />
+        </div>
       </section>
 
       {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-14 md:py-20">
+      <section id="domande" className="scroll-mt-24 section-mattone py-14 md:py-20">
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
           <h2 className="heading-section-xl mb-10 text-balance">
             Hai visto i numeri.{" "}<span className="text-brand-corallo-text">Adesso le domande</span>.
           </h2>
-          <FAQAccordion items={faqsPagina("casi-studio")} />
+          <FAQAccordion onCoral items={faqsPagina("casi-studio")} />
         </div>
       </section>
 
