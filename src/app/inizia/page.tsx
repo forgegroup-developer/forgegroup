@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import ContattiFormLoader from "@/app/contatti/ContattiFormLoader";
 import FAQAccordion from "@/components/ui/FAQAccordion";
-import SectionHeader from "@/components/ui/SectionHeader";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -40,6 +39,35 @@ export const metadata: Metadata = {
   alternates: { canonical: "/inizia" },
   robots: { index: false, follow: true },
 };
+
+/**
+ * Il titolo di sezione, nello stile di "Per chi sì, per chi no": occhiello
+ * con la riga sotto e titolo pieno e compatto. Scelto dalla proprietà per
+ * tutti i titoli di questa pagina.
+ */
+function Titolo({
+  occhiello,
+  children,
+  sottotitolo,
+}: {
+  occhiello: string;
+  children: ReactNode;
+  sottotitolo?: string;
+}) {
+  return (
+    <div className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
+      <p className="mb-6 flex justify-center">
+        <span className="eyebrow-rule">{occhiello}</span>
+      </p>
+      <h2 className="heading-section-xl text-balance">{children}</h2>
+      {sottotitolo && (
+        <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-brand-grigio">
+          {sottotitolo}
+        </p>
+      )}
+    </div>
+  );
+}
 
 /** La parola chiave, nello stesso corallo che usa il resto del sito. */
 function Chiave({ children }: { children: ReactNode }) {
@@ -298,7 +326,7 @@ export default function IniziaPage() {
           <p className="eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Ci siamo appena sentiti al telefono
           </p>
-          <h1 className="heading-display-frase text-pretty">
+          <h1 className="heading-section-xl text-balance">
             Portiamo richieste di lavoro alle imprese edili, e le seguiamo con te{" "}
             <span className="text-brand-corallo no-spezza">fino alla firma</span>.
           </h1>
@@ -348,15 +376,9 @@ export default function IniziaPage() {
       {/* 2 · I problemi, con le parole dei titolari. Poi "è normale" e il conto. */}
       <section className="section-bianco border-y py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Prima di tutto"
-            title={
-              <>
-                Ti suona <Chiave>familiare?</Chiave>
-              </>
-            }
-            subtitle="Sono le cose che ci raccontano i titolari al primo appuntamento. Se ne riconosci anche solo una, questa pagina è per te."
-          />
+          <Titolo occhiello="Prima di tutto" sottotitolo="Sono le cose che ci raccontano i titolari al primo appuntamento. Se ne riconosci anche solo una, questa pagina è per te.">
+            Ti suona <Chiave>familiare?</Chiave>
+          </Titolo>
 
           <div className="mb-14 space-y-12 md:space-y-16">
             {problemiConScena.map((p, i) => (
@@ -436,15 +458,9 @@ export default function IniziaPage() {
       {/* 3 · I tre casi con le foto vere dei lavori: contro il "non è il mio settore". */}
       <section className="section-sabbia border-y py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="I risultati"
-            title={
-              <>
-                Tre imprese, <Chiave>tre mestieri</Chiave>
-              </>
-            }
-            subtitle="Cerca quella più vicina alla tua."
-          />
+          <Titolo occhiello="I risultati" sottotitolo="Cerca quella più vicina alla tua.">
+            Tre imprese, <Chiave>tre mestieri</Chiave>
+          </Titolo>
           <div className="grid gap-6 md:grid-cols-3">
             {casi.map((c) => (
               <article key={c.slug} className="card-xl flex flex-col overflow-hidden">
@@ -494,14 +510,9 @@ export default function IniziaPage() {
         className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
       >
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Come funziona"
-            title={
-              <>
-                Da qui <Chiave>in avanti</Chiave>
-              </>
-            }
-          />
+          <Titolo occhiello="Come funziona">
+            Da qui <Chiave>in avanti</Chiave>
+          </Titolo>
           <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
             {passi.map((p, i) => (
               <li key={p.titolo} className="relative">
@@ -527,14 +538,9 @@ export default function IniziaPage() {
       {/* 7 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
       <section className="section-sabbia border-y py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Chi siamo"
-            title={
-              <>
-                Le persone <Chiave>dietro Forge</Chiave>
-              </>
-            }
-          />
+          <Titolo occhiello="Chi siamo">
+            Le persone <Chiave>dietro Forge</Chiave>
+          </Titolo>
 
           <div className="mb-14 grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12">
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
@@ -613,14 +619,9 @@ export default function IniziaPage() {
       {/* 8 · Le domande che ci fanno dopo la chiamata. */}
       <section className="section-mattone py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Domande frequenti"
-            title={
-              <>
-                Le domande <Chiave>che ci fate</Chiave> dopo la chiamata
-              </>
-            }
-          />
+          <Titolo occhiello="Domande frequenti">
+            Le domande <Chiave>che ci fate</Chiave> dopo la chiamata
+          </Titolo>
           <FAQAccordion onCoral items={domande} />
         </div>
       </section>
@@ -628,10 +629,9 @@ export default function IniziaPage() {
       {/* 9 · Cosa riceve chi si candida, poi il modulo senza il suo banner. */}
       <section id="candidati" className="section-sabbia scroll-mt-24 pt-20 md:pt-28">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-4">Il primo passo</p>
-          <h2 className="heading-section mb-6 text-brand-nero">
+          <Titolo occhiello="Il primo passo">
             Candida la tua impresa e ricevi <Chiave>lo studio di fattibilità</Chiave>
-          </h2>
+          </Titolo>
           <p className="body-lg mb-6">
             Prima di parlare di pubblicità, facciamo i conti sulla tua impresa e sulla tua zona.
             Nello studio di fattibilità trovi:
@@ -650,8 +650,8 @@ export default function IniziaPage() {
           </ul>
           <p className="body-lg">
             Compili il modulo in due minuti.{" "}
-            <strong className="text-brand-nero">Ti chiamiamo entro 48 ore lavorative</strong> e
-            fissiamo l&apos;appuntamento in cui te lo presentiamo.
+            <strong className="text-brand-nero">Ti chiamiamo entro 48 ore lavorative</strong>{" "}
+            e fissiamo l&apos;appuntamento in cui te lo presentiamo.
           </p>
         </div>
         <ContattiFormLoader sorgente="inizia" senzaBanner />
