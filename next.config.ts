@@ -3,6 +3,12 @@ import { allowedImageHosts } from "./src/data/imageHosts";
 import { IUBENDA } from "./src/data/legal";
 
 const nextConfig: NextConfig = {
+  // Gli articoli in coda si leggono da disco (src/lib/blog/fileArticles.ts):
+  // vanno inclusi a mano nelle funzioni, o la rigenerazione ISR non li trova.
+  outputFileTracingIncludes: {
+    "/*": ["content/articoli/**/*.json"],
+    "/**": ["content/articoli/**/*.json"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     // Copertine articoli generate da ForgeFlow: senza questo next/image torna 400.
