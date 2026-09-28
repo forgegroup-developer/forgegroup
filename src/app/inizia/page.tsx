@@ -40,6 +40,25 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
+/*
+ * LE REGOLE DI SPAZIATURA DI QUESTA PAGINA (richiesta della proprietà, 28/09).
+ * Sono le misure dei blocchi della home, così /inizia e il sito si somigliano.
+ *
+ * 1. Ogni sezione ha lo stesso respiro sopra e sotto: SEZIONE. La hero usa
+ *    la stessa misura sotto; il modulo in fondo chiude con la sua, uguale.
+ * 2. Ogni sezione usa lo stesso contenitore: CONTENITORE. Quando un testo
+ *    deve stare più stretto si restringe DENTRO (STRETTO), senza cambiare i
+ *    margini laterali: così tutti i bordi della pagina sono allineati.
+ * 3. Sotto ogni titolo lo stesso spazio (dentro <Titolo>), e tra un blocco e
+ *    l'altro della stessa sezione sempre STACCO.
+ * Le due sezioni che vengono da componenti del sito (video e "per chi è")
+ * usano già queste misure.
+ */
+const SEZIONE = "py-20 md:py-28";
+const CONTENITORE = "mx-auto max-w-6xl px-5 sm:px-6 lg:px-8";
+const STRETTO = "mx-auto max-w-4xl";
+const STACCO = "mb-16 md:mb-20";
+
 /**
  * Il titolo di sezione, nello stile di "Per chi sì, per chi no": occhiello
  * con la riga sotto e titolo pieno e compatto. Scelto dalla proprietà per
@@ -97,9 +116,19 @@ function ScenaAI({
   );
 }
 
-type Problema = { tema: string; frase: string; testo: ReactNode };
+/**
+ * Ogni problema ha accanto la sua soluzione, "Con Forge": il dolore, il
+ * perché, e subito cosa facciamo noi (problema, aggravamento, soluzione).
+ * La soluzione è sempre il meccanismo, mai una promessa di risultato.
+ */
+type Problema = {
+  tema: string;
+  frase: string;
+  testo: ReactNode;
+  soluzione: ReactNode;
+};
 
-/** I tre problemi con la scena accanto. */
+/** I quattro problemi con la scena accanto. */
 const problemiConScena: (Problema & { src: string; alt: string })[] = [
   {
     tema: "Sopralluoghi regalati",
@@ -110,6 +139,14 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
         Esci per chiunque chiami, perché non sai chi ha un budget e chi vuole
         solo un prezzo da confrontare.{" "}
         <strong>Le giornate a vuoto non te le paga nessuno.</strong>
+      </>
+    ),
+    soluzione: (
+      <>
+        Il modulo chiede a ogni richiesta tipo di lavoro, tempi, budget e zona:{" "}
+        <strong>esci solo per chi ha un lavoro vero da fare.</strong> E
+        lavoriamo con te perché il sopralluogo diventi a pagamento, come con
+        Tetti Top.
       </>
     ),
     src: iniziaImages.sopralluogoAVuoto,
@@ -128,6 +165,16 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
         , e i soldi li regali ai concorrenti della tua zona.
       </>
     ),
+    soluzione: (
+      <>
+        Al posto del solito preventivo costruiamo con te il piano dei lavori e
+        il materiale per presentarlo:{" "}
+        <strong>
+          il cliente vede cosa compra prima di guardare il totale.
+        </strong>{" "}
+        E il suo budget lo conosci prima dell&apos;appuntamento, come oggi ROVI.
+      </>
+    ),
     src: iniziaImages.prezzoPiuBasso,
     alt: "Un titolare guarda due preventivi affiancati sul tavolo: il cliente indica quello più basso",
   },
@@ -141,13 +188,45 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
         ridimensiona.
       </>
     ),
+    soluzione: (
+      <>
+        La pubblicità la gestiamo noi, le richieste arrivano già filtrate nel
+        gestionale, e il modo di vendere lo mettiamo per iscritto,{" "}
+        <strong>così può seguirlo anche chi risponde al telefono.</strong> Tu
+        guardi i numeri, anche dal cantiere.
+      </>
+    ),
     src: iniziaImages.cantiereAlle20,
     alt: "Un imprenditore edile seduto sul cassone del furgone al tramonto, al telefono davanti al cantiere",
+  },
+  {
+    tema: "I soldi che non entrano",
+    frase: "Il lavoro l'ho finito, ma i soldi non arrivano.",
+    testo: (
+      <>
+        Sembra colpa dei clienti o della crisi. Ma se acconti e pagamenti non li
+        hai fissati per iscritto prima di iniziare, a fine lavoro arrivano
+        contestazioni e ritardi.{" "}
+        <strong>E chi prende i clienti per bisogno non se li sceglie.</strong>
+      </>
+    ),
+    soluzione: (
+      <>
+        Nel processo di vendita che scriviamo con te,{" "}
+        <strong>
+          come e quando ti pagano si decide prima di iniziare, per iscritto
+        </strong>
+        : acconto, saldo, bonifico. E quando le richieste non dipendono più solo
+        dal passaparola, i clienti torni a sceglierli tu.
+      </>
+    ),
+    src: iniziaImages.fattureScadute,
+    alt: "Un imprenditore edile al tavolo con pile di fatture timbrate come scadute, preoccupato, guarda il telefono",
   },
 ];
 
 /**
- * Gli altri cinque, come domande ("hai fatto X, ma Y?"): e' la forma che
+ * Gli altri quattro, come domande ("hai fatto X, ma Y?"): e' la forma che
  * nelle pagine studiate regge meglio un elenco, e non suona come un'accusa.
  */
 const altriProblemi: Problema[] = [
@@ -160,6 +239,14 @@ const altriProblemi: Problema[] = [
         Le spese e gli stipendi corrono lo stesso, e i fornitori li paghi quando
         pagano i clienti.{" "}
         <strong>Non è la stagionalità: manca un sistema.</strong>
+      </>
+    ),
+    soluzione: (
+      <>
+        Le campagne lavorano anche quando il passaparola si ferma, e lo studio
+        di fattibilità ti dice prima{" "}
+        <strong>quanto lavoro c&apos;è nella tua zona</strong> e quanto ne regge
+        la tua impresa.
       </>
     ),
   },
@@ -176,6 +263,13 @@ const altriProblemi: Problema[] = [
         </strong>
       </>
     ),
+    soluzione: (
+      <>
+        Nel gestionale ogni preventivo ha una data per richiamare, e nella chiamata
+        settimanale passiamo con te le trattative aperte una per una.{" "}
+        <strong>Nessuna resta lì.</strong>
+      </>
+    ),
   },
   {
     tema: "L'agenzia di prima",
@@ -190,6 +284,14 @@ const altriProblemi: Problema[] = [
         </strong>
       </>
     ),
+    soluzione: (
+      <>
+        Il filtro lo mettiamo noi, con il modulo, e nel gestionale vedi{" "}
+        <strong>contratto per contratto quanto ti rende ogni euro.</strong> Se
+        dopo 60 giorni i numeri non si muovono, cambiamo strategia, campagne o
+        budget.
+      </>
+    ),
   },
   {
     tema: "La paura di vendere",
@@ -201,20 +303,28 @@ const altriProblemi: Problema[] = [
         <strong>Così le trattative restano appese, e decide sempre lui.</strong>
       </>
     ),
-  },
-  {
-    tema: "I soldi che non entrano",
-    frase: "Il lavoro l'hai finito, ma i soldi non arrivano?",
-    testo: (
+    soluzione: (
       <>
-        Sembra colpa dei clienti o della crisi. Ma se acconti e pagamenti non li
-        hai fissati per iscritto prima di iniziare, a fine lavoro arrivano
-        contestazioni e ritardi.{" "}
-        <strong>E chi prende i clienti per bisogno non se li sceglie.</strong>
+        Il metodo e le parole per richiamare li scriviamo insieme, e ogni
+        settimana guardiamo con te le trattative.{" "}
+        <strong>Richiami con un motivo</strong>, non «per sentire», e la cifra
+        la dici presto.
       </>
     ),
   },
 ];
+
+/** Il riquadro "Con Forge" sotto ogni problema. */
+function ConForge({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-xl border-l-4 border-brand-corallo bg-brand-panna px-5 py-4">
+      <p className="eyebrow mb-1.5">Con Forge</p>
+      <p className="text-[0.98rem] leading-relaxed text-brand-nero">
+        {children}
+      </p>
+    </div>
+  );
+}
 
 const casi = [
   {
@@ -319,12 +429,12 @@ const passi = [
   },
 ];
 
-/** Cosa si vede in Forge CRM, in parole del titolare. */
+/** Cosa si vede nel gestionale, in parole del titolare. Sul sito si dice "gestionale", mai "CRM" (proprietà, 28/09). */
 const crm = [
   {
     titolo: "Chi ti ha scritto, prima di richiamarlo",
     testo:
-      "Ogni richiesta arriva nel CRM con nome, telefono, zona, tipo di lavoro, tempi e budget. Quando richiami sai già con chi parli, e chi cercava solo un prezzo lo vedi subito.",
+      "Ogni richiesta arriva nel gestionale con nome, telefono, zona, tipo di lavoro, tempi e budget. Quando richiami sai già con chi parli, e chi cercava solo un prezzo lo vedi subito.",
   },
   {
     titolo: "A che punto è ogni trattativa",
@@ -339,7 +449,7 @@ const crm = [
   {
     titolo: "Lo guardiamo insieme ogni settimana",
     testo:
-      "Nella chiamata settimanale apriamo il CRM con te e passiamo le trattative una per una. Ogni tre mesi hai il report con tutti i numeri.",
+      "Nella chiamata settimanale apriamo il gestionale con te e passiamo le trattative una per una. Ogni tre mesi hai il report con tutti i numeri.",
   },
 ];
 
@@ -354,7 +464,7 @@ const domande: Pick<Faq, "q" | "a">[] = [
   },
   {
     q: "Ho già provato con un'agenzia. Cosa cambia?",
-    a: "Se mangi male in un ristorante non smetti di andare al ristorante: guardi chi è specializzato e chi ha casi veri. Noi lavoriamo solo con imprese edili, e con il CRM vedi tu, contratto per contratto, quanto ti rende ogni euro.",
+    a: "Se mangi male in un ristorante non smetti di andare al ristorante: guardi chi è specializzato e chi ha casi veri. Noi lavoriamo solo con imprese edili, e con il gestionale vedi tu, contratto per contratto, quanto ti rende ogni euro.",
   },
   {
     q: "Chi richiama le richieste che arrivano?",
@@ -380,7 +490,7 @@ export default function IniziaPage() {
       <HeroGooeySection
         pulita
         className=""
-        innerClassName="mx-auto max-w-7xl"
+        innerClassName={CONTENITORE}
         before={
           <div className="absolute inset-0 hidden lg:block">
             <Image
@@ -401,7 +511,7 @@ export default function IniziaPage() {
           </div>
         }
       >
-        <div className="flex flex-col gap-5 px-4 pb-14 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:max-w-[44rem] lg:pb-24 lg:pl-8 lg:pt-20">
+        <div className="flex flex-col gap-5 pb-20 pt-14 sm:gap-6 md:pb-28 md:pt-20 lg:max-w-[42rem]">
           <p className="eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Ci siamo appena sentiti al telefono
           </p>
@@ -480,8 +590,8 @@ export default function IniziaPage() {
       </HeroGooeySection>
 
       {/* 2 · I problemi, con le parole dei titolari. Poi "è normale" e il conto. */}
-      <section className="section-bianco border-y py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <section className={`section-bianco border-y ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <Titolo
             occhiello="Prima di tutto"
             sottotitolo="Sono le cose che ci raccontano i titolari al primo appuntamento. Se ne riconosci anche solo una, questa pagina è per te."
@@ -489,7 +599,7 @@ export default function IniziaPage() {
             Ti suona <Chiave>familiare?</Chiave>
           </Titolo>
 
-          <div className="mb-14 space-y-12 md:space-y-16">
+          <div className={`${STACCO} space-y-16 md:space-y-20`}>
             {problemiConScena.map((p, i) => (
               <article
                 key={p.tema}
@@ -509,21 +619,24 @@ export default function IniziaPage() {
                     {p.frase}
                     <Chiave>&raquo;</Chiave>
                   </p>
-                  <p className="body-lg">{p.testo}</p>
+                  <p className="body-lg mb-5">{p.testo}</p>
+                  <ConForge>{p.soluzione}</ConForge>
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mb-14 rounded-2xl border border-brand-bordo bg-brand-bianco px-5 sm:px-8">
+          <div
+            className={`${STACCO} rounded-2xl border border-brand-bordo bg-brand-bianco px-5 sm:px-8`}
+          >
             <p className="border-b border-brand-bordo py-5 font-display text-lg font-bold text-brand-nero">
-              Oppure ti riconosci in una di queste?
+              E poi ci sono queste. Ti riconosci?
             </p>
             <ol>
               {altriProblemi.map((p, i) => (
                 <li
                   key={p.tema}
-                  className="grid gap-2 border-b border-brand-bordo py-6 last:border-b-0 md:grid-cols-[3rem_1fr_1fr] md:gap-8"
+                  className="grid gap-3 border-b border-brand-bordo py-7 last:border-b-0 md:grid-cols-[3rem_1fr_1fr] md:gap-8"
                 >
                   <span
                     className="font-display text-2xl font-bold leading-none text-brand-corallo-text"
@@ -533,19 +646,20 @@ export default function IniziaPage() {
                   </span>
                   <div>
                     <p className="eyebrow mb-1">{p.tema}</p>
-                    <p className="font-display text-lg font-bold leading-snug text-brand-nero">
+                    <p className="mb-2 font-display text-lg font-bold leading-snug text-brand-nero">
                       {p.frase}
                     </p>
+                    <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                      {p.testo}
+                    </p>
                   </div>
-                  <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
-                    {p.testo}
-                  </p>
+                  <ConForge>{p.soluzione}</ConForge>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="mx-auto mb-12 max-w-3xl">
+          <div className={`${STRETTO} ${STACCO}`}>
             <p className="body-lg mb-5">
               È normale. Succede alle imprese che vivono di passaparola: nei
               mesi buoni il lavoro arriva da solo, in quelli morti le spese
@@ -565,7 +679,9 @@ export default function IniziaPage() {
             </p>
           </div>
 
-          <div className="section-mattone mx-auto max-w-3xl rounded-2xl bg-brand-mattone p-6 sm:p-10">
+          <div
+            className={`section-mattone ${STRETTO} ${STACCO} rounded-2xl bg-brand-mattone p-6 sm:p-10`}
+          >
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide">
               Facciamo due conti, con numeri tondi
             </p>
@@ -578,12 +694,28 @@ export default function IniziaPage() {
               avrebbe mai firmato.
             </h3>
           </div>
+
+          {/* La svolta: tutti i problemi sopra hanno la stessa risposta. */}
+          <div className={`${STRETTO} text-center`}>
+            <p className="eyebrow eyebrow-mark mb-4 flex justify-center">
+              La soluzione
+            </p>
+            <p className="font-display text-2xl font-bold leading-snug text-brand-nero md:text-3xl">
+              Per ognuno di questi problemi hai letto cosa facciamo noi. È tutto
+              nello stesso percorso:{" "}
+              <Chiave>
+                richieste già filtrate, un processo di vendita scritto con te,
+                il nostro gestionale, e noi al tuo fianco ogni settimana fino alla firma
+              </Chiave>
+              .
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 3 · I tre casi con le foto vere dei lavori: contro il "non è il mio settore". */}
-      <section className="section-sabbia border-y py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <Titolo
             occhiello="I risultati"
             sottotitolo="Cerca quella più vicina alla tua."
@@ -594,7 +726,7 @@ export default function IniziaPage() {
             {casi.map((c) => (
               <article
                 key={c.slug}
-                className="card-xl flex flex-col overflow-hidden"
+                className="card-xl superficie-chiara flex flex-col overflow-hidden"
               >
                 <div className="relative aspect-[16/9] bg-brand-panna">
                   <Image
@@ -641,43 +773,15 @@ export default function IniziaPage() {
       {/* 4 · La video-recensione di DISA, per chi è scettico. Parte solo al tocco. */}
       <VideoScettico senzaLinkCaso />
 
-      {/* 5 · "Praticamente, come funziona?": i passi come linea del tempo. */}
-      <section
-        id="come-funziona"
-        className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
-      >
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <Titolo occhiello="Come funziona">
-            Da qui <Chiave>in avanti</Chiave>
-          </Titolo>
-          <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
-            {passi.map((p, i) => (
-              <li key={p.titolo} className="relative">
-                <span
-                  className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
-                  aria-hidden
-                >
-                  {i + 1}
-                </span>
-                <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
-                  {p.titolo}
-                </h3>
-                <p className="body-lg">{p.testo}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* 5b · Forge CRM: cosa vuol dire "ti facciamo vedere tutto". Sul
+      {/* 5 · Il gestionale: cosa vuol dire "ti facciamo vedere tutto". Sul
           mattone, come il Metodo in home: è il punto che ci distingue da chi
           consegna i contatti e sparisce. Fatti dalla Scheda (Gestione) e
           dalla Testa aziendale (§5, l'impegno). */}
-      <section className="section-mattone py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <Titolo
-            occhiello="Forge CRM"
-            sottotitolo="Forge CRM è il gestionale che costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
+            occhiello="Il gestionale"
+            sottotitolo="Il gestionale lo costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
           >
             Vedi tutto quello che succede,{" "}
             <span>anche quando sei in cantiere</span>
@@ -712,20 +816,53 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 6 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
+      {/* 6 · "Praticamente, come funziona?": i passi come linea del tempo. */}
+      <section
+        id="come-funziona"
+        className={`section-bianco scroll-mt-24 border-y ${SEZIONE}`}
+      >
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Come funziona">
+            Da qui <Chiave>in avanti</Chiave>
+          </Titolo>
+          <div className={STRETTO}>
+            <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
+              {passi.map((p, i) => (
+                <li key={p.titolo} className="relative">
+                  <span
+                    className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
+                    aria-hidden
+                  >
+                    {i + 1}
+                  </span>
+                  <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
+                    {p.titolo}
+                  </h3>
+                  <p className="body-lg">{p.testo}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* 7 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
       <PerChiSiPerChiNo
+        sfondo="mattone"
         nota="Lavoriamo con poche imprese, una per territorio."
         ctaHref="#candidati"
       />
 
-      {/* 7 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
-      <section className="section-sabbia border-y py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      {/* 8 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
+      <section className={`section-bianco border-y ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <Titolo occhiello="Chi siamo">
             Le persone <Chiave>dietro Forge</Chiave>
           </Titolo>
 
-          <div className="mb-14 grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12">
+          <div
+            className={`${STACCO} grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12`}
+          >
             <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
               <Image
                 src={teamImages.foundersDuo}
@@ -802,60 +939,74 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 8 · Le domande che ci fanno dopo la chiamata. */}
-      <section className="section-mattone py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      {/* 9 · Le domande che ci fanno dopo la chiamata. */}
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <Titolo occhiello="Domande frequenti">
             Le domande <Chiave>che ci fate</Chiave> dopo la chiamata
           </Titolo>
-          <FAQAccordion onCoral items={domande} />
+          <div className={STRETTO}>
+            <FAQAccordion onCoral items={domande} />
+          </div>
         </div>
       </section>
 
-      {/* 9 · Cosa riceve chi si candida, poi il modulo senza il suo banner. */}
+      {/* 10 · Cosa riceve chi si candida, e accanto il modulo senza banner.
+          Da computer due colonne larghe quanto il resto della pagina; da
+          telefono prima lo studio, poi il modulo. */}
       <section
         id="candidati"
-        className="section-sabbia scroll-mt-24 pt-20 md:pt-28"
+        className={`section-bianco scroll-mt-24 ${SEZIONE}`}
       >
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <div className={CONTENITORE}>
           <Titolo occhiello="Il primo passo">
             Candida la tua impresa e ricevi{" "}
             <Chiave>lo studio di fattibilità</Chiave>
           </Titolo>
-          <div className="mb-8">
-            <ScenaAI
-              src={iniziaImages.studioDiFattibilita}
-              alt="Un consulente mostra a un imprenditore edile lo studio di fattibilità, con la cartina della zona e i grafici sul tavolo"
-              sizes="(min-width: 672px) 640px, 100vw"
-            />
+          <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <div className="mb-8">
+                <ScenaAI
+                  src={iniziaImages.studioDiFattibilita}
+                  alt="Un consulente mostra a un imprenditore edile lo studio di fattibilità, con la cartina della zona e i grafici sul tavolo"
+                  sizes="(min-width: 1024px) 540px, 100vw"
+                />
+              </div>
+              <p className="body-lg mb-6">
+                Prima di parlare di pubblicità, facciamo i conti sulla tua
+                impresa e sulla tua zona. Nello studio di fattibilità trovi:
+              </p>
+              <ul className="mb-8 space-y-4">
+                {studio.map((riga) => (
+                  <li key={riga.cosa} className="flex gap-3.5">
+                    <span className="segno-si mt-1" aria-hidden>
+                      ✓
+                    </span>
+                    <p className="body-lg">
+                      <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                      {riga.dettaglio}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="body-lg">
+                Compili il modulo in due minuti.{" "}
+                <strong className="text-brand-nero">
+                  Ti chiamiamo entro 48 ore lavorative
+                </strong>{" "}
+                e fissiamo l&apos;appuntamento in cui te lo presentiamo.
+              </p>
+            </div>
+            <div className="lg:sticky lg:top-28">
+              <ContattiFormLoader sorgente="inizia" senzaBanner />
+            </div>
           </div>
-          <p className="body-lg mb-6">
-            Prima di parlare di pubblicità, facciamo i conti sulla tua impresa e
-            sulla tua zona. Nello studio di fattibilità trovi:
-          </p>
-          <ul className="mb-8 space-y-4">
-            {studio.map((riga) => (
-              <li key={riga.cosa} className="flex gap-3.5">
-                <span className="segno-si mt-1" aria-hidden>
-                  ✓
-                </span>
-                <p className="body-lg">
-                  <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
-                  {riga.dettaglio}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="body-lg">
-            Compili il modulo in due minuti.{" "}
-            <strong className="text-brand-nero">
-              Ti chiamiamo entro 48 ore lavorative
-            </strong>{" "}
-            e fissiamo l&apos;appuntamento in cui te lo presentiamo.
-          </p>
         </div>
-        <ContattiFormLoader sorgente="inizia" senzaBanner />
       </section>
+
+      {/* Il tasto flottante di iubenda qui non serve: le preferenze cookie
+          stanno nel footer, e su una landing ogni tasto fisso è un'uscita. */}
+      <style>{`.iubenda-tp-btn { display: none !important; }`}</style>
     </>
   );
 }

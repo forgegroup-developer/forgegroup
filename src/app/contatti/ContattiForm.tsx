@@ -38,7 +38,12 @@ type FormStep = {
 };
 
 const steps: FormStep[] = [
-  { name: "nome_attivita", label: "Nome attività / Azienda", type: "text", placeholder: "Es. Edil Srl" },
+  {
+    name: "nome_attivita",
+    label: "Nome attività / Azienda",
+    type: "text",
+    placeholder: "Es. Edil Srl",
+  },
   {
     name: "occupazione",
     label: "Di cosa ti occupi? (in 1-3 frasi, come se mi parlassi di persona)",
@@ -51,8 +56,14 @@ const steps: FormStep[] = [
     label: "Qual è il tuo più grande ostacolo attualmente?",
     type: "select",
     options: [
-      { value: "Aumentare i potenziali clienti da contattare", label: "Aumentare i potenziali clienti da contattare" },
-      { value: "Aumentare il tasso di conversione e vendere di più", label: "Aumentare il tasso di conversione e vendere di più" },
+      {
+        value: "Aumentare i potenziali clienti da contattare",
+        label: "Aumentare i potenziali clienti da contattare",
+      },
+      {
+        value: "Aumentare il tasso di conversione e vendere di più",
+        label: "Aumentare il tasso di conversione e vendere di più",
+      },
       {
         value: "Aumentare la qualità dei clienti e il margine dell'azienda",
         label: "Aumentare la qualità dei clienti e il margine dell'azienda",
@@ -66,9 +77,24 @@ const steps: FormStep[] = [
     rows: 3,
     placeholder: "Passaparola, ads, fiere, outbound...",
   },
-  { name: "nome_cognome", label: "Nome e Cognome", type: "text", placeholder: "Mario Rossi" },
-  { name: "telefono", label: "Telefono", type: "tel", placeholder: "+39 333 1234567" },
-  { name: "email", label: "Email", type: "email", placeholder: "nome@azienda.it" },
+  {
+    name: "nome_cognome",
+    label: "Nome e Cognome",
+    type: "text",
+    placeholder: "Mario Rossi",
+  },
+  {
+    name: "telefono",
+    label: "Telefono",
+    type: "tel",
+    placeholder: "+39 333 1234567",
+  },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    placeholder: "nome@azienda.it",
+  },
 ];
 
 const ERROR_ID = "form-errore-step";
@@ -83,7 +109,10 @@ type Props = {
   senzaBanner?: boolean;
 };
 
-export default function ContattiForm({ sorgente = "contatti", senzaBanner = false }: Props) {
+export default function ContattiForm({
+  sorgente = "contatti",
+  senzaBanner = false,
+}: Props) {
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState<FormData>(initialFormData);
   const [submitting, setSubmitting] = useState(false);
@@ -116,7 +145,7 @@ export default function ContattiForm({ sorgente = "contatti", senzaBanner = fals
       setStepError("");
       return true;
     },
-    [form, stepIndex]
+    [form, stepIndex],
   );
 
   const goNext = useCallback(() => {
@@ -147,7 +176,10 @@ export default function ContattiForm({ sorgente = "contatti", senzaBanner = fals
       window.scrollTo({ top: 0, behavior: "smooth" });
       return true;
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Si è verificato un errore inaspettato.";
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Si è verificato un errore inaspettato.";
       setError(message);
       return false;
     } finally {
@@ -270,13 +302,24 @@ export default function ContattiForm({ sorgente = "contatti", senzaBanner = fals
         innerClassName="max-w-2xl mx-auto px-4 text-center"
       >
         <div className="w-20 h-20 bg-brand-corallo rounded-full flex items-center justify-center mb-8 mx-auto">
-          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+          <svg
+            className="w-10 h-10 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              d="M5 13l4 4L19 7"
+            />
           </svg>
         </div>
         <p className="eyebrow mb-4">✦ Candidatura ricevuta</p>
         <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
-          Grazie. Adesso <span className="text-brand-corallo">guardiamo i tuoi numeri</span>.
+          Grazie. Adesso{" "}
+          <span className="text-brand-corallo">guardiamo i tuoi numeri</span>.
         </h1>
         <div className="text-lg text-brand-grigio leading-relaxed mb-8 space-y-4 max-w-xl mx-auto">
           <p>
@@ -289,10 +332,10 @@ export default function ContattiForm({ sorgente = "contatti", senzaBanner = fals
             Ti chiamiamo entro <strong>48 ore lavorative</strong>.
           </p>
           <p>
-            Quella chiamata serve a capire se ci sono i presupposti per
-            lavorare insieme. Se ci sono, fissiamo un appuntamento: di persona
-            se sei in una zona dove arriviamo, altrimenti in videochiamata. Se
-            non ci sono, te lo diciamo lì.
+            Quella chiamata serve a capire se ci sono i presupposti per lavorare
+            insieme. Se ci sono, fissiamo un appuntamento: di persona se sei in
+            una zona dove arriviamo, altrimenti in videochiamata. Se non ci
+            sono, te lo diciamo lì.
           </p>
         </div>
         <Link href="/" className="btn-ghost">
@@ -306,118 +349,132 @@ export default function ContattiForm({ sorgente = "contatti", senzaBanner = fals
     <>
       {!senzaBanner && (
         <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="eyebrow mb-6">
-            ✦ Studio di fattibilità
-          </p>
+          <p className="eyebrow mb-6">✦ Studio di fattibilità</p>
           <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
-            Candida la tua{" "}
-            <span className="text-brand-corallo">impresa</span>.
+            Candida la tua <span className="text-brand-corallo">impresa</span>.
           </h1>
         </HeroGooeySection>
       )}
 
       <section
         className={
-          senzaBanner
-            ? "pb-20 md:pb-28 section-sabbia pt-2"
-            : "pb-20 md:pb-28 section-bianco pt-8 md:pt-10"
+          senzaBanner ? "" : "pb-20 md:pb-28 section-bianco pt-8 md:pt-10"
         }
       >
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div onKeyDown={handleKeyDown}>
-          <input
-            type="text"
-            name="website"
-            value={honeypot}
-            onChange={(e) => setHoneypot(e.target.value)}
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden
-            className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
-          />
-          <AnimatedStepper
-            variant="typeform"
-            currentStep={stepIndex + 1}
-            onStepChange={(s) => setStepIndex(s - 1)}
-            onBeforeNext={() => validateStep()}
-            onBeforeComplete={() => handleSubmit()}
-            disableStepIndicators
-            renderFooter={({ currentStep, handleBack, handleNext, isLastStep: last }) => (
-              <>
-                {stepError && (
-                  <p
-                    id={ERROR_ID}
-                    className="mb-4 text-sm font-medium text-brand-corallo-text"
-                    role="alert"
-                    aria-live="polite"
-                  >
-                    {stepError}
-                  </p>
-                )}
-                {error && (
-                  <div
-                    className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm"
-                    role="alert"
-                    aria-live="assertive"
-                  >
-                    {error}
-                  </div>
-                )}
-
-                <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <button
-                    type="button"
-                    onClick={handleBack}
-                    disabled={currentStep === 1 || submitting}
-                    className="touch-target text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  >
-                    ← Indietro
-                  </button>
-
-                  {last ? (
-                    <button
-                      type="button"
-                      onClick={() => void handleSubmit()}
-                      disabled={submitting}
-                      className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+        <div
+          className={
+            senzaBanner ? "" : "max-w-2xl mx-auto px-4 sm:px-6 lg:px-8"
+          }
+        >
+          <div onKeyDown={handleKeyDown}>
+            <input
+              type="text"
+              name="website"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              className="absolute -left-[9999px] h-0 w-0 opacity-0 pointer-events-none"
+            />
+            <AnimatedStepper
+              variant="typeform"
+              currentStep={stepIndex + 1}
+              onStepChange={(s) => setStepIndex(s - 1)}
+              onBeforeNext={() => validateStep()}
+              onBeforeComplete={() => handleSubmit()}
+              disableStepIndicators
+              renderFooter={({
+                currentStep,
+                handleBack,
+                handleNext,
+                isLastStep: last,
+              }) => (
+                <>
+                  {stepError && (
+                    <p
+                      id={ERROR_ID}
+                      className="mb-4 text-sm font-medium text-brand-corallo-text"
+                      role="alert"
+                      aria-live="polite"
                     >
-                      {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
-                    </button>
-                  ) : current.type !== "select" ? (
-                    <button type="button" onClick={handleNext} className="btn-corallo px-10 py-4 text-base">
-                      Continua →
-                    </button>
-                  ) : (
-                    <p className="text-sm text-brand-grigio text-center sm:text-right">
-                      Seleziona un&apos;opzione per continuare
+                      {stepError}
                     </p>
                   )}
-                </div>
+                  {error && (
+                    <div
+                      className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-4 text-sm"
+                      role="alert"
+                      aria-live="assertive"
+                    >
+                      {error}
+                    </div>
+                  )}
 
-                {last && (
-                  <p className="text-xs text-center text-brand-grigio-light mt-6">
-                    Inviando il modulo accetti la nostra{" "}
-                    <Link href="/privacy-policy" className="text-brand-corallo-text hover:underline">
-                      Privacy Policy
-                    </Link>
-                    . I tuoi dati saranno usati solo per valutare la candidatura.
-                  </p>
-                )}
-              </>
-            )}
-          >
-            {steps.map((step) => (
-              <Step
-                key={step.name}
-                title={step.label}
-                titleId={`titolo-${step.name}`}
-                fieldId={step.type === "select" ? undefined : `campo-${step.name}`}
-              >
-                {renderField(step)}
-              </Step>
-            ))}
-          </AnimatedStepper>
-        </div>
+                  <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <button
+                      type="button"
+                      onClick={handleBack}
+                      disabled={currentStep === 1 || submitting}
+                      className="touch-target text-sm font-semibold text-brand-grigio hover:text-brand-nero disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      ← Indietro
+                    </button>
+
+                    {last ? (
+                      <button
+                        type="button"
+                        onClick={() => void handleSubmit()}
+                        disabled={submitting}
+                        className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
+                      </button>
+                    ) : current.type !== "select" ? (
+                      <button
+                        type="button"
+                        onClick={handleNext}
+                        className="btn-corallo px-10 py-4 text-base"
+                      >
+                        Continua →
+                      </button>
+                    ) : (
+                      <p className="text-sm text-brand-grigio text-center sm:text-right">
+                        Seleziona un&apos;opzione per continuare
+                      </p>
+                    )}
+                  </div>
+
+                  {last && (
+                    <p className="text-xs text-center text-brand-grigio-light mt-6">
+                      Inviando il modulo accetti la nostra{" "}
+                      <Link
+                        href="/privacy-policy"
+                        className="text-brand-corallo-text hover:underline"
+                      >
+                        Privacy Policy
+                      </Link>
+                      . I tuoi dati saranno usati solo per valutare la
+                      candidatura.
+                    </p>
+                  )}
+                </>
+              )}
+            >
+              {steps.map((step) => (
+                <Step
+                  key={step.name}
+                  title={step.label}
+                  titleId={`titolo-${step.name}`}
+                  fieldId={
+                    step.type === "select" ? undefined : `campo-${step.name}`
+                  }
+                >
+                  {renderField(step)}
+                </Step>
+              ))}
+            </AnimatedStepper>
+          </div>
         </div>
       </section>
     </>

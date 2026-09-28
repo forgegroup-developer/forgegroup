@@ -35,18 +35,29 @@ type Props = {
   nota?: string;
   /** Dove porta il pulsante: /contatti di solito, il modulo della pagina se ce l'ha. */
   ctaHref?: string;
+  /** Il fondo della sezione: bianco di solito, mattone dove la pagina alterna. */
+  sfondo?: "bianco" | "mattone";
 };
 
-export default function PerChiSiPerChiNo({ nota, ctaHref = "/contatti" }: Props) {
+export default function PerChiSiPerChiNo({
+  nota,
+  ctaHref = "/contatti",
+  sfondo = "bianco",
+}: Props) {
   return (
-    <section id="per-chi" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="per-chi"
+      className={`${sfondo === "mattone" ? "section-mattone" : "section-bianco border-y"} scroll-mt-24 py-20 md:py-28`}
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
           <span className="eyebrow-rule">Prima di scriverci</span>
         </p>
         <h2 className="heading-section-xl mb-5 text-center text-balance">
           Non lavoriamo con tutte le imprese.{" "}
-          <span className="text-brand-corallo-text">Leggi prima di candidarti.</span>
+          <span className="text-brand-corallo-text">
+            Leggi prima di candidarti.
+          </span>
         </h2>
         <p className="mx-auto mb-12 max-w-2xl text-center text-pretty text-lg leading-relaxed text-brand-grigio md:mb-14">
           Facciamo pochi progetti per volta perché in ognuno ci mettiamo dei
@@ -60,7 +71,7 @@ export default function PerChiSiPerChiNo({ nota, ctaHref = "/contatti" }: Props)
         )}
 
         <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          <div className="card-xl p-7 sm:p-9">
+          <div className="card-xl superficie-chiara p-7 sm:p-9">
             <p className="mb-6 font-display text-2xl font-bold text-brand-nero">
               È il lavoro giusto per te se…
             </p>
@@ -78,7 +89,7 @@ export default function PerChiSiPerChiNo({ nota, ctaHref = "/contatti" }: Props)
             </ul>
           </div>
 
-          <div className="card-xl p-7 sm:p-9">
+          <div className="card-xl superficie-chiara p-7 sm:p-9">
             <p className="mb-6 font-display text-2xl font-bold text-brand-nero">
               Lascia perdere se…
             </p>

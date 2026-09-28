@@ -101,6 +101,7 @@ export const iniziaImages = {
   hero: "/images/inizia/hero-stretta-di-mano.webp",
   prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
   studioDiFattibilita: "/images/inizia/studio-di-fattibilita.webp",
+  fattureScadute: "/images/inizia/fatture-scadute.webp",
   cantiereTelefono: "/images/inizia/cantiere-telefono.webp",
   cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
   sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
