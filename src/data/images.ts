@@ -87,8 +87,8 @@ export const teamImages = {
   marco: "/images/team/foto-marco.webp",
   gianpio: "/images/team/foto-gianpio.jpg",
   foundersDuo: "/images/team/vision/founders-duo.png",
-  /** Le riprese di un video da ROVI, col videomaker: e' anche in /visione. */
-  setVideoCliente: "/images/team/vision/team-lavoro.jpg",
+  /** Il videomaker che riprende il titolare di ROVI, nel loro showroom. */
+  setVideoCliente: "/images/team/squadra-set-video.webp",
 } as const;
 
 /**

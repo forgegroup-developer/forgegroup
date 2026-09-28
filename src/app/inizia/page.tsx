@@ -583,14 +583,14 @@ export default function IniziaPage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
                   <Image
                     src={teamImages.setVideoCliente}
-                    alt="Le riprese di un video per un cliente: il titolare legge il testo, il videomaker lo riprende"
+                    alt="Il nostro videomaker riprende il titolare di un'azienda cliente nel suo showroom"
                     fill
                     sizes="(min-width: 768px) 380px, 100vw"
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="mt-3 text-sm text-brand-grigio">
-                  Sul set di un video, da un cliente.
+                  Le riprese del video di un cliente, nel suo showroom.
                 </figcaption>
               </figure>
             </div>
