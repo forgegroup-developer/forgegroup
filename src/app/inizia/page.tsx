@@ -87,6 +87,11 @@ function Titolo({
   );
 }
 
+const fondatori = [
+  { nome: "Marco Pio Cerbone", foto: teamImages.marco },
+  { nome: "Gianpio Uva", foto: teamImages.gianpio },
+];
+
 /** La parola chiave, nello stesso corallo che usa il resto del sito. */
 function Chiave({ children }: { children: ReactNode }) {
   return <span className="text-brand-corallo-text">{children}</span>;
@@ -523,6 +528,32 @@ export default function IniziaPage() {
         }
       >
         <div className="flex flex-col gap-5 pb-20 pt-14 sm:gap-6 md:pb-28 md:pt-20 lg:max-w-[42rem]">
+          {/* Le facce di chi ha chiamato, prima di tutto il resto. */}
+          <div className="flex items-center gap-4">
+            <div className="flex -space-x-3">
+              {fondatori.map((f) => (
+                <div
+                  key={f.nome}
+                  className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-brand-bianco bg-brand-panna shadow-sm"
+                >
+                  <Image
+                    src={f.foto}
+                    alt={`Foto di ${f.nome}`}
+                    fill
+                    sizes="56px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="text-sm leading-snug text-brand-grigio">
+              <strong className="font-semibold text-brand-nero">
+                Marco Pio Cerbone e Gianpio Uva
+              </strong>
+              <br />
+              fondatori di Forge Group
+            </p>
+          </div>
           <p className="eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Ci siamo appena sentiti al telefono
           </p>
@@ -542,12 +573,6 @@ export default function IniziaPage() {
               chi siamo, cosa abbiamo fatto e come lavoriamo
             </strong>
             .
-          </p>
-          <p className="firma-fondatori">
-            <strong className="font-semibold text-brand-nero">
-              Marco Pio Cerbone e Gianpio Uva
-            </strong>
-            , fondatori di Forge Group
           </p>
           <div className="grid gap-3 sm:grid-cols-3">
             {casi.map((c) => (
