@@ -51,6 +51,10 @@ export default function WhatsAppFlottante() {
     return () => document.removeEventListener("click", conta);
   }, []);
 
+  // /inizia e' una landing che arriva dopo la telefonata: niente uscite,
+  // nemmeno questa. Chi vuole scriverci ha il modulo in fondo.
+  if (pathname === "/inizia") return null;
+
   return (
     <a
       href={whatsappHref(pathname)}

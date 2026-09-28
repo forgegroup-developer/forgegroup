@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import { faqs, type Faq } from "@/data/site";
 
 type Props = {
-  items?: Faq[];
+  items?: Pick<Faq, "q" | "a">[];
   /** Card bianche su sfondo corallo */
   onCoral?: boolean;
 };

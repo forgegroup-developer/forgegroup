@@ -82,6 +82,31 @@ export const siteImages = {
   videoPoster: "/images/video-recensione-poster.jpg",
 } as const;
 
+/** Foto dei fondatori, verticali 2:3; foundersDuo e' quella del TEDx in home. */
+export const teamImages = {
+  marco: "/images/team/foto-marco.webp",
+  gianpio: "/images/team/foto-gianpio.jpg",
+  foundersDuo: "/images/team/vision/founders-duo.png",
+  /** Il videomaker che riprende il titolare di ROVI, nel loro showroom. */
+  setVideoCliente: "/images/team/squadra-set-video.webp",
+} as const;
+
+/**
+ * Pagina /inizia. Le tre scene sono generate con AI (persone non reali):
+ * accanto va sempre la scritta "Immagine generata con AI" (AI Act, vedi
+ * progetti/ai-act/02-checklist-situazioni.md). Tutte 3:2.
+ */
+export const iniziaImages = {
+  /** Orizzontale 16:9, cielo libero a sinistra per il testo. */
+  hero: "/images/inizia/hero-stretta-di-mano.webp",
+  prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
+  studioDiFattibilita: "/images/inizia/studio-di-fattibilita.webp",
+  fattureScadute: "/images/inizia/fatture-scadute.webp",
+  cantiereTelefono: "/images/inizia/cantiere-telefono.webp",
+  cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
+  sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
+} as const;
+
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
   acquisizione: "/images/servizi/magnete.webp",

@@ -24,7 +24,12 @@ import { caseStudies } from "@/data/caseStudies";
 
 const caso = caseStudies.find((c) => c.slug === "software-b2b")!;
 
-export default function VideoScettico() {
+type Props = {
+  /** Sulle landing il link al caso porterebbe fuori dalla pagina. */
+  senzaLinkCaso?: boolean;
+};
+
+export default function VideoScettico({ senzaLinkCaso = false }: Props) {
   const [attivo, setAttivo] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
 
@@ -81,8 +86,8 @@ export default function VideoScettico() {
               <footer className="mt-4 text-sm text-brand-grigio">
                 <span className="font-semibold text-brand-nero">
                   {caso.quote.author}
-                </span>{" "}
-                — {caso.quote.role}
+                </span>
+                , {caso.quote.role}
               </footer>
             </blockquote>
 
@@ -102,11 +107,13 @@ export default function VideoScettico() {
               ))}
             </div>
 
-            <div className="mt-8">
-              <Link href={`/casi-studio/${caso.slug}`} className="arrow-link">
-                Leggi tutto il caso studio
-              </Link>
-            </div>
+            {!senzaLinkCaso && (
+              <div className="mt-8">
+                <Link href={`/casi-studio/${caso.slug}`} className="arrow-link">
+                  Leggi tutto il caso studio
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

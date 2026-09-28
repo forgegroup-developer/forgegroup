@@ -2374,6 +2374,21 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
+/* La scheda chiara sul mattone resta bianca piena: e' quella che porta
+   testo scuro (le regole .superficie-chiara piu' sotto), e sul velo al 6%
+   quel testo non si leggeva. Il segno di spunta tiene il suo tondo verde. */
+.section-mattone .card-xl.superficie-chiara {
+  border-color: var(--color-brand-bordo);
+  background-color: var(--color-brand-bianco);
+}
+
+.section-mattone .card-xl.superficie-chiara span.segno-si {
+  background-color: #1f7a5c;
+  color: #ffffff;
+  padding: 0;
+  margin-top: 0.1rem;
+}
+
 /* ── Carosello casi studio ───────────────────────────────────────
    Una scheda alla volta: testo a sinistra, prova visiva a destra.
    Le frecce stanno fuori dalla scheda su schermo largo e sotto di
@@ -2570,7 +2585,7 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 /* E la sottolineatura pesca non entra nelle card: li' il fondo e'
    chiaro, quindi il corallo pieno stacca da solo e la barra sarebbe
    solo rumore. */
-.section-mattone .superficie-chiara span:not(.segno-no),
+.section-mattone .superficie-chiara span:not(.segno-no):not(.segno-si),
 .section-mattone .superficie-chiara .text-brand-corallo,
 .section-mattone .superficie-chiara .text-brand-corallo-text {
   background-color: transparent;
