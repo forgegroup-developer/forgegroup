@@ -318,11 +318,35 @@ const domande: Pick<Faq, "q" | "a">[] = [
 export default function IniziaPage() {
   return (
     <>
-      {/* 1 · Apertura, con gli stessi elementi della hero della home. Senza la
-          foto dei fondatori, che sta già in "Chi siamo": quella della hero
-          arriva fatta apposta. */}
-      <HeroGooeySection pulita className="" innerClassName="mx-auto max-w-4xl">
-        <div className="flex flex-col gap-5 px-4 pb-14 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:pb-20 lg:pt-20">
+      {/* 1 · Apertura. Da computer la scena fa da sfondo: il testo sta sul
+          cielo a sinistra, la stretta di mano a destra, e un velo panna
+          regge la lettura. Da telefono la scena scende sotto il testo, che
+          sopra la foto non si leggerebbe. */}
+      <HeroGooeySection
+        pulita
+        className=""
+        innerClassName="mx-auto max-w-7xl"
+        before={
+          <div className="absolute inset-0 hidden lg:block">
+            <Image
+              src={iniziaImages.hero}
+              alt="Un imprenditore edile stringe la mano a una coppia di clienti davanti al cantiere, con il contratto firmato sul cofano del furgone"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-right"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-brand-panna from-35% via-brand-panna/75 via-50% to-transparent to-70%"
+              aria-hidden
+            />
+            <span className="absolute bottom-3 right-4 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+              Immagine generata con AI
+            </span>
+          </div>
+        }
+      >
+        <div className="flex flex-col gap-5 px-4 pb-14 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:max-w-[44rem] lg:pb-24 lg:pl-8 lg:pt-20">
           <p className="eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Ci siamo appena sentiti al telefono
           </p>
@@ -369,8 +393,19 @@ export default function IniziaPage() {
               </span>
             </a>
           </div>
+          <figure className="relative mt-2 aspect-[16/9] overflow-hidden rounded-2xl lg:hidden">
+            <Image
+              src={iniziaImages.hero}
+              alt="Un imprenditore edile stringe la mano a una coppia di clienti davanti al cantiere, con il contratto firmato sul cofano del furgone"
+              fill
+              sizes="100vw"
+              className="object-cover object-right"
+            />
+            <figcaption className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+              Immagine generata con AI
+            </figcaption>
+          </figure>
         </div>
-
       </HeroGooeySection>
 
       {/* 2 · I problemi, con le parole dei titolari. Poi "è normale" e il conto. */}

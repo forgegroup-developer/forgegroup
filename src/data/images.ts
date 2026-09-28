@@ -97,6 +97,8 @@ export const teamImages = {
  * progetti/ai-act/02-checklist-situazioni.md). Tutte 3:2.
  */
 export const iniziaImages = {
+  /** Orizzontale 16:9, cielo libero a sinistra per il testo. */
+  hero: "/images/inizia/hero-stretta-di-mano.webp",
   prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
   cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
   sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
