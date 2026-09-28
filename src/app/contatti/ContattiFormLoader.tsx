@@ -12,6 +12,6 @@ const ContattiForm = dynamic(() => import("./ContattiForm"), {
 });
 
 /** sorgente: da quale pagina arriva la candidatura, per contarle a parte in GA4. */
-export default function ContattiFormLoader({ sorgente = "contatti" }: { sorgente?: string }) {
-  return <ContattiForm sorgente={sorgente} />;
+export default function ContattiFormLoader(props: { sorgente?: string; senzaBanner?: boolean }) {
+  return <ContattiForm {...props} />;
 }

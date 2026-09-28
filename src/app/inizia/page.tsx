@@ -5,7 +5,12 @@ import ContattiFormLoader from "@/app/contatti/ContattiFormLoader";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
-import { getCaseStudyImage, getCaseStudyImagePosition, teamImages } from "@/data/images";
+import {
+  getCaseStudyImage,
+  getCaseStudyImagePosition,
+  iniziaImages,
+  teamImages,
+} from "@/data/images";
 import type { Faq } from "@/data/site";
 
 /**
@@ -14,9 +19,10 @@ import type { Faq } from "@/data/site";
  * Non è la home: arriva in un momento preciso (dieci minuti dopo la chiamata,
  * dal telefono, a un titolare diffidente) e deve rispondere in un minuto a
  * "chi sono, cosa hanno fatto, cosa succede adesso". Fuori da Google, perché
- * non serve a chi cerca: serve a chi abbiamo appena sentito. Il modulo manda
- * a GA4 la sorgente "inizia", così le candidature di questa pagina si contano
- * a parte. Testi approvati dalla proprietà il 28/09/2026, sezione per sezione.
+ * non serve a chi cerca: serve a chi abbiamo appena sentito. Si chiude col
+ * modulo, senza il suo banner: è una landing, si candida senza cambiare
+ * pagina. GA4 conta a parte queste candidature (sorgente "inizia").
+ * Testi approvati dalla proprietà il 28/09/2026, sezione per sezione.
  * Numeri solo dalla Scheda dei fatti.
  *
  * L'ordine viene dalle pagine di vendita studiate il 28/09: le facce e i
@@ -34,17 +40,24 @@ export const metadata: Metadata = {
 };
 
 const fondatori = [
-  {
-    nome: "Marco Pio Cerbone",
-    foto: teamImages.marco,
-    prima: "Ha fondato un'agenzia di marketing prima di Forge.",
-  },
-  {
-    nome: "Gianpio Uva",
-    foto: teamImages.gianpio,
-    prima: "Vendeva software per le imprese edili.",
-  },
+  { nome: "Marco Pio Cerbone", foto: teamImages.marco },
+  { nome: "Gianpio Uva", foto: teamImages.gianpio },
 ];
+
+/**
+ * Le scene di "Ti suona familiare?" sono generate con AI, con persone non
+ * reali: la scritta sull'immagine non si toglie (AI Act).
+ */
+function ScenaAI({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+  return (
+    <figure className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-brand-panna">
+      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+      <figcaption className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+        Immagine generata con AI
+      </figcaption>
+    </figure>
+  );
+}
 
 const situazioni = [
   {
@@ -153,12 +166,24 @@ const domande: Pick<Faq, "q" | "a">[] = [
 export default function IniziaPage() {
   return (
     <>
-      {/* 1 · Apertura: le facce di chi ha chiamato, cosa facciamo, le prove. */}
-      <section className="section-sabbia border-b border-brand-bordo pb-14 pt-10 md:pb-20 md:pt-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+      {/* 1 · Apertura: il cantiere dietro, le facce di chi ha chiamato, le prove. */}
+      <section className="relative overflow-hidden border-b border-brand-bordo pb-14 pt-10 md:pb-20 md:pt-16">
+        <Image
+          src={iniziaImages.heroSfondo}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-brand-panna/85 md:bg-transparent md:bg-gradient-to-r md:from-brand-panna md:from-35% md:via-brand-panna/80 md:via-55% md:to-brand-panna/10"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
           <div className="mb-8 flex items-center gap-4">
             <div className="flex -space-x-3">
-              {fondatori.map((f, i) => (
+              {fondatori.map((f) => (
                 <div
                   key={f.nome}
                   className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-brand-bianco bg-brand-panna shadow-sm"
@@ -169,7 +194,6 @@ export default function IniziaPage() {
                     fill
                     sizes="56px"
                     className="object-cover object-top"
-                    priority={i === 0}
                   />
                 </div>
               ))}
@@ -193,7 +217,10 @@ export default function IniziaPage() {
 
           <div className="mb-10 grid gap-3 sm:grid-cols-3">
             {casi.map((c) => (
-              <div key={c.chi} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5">
+              <div
+                key={c.chi}
+                className="rounded-2xl border border-brand-bordo bg-brand-bianco/95 p-5 shadow-sm"
+              >
                 <p className="font-display text-3xl font-bold leading-none text-brand-corallo-text">
                   {c.numero}
                 </p>
@@ -211,7 +238,7 @@ export default function IniziaPage() {
             <a href="#candidati" className="btn-corallo">
               Candida la tua impresa
             </a>
-            <a href="#come-funziona" className="btn-ghost">
+            <a href="#come-funziona" className="btn-ghost bg-brand-bianco/80">
               Guarda come lavoriamo
             </a>
           </div>
@@ -220,39 +247,73 @@ export default function IniziaPage() {
 
       {/* 2 · Le situazioni in cui si riconosce, poi "è normale" e il conto delle giornate perse. */}
       <section className="section-bianco border-b border-brand-bordo py-14 md:py-20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="heading-section-xl mb-8 text-balance">TI SUONA FAMILIARE?</h2>
-          <ul className="mb-10 space-y-4">
-            {situazioni.map((s) => (
-              <li
-                key={s.ma}
-                className="rounded-r-2xl border-l-4 border-brand-corallo bg-brand-panna px-5 py-4 text-lg leading-snug text-brand-nero"
-              >
-                {s.fatto} <strong>{s.ma}</strong>
-              </li>
-            ))}
-          </ul>
-          <p className="body-lg mb-5">
-            È normale. Succede alle imprese che vivono di passaparola: nei mesi buoni il lavoro
-            arriva da solo, in quelli morti le spese corrono lo stesso, e si finisce a prendere i
-            clienti per bisogno invece di sceglierli.
-          </p>
-          <p className="body-lg mb-10">
-            <strong className="text-brand-nero">Non è la stagionalità, e non è la crisi.</strong>{" "}
-            Manca un modo per far arrivare le richieste giuste e per portarle alla firma.
-          </p>
 
-          <div className="rounded-2xl bg-brand-mattone p-6 text-brand-bianco sm:p-8">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-bianco/80">
-              Facciamo due conti, con numeri tondi
-            </p>
-            <p className="text-lg leading-relaxed">
-              Esci per otto sopralluoghi al mese e ne chiudi uno: sono sette giornate a vuoto al
-              mese, più di ottanta l&apos;anno.
-            </p>
-            <p className="mt-4 font-display text-2xl font-bold leading-snug">
-              Più di quattro mesi di lavoro regalati a chi non avrebbe mai firmato.
-            </p>
+          <div className="mb-14 grid items-center gap-6 md:grid-cols-2 md:gap-10">
+            <ScenaAI
+              src={iniziaImages.prezzoPiuBasso}
+              alt="Un titolare guarda due preventivi affiancati sul tavolo: il cliente indica quello più basso"
+              sizes="(min-width: 768px) 460px, 100vw"
+            />
+            <ul className="space-y-4">
+              {situazioni.map((s) => (
+                <li
+                  key={s.ma}
+                  className="rounded-r-2xl border-l-4 border-brand-corallo bg-brand-panna px-5 py-4 text-lg leading-snug text-brand-nero"
+                >
+                  {s.fatto} <strong>{s.ma}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mb-14 grid items-center gap-6 md:grid-cols-2 md:gap-10">
+            <div className="md:order-2">
+              <ScenaAI
+                src={iniziaImages.cantiereAlle20}
+                alt="Un imprenditore edile seduto sul cassone del furgone al tramonto, al telefono davanti al cantiere"
+                sizes="(min-width: 768px) 460px, 100vw"
+              />
+            </div>
+            <div className="md:order-1">
+              <p className="body-lg mb-5">
+                È normale. Succede alle imprese che vivono di passaparola: nei mesi buoni il lavoro
+                arriva da solo, in quelli morti le spese corrono lo stesso, e si finisce a prendere i
+                clienti per bisogno invece di sceglierli.
+              </p>
+              <p className="body-lg">
+                <strong className="text-brand-nero">Non è la stagionalità, e non è la crisi.</strong>{" "}
+                Manca un modo per far arrivare le richieste giuste e per portarle alla firma.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid overflow-hidden rounded-2xl bg-brand-mattone text-brand-bianco md:grid-cols-2">
+            <div className="relative aspect-[3/2] md:aspect-auto">
+              <Image
+                src={iniziaImages.sopralluogoAVuoto}
+                alt="Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono"
+                fill
+                sizes="(min-width: 768px) 512px, 100vw"
+                className="object-cover"
+              />
+              <span className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                Immagine generata con AI
+              </span>
+            </div>
+            <div className="p-6 sm:p-8 md:p-10">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-bianco/80">
+                Facciamo due conti, con numeri tondi
+              </p>
+              <p className="text-lg leading-relaxed">
+                Esci per otto sopralluoghi al mese e ne chiudi uno: sono sette giornate a vuoto al
+                mese, più di ottanta l&apos;anno.
+              </p>
+              <p className="mt-4 font-display text-2xl font-bold leading-snug">
+                Più di quattro mesi di lavoro regalati a chi non avrebbe mai firmato.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -332,45 +393,39 @@ export default function IniziaPage() {
       {/* 6 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
       <PerChiSiPerChiNo nota="Lavoriamo con poche imprese, una per territorio." ctaHref="#candidati" />
 
-      {/* 7 · Chi siamo, con le facce. */}
+      {/* 7 · Chi siamo, con la foto del TEDx che sta anche in home. */}
       <section className="section-sabbia border-b border-brand-bordo py-14 md:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <h2 className="heading-section-xl mb-8 text-balance">CHI SIAMO</h2>
-          <div className="mb-10 grid grid-cols-2 gap-4 sm:gap-6">
-            {fondatori.map((f) => (
-              <figure key={f.nome}>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
-                  <Image
-                    src={f.foto}
-                    alt={`Foto di ${f.nome}`}
-                    fill
-                    sizes="(min-width: 896px) 420px, 50vw"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <figcaption className="mt-3">
-                  <p className="font-display text-lg font-bold leading-tight text-brand-nero">
-                    {f.nome}
-                  </p>
-                  <p className="mt-1 text-sm text-brand-grigio">{f.prima}</p>
-                </figcaption>
-              </figure>
-            ))}
+          <div className="grid items-center gap-8 md:grid-cols-[2fr_3fr] md:gap-12">
+            <figure className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
+              <Image
+                src={teamImages.foundersDuo}
+                alt="Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge Group, al TEDx Benevento"
+                fill
+                sizes="(min-width: 768px) 380px, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "50% 10%" }}
+              />
+            </figure>
+            <div>
+              <p className="body-lg mb-5">
+                Siamo <strong className="text-brand-nero">Marco Pio Cerbone</strong> e{" "}
+                <strong className="text-brand-nero">Gianpio Uva</strong>, i fondatori di Forge
+                Group, e veniamo tutti e due dal campo dell&apos;edilizia. Siamo entrati in contatto
+                con tante imprese, e abbiamo visto che il lavoro in cantiere lo sanno fare. Quello che
+                manca spesso è un modo per trovare i clienti giusti e portarli alla firma.
+              </p>
+              <p className="body-lg mb-5">
+                Per questo facciamo una cosa sola: portare richieste di lavoro alle imprese edili, e
+                seguirle fino al contratto.
+              </p>
+              <p className="body-lg">
+                Con noi lavorano un videomaker, per i video girati in cantiere, e un&apos;azienda che
+                sviluppa i nostri software e i siti.
+              </p>
+            </div>
           </div>
-          <p className="body-lg mb-5">
-            Siamo i fondatori di Forge Group, e veniamo tutti e due dal campo dell&apos;edilizia.
-            Siamo entrati in contatto con tante imprese, e abbiamo visto che il lavoro in cantiere lo
-            sanno fare. Quello che manca spesso è un modo per trovare i clienti giusti e portarli alla
-            firma.
-          </p>
-          <p className="body-lg mb-5">
-            Per questo facciamo una cosa sola: portare richieste di lavoro alle imprese edili, e
-            seguirle fino al contratto.
-          </p>
-          <p className="body-lg">
-            Con noi lavorano un videomaker, per i video girati in cantiere, e un&apos;azienda che
-            sviluppa i nostri software e i siti.
-          </p>
         </div>
       </section>
 
@@ -382,10 +437,17 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 9 · Il modulo, che ha già il suo titolo "Candida la tua impresa". */}
-      <div id="candidati" className="scroll-mt-24">
-        <ContattiFormLoader sorgente="inizia" />
-      </div>
+      {/* 9 · Il modulo, senza il banner: il titolo è questo. */}
+      <section id="candidati" className="section-sabbia scroll-mt-24 pt-14 md:pt-20">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <h2 className="heading-section-xl mb-4 text-balance">CANDIDA LA TUA IMPRESA</h2>
+          <p className="body-lg">
+            Due minuti per raccontarci la tua impresa. Ti richiamiamo entro 48 ore lavorative per
+            fissare l&apos;appuntamento.
+          </p>
+        </div>
+        <ContattiFormLoader sorgente="inizia" senzaBanner />
+      </section>
     </>
   );
 }

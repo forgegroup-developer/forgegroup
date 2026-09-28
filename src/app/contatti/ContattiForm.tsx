@@ -76,7 +76,14 @@ const ERROR_ID = "form-errore-step";
 const inputCls =
   "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-5 py-4 text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
 
-export default function ContattiForm({ sorgente = "contatti" }: { sorgente?: string }) {
+type Props = {
+  /** Da quale pagina arriva la candidatura, per contarle a parte in GA4. */
+  sorgente?: string;
+  /** Senza il banner "Candida la tua impresa": per le pagine che hanno già il loro titolo. */
+  senzaBanner?: boolean;
+};
+
+export default function ContattiForm({ sorgente = "contatti", senzaBanner = false }: Props) {
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState<FormData>(initialFormData);
   const [submitting, setSubmitting] = useState(false);
@@ -297,17 +304,25 @@ export default function ContattiForm({ sorgente = "contatti" }: { sorgente?: str
 
   return (
     <>
-      <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="eyebrow mb-6">
-          ✦ Studio di fattibilità
-        </p>
-        <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
-          Candida la tua{" "}
-          <span className="text-brand-corallo">impresa</span>.
-        </h1>
-      </HeroGooeySection>
+      {!senzaBanner && (
+        <HeroGooeySection innerClassName="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="eyebrow mb-6">
+            ✦ Studio di fattibilità
+          </p>
+          <h1 className="heading-hero font-semibold text-brand-nero leading-tight">
+            Candida la tua{" "}
+            <span className="text-brand-corallo">impresa</span>.
+          </h1>
+        </HeroGooeySection>
+      )}
 
-      <section className="pb-20 md:pb-28 section-bianco pt-8 md:pt-10">
+      <section
+        className={
+          senzaBanner
+            ? "pb-20 md:pb-28 section-sabbia pt-2"
+            : "pb-20 md:pb-28 section-bianco pt-8 md:pt-10"
+        }
+      >
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div onKeyDown={handleKeyDown}>
           <input
