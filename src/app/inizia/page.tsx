@@ -78,7 +78,15 @@ function Chiave({ children }: { children: ReactNode }) {
  * Le scene dei problemi sono generate con AI, con persone non reali: la
  * scritta sull'immagine non si toglie (AI Act).
  */
-function ScenaAI({ src, alt, sizes }: { src: string; alt: string; sizes: string }) {
+function ScenaAI({
+  src,
+  alt,
+  sizes,
+}: {
+  src: string;
+  alt: string;
+  sizes: string;
+}) {
   return (
     <figure className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-brand-panna">
       <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
@@ -95,11 +103,13 @@ type Problema = { tema: string; frase: string; testo: ReactNode };
 const problemiConScena: (Problema & { src: string; alt: string })[] = [
   {
     tema: "Sopralluoghi regalati",
-    frase: "Mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro.",
+    frase:
+      "Mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro.",
     testo: (
       <>
-        Esci per chiunque chiami, perché non sai chi ha un budget e chi vuole solo un prezzo da
-        confrontare. <strong>Le giornate a vuoto non te le paga nessuno.</strong>
+        Esci per chiunque chiami, perché non sai chi ha un budget e chi vuole
+        solo un prezzo da confrontare.{" "}
+        <strong>Le giornate a vuoto non te le paga nessuno.</strong>
       </>
     ),
     src: iniziaImages.sopralluogoAVuoto,
@@ -111,7 +121,10 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
     testo: (
       <>
         Lavori meglio, ma dal preventivo non si vede.{" "}
-        <strong>Se l&apos;unica differenza che il cliente vede è il totale, vince chi costa meno</strong>
+        <strong>
+          Se l&apos;unica differenza che il cliente vede è il totale, vince chi
+          costa meno
+        </strong>
         , e i soldi li regali ai concorrenti della tua zona.
       </>
     ),
@@ -123,8 +136,9 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
     frase: "Dalle 8 alle 20 sto in cantiere, e il resto lo faccio io.",
     testo: (
       <>
-        Fai tutto tu e non sai dire di no. Crescere vorrebbe dire assumere, e fa paura.{" "}
-        <strong>Così l&apos;impresa resta piccola</strong>, o si ridimensiona.
+        Fai tutto tu e non sai dire di no. Crescere vorrebbe dire assumere, e fa
+        paura. <strong>Così l&apos;impresa resta piccola</strong>, o si
+        ridimensiona.
       </>
     ),
     src: iniziaImages.cantiereAlle20,
@@ -139,31 +153,41 @@ const problemiConScena: (Problema & { src: string; alt: string })[] = [
 const altriProblemi: Problema[] = [
   {
     tema: "I mesi morti",
-    frase: "Nei mesi buoni non ce la fai, e in quelli morti aspetti che squilli il telefono?",
+    frase:
+      "Nei mesi buoni non ce la fai, e in quelli morti aspetti che squilli il telefono?",
     testo: (
       <>
-        Le spese e gli stipendi corrono lo stesso, e i fornitori li paghi quando pagano i clienti.{" "}
+        Le spese e gli stipendi corrono lo stesso, e i fornitori li paghi quando
+        pagano i clienti.{" "}
         <strong>Non è la stagionalità: manca un sistema.</strong>
       </>
     ),
   },
   {
     tema: "Il preventivo e poi il silenzio",
-    frase: "Hai mandato il preventivo, ma dopo il «ci devo pensare» nessuno si è più fatto sentire?",
+    frase:
+      "Hai mandato il preventivo, ma dopo il «ci devo pensare» nessuno si è più fatto sentire?",
     testo: (
       <>
-        Ti chiedi cosa hai sbagliato, e non richiami per non sembrare insistente.{" "}
-        <strong>Intanto firma con chi l&apos;ha messo in condizione di decidere.</strong>
+        Ti chiedi cosa hai sbagliato, e non richiami per non sembrare
+        insistente.{" "}
+        <strong>
+          Intanto firma con chi l&apos;ha messo in condizione di decidere.
+        </strong>
       </>
     ),
   },
   {
     tema: "L'agenzia di prima",
-    frase: "Hai pagato un'agenzia, ma i contatti che arrivavano non erano nemmeno lavorabili?",
+    frase:
+      "Hai pagato un'agenzia, ma i contatti che arrivavano non erano nemmeno lavorabili?",
     testo: (
       <>
-        Il canone lo pagavi comunque, e non avevi modo di vedere dove finivano i soldi.{" "}
-        <strong>Il problema non erano pochi contatti: erano contatti sprecati.</strong>
+        Il canone lo pagavi comunque, e non avevi modo di vedere dove finivano i
+        soldi.{" "}
+        <strong>
+          Il problema non erano pochi contatti: erano contatti sprecati.
+        </strong>
       </>
     ),
   },
@@ -172,7 +196,8 @@ const altriProblemi: Problema[] = [
     frase: "Sai che dovresti richiamare, ma non vuoi sembrare insistente?",
     testo: (
       <>
-        Richiamare ti sembra insistere, e quando parli di soldi ti senti sotto il cliente.{" "}
+        Richiamare ti sembra insistere, e quando parli di soldi ti senti sotto
+        il cliente.{" "}
         <strong>Così le trattative restano appese, e decide sempre lui.</strong>
       </>
     ),
@@ -182,8 +207,9 @@ const altriProblemi: Problema[] = [
     frase: "Il lavoro l'hai finito, ma i soldi non arrivano?",
     testo: (
       <>
-        Sembra colpa dei clienti o della crisi. Ma se acconti e pagamenti non li hai fissati per
-        iscritto prima di iniziare, a fine lavoro arrivano contestazioni e ritardi.{" "}
+        Sembra colpa dei clienti o della crisi. Ma se acconti e pagamenti non li
+        hai fissati per iscritto prima di iniziare, a fine lavoro arrivano
+        contestazioni e ritardi.{" "}
         <strong>E chi prende i clienti per bisogno non se li sceglie.</strong>
       </>
     ),
@@ -207,7 +233,8 @@ const casi = [
     settore: "Coperture e lattoneria",
     numero: "4 al mese",
     numeroDetto: "clienti qualificati, senza pubblicità",
-    prima: "Viveva di passaparola, con mesi pieni e mesi vuoti, e faceva preventivi a chiunque chiedesse.",
+    prima:
+      "Viveva di passaparola, con mesi pieni e mesi vuoti, e faceva preventivi a chiunque chiedesse.",
     dopo: "Preventivi fino a 175.000 €, e il sopralluogo è diventato a pagamento.",
   },
   {
@@ -215,7 +242,8 @@ const casi = [
     chi: "ROVI",
     settore: "Azienda che lavora in edilizia",
     numero: "25.000 €",
-    numeroDetto: "chiusi in quattro mesi, e oltre 200.000 € di trattative aperte",
+    numeroDetto:
+      "chiusi in quattro mesi, e oltre 200.000 € di trattative aperte",
     prima:
       "Tutto dal passaparola, sopralluoghi e progetti per chiunque chiedesse, trattative che saltavano sul prezzo.",
     dopo: "Oggi conosce il budget del cliente prima dell'appuntamento.",
@@ -249,7 +277,8 @@ const studio = [
   },
   {
     cosa: "Quanto lavoro regge oggi la tua impresa,",
-    dettaglio: "con le persone e i mezzi che ha, per non mandarla in sovraccarico.",
+    dettaglio:
+      "con le persone e i mezzi che ha, per non mandarla in sovraccarico.",
   },
   {
     cosa: "Il tuo modo di vendere di oggi,",
@@ -257,14 +286,16 @@ const studio = [
   },
   {
     cosa: "Una risposta: ha senso lavorare insieme?",
-    dettaglio: "Può essere no, e te la diamo prima che tu spenda un euro in pubblicità.",
+    dettaglio:
+      "Può essere no, e te la diamo prima che tu spenda un euro in pubblicità.",
   },
 ];
 
 const passi = [
   {
     titolo: "Un appuntamento per conoscerci",
-    testo: "Di persona se sei vicino ai nostri consulenti, altrimenti in videochiamata.",
+    testo:
+      "Di persona se sei vicino ai nostri consulenti, altrimenti in videochiamata.",
   },
   {
     titolo: "Lo studio di fattibilità",
@@ -351,24 +382,34 @@ export default function IniziaPage() {
             Ci siamo appena sentiti al telefono
           </p>
           <h1 className="heading-section-xl text-balance">
-            Portiamo richieste di lavoro alle imprese edili, e le seguiamo con te{" "}
-            <span className="text-brand-corallo no-spezza">fino alla firma</span>.
+            Portiamo richieste di lavoro alle imprese edili, e le seguiamo con
+            te{" "}
+            <span className="text-brand-corallo no-spezza">
+              fino alla firma
+            </span>
+            .
           </h1>
           <p className="text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
-            Se vivi di passaparola, hai già pagato un&apos;agenzia senza vedere niente o perdi lavori
-            per 500 euro di differenza, qui trovi in un minuto{" "}
+            Se vivi di passaparola, hai già pagato un&apos;agenzia senza vedere
+            niente o perdi lavori per 500 euro di differenza, qui trovi in un
+            minuto{" "}
             <strong className="font-semibold text-brand-nero">
               chi siamo, cosa abbiamo fatto e come lavoriamo
             </strong>
             .
           </p>
           <p className="firma-fondatori">
-            <strong className="font-semibold text-brand-nero">Marco Pio Cerbone e Gianpio Uva</strong>
+            <strong className="font-semibold text-brand-nero">
+              Marco Pio Cerbone e Gianpio Uva
+            </strong>
             , fondatori di Forge Group
           </p>
           <div className="grid gap-3 sm:grid-cols-3">
             {casi.map((c) => (
-              <div key={c.chi} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-4">
+              <div
+                key={c.chi}
+                className="rounded-2xl border border-brand-bordo bg-brand-bianco p-4"
+              >
                 <p className="font-display text-2xl font-bold leading-none text-brand-corallo-text">
                   {c.numero}
                 </p>
@@ -380,13 +421,19 @@ export default function IniziaPage() {
             ))}
           </div>
           <div className="mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
-            <a href="#candidati" className="btn-hero btn-hero-compatto btn-hero-caldo text-base">
+            <a
+              href="#candidati"
+              className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
+            >
               <span>Candida la tua impresa</span>
               <span className="btn-hero-freccia" aria-hidden>
                 ↓
               </span>
             </a>
-            <a href="#come-funziona" className="btn-hero btn-hero-compatto btn-hero-freddo text-base">
+            <a
+              href="#come-funziona"
+              className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
+            >
               <span>Guarda come lavoriamo</span>
               <span className="btn-hero-freccia" aria-hidden>
                 ↓
@@ -411,15 +458,25 @@ export default function IniziaPage() {
       {/* 2 · I problemi, con le parole dei titolari. Poi "è normale" e il conto. */}
       <section className="section-bianco border-y py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <Titolo occhiello="Prima di tutto" sottotitolo="Sono le cose che ci raccontano i titolari al primo appuntamento. Se ne riconosci anche solo una, questa pagina è per te.">
+          <Titolo
+            occhiello="Prima di tutto"
+            sottotitolo="Sono le cose che ci raccontano i titolari al primo appuntamento. Se ne riconosci anche solo una, questa pagina è per te."
+          >
             Ti suona <Chiave>familiare?</Chiave>
           </Titolo>
 
           <div className="mb-14 space-y-12 md:space-y-16">
             {problemiConScena.map((p, i) => (
-              <article key={p.tema} className="grid items-center gap-6 md:grid-cols-2 md:gap-12">
+              <article
+                key={p.tema}
+                className="grid items-center gap-6 md:grid-cols-2 md:gap-12"
+              >
                 <div className={i % 2 === 1 ? "md:order-2" : undefined}>
-                  <ScenaAI src={p.src} alt={p.alt} sizes="(min-width: 768px) 460px, 100vw" />
+                  <ScenaAI
+                    src={p.src}
+                    alt={p.alt}
+                    sizes="(min-width: 768px) 460px, 100vw"
+                  />
                 </div>
                 <div>
                   <p className="eyebrow mb-3">{p.tema}</p>
@@ -456,7 +513,9 @@ export default function IniziaPage() {
                       {p.frase}
                     </p>
                   </div>
-                  <p className="text-[0.98rem] leading-relaxed text-brand-grigio">{p.testo}</p>
+                  <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                    {p.testo}
+                  </p>
                 </li>
               ))}
             </ol>
@@ -464,14 +523,21 @@ export default function IniziaPage() {
 
           <div className="mx-auto mb-12 max-w-3xl">
             <p className="body-lg mb-5">
-              È normale. Succede alle imprese che vivono di passaparola: nei mesi buoni il lavoro
-              arriva da solo, in quelli morti le spese corrono lo stesso, e si finisce a prendere i
-              clienti <strong className="text-brand-nero">per bisogno invece di sceglierli</strong>.
+              È normale. Succede alle imprese che vivono di passaparola: nei
+              mesi buoni il lavoro arriva da solo, in quelli morti le spese
+              corrono lo stesso, e si finisce a prendere i clienti{" "}
+              <strong className="text-brand-nero">
+                per bisogno invece di sceglierli
+              </strong>
+              .
             </p>
             <p className="body-lg">
-              <strong className="text-brand-nero">Non è la stagionalità, e non è la crisi.</strong>{" "}
+              <strong className="text-brand-nero">
+                Non è la stagionalità, e non è la crisi.
+              </strong>{" "}
               Manca un modo per far arrivare{" "}
-              <Chiave>le richieste giuste</Chiave> e per <Chiave>portarle alla firma</Chiave>.
+              <Chiave>le richieste giuste</Chiave> e per{" "}
+              <Chiave>portarle alla firma</Chiave>.
             </p>
           </div>
 
@@ -480,11 +546,12 @@ export default function IniziaPage() {
               Facciamo due conti, con numeri tondi
             </p>
             <p className="mb-5 text-lg leading-relaxed">
-              Esci per otto sopralluoghi al mese e ne chiudi uno: sono sette giornate a vuoto al
-              mese, più di ottanta l&apos;anno.
+              Esci per otto sopralluoghi al mese e ne chiudi uno: sono sette
+              giornate a vuoto al mese, più di ottanta l&apos;anno.
             </p>
             <h3 className="font-display text-2xl font-bold leading-snug md:text-3xl">
-              <span>Più di quattro mesi di lavoro</span> regalati a chi non avrebbe mai firmato.
+              <span>Più di quattro mesi di lavoro</span> regalati a chi non
+              avrebbe mai firmato.
             </h3>
           </div>
         </div>
@@ -493,12 +560,18 @@ export default function IniziaPage() {
       {/* 3 · I tre casi con le foto vere dei lavori: contro il "non è il mio settore". */}
       <section className="section-sabbia border-y py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <Titolo occhiello="I risultati" sottotitolo="Cerca quella più vicina alla tua.">
+          <Titolo
+            occhiello="I risultati"
+            sottotitolo="Cerca quella più vicina alla tua."
+          >
             Tre imprese, <Chiave>tre mestieri</Chiave>
           </Titolo>
           <div className="grid gap-6 md:grid-cols-3">
             {casi.map((c) => (
-              <article key={c.slug} className="card-xl flex flex-col overflow-hidden">
+              <article
+                key={c.slug}
+                className="card-xl flex flex-col overflow-hidden"
+              >
                 <div className="relative aspect-[16/9] bg-brand-panna">
                   <Image
                     src={getCaseStudyImage(c.slug)}
@@ -506,12 +579,16 @@ export default function IniziaPage() {
                     fill
                     sizes="(min-width: 768px) 320px, 100vw"
                     className="object-cover"
-                    style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
+                    style={{
+                      objectPosition: getCaseStudyImagePosition(c.slug),
+                    }}
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="eyebrow mb-1">{c.settore}</p>
-                  <h3 className="mb-4 font-display text-xl font-bold text-brand-nero">{c.chi}</h3>
+                  <h3 className="mb-4 font-display text-xl font-bold text-brand-nero">
+                    {c.chi}
+                  </h3>
                   <p className="font-display text-3xl font-bold leading-none text-brand-corallo-text">
                     {c.numero}
                   </p>
@@ -519,7 +596,8 @@ export default function IniziaPage() {
                     {c.numeroDetto}
                   </p>
                   <p className="mb-2 text-sm leading-relaxed text-brand-grigio">
-                    <strong className="text-brand-nero">Prima.</strong> {c.prima}
+                    <strong className="text-brand-nero">Prima.</strong>{" "}
+                    {c.prima}
                   </p>
                   <p className="text-sm leading-relaxed text-brand-grigio">
                     <strong className="text-brand-nero">Dopo.</strong> {c.dopo}
@@ -544,31 +622,49 @@ export default function IniziaPage() {
         id="come-funziona"
         className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
       >
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
           <Titolo occhiello="Come funziona">
             Da qui <Chiave>in avanti</Chiave>
           </Titolo>
-          <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
-            {passi.map((p, i) => (
-              <li key={p.titolo} className="relative">
-                <span
-                  className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
-                  aria-hidden
-                >
-                  {i + 1}
-                </span>
-                <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
-                  {p.titolo}
-                </h3>
-                <p className="body-lg">{p.testo}</p>
-              </li>
-            ))}
-          </ol>
+          {/* Da computer i passi a sinistra e la scena ferma a destra mentre si
+              scorre; da telefono la scena viene dopo i passi. */}
+          <div className="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16">
+            <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
+              {passi.map((p, i) => (
+                <li key={p.titolo} className="relative">
+                  <span
+                    className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
+                    aria-hidden
+                  >
+                    {i + 1}
+                  </span>
+                  <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
+                    {p.titolo}
+                  </h3>
+                  <p className="body-lg">{p.testo}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <ScenaAI
+                src={iniziaImages.cantiereTelefono}
+                alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
+                sizes="(min-width: 1024px) 420px, 100vw"
+              />
+              <p className="mt-4 text-center font-display text-lg font-bold leading-snug text-brand-nero">
+                Ti facciamo vedere tutto quello che succede,{" "}
+                <Chiave>anche quando sei in cantiere</Chiave>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 6 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
-      <PerChiSiPerChiNo nota="Lavoriamo con poche imprese, una per territorio." ctaHref="#candidati" />
+      <PerChiSiPerChiNo
+        nota="Lavoriamo con poche imprese, una per territorio."
+        ctaHref="#candidati"
+      />
 
       {/* 7 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
       <section className="section-sabbia border-y py-20 md:py-28">
@@ -590,22 +686,24 @@ export default function IniziaPage() {
             </figure>
             <div>
               <p className="mb-5 font-display text-2xl font-bold leading-snug text-brand-nero">
-                Siamo Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge Group.{" "}
-                <Chiave>Gianpio è quello che ti ha chiamato.</Chiave>
+                Siamo Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge
+                Group. <Chiave>Gianpio è quello che ti ha chiamato.</Chiave>
               </p>
               <p className="body-lg mb-5">
-                Veniamo tutti e due dal campo dell&apos;edilizia: Gianpio vendeva software, Marco
-                prima di Forge ha fondato un&apos;agenzia di marketing. Abbiamo parlato con tante
-                imprese, e abbiamo visto sempre la stessa cosa:{" "}
+                Veniamo tutti e due dal campo dell&apos;edilizia: Gianpio
+                vendeva software, Marco prima di Forge ha fondato
+                un&apos;agenzia di marketing. Abbiamo parlato con tante imprese,
+                e abbiamo visto sempre la stessa cosa:{" "}
                 <strong className="text-brand-nero">
-                  il lavoro in cantiere lo sanno fare. Manca un modo per trovare i clienti giusti e
-                  portarli alla firma.
+                  il lavoro in cantiere lo sanno fare. Manca un modo per trovare
+                  i clienti giusti e portarli alla firma.
                 </strong>
               </p>
               <p className="body-lg">
                 Per questo facciamo una cosa sola:{" "}
                 <Chiave>
-                  portare richieste di lavoro alle imprese edili, e seguirle fino al contratto
+                  portare richieste di lavoro alle imprese edili, e seguirle
+                  fino al contratto
                 </Chiave>
                 .
               </p>
@@ -631,8 +729,8 @@ export default function IniziaPage() {
             </div>
             <div className="md:order-1">
               <h3 className="mb-6 font-display text-2xl font-bold leading-snug text-brand-nero md:text-3xl">
-                Con noi lavora una squadra che fa <Chiave>una cosa sola</Chiave>: portarti
-                clienti.
+                Con noi lavora una squadra che fa <Chiave>una cosa sola</Chiave>
+                : portarti clienti.
               </h3>
               <ul className="space-y-5">
                 {squadra.map((s) => (
@@ -641,7 +739,8 @@ export default function IniziaPage() {
                       ✓
                     </span>
                     <p className="body-lg">
-                      <strong className="text-brand-nero">{s.chi}</strong>, {s.cosa}
+                      <strong className="text-brand-nero">{s.chi}</strong>,{" "}
+                      {s.cosa}
                     </p>
                   </li>
                 ))}
@@ -662,14 +761,25 @@ export default function IniziaPage() {
       </section>
 
       {/* 9 · Cosa riceve chi si candida, poi il modulo senza il suo banner. */}
-      <section id="candidati" className="section-sabbia scroll-mt-24 pt-20 md:pt-28">
+      <section
+        id="candidati"
+        className="section-sabbia scroll-mt-24 pt-20 md:pt-28"
+      >
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <Titolo occhiello="Il primo passo">
-            Candida la tua impresa e ricevi <Chiave>lo studio di fattibilità</Chiave>
+            Candida la tua impresa e ricevi{" "}
+            <Chiave>lo studio di fattibilità</Chiave>
           </Titolo>
+          <div className="mb-8">
+            <ScenaAI
+              src={iniziaImages.studioDiFattibilita}
+              alt="Un consulente mostra a un imprenditore edile lo studio di fattibilità, con la cartina della zona e i grafici sul tavolo"
+              sizes="(min-width: 672px) 640px, 100vw"
+            />
+          </div>
           <p className="body-lg mb-6">
-            Prima di parlare di pubblicità, facciamo i conti sulla tua impresa e sulla tua zona.
-            Nello studio di fattibilità trovi:
+            Prima di parlare di pubblicità, facciamo i conti sulla tua impresa e
+            sulla tua zona. Nello studio di fattibilità trovi:
           </p>
           <ul className="mb-8 space-y-4">
             {studio.map((riga) => (
@@ -678,14 +788,17 @@ export default function IniziaPage() {
                   ✓
                 </span>
                 <p className="body-lg">
-                  <strong className="text-brand-nero">{riga.cosa}</strong> {riga.dettaglio}
+                  <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                  {riga.dettaglio}
                 </p>
               </li>
             ))}
           </ul>
           <p className="body-lg">
             Compili il modulo in due minuti.{" "}
-            <strong className="text-brand-nero">Ti chiamiamo entro 48 ore lavorative</strong>{" "}
+            <strong className="text-brand-nero">
+              Ti chiamiamo entro 48 ore lavorative
+            </strong>{" "}
             e fissiamo l&apos;appuntamento in cui te lo presentiamo.
           </p>
         </div>

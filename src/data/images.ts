@@ -100,6 +100,8 @@ export const iniziaImages = {
   /** Orizzontale 16:9, cielo libero a sinistra per il testo. */
   hero: "/images/inizia/hero-stretta-di-mano.webp",
   prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
+  studioDiFattibilita: "/images/inizia/studio-di-fattibilita.webp",
+  cantiereTelefono: "/images/inizia/cantiere-telefono.webp",
   cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
   sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
 } as const;

@@ -123,7 +123,7 @@ export default function Navbar() {
               </span>
             </div>
             <a href="#candidati" className="btn-ghost text-sm">
-              Candidati
+              Richiedi lo studio di fattibilità
             </a>
           </div>
         </div>
