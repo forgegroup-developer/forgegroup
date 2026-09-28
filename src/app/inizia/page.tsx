@@ -5,7 +5,6 @@ import ContattiFormLoader from "@/app/contatti/ContattiFormLoader";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
-import VideoScettico from "@/components/sezioni/VideoScettico";
 import {
   getCaseStudyImage,
   getCaseStudyImagePosition,
@@ -51,8 +50,8 @@ export const metadata: Metadata = {
  *    margini laterali: così tutti i bordi della pagina sono allineati.
  * 3. Sotto ogni titolo lo stesso spazio (dentro <Titolo>), e tra un blocco e
  *    l'altro della stessa sezione sempre STACCO.
- * Le due sezioni che vengono da componenti del sito (video e "per chi è")
- * usano già queste misure.
+ * La sezione che viene da un componente del sito ("per chi è") usa già
+ * queste misure.
  */
 const SEZIONE = "py-20 md:py-28";
 const CONTENITORE = "mx-auto max-w-6xl px-5 sm:px-6 lg:px-8";
@@ -778,11 +777,6 @@ export default function IniziaPage() {
                   <p className="text-sm leading-relaxed text-brand-grigio">
                     <strong className="text-brand-nero">Dopo.</strong> {c.dopo}
                   </p>
-                  {c.slug === "software-b2b" && (
-                    <a href="#scettico" className="arrow-link mt-6">
-                      Guarda la video-recensione
-                    </a>
-                  )}
                 </div>
               </article>
             ))}
@@ -804,53 +798,11 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 4 · La video-recensione di DISA, per chi è scettico. Parte solo al tocco. */}
-      <VideoScettico senzaLinkCaso />
-
-      {/* 5 · Il gestionale: cosa vuol dire "ti facciamo vedere tutto". Sul
-          mattone, come il Metodo in home: è il punto che ci distingue da chi
-          consegna i contatti e sparisce. Fatti dalla Scheda (Gestione) e
-          dalla Testa aziendale (§5, l'impegno). */}
-      <section className={`section-mattone ${SEZIONE}`}>
-        <div className={CONTENITORE}>
-          <Titolo
-            occhiello="Il gestionale"
-            sottotitolo="Il gestionale lo costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
-          >
-            Vedi tutto quello che succede,{" "}
-            <span>anche quando sei in cantiere</span>
-          </Titolo>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <ScenaAI
-              src={iniziaImages.cantiereTelefono}
-              alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
-              sizes="(min-width: 1024px) 540px, 100vw"
-            />
-            <ol className="space-y-7">
-              {crm.map((c, i) => (
-                <li key={c.titolo} className="flex gap-5">
-                  <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-corallo font-display text-lg font-bold text-white"
-                    aria-hidden
-                  >
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="mb-1 font-display text-xl font-bold leading-snug text-white">
-                      {c.titolo}
-                    </h3>
-                    <p className="text-[1.02rem] leading-relaxed text-white/85">
-                      {c.testo}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 · "Praticamente, come funziona?": i passi come linea del tempo. */}
+      {/* 4 · Come funziona: i passi dopo la chiamata, poi il gestionale, cioè
+          cosa vuol dire "ti facciamo vedere tutto". Una sezione sola, così
+          bianco e mattone continuano ad alternarsi (la video-recensione DISA
+          è stata tolta dalla landing il 28/09). Fatti dalla Scheda (Gestione)
+          e dalla Testa aziendale (§5, l'impegno). */}
       <section
         id="come-funziona"
         className={`section-bianco scroll-mt-24 border-y ${SEZIONE}`}
@@ -859,7 +811,7 @@ export default function IniziaPage() {
           <Titolo occhiello="Come funziona">
             Da qui <Chiave>in avanti</Chiave>
           </Titolo>
-          <div className={STRETTO}>
+          <div className={`${STRETTO} ${STACCO}`}>
             <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
               {passi.map((p, i) => (
                 <li key={p.titolo} className="relative">
@@ -877,17 +829,52 @@ export default function IniziaPage() {
               ))}
             </ol>
           </div>
+
+          <Titolo
+            occhiello="Il gestionale"
+            sottotitolo="Il gestionale lo costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
+          >
+            Vedi tutto quello che succede,{" "}
+            <Chiave>anche quando sei in cantiere</Chiave>
+          </Titolo>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <ScenaAI
+              src={iniziaImages.cantiereTelefono}
+              alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
+              sizes="(min-width: 1024px) 540px, 100vw"
+            />
+            <ol className="space-y-7">
+              {crm.map((c, i) => (
+                <li key={c.titolo} className="flex gap-5">
+                  <span
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-corallo font-display text-lg font-bold text-white"
+                    aria-hidden
+                  >
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="mb-1 font-display text-xl font-bold leading-snug text-brand-nero">
+                      {c.titolo}
+                    </h3>
+                    <p className="text-[1.02rem] leading-relaxed text-brand-grigio">
+                      {c.testo}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
-      {/* 7 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
+      {/* 5 · Per chi è: il blocco del sito, con il pulsante che porta al modulo qui sotto. */}
       <PerChiSiPerChiNo
         sfondo="mattone"
         nota="Lavoriamo con poche imprese, una per territorio."
         ctaHref="#candidati"
       />
 
-      {/* 8 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
+      {/* 6 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
       <section className={`section-bianco border-y ${SEZIONE}`}>
         <div className={CONTENITORE}>
           <Titolo occhiello="Chi siamo">
@@ -973,7 +960,7 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 9 · Le domande che ci fanno dopo la chiamata. */}
+      {/* 7 · Le domande che ci fanno dopo la chiamata. */}
       <section className={`section-mattone ${SEZIONE}`}>
         <div className={CONTENITORE}>
           <Titolo occhiello="Domande frequenti">
@@ -985,7 +972,7 @@ export default function IniziaPage() {
         </div>
       </section>
 
-      {/* 10 · Cosa riceve chi si candida, e accanto il modulo senza banner.
+      {/* 8 · Cosa riceve chi si candida, e accanto il modulo senza banner.
           Da computer due colonne larghe quanto il resto della pagina; da
           telefono prima lo studio, poi il modulo. */}
       <section
