@@ -87,6 +87,8 @@ export const teamImages = {
   marco: "/images/team/foto-marco.webp",
   gianpio: "/images/team/foto-gianpio.jpg",
   foundersDuo: "/images/team/vision/founders-duo.png",
+  /** Le riprese di un video da ROVI, col videomaker: e' anche in /visione. */
+  setVideoCliente: "/images/team/vision/team-lavoro.jpg",
 } as const;
 
 /**
@@ -95,7 +97,8 @@ export const teamImages = {
  * progetti/ai-act/02-checklist-situazioni.md). Tutte 3:2.
  */
 export const iniziaImages = {
-  heroSfondo: "/images/hero/cantiere-rete.webp",
+  /** Provvisoria: la foto dei fondatori della home, finche' non arriva quella fatta apposta. */
+  heroFoto: "/images/team/vision/founders-duo.png",
   prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
   cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
   sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
