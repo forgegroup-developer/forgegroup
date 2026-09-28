@@ -319,6 +319,30 @@ const passi = [
   },
 ];
 
+/** Cosa si vede in Forge CRM, in parole del titolare. */
+const crm = [
+  {
+    titolo: "Chi ti ha scritto, prima di richiamarlo",
+    testo:
+      "Ogni richiesta arriva nel CRM con nome, telefono, zona, tipo di lavoro, tempi e budget. Quando richiami sai già con chi parli, e chi cercava solo un prezzo lo vedi subito.",
+  },
+  {
+    titolo: "A che punto è ogni trattativa",
+    testo:
+      "Sopralluogo, preventivo, piano dei lavori, firma: ogni cliente ha la sua fase, e ogni incontro finisce con una data. Nessuna richiesta resta lì senza che nessuno la richiami.",
+  },
+  {
+    titolo: "Quanto ti rende ogni euro",
+    testo:
+      "Contatti, appuntamenti, contratti e costo per contatto, per ogni linea di lavoro. Vedi dove vanno i soldi della pubblicità e quanti tornano indietro, contratto per contratto.",
+  },
+  {
+    titolo: "Lo guardiamo insieme ogni settimana",
+    testo:
+      "Nella chiamata settimanale apriamo il CRM con te e passiamo le trattative una per una. Ogni tre mesi hai il report con tutti i numeri.",
+  },
+];
+
 const domande: Pick<Faq, "q" | "a">[] = [
   {
     q: "Quanto costa lavorare con Forge?",
@@ -622,40 +646,68 @@ export default function IniziaPage() {
         id="come-funziona"
         className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
       >
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           <Titolo occhiello="Come funziona">
             Da qui <Chiave>in avanti</Chiave>
           </Titolo>
-          {/* Da computer i passi a sinistra e la scena ferma a destra mentre si
-              scorre; da telefono la scena viene dopo i passi. */}
-          <div className="grid gap-12 lg:grid-cols-[3fr_2fr] lg:gap-16">
-            <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
-              {passi.map((p, i) => (
-                <li key={p.titolo} className="relative">
+          <ol className="ml-5 space-y-9 border-l-2 border-brand-bordo pl-9">
+            {passi.map((p, i) => (
+              <li key={p.titolo} className="relative">
+                <span
+                  className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
+                  aria-hidden
+                >
+                  {i + 1}
+                </span>
+                <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
+                  {p.titolo}
+                </h3>
+                <p className="body-lg">{p.testo}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 5b · Forge CRM: cosa vuol dire "ti facciamo vedere tutto". Sul
+          mattone, come il Metodo in home: è il punto che ci distingue da chi
+          consegna i contatti e sparisce. Fatti dalla Scheda (Gestione) e
+          dalla Testa aziendale (§5, l'impegno). */}
+      <section className="section-mattone py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+          <Titolo
+            occhiello="Forge CRM"
+            sottotitolo="Forge CRM è il gestionale che costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
+          >
+            Vedi tutto quello che succede,{" "}
+            <span>anche quando sei in cantiere</span>
+          </Titolo>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <ScenaAI
+              src={iniziaImages.cantiereTelefono}
+              alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
+              sizes="(min-width: 1024px) 540px, 100vw"
+            />
+            <ol className="space-y-7">
+              {crm.map((c, i) => (
+                <li key={c.titolo} className="flex gap-5">
                   <span
-                    className="absolute -left-[3.45rem] top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-brand-corallo bg-brand-bianco font-display text-lg font-bold text-brand-corallo-text"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-corallo font-display text-lg font-bold text-white"
                     aria-hidden
                   >
                     {i + 1}
                   </span>
-                  <h3 className="mb-1 pt-1.5 font-display text-xl font-bold text-brand-nero">
-                    {p.titolo}
-                  </h3>
-                  <p className="body-lg">{p.testo}</p>
+                  <div>
+                    <h3 className="mb-1 font-display text-xl font-bold leading-snug text-white">
+                      {c.titolo}
+                    </h3>
+                    <p className="text-[1.02rem] leading-relaxed text-white/85">
+                      {c.testo}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ol>
-            <div className="lg:sticky lg:top-28 lg:self-start">
-              <ScenaAI
-                src={iniziaImages.cantiereTelefono}
-                alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
-                sizes="(min-width: 1024px) 420px, 100vw"
-              />
-              <p className="mt-4 text-center font-display text-lg font-bold leading-snug text-brand-nero">
-                Ti facciamo vedere tutto quello che succede,{" "}
-                <Chiave>anche quando sei in cantiere</Chiave>.
-              </p>
-            </div>
           </div>
         </div>
       </section>
