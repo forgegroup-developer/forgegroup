@@ -93,6 +93,18 @@ function Chiave({ children }: { children: ReactNode }) {
   return <span className="text-brand-corallo-text">{children}</span>;
 }
 
+/** Cinque stelle, come su Google. Colore del segnale, non della marca. */
+function Stelle() {
+  return (
+    <span
+      className="inline-flex gap-0.5 text-base leading-none text-[#f5b301]"
+      aria-label="5 stelle su 5"
+    >
+      ★★★★★
+    </span>
+  );
+}
+
 /**
  * Le scene dei problemi sono generate con AI, con persone non reali: la
  * scritta sull'immagine non si toglie (AI Act).
@@ -265,8 +277,8 @@ const altriProblemi: Problema[] = [
     ),
     soluzione: (
       <>
-        Nel gestionale ogni preventivo ha una data per richiamare, e nella chiamata
-        settimanale passiamo con te le trattative aperte una per una.{" "}
+        Nel gestionale ogni preventivo ha una data per richiamare, e nella
+        chiamata settimanale passiamo con te le trattative aperte una per una.{" "}
         <strong>Nessuna resta lì.</strong>
       </>
     ),
@@ -554,6 +566,13 @@ export default function IniziaPage() {
               </div>
             ))}
           </div>
+          <p className="flex items-center gap-2 text-sm text-brand-grigio">
+            <Stelle />
+            <span>
+              <strong className="text-brand-nero">5,0 su Google</strong>, 6
+              recensioni
+            </span>
+          </p>
           <div className="mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href="#candidati"
@@ -705,7 +724,8 @@ export default function IniziaPage() {
               nello stesso percorso:{" "}
               <Chiave>
                 richieste già filtrate, un processo di vendita scritto con te,
-                il nostro gestionale, e noi al tuo fianco ogni settimana fino alla firma
+                il nostro gestionale, e noi al tuo fianco ogni settimana fino
+                alla firma
               </Chiave>
               .
             </p>
@@ -767,6 +787,20 @@ export default function IniziaPage() {
               </article>
             ))}
           </div>
+
+          {/* La recensione su Google, senza link: sulla landing niente uscite. */}
+          <figure className="card-xl superficie-chiara mx-auto mt-10 max-w-2xl p-6 text-center sm:p-8">
+            <p className="mb-3 flex justify-center">
+              <Stelle />
+            </p>
+            <blockquote className="font-display text-xl font-bold leading-snug text-brand-nero sm:text-2xl">
+              &ldquo;Mi sono trovato benissimo, fanno davvero la
+              differenza!&rdquo;
+            </blockquote>
+            <figcaption className="mt-3 text-sm text-brand-grigio">
+              Fabio Dell&apos;Erario, recensione su Google · 5,0 su 6 recensioni
+            </figcaption>
+          </figure>
         </div>
       </section>
 
