@@ -82,6 +82,12 @@ export const siteImages = {
   videoPoster: "/images/video-recensione-poster.jpg",
 } as const;
 
+/** Foto dei fondatori, verticali 2:3. */
+export const teamImages = {
+  marco: "/images/team/foto-marco.webp",
+  gianpio: "/images/team/foto-gianpio.jpg",
+} as const;
+
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
   acquisizione: "/images/servizi/magnete.webp",

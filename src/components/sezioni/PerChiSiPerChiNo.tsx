@@ -16,7 +16,7 @@ import Link from "next/link";
  */
 
 const si = [
-  "Hai un'impresa che lavora già — edile, serramenti, impianti, fotovoltaico, arredo — e vuoi crescere",
+  "Hai un'impresa che lavora già (edile, serramenti, impianti, fotovoltaico, arredo) e vuoi crescere",
   "Mandi preventivi ma a fine anno non sai quanti ne hai chiusi",
   "Sei stanco di prendere lavori a ribasso solo per tenere pieno il calendario",
   "In azienda c'è qualcuno che può richiamare una richiesta in giornata",
@@ -30,7 +30,14 @@ const no = [
   "Sei convinto che l'unico problema sia il prezzo degli altri",
 ];
 
-export default function PerChiSiPerChiNo() {
+type Props = {
+  /** Una riga in più sotto l'introduzione, per le pagine che la vogliono. */
+  nota?: string;
+  /** Dove porta il pulsante: /contatti di solito, il modulo della pagina se ce l'ha. */
+  ctaHref?: string;
+};
+
+export default function PerChiSiPerChiNo({ nota, ctaHref = "/contatti" }: Props) {
   return (
     <section id="per-chi" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
@@ -46,6 +53,11 @@ export default function PerChiSiPerChiNo() {
           consulenti dedicati. Se ti riconosci nella colonna di destra,
           risparmiamo tempo tutti e due.
         </p>
+        {nota && (
+          <p className="-mt-6 mb-12 text-center font-semibold text-brand-nero md:-mt-8 md:mb-14">
+            {nota}
+          </p>
+        )}
 
         <div className="grid gap-6 md:grid-cols-2 md:gap-8">
           <div className="card-xl p-7 sm:p-9">
@@ -92,7 +104,7 @@ export default function PerChiSiPerChiNo() {
             quanto vale ognuno di quelli che perdi. Se i numeri dicono che non
             ha senso, te lo diciamo noi per primi.
           </p>
-          <Link href="/contatti" className="btn-corallo">
+          <Link href={ctaHref} className="btn-corallo">
             Voglio lo studio di fattibilità per la mia impresa
           </Link>
         </div>

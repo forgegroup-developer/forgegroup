@@ -81,8 +81,8 @@ export default function VideoScettico() {
               <footer className="mt-4 text-sm text-brand-grigio">
                 <span className="font-semibold text-brand-nero">
                   {caso.quote.author}
-                </span>{" "}
-                — {caso.quote.role}
+                </span>
+                , {caso.quote.role}
               </footer>
             </blockquote>
 

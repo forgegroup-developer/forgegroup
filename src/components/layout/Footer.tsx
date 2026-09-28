@@ -61,13 +61,15 @@ export default function Footer() {
   const isVisione = pathname === "/visione";
   const isContatti = pathname === "/contatti";
   const isHome = pathname === "/";
+  // /inizia finisce già col modulo: la fascia sotto sarebbe un secondo invito.
+  const isInizia = pathname === "/inizia";
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
 
   return (
     <footer>
-      {/* CTA band — nascosta su /contatti */}
-      {!isContatti && !isVisione && !isHome && (
+      {/* Fascia CTA: nascosta dove la pagina chiude già con una richiesta */}
+      {!isContatti && !isVisione && !isHome && !isInizia && (
         <FooterCtaBand isCaseStudy={isCaseStudy} />
       )}
 

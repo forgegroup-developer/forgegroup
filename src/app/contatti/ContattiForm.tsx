@@ -76,7 +76,7 @@ const ERROR_ID = "form-errore-step";
 const inputCls =
   "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-5 py-4 text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
 
-export default function ContattiForm() {
+export default function ContattiForm({ sorgente = "contatti" }: { sorgente?: string }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [form, setForm] = useState<FormData>(initialFormData);
   const [submitting, setSubmitting] = useState(false);
@@ -135,7 +135,7 @@ export default function ContattiForm() {
         throw new Error(j.message || "Errore durante l'invio del modulo.");
       }
 
-      sendGAEvent("event", "generate_lead", { form_name: "contatti" });
+      sendGAEvent("event", "generate_lead", { form_name: sorgente });
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return true;
@@ -148,7 +148,13 @@ export default function ContattiForm() {
     }
   };
 
+  // Il cursore va nel campo solo quando si passa alla domanda dopo: al primo
+  // caricamento il focus farebbe scorrere la pagina fino al modulo, e su
+  // /inizia il modulo sta in fondo.
+  const domandaPrecedente = useRef(stepIndex);
   useEffect(() => {
+    if (domandaPrecedente.current === stepIndex) return;
+    domandaPrecedente.current = stepIndex;
     inputRef.current?.focus();
   }, [stepIndex]);
 
