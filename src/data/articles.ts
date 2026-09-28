@@ -1,3 +1,4 @@
+import type { AutoreId } from "@/data/autori";
 import { scheduledArticles } from "@/data/scheduledArticles";
 import { readFileArticles } from "@/lib/blog/fileArticles";
 import {
@@ -35,6 +36,14 @@ export type Article = {
   content: ArticleContentBlock[];
   /** Copertina da ForgeFlow (override immagine predefinita per slug) */
   featuredImage?: string;
+  /** Articoli della coda: livello della piramide di consapevolezza (1-5). */
+  livello?: 1 | 2 | 3 | 4 | 5;
+  /** Articoli della coda: l'argomento della mappa editoriale, comune ai cinque livelli. */
+  argomento?: string;
+  /** Chi firma l'articolo (src/data/autori.ts). Senza, firma l'azienda. */
+  autore?: AutoreId;
+  /** Le tre righe in apertura: il problema, la causa, cosa cambia. */
+  inBreve?: { problema: string; causa: string; cambia: string };
 };
 
 export const ARTICLE_AUTHOR = "Forge Group";
