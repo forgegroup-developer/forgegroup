@@ -17,6 +17,7 @@ import {
   getPublishedArticles,
 } from "@/lib/blog/articlesAsync";
 import { getBlogImage } from "@/data/images";
+import { getArticlePublishDate, isArticleScheduled } from "@/lib/blog/publishing";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
 export const revalidate = 3600;
@@ -119,6 +120,20 @@ export default async function ArticleDetail({ params }: Props) {
       <script id={`ld-article-${a.slug}`} type="application/ld+json">
         {JSON.stringify(articleJsonLd)}
       </script>
+
+      {isArticleScheduled(a) && (
+        <p className="bg-brand-panna border-b border-brand-bordo px-4 py-3 text-center text-sm text-brand-mattone">
+          Anteprima: questo articolo è in coda, esce il giorno{" "}
+          {new Date(getArticlePublishDate(a)).toLocaleString("it-IT", {
+            timeZone: "Europe/Rome",
+            day: "numeric",
+            month: "long",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+          . Sul sito pubblico non si vede ancora.
+        </p>
+      )}
 
       <article>
         <header className="pt-16 pb-10 md:pt-24 md:pb-12 section-coral border-b">

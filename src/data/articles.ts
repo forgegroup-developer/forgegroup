@@ -1,4 +1,5 @@
 import { scheduledArticles } from "@/data/scheduledArticles";
+import { readFileArticles } from "@/lib/blog/fileArticles";
 import {
   filterPublishedArticles,
   getArticlePublishDate,
@@ -512,6 +513,7 @@ export const articles: Article[] = [
     ],
   },
   ...scheduledArticles,
+  ...readFileArticles(),
 ];
 
 export { getArticlePublishDate, isArticlePublished };
