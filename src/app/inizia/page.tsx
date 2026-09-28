@@ -290,10 +290,11 @@ const domande: Pick<Faq, "q" | "a">[] = [
 export default function IniziaPage() {
   return (
     <>
-      {/* 1 · Apertura, come la hero della home: testo a sinistra, foto a destra.
-          Da telefono prima il testo, poi la foto. */}
-      <HeroGooeySection pulita className="" innerClassName="hero-split mx-auto max-w-7xl">
-        <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-12 lg:pl-8 lg:pr-14 lg:pt-20">
+      {/* 1 · Apertura, con gli stessi elementi della hero della home. Senza la
+          foto dei fondatori, che sta già in "Chi siamo": quella della hero
+          arriva fatta apposta. */}
+      <HeroGooeySection pulita className="" innerClassName="mx-auto max-w-4xl">
+        <div className="flex flex-col gap-5 px-4 pb-14 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:pb-20 lg:pt-20">
           <p className="eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
             Ci siamo appena sentiti al telefono
           </p>
@@ -342,21 +343,6 @@ export default function IniziaPage() {
           </div>
         </div>
 
-        <div className="hero-foto order-2">
-          <div className="hero-foto-cornice">
-            <Image
-              src={iniziaImages.heroFoto}
-              alt="I due fondatori di Forge Group"
-              fill
-              priority
-              sizes="(min-width: 1024px) 48vw, 100vw"
-            />
-            <p className="hero-foto-firma">
-              <span aria-hidden>✳</span>
-              Marco e Gianpio
-            </p>
-          </div>
-        </div>
       </HeroGooeySection>
 
       {/* 2 · I problemi, con le parole dei titolari. Poi "è normale" e il conto. */}
