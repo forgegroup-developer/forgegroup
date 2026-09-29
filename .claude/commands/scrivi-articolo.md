@@ -50,6 +50,28 @@ Annota: le domande e le obiezioni del titolare, cosa dice in generale che Forge 
 vero, cosa non dice. **Non prendere mai** frasi, storie, esempi, numeri o formule: il controllo
 automatico blocca ogni sequenza di otto parole uguale ai suoi testi. Non nominarlo mai.
 
+## 2 ter · Ricerca SEO, GEO e SEM (obbligatoria, ogni articolo)
+
+Il blog esiste per portare traffico: l'argomento e le parole si scelgono su quello che il titolare
+cerca davvero. Guida editoriale §11. In ordine:
+
+1. **Keyword Planner** (account Forge `707-172-2793`, dal Chrome della proprietà): volumi della parola
+   chiave e di 5-10 varianti. Se il Chrome non è disponibile o i volumi sono sotto soglia, lo scrivi
+   in `seo.domanda` ("sotto soglia", "non misurata: Chrome non disponibile") e vai avanti con i punti 2 e 3.
+2. **Google** (WebSearch): cerca la parola chiave e due varianti. Annota chi c'è in prima pagina e
+   per chi scrive (titolari o privati). Se in prima pagina ci sono i testi del concorrente A, quella
+   ricerca la fanno i titolari: è un argomento buono.
+3. **Il concorrente A:** i suoi testi più forti sull'argomento (la sezione "I suoi testi più forti"
+   della scheda in `Redazione/1 - Fonti/`), e le domande di `cerca.py --domande`. I suoi argomenti si
+   possono usare anche fuori dalla mappa: sono frutto di uno studio del settore. Le sue frasi mai.
+4. **Scegli** la parola chiave (quella che il titolare scriverebbe, non quella del privato) e almeno
+   due secondarie. La parola chiave va nel titolo, nella description, nell'In breve o nei primi
+   paragrafi, e in un titoletto o in una FAQ. Le FAQ si scrivono come le domande trovate al punto 2 e 3.
+5. **GEO:** In breve che risponde da solo alla domanda, FAQ con risposte complete in due o tre frasi,
+   la firma. **SEM:** come si usa l'articolo nelle campagne (Meta per i livelli 1-2, remarketing per
+   4-5, Google Ads search solo se il punto 1 trova domanda).
+6. Scrivi tutto nel campo `"seo"` del file (formato in `content/articoli/LEGGIMI.md`).
+
 ## 3 · Trova il materiale vero
 
 Prima di scrivere, individua **il pezzo di materiale vero** da cui parte l'articolo (guida §4):

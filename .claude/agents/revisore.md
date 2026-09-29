@@ -63,6 +63,13 @@ lettore, le parole esatte da dire, diretto ma con la soluzione subito dopo.
 terne di aggettivi, frasi corte in fila per fare effetto, aforismi, "non è X, è Y" usato per
 ritmo, sinonimi a rotazione.
 
+**4 bis. SEO, GEO e SEM** (guida editoriale §11). Il campo `seo` è compilato davvero? La parola
+chiave è quella che scriverebbe un titolare (controlla tu su Google che la prima pagina parli a
+titolari e non a privati)? È nel titolo, nella description, nell'In breve o nei primi paragrafi, e
+in un titoletto o una FAQ? Le FAQ rispondono per intero, in modo che un'intelligenza artificiale le
+possa citare da sole? Se la domanda è "sotto soglia" o "non misurata", la scelta è sostenuta dalla
+prima pagina di Google e dai testi del concorrente?
+
 **5. I link e l'invito.** I link interni sono dentro la frase e dicono cosa c'è dall'altra
 parte? L'invito finale è quello giusto per il livello?
 
