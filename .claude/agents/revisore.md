@@ -44,6 +44,9 @@ anche se suona plausibile. Attenzione in particolare a:
 - frasi fra virgolette che non stanno parola per parola in una fonte (feedback del 29/09);
 - "CRM" nel testo al posto di "gestionale";
 - ROVI presentata in modo diverso da "Arredamento negozi";
+- idee, esempi o storie presi dal concorrente A anche se riscritti: apri i codici dichiarati nella
+  scheda di revisione con `python3 ~/ForgeGroup/ricerca/concorrente-a/cerca.py --leggi <codice>` e
+  confronta;
 - ogni avviso sui numeri dello script: la cifra è nella tabella "Numeri" della Scheda, è un conto
   che dice di essere tondo, o sta dentro una frase vera di un cliente? Altrimenti è un errore.
 

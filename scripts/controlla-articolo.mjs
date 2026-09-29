@@ -12,6 +12,7 @@
  * Esce con codice 1 se c'è almeno un errore: in quel caso l'articolo non va in PR.
  */
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 
 const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
@@ -123,6 +124,45 @@ const NUMERI_AMMESSI = fs.existsSync(FILE_PROVE)
   : null;
 const RE_NUMERO = /(?:€\s?\d[\d.,]*|\+?\d{1,3}(?:\.\d{3})+(?:,\d+)?\s?(?:€|euro\b)|\+?\d+(?:,\d+)?\s?(?:€|euro\b|%)|\+?\d+(?:[.,]\d+)?\s?[kK]€?(?=\W|$))/g;
 
+/**
+ * I testi del concorrente A, scaricati il 28/09/2026 (fuori dal repo, sul computer di lavoro).
+ * Se ci sono, ogni sequenza di OTTO parole identica ai suoi testi è un errore: da lui si prendono
+ * gli argomenti, mai le frasi (Regole v2 §6).
+ */
+const CORPUS = path.join(os.homedir(), "ForgeGroup", "ricerca", "concorrente-a");
+const LUNGHEZZA_COPIA = 8;
+function parolePiane(t) {
+  return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(Boolean);
+}
+function hash(s) {
+  let h1 = 0x811c9dc5, h2 = 0x01000193;
+  for (let i = 0; i < s.length; i++) {
+    const c = s.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 16777619);
+    h2 = Math.imul(h2 ^ c, 2246822519);
+  }
+  return (h1 >>> 0) * 2097152 + ((h2 >>> 0) & 2097151);
+}
+let sequenzeConcorrente = null;
+function caricaConcorrente() {
+  if (sequenzeConcorrente !== null) return sequenzeConcorrente;
+  sequenzeConcorrente = false;
+  if (!fs.existsSync(CORPUS)) return false;
+  const set = new Set();
+  for (const sito of fs.readdirSync(CORPUS)) {
+    for (const nome of ["articoli.json", "altre.json"]) {
+      const f = path.join(CORPUS, sito, nome);
+      if (!fs.existsSync(f)) continue;
+      for (const a of JSON.parse(fs.readFileSync(f, "utf8"))) {
+        const w = parolePiane(`${a.titolo ?? ""} ${(a.sottotitoli ?? []).join(" ")} ${a.testo ?? ""}`);
+        for (let i = 0; i + LUNGHEZZA_COPIA <= w.length; i++) set.add(hash(w.slice(i, i + LUNGHEZZA_COPIA).join(" ")));
+      }
+    }
+  }
+  sequenzeConcorrente = set;
+  return set;
+}
+
 function controlla(file, esistenti) {
   const errori = [];
   const avvisi = [];
@@ -217,6 +257,26 @@ function controlla(file, esistenti) {
         avvisi.push(`cifra "${m.trim()}" non è nella tabella "Numeri" della Scheda: il Revisore verifica che sia un conto tondo dichiarato o una frase vera di un cliente`);
       }
     }
+  }
+
+  // Frasi copiate dal concorrente A.
+  const seq = caricaConcorrente();
+  if (!seq) {
+    avvisi.push(`testi del concorrente non trovati in ${CORPUS}: controllo delle frasi copiate saltato`);
+  } else {
+    const w = parolePiane(testoIntero);
+    const copiate = [];
+    for (let i = 0; i + LUNGHEZZA_COPIA <= w.length; i++) {
+      if (seq.has(hash(w.slice(i, i + LUNGHEZZA_COPIA).join(" ")))) copiate.push(i);
+    }
+    // Sequenze vicine diventano un solo pezzo, per leggerlo meglio.
+    const pezzi = [];
+    for (const i of copiate) {
+      const ultimo = pezzi[pezzi.length - 1];
+      if (ultimo && i <= ultimo[1]) ultimo[1] = i + LUNGHEZZA_COPIA;
+      else pezzi.push([i, i + LUNGHEZZA_COPIA]);
+    }
+    for (const [da, a2] of pezzi) errori.push(`uguale a un testo del concorrente A: "${w.slice(da, a2).join(" ")}" (riscrivi con parole di Forge)`);
   }
 
   // Link interni.
