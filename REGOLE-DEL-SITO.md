@@ -104,9 +104,10 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 
 ## 8 · TRACCIAMENTO
 
-- **Google Analytics 4 parte solo dopo il consenso** alla misurazione nel banner iubenda
-  (`AnalyticsDopoConsenso`, Consent Mode v2). Non si aggiungono altri script di tracciamento senza
-  passare da lì e da iubenda.
+- **Google Analytics 4 si carica sempre** (`GoogleAnalytics` nel layout), ma finché il visitatore
+  non sceglie dal banner iubenda il consenso resta a "negato" e GA manda solo segnali anonimi,
+  senza cookie (Consent Mode v2). Non si aggiungono altri script di tracciamento senza passare da
+  iubenda.
 - **Gli eventi, e solo questi:**
 
 | Evento | Parametri | Quando |
@@ -118,7 +119,8 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 - **Ogni modulo nuovo passa la sua `sorgente`** (`<ContattiFormLoader sorgente="…" />`), così le
   candidature si contano pagina per pagina. **Ogni link WhatsApp nuovo ha `data-wa`.**
 - **Mai dati personali** negli eventi né negli indirizzi (niente nome, telefono o email nei parametri).
-- In GA4 `generate_lead` è l'evento chiave.
+- In GA4 sono eventi chiave `whatsapp_click` e `generate_lead` (quest'ultimo si segna al primo
+  invio di un modulo: prima GA4 non lo conosce).
 
 ## 9 · COME SI LAVORA
 
