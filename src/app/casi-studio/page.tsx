@@ -1,6 +1,6 @@
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
@@ -34,19 +34,18 @@ export default function CasiStudioHub() {
         occhiello="Casi studio"
         titolo={
           <>
-            Cerca l&apos;impresa che fa il tuo mestiere. I numeri sono{" "}
-            <span className="text-brand-corallo no-spezza">veri</span>, con il
-            nome sotto.
+            Sopralluoghi regalati, preventivi senza risposta, trattative perse
+            sul prezzo:{" "}
+            <span className="text-brand-corallo">come ne sono uscite</span> tre
+            imprese.
           </>
         }
         testo={
           <>
-            Coperture, arredamento negozi, software per l&apos;edilizia. Per
-            ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
-            <strong className="chiave">
-              quanto è entrato
-            </strong>
-            .
+            Tetti Top usciva per chiunque chiamasse, ROVI perdeva le trattative
+            sul prezzo, DISA cercava clienti con le chiamate a freddo. Per
+            ognuna trovi com&apos;era prima, cosa abbiamo costruito insieme e{" "}
+            <strong className="chiave">quanto è entrato</strong>.
           </>
         }
         nota={
@@ -73,14 +72,11 @@ export default function CasiStudioHub() {
         }}
       />
 
-      <section id="casi-studio-contenuto" className={`scroll-mt-24 section-mattone ${SEZIONE}`}>
-        <div className={CONTENITORE}>
-          <Titolo occhiello="I tre casi">
-            Tre imprese, tre mestieri, i numeri <Chiave>con il nome sotto</Chiave>.
-          </Titolo>
-          <CasiStudioElenco />
-        </div>
-      </section>
+      {/* La stessa sezione della home (proprietà, 29/09: "era molto meglio
+          a livello grafico"): un caso alla volta, con la prova accanto. */}
+      <div id="casi-studio-contenuto" className="scroll-mt-24">
+        <CasiStudioCarousel senzaLinkElenco />
+      </div>
 
       {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}
       <section id="domande" className={`scroll-mt-24 section-bianco ${SEZIONE}`}>

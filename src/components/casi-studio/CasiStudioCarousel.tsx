@@ -23,7 +23,12 @@ import {
  * scritto a mano dentro il componente.
  */
 
-export default function CasiStudioCarousel() {
+type Props = {
+  /** Sulla pagina /casi-studio il link "tutti i casi" porterebbe alla pagina stessa. */
+  senzaLinkElenco?: boolean;
+};
+
+export default function CasiStudioCarousel({ senzaLinkElenco = false }: Props) {
   const [i, setI] = useState(0);
   const totale = caseStudies.length;
   const caso = caseStudies[i];
@@ -164,9 +169,11 @@ export default function CasiStudioCarousel() {
           >
             Voglio lo studio di fattibilità per la mia impresa
           </Link>
-          <Link href="/casi-studio" className="arrow-link !text-white">
-            → Scopri tutti i casi studio
-          </Link>
+          {!senzaLinkElenco && (
+            <Link href="/casi-studio" className="arrow-link !text-white">
+              → Scopri tutti i casi studio
+            </Link>
+          )}
         </div>
       </div>
     </section>
