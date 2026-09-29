@@ -380,7 +380,7 @@ export default function Navbar() {
               onClick={closeMenu}
               className="block btn-corallo w-full text-center text-base py-4 rounded-full"
             >
-              HAI UN MINUTO?
+              Richiedi lo studio di fattibilità
             </Link>
           </div>
         </div>

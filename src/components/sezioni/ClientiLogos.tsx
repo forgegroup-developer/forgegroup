@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { clientLogos } from "@/data/clientLogos";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
 
 /**
  * Barra prova. Ogni numero e' attribuito al cliente da cui viene e proviene
@@ -10,7 +11,7 @@ import { clientLogos } from "@/data/clientLogos";
 const prove = [
   {
     valore: "+350K€",
-    etichetta: "Fatturato generato",
+    etichetta: "In 12 mesi, solo dalle Meta Ads",
     cliente: "DISA · SOS Appalti",
     href: "/casi-studio/software-b2b",
   },
@@ -80,6 +81,9 @@ export default function ClientiLogos() {
             </Link>
           ))}
         </div>
+
+        {/* La prova esterna: il voto su Google, sotto i numeri dei casi. */}
+        <BannerGoogle className="-mt-4 mb-10 justify-center md:-mt-8 md:mb-12" />
 
         <div className="logo-marquee relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 md:w-32 bg-gradient-to-r from-brand-bianco to-transparent" />

@@ -30,7 +30,7 @@ const MESSAGGI_PER_PAGINA: Record<string, string> = {
   "/casi-studio":
     "Buongiorno, ho guardato i vostri casi studio. Vorrei capire se si può fare qualcosa di simile per la mia impresa.",
   "/crm-gestionale-edilizia":
-    "Buongiorno, ho visto sul vostro sito il CRM gestionale. Vorrei capire come funziona per un'impresa come la mia.",
+    "Buongiorno, ho visto sul vostro sito il gestionale. Vorrei capire come funziona per un'impresa come la mia.",
   "/servizi":
     "Buongiorno, ho letto sul vostro sito come lavorate. Vorrei parlarne per la mia impresa.",
   "/contatti":

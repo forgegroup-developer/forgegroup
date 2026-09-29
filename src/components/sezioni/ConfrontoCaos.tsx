@@ -19,34 +19,104 @@ import Link from "next/link";
 
 /** Ogni nodo: posizione nel viewBox 640×560 e testo su piu' righe. */
 const nodi = [
-  { x: 120, y: 78, righe: ["Quanti preventivi", "ho fatto questo mese?"], anc: "start", tx: 22, ty: -4 },
-  { x: 330, y: 52, righe: ["Quello di marzo", "l'ho richiamato?"], anc: "start", tx: 22, ty: -4 },
-  { x: 528, y: 138, righe: ["Sta sul quaderno", "o su WhatsApp?"], anc: "end", tx: -22, ty: -4 },
-  { x: 92, y: 250, righe: ["Il numero ce l'ha", "qualcuno in ufficio"], anc: "start", tx: 22, ty: 6 },
-  { x: 300, y: 224, righe: ["Aveva un budget", "o guardava e basta?"], anc: "start", tx: 22, ty: -4 },
-  { x: 500, y: 320, righe: ["Tanto se è interessato", "richiama lui"], anc: "end", tx: -22, ty: -4 },
-  { x: 176, y: 412, righe: ["Lo richiamo appena", "scendo dal cantiere"], anc: "start", tx: 22, ty: 4 },
-  { x: 388, y: 470, righe: ["Sabato gli faccio", "il sopralluogo"], anc: "start", tx: 22, ty: 4 },
+  {
+    x: 120,
+    y: 78,
+    righe: ["Quanti preventivi", "ho fatto questo mese?"],
+    anc: "start",
+    tx: 22,
+    ty: -4,
+  },
+  {
+    x: 330,
+    y: 52,
+    righe: ["Quello di marzo", "l'ho richiamato?"],
+    anc: "start",
+    tx: 22,
+    ty: -4,
+  },
+  {
+    x: 528,
+    y: 138,
+    righe: ["Sta sul quaderno", "o su WhatsApp?"],
+    anc: "end",
+    tx: -22,
+    ty: -4,
+  },
+  {
+    x: 92,
+    y: 250,
+    righe: ["Il numero ce l'ha", "qualcuno in ufficio"],
+    anc: "start",
+    tx: 22,
+    ty: 6,
+  },
+  {
+    x: 300,
+    y: 224,
+    righe: ["Aveva un budget", "o guardava e basta?"],
+    anc: "start",
+    tx: 22,
+    ty: -4,
+  },
+  {
+    x: 500,
+    y: 320,
+    righe: ["Tanto se è interessato", "richiama lui"],
+    anc: "end",
+    tx: -22,
+    ty: -4,
+  },
+  {
+    x: 176,
+    y: 412,
+    righe: ["Lo richiamo appena", "scendo dal cantiere"],
+    anc: "start",
+    tx: 22,
+    ty: 4,
+  },
+  {
+    x: 388,
+    y: 470,
+    righe: ["Sabato gli faccio", "il sopralluogo"],
+    anc: "start",
+    tx: 22,
+    ty: 4,
+  },
 ] as const;
 
 /** I fili: nessuna informazione ha una casa sola, e ognuna rimanda a un'altra. */
 const fili: ReadonlyArray<readonly [number, number]> = [
-  [0, 1], [0, 3], [0, 4], [1, 2], [1, 4], [2, 5], [3, 4], [3, 6],
-  [4, 5], [4, 6], [4, 7], [5, 7], [6, 7], [1, 5], [0, 6], [2, 4],
+  [0, 1],
+  [0, 3],
+  [0, 4],
+  [1, 2],
+  [1, 4],
+  [2, 5],
+  [3, 4],
+  [3, 6],
+  [4, 5],
+  [4, 6],
+  [4, 7],
+  [5, 7],
+  [6, 7],
+  [1, 5],
+  [0, 6],
+  [2, 4],
 ];
 
 const passi = [
   {
     t: "Ti portiamo richieste da chi il lavoro può pagarlo",
-    d: "Le intercettiamo noi, non aspettiamo il passaparola.",
+    d: "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri. Non aspetti più il passaparola.",
   },
   {
     t: "Chi non comprerà mai lo fermiamo prima del furgone",
-    d: "Budget, tempi e chi decide si chiedono in chiamata. Se manca uno dei tre, il sopralluogo non si fissa.",
+    d: "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi. Il sopralluogo lo fissi solo quando vale il viaggio.",
   },
   {
-    t: "Restiamo in trattativa con te fino alla firma",
-    d: "Prepariamo l'incontro insieme a te, e dopo il preventivo il cliente si richiama. Non aspettiamo che si faccia vivo lui.",
+    t: "Seguiamo con te ogni trattativa fino alla firma",
+    d: "Le parole per richiamare le scriviamo insieme, e ogni settimana passiamo con te le trattative aperte. Dopo il preventivo non si aspetta che si faccia vivo lui.",
   },
   {
     t: "Non ti portiamo solo le richieste: ti diamo il sistema per gestirle",
@@ -56,10 +126,15 @@ const passi = [
 
 export default function ConfrontoCaos() {
   return (
-    <section id="confronto-caos" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="confronto-caos"
+      className="section-bianco scroll-mt-24 border-y py-20 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <p className="eyebrow-rule mb-6">Controllo del lavoro</p>
-        <h2 className="heading-section-xl mb-14 max-w-4xl text-balance">
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Controllo del lavoro</span>
+        </p>
+        <h2 className="heading-section-xl mx-auto mb-12 max-w-4xl text-center text-balance md:mb-16">
           Ecco perché il{" "}
           <span className="text-brand-corallo-text">Metodo FORGE</span> cambia
           la tua azienda
@@ -68,15 +143,21 @@ export default function ConfrontoCaos() {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* ── Come va adesso ─────────────────────────────── */}
           <div className="flex flex-col">
-            <p className="etichetta-confronto etichetta-confronto-no">L&apos;impresa che rincorre</p>
-            <div className="pannello-confronto flex-1">
+            <p className="etichetta-confronto etichetta-confronto-no">
+              L&apos;impresa che rincorre
+            </p>
+            <div className="pannello-confronto flex flex-1 flex-col justify-center">
               <svg
                 viewBox="0 0 640 560"
                 role="img"
                 aria-label="Otto domande che un imprenditore si fa sulle proprie richieste, collegate fra loro da un groviglio di fili: nessuna informazione sta in un posto solo."
                 className="h-auto w-full"
               >
-                <g stroke="var(--color-brand-corallo)" strokeWidth="1.6" opacity="0.55">
+                <g
+                  stroke="var(--color-brand-corallo)"
+                  strokeWidth="1.6"
+                  opacity="0.55"
+                >
                   {fili.map(([a, b]) => (
                     <line
                       key={`${a}-${b}`}
@@ -89,7 +170,12 @@ export default function ConfrontoCaos() {
                 </g>
                 {nodi.map((n) => (
                   <g key={n.righe.join()}>
-                    <circle cx={n.x} cy={n.y} r="15" fill="var(--color-brand-corallo)" />
+                    <circle
+                      cx={n.x}
+                      cy={n.y}
+                      r="15"
+                      fill="var(--color-brand-corallo)"
+                    />
                     <text
                       x={n.x}
                       y={n.y + 6}
@@ -141,13 +227,17 @@ export default function ConfrontoCaos() {
 
           {/* ── Come va con noi ────────────────────────────── */}
           <div className="flex flex-col">
-            <p className="etichetta-confronto etichetta-confronto-si">L&apos;impresa che sceglie</p>
+            <p className="etichetta-confronto etichetta-confronto-si">
+              L&apos;impresa che sceglie
+            </p>
             <div className="pannello-confronto flex-1">
               <ol className="flex h-full flex-col justify-center gap-9 py-4">
                 {passi.map((p, i) => (
                   <li key={p.t} className="relative flex gap-5">
                     <span className="passo-numero">{i + 1}</span>
-                    {i < passi.length - 1 && <span className="passo-filo" aria-hidden />}
+                    {i < passi.length - 1 && (
+                      <span className="passo-filo" aria-hidden />
+                    )}
                     <div>
                       <p className="font-display text-base font-bold leading-snug text-brand-nero sm:text-lg">
                         {p.t}

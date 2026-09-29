@@ -123,7 +123,11 @@ function BeliefCard({
           />
 
           <div className="glass-chip absolute left-4 top-4 z-10 flex h-10 w-10 items-center justify-center">
-            <Icon className={`h-5 w-5 ${iconClassName}`} strokeWidth={1.75} aria-hidden />
+            <Icon
+              className={`h-5 w-5 ${iconClassName}`}
+              strokeWidth={1.75}
+              aria-hidden
+            />
           </div>
           <span className="glass-chip absolute right-4 top-4 z-10 px-3 py-1.5 text-sm font-medium">
             {number}
@@ -166,8 +170,12 @@ export default function VisionBeliefCards() {
     const cardsWrap = cardsWrapRef.current;
     if (!section || !cardsWrap) return;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const wraps = cardsWrap.querySelectorAll<HTMLElement>(".vision-belief-card-wrap");
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const wraps = cardsWrap.querySelectorAll<HTMLElement>(
+      ".vision-belief-card-wrap",
+    );
 
     if (prefersReduced) return;
 

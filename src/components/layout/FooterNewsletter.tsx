@@ -124,7 +124,7 @@ export default function FooterNewsletter({ variant = "featured" }: Props) {
             Newsletter
           </p>
           <p className="mb-3 text-xs leading-snug text-brand-pesca-light">
-            Resta aggiornato su strategie e casi studio B2B.
+            Ogni tanto un caso vero e un conto da fare sulla tua impresa.
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             <input

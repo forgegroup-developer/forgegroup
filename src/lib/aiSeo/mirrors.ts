@@ -29,6 +29,30 @@ function toMarkdown(page: MirrorPage): string {
   return frontmatter(page) + page.body.trim() + "\n";
 }
 
+/**
+ * Il testo che leggono le intelligenze artificiali (llms.txt e le versioni
+ * /index.md delle pagine). Solo fatti della Scheda dei fatti Forge: niente
+ * prezzi, niente numeri non verificati, niente geografia che restringe
+ * ("in tutta Italia"), "richieste di lavoro" e non "lead", "gestionale" e
+ * non "CRM" (decisioni della proprieta', 24-29/09/2026).
+ */
+const CHI_SIAMO = `Forge Group porta richieste di lavoro alle imprese edili e le segue con il titolare fino alla firma del contratto. Lavoriamo solo con imprese edili e della filiera: costruzioni e ristrutturazioni, coperture, serramenti, impianti, fotovoltaico, arredo. Fondatori: Marco Pio Cerbone e Gianpio Uva. Sede operativa a Fontanarosa (AV), clienti in tutta Italia: di persona dove abbiamo consulenti, altrimenti in videochiamata.`;
+
+const COME_LAVORIAMO = `- Gestiamo noi la pubblicità su Meta e Google, con video girati nei cantieri del cliente.
+- Ogni richiesta passa da un modulo che chiede tipo di lavoro, tempi, budget e zona.
+- Le richieste le richiama l'impresa, con il metodo e le parole che scriviamo insieme. Forge non chiama i contatti del cliente.
+- Ogni richiesta arriva nel gestionale costruito da Forge, dove il titolare vede ogni trattativa e quanto rende ogni euro di pubblicità.
+- Una chiamata a settimana sulle trattative e una consulenza al mese.
+- Dopo 60 giorni si rivedono le stime sui dati veri; dopo 90 giorni il primo report: contatti, appuntamenti, contratti, costo per contatto.
+- Metodo F.O.R.G.E.: Fondamenta (audit commerciale), Organizzazione (social), Richieste (campagne), Gestione (gestionale), Evoluzione (processo di vendita e consulenza).`;
+
+const STUDIO = `Prima di iniziare c'è lo studio di fattibilità: quanto lavoro produce la zona, da fonti ufficiali (ISTAT, GSE, ENEA), quanto lavoro regge oggi l'impresa, e se ha senso lavorare insieme. La risposta può essere no. Lavoriamo con poche imprese, una per territorio. Il contratto è annuale; una parte del compenso è legata al fatturato generato. I prezzi non sono pubblici: si definiscono dopo lo studio.`;
+
+const PROVE = `- DISA (software per l'edilizia): 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto; circa 350.000 € in 12 mesi con circa 300 € al mese di pubblicità.
+- Tetti Top (coperture e lattoneria): 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 €, sopralluogo diventato a pagamento.
+- ROVI (azienda che lavora in edilizia): 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.
+- Google: 5,0 su 6 recensioni.`;
+
 const staticMirrors: Record<string, MirrorPage> = {
   "": {
     title: SITE_TITLE,
@@ -37,90 +61,62 @@ const staticMirrors: Record<string, MirrorPage> = {
     body: `
 # ${SITE_NAME}
 
-## About
-${SITE_DESCRIPTION}
+## Chi siamo
+${CHI_SIAMO}
 
-## Services and Pricing
-- **Acquisizione clienti**: campagne Meta/Google, landing, prequalifica lead: budget mensile tipico da 1.500€ a 5.000€+ (progetto su misura dopo analisi)
-- **Processi di vendita**: CRM, script, gestione delle trattative, formazione commerciale: integrato nel progetto di crescita
-- **Consulenza e formazione**: strategia, posizionamento, team commerciale: per imprese B2B con fatturato strutturato
+## Come lavoriamo
+${COME_LAVORIAMO}
 
-Non vendiamo pacchetti fissi: dopo la prequalifica costruiamo un percorso su misura. Budget indicativo prequalifica form: da 1.500€/mese a oltre 5.000€/mese per Marketing & Vendite.
+## Prima di iniziare
+${STUDIO}
 
-## Locations
-- Italia (operatività da remoto)
-- Focus Campania: Napoli, Salerno, Caserta, Avellino, Benevento
+## Risultati
+${PROVE}
 
-## Contact
+## Contatti
 - Email: info@forgegroup.it
-- Website: ${BASE}
+- Sito: ${BASE}
 - Candidatura: ${BASE}/contatti
 - Casi studio: ${BASE}/casi-studio
 
-## Service Area
-Italia, con forte presenza in Campania (Napoli, Salerno, Caserta, Avellino, Benevento) e clienti B2B in tutto il territorio nazionale.
-
-## Key Facts
-- 30+ imprese supportate nella crescita
-- €350.000+ generati per i clienti in 12 mesi (risultati documentati nei casi studio)
-- Recensioni verificate a 5 stelle
-- Specializzazione B2B e B2C high-ticket con margini sostenibili
-
-## What Makes Us Different
-Non gestiamo "social per likes". Costruiamo sistemi: acquisizione, prequalifica, vendita, CRM. Ci prendiamo responsabilità sui numeri di business, non sulla visibilità di vanità.
-
-## Frequently Asked Questions
+## Domande frequenti
 ${faqs.map((f) => `**${f.q}**\n${f.a}`).join("\n\n")}
 `,
   },
   servizi: {
-    title: "Servizi Forge Group | Acquisizione, vendita e consulenza B2B",
+    title: "Come lavoriamo | Forge Group",
     description:
-      "Sistema integrato di acquisizione clienti, processi di vendita e consulenza per imprese B2B.",
+      "Come lavora Forge Group con un'impresa edile: pubblicità gestita, richieste filtrate, gestionale, chiamata settimanale sulle trattative.",
     url: `${BASE}/servizi`,
     body: `
-# Servizi Forge Group
+# Come lavoriamo con un'impresa edile
 
-## Tre pilastri
-1. **Acquisizione clienti**: portare richieste qualificate, non curiosi
-2. **Processi di vendita**: convertire lead in contratti con CRM, script e follow-up
-3. **Consulenza e formazione**: strategia, posizionamento, team commerciale
+${COME_LAVORIAMO}
 
-## Acquisizione clienti
-Campagne advertising, landing page, moduli di prequalifica, presenza Google Business, contenuti orientati alla conversione.
+## Cosa c'è nel servizio
+Pubblicità su Meta e Google gestita da noi, consulenza di marketing e commerciale, materiale commerciale, processi di vendita, il gestionale, i social, il sito, i video. È un percorso unico: non sono servizi venduti a parte.
 
-## Processi di vendita
-Pipeline CRM, script di vendita, formazione commerciali, automazioni di follow-up.
+## Prima di iniziare
+${STUDIO}
 
-## Consulenza
-Audit del modello di business, posizionamento, supporto al titolare e al team commerciale.
-
-## Pricing
-Progetti su misura dopo prequalifica. Budget mensile Marketing & Vendite tipico: 1.500€–5.000€+.
-
-## CTA
-Candida la tua azienda: ${BASE}/contatti
+## Candidatura
+${BASE}/contatti
 `,
   },
   contatti: {
-    title: "Candida la Tua Azienda | Forge Group",
-    description: "Questionario di prequalifica strategica per imprese B2B. Risposta entro 48 ore lavorative.",
+    title: "Candida la tua impresa | Forge Group",
+    description: "Candidatura per lo studio di fattibilità. Gianpio ti chiama entro 48 ore lavorative.",
     url: `${BASE}/contatti`,
     body: `
-# Prequalifica Strategica Forge Group
+# Candida la tua impresa
 
-Compila il questionario in 14 step per candidare la tua azienda a una collaborazione con Forge Group.
+Il modulo chiede alcune informazioni sull'impresa: attività, zona, come arrivano oggi i clienti, tempi.
 
-## Requisiti tipici
-- Impresa B2B o B2C high-ticket
-- Fatturato strutturato (spesso 250.000€+ annui)
-- Disponibilità a investire in un sistema di acquisizione e vendita
-
-## Cosa chiediamo
-Attività, fatturato, ostacoli, acquisizione attuale, team commerciale, tempistiche, budget, ruolo, contatti.
-
-## Tempi di risposta
-Entro 48 ore lavorative se ci sono i presupposti per una collaborazione profittevole.
+## Cosa succede dopo
+1. Guardiamo la tua impresa e la tua zona prima di sentirti.
+2. Ti chiama Gianpio entro 48 ore lavorative, per capire se ci sono i presupposti.
+3. Se ci sono, si fissa un appuntamento: di persona se sei vicino ai nostri consulenti, altrimenti in videochiamata.
+4. Lo studio di fattibilità dice se ha senso lavorare insieme. La risposta può essere no.
 
 ## Privacy
 Dati trattati secondo la Privacy Policy: ${BASE}/privacy-policy
@@ -129,12 +125,12 @@ Dati trattati secondo la Privacy Policy: ${BASE}/privacy-policy
   "casi-studio": {
     title: "Casi Studio | Forge Group",
     description:
-      "Risultati verificati in acquisizione clienti e crescita B2B. Portfolio Forge Group con fatturato generato per clienti reali.",
+      "Tre imprese edili, con i numeri e il nome sotto: DISA, Tetti Top, ROVI.",
     url: `${BASE}/casi-studio`,
     body: `
 # Casi Studio Forge Group
 
-Portfolio di risultati misurabili per imprese B2B: acquisizione clienti, processi di vendita e crescita del fatturato.
+${PROVE}
 
 ## Casi pubblicati
 ${caseStudies
@@ -158,7 +154,7 @@ Candida la tua azienda: ${BASE}/contatti
 
 Forge Group nasce da una domanda semplice: perché tante aziende che hanno tutto per crescere, non crescono?
 
-Non consegniamo campagne e sparissimo. Entriamo, restiamo, lavoriamo fianco a fianco sul marketing, sul processo commerciale e sulla struttura.
+Non consegniamo campagne per poi sparire. Entriamo, restiamo, lavoriamo fianco a fianco sul marketing, sul processo di vendita e sulla struttura.
 
 Cerchiamo imprenditori con cui costruire, non clienti da gestire.
 
@@ -166,13 +162,13 @@ Contatto: ${BASE}/contatti
 `,
   },
   blog: {
-    title: "Blog Forge Group | Marketing B2B",
-    description: "Articoli su acquisizione clienti, vendita B2B e processi commerciali.",
+    title: "Blog Forge Group | Clienti, preventivi e margini per imprese edili",
+    description: "Articoli per i titolari di imprese edili: come arrivano i clienti, perché i preventivi restano senza risposta, dove si perdono i margini.",
     url: `${BASE}/blog`,
     body: `
 # Blog Forge Group
 
-Articoli tecnici per imprenditori e direttori vendite B2B.
+Articoli per chi un'impresa edile la porta avanti.
 
 ## Articoli
 ${getPublishedArticles().map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
@@ -295,23 +291,22 @@ export function buildLlmsTxt(): string {
 
   return `# ${SITE_NAME}
 
-## About
-${SITE_DESCRIPTION}
+## Chi siamo
+${CHI_SIAMO}
 
-## Services and Pricing
-- Acquisizione clienti (Meta/Google, landing, lead qualificati): budget mensile tipico 1.500€–5.000€+ su progetto personalizzato
-- Processi di vendita (CRM, script, gestione delle trattative, formazione): incluso nel percorso di crescita
-- Consulenza e formazione strategica: per imprese B2B con margini strutturati
+## Come lavoriamo
+${COME_LAVORIAMO}
 
-Non ci sono pacchetti fissi pubblici: ogni progetto nasce dalla prequalifica su ${BASE}/contatti
+## Prima di iniziare
+${STUDIO}
 
-## Locations
-Italia, focus Campania (Napoli, Salerno, Caserta, Avellino, Benevento). Clienti attivi in tutta Italia.
+## Risultati
+${PROVE}
 
-## Contact
+## Contatti
 - Email: info@forgegroup.it
 - Sito: ${BASE}
-- Candidatura aziende: ${BASE}/contatti
+- Candidatura: ${BASE}/contatti
 - Casi studio: ${BASE}/casi-studio
 
 ## Main Pages (HTML)
@@ -320,22 +315,13 @@ ${mainPages}
 ## Sitemap
 ${BASE}/sitemap.xml
 
-## Service Area
-Italia; Campania (Napoli, Salerno, Caserta, Avellino, Benevento); imprese B2B e B2C high-ticket nazionali.
-
-## Key Facts
-- 30+ imprese supportate
-- €350.000+ generati per clienti in 12 mesi
-- Recensioni 5 stelle verificate
-- Casi studio pubblicati: software B2B, edilizia, arredo commerciale, hospitality
-
 ## Markdown Mirrors (Clean AI-Readable Versions)
 Ogni pagina principale ha una versione markdown senza navigazione o script. Aggiungi /index.md al path della pagina.
 
 ${mirrorList}
 
-## What Makes Us Different
-Lavoriamo con le imprese B2B su acquisizione, vendita e processi misurabili sul fatturato. Entriamo in azienda fianco a fianco, non ci fermiamo a visibilità e report.
+## Cosa ci distingue
+Il gestionale costruito da noi sul processo di vendita edile, dove il titolare vede ogni trattativa e quanto rende ogni euro. Lo studio di fattibilità che conta il mercato da fonti ufficiali e può dire di no. Un'impresa per territorio. Di persona dove abbiamo consulenti.
 
 ## Frequently Asked Questions
 ${faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}

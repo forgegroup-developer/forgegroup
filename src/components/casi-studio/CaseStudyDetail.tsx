@@ -211,7 +211,15 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {/* Le colonne seguono il numero dei risultati: con tre, niente
+              casella vuota da computer e niente casella sola da telefono. */}
+          <div
+            className={`grid gap-4 md:gap-6 ${
+              c.results.length === 3
+                ? "grid-cols-1 sm:grid-cols-3"
+                : "grid-cols-2 lg:grid-cols-4"
+            }`}
+          >
             {c.results.map((r, i) => {
               const compactValue =
                 r.value.length > 5 || /[A-Za-zÀ-ÿ]{3,}/.test(r.value.replace(/^[+~€]/, ""));
@@ -359,12 +367,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 {c.slug === "hotel-hospitality" ? (
                   <>
                     Per strutture ricettive che vogliono un{" "}
-                    <span>flusso di prenotazioni più prevedibile</span>.
+                    <span>prenotazioni tutto l&apos;anno</span>.
                   </>
                 ) : (
                   <>
-                    Per imprese che fanno bene il lavoro e vogliono un{" "}
-                    <span>flusso più prevedibile</span>.
+                    Per imprese che fanno bene il lavoro e vogliono{" "}
+                    <span>richieste tutto l&apos;anno</span>.
                   </>
                 )}
               </h2>

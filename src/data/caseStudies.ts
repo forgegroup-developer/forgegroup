@@ -82,7 +82,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Tetti Top sapeva fare un lavoro eccellente. Il problema non era la qualità: i clienti arrivavano a caso, senza un sistema, impossibili da prevedere. Mesi pieni e mesi vuoti, risposte a chiunque chiedeva un preventivo e zero visibilità online per chi cercava un'impresa nella zona. Lo stesso scenario di quasi ogni PMI edile.",
     diagnosis: [
-      "Flusso imprevedibile: mesi pieni e mesi vuoti, nessun modo di pianificare crescita o assunzioni",
+      "Mesi pieni e mesi vuoti: nessun modo di pianificare crescita o assunzioni",
       "Nessun filtro in ingresso: si rispondeva anche a richieste orientate solo al prezzo più basso",
       "Invisibile online: chi cercava un'azienda nella zona non trovava Tetti Top",
       "Molto tempo su contatti che non portavano a contratto",
@@ -96,15 +96,15 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "02",
-        title: "Modulo di pre-qualifica",
+        title: "Il modulo che filtra",
         description:
           "Insieme a Tetti Top abbiamo introdotto un modulo che, prima del primo contatto, raccoglie le informazioni chiave per qualificare il potenziale cliente, incluso il budget a disposizione. Solo richieste reali, niente perditempo.",
       },
       {
         step: "03",
-        title: "Chiamate di pre-qualifica",
+        title: "Chi richiama, e con quali parole",
         description:
-          "Ogni contatto passa attraverso una chiamata di pre-qualifica: insieme al team verifichiamo se ci sono i presupposti e fissiamo l'appuntamento solo quando ha senso davvero.",
+          "Le richieste le richiama Tetti Top. Insieme abbiamo scritto cosa chiedere e in che ordine, così l'appuntamento si fissa solo quando ha senso davvero.",
       },
       {
         step: "04",
@@ -123,11 +123,10 @@ export const caseStudies: CaseStudy[] = [
       { value: "4", label: "Clienti qualificati al mese", detail: "Media stabile, scala da azienda familiare" },
       { value: "0€", label: "Investiti in pubblicità", detail: "Solo posizionamento organico" },
       { value: "175K€", label: "Preventivo più alto", detail: "Valore generato dal sistema (+ IVA)" },
-      { value: "100%", label: "Agenda piena", detail: "Lavori a calendario bloccato" },
     ],
     quote: {
-      text: "4 clienti qualificati al mese, senza spendere un euro in pubblicità, solo grazie al posizionamento online. Trattative generate fino a 175.000€ + IVA. Un'azienda di famiglia che oggi lavora finalmente a calendario bloccato.",
-      author: "Edilizia B2C",
+      text: "4 clienti qualificati al mese, senza spendere un euro in pubblicità, solo grazie al posizionamento online. Preventivi fino a 175.000€ + IVA, e oggi il sopralluogo si paga.",
+      author: "Tetti Top",
       role: "Tetti Top · Sistema Forge Group",
     },
     evolutionEyebrow: "Cosa è successo dopo",
@@ -147,7 +146,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Selezione",
         before: "Preventivi a chiunque chiedeva, anche non in target",
-        after: "Modulo e chiamate di prequalifica con budget",
+        after: "Il modulo che chiede il budget, e le parole scritte per richiamare",
       },
       {
         aspect: "Sopralluoghi",
@@ -168,7 +167,7 @@ export const caseStudies: CaseStudy[] = [
     resultNote:
       "I 175.000€ + IVA rappresentano il valore del preventivo più alto generato dal sistema. Lo riportiamo per trasparenza: indica la qualità delle trattative che il sistema è in grado di portare al tavolo.",
     forWhom: [
-      "Aziende a conduzione familiare che vivono di passaparola e vogliono un flusso prevedibile",
+      "Aziende a conduzione familiare che vivono di passaparola e vogliono richieste che arrivino tutto l'anno",
       "Titolari nell'edilizia e nei servizi tecnici che vogliono dedicare meno tempo a contatti non in target",
       "Imprenditori che vogliono scegliere i clienti, non accettare chiunque pur di lavorare",
       "Chi vuole un sistema che resti, non una campagna che si spegne quando smetti di pagare",
@@ -191,19 +190,16 @@ export const caseStudies: CaseStudy[] = [
       { label: "Settore", value: "Arredamento negozi e locali commerciali" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
       { label: "Azienda", value: "ROVI Srl" },
-      { label: "Ticket medio", value: "+25.000€" },
       { label: "Mercato", value: "Italia" },
-      { label: "Fatturato attuale", value: "+40.000€/mese" },
-      { label: "Max storico", value: "400.000€ su singolo progetto" },
     ],
     challenge:
-      "ROVI è un'azienda solida, con oltre 40 anni di attività, progetti fino a 400.000€ e una reputazione costruita nel tempo. Il problema non era la qualità del lavoro: tutta la crescita dipendeva da passaparola e referral. Zero canali attivi, zero processi commerciali strutturati, zero sistema scalabile. Il titolare aveva la visione per fare molto di più. Mancava il sistema per farlo succedere.",
+      "ROVI è un'azienda solida, con una reputazione costruita nel tempo. Il problema non era la qualità del lavoro: tutta la crescita dipendeva dal passaparola. Nessun canale attivo, nessun processo di vendita scritto. Il titolare aveva la visione per fare molto di più: mancava il sistema per farlo succedere.",
     diagnosis: [
-      "Acquisizione clienti solo passaparola: nessun canale attivo o prevedibile",
-      "Progettazione gratuita ceduta a lead non qualificati: 36 progetti persi ogni anno senza ritorno",
+      "Clienti solo dal passaparola: nessun altro canale attivo",
+      "Progettazione regalata a richieste non filtrate, senza ritorno",
       "Vendita non strutturata: agenda cartacea, WhatsApp, nessuno storico delle trattative",
-      "Media di 10 incontri per chiudere un contratto, senza script né protocolli definiti",
-      "La maggior parte dei lead arrivava senza budget né urgenza definita: nessun filtro all'ingresso",
+      "Tanti incontri per chiudere un contratto, senza un percorso definito",
+      "La maggior parte delle richieste arrivava senza budget né tempi definiti: nessun filtro all'ingresso",
     ],
     system: [
       {
@@ -216,7 +212,7 @@ export const caseStudies: CaseStudy[] = [
         step: "02",
         title: "Processi commerciali strutturati",
         description:
-          "Insieme a ROVI abbiamo costruito tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con script dedicati, protocolli di prequalifica, gestione obiezioni e follow-up definito giorno per giorno.",
+          "Insieme a ROVI abbiamo costruito tre processi di vendita distinti, ciascuno ragionato per macroarea di intervento, con le parole scritte per le chiamate, le domande da fare prima dell'appuntamento, le risposte alle obiezioni e follow-up definito giorno per giorno.",
       },
       {
         step: "03",
@@ -226,9 +222,9 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "04",
-        title: "Prequalifica & filtro lead",
+        title: "Il filtro all'ingresso",
         description:
-          "Insieme al team commerciale abbiamo definito un gate di prequalifica all'ingresso di ogni processo: domande su budget, stato immobile e tempistiche, per intercettare solo chi è pronto ad acquistare.",
+          "Insieme al team commerciale abbiamo definito le domande da fare all'ingresso di ogni processo: domande su budget, stato immobile e tempistiche, per intercettare solo chi è pronto ad acquistare.",
       },
       {
         step: "05",
@@ -238,9 +234,9 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         step: "06",
-        title: "Pipeline vendita & appuntamenti",
+        title: "Il percorso degli appuntamenti",
         description:
-          "Insieme a ROVI abbiamo strutturato un sistema di appuntamenti intermedi con schede operative, budget progressivi e meccaniche di commitment che guidano ogni cliente verso la firma in modo prevedibile.",
+          "Insieme a ROVI abbiamo strutturato un sistema di appuntamenti intermedi con schede operative, budget progressivi e meccaniche di commitment che accompagnano ogni cliente fino alla firma.",
       },
     ],
     resultsEyebrow: "Dove siamo adesso",
@@ -263,13 +259,13 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Acquisizione",
-        before: "100% passaparola, zero canali attivi",
-        after: "Meta Ads live con form di qualifica integrati",
+        before: "Solo passaparola, nessun altro canale attivo",
+        after: "Campagne Meta Ads con il modulo che filtra",
       },
       {
         aspect: "Progettazione",
-        before: "Gratuita: 36 progetti persi ogni anno senza ritorno",
-        after: "A pagamento: filtra le richieste non in target e monetizza la consulenza",
+        before: "Regalata a chiunque, senza ritorno",
+        after: "A pagamento: filtra chi non è pronto e fa pagare il lavoro di progetto",
       },
       {
         aspect: "Vendita",
@@ -277,25 +273,20 @@ export const caseStudies: CaseStudy[] = [
         after: "3 processi commerciali con script e follow-up giornalieri",
       },
       {
-        aspect: "Prequalifica",
-        before: "La maggior parte dei lead senza budget né urgenza definita",
-        after: "Gate su budget, stato immobile e tempistiche",
+        aspect: "Filtro",
+        before: "La maggior parte delle richieste senza budget né tempi definiti",
+        after: "Domande su budget, stato dell'immobile e tempi, prima dell'appuntamento",
       },
       {
         aspect: "Chiusura",
-        before: "10 incontri per contratto, senza protocolli",
-        after: "Appuntamenti strutturati con schede e commitment progressivo",
-      },
-      {
-        aspect: "Obiettivo",
-        before: "Crescita legata soprattutto al passaparola",
-        after: "+300k fatturato aggiuntivo in 12 mesi (traguardo in corso)",
+        before: "Tanti incontri per contratto, senza un percorso",
+        after: "Appuntamenti con schede e passaggi definiti fino alla firma",
       },
     ],
     statusBadge: "Progetto attivo · primi contratti chiusi",
     forWhom: [
-      "Studi di arredo e progettazione B2B con ticket alto e passaparola come unico canale",
-      "Aziende che offrono consulenza e progettazione a lead non ancora qualificati",
+      "Imprese che lavorano su progetti importanti e hanno il passaparola come unico canale",
+      "Imprese che regalano progetti e consulenza a chi non ha ancora deciso di comprare",
       "Titolari con team commerciale informale che vogliono processi, script e trattative tracciate",
       "Chi vuole aprire un canale Meta Ads con form di qualifica integrati",
     ],
@@ -312,17 +303,16 @@ export const caseStudies: CaseStudy[] = [
     hubExcerpt: "DISA SRL: €126.500 in 90 giorni. Costo per contatto €1,48.",
     excerptHighlights: ["€126.500", "90 giorni", "€1,48"],
     metaDescription:
-      "Caso studio software per l'edilizia: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48 e un sistema di acquisizione scalabile.",
+      "Caso studio software per l'edilizia: come DISA SRL ha generato €126.500 in 90 giorni con il software SOS APPALTI, a un costo per contatto di €1,48, solo dalle Meta Ads.",
     context: [
-      { label: "Settore", value: "Software per l'edilizia — gare d'appalto" },
-      { label: "Azienda", value: "DISA SRL — SOS APPALTI, software per le gare d'appalto" },
-      { label: "Ticket medio", value: "Oltre 12.000€" },
+      { label: "Settore", value: "Software per l'edilizia, gare d'appalto" },
+      { label: "Azienda", value: "DISA SRL, SOS APPALTI: software per le gare d'appalto" },
       { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "DISA SRL fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
+      "DISA SRL trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali facevano trasferte per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
     diagnosis: [
-      "Nessun canale di acquisizione prevedibile: tutto dipendeva da passaparola e referenze personali",
+      "Nessun canale per trovare clienti nuovi: tutto dipendeva da passaparola e referenze personali",
       "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
       "Molte trasferte commerciali, spesso su appuntamenti con poco interesse reale",
       "Mercato di fatto limitato al territorio vicino, difficile da scalare oltre la zona vicina",
@@ -344,7 +334,7 @@ export const caseStudies: CaseStudy[] = [
         step: "03",
         title: "Sistema di acquisizione Meta Ads",
         description:
-          "Insieme al team commerciale di DISA abbiamo costruito un metodo di lead generation su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
+          "Insieme al team commerciale di DISA abbiamo costruito le campagne su Meta, con gestione ottimale del budget mensile e campagne mirate per intercettare aziende davvero in target.",
       },
       {
         step: "04",
@@ -356,19 +346,18 @@ export const caseStudies: CaseStudy[] = [
         step: "05",
         title: "Lancio geolocalizzato e crescita in Italia",
         description:
-          "Abbiamo avviato il sistema su un'area a 250 km dalla sede per validarlo insieme a DISA; oggi è pronto a essere replicato in tutta Italia con risultati in crescita.",
+          "Abbiamo avviato il sistema su un'area vicina alla sede per provarlo insieme a DISA; oggi è pronto per tutta Italia.",
       },
     ],
     results: [
-      { value: "+126k", label: "Fatturato generato", detail: "Nei primi 90 giorni" },
-      { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
-      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
-      { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
+      { value: "+126k", label: "Nuovi contratti", detail: "Nei primi 90 giorni, solo dalle Meta Ads" },
+      { value: "€1,48", label: "Costo per contatto", detail: "Solo dalle Meta Ads" },
+      { value: "+350k", label: "In 12 mesi", detail: "Solo dalle Meta Ads, con circa 300 € al mese di pubblicità" },
     ],
     quote: {
       text: "126.500€ di fatturato, non me lo aspettavo. Ero scettico all'inizio: questo metodo per me ha funzionato. Lo consiglio a tutte le aziende che vogliono crescere sul mercato.",
       author: "DISA SRL",
-      role: "CEO & Founder · Software B2B",
+      role: "Titolare · Software per l'edilizia",
     },
     quoteSegments: [
       { text: "126.500€ di fatturato", highlight: true },
@@ -395,7 +384,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Contatti",
         before: "Persone che non conoscevano SOS APPALTI",
-        after: "Lead già consapevoli e in target (+550 generati)",
+        after: "Richieste di chi conosce già il software e ne ha bisogno",
       },
       {
         aspect: "Commerciali",
@@ -404,19 +393,19 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         aspect: "Fatturato",
-        before: "Crescita imprevedibile, legata al passaparola",
+        before: "Crescita legata al passaparola",
         after: "+126k nei primi 90 giorni, +350k ad oggi",
       },
       {
         aspect: "Scalabilità",
         before: "Mercato limitato al territorio vicino",
-        after: "Sistema di proprietà dell'azienda, scalabile in tutta Italia",
+        after: "Un sistema dell'azienda, pronto per tutta Italia",
       },
     ],
     videoUrl: "/video-recensione.mp4",
     contextPhoneScreenshot: {
       src: "/images/casi-studio/disa-meta-ads-dashboard.png",
-      alt: "Dashboard Meta Ads con campagne lead generation DISA SRL",
+      alt: "Le campagne Meta Ads di DISA SRL",
       imageObjectPosition: "center 13%",
     },
   },

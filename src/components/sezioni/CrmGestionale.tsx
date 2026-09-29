@@ -20,34 +20,44 @@ import { righeCrm, stileFase } from "@/data/crm";
 /** Fasi reali del sistema, con i dati d'esempio resi anonimi. */
 export default function CrmGestionale() {
   return (
-    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="crm"
+      className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="eyebrow eyebrow-mark mb-4 flex">Come lavoriamo</p>
         <h2 className="heading-section-xl mb-6 max-w-3xl text-balance">
           Le richieste ci sono già.{" "}
-          <span className="text-brand-corallo-text">Manca il posto dove stanno scritte.</span>
+          <span className="text-brand-corallo-text">
+            Manca il posto dove stanno scritte.
+          </span>
         </h2>
         <p className="body-lg mb-12 max-w-2xl md:mb-16">
           Prima ancora della pubblicità, la prima cosa che mettiamo in piedi è
-          questo: un CRM gestionale dove ogni richiesta ha un budget, una data e
-          persona che la segue. Non un report che ti arriva a fine mese — un
-          un CRM che apri tu, quando vuoi.
+          questo: un gestionale dove ogni richiesta ha un budget, una data e una
+          persona che la segue. Non un report che ti arriva a fine mese: un
+          gestionale che apri tu, quando vuoi.
         </p>
 
         {/* Prima e dopo, nella sua voce */}
         <div className="mb-12 grid gap-4 md:mb-16 md:grid-cols-2 md:gap-6">
           <div className="rounded-2xl bg-red-50 p-6 sm:p-7">
-            <p className="mb-2 text-sm font-bold text-red-900">Come va adesso</p>
+            <p className="mb-2 text-sm font-bold text-red-900">
+              Come va adesso
+            </p>
             <p className="text-base italic leading-relaxed text-red-950/90">
               &ldquo;Faccio preventivi tutto il giorno e a fine anno non so
               nemmeno quanti ne ho chiusi.&rdquo;
             </p>
           </div>
           <div className="rounded-2xl bg-emerald-50 p-6 sm:p-7">
-            <p className="mb-2 text-sm font-bold text-emerald-900">Come va dopo</p>
+            <p className="mb-2 text-sm font-bold text-emerald-900">
+              Come va dopo
+            </p>
             <p className="text-base italic leading-relaxed text-emerald-950/90">
-              &ldquo;Apro il CRM e vedo ogni richiesta a che punto è. E in
-              cantiere ci vado per lavorare, non per rincorrere il telefono.&rdquo;
+              &ldquo;Apro il gestionale e vedo ogni richiesta a che punto è. E
+              in cantiere ci vado per lavorare, non per rincorrere il
+              telefono.&rdquo;
             </p>
           </div>
         </div>
@@ -56,7 +66,7 @@ export default function CrmGestionale() {
         <div className="overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-bordo bg-brand-panna px-5 py-4">
             <p className="font-display text-sm font-bold text-brand-nero">
-              CRM gestionale — esempio
+              Il gestionale, un esempio
             </p>
             <p className="text-xs text-brand-grigio">Dati anonimizzati</p>
           </div>
@@ -65,21 +75,30 @@ export default function CrmGestionale() {
             <table className="w-full min-w-[46rem] border-collapse text-left">
               <thead>
                 <tr className="border-b border-brand-bordo bg-brand-panna/50">
-                  {["Richiesta", "Zona", "Fase", "Note", "Prossimo passo"].map((h) => (
-                    <th
-                      key={h}
-                      className="px-5 py-3 text-[0.7rem] font-bold uppercase tracking-widest text-brand-grigio"
-                    >
-                      {h}
-                    </th>
-                  ))}
+                  {["Richiesta", "Zona", "Fase", "Note", "Prossimo passo"].map(
+                    (h) => (
+                      <th
+                        key={h}
+                        className="px-5 py-3 text-[0.7rem] font-bold uppercase tracking-widest text-brand-grigio"
+                      >
+                        {h}
+                      </th>
+                    ),
+                  )}
                 </tr>
               </thead>
               <tbody>
                 {righeCrm.map((r) => (
-                  <tr key={r.nota} className="border-b border-brand-bordo/60 last:border-0 align-top">
-                    <td className="px-5 py-4 text-sm font-semibold text-brand-nero">{r.richiesta}</td>
-                    <td className="px-5 py-4 text-sm text-brand-grigio">{r.zona}</td>
+                  <tr
+                    key={r.nota}
+                    className="border-b border-brand-bordo/60 last:border-0 align-top"
+                  >
+                    <td className="px-5 py-4 text-sm font-semibold text-brand-nero">
+                      {r.richiesta}
+                    </td>
+                    <td className="px-5 py-4 text-sm text-brand-grigio">
+                      {r.zona}
+                    </td>
                     <td className="px-5 py-4">
                       <span
                         className={`inline-block whitespace-nowrap rounded-full border px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wide ${stileFase[r.tono]}`}
@@ -87,7 +106,9 @@ export default function CrmGestionale() {
                         {r.fase}
                       </span>
                     </td>
-                    <td className="max-w-sm px-5 py-4 text-sm leading-snug text-brand-grigio">{r.nota}</td>
+                    <td className="max-w-sm px-5 py-4 text-sm leading-snug text-brand-grigio">
+                      {r.nota}
+                    </td>
                     <td className="whitespace-nowrap px-5 py-4 text-sm font-semibold text-brand-nero">
                       {r.quando}
                     </td>

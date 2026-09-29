@@ -39,7 +39,10 @@ export default function VideoScettico({ senzaLinkCaso = false }: Props) {
   };
 
   return (
-    <section id="scettico" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="scettico"
+      className="section-bianco scroll-mt-24 border-y py-20 md:py-28"
+    >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
           <span className="eyebrow-rule">Per chi è scettico</span>

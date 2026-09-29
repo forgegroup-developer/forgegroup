@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-
 export type ServiziTabPoint = {
   title: ReactNode;
   body: string;
@@ -32,7 +31,9 @@ function PointCard({ title, body }: ServiziTabPoint) {
           >
             ✦
           </span>
-          <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">{body}</p>
+          <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">
+            {body}
+          </p>
         </div>
       </div>
     </div>
@@ -89,8 +90,19 @@ export default function ServiziTabCard({
                 className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
               >
                 Richiedi lo studio di fattibilità
-                <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="h-3.5 w-3.5 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>

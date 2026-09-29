@@ -38,14 +38,14 @@ export const faqs: Faq[] = [
     a: "È la frase che sentiamo più spesso: c'è chi ha cambiato due agenzie, chi tredici. Non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. E dal primo giorno vedi dove finiscono le richieste e quanto va in pubblicità, separato da quello che prendiamo noi.",
   },
   {
-    q: "Mi garantite un numero di clienti?",
+    q: "Quanti clienti mi arriveranno?",
     pagine: ["home", "casi-studio"],
-    a: "No, e diffida di chi ti dice di sì. Quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è: all'inizio possiamo fare una stima, e resta una stima. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
+    a: "All'inizio possiamo fare una stima, e resta una stima: quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è. Marco, a chi glielo chiede, risponde sempre allo stesso modo: non c'ho la palla magica. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
   },
   {
     q: "Non so come lavorate davvero. Come faccio a controllarvi?",
     pagine: ["crm"],
-    a: "Apri il CRM gestionale dal telefono quando vuoi. Dentro c'è ogni richiesta con la data, lo stato e la persona che la sta seguendo: chi va richiamato oggi, chi aspetta un preventivo, chi si è fermato. Non è un report che ti arriva a fine mese, è la stessa schermata che guardiamo noi.",
+    a: "Apri il gestionale dal telefono quando vuoi. Dentro c'è ogni richiesta con la data, lo stato e la persona che la sta seguendo: chi va richiamato oggi, chi aspetta un preventivo, chi si è fermato. Non è un report che ti arriva a fine mese, è la stessa schermata che guardiamo noi.",
   },
   {
     q: "Cosa succede se non sta funzionando?",
@@ -55,12 +55,12 @@ export const faqs: Faq[] = [
   {
     q: "Quanto costa lavorare con voi?",
     pagine: ["home"],
-    a: "Dipende da cosa ti serve: solo la pubblicità, oppure anche i processi di vendita e l'affiancamento sulle trattative. Per questo prima guardiamo i tuoi numeri, quante richieste ricevi, quante diventano contratti e quanto vale in media un lavoro per te, e solo dopo ti facciamo un'offerta. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
+    a: "Lo definiamo dopo lo studio di fattibilità, perché dipende da cosa serve alla tua impresa: prima guardiamo i tuoi numeri, quante richieste ricevi, quante diventano contratti e quanto vale in media un lavoro per te. Una parte del nostro compenso è legata al fatturato che generiamo insieme: se non vendi tu, guadagniamo meno anche noi. Il budget della pubblicità è a parte e va alle piattaforme, non a noi.",
   },
   {
     q: "Lo studio di fattibilità mi obbliga a qualcosa?",
     pagine: ["contatti"],
-    a: "No. Guardiamo la tua zona, i tuoi prodotti e come gestisci oggi le richieste, e ti diciamo se secondo noi ha senso lavorare insieme. Ti resta in mano comunque, anche se decidi di non andare avanti. Non te lo nascondiamo: noi veniamo all'incontro con l'idea di iniziare a lavorare con te.",
+    a: "No. Guardiamo la tua zona, i tuoi prodotti e come gestisci oggi le richieste, e ti diciamo se secondo noi ha senso lavorare insieme. Lo studio resta a te se decidi di partire: è la stessa regola che consigliamo alle imprese per il piano dei lavori. Non te lo nascondiamo: noi veniamo all'incontro con l'idea di iniziare a lavorare con te.",
   },
   {
     q: "Le chiamate ai contatti le fate voi o le devo fare io?",
@@ -88,9 +88,14 @@ export const faqs: Faq[] = [
     a: "Noi. Veniamo in azienda o in cantiere con il nostro videomaker e giriamo i contenuti con te, pensati per chi deve comprare da te. Se hai già foto dei lavori fatti, prima e dopo, le usiamo volentieri: sono spesso le più convincenti.",
   },
   {
-    q: "Il CRM gestionale ha costi a parte, licenze o assistenza?",
+    q: "Il gestionale ha costi a parte, licenze o assistenza?",
     pagine: ["crm"],
     a: "No. È compreso nel lavoro, per tutta la durata. Niente licenza da rinnovare dopo trenta giorni, niente assistenza da pagare a parte: sappiamo che è una delle cose che più fanno arrabbiare chi ha già comprato un programma.",
+  },
+  {
+    q: "E se non riesco a reggere il lavoro in più?",
+    pagine: ["home"],
+    a: "È una delle cose che guarda lo studio di fattibilità: quanto lavoro regge oggi la tua impresa, con le persone e i mezzi che ha. Le campagne si regolano su quello, e non si parte se la tua impresa andrebbe in sovraccarico.",
   },
   {
     q: "In quanto tempo si vedono i risultati?",
@@ -100,7 +105,7 @@ export const faqs: Faq[] = [
   {
     q: "Quanto dura il contratto?",
     pagine: ["contatti"],
-    a: "Sei mesi o un anno, lo scegli tu. Meno di così non ha senso, proprio per quei tre o quattro mesi fra la richiesta e la firma: fermarsi prima vuol dire pagare la parte di lavoro più pesante, quella iniziale, e non vederne i frutti.",
+    a: "Il contratto è annuale. Meno di così non ha senso, proprio per quei tre o quattro mesi fra la richiesta e la firma: fermarsi prima vuol dire pagare la parte di lavoro più pesante, quella iniziale, e non vederne i frutti. Dopo 60 giorni rivediamo insieme le stime sui dati veri, e dopo 90 hai il primo report.",
   },
   {
     q: "I miei clienti guardano solo il prezzo. Cosa cambia?",
@@ -115,7 +120,7 @@ export const faqs: Faq[] = [
   {
     q: "Lavorate solo in Campania o in tutta Italia?",
     pagine: ["contatti"],
-    a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia e si lavora a stretta di mano; il resto si porta avanti a distanza, con il CRM aperto da entrambe le parti.",
+    a: "In tutta Italia. Il primo incontro ci piace farlo di persona quando è possibile, perché in questo settore ci si guarda in faccia e si lavora a stretta di mano; il resto si porta avanti a distanza, con il gestionale aperto da entrambe le parti.",
   },
 ];
 
