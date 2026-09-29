@@ -42,10 +42,13 @@ export default function CasiStudioHub() {
         }
         testo={
           <>
-            Tetti Top usciva per chiunque chiamasse, ROVI perdeva le trattative
-            sul prezzo, DISA cercava clienti con le chiamate a freddo. Per
-            ognuna trovi com&apos;era prima, cosa abbiamo costruito insieme e{" "}
-            <strong className="chiave">quanto è entrato</strong>.
+            Il lavoro lo sapevano fare: mancava un modo per trovare i clienti
+            giusti e portarli alla firma. L&apos;abbiamo costruito con loro,{" "}
+            <strong className="chiave">
+              richieste filtrate prima del sopralluogo, un processo di vendita
+              scritto e il gestionale
+            </strong>
+            , con noi al loro fianco ogni settimana.
           </>
         }
         nota={
