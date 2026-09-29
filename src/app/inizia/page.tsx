@@ -925,10 +925,11 @@ export default function IniziaPage() {
                 Group. <Chiave>Gianpio è quello che ti ha chiamato.</Chiave>
               </p>
               <p className="body-lg mb-5">
-                Veniamo tutti e due dal campo dell&apos;edilizia: Gianpio
-                vendeva software, Marco prima di Forge ha fondato
-                un&apos;agenzia di marketing. Abbiamo parlato con tante imprese,
-                e abbiamo visto sempre la stessa cosa:{" "}
+                Siamo entrati in contatto con centinaia di imprese edili e
+                abbiamo analizzato i loro processi da vicino, scendendo sul
+                campo: come arrivano le richieste, come si fanno sopralluoghi e
+                preventivi, come si chiude. Abbiamo visto sempre la stessa
+                cosa:{" "}
                 <strong className="text-brand-nero">
                   il lavoro in cantiere lo sanno fare. Manca un modo per trovare
                   i clienti giusti e portarli alla firma.
