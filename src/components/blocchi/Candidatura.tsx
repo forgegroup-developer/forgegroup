@@ -45,7 +45,7 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
                       ✓
                     </span>
                     <p className="body-lg">
-                      <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                      <strong className="chiave">{riga.cosa}</strong>{" "}
                       {riga.dettaglio}
                     </p>
                   </li>
@@ -53,7 +53,7 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
               </ul>
               <p className="body-lg">
                 Compili il modulo in due minuti.{" "}
-                <strong className="text-brand-nero">
+                <strong className="chiave">
                   Ti chiamiamo entro 48 ore lavorative
                 </strong>{" "}
                 e fissiamo l&apos;appuntamento in cui te lo presentiamo.

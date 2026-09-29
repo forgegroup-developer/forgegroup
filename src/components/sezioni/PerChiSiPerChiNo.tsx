@@ -142,7 +142,7 @@ export default function PerChiSiPerChiNo({
                         ✓
                       </span>
                       <p className="text-[1.02rem] leading-relaxed text-brand-grigio">
-                        <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                        <strong className="chiave">{riga.cosa}</strong>{" "}
                         {riga.dettaglio}
                       </p>
                     </li>

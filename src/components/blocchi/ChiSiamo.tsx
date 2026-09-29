@@ -53,7 +53,7 @@ export default function ChiSiamo({
                 abbiamo analizzato i loro processi da vicino, scendendo sul
                 campo: come arrivano le richieste, come si fanno sopralluoghi e
                 preventivi, come si chiude. Abbiamo visto sempre la stessa cosa:{" "}
-                <strong className="text-brand-nero">
+                <strong className="chiave">
                   il lavoro in cantiere lo sanno fare. Manca un modo per trovare
                   i clienti giusti e portarli alla firma.
                 </strong>
@@ -98,7 +98,7 @@ export default function ChiSiamo({
                       ✓
                     </span>
                     <p className="body-lg">
-                      <strong className="text-brand-nero">{s.chi}</strong>,{" "}
+                      <strong className="chiave">{s.chi}</strong>,{" "}
                       {s.cosa}
                     </p>
                   </li>

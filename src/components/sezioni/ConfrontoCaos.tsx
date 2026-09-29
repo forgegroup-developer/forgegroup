@@ -1,126 +1,40 @@
 import Link from "next/link";
+import { Evidenzia } from "@/components/blocchi/ui";
 
 /**
- * Il confronto fra come si acquisiscono clienti oggi e come li acquisiamo
- * noi, disegnato invece che scritto.
+ * "Ecco perché il Metodo FORGE cambia la tua azienda", come prima e dopo.
  *
- * A sinistra il groviglio: ogni bolla e' una frase sentita davvero nelle
- * conoscitive, e i fili che le legano dicono che nessuna di quelle cose sta
- * in un posto solo. A destra tre passi in fila, con la freccia che va giu':
- * la stessa materia, messa in ordine.
- *
- * Sostituisce la tabella che stava qui prima. Una tabella si legge per
- * colonne, e per colonne il caos non si vede: si vede solo se lo disegni.
- *
- * Il disegno e' un SVG inline, non un'immagine: resta nitido su ogni
- * schermo, pesa nulla e i testi restano testo — quindi leggibili anche
- * dallo screen reader e trovabili da Google.
+ * Quattro situazioni vere, poche ma reali (proprietà, 29/09): a sinistra
+ * quello che il titolare vive o dice, a destra come lo risolviamo. Le
+ * situazioni sono diverse da quelle della tabella del confronto più in
+ * basso: qui il tema è il controllo del lavoro, cioè dove finiscono le
+ * richieste e le trattative. Fonti: la frase di un cliente già sul sito, la
+ * consulenza ROVI (Voce diretta del target), la lettera di vendita (blocco
+ * 4), il trigger "se ti fermi una settimana" (Trigger di settore §9). Le
+ * soluzioni sono il meccanismo della Scheda dei fatti.
  */
-
-/** Ogni nodo: posizione nel viewBox 640×560 e testo su piu' righe. */
-const nodi = [
+const coppie = [
   {
-    x: 120,
-    y: 78,
-    righe: ["Quanti preventivi", "ho fatto questo mese?"],
-    anc: "start",
-    tx: 22,
-    ty: -4,
+    prima:
+      "«Faccio preventivi tutto il giorno e a fine anno non so nemmeno quanti ne ho chiusi»",
+    chiave: "sai quante trattative hai aperte e a che punto sono",
+    dopo: "Nel gestionale ogni richiesta ha uno stato, una data e chi la segue: in ogni momento sai quante trattative hai aperte e a che punto sono.",
   },
   {
-    x: 330,
-    y: 52,
-    righe: ["Quello di marzo", "l'ho richiamato?"],
-    anc: "start",
-    tx: 22,
-    ty: -4,
+    prima: "«Tutti questi qua non rispondono, non rispondono, non rispondono»",
+    chiave: "richiami chi ha già detto cosa vuole",
+    dopo: "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi: richiami chi ha già detto cosa vuole, con le parole che scriviamo insieme.",
   },
   {
-    x: 528,
-    y: 138,
-    righe: ["Sta sul quaderno", "o su WhatsApp?"],
-    anc: "end",
-    tx: -22,
-    ty: -4,
+    prima:
+      "Il preventivo da 60.000 euro finisce in fondo a una chat di WhatsApp",
+    chiave: "Tutte le richieste stanno in un posto solo",
+    dopo: "Tutte le richieste stanno in un posto solo, anche quelle del passaparola, e il gestionale ti dice chi va richiamato oggi.",
   },
   {
-    x: 92,
-    y: 250,
-    righe: ["Il numero ce l'ha", "qualcuno in ufficio"],
-    anc: "start",
-    tx: 22,
-    ty: 6,
-  },
-  {
-    x: 300,
-    y: 224,
-    righe: ["Aveva un budget", "o guardava e basta?"],
-    anc: "start",
-    tx: 22,
-    ty: -4,
-  },
-  {
-    x: 500,
-    y: 320,
-    righe: ["Tanto se è interessato", "richiama lui"],
-    anc: "end",
-    tx: -22,
-    ty: -4,
-  },
-  {
-    x: 176,
-    y: 412,
-    righe: ["Lo richiamo appena", "scendo dal cantiere"],
-    anc: "start",
-    tx: 22,
-    ty: 4,
-  },
-  {
-    x: 388,
-    y: 470,
-    righe: ["Sabato gli faccio", "il sopralluogo"],
-    anc: "start",
-    tx: 22,
-    ty: 4,
-  },
-] as const;
-
-/** I fili: nessuna informazione ha una casa sola, e ognuna rimanda a un'altra. */
-const fili: ReadonlyArray<readonly [number, number]> = [
-  [0, 1],
-  [0, 3],
-  [0, 4],
-  [1, 2],
-  [1, 4],
-  [2, 5],
-  [3, 4],
-  [3, 6],
-  [4, 5],
-  [4, 6],
-  [4, 7],
-  [5, 7],
-  [6, 7],
-  [1, 5],
-  [0, 6],
-  [2, 4],
-];
-
-const passi = [
-  {
-    t: "Ti portiamo richieste da chi il lavoro può pagarlo",
-    d: "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri. Non aspetti più il passaparola.",
-  },
-  {
-    t: "Chi non comprerà mai lo fermiamo prima del furgone",
-    d: "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi. Il sopralluogo lo fissi solo quando vale il viaggio.",
-  },
-  {
-    t: "Seguiamo con te ogni trattativa fino alla firma",
-    d: "Le parole per richiamare le scriviamo insieme, e ogni settimana passiamo con te le trattative aperte. Dopo il preventivo non si aspetta che si faccia vivo lui.",
-  },
-  {
-    t: "Non ti portiamo solo le richieste: ti diamo il sistema per gestirle",
-    d: "Ogni richiesta ha una data, uno stato e una persona che la segue. Lo apri dal telefono quando vuoi e vedi a che punto è.",
+    prima: "Se ti fermi una settimana, si ferma tutto",
+    chiave: "Il processo di vendita è scritto",
+    dopo: "Il processo di vendita è scritto: chi risponde al telefono sa cosa chiedere e quando richiamare. E ogni settimana lo guardiamo insieme.",
   },
 ];
 
@@ -140,130 +54,73 @@ export default function ConfrontoCaos() {
           la tua azienda
         </h2>
 
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
-          {/* ── Come va adesso ─────────────────────────────── */}
-          <div className="flex flex-col">
-            <p className="etichetta-confronto etichetta-confronto-no">
-              L&apos;impresa che rincorre
-            </p>
-            <div className="pannello-confronto flex flex-1 flex-col justify-center">
-              <svg
-                viewBox="0 0 640 560"
-                role="img"
-                aria-label="Otto domande che un imprenditore si fa sulle proprie richieste, collegate fra loro da un groviglio di fili: nessuna informazione sta in un posto solo."
-                className="h-auto w-full"
+        {/* Le intestazioni una volta sola, sopra le coppie. */}
+        <div className="mb-4 hidden grid-cols-2 gap-10 md:grid">
+          <p className="etichetta-confronto etichetta-confronto-no">
+            L&apos;impresa che rincorre
+          </p>
+          <p className="etichetta-confronto etichetta-confronto-si">
+            L&apos;impresa che sceglie
+          </p>
+        </div>
+
+        <ol className="space-y-5">
+          {coppie.map((c) => (
+            <li
+              key={c.prima}
+              className="grid items-stretch gap-3 md:grid-cols-[1fr_auto_1fr] md:gap-4"
+            >
+              <div className="flex items-start gap-3.5 rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
+                <span className="segno-no mt-0.5" aria-hidden>
+                  ✕
+                </span>
+                <div>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand-corallo-text md:hidden">
+                    Prima
+                  </p>
+                  <p className="font-display text-lg font-bold leading-snug text-brand-nero">
+                    {c.prima}
+                  </p>
+                </div>
+              </div>
+              <span
+                className="flex items-center justify-center text-2xl font-bold text-brand-corallo-text"
+                aria-hidden
               >
-                <g
-                  stroke="var(--color-brand-corallo)"
-                  strokeWidth="1.6"
-                  opacity="0.55"
-                >
-                  {fili.map(([a, b]) => (
-                    <line
-                      key={`${a}-${b}`}
-                      x1={nodi[a].x}
-                      y1={nodi[a].y}
-                      x2={nodi[b].x}
-                      y2={nodi[b].y}
-                    />
-                  ))}
-                </g>
-                {nodi.map((n) => (
-                  <g key={n.righe.join()}>
-                    <circle
-                      cx={n.x}
-                      cy={n.y}
-                      r="15"
-                      fill="var(--color-brand-corallo)"
-                    />
-                    <text
-                      x={n.x}
-                      y={n.y + 6}
-                      textAnchor="middle"
-                      fill="var(--color-brand-bianco)"
-                      fontSize="18"
-                      fontWeight="700"
-                    >
-                      ?
-                    </text>
-                    <text
-                      x={n.x + n.tx}
-                      y={n.y + n.ty}
-                      textAnchor={n.anc}
-                      fill="var(--color-brand-nero)"
-                      fontSize="15.5"
-                      fontWeight="600"
-                    >
-                      {n.righe.map((r, i) => (
-                        <tspan key={r} x={n.x + n.tx} dy={i === 0 ? 0 : 18}>
-                          {r}
-                        </tspan>
-                      ))}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-              <p className="mt-2 text-sm leading-snug text-brand-grigio">
-                Nessuna di queste risposte sta in un posto solo. Stanno nel
-                quaderno, su WhatsApp, nella testa di chi ha risposto al
-                telefono.
-              </p>
-            </div>
+                <span className="md:hidden">↓</span>
+                <span className="hidden md:inline">→</span>
+              </span>
+              <div className="flex items-start gap-3.5 rounded-2xl border-2 border-brand-verde/40 bg-brand-bianco p-6">
+                <span className="segno-si mt-0.5" aria-hidden>
+                  ✓
+                </span>
+                <div>
+                  <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand-verde-text md:hidden">
+                    Con il Metodo FORGE
+                  </p>
+                  <p className="text-[1.02rem] leading-relaxed text-brand-grigio">
+                    <Evidenzia testo={c.dopo} chiave={c.chiave} />
+                  </p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
 
-            <span className="freccia-esito" aria-hidden>
-              ↓
-            </span>
-
-            <div className="esito-confronto esito-confronto-no">
-              <p className="mb-1 font-display font-bold">
-                Risultato se continui così:
-              </p>
-              <p className="text-pretty italic leading-relaxed">
-                &ldquo;Faccio preventivi tutto il giorno e a fine anno non so
-                nemmeno quanti ne ho chiusi.&rdquo;
-              </p>
-            </div>
-          </div>
-
-          {/* ── Come va con noi ────────────────────────────── */}
-          <div className="flex flex-col">
-            <p className="etichetta-confronto etichetta-confronto-si">
-              L&apos;impresa che sceglie
+        <div className="mt-10 grid gap-4 md:grid-cols-2 md:gap-10">
+          <div className="esito-confronto esito-confronto-no">
+            <p className="mb-1 font-display font-bold">Se continui così:</p>
+            <p className="text-pretty italic leading-relaxed">
+              Le richieste restano sul quaderno, su WhatsApp e nella testa di
+              chi ha risposto al telefono.
             </p>
-            <div className="pannello-confronto flex-1">
-              <ol className="flex h-full flex-col justify-center gap-9 py-4">
-                {passi.map((p, i) => (
-                  <li key={p.t} className="relative flex gap-5">
-                    <span className="passo-numero">{i + 1}</span>
-                    {i < passi.length - 1 && (
-                      <span className="passo-filo" aria-hidden />
-                    )}
-                    <div>
-                      <p className="font-display text-base font-bold leading-snug text-brand-nero sm:text-lg">
-                        {p.t}
-                      </p>
-                      <p className="mt-1.5 text-sm leading-relaxed text-brand-grigio">
-                        {p.d}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <span className="freccia-esito" aria-hidden>
-              ↓
-            </span>
-
-            <div className="esito-confronto esito-confronto-si">
-              <p className="mb-1 font-display font-bold">
-                Risultato col Metodo FORGE:
-              </p>
-              <p className="text-pretty italic leading-relaxed">
-                &ldquo;So quante richieste ho, a che punto sta ognuna e quali
-                valgono il viaggio. In cantiere ci vado per lavorare.&rdquo;
-              </p>
-            </div>
+          </div>
+          <div className="esito-confronto esito-confronto-si">
+            <p className="mb-1 font-display font-bold">Col Metodo FORGE:</p>
+            <p className="text-pretty italic leading-relaxed">
+              &ldquo;So quante richieste ho, a che punto sta ognuna e quali
+              valgono il viaggio. In cantiere ci vado per lavorare.&rdquo;
+            </p>
           </div>
         </div>
 

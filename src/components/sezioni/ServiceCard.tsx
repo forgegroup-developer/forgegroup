@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Evidenzia } from "@/components/blocchi/ui";
 
 export type ServiceLine = { text: string; highlights?: string[] };
 export type Service = {
@@ -7,6 +8,8 @@ export type Service = {
   lines: ServiceLine[];
   /** La risposta al problema del titolo: cosa facciamo, detto in pratica (Scheda dei fatti). */
   soluzione: string;
+  /** La frase da mettere in evidenza nella soluzione. */
+  chiave?: string;
   href: string;
   image: string;
 };
@@ -23,6 +26,7 @@ export const services: Service[] = [
       { text: "Il lavoro lo sai fare.", highlights: ["lavoro"] },
       { text: "Ma chi ti cerca, ti trova?", highlights: ["ti trova"] },
     ],
+    chiave: "Ogni richiesta ti arriva già filtrata",
     soluzione:
       "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri. Ogni richiesta ti arriva già filtrata.",
     href: "/servizi#acquisizione",
@@ -40,6 +44,7 @@ export const services: Service[] = [
         highlights: ["nessuno che richiama"],
       },
     ],
+    chiave: "ogni settimana guardiamo insieme le trattative",
     soluzione:
       "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative una per una.",
     href: "/servizi#vendite",
@@ -53,6 +58,7 @@ export const services: Service[] = [
         highlights: ["crescendo", "lavorando di più"],
       },
     ],
+    chiave: "quanto ti rende ogni euro di pubblicità",
     soluzione:
       "Nel gestionale vedi quante richieste arrivano, quante firmano e quanto ti rende ogni euro di pubblicità.",
     href: "/servizi#consulenza",
@@ -162,7 +168,7 @@ export default function ServiceCard({
           ))}
         </h3>
         <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
-          {item.soluzione}
+          <Evidenzia testo={item.soluzione} chiave={item.chiave} />
         </p>
         <div className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
           → Scopri come

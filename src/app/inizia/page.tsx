@@ -62,7 +62,7 @@ export default function IniziaPage() {
             Se vivi di passaparola, hai già pagato un&apos;agenzia senza vedere
             niente o perdi lavori per 500 euro di differenza, qui trovi in un
             minuto{" "}
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               chi siamo, cosa abbiamo fatto e come lavoriamo
             </strong>
             .

@@ -54,7 +54,7 @@ export default function ContattiPage() {
                   ✓
                 </span>
                 <p className="body-lg">
-                  <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                  <strong className="chiave">{riga.cosa}</strong>{" "}
                   {riga.dettaglio}
                 </p>
               </li>

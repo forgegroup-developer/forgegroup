@@ -185,7 +185,7 @@ export default function ServiziHub() {
           <>
             La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
             richiesta ti arrivi. Poi una consulenza al mese, di persona o in videochiamata, e{" "}
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               quattro chiamate al mese
             </strong>{" "}
             dedicate solo alle trattative aperte.
