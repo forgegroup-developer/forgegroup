@@ -67,26 +67,30 @@ export default function Home() {
             Specializzati nelle richieste di lavoro per imprese edili
           </p>
 
-          {/* L'H1 e' la USP intera, approvata dalla proprieta' (28/09,
-              "gestionale" al posto di "CRM" dal 29/09): la prima parte nel
-              titolo, il resto nel sottotitolo. In corallo la cosa che il
-              titolare riceve. */}
+          {/* La USP intera, approvata dalla proprieta' (28/09, "gestionale"
+              al posto di "CRM" dal 29/09), in due frasi complete: nel titolo
+              chi, cosa riceve e in quanto tempo lo vede; nel sottotitolo come
+              e senza cosa. Spezzata a meta' frase si leggeva mezza grande e
+              mezza piccola (proprieta', 29/09). */}
           <h1 className="hero-enter hero-enter-d2 heading-display-frase text-pretty">
-            Aiutiamo i titolari di imprese edili che vivono di passaparola a
-            ricevere{" "}
-            <span className="text-brand-corallo">
-              richieste di lavoro qualificate
-            </span>
+            Aiutiamo gli imprenditori edili che vivono di passaparola a ricevere{" "}
+            <span className="text-brand-corallo">richieste di lavoro</span>{" "}
+            {/* l'ultima parola resta attaccata alla virgola: niente virgola
+                sola a inizio riga */}
+            <span className="whitespace-nowrap">
+              <span className="text-brand-corallo">qualificate</span>,
+            </span>{" "}
+            con i numeri nero su bianco in 90 giorni.
           </h1>
 
-          <p className="hero-enter hero-enter-d3 text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
-            con un processo di vendita strutturato e un gestionale che mostra
-            quanto rende ogni euro di pubblicità,{" "}
+          <p className="hero-enter hero-enter-d3 max-w-xl text-pretty text-lg leading-relaxed text-brand-grigio">
+            Lo facciamo con un processo di vendita strutturato e un gestionale
+            che ti mostra{" "}
             <strong className="font-semibold text-brand-nero">
-              con i numeri nero su bianco in 90 giorni
+              quanto rende ogni euro di pubblicità
             </strong>
-            , senza più regalare sopralluoghi a chi cerca solo il prezzo più
-            basso e senza pagare più agenzie generaliste.
+            : senza più regalare sopralluoghi a chi cerca solo il prezzo più
+            basso, e senza pagare più agenzie generaliste.
           </p>
 
           <p className="hero-enter hero-enter-d3 firma-fondatori">
