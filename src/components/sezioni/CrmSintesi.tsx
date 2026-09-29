@@ -29,7 +29,7 @@ export default function CrmSintesi() {
             </span>
           </h2>
           <p className="body-lg mb-8">
-            Insieme alle richieste ti diamo il CRM gestionale dove finiscono tutte:
+            Insieme alle richieste ti diamo il gestionale dove finiscono tutte:
             quelle che stiamo portando noi e quelle che ti arrivano per
             passaparola. È il posto dove vedi, senza chiedere niente a
             nessuno, a che punto sta ogni trattativa.
@@ -50,7 +50,7 @@ export default function CrmSintesi() {
           </ul>
 
           <Link href="/crm-gestionale-edilizia" className="btn-ghost">
-            Guarda com&apos;è fatto il CRM gestionale
+            Guarda com&apos;è fatto il gestionale
           </Link>
         </div>
 
@@ -59,7 +59,7 @@ export default function CrmSintesi() {
         <div className="overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-bordo bg-brand-panna px-5 py-4">
             <p className="font-display text-sm font-bold text-brand-nero">
-              CRM gestionale
+              Il gestionale
             </p>
             <p className="text-xs text-brand-grigio">Dati anonimizzati</p>
           </div>
@@ -86,7 +86,7 @@ export default function CrmSintesi() {
             ))}
           </ul>
           <p className="border-t border-brand-bordo bg-brand-panna/60 px-5 py-3 text-xs text-brand-grigio">
-            Nel CRM vero le righe sono tutte quelle della tua impresa.
+            Nel gestionale vero le righe sono tutte quelle della tua impresa.
           </p>
         </div>
       </div>

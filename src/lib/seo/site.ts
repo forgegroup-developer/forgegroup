@@ -15,7 +15,7 @@ export const SITE_NAME = "Forge Group Italia";
 export const SITE_TITLE_TEMPLATE = "%s | Forge Group Italia";
 
 export const SITE_DESCRIPTION =
-  "Richieste qualificate, processi di vendita e formazione commerciale per le imprese edili. Non ci fermiamo al contatto: entriamo nella trattativa con te.";
+  "Portiamo richieste di lavoro già filtrate alle imprese edili, e le seguiamo con il titolare fino alla firma del contratto. Solo edilizia, in tutta Italia.";
 
 /** Profili social ufficiali — footer, schema sameAs, documentazione */
 export const SOCIAL_PROFILES = {
@@ -64,7 +64,7 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
   },
   {
     path: "/crm-gestionale-edilizia",
-    label: "CRM gestionale per imprese edili",
+    label: "Gestionale per imprese edili",
     priority: 0.8,
     changeFrequency: "monthly",
     inLlmsMainPages: true,

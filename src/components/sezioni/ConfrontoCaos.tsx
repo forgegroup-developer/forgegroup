@@ -42,11 +42,11 @@ const passi = [
   },
   {
     t: "Chi non comprerà mai lo fermiamo prima del furgone",
-    d: "Budget, tempi e chi decide si chiedono in chiamata. Se manca uno dei tre, il sopralluogo non si fissa.",
+    d: "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi. Il sopralluogo lo fissi solo quando vale il viaggio.",
   },
   {
-    t: "Restiamo in trattativa con te fino alla firma",
-    d: "Prepariamo l'incontro insieme a te, e dopo il preventivo il cliente si richiama. Non aspettiamo che si faccia vivo lui.",
+    t: "Seguiamo con te ogni trattativa fino alla firma",
+    d: "Le parole per richiamare le scriviamo insieme, e ogni settimana passiamo con te le trattative aperte. Dopo il preventivo non si aspetta che si faccia vivo lui.",
   },
   {
     t: "Non ti portiamo solo le richieste: ti diamo il sistema per gestirle",

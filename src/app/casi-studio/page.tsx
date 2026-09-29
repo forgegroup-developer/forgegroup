@@ -1,7 +1,6 @@
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
 import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
-import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
@@ -90,13 +89,8 @@ export default function CasiStudioHub() {
 
       <JsonLdFAQ items={faqsPagina("casi-studio")} />
 
-      <RelatedBlogLinks
-        slugs={[
-          "agenzia-marketing-b2b-napoli",
-          "agenzia-marketing-b2b-campania-checklist",
-          "sistema-vendita-b2b-dalla-lead-al-contratto",
-        ]}
-      />
+      {/* I link agli articoli tornano quando ci sono quelli nuovi sulle
+          imprese edili: i vecchi (B2B, Campania) si ritirano. */}
     </>
   );
 }

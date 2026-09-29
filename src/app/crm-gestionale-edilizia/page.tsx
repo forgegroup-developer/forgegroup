@@ -33,33 +33,33 @@ export const metadata: Metadata = {
 const fasi = [
   {
     n: "F",
-    nome: "Formazione",
+    nome: "Fondamenta",
     testo:
-      "Ti mostriamo come si legge il CRM e come si porta avanti una trattativa scritta lì dentro. Non serve essere pratici di computer: le fasi sono cinque e si imparano in un pomeriggio.",
+      "Nell'audit guardiamo come arrivano e dove finiscono oggi le tue richieste. Da lì si decide come impostare il gestionale per la tua impresa.",
   },
   {
     n: "O",
     nome: "Organizzazione",
     testo:
-      "Qui il CRM nasce. Ogni richiesta che arriva, dalla pubblicità, dal passaparola o dal cartello in cantiere, entra con budget, tempi e chi decide.",
+      "I social rifatti sulle tue linee di lavoro. Chi scrive da lì entra nel gestionale come tutte le altre richieste.",
   },
   {
     n: "R",
-    nome: "Reputazione",
+    nome: "Richieste",
     testo:
-      "Le richieste che chiudono diventano lavori da mostrare. Dal CRM sai quali clienti hanno finito contenti e a chi si può chiedere una recensione.",
+      "Ogni richiesta che arriva, dalla pubblicità, dal passaparola o dal cartello in cantiere, entra con tipo di lavoro, tempi, budget e zona.",
   },
   {
     n: "G",
     nome: "Gestione",
     testo:
-      "È la parte che vedi ogni giorno: chi va richiamato oggi, chi aspetta un preventivo, chi è fermo da due settimane. Il CRM te lo dice senza che tu debba chiederlo a nessuno.",
+      "È la parte che vedi ogni giorno: chi va richiamato oggi, chi aspetta un preventivo, chi è fermo da due settimane. Il gestionale te lo dice senza che tu debba chiederlo a nessuno.",
   },
   {
     n: "E",
-    nome: "Economia",
+    nome: "Evoluzione",
     testo:
-      "A fine mese sai quante richieste sono arrivate, quante sono diventate contratti e quanto è stato speso in pubblicità. Separato dal nostro compenso.",
+      "Ogni settimana lo apriamo insieme e guardiamo le trattative una per una. A fine mese sai quante richieste sono arrivate, quante sono diventate contratti e quanto è stato speso in pubblicità, separato dal nostro compenso.",
   },
 ];
 
@@ -71,14 +71,14 @@ export default function CrmGestionalePage() {
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
-              { label: "CRM gestionale" },
+              { label: "Gestionale" },
             ]}
           />
           <p className="eyebrow eyebrow-mark mb-5 mt-6 flex">
             Compreso nel Metodo FORGE
           </p>
           <h1 className="heading-display-frase mb-6 text-balance">
-            Il CRM gestionale della tua impresa.{" "}
+            Il gestionale della tua impresa.{" "}
             <span className="text-brand-corallo">
               Lo apri tu, quando vuoi.
             </span>
@@ -88,7 +88,7 @@ export default function CrmGestionalePage() {
             dove stanno scritte le richieste. Stanno sul quaderno, su WhatsApp,
             nella testa di chi ha risposto al telefono. Poi arriva la settimana
             storta, tre cantieri aperti e un fornitore che sbaglia la consegna,
-            e il preventivo da 60.000 euro resta in fondo a una chat. Il CRM
+            e il preventivo da 60.000 euro resta in fondo a una chat. Il
             gestionale è la prima cosa che mettiamo in piedi, prima ancora della
             pubblicità.
           </p>
@@ -135,7 +135,7 @@ export default function CrmGestionalePage() {
         <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
           <p className="eyebrow eyebrow-mark mb-4 flex">Dove sta, nel metodo</p>
           <h2 className="heading-section-xl mb-6 text-balance">
-            Il CRM gestionale tiene insieme{" "}
+            Il gestionale tiene insieme{" "}
             <span className="text-brand-corallo-text">le cinque fasi</span> del
             Metodo FORGE.
           </h2>

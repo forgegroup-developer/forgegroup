@@ -10,7 +10,7 @@ import { clientLogos } from "@/data/clientLogos";
 const prove = [
   {
     valore: "+350K€",
-    etichetta: "Fatturato generato",
+    etichetta: "In 12 mesi, solo dalle Meta Ads",
     cliente: "DISA · SOS Appalti",
     href: "/casi-studio/software-b2b",
   },

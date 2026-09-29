@@ -5,7 +5,6 @@ import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
-import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
@@ -91,7 +90,7 @@ const serviziTabs: ServiziTab[] = [
             Nessuna richiesta resta ferma <span>perché ci si è dimenticati</span>.
           </>
         ),
-        body: "Ogni contatto entra nel CRM con uno stato, una data e la persona che lo segue. Se una trattativa è ferma da due settimane lo vedi senza doverlo chiedere a nessuno.",
+        body: "Ogni contatto entra nel gestionale con uno stato, una data e la persona che lo segue. Se una trattativa è ferma da due settimane lo vedi senza doverlo chiedere a nessuno.",
       },
       {
         title: (
@@ -99,7 +98,7 @@ const serviziTabs: ServiziTab[] = [
             Ogni settimana le guardiamo <span>una per una</span>.
           </>
         ),
-        body: "Quattro chiamate al mese, dedicate solo alle trattative aperte. Si apre il CRM e si passa in rassegna: a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
+        body: "Quattro chiamate al mese, dedicate solo alle trattative aperte. Si apre il gestionale e si passa in rassegna: a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
       },
     ],
   },
@@ -110,7 +109,7 @@ const serviziTabs: ServiziTab[] = [
     sidebarImageAlt: "Illustrazione consulenza e formazione",
     title: (
       <>
-        Consulenza <span className="whitespace-nowrap">e Formazione</span>
+        Consulenza <span className="whitespace-nowrap">e metodo</span>
       </>
     ),
     intro: (
@@ -185,7 +184,7 @@ export default function ServiziHub() {
         testo={
           <>
             La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
-            richiesta ti arrivi. Poi una consulenza al mese in azienda, e{" "}
+            richiesta ti arrivi. Poi una consulenza al mese, di persona o in videochiamata, e{" "}
             <strong className="font-semibold text-brand-nero">
               quattro chiamate al mese
             </strong>{" "}
@@ -327,13 +326,8 @@ export default function ServiziHub() {
 
       <JsonLdFAQ items={faqsPagina("servizi")} />
 
-      <RelatedBlogLinks
-        slugs={[
-          "come-acquisire-clienti-b2b-campania",
-          "sistema-vendita-b2b-dalla-lead-al-contratto",
-          "quanto-costa-lead-generation-b2b",
-        ]}
-      />
+      {/* I link agli articoli tornano quando ci sono quelli nuovi sulle
+          imprese edili: i vecchi (B2B, Campania) si ritirano. */}
     </>
   );
 }

@@ -44,16 +44,16 @@ export default function PercheSceglierci() {
           </h2>
 
           <p className="text-pretty text-lg leading-relaxed">
-            Noi abbiamo tolto di mezzo tutti questi problemi costruendo il
-            Metodo FORGE: ti portiamo richieste da chi il lavoro può pagarlo,
-            scartiamo chi tratta solo sul prezzo e restiamo dentro la
-            trattativa con te fino alla firma. Senza che tu debba rincorrere
+            Per questo abbiamo costruito il Metodo FORGE: ti portiamo
+            richieste già filtrate da chi il lavoro può pagarlo, scriviamo con
+            te il processo di vendita e seguiamo con te ogni trattativa fino
+            alla firma. Senza che tu debba rincorrere
             nessuno, e senza che tu debba diventare un esperto di pubblicità.
           </p>
 
           <div className="mt-9">
             <Link href="#metodo" className="btn-ghost">
-              Vedi il Metodo FORGE, i 5 step
+              Vedi le cinque fasi del Metodo FORGE
             </Link>
           </div>
         </div>
@@ -65,10 +65,10 @@ export default function PercheSceglierci() {
             Sei un&apos;impresa edile?
           </p>
           <p className="mb-1 font-display text-3xl font-bold leading-none text-brand-nero sm:text-4xl">
-            L&apos;80% delle imprese edili
+            Tante imprese edili
           </p>
           <p className="mb-7 text-sm text-brand-grigio">
-            Non perde lavori perché lavora male. Li perde qui.
+            Non perdono lavori perché lavorano male. Li perdono qui.
           </p>
 
           <ul className="space-y-4">

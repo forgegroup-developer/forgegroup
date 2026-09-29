@@ -146,7 +146,7 @@ export default function PercorsoDomande() {
             fare. Poi però non ce ne andiamo: restiamo dentro il processo di
             vendita insieme a te, fino al momento in cui il cliente firma.{" "}
             <strong className="font-semibold text-brand-nero">
-              Lo chiamiamo Metodo FORGE — dal contatto alla firma, ed è
+              Lo chiamiamo Metodo FORGE, dal contatto alla firma, ed è
               esattamente il perimetro che copre.
             </strong>
           </p>

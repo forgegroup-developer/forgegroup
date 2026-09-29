@@ -20,8 +20,8 @@ import Link from "next/link";
 
 const garanzie = [
   {
-    t: "Il CRM gestionale è tuo",
-    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il CRM, aperto.",
+    t: "Il gestionale lo apri tu",
+    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il gestionale, aperto.",
   },
   {
     t: "Sai dove finiscono i tuoi soldi",
@@ -42,7 +42,7 @@ export default function GaranziaTrasparenza() {
     <section id="trasparenza" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
-          <span className="eyebrow-rule">La garanzia di trasparenza</span>
+          <span className="eyebrow-rule">Cosa vedi tu, e quando</span>
         </p>
         <h2 className="heading-section-xl mb-6 text-center text-balance">
           Non ti chiediamo di fidarti.{" "}
@@ -70,14 +70,14 @@ export default function GaranziaTrasparenza() {
 
         <div className="mt-14 rounded-2xl bg-brand-panna p-7 text-center sm:p-9">
           <p className="mx-auto max-w-3xl text-pretty text-lg leading-relaxed text-brand-nero">
-            Il <strong className="font-semibold">CRM lo diamo a ogni impresa</strong>{" "}
+            Il <strong className="font-semibold">gestionale lo diamo a ogni impresa</strong>{" "}
             che decide di lavorare con noi. Non è un extra da comprare a parte:
             è la parte del Metodo FORGE che ti fa vedere quello che sta
             succedendo, richiesta per richiesta.
           </p>
           <div className="mt-7">
             <Link href="#metodo" className="btn-ghost">
-              Vedi il Metodo FORGE, i 5 step
+              Vedi le cinque fasi del Metodo FORGE
             </Link>
           </div>
         </div>

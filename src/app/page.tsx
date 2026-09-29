@@ -90,7 +90,7 @@ export default function Home() {
 
           <p className="hero-enter hero-enter-d3 text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
             Ti portiamo richieste da chi il lavoro può pagarlo, scartiamo chi
-            tratta solo sul prezzo e restiamo in trattativa con te{" "}
+            tratta solo sul prezzo e seguiamo con te ogni trattativa{" "}
             <strong className="font-semibold text-brand-nero">
               fino alla firma
             </strong>
@@ -104,8 +104,8 @@ export default function Home() {
             <strong className="font-semibold text-brand-nero">
               Marco e Gianpio
             </strong>
-            , su oltre ventimila contatti gestiti e partendo da imprese che
-            oggi lavorano con un metodo, senza rincorrere i clienti.
+            , dopo aver analizzato sul campo i processi di centinaia di
+            imprese edili.
           </p>
 
           {/* Due pulsanti larghi quanto il loro testo: prima erano due
@@ -239,7 +239,7 @@ export default function Home() {
 
           <div className="mt-10 flex justify-center">
             <Link href="/servizi" className="btn-ghost">
-              Vedi il Metodo FORGE, i 5 step
+              Vedi le cinque fasi del Metodo FORGE
             </Link>
           </div>
         </div>
@@ -279,7 +279,7 @@ export default function Home() {
               {[
                 {
                   other: "Ti consegna il contatto e il suo lavoro finisce lì",
-                  forge: "Restiamo dentro fino alla firma del contratto",
+                  forge: "Seguiamo con te ogni trattativa fino alla firma del contratto",
                 },
                 {
                   other: "Ti manda chiunque abbia lasciato un numero",
@@ -287,7 +287,7 @@ export default function Home() {
                 },
                 {
                   other: "Il preventivo mandato è affare tuo",
-                  forge: "Prepariamo la trattativa e ti addestriamo a chiuderla",
+                  forge: "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative",
                 },
                 {
                   other: "Report su visualizzazioni, clic e copertura",
@@ -295,7 +295,7 @@ export default function Home() {
                 },
                 {
                   other: "Non ha mai visto un cantiere del tuo settore",
-                  forge: "In cantiere ci veniamo, e in edilizia abbiamo numeri veri",
+                  forge: "Lavoriamo solo con imprese edili, con i numeri e il nome dell'impresa sotto",
                 },
               ].map((row, idx) => (
                 <div

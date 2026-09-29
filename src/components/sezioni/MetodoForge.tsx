@@ -5,46 +5,49 @@
    solo quando sparivano: chi arrivava lento non vedeva niente, chi arrivava
    veloce vedeva un lampo. Il Metodo e' la sezione da leggere con calma:
    sta ferma. */
+/* Nomi e contenuti dalla Scheda dei fatti (confermati dalla proprieta' il
+   28/09/2026). I vecchi nomi (Formazione, Reputazione, Economia) non si
+   usano piu'. */
 const fasi = [
   {
     letter: "F",
-    verticalLabel: "FORMAZIONE",
-    title: "Formazione",
+    verticalLabel: "FONDAMENTA",
+    title: "Fondamenta",
     description:
-      "Partiamo da un percorso di consulenza e formazione per inquadrare il tuo modello di business, gli obiettivi reali e dove si rompe oggi la tua acquisizione clienti. Prima di agire, capiamo insieme. Partiamo dal tuo modello, non da un copia-incolla.",
-    takeaway: "una strategia su misura, non un copia-incolla",
+      "Si parte dall'audit commerciale: chi è la tua impresa, come è organizzata, a chi vende, come arrivano e come si gestiscono oggi le richieste, i tuoi numeri e gli obiettivi a dodici mesi.",
+    takeaway: "la base su cui si costruisce tutto, partendo dalla tua impresa",
   },
   {
     letter: "O",
     verticalLabel: "ORGANIZZAZIONE",
     title: "Organizzazione",
     description:
-      "Sistemiamo le fondamenta: piattaforme, sito, contenuti, presenza online e processi interni. Mettiamo ordine dove i processi non sono ancora allineati, così la macchina è pronta a vendere prima ancora di accenderla.",
-    takeaway: "basi solide, niente più caos",
+      "Rifacciamo Facebook e Instagram sulle tue linee di lavoro, partendo da quello che è uscito dall'audit. Chi ti trova vede subito cosa fai e per chi.",
+    takeaway: "social coerenti con quello che vendi",
   },
   {
     letter: "R",
-    verticalLabel: "REPUTAZIONE",
-    title: "Reputazione",
+    verticalLabel: "RICHIESTE",
+    title: "Richieste",
     description:
-      "Costruiamo posizionamento e riprova sociale: Google My Business, recensioni raccolte in modo continuo, presenza digitale coerente su tutte le piattaforme. È la fiducia che fa scattare il contatto, e lavoriamo con te per costruirla con continuità.",
-    takeaway: "i clienti ti scelgono prima ancora di chiamarti",
+      "Le campagne su Meta e Google le gestiamo noi, sulle linee scelte nell'audit, con un video girato nei tuoi cantieri per ognuna. Ogni richiesta passa dal modulo che chiede tipo di lavoro, tempi, budget e zona.",
+    takeaway: "richieste di lavoro già filtrate",
   },
   {
     letter: "G",
     verticalLabel: "GESTIONE",
     title: "Gestione",
     description:
-      "Gestiamo il flusso: pre-qualifica dei contatti, follow-up, supporto alla vendita e CRM. I potenziali clienti non si limitano ad arrivare: li accompagniamo fino a diventare prenotazioni, appuntamenti, contratti.",
-    takeaway: "contatti che si trasformano in incassi",
+      "Ogni richiesta arriva nel gestionale con nome, telefono, zona e interesse, prima della prima telefonata. Lì segui anche sopralluogo, preventivo, piano di stima e piano dei lavori.",
+    takeaway: "il controllo su ogni trattativa, anche dal cantiere",
   },
   {
     letter: "E",
-    verticalLabel: "ECONOMIA",
-    title: "Economia",
+    verticalLabel: "EVOLUZIONE",
+    title: "Evoluzione",
     description:
-      "Misuriamo tutto in termini economici: più clienti, più margine, crescita prevedibile e scalabile. L'obiettivo non è \"fare marketing\": è far crescere il tuo fatturato in modo concreto e sostenibile nel tempo.",
-    takeaway: "metriche che contano sul fatturato",
+      "Scriviamo con te il processo di vendita: il materiale commerciale, le parole per richiamare, tutti i passaggi fino al contratto. Poi una consulenza al mese e una chiamata a settimana sulle trattative.",
+    takeaway: "un modo di vendere scritto, che resta in azienda",
   },
 ] as const;
 
@@ -82,8 +85,8 @@ export default function MetodoForge({
           <h2
             className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
           >
-            <span className="text-brand-corallo">Metodo FORGE</span> — Dal
-            Contatto alla Firma, in 5 step
+            <span className="text-brand-corallo">Metodo FORGE</span>: dal
+            contatto alla firma, in cinque fasi
           </h2>
         </div>
 

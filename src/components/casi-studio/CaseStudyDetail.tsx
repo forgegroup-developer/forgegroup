@@ -363,8 +363,8 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   </>
                 ) : (
                   <>
-                    Per imprese che fanno bene il lavoro e vogliono un{" "}
-                    <span>flusso più prevedibile</span>.
+                    Per imprese che fanno bene il lavoro e vogliono{" "}
+                    <span>richieste tutto l&apos;anno</span>.
                   </>
                 )}
               </h2>
