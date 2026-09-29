@@ -45,7 +45,7 @@ export default function ChiSiamo({
                 <Chiave>
                   {dopoLaChiamata
                     ? "Gianpio è quello che ti ha chiamato."
-                    : "Nella tua chiamata settimanale ci siamo noi."}
+                    : "Nelle consulenze ci siamo noi, a supportarti fino alla firma."}
                 </Chiave>
               </p>
               <p className="body-lg mb-5">

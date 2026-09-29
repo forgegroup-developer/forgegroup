@@ -475,7 +475,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       <section className={`section-bianco ${SEZIONE}`}>
         <div className={CONTENITORE}>
           <Titolo occhiello="Perché fidarti">
-            Dietro ogni caso ci sono <Chiave>due persone</Chiave>, e la chiamata ogni settimana.
+            Dietro ogni caso ci sono <Chiave>due persone</Chiave>, al tuo fianco nelle consulenze.
           </Titolo>
 
           <div className={`${STRETTO} grid items-center gap-8 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:grid-cols-[220px_1fr] md:p-8`}>
@@ -496,7 +496,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               <p className="mb-4 leading-relaxed text-brand-grigio">
                 Siamo entrati in contatto con centinaia di imprese edili e abbiamo analizzato i loro
                 processi sul campo. Con {clientName}, come con ogni impresa che seguiamo,{" "}
-                <strong className="chiave">ci siamo noi nella chiamata settimanale</strong>, fino alla firma.
+                <strong className="chiave">nelle consulenze ci siamo noi</strong>, a supportarti fino alla firma.
               </p>
               <p className="flex flex-wrap items-center gap-2 text-sm text-brand-grigio">
                 <Stelle />
