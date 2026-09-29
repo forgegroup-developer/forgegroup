@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { clientLogos } from "@/data/clientLogos";
-import { recensioniGoogle } from "@/data/prove";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
 
 /**
  * Barra prova. Ogni numero e' attribuito al cliente da cui viene e proviene
@@ -83,20 +83,7 @@ export default function ClientiLogos() {
         </div>
 
         {/* La prova esterna: il voto su Google, sotto i numeri dei casi. */}
-        <p className="-mt-4 mb-10 flex items-center justify-center gap-2 text-sm text-brand-grigio md:-mt-8 md:mb-12">
-          <span
-            className="text-base leading-none text-[#f5b301]"
-            aria-label="5 stelle su 5"
-          >
-            ★★★★★
-          </span>
-          <span>
-            <strong className="text-brand-nero">
-              {recensioniGoogle.voto} su Google
-            </strong>
-            , {recensioniGoogle.totale} recensioni
-          </span>
-        </p>
+        <BannerGoogle className="-mt-4 mb-10 justify-center md:-mt-8 md:mb-12" />
 
         <div className="logo-marquee relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 md:w-32 bg-gradient-to-r from-brand-bianco to-transparent" />

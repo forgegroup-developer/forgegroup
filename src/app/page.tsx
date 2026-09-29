@@ -13,7 +13,7 @@ import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
-import RecensioniGoogle from "@/components/sezioni/RecensioniGoogle";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
 import Gestionale from "@/components/blocchi/Gestionale";
 import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -181,6 +181,8 @@ export default function Home() {
               </span>
             </Link>
           </div>
+
+          <BannerGoogle className="hero-enter hero-enter-d3" />
         </div>
 
         <div className="hero-foto order-2">
@@ -367,9 +369,6 @@ export default function Home() {
       <DeferredMount minHeight="560px" rootMargin="320px 0px">
         <VideoScettico />
       </DeferredMount>
-
-      {/* S6c — LE RECENSIONI GOOGLE, aggiornate da sole ogni giorno. */}
-      <RecensioniGoogle sfondo="mattone" />
 
       {/* S7 — TEAM */}
       <DeferredMount minHeight="480px" rootMargin="320px 0px">
