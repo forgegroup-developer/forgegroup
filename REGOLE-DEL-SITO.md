@@ -33,8 +33,10 @@ Le misure stanno in `src/components/blocchi/ui.tsx` e si usano da lì, mai riscr
 Colori solo dai token di `globals.css`: bianco, panna, corallo (`#c8502a`), mattone (`#6f2a12`).
 
 - **Niente nero** come colore di sfondo o di sezione.
-- **Sotto la hero (panna) le sezioni si alternano bianco e mattone**: `section-bianco`, `section-mattone`,
-  e di nuovo bianco. Due sezioni dello stesso colore non stanno mai una dopo l'altra.
+- **Sotto la hero (panna) le sezioni si alternano**: chiare (`section-bianco`, oppure `section-sabbia`
+  come respiro) e scure (`section-mattone`). **Due sezioni dello stesso colore non stanno mai una dopo
+  l'altra.** Sulle pagine esistenti si sistemano i colori dentro la struttura, senza togliere o
+  spostare sezioni.
 - **Schede chiare sul mattone:** `card-xl superficie-chiara`. Il testo scuro torna leggibile da solo.
 - **Il verde** solo nel tasto WhatsApp e nelle spunte di "per chi è" e dello studio di fattibilità.
 - **Le scene fatte con l'AI** portano sempre la scritta "Immagine generata con AI" (componente `ScenaAI`).

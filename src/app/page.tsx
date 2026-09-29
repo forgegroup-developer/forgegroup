@@ -1,37 +1,28 @@
+import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
-import Candidatura from "@/components/blocchi/Candidatura";
-import ChiSiamo from "@/components/blocchi/ChiSiamo";
-import ComeFunziona from "@/components/blocchi/ComeFunziona";
-import ConfrontoAgenzia from "@/components/blocchi/ConfrontoAgenzia";
-import Hero from "@/components/blocchi/Hero";
-import Problemi from "@/components/blocchi/Problemi";
-import TreCasi from "@/components/blocchi/TreCasi";
-import {
-  CONTENITORE,
-  SEZIONE,
-  STRETTO,
-  Chiave,
-  Titolo,
-} from "@/components/blocchi/ui";
+import dynamic from "next/dynamic";
+import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
+import SectionHeader from "@/components/ui/SectionHeader";
+import FAQAccordion from "@/components/ui/FAQAccordion";
+import { faqsPagina } from "@/data/site";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
+import ClientiLogos from "@/components/sezioni/ClientiLogos";
+import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
+import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
-import FAQAccordion from "@/components/ui/FAQAccordion";
+import GaranziaTrasparenza from "@/components/sezioni/GaranziaTrasparenza";
+import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
-import { faqsPagina } from "@/data/site";
+import DeferredMount from "@/components/ui/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
+import { CONTENITORE, SEZIONE, STRETTO } from "@/components/blocchi/ui";
 
-/**
- * La home, ricostruita il 29/09/2026 con i blocchi della landing /inizia
- * (REGOLE-DEL-SITO.md, analisi della comunicazione del 29/09).
- *
- * Il titolo è la USP intera, approvata dalla proprietà il 28/09 ("CRM"
- * diventa "gestionale", decisione del 29/09): la prima parte è l'H1, il
- * resto il sottotitolo. Poi l'ordine delle Regole v2 §3: il problema con la
- * soluzione accanto e il confronto con l'agenzia, il metodo, come funziona,
- * le prove, il video per chi è scettico, per chi è, chi siamo, le domande,
- * la candidatura. Sotto la hero, bianco e mattone si alternano.
- */
+const TeamSection = dynamic(() => import("@/components/sezioni/TeamSection"), {
+  loading: () => <div className="min-h-[480px]" aria-hidden />,
+});
 
 export const metadata: Metadata = {
   title: SITE_TITLE,
@@ -55,20 +46,40 @@ export default function Home() {
   return (
     <>
       <JsonLdFAQ items={faqsPagina("home")} />
+      {/* S1 — HERO a due colonne.
+          Testo a sinistra, i due fondatori a destra a tutta altezza.
+          Da telefono prima il testo e poi la foto: chi apre il link deve
+          sapere cosa facciamo prima di vedere chi siamo. Con la foto in
+          cima il titolo cominciava a meta' schermo e i pulsanti finivano
+          sotto la piega (misurato il 21 settembre 2026, scelta della
+          proprieta').
+          La hero sta nello stesso contenitore del menu: a tutta larghezza
+          il testo partiva 280px piu' a sinistra del logo e il paragrafo
+          arrivava a 103 caratteri per riga.
+          Il marchio non si ripete qui: sta gia' nell'intestazione. */}
+      <HeroGooeySection
+        pulita
+        className=""
+        innerClassName="hero-split mx-auto max-w-7xl"
+      >
+        <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20">
+          <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
+            Specializzati nelle richieste di lavoro per imprese edili
+          </p>
 
-      <Hero
-        occhiello="Specializzati nelle richieste di lavoro per imprese edili"
-        titolo={
-          <>
+          {/* L'H1 e' la USP intera, approvata dalla proprieta' (28/09,
+              "gestionale" al posto di "CRM" dal 29/09): la prima parte nel
+              titolo, il resto nel sottotitolo. In corallo la cosa che il
+              titolare riceve. */}
+          <h1 className="hero-enter hero-enter-d2 heading-display-frase text-pretty">
             Aiutiamo i titolari di imprese edili che vivono di passaparola a
             ricevere{" "}
             <span className="text-brand-corallo">
               richieste di lavoro qualificate
             </span>
-          </>
-        }
-        sottotitolo={
-          <>
+          </h1>
+
+          <p className="hero-enter hero-enter-d3 text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
             con un processo di vendita strutturato e un gestionale che mostra
             quanto rende ogni euro di pubblicità,{" "}
             <strong className="font-semibold text-brand-nero">
@@ -76,61 +87,297 @@ export default function Home() {
             </strong>
             , senza più regalare sopralluoghi a chi cerca solo il prezzo più
             basso e senza pagare più agenzie generaliste.
-          </>
-        }
-        principale={{
-          testo: "Richiedi lo studio di fattibilità",
-          href: "#candidati",
-        }}
-        secondario={{ testo: "Guarda il Metodo FORGE", href: "#metodo" }}
-        dopo={
-          <p className="text-sm leading-relaxed text-brand-grigio">
-            Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
-            commerciale, software per l&apos;edilizia e fornitori del settore.
           </p>
-        }
-      />
 
-      {/* 1 · Bianco: i problemi con la soluzione accanto, e il confronto. */}
-      <Problemi dopo={<ConfrontoAgenzia />} />
+          <p className="hero-enter hero-enter-d3 firma-fondatori">
+            Il Metodo FORGE l&apos;abbiamo costruito noi due,{" "}
+            <strong className="font-semibold text-brand-nero">
+              Marco e Gianpio
+            </strong>
+            , dopo aver analizzato sul campo i processi di centinaia di imprese
+            edili.
+          </p>
 
-      {/* 2 · Mattone: il metodo, con i nomi della Scheda. */}
+          {/* Due pulsanti larghi quanto il loro testo: prima erano due
+              lastre da 505x84 quasi uguali, e l'occhio non capiva quale
+              fosse quello da premere. Il segno dice dove porta il tasto
+              prima ancora di leggerlo: freccia obliqua per la pagina
+              dedicata, freccia in basso per il metodo, piu' giu' in questa
+              stessa pagina. */}
+          <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+            <Link
+              href="/contatti"
+              className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
+            >
+              <span>Richiedi lo studio di fattibilità</span>
+              <span className="btn-hero-freccia" aria-hidden>
+                ↗
+              </span>
+            </Link>
+            <Link
+              href="#metodo"
+              className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
+            >
+              <span>Guarda il Metodo FORGE</span>
+              <span className="btn-hero-freccia" aria-hidden>
+                ↓
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        <div className="hero-foto order-2">
+          <div className="hero-foto-cornice">
+            <Image
+              src="/images/team/vision/founders-duo.png"
+              alt="I due fondatori di Forge Group"
+              fill
+              priority
+              sizes="(min-width: 1024px) 48vw, 100vw"
+            />
+            {/* La firma sta sulla foto, non sotto: sotto era una riga
+                grigia che nessuno legge. Il velo in basso e' li' apposta
+                per reggerla. */}
+            <p className="hero-foto-firma">
+              <span aria-hidden>✳</span>I fondatori di Forge Group
+            </p>
+          </div>
+        </div>
+
+        {/* Il perimetro dei mestieri, con lo stesso asterisco
+            dell'occhiello in cima: e' la nota a piede della promessa, e
+            sta sotto entrambe le colonne perche' vale per tutta la hero. */}
+        <p className="hero-enter hero-enter-d3 riga-mestieri order-3">
+          <span className="riga-mestieri-asterisco" aria-hidden>
+            ✳
+          </span>
+          Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
+          commerciale, software per l&apos;edilizia e fornitori del settore.
+        </p>
+      </HeroGooeySection>
+
+      {/* S2 — LOGHI CLIENTI */}
+      {/* Dalla hero al Metodo le sezioni si montano subito, non in
+          DeferredMount. Sono solo testo e immagini, senza JavaScript loro:
+          rimandarle non faceva risparmiare niente. In compenso partivano
+          da segnaposti piu' bassi del vero (280 contro 667, 560 contro 819,
+          900 contro 1387 px) e crescevano di oltre 1.100px mentre il
+          pulsante "Guarda il Metodo FORGE" faceva scorrere la pagina: si
+          arrivava su "Gestione" invece che sul titolo. */}
+      <ClientiLogos />
+
+      {/* S2b — PERCHE' SCEGLIERE FORGE GROUP
+          Il problema detto come elenco di abitudini, non come accusa.
+          Sta qui perche' il lettore ha appena visto i numeri dei clienti
+          e deve capire cosa lo separa da quei numeri. */}
+      <PercheSceglierci />
+
+      {/* S3b — IL REGISTRO DEI CONTATTI
+          Risponde all'obiezione che ferma piu' trattative di ogni altra:
+          "non so come lavorate davvero". Sta qui perche' la domanda nasce
+          dopo il problema e prima del metodo. */}
+      <ConfrontoCaos />
+
+      {/* S4 — METODO FORGE
+          Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
+          trasforma il servizio in un prodotto riconoscibile. Sta in home, su
+          fondo notte, tra il "cosa facciamo" e la prova dei risultati.
+          Montato subito, non in DeferredMount: dentro quello #metodo non
+          esisteva finche' non ci si scorreva vicino, quindi il pulsante
+          "Guarda il Metodo FORGE" della hero non portava da nessuna parte,
+          la sezione compariva a scatti e il server mandava a Google un
+          riquadro vuoto. E' solo testo, montarlo subito non costa niente. */}
       <MetodoForge className="section-mattone" />
 
-      {/* 3 · Bianco: i passi e il gestionale. */}
-      <ComeFunziona />
+      {/* S5b — LA GARANZIA DI TRASPARENZA
+          Il punto esatto in cui il lettore si chiede "si', ma come faccio
+          a controllarvi". Il CRM e' l'unica risposta che dimostra invece
+          di dichiarare. */}
+      <DeferredMount minHeight="520px" rootMargin="320px 0px">
+        <GaranziaTrasparenza />
+      </DeferredMount>
 
-      {/* 4 · Mattone: i tre casi e la recensione Google. */}
-      <TreCasi />
-
-      {/* 5 · Bianco: chi ha già provato con un'agenzia ascolta un titolare. */}
-      <VideoScettico />
-
-      {/* 6 · Mattone: per chi è, per chi non è. */}
-      <PerChiSiPerChiNo
-        sfondo="mattone"
-        nota="Lavoriamo con poche imprese, una per territorio."
-        ctaHref="#candidati"
-      />
-
-      {/* 7 · Bianco: i fondatori e la squadra. */}
-      <ChiSiamo />
-
-      {/* 8 · Mattone: le domande, con i dati strutturati per Google. */}
-      <section id="faq" className={`section-mattone scroll-mt-24 ${SEZIONE}`}>
+      {/* S6 — SERVIZI
+          Stavano prima del metodo: si elencava cosa facciamo a un lettore
+          che non sapeva ancora perche' gli servisse, e si spezzava in due
+          il blocco del problema. Qui arrivano dopo che il metodo ha un
+          nome, e diventano "cosa c'e' dentro". */}
+      <section className={`section-sabbia border-y ${SEZIONE}`}>
         <div className={CONTENITORE}>
-          <Titolo occhiello="Domande frequenti">
-            Quello che gli <Chiave>imprenditori edili</Chiave> ci chiedono
-            sempre
-          </Titolo>
-          <div className={STRETTO}>
-            <FAQAccordion onCoral items={faqsPagina("home")} />
+          <SectionHeader
+            eyebrow="Cosa facciamo per te"
+            title={
+              <>
+                Ti affianchiamo dal primo contatto{" "}
+                <span className="text-brand-corallo-text">
+                  alla firma del contratto
+                </span>
+                .
+              </>
+            }
+          />
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
+            {services.map((item) => (
+              <div key={item.label}>
+                <ServiceCard item={item} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link href="/servizi" className="btn-ghost">
+              Vedi le cinque fasi del Metodo FORGE
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 9 · Bianco: lo studio di fattibilità e il modulo. */}
-      <Candidatura sorgente="home" />
+      {/* S7 — CONFRONTO (tabella comparativa unificata) */}
+      <DeferredMount minHeight="480px">
+        <section className={`section-bianco border-y ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <SectionHeader
+              eyebrow="Il confronto"
+              title={
+                <>
+                  Dove si ferma un&apos;agenzia.{" "}
+                  <span className="text-brand-corallo-text">
+                    Dove arriviamo noi.
+                  </span>
+                </>
+              }
+            />
+            <div>
+              <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
+                {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
+                <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
+                  <div className="px-4 py-3 md:px-8 md:py-5 bg-brand-panna">
+                    <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
+                      L&apos;agenzia che ti consegna il contatto
+                    </p>
+                  </div>
+                  <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,var(--color-brand-verde)_10%,var(--color-brand-bianco))]">
+                    <p className="text-xs md:text-base font-bold text-brand-verde-text uppercase tracking-wide leading-snug">
+                      Forge Group
+                    </p>
+                  </div>
+                </div>
+
+                {/* Righe allineate — sempre 2 colonne */}
+                {[
+                  {
+                    other: "Ti consegna il contatto e il suo lavoro finisce lì",
+                    forge:
+                      "Seguiamo con te ogni trattativa fino alla firma del contratto",
+                  },
+                  {
+                    other: "Ti manda chiunque abbia lasciato un numero",
+                    forge:
+                      "Filtriamo prima del sopralluogo: chi non può comprare non ci arriva",
+                  },
+                  {
+                    other: "Il preventivo mandato è affare tuo",
+                    forge:
+                      "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative",
+                  },
+                  {
+                    other: "Report su visualizzazioni, clic e copertura",
+                    forge:
+                      "Si contano i contratti firmati e il margine che lasciano",
+                  },
+                  {
+                    other: "Non ha mai visto un cantiere del tuo settore",
+                    forge:
+                      "Lavoriamo solo con imprese edili, con i numeri e il nome dell'impresa sotto",
+                  },
+                ].map((row, idx) => (
+                  <div
+                    key={row.other}
+                    className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
+                  >
+                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-brand-panna/70 hover:bg-brand-panna transition-colors">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-corallo"
+                        aria-hidden
+                      />
+                      <span className="text-xs md:text-sm leading-snug text-brand-grigio font-medium pt-0.5">
+                        {row.other}
+                      </span>
+                    </div>
+                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,var(--color-brand-verde)_8%,var(--color-brand-bianco))] hover:bg-[color-mix(in_srgb,var(--color-brand-verde)_14%,var(--color-brand-bianco))] transition-colors">
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-verde"
+                        aria-hidden
+                      />
+                      <span className="text-xs md:text-sm leading-snug font-semibold text-brand-nero pt-0.5">
+                        {row.forge}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </DeferredMount>
+
+      {/* S5 — CASI STUDIO, uno alla volta */}
+      <DeferredMount minHeight="720px" rootMargin="320px 0px">
+        <CasiStudioCarousel />
+      </DeferredMount>
+
+      {/* S6b — PER CHI E' SCETTICO
+          Quattro imprenditori su quattro, nelle conoscitive, avevano gia'
+          provato con un'agenzia. Qui non si argomenta: parla uno che era
+          nella stessa posizione, e la sua prima frase e' "ero scettico". */}
+      <DeferredMount minHeight="560px" rootMargin="320px 0px">
+        <VideoScettico />
+      </DeferredMount>
+
+      {/* S7 — TEAM */}
+      <DeferredMount minHeight="480px" rootMargin="320px 0px">
+        <TeamSection />
+      </DeferredMount>
+
+      {/* S8 — FAQ */}
+      <DeferredMount minHeight="360px">
+        <section id="faq" className={`section-mattone scroll-mt-24 ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <SectionHeader
+              eyebrow="Domande Frequenti"
+              title={
+                <>
+                  Quello che gli{" "}
+                  <span className="text-brand-corallo-text">
+                    imprenditori edili
+                  </span>{" "}
+                  ci chiedono sempre
+                </>
+              }
+            />
+            <div className={STRETTO}>
+              <FAQAccordion onCoral items={faqsPagina("home")} />
+            </div>
+            <p className="mt-8 text-center copy-on-coral">
+              <Link
+                href="/servizi#domande"
+                className="arrow-link text-sm md:text-base"
+              >
+                Altre domande su come si lavora
+              </Link>
+            </p>
+          </div>
+        </section>
+      </DeferredMount>
+
+      {/* S9 — IL FILTRO
+          Chiude la pagina qualificando invece di chiedere: chi si
+          riconosce a destra non ci fa perdere una conoscitiva, chi si
+          riconosce a sinistra scrive gia' convinto. */}
+      <DeferredMount minHeight="620px">
+        <PerChiSiPerChiNo />
+      </DeferredMount>
     </>
   );
 }
