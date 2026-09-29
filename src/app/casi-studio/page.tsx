@@ -43,12 +43,10 @@ export default function CasiStudioHub() {
         testo={
           <>
             Il lavoro lo sapevano fare: mancava un modo per trovare i clienti
-            giusti e portarli alla firma. L&apos;abbiamo costruito con loro,{" "}
-            <strong className="chiave">
-              richieste filtrate prima del sopralluogo, un processo di vendita
-              scritto e il gestionale
-            </strong>
-            , con noi al loro fianco ogni settimana.
+            giusti e <strong className="chiave">portarli alla firma</strong>.
+            L&apos;abbiamo costruito con loro: richieste filtrate prima del
+            sopralluogo, un processo di vendita scritto, il gestionale, e noi al
+            loro fianco ogni settimana.
           </>
         }
         nota={
