@@ -286,6 +286,17 @@ export default function Home() {
                       "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative",
                   },
                   {
+                    other:
+                      "Ti vende la pubblicità prima di sapere se la tua zona ha lavoro",
+                    forge:
+                      "Prima lo studio di fattibilità: conta il lavoro della tua zona da fonti ufficiali, e può dire di no",
+                  },
+                  {
+                    other: "Ti manda un report a fine mese",
+                    forge:
+                      "Il gestionale lo apri tu, quando vuoi, anche dal cantiere",
+                  },
+                  {
                     other: "Report su visualizzazioni, clic e copertura",
                     forge:
                       "Si contano i contratti firmati e il margine che lasciano",

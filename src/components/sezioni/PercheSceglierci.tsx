@@ -65,10 +65,10 @@ export default function PercheSceglierci() {
             Sei un&apos;impresa edile?
           </p>
           <p className="mb-1 font-display text-3xl font-bold leading-none text-brand-nero sm:text-4xl">
-            Tante imprese edili
+            Ti riconosci in una di queste?
           </p>
           <p className="mb-7 text-sm text-brand-grigio">
-            Non perdono lavori perché lavorano male. Li perdono qui.
+            Non si perdono lavori perché si lavora male. Si perdono qui.
           </p>
 
           <ul className="space-y-4">
@@ -85,7 +85,8 @@ export default function PercheSceglierci() {
           </ul>
 
           <p className="mt-7 border-t border-brand-bordo pt-6 font-display text-lg font-bold leading-snug text-brand-nero sm:text-xl">
-            Anche tu ti ritrovi in questa dinamica?
+            È normale. Succede quando il lavoro arriva prima
+            dell&apos;ordine, e in edilizia arriva sempre prima.
           </p>
         </div>
       </div>

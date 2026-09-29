@@ -1,41 +1,47 @@
-import { CONTENITORE, SEZIONE } from "@/components/blocchi/ui";
 import Image from "next/image";
 
-/*
- * I fondatori con nome e foto; la squadra per ruoli, perché i collaboratori
- * sono esterni (decisione della proprieta', 29/09/2026). I ruoli sono quelli
- * della landing /inizia.
- */
-type Persona = {
-  name: string;
-  forgeRole: string;
-  role: string;
-  photo: string;
-  linkedin?: string;
-  instagram?: string;
-};
-
-const team: Persona[] = [
+const team = [
   {
     name: "Marco Pio Cerbone",
-    forgeRole: "Fondatore",
-    role: "Marketing e consulenza aziendale",
+    forgeRole: "Co-Founder",
+    role: "Responsabile marketing & Consulenza aziendale",
+    roleNoWrap: true,
     photo: "/images/team/foto-marco.webp",
     linkedin: "https://www.linkedin.com/in/marco-pio-cerbone-01520b2a6",
   },
   {
     name: "Gianpio Uva",
-    forgeRole: "Fondatore",
-    role: "Vendita e processi commerciali",
+    forgeRole: "Co-Founder",
+    role: "Responsabile Commerciale & Sales Process",
     photo: "/images/team/foto-gianpio.jpg",
     linkedin: "https://www.linkedin.com/in/gianpio-uva-9170432b9",
+  },
+  {
+    name: "Francesco Chiumiento",
+    forgeRole: "Partner",
+    role: "Responsabile Creative & Video Producer",
+    photo: "/images/team/foto-francesco.webp",
+    instagram: "https://www.instagram.com/chiums_films?igsh=MTl0ZWJsM2x4ZXh4Yw==",
+  },
+  {
+    name: "Nicandro Grande",
+    forgeRole: "Partner",
+    role: "Consulente Crescita Digitale & Business Systems Expert",
+    photo: "/images/team/foto-nicandro.webp",
+    linkedin:
+      "https://www.linkedin.com/in/nicandrogrande?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   },
 ];
 
 const collaborators = [
-  "Consulenti esperti del settore",
-  "Videomaker professionisti",
-  "Esperti di Meta Ads e Google Ads",
+  "Consulenti Aziendali",
+  "Commerciali Esperti",
+  "Meta Ads Specialist",
+  "Google Ads Specialist",
+  "Posizionamento Google & IA",
+  "Web Master",
+  "Formatori & Imprenditori",
+  "Videomaker & Fotografi Professionisti",
 ];
 
 const chipOutlineClass =
@@ -43,12 +49,7 @@ const chipOutlineClass =
 
 function LinkedInIcon() {
   return (
-    <svg
-      className="w-4 h-4"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden
-    >
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
       <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
     </svg>
   );
@@ -56,12 +57,7 @@ function LinkedInIcon() {
 
 function InstagramIcon() {
   return (
-    <svg
-      className="w-4 h-4"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden
-    >
+    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
       <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.5.01-4.74.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.19-1.39-.32-1.71a2.86 2.86 0 0 0-.69-1.06 2.86 2.86 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.59-.07-4.74-.07zm0 3.06a4.98 4.98 0 1 1 0 9.96 4.98 4.98 0 0 1 0-9.96zm0 8.21a3.23 3.23 0 1 0 0-6.46 3.23 3.23 0 0 0 0 6.46zm6.34-8.41a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0z" />
     </svg>
   );
@@ -69,14 +65,11 @@ function InstagramIcon() {
 
 export default function TeamSection() {
   return (
-    <section className={`section-sabbia border-y ${SEZIONE}`}>
-      <div className={`${CONTENITORE} text-center`}>
-        <p className="mb-6 flex justify-center">
-          <span className="eyebrow-rule">Chi siamo</span>
-        </p>
-        <h2 className="heading-section-xl text-balance mx-auto mb-12 max-w-4xl md:mb-16">
-          Le persone dietro{" "}
-          <span className="text-brand-corallo-text">Forge Group</span>
+    <section className="py-20 md:py-28 section-sabbia border-y">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className="eyebrow mb-4">✦ Il Nostro Team</p>
+        <h2 className="heading-section text-brand-nero max-w-2xl mx-auto mb-16">
+          Le persone dietro <span className="text-brand-corallo">Forge Group</span>
         </h2>
 
         <div className="flex flex-wrap justify-center items-start gap-10 md:gap-12">
@@ -108,13 +101,15 @@ export default function TeamSection() {
                   </div>
                 )}
               </div>
-              <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">
-                {member.name}
-              </h3>
+              <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">{member.name}</h3>
               <p className="text-brand-corallo-text text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}
               </p>
-              <p className={`text-brand-grigio text-sm leading-snug ${""}`}>
+              <p
+                className={`text-brand-grigio text-sm leading-snug ${
+                  "roleNoWrap" in member && member.roleNoWrap ? "whitespace-nowrap" : ""
+                }`}
+              >
                 {member.role}
               </p>
               {member.linkedin || member.instagram ? (
@@ -148,10 +143,9 @@ export default function TeamSection() {
         </div>
 
         <div className="mt-20 md:mt-28 pt-16 border-t border-brand-bordo">
-          <h2 className="heading-section-xl text-balance mx-auto mb-12 max-w-4xl">
-            Con noi lavora una squadra che fa{" "}
-            <span className="text-brand-corallo-text">una cosa sola</span>:
-            portarti clienti
+          <h2 className="heading-section text-brand-nero max-w-3xl mx-auto mb-12">
+            Un team di specialisti che lavorano{" "}
+            <span className="text-brand-corallo">insieme sul tuo progetto</span>.
           </h2>
 
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
@@ -160,6 +154,7 @@ export default function TeamSection() {
                 {label}
               </span>
             ))}
+            <span className={chipOutlineClass}>e molti altri</span>
           </div>
         </div>
       </div>

@@ -38,7 +38,7 @@ const fili: ReadonlyArray<readonly [number, number]> = [
 const passi = [
   {
     t: "Ti portiamo richieste da chi il lavoro può pagarlo",
-    d: "Le intercettiamo noi, non aspettiamo il passaparola.",
+    d: "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri. Non aspetti più il passaparola.",
   },
   {
     t: "Chi non comprerà mai lo fermiamo prima del furgone",

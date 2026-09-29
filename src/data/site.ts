@@ -93,6 +93,11 @@ export const faqs: Faq[] = [
     a: "No. È compreso nel lavoro, per tutta la durata. Niente licenza da rinnovare dopo trenta giorni, niente assistenza da pagare a parte: sappiamo che è una delle cose che più fanno arrabbiare chi ha già comprato un programma.",
   },
   {
+    q: "E se non riesco a reggere il lavoro in più?",
+    pagine: ["home"],
+    a: "È una delle cose che guarda lo studio di fattibilità: quanto lavoro regge oggi la tua impresa, con le persone e i mezzi che ha. Le campagne si regolano su quello, e non si parte se la tua impresa andrebbe in sovraccarico.",
+  },
+  {
     q: "In quanto tempo si vedono i risultati?",
     pagine: ["home"],
     a: "Il primo mese serve a provare e aggiustare le campagne. Poi c'è da mettere in conto che in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri, spesso una seconda persona che deve dire la sua. Se qualcuno ti dice che in due settimane si firma, ti sta raccontando una cosa che in questo settore non succede.",
