@@ -1,7 +1,7 @@
 {
   "slug": "sopralluoghi-a-vuoto-quanto-costano",
-  "title": "Sopralluoghi a vuoto: quanto costa farne uno a ogni richiesta",
-  "description": "Fai il sopralluogo a tutti, prepari l'offerta e il cliente sceglie chi costa meno. Il conto dei sopralluoghi a vuoto e cosa chiedere prima di fissarli.",
+  "title": "Sopralluoghi e preventivi a vuoto: quanto ti costano in un anno",
+  "description": "Fai il sopralluogo a tutti e il cliente sceglie chi costa meno. Il conto di un anno di preventivi a vuoto, e cosa chiedere prima di fissare il sopralluogo.",
   "category": "Clienti e sopralluoghi",
   "date": "2026-10-02",
   "publishAt": "2026-10-02T09:00:00+02:00",
@@ -11,8 +11,17 @@
   "livello": 2,
   "argomento": "sopralluoghi-a-vuoto",
   "autore": "gianpio",
+  "seo": {
+    "parolaChiave": "preventivi a vuoto",
+    "secondarie": ["sopralluoghi a vuoto", "sopralluogo e preventivo", "sopralluogo a pagamento", "dire il prezzo prima del sopralluogo"],
+    "domanda": "Keyword Planner non misurato il 29/09: il Chrome non ha il permesso su ads.google.com. Nelle misure del 28/08 e del 03/09 il livello 2 è quasi tutto sotto soglia",
+    "serp": "Google 29/09: su 'preventivi a vuoto edilizia sopralluoghi inutili' e su 'preventivo edile cliente non risponde' in prima pagina ci sono testi del concorrente A (principale:blog/come-chiudere-preventivi-edilizia, principale:blog/sopralluogo-e-preventivo-in-edilizia): la ricerca la fanno i titolari. 'Sopralluogo a vuoto' da solo parla di immobili vuoti, e 'sopralluogo preventivo edile' è di privati (sopralluoghi gratuiti): scartate come principali",
+    "concorrente": ["principale:blog/gestione-lead-edilizia-turisti-preventivo", "principale:blog/offerte-edilizia-eliminare-perditempo-chiudere-contratti", "principale:blog/errore-scrematura-primo-contatto-telefonico-edilizia", "principale:blog/come-smettere-fare-offerte-vuoto-edilizia", "principale:blog/sopralluogo-e-preventivo-in-edilizia"],
+    "geo": "In breve con problema, causa e cosa cambia; quattro FAQ scritte come le domande trovate su Google e dal concorrente, con risposte complete; firma di Gianpio; dati strutturati con riassunto e parole chiave",
+    "sem": "Livello 2: su Meta come contenuto per farsi conoscere dai titolari di imprese edili; niente Google Ads search (domanda sotto soglia); post sulla scheda Google Business con il link"
+  },
   "inBreve": {
-    "problema": "Fai il sopralluogo a chiunque chiami, prepari l'offerta e a volte anche il progetto, e poi il cliente sceglie chi costa meno.",
+    "problema": "Fai il sopralluogo a chiunque chiami, prepari l'offerta e a volte anche il progetto: sono preventivi a vuoto, perché il cliente sceglie chi costa meno.",
     "causa": "Al sopralluogo arrivi senza conoscere il budget del cliente, quindi il totale in fondo all'offerta resta l'unica cosa che può confrontare.",
     "cambia": "Quattro informazioni prima di fissare il sopralluogo e la cifra detta presto, come fascia: fai meno sopralluoghi, e ognuno vale di più."
   },
@@ -44,7 +53,7 @@
     { "type": "p", "text": "Nessuno ha chiesto che lavoro vuole fare davvero, entro quando vuole cominciare, quanto ha pensato di spendere, e se decide lui o deve sentire qualcun altro in famiglia." },
     { "type": "p", "text": "Così il sopralluogo diventa l'unico filtro che hai. È un filtro che paghi tu, in ore e in gasolio, prima ancora di sapere se quella persona può permettersi il lavoro." },
     { "type": "p", "text": "Il sabato mattina passato a fare il rilievo delle misure per chi voleva solo un'idea del prezzo non te lo restituisce nessuno, e non c'è una voce in nessuna fattura che lo copra." },
-    { "type": "h2", "text": "IL CONTO DI UN ANNO DI SOPRALLUOGHI A VUOTO" },
+    { "type": "h2", "text": "IL CONTO DI UN ANNO DI SOPRALLUOGHI E PREVENTIVI A VUOTO" },
     { "type": "p", "text": "Mettiamo giù i numeri. Sono numeri tondi, ma il conto funziona così anche con i tuoi." },
     { "type": "p", "text": "Un sopralluogo, tra viaggio, rilievo e chiacchiere con il cliente, ti porta via mezza giornata. L'offerta fatta bene, con il computo delle voci e i materiali, un'altra mezza giornata, spesso la sera dopo il cantiere." },
     { "type": "p", "text": "Diciamo che fai otto sopralluoghi al mese e chiudi un contratto. Hai speso otto giornate per portare a casa un lavoro, e sette di quelle giornate non hanno prodotto niente." },
