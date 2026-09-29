@@ -41,7 +41,7 @@ export default function CasiStudioHub() {
           <>
             Coperture, arredamento negozi, software per l&apos;edilizia. Per
             ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               quanto è entrato
             </strong>
             .

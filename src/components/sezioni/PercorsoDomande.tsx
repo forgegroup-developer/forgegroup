@@ -158,7 +158,7 @@ export default function PercorsoDomande() {
             pubblicità per le aziende dell&apos;edilizia è quello che sappiamo
             fare. Poi però non ce ne andiamo: restiamo dentro il processo di
             vendita insieme a te, fino al momento in cui il cliente firma.{" "}
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               Lo chiamiamo Metodo FORGE, dal contatto alla firma, ed è
               esattamente il perimetro che copre.
             </strong>

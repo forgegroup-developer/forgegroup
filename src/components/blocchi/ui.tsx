@@ -100,3 +100,26 @@ export function ConForge({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
+/**
+ * Mette in evidenza la frase chiave dentro un testo (REGOLE §5, parole
+ * chiave in corallo grassetto). Se la frase non c'è, il testo resta com'è.
+ */
+export function Evidenzia({
+  testo,
+  chiave,
+}: {
+  testo: string;
+  chiave?: string;
+}) {
+  if (!chiave) return <>{testo}</>;
+  const i = testo.indexOf(chiave);
+  if (i < 0) return <>{testo}</>;
+  return (
+    <>
+      {testo.slice(0, i)}
+      <strong className="chiave">{chiave}</strong>
+      {testo.slice(i + chiave.length)}
+    </>
+  );
+}

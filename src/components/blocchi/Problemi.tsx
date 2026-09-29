@@ -90,13 +90,13 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
               È normale. Succede alle imprese che vivono di passaparola: nei
               mesi buoni il lavoro arriva da solo, in quelli morti le spese
               corrono lo stesso, e si finisce a prendere i clienti{" "}
-              <strong className="text-brand-nero">
+              <strong className="chiave">
                 per bisogno invece di sceglierli
               </strong>
               .
             </p>
             <p className="body-lg">
-              <strong className="text-brand-nero">
+              <strong className="chiave">
                 Non è la stagionalità, e non è la crisi.
               </strong>{" "}
               Manca un modo per far arrivare{" "}

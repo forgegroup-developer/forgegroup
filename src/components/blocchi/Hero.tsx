@@ -78,7 +78,7 @@ export default function Hero({
             ))}
           </div>
           <p className="text-sm leading-snug text-brand-grigio">
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               Marco Pio Cerbone e Gianpio Uva
             </strong>
             <br />
@@ -111,7 +111,7 @@ export default function Hero({
         <p className="flex items-center gap-2 text-sm text-brand-grigio">
           <Stelle />
           <span>
-            <strong className="text-brand-nero">
+            <strong className="chiave">
               {recensioniGoogle.voto} su Google
             </strong>
             , {recensioniGoogle.totale} recensioni

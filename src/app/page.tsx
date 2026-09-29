@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Evidenzia } from "@/components/blocchi/ui";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
@@ -48,51 +49,75 @@ const confronto = [
   {
     tema: "Sopralluoghi regalati",
     problema: "Gli faccio sopralluogo e progetto, e poi sceglie un altro",
+    chiave: "il sopralluogo lo fissi solo quando vale il viaggio",
     soluzione:
       "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi: il sopralluogo lo fissi solo quando vale il viaggio.",
   },
   {
     tema: "Il preventivo e poi il silenzio",
     problema: "Dopo il ci devo pensare non si è più fatto sentire",
+    chiave: "ogni settimana passiamo con te le trattative aperte",
     soluzione:
       "Nel gestionale ogni preventivo ha una data per richiamare, e ogni settimana passiamo con te le trattative aperte una per una.",
   },
   {
     tema: "La guerra dei prezzi",
     problema: "Per 500 euro in meno ha scelto l'altra azienda",
+    chiave: "il cliente vede cosa compra prima del totale",
     soluzione:
       "Al posto del solito preventivo costruiamo con te il piano dei lavori e il materiale per presentarlo: il cliente vede cosa compra prima del totale.",
   },
   {
     tema: "L'agenzia di prima",
     problema: "Ho pagato, ma i contatti non erano nemmeno lavorabili",
+    chiave: "quanto ti rende ogni euro",
     soluzione:
       "Il filtro lo mettiamo noi, e nel gestionale vedi contratto per contratto quanto ti rende ogni euro. Dopo 60 giorni rivediamo le stime sui dati veri.",
   },
   {
     tema: "I mesi morti",
     problema: "In quelli morti aspetto che squilli il telefono",
+    chiave: "lavorano anche quando il passaparola si ferma",
     soluzione:
       "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri: lavorano anche quando il passaparola si ferma.",
   },
   {
     tema: "La paura di vendere",
     problema: "Non richiamo per non sembrare insistente",
+    chiave: "Le parole per richiamare le scriviamo insieme",
     soluzione:
       "Le parole per richiamare le scriviamo insieme, così chi risponde al telefono sa cosa dire e quando dire la cifra.",
   },
   {
     tema: "Il titolare dentro il cantiere",
     problema: "Dalle 8 alle 20 sto in cantiere, e il resto lo faccio io",
+    chiave: "Tu guardi i numeri, anche dal cantiere",
     soluzione:
       "Il processo di vendita lo mettiamo per iscritto, così può seguirlo anche chi risponde al telefono. Tu guardi i numeri, anche dal cantiere.",
   },
   {
     tema: "I soldi che non entrano",
     problema: "Il lavoro l'ho finito, ma i soldi non arrivano",
+    chiave: "come e quando ti pagano si decide prima di iniziare",
     soluzione:
       "Nel processo di vendita come e quando ti pagano si decide prima di iniziare, per iscritto: acconto, saldo, bonifico.",
   },
+];
+
+const mestieri = [
+  "Costruzioni e ristrutturazioni",
+  "Edilizia residenziale",
+  "Coperture e tetti",
+  "Lattoneria",
+  "Serramenti e infissi",
+  "Impianti",
+  "Fotovoltaico",
+  "Pompe di calore",
+  "Climatizzazione",
+  "Arredo casa",
+  "Arredo negozi",
+  "Software per l'edilizia",
+  "Fornitori del settore",
 ];
 
 export default function Home() {
@@ -139,7 +164,7 @@ export default function Home() {
           <p className="hero-enter hero-enter-d3 max-w-xl text-pretty text-lg leading-relaxed text-brand-grigio">
             Lo facciamo con un processo di vendita strutturato e un gestionale
             che ti mostra{" "}
-            <strong className="font-semibold text-brand-nero">
+            <strong className="chiave">
               quanto rende ogni euro di pubblicità
             </strong>
             : senza più regalare sopralluoghi a chi cerca solo il prezzo più
@@ -148,11 +173,8 @@ export default function Home() {
 
           <p className="hero-enter hero-enter-d3 firma-fondatori">
             Il Metodo FORGE l&apos;abbiamo costruito noi due,{" "}
-            <strong className="font-semibold text-brand-nero">
-              Marco e Gianpio
-            </strong>
-            , dopo aver analizzato sul campo i processi di centinaia di imprese
-            edili.
+            <strong className="chiave">Marco e Gianpio</strong>, dopo aver
+            analizzato sul campo i processi di centinaia di imprese edili.
           </p>
 
           {/* Due pulsanti larghi quanto il loro testo: prima erano due
@@ -206,13 +228,23 @@ export default function Home() {
         {/* Il perimetro dei mestieri, con lo stesso asterisco
             dell'occhiello in cima: e' la nota a piede della promessa, e
             sta sotto entrambe le colonne perche' vale per tutta la hero. */}
-        <p className="hero-enter hero-enter-d3 riga-mestieri order-3">
-          <span className="riga-mestieri-asterisco" aria-hidden>
-            ✳
-          </span>
-          Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
-          commerciale, software per l&apos;edilizia e fornitori del settore.
-        </p>
+        {/* I mestieri: le nicchie della Testa aziendale (§2), comprese quelle
+            su cui il concorrente non scrive (fotovoltaico, pompe di calore,
+            climatizzazione, lattoneria, tetti, arredo negozi: ricerca del
+            28/09). Larga quanto tutta la hero (proprietà, 29/09). */}
+        <div className="hero-enter hero-enter-d3 riga-mestieri order-3">
+          <p className="riga-mestieri-titolo">
+            <span className="riga-mestieri-asterisco" aria-hidden>
+              ✳
+            </span>
+            Lavoriamo solo con imprese edili e della filiera:
+          </p>
+          <ul className="riga-mestieri-elenco">
+            {mestieri.map((m) => (
+              <li key={m}>{m}</li>
+            ))}
+          </ul>
+        </div>
       </HeroGooeySection>
 
       {/* S2 — LOGHI CLIENTI */}
@@ -346,7 +378,10 @@ export default function Home() {
                         ✓
                       </span>
                       <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
-                        {riga.soluzione}
+                        <Evidenzia
+                          testo={riga.soluzione}
+                          chiave={riga.chiave}
+                        />
                       </p>
                     </div>
                   </li>

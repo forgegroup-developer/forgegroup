@@ -2,32 +2,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { clientLogos } from "@/data/clientLogos";
 import BannerGoogle from "@/components/sezioni/BannerGoogle";
+import { casi } from "@/data/prove";
 
 /**
- * Barra prova. Ogni numero e' attribuito al cliente da cui viene e proviene
- * dai `results` del suo caso studio: niente totali aggregati, che sarebbero
- * un dato che nessuno ha misurato, e niente contatori vuoti.
+ * Barra prova: gli stessi tre numeri della landing /inizia, presi da
+ * src/data/prove.ts (proprietà, 29/09). Ogni numero ha sotto il cliente.
  */
-const prove = [
-  {
-    valore: "+350K€",
-    etichetta: "In 12 mesi, solo dalle Meta Ads",
-    cliente: "DISA · SOS Appalti",
-    href: "/casi-studio/software-b2b",
-  },
-  {
-    valore: "175K€",
-    etichetta: "Il preventivo più alto",
-    cliente: "Tetti Top",
-    href: "/casi-studio/edilizia",
-  },
-  {
-    valore: "25K€",
-    etichetta: "Chiusi in quattro mesi",
-    cliente: "ROVI Arredo Negozi",
-    href: "/casi-studio/arredo-commerciale",
-  },
-];
+const link: Record<string, string> = {
+  "software-b2b": "/casi-studio/software-b2b",
+  edilizia: "/casi-studio/edilizia",
+  "arredo-commerciale": "/casi-studio/arredo-commerciale",
+};
+const prove = casi.map((c) => ({
+  valore: c.numero,
+  etichetta: c.numeroDetto,
+  cliente: `${c.chi} · ${c.settore}`,
+  href: link[c.slug],
+}));
 
 const clienti = [
   clientLogos.rovi,
@@ -56,8 +47,8 @@ export default function ClientiLogos() {
   return (
     <section className="py-14 md:py-20 section-bianco-y">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="flex justify-center eyebrow eyebrow-mark mb-3">
-          Alcuni dei nostri clienti
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Alcuni dei nostri clienti</span>
         </p>
         <h2 className="text-center heading-section-xl text-balance mb-10 md:mb-12">
           Imprese che hanno scelto di{" "}

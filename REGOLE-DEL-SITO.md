@@ -33,6 +33,8 @@ Le misure stanno in `src/components/blocchi/ui.tsx` e si usano da lì, mai riscr
 Colori solo dai token di `globals.css`: bianco, panna, corallo (`#c8502a`), mattone (`#6f2a12`).
 
 - **Niente nero** come colore di sfondo o di sezione.
+- **Solo due sfondi in tutto il sito: bianco e mattone.** Dal 29/09 il token panna è bianco e le
+  sezioni corallo sono mattone (blocco "Due soli sfondi" in fondo a `globals.css`).
 - **Solo due sfondi di sezione: bianco (`section-bianco`) e mattone (`section-mattone`)**, alternati
   sotto la hero (che è panna). Niente `section-sabbia`, niente riquadri, schede o celle tinte di panna
   o di verde (proprietà, 29/09: "troppe varianti di sfondo non va bene"). Le schede sono bianche.
@@ -82,6 +84,16 @@ Colori solo dai token di `globals.css`: bianco, panna, corallo (`#c8502a`), matt
 - Forge **non chiama i contatti** del cliente e **non va agli incontri**: li segue *con* il titolare.
 - "In tutta Italia", mai regioni che restringono. Mai prezzi.
 - Ogni problema ha accanto la sua soluzione, detta come meccanismo ("Con Forge").
+
+## 5 BIS · LE PAROLE CHIAVE (proprietà, 29/09)
+
+- **Ogni paragrafo o scheda mette in evidenza la sua frase chiave: corallo e grassetto**, con
+  `<strong className="chiave">` oppure `<Evidenzia testo={…} chiave="…" />` (da
+  `src/components/blocchi/ui.tsx`). Nei titoli la parola chiave è `<Chiave>`.
+- Una, al massimo due per paragrafo: la cosa che il titolare deve portarsi via se legge solo quella
+  (il meccanismo, il risultato, il problema). Mai parole a caso, mai frasi intere di tre righe.
+- Sul mattone la classe `chiave` diventa pesca da sola; nelle schede chiare sul mattone torna corallo.
+- Servono anche a Google e alle intelligenze artificiali: dicono di cosa parla il blocco.
 
 ## 6 · IMMAGINI
 

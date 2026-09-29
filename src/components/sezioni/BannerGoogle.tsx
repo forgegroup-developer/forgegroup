@@ -27,7 +27,7 @@ export default async function BannerGoogle({
         ★★★★★
       </span>
       <span>
-        <strong className="text-brand-nero">{voto} su Google</strong>,{" "}
+        <strong className="chiave">{voto} su Google</strong>,{" "}
         {dati.totale} recensioni
       </span>
     </p>
