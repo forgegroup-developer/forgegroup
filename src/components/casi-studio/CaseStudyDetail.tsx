@@ -16,7 +16,32 @@ import {
 } from "@/components/blocchi/ui";
 import { caseStudies, type CaseStudy } from "@/data/caseStudies";
 import { recensioniGoogle } from "@/data/prove";
-import { getCaseStudyImage, getCaseStudyImagePosition, teamImages } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition, iniziaImages, teamImages } from "@/data/images";
+
+/*
+ * Le scene del prima e dopo: le immagini AI della landing. Il prima è il
+ * problema da cui partiva il caso, il dopo è il titolare che vede tutto dal
+ * telefono. Quando arrivano scene fatte apposta per ogni caso, si cambiano
+ * qui.
+ */
+const scenaDopo = {
+  src: iniziaImages.cantiereTelefono,
+  alt: "Un imprenditore edile in cantiere guarda sul telefono le richieste, mentre due operai alzano un muro",
+};
+const scenePrima: Record<string, { src: string; alt: string }> = {
+  edilizia: {
+    src: iniziaImages.sopralluogoAVuoto,
+    alt: "Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono",
+  },
+  "arredo-commerciale": {
+    src: iniziaImages.prezzoPiuBasso,
+    alt: "Un titolare guarda due preventivi affiancati: il cliente indica quello più basso",
+  },
+  "software-b2b": {
+    src: iniziaImages.cantiereAlle20,
+    alt: "Un imprenditore al telefono, seduto sul furgone davanti al cantiere al tramonto",
+  },
+};
 
 /*
  * La pagina di un caso studio (rifatta il 29/09/2026).
@@ -405,7 +430,10 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               <Chiave>{c.evolutionHeadingHighlight ?? `per ${clientName}`}</Chiave>.
             </Titolo>
             <div className={STRETTO}>
-              <CaseStudyBeforeAfter rows={c.beforeAfter} />
+              <CaseStudyBeforeAfter
+                rows={c.beforeAfter}
+                foto={scenePrima[c.slug] ? { prima: scenePrima[c.slug], dopo: scenaDopo } : undefined}
+              />
             </div>
             {c.statusBadge && (
               <p className="mt-10 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
