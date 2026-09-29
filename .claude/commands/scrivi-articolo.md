@@ -8,6 +8,14 @@ proprietà in chat; altrimenti arrivi fino alla PR).
 
 ## 0 · Leggi le regole (ogni volta)
 
+**Il percorso di lettura comanda:** apri
+`~/ForgeGroup/progetti/sito/materiali/00 - PERCORSO DI LETTURA PRIMA DI OGNI MODIFICA.md` e seguilo
+come Redattore (livello 0, livello 1, sezioni A, C, D, E, G; rispondi alle tre domande di controllo).
+L'elenco qui sotto è il minimo; per i documenti lunghi usa `00 - RIASSUNTI DEI DOCUMENTI.md`. Se trovi
+due fonti in contrasto, scrivilo in `00 - REGISTRO DEI CONTRASTI.md`. In cima al tuo lavoro scrivi in una
+riga cosa hai letto.
+
+
 1. `~/ForgeGroup/progetti/sito/feedback-generale.md` e `~/ForgeGroup/progetti/sito/dipendenti-ai/feedback.md`
 2. `~/ForgeGroup/progetti/sito/dipendenti-ai/00 - LEGGIMI.md`, poi `01 - Il processo.md`,
    `02 - La regola della piramide.md`, `03 - Guida editoriale.md`
