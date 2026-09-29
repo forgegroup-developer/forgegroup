@@ -8,7 +8,7 @@ import { faqsPagina } from "@/data/site";
 export const metadata: Metadata = {
   title: "Candida la tua impresa edile",
   description:
-    "Lo studio di fattibilità dice se ha senso lavorare insieme, e a volte la risposta è no. Prendiamo poche imprese per territorio. Rispondi a poche domande e ti chiamiamo entro 48 ore lavorative.",
+    "Candida la tua impresa edile: lo studio di fattibilità dice se ha senso lavorare insieme, e può dire di no. Ti chiamiamo entro 48 ore lavorative.",
   alternates: { canonical: "/contatti" },
   robots: { index: true, follow: true },
   openGraph: {

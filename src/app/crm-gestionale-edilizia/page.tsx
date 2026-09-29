@@ -17,12 +17,12 @@ import { SITE_NAME } from "@/lib/seo/site";
  */
 
 export const metadata: Metadata = {
-  title: "CRM per imprese edili: dove finiscono le richieste",
+  title: "Gestionale per imprese edili: dove finiscono le richieste",
   description:
-    "Un gestionale tiene il cantiere. Questo tiene la trattativa: ogni richiesta della tua impresa edile con stato, data e persona che la segue. Lo apri dal telefono, in cantiere.",
+    "Il gestionale per imprese edili che tiene la trattativa: ogni richiesta con stato, data e chi la segue, e quanto rende ogni euro. Lo apri dal telefono.",
   alternates: { canonical: "/crm-gestionale-edilizia" },
   openGraph: {
-    title: "CRM per imprese edili | Forge Group",
+    title: "Gestionale per imprese edili | Forge Group",
     description:
       "I gestionali tengono il cantiere. Questo tiene la trattativa che deve diventare cantiere: stato, data e persona che la segue.",
     url: "/crm-gestionale-edilizia",

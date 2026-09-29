@@ -4,7 +4,7 @@ import VisionSection from "@/components/sezioni/VisionSection";
 export const metadata: Metadata = {
   title: "Lavora con noi",
   description:
-    "La visione di Forge Group: perché entriamo nelle aziende, restiamo e costruiamo sistemi che reggono nel tempo. Lealtà, trasparenza e imprenditori con cui crescere.",
+    "La visione di Forge Group: entriamo nelle imprese, restiamo e costruiamo sistemi che reggono nel tempo. Lealtà, trasparenza, imprenditori con cui crescere.",
   alternates: { canonical: "/visione" },
   openGraph: {
     title: "Lavora con noi | Forge Group",

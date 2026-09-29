@@ -359,7 +359,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 {c.slug === "hotel-hospitality" ? (
                   <>
                     Per strutture ricettive che vogliono un{" "}
-                    <span>flusso di prenotazioni più prevedibile</span>.
+                    <span>prenotazioni tutto l&apos;anno</span>.
                   </>
                 ) : (
                   <>

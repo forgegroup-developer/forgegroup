@@ -123,11 +123,10 @@ export const caseStudies: CaseStudy[] = [
       { value: "4", label: "Clienti qualificati al mese", detail: "Media stabile, scala da azienda familiare" },
       { value: "0€", label: "Investiti in pubblicità", detail: "Solo posizionamento organico" },
       { value: "175K€", label: "Preventivo più alto", detail: "Valore generato dal sistema (+ IVA)" },
-      { value: "100%", label: "Agenda piena", detail: "Lavori a calendario bloccato" },
     ],
     quote: {
-      text: "4 clienti qualificati al mese, senza spendere un euro in pubblicità, solo grazie al posizionamento online. Trattative generate fino a 175.000€ + IVA. Un'azienda di famiglia che oggi lavora finalmente a calendario bloccato.",
-      author: "Edilizia B2C",
+      text: "4 clienti qualificati al mese, senza spendere un euro in pubblicità, solo grazie al posizionamento online. Preventivi fino a 175.000€ + IVA, e oggi il sopralluogo si paga.",
+      author: "Tetti Top",
       role: "Tetti Top · Sistema Forge Group",
     },
     evolutionEyebrow: "Cosa è successo dopo",
@@ -191,18 +190,15 @@ export const caseStudies: CaseStudy[] = [
       { label: "Settore", value: "Arredamento negozi e locali commerciali" },
       { label: "Specializzazione", value: "Arredamento negozi e attività commerciali" },
       { label: "Azienda", value: "ROVI Srl" },
-      { label: "Ticket medio", value: "+25.000€" },
       { label: "Mercato", value: "Italia" },
-      { label: "Fatturato attuale", value: "+40.000€/mese" },
-      { label: "Max storico", value: "400.000€ su singolo progetto" },
     ],
     challenge:
-      "ROVI è un'azienda solida, con oltre 40 anni di attività, progetti fino a 400.000€ e una reputazione costruita nel tempo. Il problema non era la qualità del lavoro: tutta la crescita dipendeva da passaparola e referral. Zero canali attivi, zero processi commerciali strutturati, zero sistema scalabile. Il titolare aveva la visione per fare molto di più. Mancava il sistema per farlo succedere.",
+      "ROVI è un'azienda solida, con una reputazione costruita nel tempo. Il problema non era la qualità del lavoro: tutta la crescita dipendeva dal passaparola. Nessun canale attivo, nessun processo di vendita scritto. Il titolare aveva la visione per fare molto di più: mancava il sistema per farlo succedere.",
     diagnosis: [
       "Clienti solo dal passaparola: nessun altro canale attivo",
-      "Progettazione regalata a richieste non filtrate: 36 progetti persi ogni anno senza ritorno",
+      "Progettazione regalata a richieste non filtrate, senza ritorno",
       "Vendita non strutturata: agenda cartacea, WhatsApp, nessuno storico delle trattative",
-      "Media di 10 incontri per chiudere un contratto, senza script né protocolli definiti",
+      "Tanti incontri per chiudere un contratto, senza un percorso definito",
       "La maggior parte delle richieste arrivava senza budget né tempi definiti: nessun filtro all'ingresso",
     ],
     system: [
@@ -263,13 +259,13 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Acquisizione",
-        before: "100% passaparola, zero canali attivi",
-        after: "Meta Ads live con form di qualifica integrati",
+        before: "Solo passaparola, nessun altro canale attivo",
+        after: "Campagne Meta Ads con il modulo che filtra",
       },
       {
         aspect: "Progettazione",
-        before: "Gratuita: 36 progetti persi ogni anno senza ritorno",
-        after: "A pagamento: filtra le richieste non in target e monetizza la consulenza",
+        before: "Regalata a chiunque, senza ritorno",
+        after: "A pagamento: filtra chi non è pronto e fa pagare il lavoro di progetto",
       },
       {
         aspect: "Vendita",
@@ -277,19 +273,14 @@ export const caseStudies: CaseStudy[] = [
         after: "3 processi commerciali con script e follow-up giornalieri",
       },
       {
-        aspect: "Prequalifica",
+        aspect: "Filtro",
         before: "La maggior parte delle richieste senza budget né tempi definiti",
-        after: "Gate su budget, stato immobile e tempistiche",
+        after: "Domande su budget, stato dell'immobile e tempi, prima dell'appuntamento",
       },
       {
         aspect: "Chiusura",
-        before: "10 incontri per contratto, senza protocolli",
-        after: "Appuntamenti strutturati con schede e commitment progressivo",
-      },
-      {
-        aspect: "Obiettivo",
-        before: "Crescita legata soprattutto al passaparola",
-        after: "+300k fatturato aggiuntivo in 12 mesi (traguardo in corso)",
+        before: "Tanti incontri per contratto, senza un percorso",
+        after: "Appuntamenti con schede e passaggi definiti fino alla firma",
       },
     ],
     statusBadge: "Progetto attivo · primi contratti chiusi",
@@ -316,11 +307,10 @@ export const caseStudies: CaseStudy[] = [
     context: [
       { label: "Settore", value: "Software per l'edilizia, gare d'appalto" },
       { label: "Azienda", value: "DISA SRL, SOS APPALTI: software per le gare d'appalto" },
-      { label: "Ticket medio", value: "Oltre 12.000€" },
       { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "DISA SRL fatturava già oltre 1 milione di euro all'anno, ma trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali percorrevano anche più di 50 km per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
+      "DISA SRL trovava nuovi clienti solo con chiamate, referenze e passaparola. Non esisteva un sistema per intercettare chi non conosceva ancora SOS APPALTI: i commerciali facevano trasferte per appuntamenti con persone che non sapevano nemmeno cosa fosse il software, né perché potesse servire alla loro attività.",
     diagnosis: [
       "Nessun canale per trovare clienti nuovi: tutto dipendeva da passaparola e referenze personali",
       "Contatti non consapevoli: quelli che incontravano non conoscevano il software né ne percepivano l'utilità",
@@ -356,14 +346,13 @@ export const caseStudies: CaseStudy[] = [
         step: "05",
         title: "Lancio geolocalizzato e crescita in Italia",
         description:
-          "Abbiamo avviato il sistema su un'area a 250 km dalla sede per validarlo insieme a DISA; oggi è pronto a essere replicato in tutta Italia con risultati in crescita.",
+          "Abbiamo avviato il sistema su un'area vicina alla sede per provarlo insieme a DISA; oggi è pronto per tutta Italia.",
       },
     ],
     results: [
       { value: "+126k", label: "Nuovi contratti", detail: "Nei primi 90 giorni, solo dalle Meta Ads" },
-      { value: "€1,48", label: "Costo per contatto", detail: "Fino a max €3 nei primi mesi" },
-      { value: "+550", label: "Contatti generati", detail: "Già consapevoli e in target" },
-      { value: "+350k", label: "Fatturato ad oggi", detail: "Cliente attivo, ancora in crescita" },
+      { value: "€1,48", label: "Costo per contatto", detail: "Solo dalle Meta Ads" },
+      { value: "+350k", label: "In 12 mesi", detail: "Solo dalle Meta Ads, con circa 300 € al mese di pubblicità" },
     ],
     quote: {
       text: "126.500€ di fatturato, non me lo aspettavo. Ero scettico all'inizio: questo metodo per me ha funzionato. Lo consiglio a tutte le aziende che vogliono crescere sul mercato.",
@@ -395,7 +384,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Contatti",
         before: "Persone che non conoscevano SOS APPALTI",
-        after: "Richieste di chi conosce già il software e ne ha bisogno (+550)",
+        after: "Richieste di chi conosce già il software e ne ha bisogno",
       },
       {
         aspect: "Commerciali",

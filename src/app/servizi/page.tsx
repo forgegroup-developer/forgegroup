@@ -151,7 +151,7 @@ const serviziTabs: ServiziTab[] = [
 export const metadata: Metadata = {
   title: "Servizi per imprese edili | Il Metodo FORGE",
   description:
-    "Come lavoriamo con un'impresa edile: la pubblicità la giriamo noi, le richieste sono filtrate prima di arrivarti, e ogni settimana guardiamo le trattative aperte una per una.",
+    "Come lavoriamo con un'impresa edile: la pubblicità la gestiamo noi, le richieste arrivano filtrate, e ogni settimana guardiamo insieme le trattative.",
   alternates: { canonical: "/servizi" },
   openGraph: {
     title: "Servizi per imprese edili | Il Metodo FORGE",
