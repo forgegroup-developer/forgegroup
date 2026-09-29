@@ -1,3 +1,5 @@
+import { CONTENITORE, SEZIONE, Chiave, Titolo } from "@/components/blocchi/ui";
+
 /* Niente animazione d'entrata, per scelta della proprieta' (21 settembre
    2026). Reveal faceva sparire i passi appena partiva JavaScript per poi
    farli riapparire in dissolvenza, dopo un secondo e mezzo li mostrava
@@ -71,7 +73,7 @@ export default function MetodoForge({
   return (
     <section
       id="metodo"
-      className={`relative overflow-hidden scroll-mt-24 py-20 md:py-24 lg:py-28 ${className}`}
+      className={`relative overflow-hidden scroll-mt-24 ${SEZIONE} ${className}`}
     >
       {!coral && (
         <div
@@ -80,17 +82,13 @@ export default function MetodoForge({
         />
       )}
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2
-            className={`heading-section leading-tight ${coral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
-          >
-            <span className="text-brand-corallo">Metodo FORGE</span>: dal
-            contatto alla firma, in cinque fasi
-          </h2>
-        </div>
+      <div className={`relative z-10 ${CONTENITORE}`}>
+        <Titolo occhiello="Il metodo">
+          Il <Chiave>Metodo FORGE</Chiave>: dal contatto alla firma, in cinque
+          fasi
+        </Titolo>
 
-        <div>
+        <div className="mx-auto max-w-5xl">
           {fasi.map((fase, idx) => (
             <article
               key={fase.letter}

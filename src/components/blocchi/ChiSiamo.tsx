@@ -10,7 +10,12 @@ import { squadra } from "@/data/blocchi";
 import { teamImages } from "@/data/images";
 
 /** I fondatori e la squadra, descritta per ruoli (i collaboratori sono esterni). */
-export default function ChiSiamo() {
+export default function ChiSiamo({
+  dopoLaChiamata = false,
+}: {
+  /** Sulla landing chi legge è appena stato chiamato da Gianpio. */
+  dopoLaChiamata?: boolean;
+}) {
   return (
     <>
       {/* 6 · Chi siamo: le facce, da dove veniamo, e chi lavora sulla tua impresa. */}
@@ -36,7 +41,12 @@ export default function ChiSiamo() {
             <div>
               <p className="mb-5 font-display text-2xl font-bold leading-snug text-brand-nero">
                 Siamo Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge
-                Group. <Chiave>Gianpio è quello che ti ha chiamato.</Chiave>
+                Group.{" "}
+                <Chiave>
+                  {dopoLaChiamata
+                    ? "Gianpio è quello che ti ha chiamato."
+                    : "Nella tua chiamata settimanale ci siamo noi."}
+                </Chiave>
               </p>
               <p className="body-lg mb-5">
                 Siamo entrati in contatto con centinaia di imprese edili e
