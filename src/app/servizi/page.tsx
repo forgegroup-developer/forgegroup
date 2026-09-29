@@ -50,21 +50,24 @@ function ContoSopralluoghi() {
       <p className="mb-4 text-sm font-semibold uppercase tracking-wide !text-white/80">
         Facciamo due conti, con numeri tondi
       </p>
-      <ol className="space-y-2">
+      {/* Da computer i riquadri stanno in fila con la freccia a destra,
+          da telefono uno sotto l'altro con la freccia in basso. */}
+      <ol className="flex flex-col gap-2 md:flex-row md:items-stretch">
         {passi.map((p, i) => (
-          <li key={p}>
-            <p className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-medium !text-white">
+          <li key={p} className="flex flex-col md:flex-1 md:flex-row md:items-center">
+            <p className="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-4 font-medium !text-white md:h-full">
               {p}
             </p>
             {i < passi.length - 1 && (
-              <p className="py-1 text-center text-xl font-bold !text-white/80" aria-hidden>
-                ↓
+              <p className="py-1 text-center text-xl font-bold !text-white/80 md:px-3 md:py-0" aria-hidden>
+                <span className="md:hidden">↓</span>
+                <span className="hidden md:inline">→</span>
               </p>
             )}
           </li>
         ))}
       </ol>
-      <p className="mt-5 font-display text-xl font-bold leading-snug !text-white md:text-2xl">
+      <p className="mt-6 text-center font-display text-xl font-bold leading-snug !text-white md:text-2xl">
         Più di quattro mesi di lavoro regalati a chi non avrebbe mai firmato.
       </p>
     </div>

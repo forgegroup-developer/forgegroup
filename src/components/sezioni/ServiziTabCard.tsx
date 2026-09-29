@@ -18,18 +18,28 @@ type Props = {
   /** I problemi della landing che questa macroarea risolve, con le stesse parole. */
   problemi: Problema[];
   points: ServiziTabPoint[];
-  /** Come si fa in pratica: regole nate dalle consulenze vere (ROVI). */
+  /** Le regole che si scrivono con il cliente. */
   pratica?: { titolo: string; voci: string[] };
   /** Un blocco in più dopo i problemi (in acquisizione: il conto dei sopralluoghi). */
   extra?: ReactNode;
 };
 
+/* Le colonne seguono il numero delle schede: niente scheda sola in fondo. */
+function colonne(n: number) {
+  if (n === 1) return "";
+  if (n === 3) return "lg:grid-cols-3";
+  return "md:grid-cols-2";
+}
+
 /*
- * Una macroarea di /servizi (rifatta il 29/09/2026 su richiesta della
- * proprietà): prima i problemi, presi dalla landing /inizia con le stesse
- * frasi dei titolari e la stessa soluzione accanto; poi cosa facciamo in
- * concreto; poi, dove c'è, la pratica. A sinistra la scena del problema
- * al posto dell'illustrazione.
+ * Una macroarea di /servizi. Rifatta il 29/09/2026 (proprietà: "troppo
+ * spazio a sinistra, foto piccola"): niente più colonna laterale. Tutto a
+ * piena larghezza, dall'alto in basso:
+ * 1. apertura: numero, nome e frase a sinistra, la scena grande a destra;
+ * 2. i problemi della landing, con le stesse parole e la soluzione accanto;
+ * 3. il blocco in più (il conto), dove c'è;
+ * 4. cosa facciamo, in concreto, affiancato;
+ * 5. le regole, dove ci sono, e il pulsante.
  */
 export default function ServiziTabCard({
   id,
@@ -47,40 +57,37 @@ export default function ServiziTabCard({
       id={id}
       className="card-xl superficie-chiara scroll-mt-28 overflow-hidden rounded-3xl border bg-brand-bianco shadow-xl shadow-black/10"
     >
-      <div className="flex flex-col lg:flex-row">
-        {/* Colonna sinistra: resta ferma mentre si leggono i problemi. */}
-        <div className="border-b border-brand-bordo p-6 md:p-10 lg:w-[400px] lg:shrink-0 lg:border-b-0 lg:border-r">
-          <div className="lg:sticky lg:top-28">
-            <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none tabular-nums text-brand-corallo">
-              {number}
-            </span>
-            <h3 className="mt-3 font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase leading-tight tracking-tight text-brand-corallo [&_span]:text-inherit">
-              {title}
-            </h3>
-            <div className="my-5 border-t border-brand-bordo" aria-hidden />
-            <p className="mb-6 font-display text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold leading-snug tracking-tight text-brand-nero [&_span]:text-brand-corallo">
-              {intro}
-            </p>
-            <ScenaAI src={scena.src} alt={scena.alt} sizes="(min-width: 1024px) 330px, 100vw" />
-            {/* Il colore scritto per esteso: sul mattone la classe
-                text-brand-corallo-text diventa evidenziatore e toglie il
-                padding al pulsante. */}
-            <Link
-              href="/contatti"
-              className="mt-6 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border-2 border-brand-corallo px-5 py-2.5 text-xs font-bold text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10"
-            >
-              Richiedi lo studio di fattibilità ↗
-            </Link>
-          </div>
+      {/* 1 · Apertura */}
+      <div className="grid items-center gap-8 border-b border-brand-bordo p-6 md:p-10 lg:grid-cols-2 lg:gap-12">
+        <div>
+          <span className="font-display text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none tabular-nums text-brand-corallo">
+            {number}
+          </span>
+          <h3 className="mt-3 font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase leading-tight tracking-tight text-brand-corallo [&_span]:text-inherit">
+            {title}
+          </h3>
+          <div className="my-5 w-16 border-t-2 border-brand-corallo" aria-hidden />
+          <p className="font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-snug tracking-tight text-brand-nero [&_span]:text-brand-corallo">
+            {intro}
+          </p>
         </div>
+        <ScenaAI src={scena.src} alt={scena.alt} sizes="(min-width: 1024px) 520px, 100vw" />
+      </div>
 
-        <div className="flex flex-1 flex-col gap-5 p-6 md:p-8 lg:py-10">
-          <p className="eyebrow">
+      <div className="space-y-12 p-6 md:p-10">
+        {/* 2 · I problemi */}
+        <div>
+          <p className="eyebrow mb-5">
             {problemi.length > 1 ? "I problemi che risolve" : "Il problema che risolve"}
           </p>
-          <ol className="space-y-5">
+          <ol className={`grid gap-5 ${colonne(problemi.length)}`}>
             {problemi.map((p) => (
-              <li key={p.tema} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5 md:p-6">
+              <li
+                key={p.tema}
+                className={`flex flex-col rounded-2xl border border-brand-bordo bg-brand-bianco p-5 md:p-6 ${
+                  problemi.length === 1 ? "md:grid md:grid-cols-2 md:items-start md:gap-8" : ""
+                }`}
+              >
                 <div className="flex items-start gap-3.5">
                   <span className="segno-no mt-0.5" aria-hidden>
                     ✕
@@ -95,45 +102,62 @@ export default function ServiziTabCard({
                     <p className="mb-4 leading-relaxed text-brand-grigio">{p.testo}</p>
                   </div>
                 </div>
-                <ConForge>{p.soluzione}</ConForge>
-              </li>
-            ))}
-          </ol>
-
-          {extra}
-
-          <p className="eyebrow mt-4">Cosa facciamo, in concreto</p>
-          <ul className="divide-y divide-brand-bordo rounded-2xl border border-brand-bordo bg-brand-bianco px-5 md:px-6">
-            {points.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3.5 py-5">
-                <span className="segno-si mt-0.5" aria-hidden>
-                  ✓
-                </span>
-                <div>
-                  <p className="font-display text-lg font-bold leading-snug text-brand-nero [&_span]:text-[color:var(--color-brand-corallo-text)]">
-                    {point.title}
-                  </p>
-                  <p className="mt-1.5 leading-relaxed text-brand-grigio">{point.body}</p>
+                <div className="mt-auto">
+                  <ConForge>{p.soluzione}</ConForge>
                 </div>
               </li>
             ))}
-          </ul>
+          </ol>
+        </div>
 
-          {pratica && (
-            <div className="rounded-2xl border-l-4 border-brand-corallo bg-brand-bianco px-6 py-5 shadow-sm">
-              <p className="mb-3 font-display text-lg font-bold text-brand-nero">{pratica.titolo}</p>
-              <ul className="space-y-2.5">
-                {pratica.voci.map((v) => (
-                  <li key={v} className="flex items-start gap-3 leading-relaxed text-brand-grigio">
-                    <span className="segno-si mt-0.5" aria-hidden>
-                      ✓
-                    </span>
-                    <span>{v}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+        {/* 3 · Il blocco in più */}
+        {extra}
+
+        {/* 4 · Cosa facciamo */}
+        <div>
+          <p className="eyebrow mb-5">Cosa facciamo, in concreto</p>
+          <ul className={`grid gap-5 ${colonne(points.length)}`}>
+            {points.map((point, idx) => (
+              <li key={idx} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5 md:p-6">
+                <span className="segno-si mb-4" aria-hidden>
+                  ✓
+                </span>
+                <p className="font-display text-lg font-bold leading-snug text-brand-nero [&_span]:text-[color:var(--color-brand-corallo-text)]">
+                  {point.title}
+                </p>
+                <p className="mt-2 leading-relaxed text-brand-grigio">{point.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 5 · Le regole e il pulsante */}
+        {pratica && (
+          <div className="rounded-2xl border-l-4 border-brand-corallo bg-brand-bianco px-6 py-6 shadow-sm md:px-8">
+            <p className="mb-4 font-display text-xl font-bold text-brand-nero">{pratica.titolo}</p>
+            <ul className="grid gap-x-8 gap-y-3 md:grid-cols-2">
+              {pratica.voci.map((v) => (
+                <li key={v} className="flex items-start gap-3 leading-relaxed text-brand-grigio">
+                  <span className="segno-si mt-0.5" aria-hidden>
+                    ✓
+                  </span>
+                  <span>{v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="flex justify-center">
+          {/* Il colore scritto per esteso: sul mattone la classe
+              text-brand-corallo-text diventa evidenziatore e toglie il
+              padding al pulsante. */}
+          <Link
+            href="/contatti"
+            className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border-2 border-brand-corallo px-6 py-3 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10"
+          >
+            Richiedi lo studio di fattibilità ↗
+          </Link>
         </div>
       </div>
     </article>

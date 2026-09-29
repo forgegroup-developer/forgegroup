@@ -38,6 +38,26 @@ export const faqs: Faq[] = [
     a: "È la frase che sentiamo più spesso: c'è chi ha cambiato due agenzie, chi tredici. Non ti rispondiamo con un discorso. Prima dell'incontro ti mandiamo il caso di un'impresa del tuo stesso mestiere, con i numeri veri. E dal primo giorno vedi dove finiscono le richieste e quanto va in pubblicità, separato da quello che prendiamo noi.",
   },
   {
+    q: "I numeri dei casi studio sono veri? Come faccio a verificarli?",
+    pagine: ["casi-studio"],
+    a: "Ogni caso porta il nome dell'impresa: Tetti Top, ROVI, DISA. I numeri sono i loro, e per DISA c'è la videorecensione in cui il titolare li racconta. Se vuoi, prima dell'incontro ti mandiamo il caso dell'impresa più vicina al tuo mestiere.",
+  },
+  {
+    q: "Il mio mestiere non c'è fra i casi: funziona lo stesso?",
+    pagine: ["casi-studio"],
+    a: "Lavoriamo solo con imprese edili e della filiera: costruzioni e ristrutturazioni, coperture, serramenti, impianti, fotovoltaico, arredo. Il metodo è lo stesso per tutti: il modulo che filtra le richieste, il processo di vendita scritto con te, il gestionale e la chiamata ogni settimana. Cambiano gli annunci e i video. Se nella tua zona non ha senso, te lo dice prima lo studio di fattibilità.",
+  },
+  {
+    q: "Quanto ci hanno messo a vedere i primi risultati?",
+    pagine: ["casi-studio"],
+    a: "DISA ha chiuso 126.500 € di nuovi contratti nei primi 90 giorni, ROVI 25.000 € nei primi quattro mesi. Ma in edilizia fra la prima richiesta e la firma passano quasi sempre tre o quattro mesi: il sopralluogo, il preventivo, il confronto con altri. Il primo mese serve a provare e aggiustare le campagne.",
+  },
+  {
+    q: "DISA vende un software: cosa c'entra con un'impresa edile?",
+    pagine: ["casi-studio"],
+    a: "DISA vende SOS APPALTI, il software per le gare d'appalto, e chi lo compra è un titolare edile come te. L'abbiamo messo fra i casi per questo, e perché i numeri li racconta il titolare stesso nella videorecensione.",
+  },
+  {
     q: "Quanti clienti mi arriveranno?",
     pagine: ["home", "casi-studio"],
     a: "All'inizio possiamo fare una stima, e resta una stima: quanti contatti arrivano dipende dalla tua zona, da quanto si investe in pubblicità e da quanta concorrenza c'è. Marco, a chi glielo chiede, risponde sempre allo stesso modo: non c'ho la palla magica. Quello che dipende da noi è un'altra cosa: che tu veda tutto dal primo giorno, che le richieste ti arrivino già filtrate dal modulo, e che se qualcosa non va te lo diciamo noi prima che lo chieda tu.",
@@ -110,7 +130,7 @@ export const faqs: Faq[] = [
   {
     q: "I miei clienti guardano solo il prezzo. Cosa cambia?",
     pagine: ["casi-studio"],
-    a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha messo il sopralluogo a pagamento in un mercato dove tutti lo regalano, ed è arrivata a preventivi fino a 175.000 euro. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
+    a: "Guardano il prezzo quando non hanno altro con cui giudicarti. Tetti Top, che fa coperture, ha messo il sopralluogo a pagamento in un mercato dove tutti lo regalano, ed è arrivata a preventivi fino a 175.000 € + IVA. Il cliente che chiama solo per sapere quanto costa al metro quadro lo fermiamo prima: a te arriva chi ha già capito che sta per fare una spesa importante.",
   },
   {
     q: "Non mi conviene assumere una persona che se ne occupi internamente?",

@@ -69,8 +69,8 @@ export type CaseStudy = {
  * (tabella "Numeri") e le scene vere (Scene e metodo dalle consulenze ROVI,
  * video-recensione DISA). I numeri sono quelli di src/data/prove.ts. Tolto
  * quello che la Scheda non conferma: per ROVI "tre processi" e "progettazione a
- * pagamento", per Tetti Top "agenda piena". ROVI si presenta come azienda che
- * lavora in edilizia (proprietà, 28/09).
+ * pagamento", per Tetti Top "agenda piena". ROVI si presenta come arredamento
+ * negozi (proprietà, 29/09: "azienda che lavora in edilizia" non si usa).
  */
 export const caseStudies: CaseStudy[] = [
   {
@@ -182,9 +182,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "arredo-commerciale",
-    sector: "Azienda che lavora in edilizia",
-    title: "Azienda che lavora in edilizia: 25.000 € chiusi in 4 mesi",
-    shortTitle: "Azienda che lavora in edilizia",
+    sector: "Arredamento negozi",
+    title: "Arredamento negozi: 25.000 € chiusi in 4 mesi",
+    shortTitle: "Arredamento negozi",
     resultHeadline: "25.000 € chiusi in quattro mesi, e oltre 200.000 € di trattative aperte.",
     excerpt:
       "ROVI lavorava solo con il passaparola, faceva sopralluoghi e progetti per chiunque chiedesse e perdeva trattative sul prezzo. Oggi conosce il budget del cliente prima dell'appuntamento: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
@@ -197,9 +197,9 @@ export const caseStudies: CaseStudy[] = [
       risultato: "25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     },
     metaDescription:
-      "ROVI, azienda che lavora in edilizia: dal solo passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte, con il budget del cliente saputo prima.",
+      "ROVI, arredamento negozi: dal solo passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte, con il budget del cliente saputo prima.",
     context: [
-      { label: "Settore", value: "Allestimento di negozi e locali, filiera dell'edilizia" },
+      { label: "Settore", value: "Arredamento e allestimento di negozi e locali" },
       { label: "Azienda", value: "ROVI Srl" },
       { label: "Mercato", value: "Italia" },
     ],
@@ -264,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
     quote: {
       text: "Progetto in corso con Forge Group.",
       author: "ROVI Srl",
-      role: "Azienda che lavora in edilizia",
+      role: "Arredamento negozi",
     },
     evolutionEyebrow: "Prima e dopo",
     evolutionHeading: "Cosa è cambiato",

@@ -4,6 +4,7 @@ import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
+import { iniziaImages } from "@/data/images";
 import { CONTENITORE, SEZIONE, Chiave, Titolo } from "@/components/blocchi/ui";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Casi studio imprese edili | Forge Group",
     description:
-      "Coperture, un'azienda che lavora in edilizia, un software per l'edilizia: com'era prima, cosa è cambiato, quanto è entrato.",
+      "Coperture, arredamento negozi, software per l'edilizia: com'era prima, cosa è cambiato, quanto è entrato.",
     url: "/casi-studio",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Casi Studio" }],
   },
@@ -40,8 +41,8 @@ export default function CasiStudioHub() {
         }
         testo={
           <>
-            Un&apos;impresa di coperture, un&apos;azienda che lavora in
-            edilizia, un software per l&apos;edilizia. Per ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
+            Coperture, arredamento negozi, software per l&apos;edilizia. Per
+            ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
             <strong className="chiave">
               quanto è entrato
             </strong>
@@ -64,10 +65,11 @@ export default function CasiStudioHub() {
           testo: "Guarda i tre casi",
           freccia: "↓",
         }}
+        foto="sfondo"
         immagine={{
-          src: "/images/casi-studio/edilizia.jpg",
-          alt: "Copertura realizzata da un'impresa edile seguita da Forge Group",
-          didascalia: "Tetti Top, coperture",
+          src: iniziaImages.hero,
+          alt: "",
+          didascalia: "Immagine generata con AI",
         }}
       />
 
