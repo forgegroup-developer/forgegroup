@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AnalyticsDopoConsenso from "@/components/analytics/AnalyticsDopoConsenso";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { IUBENDA } from "@/data/legal";
 import "./globals.css";
@@ -178,8 +178,12 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFlottante />
+        {/* Sempre caricato: finché il visitatore non accetta, iubenda tiene
+            il consenso a "negato" e GA manda solo segnali anonimi, senza
+            cookie. Prima GA partiva solo dopo il sì, e chi rifiutava o
+            ignorava il banner spariva dai report. */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <AnalyticsDopoConsenso gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         )}
       </body>
     </html>
