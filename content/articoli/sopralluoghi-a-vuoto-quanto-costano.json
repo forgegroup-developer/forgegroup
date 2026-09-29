@@ -1,185 +1,80 @@
 {
   "slug": "sopralluoghi-a-vuoto-quanto-costano",
-  "title": "Sopralluoghi a vuoto: quanto costa uscire per ogni richiesta",
-  "description": "Esci per ogni richiesta, fai preventivo e progetto, e il cliente sceglie chi costa meno. Il conto di quanto ti costa, e perché il problema è a monte.",
+  "title": "Sopralluoghi a vuoto: quanto costa farne uno a ogni richiesta",
+  "description": "Fai il sopralluogo a tutti, prepari l'offerta e il cliente sceglie chi costa meno. Il conto dei sopralluoghi a vuoto e cosa chiedere prima di fissarli.",
   "category": "Clienti e sopralluoghi",
   "date": "2026-10-02",
   "publishAt": "2026-10-02T09:00:00+02:00",
   "readTime": "5 min",
-  "excerpt": "Metti otto sopralluoghi al mese e un lavoro chiuso: sono più di ottanta giornate l'anno spese per chi non avrebbe mai firmato. Da dove nasce il problema, e tre domande per capire se ci sei dentro.",
-  "tags": [
-    "sopralluoghi",
-    "preventivi",
-    "impresa edile",
-    "prezzo",
-    "trattative"
-  ],
+  "excerpt": "Mezza giornata per il sopralluogo, mezza per l'offerta, e poi il cliente sceglie un altro. Il conto di un anno di sopralluoghi a vuoto, e da dove si comincia a fermarlo.",
+  "tags": ["sopralluoghi", "preventivi", "prezzo", "richieste di lavoro"],
   "livello": 2,
   "argomento": "sopralluoghi-a-vuoto",
   "autore": "gianpio",
   "inBreve": {
-    "problema": "Esci per ogni richiesta, fai il preventivo e a volte anche il progetto, e il cliente sceglie chi costa meno.",
-    "causa": "Al sopralluogo arrivi senza sapere il budget, quindi il prezzo resta l'unica cosa che il cliente può confrontare.",
-    "cambia": "Quattro domande prima di uscire, la cifra detta presto al telefono, e sopralluoghi solo con chi l'ha già sentita."
+    "problema": "Fai il sopralluogo a chiunque chiami, prepari l'offerta e a volte anche il progetto, e poi il cliente sceglie chi costa meno.",
+    "causa": "Al sopralluogo arrivi senza conoscere il budget del cliente, quindi il totale in fondo all'offerta resta l'unica cosa che può confrontare.",
+    "cambia": "Quattro informazioni prima di fissare il sopralluogo e la cifra detta presto, come fascia: fai meno sopralluoghi, e ognuno vale di più."
   },
   "faqs": [
     {
-      "q": "Se chiedo il budget al telefono, il cliente non se ne va?",
-      "a": "Qualcuno sì, e di solito è chi al tuo prezzo non avrebbe firmato. Conta come lo chiedi: poche domande chiare, fatte presto, con il tono di chi vuole capire se può aiutare, non di chi fa un interrogatorio."
+      "q": "Quanto costa un sopralluogo a vuoto a un'impresa edile?",
+      "a": "Dipende dal lavoro. Con numeri tondi, mezza giornata per il sopralluogo e mezza per l'offerta fanno una giornata: se fai otto sopralluoghi al mese e chiudi un contratto, sono sette giornate al mese che non tornano. Rifai il conto con i tuoi numeri."
     },
     {
-      "q": "Cosa bisogna sapere prima di uscire per un sopralluogo?",
-      "a": "Quattro cose: che lavoro vuole il cliente, entro quando vuole iniziare, quanto ha pensato di spendere e dove si trova. Con queste quattro risposte decidi se uscire, e arrivi preparato."
+      "q": "Conviene dire il prezzo al cliente prima del sopralluogo?",
+      "a": "Sì, come fascia e non come cifra precisa: il lavoro si aggira intorno a una certa somma, e il rilievo delle misure la conferma. Chi la trova sostenibile fissa il sopralluogo, così lo fai solo con chi può spendere."
     },
     {
-      "q": "Il sopralluogo si può far pagare?",
-      "a": "A volte sì: con un'impresa di coperture che abbiamo seguito ci siamo arrivati. Non succede con tutti e non è il primo passo. Prima serve un filtro che ti dica chi hai davanti."
+      "q": "Cosa chiedere al cliente prima di fissare un sopralluogo?",
+      "a": "Che lavoro vuole fare, entro quando vuole iniziare, quanto ha pensato di spendere e dove si trova il cantiere. Con queste quattro risposte decidi se fissare il sopralluogo, e se lo fai arrivi sapendo già di cosa parlare."
     },
     {
-      "q": "Da dove comincio se oggi esco per tutte le richieste?",
-      "a": "Dal contare. Per un mese segna ogni sopralluogo, se sapevi il budget prima di uscire e com'è finita. Alla fine del mese hai il tuo conto, con i tuoi numeri."
+      "q": "Si può far pagare il sopralluogo?",
+      "a": "È uno degli obiettivi che ci mettiamo con le imprese: con un'impresa di coperture ci siamo riusciti, e non ci riusciamo con tutti. Prima però serve un modo per sapere chi hai davanti."
     }
   ],
   "content": [
-    {
-      "type": "p",
-      "text": "«Vado a fare i sopralluoghi, faccio i preventivi, mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro.» È una frase che ci sentiamo dire spesso dai titolari di imprese edili con cui parliamo."
-    },
-    {
-      "type": "p",
-      "text": "Di solito ne arriva subito un'altra, detta con più rabbia: «Per 500 euro in meno ha scelto l'altra azienda.» E dietro c'è sempre lo stesso pensiero: io lavoro meglio, offro di più, finisco prima, e il cliente guarda solo il prezzo."
-    },
-    {
-      "type": "p",
-      "text": "Se ti ci ritrovi, è normale. Succede a tante imprese che vivono di passaparola. Ma il problema, quasi sempre, non è il cliente che guarda il prezzo: è che al sopralluogo ci sei arrivato senza sapere niente di lui."
-    },
-    {
-      "type": "h2",
-      "text": "IL PROBLEMA: USCIRE PER TUTTI"
-    },
-    {
-      "type": "p",
-      "text": "In tante imprese funziona così. Arriva una richiesta, qualcuno risponde al telefono tra un lavoro e l'altro, si fissa il giorno e ci si va."
-    },
-    {
-      "type": "p",
-      "text": "Nessuno ha chiesto che lavoro vuole fare davvero, entro quando vuole cominciare, quanto ha pensato di spendere, e se decide lui o deve sentire qualcun altro in famiglia."
-    },
-    {
-      "type": "p",
-      "text": "Così il sopralluogo diventa l'unico filtro che hai. Ed è un filtro che paghi tu, ogni volta, in ore e in gasolio, prima ancora di sapere se quella persona può permettersi il lavoro."
-    },
-    {
-      "type": "p",
-      "text": "Il sabato mattina che passi a prendere le misure a casa di uno che voleva solo un'idea del prezzo non torna indietro. E non c'è nessuna riga in fattura che lo copra, perché la fattura non arriverà mai."
-    },
-    {
-      "type": "h2",
-      "text": "IL CONTO"
-    },
-    {
-      "type": "p",
-      "text": "Facciamo due conti. Sono numeri tondi, ma il conto funziona così anche con i tuoi."
-    },
-    {
-      "type": "p",
-      "text": "Un sopralluogo, tra viaggio, misure e chiacchiere, ti porta via mezza giornata. Il preventivo fatto bene, con le voci giuste e i materiali, un'altra mezza giornata, spesso di sera, dopo il cantiere."
-    },
-    {
-      "type": "p",
-      "text": "Mettiamo che tu esca per otto richieste al mese e ne chiuda una. Hai speso otto giornate intere per portare a casa un lavoro. Le altre sette non hanno prodotto niente."
-    },
-    {
-      "type": "p",
-      "text": "Sette giornate al mese sono più di ottanta giornate l'anno. A venti giorni lavorativi al mese sono più di QUATTRO MESI di lavoro, regalati a chi non avrebbe mai firmato."
-    },
-    {
-      "type": "p",
-      "text": "E non è solo tempo. Sono le mattine in cui non eri in cantiere a controllare la squadra, e le sere in cui eri in ufficio invece che a casa."
-    },
-    {
-      "type": "h2",
-      "text": "PERCHÉ IL PREZZO DIVENTA L'UNICA COSA"
-    },
-    {
-      "type": "p",
-      "text": "Quando arrivi al preventivo senza sapere il budget, il cliente ha in mano solo un numero da confrontare. Non ha visto come lavori, non sa cosa c'è dietro ogni voce: vede il totale in fondo alla pagina."
-    },
-    {
-      "type": "p",
-      "text": "Allora confronta i totali, uno accanto all'altro. E vince chi ha scritto il numero più basso, anche se lavora peggio di te e anche se a metà lavoro gli chiederà gli extra."
-    },
-    {
-      "type": "p",
-      "text": "Da dentro sembra che il mercato sia impazzito e che i clienti non capiscano più niente. In realtà gli hai lasciato l'unico criterio che aveva per scegliere."
-    },
-    {
-      "type": "p",
-      "text": "Nelle consulenze con ROVI abbiamo lavorato proprio su questo punto: la cifra si dice presto, come fascia, già al telefono. Se per il cliente è sostenibile si fissa il sopralluogo; se non lo è, avete risparmiato una mattinata, tu e lui."
-    },
-    {
-      "type": "h2",
-      "text": "LA PAURA DI CHIEDERE"
-    },
-    {
-      "type": "p",
-      "text": "Qui di solito arriva un dubbio: se al telefono chiedi quanto vuole spendere, hai paura di spaventarlo e di non sentirlo più."
-    },
-    {
-      "type": "p",
-      "text": "Dietro c'è una sensazione che tanti titolari ci raccontano: quando devi parlare di soldi ti senti un gradino sotto il cliente, come se chiedere fosse una scortesia. Così la cifra si rimanda al preventivo, e il preventivo arriva quando il cliente ha già deciso con chi confrontarti."
-    },
-    {
-      "type": "p",
-      "text": "Un po' di verità c'è. Con ROVI, un'azienda di arredamento negozi che seguiamo, abbiamo visto che troppe domande fatte all'inizio allontanano chi ha appena scritto: lì il problema non era il filtro, era la fiducia."
-    },
-    {
-      "type": "p",
-      "text": "Per questo non si tratta di fare un interrogatorio. Bastano poche domande chiare, fatte presto, con il tono di chi vuole capire se può aiutarti davvero. Chi se ne va perché gli chiedi una cifra di massima, di solito, al tuo prezzo non avrebbe firmato."
-    },
-    {
-      "type": "h2",
-      "text": "COME CAMBIA LA SETTIMANA"
-    },
-    {
-      "type": "p",
-      "text": "Adesso immagina di sapere, prima di uscire, quattro cose: che lavoro vuole, entro quando vuole iniziare, quanto vuole spendere e dove si trova."
-    },
-    {
-      "type": "p",
-      "text": "Esci per meno richieste, e quelle per cui esci hanno già sentito una cifra e non sono scappate. Arrivi al sopralluogo sapendo di cosa parlare, e al preventivo sapendo cosa scrivere."
-    },
-    {
-      "type": "p",
-      "text": "Con [ROVI, l'azienda di cui ti parlavo](/casi-studio/arredo-commerciale), è andata proprio così. Prima faceva sopralluoghi e progetti per tutti, senza filtrare, e le trattative arrivavano in fondo per poi saltare sul prezzo. Oggi conosce il budget del cliente prima dell'appuntamento, e ci arriva preparata."
-    },
-    {
-      "type": "p",
-      "text": "Con un'[impresa di coperture](/casi-studio/edilizia) siamo andati oltre, e il sopralluogo è diventato a pagamento. Non ci riusciamo con tutti, e ci si arriva solo dopo aver messo il filtro che ti dice chi hai davanti."
-    },
-    {
-      "type": "h2",
-      "text": "TRE DOMANDE DA FARTI STASERA"
-    },
-    {
-      "type": "ul",
-      "items": [
-        "Quanti sopralluoghi fai al mese, più o meno? E di questi, quanti diventano lavoro?",
-        "Di quelli che non chiudono, sai perché non hanno firmato, o lo immagini?",
-        "Prima di uscire, sai quanto vuole spendere il cliente?"
-      ]
-    },
-    {
-      "type": "p",
-      "text": "Se alla terza domanda hai risposto no, il punto da cui partire è quello, prima ancora della pubblicità."
-    },
-    {
-      "type": "p",
-      "text": "Se vuoi vedere come mettiamo il filtro prima del sopralluogo e come seguiamo le trattative fino alla firma, lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi)."
-    },
-    {
-      "type": "cta",
-      "text": "Richiedi lo studio di fattibilità: guardiamo i tuoi numeri e ti diciamo se ha senso lavorare insieme."
-    }
+    { "type": "p", "text": "«Vado a fare i sopralluoghi, faccio i preventivi, mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro.»" },
+    { "type": "p", "text": "Quando chiamo le imprese che si candidano per lavorare con noi, questa frase la sento spesso. Ce n'è un'altra che torna quasi sempre subito dopo: «Per 500 euro in meno ha scelto l'altra azienda.»" },
+    { "type": "p", "text": "Se ti ci ritrovi, è normale. Succede a tante imprese che lavorano di passaparola e sono abituate a dire di sì a chiunque chieda un'offerta." },
+    { "type": "p", "text": "Il punto però non è il cliente che guarda solo il prezzo. Il punto è che al sopralluogo ci sei andato senza sapere niente di lui, e così il prezzo è diventato l'unica cosa che poteva confrontare." },
+    { "type": "h2", "text": "IL PROBLEMA: FARE IL SOPRALLUOGO A CHIUNQUE CHIAMI" },
+    { "type": "p", "text": "In tante imprese funziona così. Arriva una richiesta, qualcuno risponde tra un cantiere e l'altro, si fissa il giorno del sopralluogo e si va." },
+    { "type": "p", "text": "Nessuno ha chiesto che lavoro vuole fare davvero, entro quando vuole cominciare, quanto ha pensato di spendere, e se decide lui o deve sentire qualcun altro in famiglia." },
+    { "type": "p", "text": "Così il sopralluogo diventa l'unico filtro che hai. È un filtro che paghi tu, in ore e in gasolio, prima ancora di sapere se quella persona può permettersi il lavoro." },
+    { "type": "p", "text": "Il sabato mattina passato a fare il rilievo delle misure per chi voleva solo un'idea del prezzo non te lo restituisce nessuno, e non c'è una voce in nessuna fattura che lo copra." },
+    { "type": "h2", "text": "IL CONTO DI UN ANNO DI SOPRALLUOGHI A VUOTO" },
+    { "type": "p", "text": "Mettiamo giù i numeri. Sono numeri tondi, ma il conto funziona così anche con i tuoi." },
+    { "type": "p", "text": "Un sopralluogo, tra viaggio, rilievo e chiacchiere con il cliente, ti porta via mezza giornata. L'offerta fatta bene, con il computo delle voci e i materiali, un'altra mezza giornata, spesso la sera dopo il cantiere." },
+    { "type": "p", "text": "Diciamo che fai otto sopralluoghi al mese e chiudi un contratto. Hai speso otto giornate per portare a casa un lavoro, e sette di quelle giornate non hanno prodotto niente." },
+    { "type": "p", "text": "Sette giornate al mese fanno ottantaquattro giornate in un anno. Contando venti giorni lavorativi al mese, sono più di QUATTRO MESI di lavoro regalati a chi non avrebbe mai firmato." },
+    { "type": "p", "text": "E dentro quel conto non ci sono le mattine in cui non eri in cantiere a seguire la squadra, né le sere passate in ufficio a preparare offerte invece che a casa." },
+    { "type": "h2", "text": "PERCHÉ IL PREZZO DIVENTA L'UNICA COSA CHE IL CLIENTE GUARDA" },
+    { "type": "p", "text": "Quando consegni un'offerta a chi non ti ha mai detto il suo budget, gli metti in mano un numero da confrontare. Non ha visto come lavori e non sa cosa c'è dietro ogni voce: vede il totale in fondo alla pagina." },
+    { "type": "p", "text": "Allora mette i totali uno accanto all'altro, e vince il più basso. Anche se chi l'ha scritto lavora peggio di te." },
+    { "type": "p", "text": "C'è una scena che racconto spesso ai titolari. Un negozio da arredare aveva in mano più offerte, e in una c'erano due vetrine da un metro e settantacinque più il banco cassa: messi così, la porta non si apriva più." },
+    { "type": "p", "text": "Chi aveva fatto quell'offerta non era mai andato a prendere le misure. [ROVI, un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale), il rilievo l'aveva fatto, e il cliente ha scelto loro anche per quello." },
+    { "type": "p", "text": "Quel rilievo ha fatto vedere che il mestiere lo sapevano fare. La professionalità va fatta vedere, ma a chi ha già deciso di spendere." },
+    { "type": "h2", "text": "LA PAURA DI CHIEDERE SOLDI AL CLIENTE" },
+    { "type": "p", "text": "Qui arriva di solito un dubbio. Se al telefono chiedi subito quanto vuole spendere, hai paura che il cliente si spaventi e non si faccia più sentire." },
+    { "type": "p", "text": "Dietro c'è una sensazione che tanti titolari mi raccontano: quando devi chiedere dei soldi ti senti un gradino sotto il cliente. Così la cifra si rimanda all'offerta, e l'offerta arriva quando il cliente ti ha già messo in fila con gli altri." },
+    { "type": "p", "text": "Una parte di verità c'è. Con quell'azienda di arredamento negozi abbiamo visto che troppe domande fatte all'inizio allontanano chi ha appena scritto: in quel caso il problema non era il filtro, era la fiducia." },
+    { "type": "p", "text": "Per questo le domande devono essere poche. Serve dire la cifra presto, come fascia: il lavoro si aggira intorno a una certa somma, e il rilievo delle misure serve a confermarla. Così il sopralluogo lo fai solo con chi quella cifra può spenderla." },
+    { "type": "h2", "text": "COME CAMBIA LA SETTIMANA QUANDO SAI CHI HAI DAVANTI" },
+    { "type": "p", "text": "Adesso immagina di sapere quattro cose prima di fissare il sopralluogo: che lavoro vuole, entro quando vuole iniziare, quanto vuole spendere e dove si trova il cantiere." },
+    { "type": "p", "text": "Fai meno sopralluoghi, e ognuno con qualcuno che ha già sentito una cifra ed è rimasto. Arrivi al rilievo sapendo di cosa parlare, e all'offerta sapendo cosa scriverci." },
+    { "type": "p", "text": "Con la stessa azienda è andata così: prima faceva sopralluoghi e progetti per chiunque chiedesse, e le trattative saltavano sul prezzo. Oggi conosce il budget del cliente prima dell'appuntamento, e ci arriva preparata." },
+    { "type": "p", "text": "Il sopralluogo a pagamento è uno degli obiettivi che ci mettiamo con le imprese. Con un'[impresa di coperture](/casi-studio/edilizia) ci siamo riusciti, e non ci riusciamo con tutti." },
+    { "type": "h2", "text": "TRE DOMANDE DA FARTI STASERA SUI TUOI SOPRALLUOGHI" },
+    { "type": "p", "text": "Le prime due sono quelle che facciamo al telefono alle imprese che ci scrivono. Rispondi più o meno, senza andare a cercare i numeri precisi." },
+    { "type": "ul", "items": [
+      "Quanti sopralluoghi fai al mese, più o meno? Di questi, quanti diventano lavoro?",
+      "Quelli che non chiudono li richiami, o restano lì?",
+      "Prima di fissare il sopralluogo, sai quanto vuole spendere il cliente?"
+    ] },
+    { "type": "p", "text": "Se alla terza hai risposto di no, il punto da cui partire è quello, prima ancora di pensare alla pubblicità." },
+    { "type": "p", "text": "Se vuoi vedere come mettiamo il filtro prima del sopralluogo e come seguiamo le trattative fino alla firma, lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi)." },
+    { "type": "cta", "text": "Richiedi lo studio di fattibilità: guardiamo i tuoi numeri e ti diciamo se ha senso lavorare insieme." }
   ]
 }
