@@ -16,30 +16,44 @@ import {
 } from "@/components/blocchi/ui";
 import { caseStudies, type CaseStudy } from "@/data/caseStudies";
 import { recensioniGoogle } from "@/data/prove";
-import { getCaseStudyImage, getCaseStudyImagePosition, iniziaImages, teamImages } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition, iniziaImages, primaDopoImages, teamImages } from "@/data/images";
 
 /*
- * Le scene del prima e dopo: le immagini AI della landing. Il prima è il
- * problema da cui partiva il caso, il dopo è il titolare che vede tutto dal
- * telefono. Quando arrivano scene fatte apposta per ogni caso, si cambiano
- * qui.
+ * Le scene del prima e dopo (immagini AI). Tetti Top usa ancora quelle
+ * della landing; DISA e ROVI hanno le loro, fatte apposta il 29/09.
  */
-const scenaDopo = {
+type Scena = { src: string; alt: string };
+const scenaCantiere: Scena = {
   src: iniziaImages.cantiereTelefono,
   alt: "Un imprenditore edile in cantiere guarda sul telefono le richieste, mentre due operai alzano un muro",
 };
-const scenePrima: Record<string, { src: string; alt: string }> = {
+const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
   edilizia: {
-    src: iniziaImages.sopralluogoAVuoto,
-    alt: "Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono",
+    prima: {
+      src: iniziaImages.sopralluogoAVuoto,
+      alt: "Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono",
+    },
+    dopo: scenaCantiere,
   },
   "arredo-commerciale": {
-    src: iniziaImages.prezzoPiuBasso,
-    alt: "Un titolare guarda due preventivi affiancati: il cliente indica quello più basso",
+    prima: {
+      src: iniziaImages.prezzoPiuBasso,
+      alt: "Un titolare guarda due preventivi affiancati: il cliente indica quello più basso",
+    },
+    dopo: {
+      src: primaDopoImages.roviDopo,
+      alt: "In un negozio appena arredato, l'arredatore e la titolare guardano sorridendo il piano dei lavori su un tablet",
+    },
   },
   "software-b2b": {
-    src: iniziaImages.cantiereAlle20,
-    alt: "Un imprenditore al telefono, seduto sul furgone davanti al cantiere al tramonto",
+    prima: {
+      src: primaDopoImages.disaPrima,
+      alt: "Un commerciale alla scrivania al telefono, stanco, davanti a un elenco di numeri da chiamare",
+    },
+    dopo: {
+      src: primaDopoImages.disaDopo,
+      alt: "Lo stesso commerciale sorride in videochiamata con un imprenditore edile in cantiere, con il contratto firmato sulla scrivania",
+    },
   },
 };
 
@@ -432,7 +446,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <div className={STRETTO}>
               <CaseStudyBeforeAfter
                 rows={c.beforeAfter}
-                foto={scenePrima[c.slug] ? { prima: scenePrima[c.slug], dopo: scenaDopo } : undefined}
+                foto={scenePrimaDopo[c.slug]}
               />
             </div>
             {c.statusBadge && (
