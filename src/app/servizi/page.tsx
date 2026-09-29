@@ -1,18 +1,19 @@
 import Link from "next/link";
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
-import SectionHeader from "@/components/ui/SectionHeader";
+import { CONTENITORE, SEZIONE, STRETTO, Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
 import { serviziSidebarImages } from "@/data/images";
 
 type ServiziTab = {
   id: string;
+  problema: { titolo: string; testo: string };
+  pratica?: { titolo: string; voci: string[] };
   number: string;
   title: React.ReactNode;
   intro: React.ReactNode;
@@ -25,6 +26,11 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "acquisizione",
     number: "01",
+    problema: {
+      titolo: "Sopralluoghi regalati a chi voleva solo un prezzo.",
+      testo:
+        "Il lavoro arriva dal passaparola, quando arriva: mesi pieni e mesi vuoti. E quando arriva esci per tutti, anche per chi il budget non ce l'ha.",
+    },
     sidebarImage: serviziSidebarImages.acquisizione,
     sidebarImageAlt: "Illustrazione acquisizione clienti",
     title: "Acquisizione Clienti",
@@ -65,6 +71,21 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "vendite",
     number: "02",
+    problema: {
+      titolo: "Il preventivo parte, poi il silenzio.",
+      testo:
+        "Lo mandi su WhatsApp, il cliente lo confronta con quello più basso e sparisce. Chi decide davvero spesso al tavolo non c'era neanche.",
+    },
+    pratica: {
+      titolo: "In pratica, le regole nate dalle consulenze con ROVI:",
+      voci: [
+        "Al primo incontro si capisce chi decide e chi paga, prima di progettare.",
+        "La cifra si dice presto: se è sostenibile, si fissa il sopralluogo.",
+        "Non è più un preventivo ma un piano dei lavori, presentato di persona e mai su WhatsApp.",
+        "Ogni incontro finisce con una data, scritta nel gestionale prima di salutarsi.",
+        "Come e quando si paga si decide prima di iniziare, per iscritto.",
+      ],
+    },
     sidebarImage: serviziSidebarImages.vendite,
     sidebarImageAlt: "Illustrazione processi di vendita",
     title: "Processi di Vendita",
@@ -105,6 +126,11 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "consulenza",
     number: "03",
+    problema: {
+      titolo: "Tutto passa dalla testa del titolare.",
+      testo:
+        "Chi ha chiamato, a che punto è ogni trattativa, cosa si è detto: lo sai solo tu. Se ti fermi, si ferma tutto.",
+    },
     sidebarImage: serviziSidebarImages.consulenza,
     sidebarImageAlt: "Illustrazione consulenza e formazione",
     title: (
@@ -145,6 +171,28 @@ const serviziTabs: ServiziTab[] = [
         body: "Se ti fermi una settimana per un’influenza o per un cantiere fuori regione, le richieste continuano a essere lavorate lo stesso.",
       },
     ],
+  },
+];
+
+/* Le tre domande dello studio di fattibilità (Scheda dei fatti). */
+const studio = [
+  {
+    titolo: "Quanto lavoro reggi davvero oggi.",
+    testo:
+      "Con gli uomini e i mezzi che hai adesso: se il mese prossimo arrivassero dieci sopralluoghi in più, li porteresti a casa o ne perderesti metà per strada?",
+    chiave: "dieci sopralluoghi in più",
+  },
+  {
+    titolo: "Come si alimenta la macchina senza sovraccaricarla.",
+    testo:
+      "Il lavoro in più serve a poco se poi salta una consegna e ti bruci il cliente che avevi già.",
+    chiave: "ti bruci il cliente che avevi già",
+  },
+  {
+    titolo: "Il tuo territorio e la tua storia.",
+    testo:
+      "Quanto c'è da prendere nella tua zona, chi c'è già, da quanto tempo lavori e dove può arrivare la tua impresa.",
+    chiave: "Quanto c'è da prendere nella tua zona",
   },
 ];
 
@@ -214,23 +262,15 @@ export default function ServiziHub() {
         }}
       />
 
-      {/* TRE SERVIZI — layout originale, copy LP */}
-      <ForgeGradientBackground
-        as="section"
-        id="servizi-contenuto"
-        className="scroll-mt-24 py-16 md:py-24 section-coral section-coral-gradient"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            onCoral
-            eyebrow="Come lavoriamo"
-            title={
-              <>
-                Le <span>3 macroaree</span>
-              </>
-            }
-            maxWidth="4xl"
-          />
+      {/* TRE MACROAREE · mattone. Ognuna parte dal suo problema. */}
+      <section id="servizi-contenuto" className={`scroll-mt-24 section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="Come lavoriamo"
+            sottotitolo="Ognuna parte da un problema che ci raccontano le imprese edili, e accanto c'è cosa facciamo per risolverlo."
+          >
+            Tre macroaree, dal <Chiave>primo contatto</Chiave> alla firma.
+          </Titolo>
 
           <div className="space-y-6 md:space-y-8">
             {serviziTabs.map((tab) => (
@@ -238,89 +278,65 @@ export default function ServiziHub() {
             ))}
           </div>
         </div>
-      </ForgeGradientBackground>
+      </section>
 
       <ClientiLogos />
 
-      <MetodoForge />
+      <MetodoForge className="section-mattone" />
 
       {/* STUDIO DI FATTIBILITA': sostituisce il blocco garanzia.
           La domanda "e se non funziona?" si chiude prima di cominciare,
           con la selezione, non dopo con un rimborso. Decisione della
           proprieta' del 24/09/2026. */}
-      <section className="section-bianco border-y py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-4 flex">Prima di cominciare</p>
-          <h2 className="heading-section-xl mb-6 text-balance">
-            La prima domanda non è quanto costa.{" "}
-            <span className="text-brand-corallo-text">
-              È se ha senso lavorare insieme.
-            </span>
-          </h2>
-          <p className="body-lg mb-6 max-w-2xl">
-            Il primo passo è uno studio di fattibilità, e serve a rispondere a
-            quella domanda lì. A volte la risposta è no, e te la diamo prima che
-            tu abbia speso un euro in pubblicità.
-          </p>
+      <section className={`section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="Prima di cominciare"
+            sottotitolo="Il primo passo è uno studio di fattibilità, e serve a rispondere a quella domanda. A volte la risposta è no, e te la diamo prima che tu abbia speso un euro in pubblicità."
+          >
+            La prima domanda non è quanto costa, ma se ha senso <Chiave>lavorare insieme</Chiave>.
+          </Titolo>
 
-          <ol className="mb-8 space-y-5 max-w-2xl">
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Quanto lavoro reggi davvero oggi.
-              </span>{" "}
-              Con gli uomini e i mezzi che hai adesso. Se il mese prossimo ti
-              arrivassero dieci sopralluoghi in più, li porteresti a casa o ne
-              perderesti metà per strada? È la domanda che nessuno ti fa prima
-              di venderti la pubblicità.
-            </li>
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Come si alimenta la macchina senza mandarla in sovraccarico.
-              </span>{" "}
-              Il lavoro in più serve a poco se poi ti salta la consegna e ti
-              bruci il cliente che avevi già.
-            </li>
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Il tuo territorio, e la tua storia.
-              </span>{" "}
-              Quanto c’è da prendere nella tua zona, chi c’è già, da quanto
-              tempo lavori e dove può arrivare la tua impresa.
-            </li>
+          <ol className={`${STRETTO} mb-10 grid gap-5 md:grid-cols-3`}>
+            {studio.map((voce, i) => (
+              <li key={voce.titolo} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
+                <p className="eyebrow mb-2">Domanda #{i + 1}</p>
+                <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero">
+                  {voce.titolo}
+                </h3>
+                <p className="leading-relaxed text-brand-grigio">
+                  <Evidenzia testo={voce.testo} chiave={voce.chiave} />
+                </p>
+              </li>
+            ))}
           </ol>
 
-          <p className="body-lg mb-8 max-w-2xl">
-            Non lavoriamo con chiunque. Prendiamo poche imprese, un territorio
-            alla volta, e solo quelle che hanno una storia alle spalle e margine
-            per crescere. Non è per fare i difficili: è che se la tua azienda
-            non regge il lavoro che le arriva, il problema diventa di tutti e
-            due.
+          <p className={`${STRETTO} body-lg mb-10 text-pretty text-center`}>
+            Non lavoriamo con chiunque. Prendiamo poche imprese,{" "}
+            <strong className="chiave">un territorio alla volta</strong>, e solo quelle che
+            hanno una storia alle spalle e margine per crescere. Se la tua azienda non regge il
+            lavoro che le arriva, il problema diventa di tutti e due.
           </p>
 
-          <Link
-            href="/contatti"
-            className="btn-corallo inline-block px-8 py-4 text-sm md:text-base"
-          >
-            Richiedi lo studio di fattibilità
-          </Link>
+          <div className="flex justify-center">
+            <Link href="/contatti" className="btn-ghost text-center">
+              Richiedi lo studio di fattibilità ↗
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Le domande di questa pagina: quelle su come si lavora. Le altre
           stanno dove il dubbio nasce (prezzo e prova nei casi studio,
           controllo nel CRM, ingresso nei contatti). */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Domande frequenti"
-            title={
-              <>
-                Come si lavora,{" "}
-                <span className="text-brand-corallo-text">nel concreto</span>.
-              </>
-            }
-          />
-          <FAQAccordion items={faqsPagina("servizi")} />
+      <section id="domande" className={`scroll-mt-24 section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Domande frequenti">
+            Come si lavora, <Chiave>nel concreto</Chiave>.
+          </Titolo>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={faqsPagina("servizi")} />
+          </div>
         </div>
       </section>
 

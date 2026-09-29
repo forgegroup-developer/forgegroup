@@ -9,6 +9,10 @@ export type ServiziTabPoint = {
 
 type Props = {
   id: string;
+  /** Il problema vero da cui parte la macroarea (Testa aziendale, gli otto problemi). */
+  problema: { titolo: string; testo: string };
+  /** Come si fa in pratica: regole nate dalle consulenze vere (ROVI). */
+  pratica?: { titolo: string; voci: string[] };
   number: string;
   title: ReactNode;
   intro: ReactNode;
@@ -42,6 +46,8 @@ function PointCard({ title, body }: ServiziTabPoint) {
 
 export default function ServiziTabCard({
   id,
+  problema,
+  pratica,
   number,
   title,
   intro,
@@ -53,10 +59,10 @@ export default function ServiziTabCard({
     <div>
       <article
         id={id}
-        className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
+        className="scroll-mt-28 overflow-hidden card-xl superficie-chiara rounded-3xl border bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
       >
         <div className="flex flex-col lg:flex-row">
-          <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[620px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
+          <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[620px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r ">
             <div>
               <div>
                 <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
@@ -85,9 +91,12 @@ export default function ServiziTabCard({
             ) : null}
 
             <div>
+              {/* Il colore scritto per esteso: sul mattone la classe
+                  text-brand-corallo-text diventa evidenziatore e toglie il
+                  padding al pulsante. */}
               <Link
                 href="/contatti"
-                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
+                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-[color:var(--color-brand-corallo-text)] shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
               >
                 Richiedi lo studio di fattibilità
                 <svg
@@ -109,9 +118,40 @@ export default function ServiziTabCard({
           </div>
 
           <div className="flex flex-1 flex-col gap-4 p-6 md:gap-5 md:p-8 lg:py-10">
+            {/* Prima il problema, poi la soluzione accanto (REGOLE §5). */}
+            <div className="flex items-start gap-3.5 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7">
+              <span className="segno-no mt-0.5" aria-hidden>
+                ✕
+              </span>
+              <div>
+                <p className="eyebrow mb-1.5">Il problema</p>
+                <p className="font-display text-[1.125rem] font-bold leading-snug text-brand-nero md:text-[1.3rem]">
+                  {problema.titolo}
+                </p>
+                <p className="mt-2 leading-relaxed text-brand-grigio">{problema.testo}</p>
+              </div>
+            </div>
+            <p className="eyebrow mt-2">Con Forge</p>
             {points.map((point, idx) => (
               <PointCard key={idx} {...point} />
             ))}
+            {pratica && (
+              <div className="rounded-2xl border-l-4 border-brand-corallo bg-brand-bianco px-6 py-5 shadow-sm">
+                <p className="mb-3 font-display text-lg font-bold text-brand-nero">
+                  {pratica.titolo}
+                </p>
+                <ul className="space-y-2.5">
+                  {pratica.voci.map((v) => (
+                    <li key={v} className="flex items-start gap-3 leading-relaxed text-brand-grigio">
+                      <span className="segno-si mt-0.5" aria-hidden>
+                        ✓
+                      </span>
+                      <span>{v}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </article>

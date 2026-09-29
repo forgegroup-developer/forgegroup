@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/data/caseStudies";
+import { Evidenzia } from "@/components/blocchi/ui";
 import {
   getCaseStudyImage,
   getCaseStudyImageFit,
@@ -19,13 +20,16 @@ import {
  * componente non ha stato, quindi e' server-side e non manda
  * JavaScript al browser: la pagina arriva gia' scritta.
  *
+ * Dal 29/09 la sezione è mattone e ogni caso è una scheda bianca
+ * (card-xl superficie-chiara), con la sua frase chiave in corallo.
+ *
  * Le immagini passano dagli helper di data/images.ts, come chiede la
  * regola 1. Quando arrivano le foto vere dei lavori, si cambiano li'
  * e questa pagina non si tocca.
  */
 export default function CasiStudioElenco() {
   return (
-    <div className="space-y-20 md:space-y-28">
+    <div className="space-y-8 md:space-y-10">
       {caseStudies.map((caso, idx) => {
         const src = getCaseStudyImage(caso.slug);
         const fit = getCaseStudyImageFit(caso.slug);
@@ -36,13 +40,13 @@ export default function CasiStudioElenco() {
         return (
           <article
             key={caso.slug}
-            className="grid items-center gap-8 md:gap-12 lg:grid-cols-2"
+            className="card-xl superficie-chiara grid items-center gap-8 rounded-3xl border p-5 sm:p-8 md:gap-12 lg:grid-cols-2 lg:p-10"
           >
             {/* Su telefono la foto sta sempre sopra. Su schermo largo si
                 alterna, cosi' tre casi di fila non sembrano tre volte
                 la stessa scheda. */}
             <div
-              className={`relative aspect-[4/3] overflow-hidden rounded-3xl border border-brand-bordo bg-brand-panna ${
+              className={`relative aspect-[4/3] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco ${
                 idx % 2 === 1 ? "lg:order-2" : ""
               }`}
             >
@@ -57,13 +61,18 @@ export default function CasiStudioElenco() {
             </div>
 
             <div>
-              <p className="eyebrow eyebrow-mark mb-4 flex">{caso.sector}</p>
+              <p className="eyebrow mb-4">{caso.sector}</p>
 
-              <h2 className="heading-section mb-4 text-balance">
-                {caso.resultHeadline}
-              </h2>
+              <h3 className="mb-4 text-balance font-display text-2xl font-bold leading-tight text-brand-nero md:text-3xl">
+                {caso.resultHeadline.replace(/ €/g, "\u00a0€")}
+              </h3>
 
-              <p className="body-lg mb-8 text-pretty">{caso.hubExcerpt}</p>
+              <p className="body-lg mb-8 text-pretty">
+                <Evidenzia
+                  testo={caso.hubExcerpt}
+                  chiave={caso.excerptHighlights?.find((h) => caso.hubExcerpt.includes(h))}
+                />
+              </p>
 
               {/* Tutti i numeri del caso, non i primi due: sono la
                   ragione per cui uno sta leggendo questa pagina. */}

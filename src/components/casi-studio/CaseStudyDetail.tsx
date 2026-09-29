@@ -6,8 +6,31 @@ import HighlightedText from "@/components/ui/HighlightedText";
 import PhoneScreenshotMockup from "@/components/media/PhoneScreenshotMockup";
 import VideoRecensionePoster from "@/components/media/VideoRecensionePoster";
 import DeferredMount from "@/components/ui/DeferredMount";
+import {
+  CONTENITORE,
+  SEZIONE,
+  STRETTO,
+  Chiave,
+  Titolo,
+} from "@/components/blocchi/ui";
 import type { CaseStudy } from "@/data/caseStudies";
 import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
+
+/*
+ * La pagina di un caso studio (rifatta il 29/09/2026).
+ *
+ * Stesse sezioni di prima, nello stesso ordine; cambiano impaginazione e
+ * parole, secondo le REGOLE DEL SITO e lo studio sulla pagina di vendita
+ * del concorrente A:
+ * - due soli sfondi, alternati: hero mattone, contesto bianco, sfida
+ *   mattone, soluzione bianco, risultati mattone, prima e dopo bianco, a
+ *   chi serve mattone (poi la fascia finale del footer, bianca);
+ * - tutti i titoli con <Titolo>, centrati, stessa misura;
+ * - i problemi numerati ("Problema #1"), ognuno con il suo titoletto;
+ * - i passi della soluzione uniti da una freccia, come un conto disegnato;
+ * - un pulsante dopo i blocchi che contano. Il corallo pieno qui non c'è:
+ *   lo usa una volta sola la fascia finale del footer.
+ */
 
 type Props = {
   c: CaseStudy;
@@ -18,25 +41,18 @@ function escapeRegExp(s: string) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function ExcerptWithHighlights({
-  text,
-  highlights,
-}: {
-  text: string;
-  highlights?: string[];
-}) {
+/** Il testo con le sue frasi chiave in corallo grassetto (REGOLE §5 bis). */
+function ConChiavi({ text, highlights }: { text: string; highlights?: string[] }) {
   if (!highlights?.length) return <>{text}</>;
-
   const pattern = highlights.map(escapeRegExp).join("|");
   const parts = text.split(new RegExp(`(${pattern})`, "g")).filter((p) => p.length > 0);
-
   return (
     <>
       {parts.map((part, i) =>
         highlights.includes(part) ? (
-          <span key={i} className="text-brand-corallo-text">
+          <strong key={i} className="chiave">
             {part}
-          </span>
+          </strong>
         ) : (
           <span key={i}>{part}</span>
         )
@@ -45,6 +61,20 @@ function ExcerptWithHighlights({
   );
 }
 
+/** "Titolo: spiegazione" diventa titoletto e testo. */
+function dividi(frase: string) {
+  const i = frase.indexOf(":");
+  if (i < 0) return { titolo: frase, testo: "" };
+  const testo = frase.slice(i + 1).trim();
+  return {
+    titolo: frase.slice(0, i).trim(),
+    testo: testo.charAt(0).toUpperCase() + testo.slice(1) + ".",
+  };
+}
+
+/** La cifra non si separa dal suo simbolo a fine riga. */
+const unito = (t: string) => t.replace(/ €/g, "\u00a0€");
+
 function getClientDisplayName(c: CaseStudy): string {
   const azienda = c.context.find((ctx) => ctx.label === "Azienda")?.value;
   if (azienda) return azienda.split(",")[0].trim();
@@ -52,118 +82,150 @@ function getClientDisplayName(c: CaseStudy): string {
   return c.shortTitle;
 }
 
+/** Il pulsante secondario verso lo studio di fattibilità. */
+function VersoLoStudio({ testo = "Richiedi lo studio di fattibilità" }: { testo?: string }) {
+  return (
+    <div className="mt-12 flex justify-center">
+      <Link href="/contatti" className="btn-ghost text-center">
+        {testo} ↗
+      </Link>
+    </div>
+  );
+}
+
 export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
   const clientName = getClientDisplayName(c);
+  const contesto = c.context.filter((ctx) => ctx.label !== "Azienda");
+
   return (
     <>
-      {/* HERO */}
-      <section className="relative z-0 overflow-hidden border-b section-coral">
+      {/* HERO · mattone */}
+      <section className="relative z-0 overflow-hidden section-mattone">
         <div className="absolute inset-0" aria-hidden>
           <Image
             src={getCaseStudyImage(c.slug)}
-            alt={`Caso studio ${c.shortTitle}`}
+            alt=""
             fill
             className="object-cover object-center"
             style={{ objectPosition: getCaseStudyImagePosition(c.slug) }}
             sizes="100vw"
-            quality={85}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-corallo/88 via-brand-corallo/72 to-brand-corallo/48" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-mattone/95 via-brand-mattone/85 to-brand-mattone/60" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-12 pt-16 copy-on-coral sm:px-6 md:pb-16 md:pt-24 lg:px-8">
+        <div className={`relative z-10 ${CONTENITORE} pb-20 pt-14 md:pb-28 md:pt-20`}>
           {showBackLink && (
             <Link
               href="/casi-studio"
-              className="link-coral mb-6 inline-flex items-center gap-2 text-sm hover:underline"
+              className="mb-8 inline-flex items-center gap-2 text-sm text-white/85 hover:text-white hover:underline"
             >
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
+              <span aria-hidden>←</span>
               Tutti i casi studio
             </Link>
           )}
 
           <div className="max-w-3xl">
-            <p className="eyebrow-coral mb-6">✦ {c.sector}</p>
-            <h1 className="heading-hero font-semibold leading-tight">{c.resultHeadline}</h1>
-          </div>
-        </div>
-      </section>
-
-      {/* CONTEXT — titolo cliente e logo affiancati senza sovrapposizione */}
-      <section className="relative z-10 section-bianco border-b border-brand-bordo pb-14 pt-10 md:pt-14">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative mb-8 grid gap-6 md:mb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-8">
-            <h2 className="min-w-0 font-display text-[clamp(2.25rem,6vw,3.75rem)] font-bold uppercase leading-[0.95] tracking-tight text-brand-nero">
-              {clientName}
-            </h2>
-            {c.clientLogo && (
-              <div className="w-full max-w-full justify-self-start md:w-auto md:max-w-[min(100%,26rem)] md:justify-self-end">
-                <CaseStudyClientLogo
-                  src={c.clientLogo}
-                  alt={c.clientLogoAlt ?? clientName}
-                  variant="card"
-                  size="3xl"
-                  className="max-w-full"
-                />
-              </div>
-            )}
-          </div>
-
-          <div>
-            <p className="eyebrow mb-6">+ Il Contesto</p>
-
-            <p className="mb-8 max-w-3xl text-base leading-relaxed font-bold text-brand-nero">
-              <ExcerptWithHighlights text={c.excerpt} highlights={c.excerptHighlights} />
+            <p className="mb-6">
+              <span className="eyebrow-rule">{c.sector}</span>
             </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {c.context.filter((ctx) => ctx.label !== "Azienda").map((ctx, i) => (
-                <div key={i} className="bg-brand-panna border border-brand-bordo rounded-xl p-5 md:p-6">
-                  <div className="eyebrow mb-2">
-                    {ctx.label}
-                  </div>
-                  <div className="text-brand-nero font-medium leading-snug">{ctx.value}</div>
-                </div>
-              ))}
+            <h1 className="heading-hero text-balance font-semibold leading-tight text-white">
+              {unito(c.resultHeadline)}
+            </h1>
+            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed">
+              <ConChiavi text={unito(c.excerpt)} highlights={c.excerptHighlights?.map(unito)} />
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link href="#risultati" className="btn-hero btn-hero-compatto btn-hero-chiaro text-base">
+                Guarda i numeri
+                <span className="btn-hero-freccia" aria-hidden>
+                  ↓
+                </span>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CHALLENGE */}
-      <section className="py-16 md:py-20 section-coral border-y">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[minmax(0,1fr)_280px] md:gap-8 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-12">
-            <div className="min-w-0">
-              <div className="copy-on-coral mb-8">
-                <p className="eyebrow-coral mb-4">✦ La Sfida</p>
-                <h2 className="heading-section leading-tight mb-6">
-                  Da dove <span>siamo partiti</span>.
-                </h2>
-                <p className="text-lg text-white/90 leading-relaxed">{c.challenge}</p>
-              </div>
+      {/* CONTESTO · bianco */}
+      <section className={`section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Il contesto">
+            Chi è <Chiave>{clientName}</Chiave>.
+          </Titolo>
 
-              <div className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8">
-                <h3 className="text-lg font-semibold text-brand-nero mb-4">La diagnosi Forge:</h3>
-                <ul className="space-y-3">
-                  {c.diagnosis.map((d, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span
-                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
-                        aria-hidden
-                      />
-                      <span className="text-brand-nero">{d}</span>
-                    </li>
-                  ))}
-                </ul>
+          {c.clientLogo && (
+            <div className="mb-12 flex justify-center">
+              <CaseStudyClientLogo
+                src={c.clientLogo}
+                alt={c.clientLogoAlt ?? clientName}
+                variant="card"
+                size="3xl"
+                className="max-w-full"
+              />
+            </div>
+          )}
+
+          <div
+            className={`${STRETTO} grid grid-cols-1 gap-4 ${
+              contesto.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+            }`}
+          >
+            {contesto.map((ctx) => (
+              <div key={ctx.label} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
+                <p className="eyebrow mb-2">{ctx.label}</p>
+                <p className="font-medium leading-snug text-brand-nero">{ctx.value}</p>
               </div>
+            ))}
+          </div>
+
+          {c.scena && (
+            <figure className={`${STRETTO} mt-12 rounded-2xl border-l-4 border-brand-corallo bg-brand-bianco px-6 py-6 shadow-sm md:px-8`}>
+              <p className="eyebrow mb-2">Una scena vera</p>
+              <h3 className="mb-3 font-display text-xl font-bold text-brand-nero">
+                {c.scena.titolo}
+              </h3>
+              <p className="text-pretty text-[1.02rem] leading-relaxed text-brand-grigio">
+                {c.scena.testo}
+              </p>
+            </figure>
+          )}
+        </div>
+      </section>
+
+      {/* LA SFIDA · mattone: i problemi numerati */}
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="La sfida">
+            Da dove <Chiave>siamo partiti</Chiave>.
+          </Titolo>
+
+          <div
+            className={`grid items-start gap-12 ${
+              c.contextPhoneScreenshot ? "lg:grid-cols-[minmax(0,1fr)_300px]" : ""
+            }`}
+          >
+            <div className={c.contextPhoneScreenshot ? "min-w-0" : STRETTO}>
+              <p className="mb-10 text-pretty text-lg leading-relaxed">{c.challenge}</p>
+
+              <ol className="grid gap-5 md:grid-cols-2">
+                {c.diagnosis.map((d, i) => {
+                  const { titolo, testo } = dividi(d);
+                  return (
+                    <li key={d} className="card-xl superficie-chiara rounded-2xl border p-6">
+                      <p className="eyebrow mb-2">Problema #{i + 1}</p>
+                      <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero">
+                        {titolo}
+                      </h3>
+                      {testo && <p className="leading-relaxed">{testo}</p>}
+                    </li>
+                  );
+                })}
+              </ol>
             </div>
 
             {c.contextPhoneScreenshot && (
-              <div className="flex w-full justify-center md:justify-end md:sticky md:top-24 md:self-start">
+              <div className="flex w-full justify-center lg:sticky lg:top-24">
                 <PhoneScreenshotMockup
                   src={c.contextPhoneScreenshot.src}
                   alt={c.contextPhoneScreenshot.alt}
@@ -175,129 +237,103 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         </div>
       </section>
 
-      {/* SISTEMA */}
-      <section className="py-16 md:py-24 section-bianco">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <p className="eyebrow mb-4">✦ La Soluzione</p>
-            <h2 className="heading-section font-semibold text-brand-nero leading-tight">
-              Il sistema che <span className="text-brand-corallo">abbiamo implementato</span>.
-            </h2>
-          </div>
+      {/* LA SOLUZIONE · bianco: i passi uniti dalla freccia */}
+      <section className={`section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="La soluzione"
+            sottotitolo={`Ogni problema ha il suo passo, costruito insieme a ${clientName}. Oggi il sistema resta in mano loro.`}
+          >
+            Il sistema che abbiamo <Chiave>costruito insieme</Chiave>.
+          </Titolo>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {c.system.map((step) => (
-              <div
-                key={step.step}
-                className="bg-brand-panna border border-brand-bordo rounded-2xl p-7 hover:border-brand-corallo transition-colors"
-              >
-                <div className="font-display text-5xl font-semibold text-brand-corallo mb-4">{step.step}</div>
-                <h3 className="text-lg font-semibold text-brand-nero mb-3">{step.title}</h3>
-                <p className="text-brand-grigio leading-relaxed">{step.description}</p>
-              </div>
+          <ol className={STRETTO}>
+            {c.system.map((step, i) => (
+              <li key={step.step}>
+                <div className="flex items-start gap-5 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:gap-6 md:p-7">
+                  <span className="font-display text-4xl font-bold leading-none text-brand-corallo-text md:text-5xl">
+                    {step.step}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="mb-2 font-display text-xl font-bold text-brand-nero">
+                      {step.title}
+                    </h3>
+                    <p className="text-pretty leading-relaxed text-brand-grigio">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                {i < c.system.length - 1 && (
+                  <p className="py-2 text-center text-2xl font-bold text-brand-corallo-text" aria-hidden>
+                    ↓
+                  </p>
+                )}
+              </li>
             ))}
-          </div>
+          </ol>
+
+          <VersoLoStudio testo="Scopri se si può fare anche da te" />
         </div>
       </section>
 
-      {/* RISULTATI */}
-      <section className="py-16 md:py-24 section-coral border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-12 copy-on-coral">
-            <p className="eyebrow-coral mb-4">✦ {c.resultsEyebrow ?? "I Risultati"}</p>
-            <h2 className="heading-section font-semibold leading-tight">
-              {c.resultsHeading ?? "I numeri"}{" "}
-              <span>{c.resultsHeadingHighlight ?? "reali"}</span>.
-            </h2>
-          </div>
+      {/* RISULTATI · mattone (con la videorecensione, dove c'è) */}
+      <section id="risultati" className={`section-mattone scroll-mt-24 ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello={c.resultsEyebrow ?? "I risultati"}>
+            {c.resultsHeading ?? "I numeri"}{" "}
+            <Chiave>{c.resultsHeadingHighlight ?? "veri"}</Chiave>.
+          </Titolo>
 
           {/* Le colonne seguono il numero dei risultati: con tre, niente
               casella vuota da computer e niente casella sola da telefono. */}
           <div
             className={`grid gap-4 md:gap-6 ${
-              c.results.length === 3
-                ? "grid-cols-1 sm:grid-cols-3"
-                : "grid-cols-2 lg:grid-cols-4"
+              c.results.length === 3 ? "grid-cols-1 sm:grid-cols-3" : "grid-cols-2 lg:grid-cols-4"
             }`}
           >
-            {c.results.map((r, i) => {
+            {c.results.map((r) => {
               const compactValue =
-                r.value.length > 5 || /[A-Za-zÀ-ÿ]{3,}/.test(r.value.replace(/^[+~€]/, ""));
+                r.value.length > 6 || /[A-Za-zÀ-ÿ]{3,}/.test(r.value.replace(/^[+~€]/, ""));
               return (
-              <div
-                key={i}
-                className="bg-brand-bianco border border-brand-bordo rounded-2xl p-6 md:p-8 text-center hover:border-brand-corallo transition-colors"
-              >
                 <div
-                  className={`font-semibold text-brand-corallo-text mb-2 ${
-                    compactValue ? "text-xl md:text-2xl leading-snug" : "text-4xl md:text-5xl"
-                  }`}
+                  key={r.label}
+                  className="card-xl superficie-chiara rounded-2xl border p-6 text-center md:p-8"
                 >
-                  {r.value}
+                  <p
+                    className={`mb-2 font-display font-bold text-brand-corallo-text ${
+                      compactValue ? "text-2xl leading-snug md:text-3xl" : "text-4xl md:text-5xl"
+                    }`}
+                  >
+                    {r.value}
+                  </p>
+                  <h3 className="mb-1 text-sm font-semibold text-brand-nero md:text-base">{r.label}</h3>
+                  {r.detail && <p className="text-xs md:text-sm">{r.detail}</p>}
                 </div>
-                <p className="text-brand-nero font-semibold text-sm md:text-base mb-1">{r.label}</p>
-                {r.detail && <p className="text-xs md:text-sm text-brand-grigio">{r.detail}</p>}
-              </div>
-            );
+              );
             })}
           </div>
+
           {c.resultNote && (
-            <p className="max-w-3xl mx-auto mt-10 text-center text-base md:text-lg text-white/90 leading-relaxed">
+            <p className={`${STRETTO} mt-10 text-pretty text-center text-base leading-relaxed md:text-lg`}>
               {c.resultNote}
             </p>
           )}
-        </div>
-      </section>
 
-      {/* VIDEO RECENSIONE */}
-      {c.videoUrl && (
-        <section className="border-b border-brand-bordo py-10 sm:py-16 md:py-24 section-bianco">
-          <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
-            <div className="mb-6 sm:mb-10 max-w-2xl">
-              <p className="mb-3 sm:mb-4 eyebrow">
-                ✦ Videorecensione
-              </p>
-              <h2 className="heading-section font-semibold leading-tight text-brand-nero text-balance">
-                La parola di <span className="text-brand-corallo">{clientName}</span>
-              </h2>
-            </div>
-
+          {c.videoUrl && (
             <DeferredMount minHeight="360px" rootMargin="320px 0px">
-            <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
-              <div className="min-w-0 overflow-hidden rounded-2xl sm:rounded-3xl border border-brand-bordo bg-brand-nero shadow-[0_20px_56px_-16px_rgba(17,17,17,0.28)]">
-                <VideoRecensionePoster
-                  src={c.videoUrl}
-                  label={`Videorecensione ${clientName}`}
-                />
-              </div>
-
-              <div className="min-w-0 rounded-2xl border border-brand-bordo bg-brand-panna px-5 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
-                <div className="mb-3 sm:mb-4 flex gap-1">
-                  {[0, 1, 2, 3, 4].map((i) => (
-                    <svg
-                      key={i}
-                      className="h-4 w-4 sm:h-5 sm:w-5 text-brand-corallo"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      aria-hidden
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.539 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
-                    </svg>
-                  ))}
+              <div className="mt-16 grid items-start gap-6 sm:gap-8 md:mt-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+                <div className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-black sm:rounded-3xl">
+                  <VideoRecensionePoster src={c.videoUrl} label={`Videorecensione ${clientName}`} />
                 </div>
 
-                <blockquote className="mb-5 sm:mb-6 font-display text-base sm:text-lg font-semibold leading-relaxed text-brand-nero md:text-xl text-balance">
-                  &ldquo;
-                  {c.quoteSegments ? (
-                    <HighlightedText segments={c.quoteSegments} />
-                  ) : (
-                    c.quote.text
-                  )}
-                  &rdquo;
-                </blockquote>
-
-                <div className="flex flex-col gap-3 rounded-xl border border-brand-bordo bg-brand-bianco px-4 py-4 sm:flex-row sm:items-center sm:gap-4">
-                  <div className="flex min-w-0 items-center gap-3 sm:flex-1">
+                <div className="card-xl superficie-chiara min-w-0 rounded-2xl border p-6 md:p-8">
+                  <p className="eyebrow mb-3">La videorecensione</p>
+                  <blockquote className="mb-6 text-balance font-display text-lg font-semibold leading-relaxed text-brand-nero md:text-xl">
+                    &ldquo;
+                    {c.quoteSegments ? <HighlightedText segments={c.quoteSegments} /> : c.quote.text}
+                    &rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-3 border-t border-brand-bordo pt-4">
                     {c.clientLogo && (
                       <CaseStudyClientLogo
                         src={c.clientLogo}
@@ -306,50 +342,34 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                         size="md"
                       />
                     )}
-                    <div className="min-w-0 flex-1">
-                      <p className="font-display text-sm font-bold leading-snug text-brand-nero sm:truncate">
-                        {c.quote.author}
-                      </p>
-                      <p className="mt-0.5 text-[11px] sm:text-xs font-medium uppercase tracking-wide text-brand-grigio leading-snug">
-                        {c.quote.role}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between gap-2 border-t border-brand-bordo pt-3 sm:shrink-0 sm:flex-col sm:items-end sm:justify-center sm:border-t-0 sm:pt-0">
-                    <span className="text-xs uppercase tracking-widest text-brand-grigio sm:hidden">Recensione</span>
-                    <div className="flex flex-col items-end gap-0.5">
-                      <span className="text-sm font-bold leading-none text-brand-corallo-text">5/5</span>
-                      <span className="hidden text-[10px] uppercase tracking-widest text-brand-grigio sm:block">
-                        Recensione
-                      </span>
+                    <div className="min-w-0">
+                      <p className="font-display text-sm font-bold text-brand-nero">{c.quote.author}</p>
+                      <p className="text-xs font-medium uppercase tracking-wide">{c.quote.role}</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </DeferredMount>
-          </div>
-        </section>
-      )}
+          )}
 
-      {/* PRIMA / DOPO */}
+          <VersoLoStudio />
+        </div>
+      </section>
+
+      {/* PRIMA E DOPO · bianco */}
       {c.beforeAfter.length > 0 && (
-        <section className="py-16 md:py-24 section-bianco">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="eyebrow mb-4">
-              ✦ {c.evolutionEyebrow ?? "Prima e dopo"}
-            </p>
-            <h2 className="heading-section font-semibold text-brand-nero leading-tight mb-8">
-              {c.evolutionHeading ?? "Il confronto"}{" "}
-              <span className="text-brand-corallo">
-                {c.evolutionHeadingHighlight ?? "reale"}
-              </span>
-              {!c.evolutionHeading && "."}
-            </h2>
-            <CaseStudyBeforeAfter rows={c.beforeAfter} />
+        <section className={`section-bianco ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <Titolo occhiello={c.evolutionEyebrow ?? "Prima e dopo"}>
+              {c.evolutionHeading ?? "Cosa è cambiato"}{" "}
+              <Chiave>{c.evolutionHeadingHighlight ?? `per ${clientName}`}</Chiave>.
+            </Titolo>
+            <div className={STRETTO}>
+              <CaseStudyBeforeAfter rows={c.beforeAfter} />
+            </div>
             {c.statusBadge && (
-              <p className="mt-8 flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-brand-corallo-text">
-                <span className="w-2 h-2 rounded-full bg-brand-corallo animate-pulse" aria-hidden />
+              <p className="mt-10 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-brand-corallo" aria-hidden />
                 {c.statusBadge}
               </p>
             )}
@@ -357,46 +377,30 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         </section>
       )}
 
-      {/* A CHI SERVE */}
+      {/* A CHI SERVE · mattone */}
       {c.forWhom && c.forWhom.length > 0 && (
-        <section className="py-16 md:py-24 section-coral border-y">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="copy-on-coral mb-8">
-              <p className="eyebrow-coral mb-4">✦ A chi serve</p>
-              <h2 className="heading-section font-semibold leading-tight">
-                {c.slug === "hotel-hospitality" ? (
-                  <>
-                    Per strutture ricettive che vogliono un{" "}
-                    <span>prenotazioni tutto l&apos;anno</span>.
-                  </>
-                ) : (
-                  <>
-                    Per imprese che fanno bene il lavoro e vogliono{" "}
-                    <span>richieste tutto l&apos;anno</span>.
-                  </>
-                )}
-              </h2>
-            </div>
-            <ul className="space-y-3">
-              {c.forWhom.map((item, i) => (
+        <section className={`section-mattone ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <Titolo occhiello="A chi serve">
+              Per imprese che fanno bene il lavoro e vogliono <Chiave>richieste tutto l&apos;anno</Chiave>.
+            </Titolo>
+            <ul className={`${STRETTO} space-y-4`}>
+              {c.forWhom.map((item) => (
                 <li
-                  key={i}
-                  className="flex items-start gap-3 bg-brand-bianco border border-brand-bordo rounded-xl p-5"
+                  key={item}
+                  className="card-xl superficie-chiara flex items-start gap-3.5 rounded-2xl border p-5"
                 >
-                  <span
-                    className="w-6 h-6 rounded-full bg-brand-corallo text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold"
-                    aria-hidden
-                  >
+                  <span className="segno-si mt-0.5" aria-hidden>
                     ✓
                   </span>
-                  <span className="text-brand-nero leading-relaxed">{item}</span>
+                  <span className="leading-relaxed text-brand-nero">{item}</span>
                 </li>
               ))}
             </ul>
+            <VersoLoStudio testo="Ti riconosci? Richiedi lo studio di fattibilità" />
           </div>
         </section>
       )}
-
     </>
   );
 }
