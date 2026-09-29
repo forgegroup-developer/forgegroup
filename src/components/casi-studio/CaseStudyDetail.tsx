@@ -186,29 +186,33 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <ConChiavi text={unito(c.excerpt)} highlights={c.excerptHighlights?.map(unito)} />
           </p>
 
-          {c.clientLogo && (
-            <div className="mb-12 flex justify-center">
-              <CaseStudyClientLogo
-                src={c.clientLogo}
-                alt={c.clientLogoAlt ?? clientName}
-                variant="card"
-                size="3xl"
-                className="max-w-full"
-              />
-            </div>
-          )}
-
-          <div
-            className={`${STRETTO} grid grid-cols-1 gap-4 ${
-              contesto.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
-            }`}
-          >
-            {contesto.map((ctx) => (
-              <div key={ctx.label} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
-                <p className="eyebrow mb-2">{ctx.label}</p>
-                <p className="font-medium leading-snug text-brand-nero">{ctx.value}</p>
+          {/* La scheda del cliente: logo scontornato, senza riquadro, e
+              accanto settore, modello e mercato (proprietà, 29/09: "si vede
+              solo il logo"). */}
+          <div className={`${STRETTO} grid items-center gap-8 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 shadow-sm md:grid-cols-[240px_1fr] md:gap-10 md:p-8`}>
+            {c.clientLogo && (
+              <div className="relative mx-auto h-28 w-full max-w-[240px] md:h-32">
+                <Image
+                  src={c.clientLogo}
+                  alt={c.clientLogoAlt ?? clientName}
+                  fill
+                  sizes="240px"
+                  className="object-contain"
+                />
               </div>
-            ))}
+            )}
+            <dl className="grid gap-5 border-brand-bordo sm:grid-cols-2 md:border-l md:pl-10">
+              <div className="sm:col-span-2">
+                <dt className="eyebrow mb-1">Cliente</dt>
+                <dd className="font-display text-2xl font-bold text-brand-nero">{clientName}</dd>
+              </div>
+              {contesto.map((ctx) => (
+                <div key={ctx.label}>
+                  <dt className="eyebrow mb-1">{ctx.label}</dt>
+                  <dd className="font-medium leading-snug text-brand-nero">{ctx.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           {c.scena && (

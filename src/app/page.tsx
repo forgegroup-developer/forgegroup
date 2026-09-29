@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Evidenzia } from "@/components/blocchi/ui";
+import { Evidenzia, ScenaAI } from "@/components/blocchi/ui";
+import { problemiConScena } from "@/data/blocchi";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
@@ -341,6 +342,27 @@ export default function Home() {
                 </>
               }
             />
+            {/* Le quattro scene della landing (proprietà, 29/09), una per
+                problema: si riconosce la situazione prima di leggere la
+                tabella. Immagini AI, con la scritta. */}
+            <ul className="mx-auto mb-10 grid max-w-5xl grid-cols-2 gap-4 md:mb-12 lg:grid-cols-4">
+              {problemiConScena.map((p) => (
+                <li key={p.tema}>
+                  <ScenaAI
+                    src={p.src}
+                    alt={p.alt}
+                    sizes="(min-width: 1024px) 250px, 50vw"
+                  />
+                  <p className="mt-3 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
+                    <span className="segno-no scale-75" aria-hidden>
+                      ✕
+                    </span>
+                    {p.tema}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
             {/* Riga per riga: il problema come lo racconta il titolare (Testa
                 aziendale §3, frasi delle call) e cosa facciamo, detto come
                 meccanismo (Scheda dei fatti). Da telefono ogni riga diventa
