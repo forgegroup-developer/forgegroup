@@ -49,6 +49,8 @@ export type CaseStudy = {
   evolutionEyebrow?: string;
   evolutionHeading?: string;
   evolutionHeadingHighlight?: string;
+  /** Problema, soluzione e risultato in una riga ciascuno, in apertura. */
+  sintesi: { problema: string; soluzione: string; risultato: string };
   /** Una scena vera dal lavoro con il cliente (Scene ROVI, video-recensione DISA). */
   scena?: { titolo: string; testo: string };
   /** Badge progetto in corso (es. ROVI) */
@@ -82,6 +84,11 @@ export const caseStudies: CaseStudy[] = [
     hubExcerpt:
       "Da mesi pieni e mesi vuoti a 4 clienti qualificati al mese senza pubblicità, con il sopralluogo diventato a pagamento.",
     excerptHighlights: ["4 clienti qualificati al mese", "il sopralluogo a pagamento"],
+    sintesi: {
+      problema: "Clienti solo dal passaparola, mesi pieni e mesi vuoti, sopralluoghi per chiunque chiedesse.",
+      soluzione: "Il modulo che filtra, le parole per richiamare, il sopralluogo a pagamento, il sito e il profilo Google per la sua zona.",
+      risultato: "4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € + IVA.",
+    },
     metaDescription:
       "Tetti Top, coperture e lattoneria: da mesi pieni e mesi vuoti a 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € e sopralluogo a pagamento.",
     context: [
@@ -93,7 +100,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Tetti Top il lavoro lo sa fare. Il problema era un altro: i clienti arrivavano solo dal passaparola, quando arrivavano. Mesi pieni e mesi vuoti, preventivi a chiunque chiedesse, sopralluoghi anche per chi voleva solo un prezzo da confrontare.",
     diagnosis: [
-      "Mesi pieni e mesi vuoti: nessun modo di pianificare il lavoro o le assunzioni",
+      "I mesi morti: mesi pieni e mesi vuoti, nessun modo di pianificare il lavoro o le assunzioni",
       "Nessun filtro: preventivi anche a chi cercava solo il prezzo più basso",
       "Sopralluoghi regalati: giornate intere per clienti che non avrebbero firmato",
       "Invisibile a chi cercava: chi cercava un'impresa di coperture in zona non la trovava",
@@ -184,6 +191,11 @@ export const caseStudies: CaseStudy[] = [
     hubExcerpt:
       "Da sopralluoghi e progetti per chiunque a clienti con il budget già detto: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     excerptHighlights: ["conosce il budget del cliente prima dell'appuntamento", "oltre 200.000 € di trattative aperte"],
+    sintesi: {
+      problema: "Solo passaparola, sopralluoghi e progetti per chiunque, trattative perse sul prezzo.",
+      soluzione: "Chi decide al primo incontro, la cifra detta presto, il piano dei lavori presentato di persona, ogni trattativa nel gestionale.",
+      risultato: "25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+    },
     metaDescription:
       "ROVI, azienda che lavora in edilizia: dal solo passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte, con il budget del cliente saputo prima.",
     context: [
@@ -201,8 +213,8 @@ export const caseStudies: CaseStudy[] = [
     diagnosis: [
       "Solo passaparola: nessun altro canale per trovare clienti",
       "Sopralluoghi e progetti regalati: a chiunque chiedesse, senza sapere il budget",
-      "Trattative perse sul prezzo: la cura del lavoro non si vedeva nel preventivo",
-      "Vendita a memoria: agenda, WhatsApp, nessuno storico delle trattative",
+      "La guerra dei prezzi: la cura del lavoro non si vedeva nel preventivo",
+      "Il preventivo e poi il silenzio: agenda, WhatsApp, nessuna data per richiamare",
     ],
     system: [
       {
@@ -248,7 +260,6 @@ export const caseStudies: CaseStudy[] = [
     results: [
       { value: "25K€", label: "Contratti chiusi", detail: "Nei primi quattro mesi di lavoro insieme" },
       { value: "+200K€", label: "Trattative aperte", detail: "In cinque mesi, ancora in corso" },
-      { value: "Prima", label: "Il budget del cliente", detail: "Lo conosce prima dell'appuntamento" },
     ],
     quote: {
       text: "Progetto in corso con Forge Group.",
@@ -304,6 +315,11 @@ export const caseStudies: CaseStudy[] = [
     hubExcerpt:
       "Dalle chiamate a freddo a 126.500 € di nuovi contratti in 90 giorni, e circa 350.000 € in 12 mesi, solo dalle Meta Ads.",
     excerptHighlights: ["126.500 € di nuovi contratti in 90 giorni", "circa 350.000 € in 12 mesi"],
+    sintesi: {
+      problema: "Chiamate a freddo, referenze chieste ai clienti, trasferte con chi non conosceva il software.",
+      soluzione: "Il messaggio riscritto, i video, le campagne su Meta e il modulo che filtra.",
+      risultato: "126.500 € in 90 giorni a 1,48 € per contatto, circa 350.000 € in 12 mesi.",
+    },
     metaDescription:
       "DISA, software per l'edilizia: 126.500 € di nuovi contratti in 90 giorni solo dalle Meta Ads, a 1,48 € per contatto, e circa 350.000 € in 12 mesi.",
     context: [

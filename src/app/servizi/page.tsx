@@ -8,31 +8,76 @@ import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
 import { CONTENITORE, SEZIONE, STRETTO, Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
-import { serviziSidebarImages } from "@/data/images";
+import { altriProblemi, problemiConScena, type Problema } from "@/data/blocchi";
 
 type ServiziTab = {
   id: string;
-  problema: { titolo: string; testo: string };
+  scena: { src: string; alt: string };
+  problemi: Problema[];
   pratica?: { titolo: string; voci: string[] };
+  extra?: React.ReactNode;
   number: string;
   title: React.ReactNode;
   intro: React.ReactNode;
   points: ServiziTabPoint[];
-  sidebarImage: string;
-  sidebarImageAlt: string;
 };
+
+/* I problemi sono quelli della landing /inizia, con le stesse parole:
+   chi arriva da lì ritrova le sue frasi, e un testo cambia in un posto solo. */
+const tutti = [...problemiConScena, ...altriProblemi];
+const problemi = (...temi: string[]) =>
+  temi.map((t) => {
+    const p = tutti.find((x) => x.tema === t);
+    if (!p) throw new Error(`Problema non trovato: ${t}`);
+    return p;
+  });
+const scena = (tema: string) => {
+  const p = problemiConScena.find((x) => x.tema === tema)!;
+  return { src: p.src, alt: p.alt };
+};
+
+/* Il conto della landing, disegnato: riquadri uniti dalla freccia. */
+function ContoSopralluoghi() {
+  const passi = [
+    "Esci per otto sopralluoghi al mese",
+    "Ne chiudi uno",
+    "Sono sette giornate a vuoto al mese, più di ottanta l'anno",
+  ];
+  return (
+    // Dentro la scheda chiara il testo diventa scuro da solo: qui il fondo e'
+    // mattone, quindi il bianco e' forzato.
+    <div className="rounded-2xl bg-brand-mattone p-6 md:p-8">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-wide !text-white/80">
+        Facciamo due conti, con numeri tondi
+      </p>
+      <ol className="space-y-2">
+        {passi.map((p, i) => (
+          <li key={p}>
+            <p className="rounded-xl border border-white/20 bg-white/5 px-4 py-3 font-medium !text-white">
+              {p}
+            </p>
+            {i < passi.length - 1 && (
+              <p className="py-1 text-center text-xl font-bold !text-white/80" aria-hidden>
+                ↓
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+      <p className="mt-5 font-display text-xl font-bold leading-snug !text-white md:text-2xl">
+        Più di quattro mesi di lavoro regalati a chi non avrebbe mai firmato.
+      </p>
+    </div>
+  );
+}
 
 const serviziTabs: ServiziTab[] = [
   {
     id: "acquisizione",
     number: "01",
-    problema: {
-      titolo: "Sopralluoghi regalati a chi voleva solo un prezzo.",
-      testo:
-        "Il lavoro arriva dal passaparola, quando arriva: mesi pieni e mesi vuoti. E quando arriva esci per tutti, anche per chi il budget non ce l'ha.",
-    },
-    sidebarImage: serviziSidebarImages.acquisizione,
-    sidebarImageAlt: "Illustrazione acquisizione clienti",
+    scena: scena("Sopralluoghi regalati"),
+    problemi: problemi("Sopralluoghi regalati", "I mesi morti", "L'agenzia di prima"),
+    extra: <ContoSopralluoghi />,
     title: "Acquisizione Clienti",
     intro: (
       <>
@@ -71,13 +116,8 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "vendite",
     number: "02",
-    problema: {
-      titolo: "Il preventivo parte, poi il silenzio.",
-      testo:
-        "Lo mandi su WhatsApp, il cliente lo confronta con quello più basso e sparisce. Chi decide davvero spesso al tavolo non c'era neanche.",
-    },
     pratica: {
-      titolo: "In pratica, le regole nate dalle consulenze con ROVI:",
+      titolo: "Le regole del processo di vendita che scriviamo con te:",
       voci: [
         "Al primo incontro si capisce chi decide e chi paga, prima di progettare.",
         "La cifra si dice presto: se è sostenibile, si fissa il sopralluogo.",
@@ -86,8 +126,13 @@ const serviziTabs: ServiziTab[] = [
         "Come e quando si paga si decide prima di iniziare, per iscritto.",
       ],
     },
-    sidebarImage: serviziSidebarImages.vendite,
-    sidebarImageAlt: "Illustrazione processi di vendita",
+    scena: scena("La guerra dei prezzi"),
+    problemi: problemi(
+      "La guerra dei prezzi",
+      "Il preventivo e poi il silenzio",
+      "La paura di vendere",
+      "I soldi che non entrano",
+    ),
     title: "Processi di Vendita",
     intro: (
       <>
@@ -126,13 +171,8 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "consulenza",
     number: "03",
-    problema: {
-      titolo: "Tutto passa dalla testa del titolare.",
-      testo:
-        "Chi ha chiamato, a che punto è ogni trattativa, cosa si è detto: lo sai solo tu. Se ti fermi, si ferma tutto.",
-    },
-    sidebarImage: serviziSidebarImages.consulenza,
-    sidebarImageAlt: "Illustrazione consulenza e formazione",
+    scena: scena("Il titolare dentro il cantiere"),
+    problemi: problemi("Il titolare dentro il cantiere"),
     title: (
       <>
         Consulenza <span className="whitespace-nowrap">e metodo</span>
@@ -267,7 +307,7 @@ export default function ServiziHub() {
         <div className={CONTENITORE}>
           <Titolo
             occhiello="Come lavoriamo"
-            sottotitolo="Ognuna parte da un problema che ci raccontano le imprese edili, e accanto c'è cosa facciamo per risolverlo."
+            sottotitolo="Ognuna parte dai problemi che ci raccontano i titolari al primo appuntamento, con le loro parole, e accanto c'è cosa facciamo per risolverli."
           >
             Tre macroaree, dal <Chiave>primo contatto</Chiave> alla firma.
           </Titolo>

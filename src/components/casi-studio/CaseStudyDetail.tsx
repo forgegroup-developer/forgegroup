@@ -11,10 +11,12 @@ import {
   SEZIONE,
   STRETTO,
   Chiave,
+  Stelle,
   Titolo,
 } from "@/components/blocchi/ui";
-import type { CaseStudy } from "@/data/caseStudies";
-import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
+import { caseStudies, type CaseStudy } from "@/data/caseStudies";
+import { recensioniGoogle } from "@/data/prove";
+import { getCaseStudyImage, getCaseStudyImagePosition, teamImages } from "@/data/images";
 
 /*
  * La pagina di un caso studio (rifatta il 29/09/2026).
@@ -24,12 +26,13 @@ import { getCaseStudyImage, getCaseStudyImagePosition } from "@/data/images";
  * del concorrente A:
  * - due soli sfondi, alternati: hero mattone, contesto bianco, sfida
  *   mattone, soluzione bianco, risultati mattone, prima e dopo bianco, a
- *   chi serve mattone (poi la fascia finale del footer, bianca);
+ *   chi serve mattone, perché fidarti e gli altri casi bianco;
+ * - in apertura la sintesi problema, soluzione, risultato;
  * - tutti i titoli con <Titolo>, centrati, stessa misura;
  * - i problemi numerati ("Problema #1"), ognuno con il suo titoletto;
  * - i passi della soluzione uniti da una freccia, come un conto disegnato;
- * - un pulsante dopo i blocchi che contano. Il corallo pieno qui non c'è:
- *   lo usa una volta sola la fascia finale del footer.
+ * - un pulsante dopo i blocchi che contano; il corallo pieno una volta
+ *   sola, in fondo.
  */
 
 type Props = {
@@ -132,9 +135,34 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             <h1 className="heading-hero text-balance font-semibold leading-tight text-white">
               {unito(c.resultHeadline)}
             </h1>
-            <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed">
-              <ConChiavi text={unito(c.excerpt)} highlights={c.excerptHighlights?.map(unito)} />
-            </p>
+          </div>
+
+          {/* La sintesi in apertura: chi legge solo questo sa già tutto
+              (studio del concorrente A, "da prendere"; serve anche a Google
+              e alle intelligenze artificiali). */}
+          <dl className="mt-10 grid gap-4 md:grid-cols-3">
+            {(
+              [
+                ["Il problema", c.sintesi.problema],
+                ["La soluzione", c.sintesi.soluzione],
+                ["Il risultato", c.sintesi.risultato],
+              ] as const
+            ).map(([etichetta, testo], i) => (
+              <div
+                key={etichetta}
+                className={`card-xl superficie-chiara rounded-2xl border p-5 md:p-6 ${
+                  i === 2 ? "ring-2 ring-brand-pesca" : ""
+                }`}
+              >
+                <dt className="eyebrow mb-2">{etichetta}</dt>
+                <dd className={`leading-relaxed ${i === 2 ? "font-display text-lg font-bold text-brand-nero" : ""}`}>
+                  {unito(testo)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link href="#risultati" className="btn-hero btn-hero-compatto btn-hero-chiaro text-base">
                 Guarda i numeri
@@ -151,8 +179,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
       <section className={`section-bianco ${SEZIONE}`}>
         <div className={CONTENITORE}>
           <Titolo occhiello="Il contesto">
-            Chi è <Chiave>{clientName}</Chiave>.
+            Il cliente: <Chiave>{clientName}</Chiave>, {c.sector.charAt(0).toLowerCase() + c.sector.slice(1)}.
           </Titolo>
+
+          <p className={`${STRETTO} mb-12 text-pretty text-center text-lg leading-relaxed text-brand-grigio`}>
+            <ConChiavi text={unito(c.excerpt)} highlights={c.excerptHighlights?.map(unito)} />
+          </p>
 
           {c.clientLogo && (
             <div className="mb-12 flex justify-center">
@@ -288,7 +320,11 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
               casella vuota da computer e niente casella sola da telefono. */}
           <div
             className={`grid gap-4 md:gap-6 ${
-              c.results.length === 3 ? "grid-cols-1 sm:grid-cols-3" : "grid-cols-2 lg:grid-cols-4"
+              c.results.length === 2
+                ? "mx-auto max-w-3xl grid-cols-1 sm:grid-cols-2"
+                : c.results.length === 3
+                  ? "grid-cols-1 sm:grid-cols-3"
+                  : "grid-cols-2 lg:grid-cols-4"
             }`}
           >
             {c.results.map((r) => {
@@ -397,10 +433,86 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 </li>
               ))}
             </ul>
-            <VersoLoStudio testo="Ti riconosci? Richiedi lo studio di fattibilità" />
           </div>
         </section>
       )}
+
+      {/* PERCHÉ FIDARTI E GLI ALTRI CASI · bianco. Chiude la pagina con
+          l'unico pulsante corallo pieno (la fascia sopra il footer non c'è
+          più dal 29/09). */}
+      <section className={`section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Perché fidarti">
+            Dietro ogni caso ci sono <Chiave>due persone</Chiave>, e la chiamata ogni settimana.
+          </Titolo>
+
+          <div className={`${STRETTO} grid items-center gap-8 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:grid-cols-[220px_1fr] md:p-8`}>
+            <figure className="relative mx-auto aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-xl">
+              <Image
+                src={teamImages.foundersDuo}
+                alt="Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge Group"
+                fill
+                sizes="220px"
+                className="object-cover"
+                style={{ objectPosition: "50% 10%" }}
+              />
+            </figure>
+            <div>
+              <p className="mb-3 font-display text-xl font-bold leading-snug text-brand-nero">
+                Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge Group.
+              </p>
+              <p className="mb-4 leading-relaxed text-brand-grigio">
+                Siamo entrati in contatto con centinaia di imprese edili e abbiamo analizzato i loro
+                processi sul campo. Con {clientName}, come con ogni impresa che seguiamo,{" "}
+                <strong className="chiave">ci siamo noi nella chiamata settimanale</strong>, fino alla firma.
+              </p>
+              <p className="flex flex-wrap items-center gap-2 text-sm text-brand-grigio">
+                <Stelle />
+                <span className="font-bold text-brand-nero">{recensioniGoogle.voto} su Google</span>
+                <span>· {recensioniGoogle.totale} recensioni</span>
+              </p>
+            </div>
+          </div>
+
+          <div className={`${STRETTO} mt-16`}>
+            <p className="eyebrow mb-5 text-center">Gli altri casi</p>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {caseStudies
+                .filter((altro) => altro.slug !== c.slug)
+                .map((altro) => (
+                  <Link
+                    key={altro.slug}
+                    href={`/casi-studio/${altro.slug}`}
+                    className="group overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco transition-shadow hover:shadow-lg"
+                  >
+                    <div className="relative aspect-[16/9]">
+                      <Image
+                        src={getCaseStudyImage(altro.slug)}
+                        alt=""
+                        fill
+                        sizes="(min-width: 640px) 440px, 100vw"
+                        className="object-cover"
+                        style={{ objectPosition: getCaseStudyImagePosition(altro.slug) }}
+                      />
+                    </div>
+                    <div className="p-5">
+                      <p className="eyebrow mb-2">{altro.sector}</p>
+                      <p className="font-display text-lg font-bold leading-snug text-brand-nero group-hover:underline">
+                        {unito(altro.resultHeadline)}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </div>
+
+          <div className="mt-14 flex justify-center">
+            <Link href="/contatti" className="btn-corallo text-center">
+              Richiedi lo studio di fattibilità per la tua impresa
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
