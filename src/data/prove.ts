@@ -7,7 +7,7 @@
  *    quelli: niente stime, niente arrotondamenti nuovi, niente numeri presi
  *    dalle call senza che la proprietà li abbia confermati.
  * 2. Un numero nuovo si aggiunge PRIMA alla Scheda dei fatti, poi qui.
- * 3. `npm run controlla:numeri` segnala ogni cifra del sito che non è in
+ * 3. `npm run controlla:sito` segnala ogni cifra del sito che non è in
  *    questo file (o nell'elenco delle eccezioni dello script, con il motivo).
  * ══════════════════════════════════════════════════════════════════
  */

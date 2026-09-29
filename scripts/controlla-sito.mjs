@@ -16,8 +16,9 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const RADICE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CARTELLE = ["src/app", "src/components", "src/data", "src/lib/aiSeo", "src/lib/email", "src/lib/seo"];
 const ESCLUSI = [
   "src/data/prove.ts", // la fonte dei numeri
@@ -26,6 +27,7 @@ const ESCLUSI = [
   "src/app/blog", // gli articoli nuovi hanno il loro controllo (controlla-articolo.mjs)
   "src/components/blog",
   "src/lib/email/contactInternalNotification.ts", // mail interna, non la legge il cliente
+  "src/lib/email/candidaturaInternalNotification.ts", // idem
 ];
 
 /** Cifre ammesse che non sono prove, ognuna con il motivo. */
@@ -118,8 +120,26 @@ const segnala = (tipo, f, riga, msg) => {
 
 for (const f of CARTELLE.flatMap((c) => file(path.join(RADICE, c)))) {
   const righe = senzaCommenti(fs.readFileSync(f, "utf8")).split("\n");
+  let dentroBlocco = false; // dentro un testo fra apici inversi su più righe
   righe.forEach((r, i) => {
-    const { frasi: t, tutto } = testoLeggibile(r);
+    const eraDentro = dentroBlocco;
+    const apici = (r.replace(/\\`/g, "").match(/`/g) || []).length;
+    if (apici % 2 === 1) dentroBlocco = !dentroBlocco;
+    const letto = testoLeggibile(r);
+    // Una riga dentro un blocco di testo (llms.txt, mail) si legge tutta,
+    // tolte le espressioni ${…}: elenchi, titoli con # e righe con variabili.
+    if (eraDentro || (dentroBlocco && apici)) {
+      const riga = r
+        .replace(/\$\{[^}]*\}/g, " ")
+        .replace(/<[^>]*>/g, " ") // i tag HTML delle mail, con i loro stili
+        .replace(/`/g, " ")
+        .trim();
+      if (riga) {
+        letto.tutto = [letto.tutto, riga].filter(Boolean).join(" | ");
+        letto.frasi = [letto.frasi, riga].filter(Boolean).join(" | ");
+      }
+    }
+    const { frasi: t, tutto } = letto;
     if (!tutto) return;
     const visti = new Set();
     for (const m of tutto.matchAll(RE_NUMERO)) {
