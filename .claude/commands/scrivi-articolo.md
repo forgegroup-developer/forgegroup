@@ -39,6 +39,17 @@ Regole di scelta (piramide, "L'ordine: prima il 20% che porta l'80%"):
 - alterna le tre categorie rispetto agli ultimi articoli in coda
 - scegli un angolo di comunicazione dalla testa aziendale (sezione 11)
 
+## 2 bis · Leggi cosa ha già scritto il concorrente A
+
+Apri la scheda dell'argomento in `~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/1 - Fonti/Concorrente A - cosa ha già scritto, per argomento.md`,
+poi usa `python3 ~/ForgeGroup/ricerca/concorrente-a/cerca.py`:
+- `cerca.py "parola|altra"` per i suoi testi più pertinenti, `--domande` per le domande del titolare;
+- `cerca.py --leggi <codice>` per leggerne **tre o quattro per intero**.
+
+Annota: le domande e le obiezioni del titolare, cosa dice in generale che Forge può dire con un caso
+vero, cosa non dice. **Non prendere mai** frasi, storie, esempi, numeri o formule: il controllo
+automatico blocca ogni sequenza di otto parole uguale ai suoi testi. Non nominarlo mai.
+
 ## 3 · Trova il materiale vero
 
 Prima di scrivere, individua **il pezzo di materiale vero** da cui parte l'articolo (guida §4):
