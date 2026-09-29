@@ -6,7 +6,8 @@
  *       senza argomenti controlla tutti i file della coda.
  *
  * Verifica solo quello che si può verificare senza giudizio: campi, lunghezze,
- * data e fuso di uscita, parole vietate, lineette lunghe, link interni.
+ * data e fuso di uscita, parole vietate, lineette lunghe, link interni, e le
+ * cifre in euro o in percentuale confrontate con src/data/prove.ts (avviso).
  * Fatti, voce e livello di consapevolezza li controlla il Revisore.
  * Esce con codice 1 se c'è almeno un errore: in quel caso l'articolo non va in PR.
  */
@@ -43,6 +44,8 @@ const VIETATE = [
   [/\bvalorizz\w*|\bsinergi\w*|\becosistem\w*|\binnovativ\w*|a 360 gradi|\beccellenz\w*/i, "parola vuota da IA"],
   [/scopriamo insieme|vediamo come|ecco cosa devi sapere/i, "annuncio da IA"],
   [/\bcommess[ae]\b/i, "si dice \"contratti\", non \"commesse\""],
+  [/\bventimila\b|\b20\.000 contatti/i, "\"oltre ventimila contatti\" non va in evidenza (Scheda)"],
+  [/\bprevedibil\w*|\bscalabil\w*/i, "parole da agenzia"],
   [/\bcampania\b|\bnapoli\b|\bmolise\b|\bpuglia\b|\bbasilicata\b|\bavellino\b|\bbenevento\b|\bsalerno\b|\bcaserta\b|sud italia|\bmeridione\b/i, "niente riferimenti geografici: si lavora in tutta Italia"],
 ];
 
@@ -93,7 +96,32 @@ const ROTTE = new Set([
   "/visione",
   "/contatti",
   "/blog",
+  "/inizia",
 ]);
+
+/**
+ * Le cifre ammesse: quelle di src/data/prove.ts (tabella "Numeri" della Scheda).
+ * Stessa normalizzazione di scripts/controlla-sito.mjs.
+ */
+function normalizza(n) {
+  return n
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/^\+/, "")
+    .replace(/euro/g, "€")
+    .replace(/^€(.*)$/, "$1€")
+    .replace(/\.(?=\d{3}\b)/g, "");
+}
+const FILE_PROVE = path.join(RADICE, "src", "data", "prove.ts");
+const NUMERI_AMMESSI = fs.existsSync(FILE_PROVE)
+  ? new Set(
+      [...fs.readFileSync(FILE_PROVE, "utf8").matchAll(/"([^"]*\d[^"]*)"/g)]
+        .map((m) => m[1])
+        .filter((x) => /€|%|k\b|K€/.test(x))
+        .map(normalizza)
+    )
+  : null;
+const RE_NUMERO = /(?:€\s?\d[\d.,]*|\+?\d{1,3}(?:\.\d{3})+(?:,\d+)?\s?(?:€|euro\b)|\+?\d+(?:,\d+)?\s?(?:€|euro\b|%)|\+?\d+(?:[.,]\d+)?\s?[kK]€?(?=\W|$))/g;
 
 function controlla(file, esistenti) {
   const errori = [];
@@ -175,6 +203,20 @@ function controlla(file, esistenti) {
   for (const [re, motivo] of VIETATE) {
     const m = testoIntero.match(re);
     if (m) errori.push(`"${m[0]}": ${motivo}`);
+  }
+  // "CRM" solo in maiuscolo, fuori dal nome della categoria (Scheda, decisioni del 29/09).
+  if (/\bCRM\b/.test(testoIntero)) errori.push("\"CRM\": nel testo si scrive \"gestionale\", anche nei titoli e nelle FAQ");
+
+  // Cifre in euro o in percentuale: solo quelle della Scheda. Le altre le giudica il Revisore
+  // (conto dichiarato tondo, o cifra dentro una frase vera di un cliente).
+  if (!NUMERI_AMMESSI) {
+    avvisi.push("src/data/prove.ts non trovato: le cifre non sono state confrontate con la Scheda");
+  } else {
+    for (const m of new Set(testoIntero.match(RE_NUMERO) ?? [])) {
+      if (!NUMERI_AMMESSI.has(normalizza(m))) {
+        avvisi.push(`cifra "${m.trim()}" non è nella tabella "Numeri" della Scheda: il Revisore verifica che sia un conto tondo dichiarato o una frase vera di un cliente`);
+      }
+    }
   }
 
   // Link interni.
