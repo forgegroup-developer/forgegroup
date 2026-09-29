@@ -44,6 +44,19 @@ export type Article = {
   autore?: AutoreId;
   /** Le tre righe in apertura: il problema, la causa, cosa cambia. */
   inBreve?: { problema: string; causa: string; cambia: string };
+  /**
+   * La ricerca SEO, GEO e SEM fatta dal Redattore prima di scrivere (guida editoriale §11).
+   * Non si vede in pagina: la parola chiave e le secondarie finiscono nei dati strutturati.
+   */
+  seo?: {
+    parolaChiave: string;
+    secondarie: string[];
+    domanda: string;
+    serp: string;
+    concorrente: string[];
+    geo: string;
+    sem: string;
+  };
 };
 
 export const ARTICLE_AUTHOR = "Forge Group";

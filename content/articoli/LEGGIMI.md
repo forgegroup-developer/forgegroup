@@ -33,6 +33,15 @@ Gli stessi campi del tipo `Article` in `src/data/articles.ts`:
   "argomento": "sopralluoghi-a-vuoto",
   "autore": "gianpio",
   "inBreve": { "problema": "…", "causa": "…", "cambia": "…" },
+  "seo": {
+    "parolaChiave": "sopralluogo e preventivo",
+    "secondarie": ["sopralluogo a pagamento", "…"],
+    "domanda": "Keyword Planner 29/09: sotto soglia · oppure: non misurata (motivo)",
+    "serp": "chi c'è in prima pagina, per chi scrive (titolari o privati)",
+    "concorrente": ["principale:blog/…", "…", "…"],
+    "geo": "cosa fa l'articolo per le risposte delle AI",
+    "sem": "come si usa nelle campagne"
+  },
   "faqs": [{ "q": "…", "a": "…" }],
   "content": [
     { "type": "p", "text": "Testo con [un link interno](/servizi)." },

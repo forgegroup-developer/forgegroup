@@ -175,7 +175,7 @@ function controlla(file, esistenti) {
     return { errori: [`JSON non valido: ${e.message}`], avvisi };
   }
 
-  for (const campo of ["slug", "title", "description", "category", "date", "publishAt", "readTime", "excerpt", "tags", "faqs", "content", "livello", "argomento", "autore", "inBreve"]) {
+  for (const campo of ["slug", "title", "description", "category", "date", "publishAt", "readTime", "excerpt", "tags", "faqs", "content", "livello", "argomento", "autore", "inBreve", "seo"]) {
     if (a[campo] === undefined || a[campo] === "") errori.push(`manca il campo "${campo}"`);
   }
   if (errori.length) return { errori, avvisi };
@@ -195,6 +195,27 @@ function controlla(file, esistenti) {
   for (const riga of ["problema", "causa", "cambia"]) {
     const n = paroleIn(a.inBreve?.[riga] ?? "");
     if (n < 5 || n > 35) errori.push(`inBreve.${riga}: ${n} parole (da 5 a 35)`);
+  }
+
+  // La ricerca SEO, GEO e SEM (guida editoriale §11): obbligatoria su ogni articolo.
+  const seo = a.seo ?? {};
+  for (const campo of ["parolaChiave", "domanda", "serp", "geo", "sem"]) {
+    if (typeof seo[campo] !== "string" || seo[campo].trim().length < 3) errori.push(`seo.${campo}: manca (guida §11)`);
+  }
+  if (!Array.isArray(seo.secondarie) || seo.secondarie.length < 2) errori.push("seo.secondarie: almeno due parole chiave secondarie");
+  if (!Array.isArray(seo.concorrente) || seo.concorrente.length < 3) errori.push("seo.concorrente: almeno tre testi del concorrente A letti (codici di cerca.py)");
+  if (typeof seo.parolaChiave === "string" && seo.parolaChiave.length >= 3) {
+    const pc = seo.parolaChiave.toLowerCase();
+    const inizio = a.content.filter((b) => b.type === "p").slice(0, 4).map((b) => b.text).join(" ").toLowerCase();
+    const titoletti = a.content.filter((b) => b.type === "h2").map((b) => b.text.toLowerCase());
+    if (!a.title.toLowerCase().includes(pc)) avvisi.push(`la parola chiave "${seo.parolaChiave}" non è nel titolo`);
+    if (!a.description.toLowerCase().includes(pc)) avvisi.push(`la parola chiave "${seo.parolaChiave}" non è nella description`);
+    if (!titoletti.some((t) => t.includes(pc)) && !a.faqs.some((f) => f.q.toLowerCase().includes(pc))) {
+      avvisi.push(`la parola chiave "${seo.parolaChiave}" non è in nessun titoletto né in una FAQ`);
+    }
+    if (!inizio.includes(pc) && !Object.values(a.inBreve ?? {}).join(" ").toLowerCase().includes(pc)) {
+      avvisi.push(`la parola chiave "${seo.parolaChiave}" non compare né nell'In breve né nei primi paragrafi`);
+    }
   }
 
   // Data e ora di uscita: le 09:00 di Roma, con il fuso giusto per quel giorno.

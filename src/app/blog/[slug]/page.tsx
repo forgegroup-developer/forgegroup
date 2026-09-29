@@ -89,6 +89,9 @@ export default async function ArticleDetail({ params }: Props) {
     "@id": `${articleUrl}#article`,
     headline: a.title,
     description: a.description,
+    // Per le intelligenze artificiali: il riassunto "In breve" e le parole chiave della ricerca.
+    ...(a.inBreve ? { abstract: `${a.inBreve.problema} ${a.inBreve.causa} ${a.inBreve.cambia}` } : {}),
+    ...(a.seo ? { keywords: [a.seo.parolaChiave, ...a.seo.secondarie].join(", ") } : {}),
     datePublished: a.date,
     dateModified: modified,
     wordCount,
