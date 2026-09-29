@@ -59,7 +59,10 @@ const tappe: Tappa[] = [
     domanda: (
       <>
         Ti è capitato di scoprire che il lavoro l&apos;ha preso un altro{" "}
-        <span className="text-brand-corallo-text">per duemila euro in meno</span>?
+        <span className="text-brand-corallo-text">
+          per duemila euro in meno
+        </span>
+        ?
       </>
     ),
     testo:
@@ -87,7 +90,10 @@ function TappaBlocco({ tappa, ultima }: { tappa: Tappa; ultima: boolean }) {
   const stato = visible ? " is-visible" : "";
 
   return (
-    <div ref={ref} className="grid grid-cols-[2.25rem_1fr] gap-x-5 sm:grid-cols-[3rem_1fr] sm:gap-x-8">
+    <div
+      ref={ref}
+      className="grid grid-cols-[2.25rem_1fr] gap-x-5 sm:grid-cols-[3rem_1fr] sm:gap-x-8"
+    >
       {/* Colonna del filo: nodo numerato e segmento verso la tappa dopo */}
       <div className="flex flex-col items-center" aria-hidden>
         <span className={`percorso-nodo${stato}`}>{tappa.n}</span>
@@ -123,7 +129,9 @@ export default function PercorsoDomande() {
   return (
     <section className="section-sabbia border-y py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-        <p className="eyebrow eyebrow-mark mb-4 flex">Dove si perde un lavoro</p>
+        <p className="eyebrow eyebrow-mark mb-4 flex">
+          Dove si perde un lavoro
+        </p>
         <h2 className="heading-section-xl mb-14 text-balance md:mb-20">
           Il contratto non lo perdi sul lavoro.{" "}
           <span className="text-brand-corallo-text">
@@ -132,13 +140,18 @@ export default function PercorsoDomande() {
         </h2>
 
         {tappe.map((tappa, i) => (
-          <TappaBlocco key={tappa.n} tappa={tappa} ultima={i === tappe.length - 1} />
+          <TappaBlocco
+            key={tappa.n}
+            tappa={tappa}
+            ultima={i === tappe.length - 1}
+          />
         ))}
 
         {/* Chiusura del percorso: qui la lettera passa dal problema a noi. */}
         <div className="card-xl mt-14 border-l-4 border-l-brand-corallo bg-brand-bianco p-7 sm:p-9 md:mt-20 md:p-10">
           <h3 className="heading-section-xl text-balance">
-            In quel vuoto <span className="text-brand-corallo-text">ci mettiamo noi</span>.
+            In quel vuoto{" "}
+            <span className="text-brand-corallo-text">ci mettiamo noi</span>.
           </h3>
           <p className="body-lg mt-6">
             Costruiamo il sistema che ti porta le richieste, perché la
@@ -162,8 +175,8 @@ export default function PercorsoDomande() {
             </p>
             <p className="body-lg mt-3">
               Prima di progetti e preventivi guardiamo i tuoi numeri e il tuo
-              modo di lavorare, e ti diciamo se ha senso lavorare insieme.
-              A volte la risposta è no, e te lo diciamo lo stesso.
+              modo di lavorare, e ti diciamo se ha senso lavorare insieme. A
+              volte la risposta è no, e te lo diciamo lo stesso.
             </p>
             <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
               <Link

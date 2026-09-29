@@ -13,6 +13,7 @@ import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
+import RecensioniGoogle from "@/components/sezioni/RecensioniGoogle";
 import Gestionale from "@/components/blocchi/Gestionale";
 import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
@@ -41,6 +42,58 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
 };
+
+/** Il confronto: i problemi della Testa aziendale §3, con le parole dei titolari. */
+const confronto = [
+  {
+    tema: "Sopralluoghi regalati",
+    problema: "Gli faccio sopralluogo e progetto, e poi sceglie un altro",
+    soluzione:
+      "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi: il sopralluogo lo fissi solo quando vale il viaggio.",
+  },
+  {
+    tema: "Il preventivo e poi il silenzio",
+    problema: "Dopo il ci devo pensare non si è più fatto sentire",
+    soluzione:
+      "Nel gestionale ogni preventivo ha una data per richiamare, e ogni settimana passiamo con te le trattative aperte una per una.",
+  },
+  {
+    tema: "La guerra dei prezzi",
+    problema: "Per 500 euro in meno ha scelto l'altra azienda",
+    soluzione:
+      "Al posto del solito preventivo costruiamo con te il piano dei lavori e il materiale per presentarlo: il cliente vede cosa compra prima del totale.",
+  },
+  {
+    tema: "L'agenzia di prima",
+    problema: "Ho pagato, ma i contatti non erano nemmeno lavorabili",
+    soluzione:
+      "Il filtro lo mettiamo noi, e nel gestionale vedi contratto per contratto quanto ti rende ogni euro. Dopo 60 giorni rivediamo le stime sui dati veri.",
+  },
+  {
+    tema: "I mesi morti",
+    problema: "In quelli morti aspetto che squilli il telefono",
+    soluzione:
+      "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri: lavorano anche quando il passaparola si ferma.",
+  },
+  {
+    tema: "La paura di vendere",
+    problema: "Non richiamo per non sembrare insistente",
+    soluzione:
+      "Le parole per richiamare le scriviamo insieme, così chi risponde al telefono sa cosa dire e quando dire la cifra.",
+  },
+  {
+    tema: "Il titolare dentro il cantiere",
+    problema: "Dalle 8 alle 20 sto in cantiere, e il resto lo faccio io",
+    soluzione:
+      "Il processo di vendita lo mettiamo per iscritto, così può seguirlo anche chi risponde al telefono. Tu guardi i numeri, anche dal cantiere.",
+  },
+  {
+    tema: "I soldi che non entrano",
+    problema: "Il lavoro l'ho finito, ma i soldi non arrivano",
+    soluzione:
+      "Nel processo di vendita come e quando ti pagano si decide prima di iniziare, per iscritto: acconto, saldo, bonifico.",
+  },
+];
 
 export default function Home() {
   return (
@@ -254,88 +307,49 @@ export default function Home() {
                 </>
               }
             />
-            <div>
-              <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
-                {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
-                <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
-                  <div className="px-4 py-3 md:px-8 md:py-5">
-                    <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
-                      Quello che vivi oggi
-                    </p>
-                  </div>
-                  <div className="px-4 py-3 md:px-8 md:py-5">
-                    <p className="text-xs md:text-base font-bold text-brand-verde-text uppercase tracking-wide leading-snug">
-                      Con Forge Group
-                    </p>
-                  </div>
-                </div>
-
-                {/* Righe allineate — sempre 2 colonne */}
-                {[
-                  {
-                    other:
-                      "Mi arrivano contatti che non sono nemmeno lavorabili",
-                    forge:
-                      "Il modulo chiede tipo di lavoro, tempi, budget e zona: il sopralluogo lo fissi solo quando vale il viaggio",
-                  },
-                  {
-                    other:
-                      "Faccio sopralluogo e preventivo, e poi il cliente sparisce",
-                    forge:
-                      "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative",
-                  },
-                  {
-                    other: "Pago la pubblicità e non so cosa mi torna indietro",
-                    forge:
-                      "Il gestionale ti mostra, contratto per contratto, quanto rende ogni euro",
-                  },
-                  {
-                    other: "Non so se nella mia zona c'è abbastanza lavoro",
-                    forge:
-                      "Prima lo studio di fattibilità: conta il lavoro della tua zona da fonti ufficiali, e può dire di no",
-                  },
-                  {
-                    other:
-                      "Arrivato il contatto, il resto è tutto sulle mie spalle",
-                    forge:
-                      "Seguiamo con te ogni trattativa fino alla firma del contratto",
-                  },
-                  {
-                    other: "Nei mesi morti aspetto che squilli il telefono",
-                    forge:
-                      "Le campagne lavorano anche quando il passaparola si ferma",
-                  },
-                  {
-                    other: "Chi mi seguiva non conosceva il mio mestiere",
-                    forge:
-                      "Lavoriamo solo con imprese edili, con i numeri e il nome dell'impresa sotto",
-                  },
-                ].map((row, idx) => (
-                  <div
-                    key={row.other}
-                    className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
-                  >
-                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-corallo"
-                        aria-hidden
-                      />
-                      <span className="text-xs md:text-sm leading-snug text-brand-nero font-medium italic pt-0.5">
-                        {row.other}
-                      </span>
-                    </div>
-                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4">
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-verde"
-                        aria-hidden
-                      />
-                      <span className="text-xs md:text-sm leading-snug font-semibold text-brand-nero pt-0.5">
-                        {row.forge}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+            {/* Riga per riga: il problema come lo racconta il titolare (Testa
+                aziendale §3, frasi delle call) e cosa facciamo, detto come
+                meccanismo (Scheda dei fatti). Da telefono ogni riga diventa
+                una scheda con il problema sopra e la risposta sotto. */}
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
+              <div className="hidden grid-cols-2 border-b border-brand-bordo md:grid">
+                <p className="px-8 py-5 font-display text-lg font-bold text-brand-corallo-text">
+                  Quello che vivi oggi
+                </p>
+                <p className="border-l border-brand-bordo px-8 py-5 font-display text-lg font-bold text-brand-verde-text">
+                  Cosa facciamo con te
+                </p>
               </div>
+              <ol>
+                {confronto.map((riga, idx) => (
+                  <li
+                    key={riga.problema}
+                    className={`grid md:grid-cols-2 ${idx > 0 ? "border-t border-brand-bordo" : ""}`}
+                  >
+                    <div className="flex gap-3.5 px-5 pt-5 md:px-8 md:py-6">
+                      <span className="segno-no mt-0.5" aria-hidden>
+                        ✕
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
+                          {riga.tema}
+                        </p>
+                        <p className="mt-1 font-display text-base font-bold leading-snug text-brand-nero md:text-lg">
+                          &laquo;{riga.problema}&raquo;
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-3.5 px-5 pb-5 pt-3 md:border-l md:border-brand-bordo md:px-8 md:py-6">
+                      <span className="segno-si mt-0.5" aria-hidden>
+                        ✓
+                      </span>
+                      <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                        {riga.soluzione}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
@@ -353,6 +367,9 @@ export default function Home() {
       <DeferredMount minHeight="560px" rootMargin="320px 0px">
         <VideoScettico />
       </DeferredMount>
+
+      {/* S6c — LE RECENSIONI GOOGLE, aggiornate da sole ogni giorno. */}
+      <RecensioniGoogle sfondo="mattone" />
 
       {/* S7 — TEAM */}
       <DeferredMount minHeight="480px" rootMargin="320px 0px">
@@ -387,7 +404,7 @@ export default function Home() {
           riconosce a destra non ci fa perdere una conoscitiva, chi si
           riconosce a sinistra scrive gia' convinto. */}
       <DeferredMount minHeight="620px">
-        <PerChiSiPerChiNo />
+        <PerChiSiPerChiNo studio />
       </DeferredMount>
     </>
   );

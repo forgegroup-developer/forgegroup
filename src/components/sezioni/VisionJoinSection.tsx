@@ -61,7 +61,9 @@ export default function VisionJoinSection() {
     const formCol = formRef.current;
     if (!section || !copy || !formCol) return;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReduced) return;
 
     let cleanup: (() => void) | undefined;
@@ -101,7 +103,10 @@ export default function VisionJoinSection() {
       setError("Inserisci nome e cognome.");
       return false;
     }
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+    if (
+      !form.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())
+    ) {
       setError("Inserisci un indirizzo email valido.");
       return false;
     }
@@ -142,7 +147,10 @@ export default function VisionJoinSection() {
         }),
       });
 
-      const json = (await res.json()) as { success?: boolean; message?: string };
+      const json = (await res.json()) as {
+        success?: boolean;
+        message?: string;
+      };
 
       if (!res.ok || !json.success) {
         setError(json.message || "Errore durante l'invio. Riprova.");
@@ -182,7 +190,8 @@ export default function VisionJoinSection() {
               fontWeight: 700,
             }}
           >
-            La <span className="text-brand-corallo">community</span> è il vero progetto.
+            La <span className="text-brand-corallo">community</span> è il vero
+            progetto.
           </h2>
           <p
             className="mt-6 text-pretty text-white/75"
@@ -192,9 +201,11 @@ export default function VisionJoinSection() {
               lineHeight: 1.6,
             }}
           >
-            Forge Group non è fatto solo di chi ci lavora oggi. È fatto di chi condivide lo stesso
-            modo di stare al mondo: lealtà, trasparenza, umiltà, lavoro fatto bene. Oltre al curriculum, ci interessa chi sei. Se leggendo la nostra visione hai sentito che
-            è anche la tua, raccontaci chi sei e cosa potresti portare.
+            Forge Group non è fatto solo di chi ci lavora oggi. È fatto di chi
+            condivide lo stesso modo di stare al mondo: lealtà, trasparenza,
+            umiltà, lavoro fatto bene. Oltre al curriculum, ci interessa chi
+            sei. Se leggendo la nostra visione hai sentito che è anche la tua,
+            raccontaci chi sei e cosa potresti portare.
           </p>
         </div>
 
@@ -223,7 +234,11 @@ export default function VisionJoinSection() {
                 />
 
                 <div className="mb-5">
-                  <label htmlFor="vision-nome" className={labelCls} style={{ fontFamily: "var(--font-vision-join-body)" }}>
+                  <label
+                    htmlFor="vision-nome"
+                    className={labelCls}
+                    style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  >
                     Nome e cognome
                   </label>
                   <input
@@ -238,7 +253,11 @@ export default function VisionJoinSection() {
                 </div>
 
                 <div className="mb-5">
-                  <label htmlFor="vision-email" className={labelCls} style={{ fontFamily: "var(--font-vision-join-body)" }}>
+                  <label
+                    htmlFor="vision-email"
+                    className={labelCls}
+                    style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  >
                     Email
                   </label>
                   <input
@@ -253,7 +272,11 @@ export default function VisionJoinSection() {
                 </div>
 
                 <div className="mb-5">
-                  <label htmlFor="vision-tel" className={labelCls} style={{ fontFamily: "var(--font-vision-join-body)" }}>
+                  <label
+                    htmlFor="vision-tel"
+                    className={labelCls}
+                    style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  >
                     Telefono
                   </label>
                   <input
@@ -268,7 +291,11 @@ export default function VisionJoinSection() {
                 </div>
 
                 <div className="mb-5">
-                  <label htmlFor="vision-occupazione" className={labelCls} style={{ fontFamily: "var(--font-vision-join-body)" }}>
+                  <label
+                    htmlFor="vision-occupazione"
+                    className={labelCls}
+                    style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  >
                     Di cosa ti occupi
                   </label>
                   <input
@@ -284,7 +311,11 @@ export default function VisionJoinSection() {
                 </div>
 
                 <div className="mb-5">
-                  <label htmlFor="vision-racconto" className={labelCls} style={{ fontFamily: "var(--font-vision-join-body)" }}>
+                  <label
+                    htmlFor="vision-racconto"
+                    className={labelCls}
+                    style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  >
                     Raccontaci chi sei e cosa potresti portare a Forge Group
                   </label>
                   <textarea
@@ -312,14 +343,21 @@ export default function VisionJoinSection() {
                     style={{ fontFamily: "var(--font-vision-join-body)" }}
                   >
                     Ho letto e accetto la{" "}
-                    <Link href="/privacy-policy" className="text-brand-corallo-on-dark underline underline-offset-2 hover:text-white">
+                    <Link
+                      href="/privacy-policy"
+                      className="text-brand-corallo-on-dark underline underline-offset-2 hover:text-white"
+                    >
                       privacy policy
                     </Link>
                   </span>
                 </label>
 
                 {error ? (
-                  <p className="mb-4 text-sm text-red-300" role="alert" aria-live="polite">
+                  <p
+                    className="mb-4 text-sm text-red-300"
+                    role="alert"
+                    aria-live="polite"
+                  >
                     {error}
                   </p>
                 ) : null}
@@ -330,9 +368,14 @@ export default function VisionJoinSection() {
                   className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-corallo-dark px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base md:w-auto md:px-8"
                   style={{ fontFamily: "var(--font-vision-join-body)" }}
                 >
-                  {submitting ? "Invio in corso..." : "Entra a far parte di Forge Group"}
+                  {submitting
+                    ? "Invio in corso..."
+                    : "Entra a far parte di Forge Group"}
                   {!submitting ? (
-                    <ArrowRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                    <ArrowRight
+                      className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+                      aria-hidden
+                    />
                   ) : null}
                 </button>
               </form>

@@ -35,7 +35,6 @@ const ECCEZIONI = {
   "500 euro": "la frase del cliente \"per 500 euro in meno\" (Testa aziendale, problema 5)",
   "500 euro di differenza": "come sopra, nella hero",
   "60.000 euro": "la scena d'esempio del preventivo in fondo alla chat (Lettera di vendita, blocco 4)",
-  "30%": "la frase della proprietà sul ricarico, nell'elenco delle abitudini (home, fino alla ricostruzione)",
 };
 
 const PAROLE_VIETATE = [

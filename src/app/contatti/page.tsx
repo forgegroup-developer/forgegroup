@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
+import { studio } from "@/data/blocchi";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
@@ -31,7 +32,7 @@ export default function ContattiPage() {
     <>
       {/* Perche' si parla di candidatura e non di contatto: Forge seleziona,
           un territorio alla volta. Decisione della proprieta' del 24/09/2026. */}
-      <section className="border-b border-brand-bordo section-sabbia py-14 md:py-16">
+      <section className="border-b border-brand-bordo section-bianco py-14 md:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <p className="eyebrow eyebrow-mark mb-4 flex">Perché si chiama così</p>
           <h2 className="heading-section-xl mb-6 text-balance">
@@ -41,11 +42,24 @@ export default function ContattiPage() {
             </span>
           </h2>
           <p className="body-lg mb-5">
-            Quello che c’è sotto è uno studio di fattibilità. Serve a capire
-            quanto lavoro la tua impresa regge davvero oggi, con gli uomini e i
-            mezzi che hai, cosa c’è da prendere nella tua zona e come si può
-            crescere senza che ti salti la consegna.
+            Quello che c’è sotto è la candidatura per lo studio di fattibilità.
+            Prima di parlare di pubblicità facciamo i conti sulla tua impresa e
+            sulla tua zona. Dentro trovi:
           </p>
+          {/* Lo stesso elenco della landing /inizia (src/data/blocchi.tsx). */}
+          <ul className="mb-8 space-y-4">
+            {studio.map((riga) => (
+              <li key={riga.cosa} className="flex gap-3.5">
+                <span className="segno-si mt-1" aria-hidden>
+                  ✓
+                </span>
+                <p className="body-lg">
+                  <strong className="text-brand-nero">{riga.cosa}</strong>{" "}
+                  {riga.dettaglio}
+                </p>
+              </li>
+            ))}
+          </ul>
           <p className="body-lg mb-5">
             A volte da lì esce un no, e te lo diciamo prima che tu abbia speso
             un euro in pubblicità. Lavoriamo con poche imprese per territorio, e

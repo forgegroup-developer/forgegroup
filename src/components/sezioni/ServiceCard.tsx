@@ -31,7 +31,10 @@ export const services: Service[] = [
   {
     label: "02 · La trattativa",
     lines: [
-      { text: "Sopralluogo fatto, preventivo mandato.", highlights: ["preventivo mandato"] },
+      {
+        text: "Sopralluogo fatto, preventivo mandato.",
+        highlights: ["preventivo mandato"],
+      },
       {
         text: "E poi più nessuno che richiama.",
         highlights: ["nessuno che richiama"],
@@ -59,8 +62,15 @@ export const services: Service[] = [
 
 export const servicesReversed = [...services].reverse();
 
-export function HighlightedText({ text, highlights }: { text: string; highlights?: string[] }) {
-  if (!highlights?.length) return <span className="text-brand-nero">{text}</span>;
+export function HighlightedText({
+  text,
+  highlights,
+}: {
+  text: string;
+  highlights?: string[];
+}) {
+  if (!highlights?.length)
+    return <span className="text-brand-nero">{text}</span>;
 
   const nodes: React.ReactNode[] = [];
   let remaining = text;
@@ -82,7 +92,7 @@ export function HighlightedText({ text, highlights }: { text: string; highlights
       nodes.push(
         <span key={key++} className="text-brand-nero">
           {remaining}
-        </span>
+        </span>,
       );
       break;
     }
@@ -91,7 +101,7 @@ export function HighlightedText({ text, highlights }: { text: string; highlights
       nodes.push(
         <span key={key++} className="text-brand-nero">
           {remaining.slice(0, matchIndex)}
-        </span>
+        </span>,
       );
     }
 
@@ -107,7 +117,7 @@ export function HighlightedText({ text, highlights }: { text: string; highlights
     nodes.push(
       <span key={key++} className="text-brand-corallo">
         {highlighted}
-      </span>
+      </span>,
     );
   }
 
@@ -120,7 +130,12 @@ export function HighlightedText({ text, highlights }: { text: string; highlights
  * titolo a tutta altezza e le parole in corallo ci finivano sopra, e non si
  * leggevano (proprietà, 29/09).
  */
-export default function ServiceCard({ item }: { item: Service; compact?: boolean }) {
+export default function ServiceCard({
+  item,
+}: {
+  item: Service;
+  compact?: boolean;
+}) {
   return (
     <Link
       href={item.href}
@@ -146,7 +161,9 @@ export default function ServiceCard({ item }: { item: Service; compact?: boolean
             </span>
           ))}
         </h3>
-        <p className="text-[0.98rem] leading-relaxed text-brand-grigio">{item.soluzione}</p>
+        <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+          {item.soluzione}
+        </p>
         <div className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
           → Scopri come
         </div>

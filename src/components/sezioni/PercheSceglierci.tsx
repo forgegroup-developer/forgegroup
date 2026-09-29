@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { iniziaImages } from "@/data/images";
 
 /**
  * "Perché scegliere Forge Group" — impianto preso dalla sezione omonima
@@ -17,19 +19,28 @@ import Link from "next/link";
  * L'elenco è la voce della proprietà, non una lista scritta a tavolino.
  */
 
+/*
+ * I problemi detti con le parole dei titolari: frasi dalle call (Voce diretta
+ * del target) e i problemi della Testa aziendale §3. Riscritto il 29/09 su
+ * richiesta della proprietà: prima era un elenco di abitudini, ora sono le
+ * situazioni che il titolare racconta.
+ */
 const abitudini = [
-  "Prende lavori sottocosto pur di chiudere il cantiere",
-  "Applica il 30% di ricarico sui costi e chiama margine quello che resta",
-  "Manda preventivi a gente che non comprerà mai",
-  "Cade nella guerra dei prezzi, e la perde",
-  "Regala tempo, sopralluoghi e progetti a chi sta solo guardando",
-  "Aspetta che sia il cliente a farsi vivo, prima e dopo il preventivo",
-  "Tiene aperte trattative che non si chiuderanno mai",
+  "«Gli faccio sopralluogo e progetto, e poi sceglie un altro»",
+  "«Per 500 euro in meno ha scelto l'altra azienda»",
+  "«Mi chiamano solo per sapere quanto costa al metro quadro»",
+  "«Ho mandato il preventivo, e dopo il ci devo pensare non si è più fatto sentire»",
+  "«Ho pagato un'agenzia, ma i contatti non erano nemmeno lavorabili»",
+  "«Nei mesi buoni non ce la faccio, in quelli morti aspetto che squilli il telefono»",
+  "«Il lavoro l'ho finito, ma i soldi non arrivano»",
 ];
 
 export default function PercheSceglierci() {
   return (
-    <section id="perche" className="section-mattone scroll-mt-24 py-20 md:py-28">
+    <section
+      id="perche"
+      className="section-mattone scroll-mt-24 py-20 md:py-28"
+    >
       {/* Il titolo sopra le due colonne, come tutti i titoli di sezione
           (REGOLE-DEL-SITO §4): stessa misura e stesso grassetto. */}
       <div className="mx-auto mb-12 max-w-4xl px-5 text-center sm:px-6 md:mb-16 lg:px-8">
@@ -43,13 +54,25 @@ export default function PercheSceglierci() {
       </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         <div className="flex flex-col justify-center">
+          <figure className="relative mb-8 aspect-[16/10] overflow-hidden rounded-2xl">
+            <Image
+              src={iniziaImages.hero}
+              alt="Un imprenditore edile stringe la mano a una coppia di clienti davanti al cantiere, con il contratto firmato sul cofano del furgone"
+              fill
+              sizes="(min-width: 1024px) 540px, 100vw"
+              className="object-cover object-right"
+            />
+            <figcaption className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+              Immagine generata con AI
+            </figcaption>
+          </figure>
 
           <p className="text-pretty text-lg leading-relaxed">
-            Per questo abbiamo costruito il Metodo FORGE: ti portiamo
-            richieste già filtrate da chi il lavoro può pagarlo, scriviamo con
-            te il processo di vendita e seguiamo con te ogni trattativa fino
-            alla firma. Senza che tu debba rincorrere
-            nessuno, e senza che tu debba diventare un esperto di pubblicità.
+            Per questo abbiamo costruito il Metodo FORGE: ti portiamo richieste
+            già filtrate da chi il lavoro può pagarlo, scriviamo con te il
+            processo di vendita e seguiamo con te ogni trattativa fino alla
+            firma. Senza che tu debba rincorrere nessuno, e senza che tu debba
+            diventare un esperto di pubblicità.
           </p>
 
           <div className="mt-9">
@@ -69,7 +92,7 @@ export default function PercheSceglierci() {
             Ti riconosci in una di queste?
           </p>
           <p className="mb-7 text-sm text-brand-grigio">
-            Non si perdono lavori perché si lavora male. Si perdono qui.
+            Sono le frasi che ci dicono i titolari al primo appuntamento.
           </p>
 
           <ul className="space-y-4">
@@ -86,8 +109,9 @@ export default function PercheSceglierci() {
           </ul>
 
           <p className="mt-7 border-t border-brand-bordo pt-6 font-display text-lg font-bold leading-snug text-brand-nero sm:text-xl">
-            È normale. Succede quando il lavoro arriva prima
-            dell&apos;ordine, e in edilizia arriva sempre prima.
+            È normale: succede alle imprese che vivono di passaparola. Non è
+            la stagionalità e non è la crisi: manca un modo per far arrivare
+            le richieste giuste e portarle alla firma.
           </p>
         </div>
       </div>

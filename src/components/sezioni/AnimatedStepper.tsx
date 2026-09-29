@@ -166,7 +166,9 @@ export function AnimatedStepper({
             </div>
           </div>
         ) : (
-          <div className={`flex w-full items-center p-8 pb-4 ${stepContainerClassName}`}>
+          <div
+            className={`flex w-full items-center p-8 pb-4 ${stepContainerClassName}`}
+          >
             {stepsArray.map((_, index) => {
               const stepNumber = index + 1;
               const isNotLastStep = index < totalSteps - 1;
@@ -192,7 +194,9 @@ export function AnimatedStepper({
                       }}
                     />
                   )}
-                  {isNotLastStep && <StepConnector isComplete={currentStep > stepNumber} />}
+                  {isNotLastStep && (
+                    <StepConnector isComplete={currentStep > stepNumber} />
+                  )}
                 </span>
               );
             })}
@@ -211,11 +215,15 @@ export function AnimatedStepper({
 
         {!isCompleted &&
           (renderFooter ? (
-            <div className={`px-6 pb-6 pt-2 md:px-8 md:pb-8 ${footerClassName}`}>
+            <div
+              className={`px-6 pb-6 pt-2 md:px-8 md:pb-8 ${footerClassName}`}
+            >
               {renderFooter(footerProps)}
             </div>
           ) : (
-            <div className={`px-6 pb-6 pt-2 md:px-8 md:pb-8 ${footerClassName}`}>
+            <div
+              className={`px-6 pb-6 pt-2 md:px-8 md:pb-8 ${footerClassName}`}
+            >
               <div
                 className={`flex items-center gap-4 ${
                   currentStep !== 1 ? "justify-between" : "justify-end"
@@ -233,7 +241,9 @@ export function AnimatedStepper({
                 )}
                 <button
                   type="button"
-                  onClick={isLastStep ? () => void handleComplete() : handleNext}
+                  onClick={
+                    isLastStep ? () => void handleComplete() : handleNext
+                  }
                   className="btn-corallo px-8 py-3.5 text-sm md:text-base"
                   {...(isLastStep ? completeButtonProps : nextButtonProps)}
                 >
@@ -268,7 +278,9 @@ function StepContentWrapper({
     <motion.div
       style={{ position: "relative", overflow: "hidden" }}
       animate={{
-        height: isCompleted ? 0 : Math.max(parentHeight, minContentHeight ?? 0) || "auto",
+        height: isCompleted
+          ? 0
+          : Math.max(parentHeight, minContentHeight ?? 0) || "auto",
       }}
       transition={{ type: "spring", damping: 25, stiffness: 200 }}
       className={className}
@@ -399,7 +411,12 @@ function StepIndicator({
   onClickStep: (clicked: number) => void;
   disableStepIndicators?: boolean;
 }) {
-  const status = currentStep === step ? "active" : currentStep < step ? "inactive" : "complete";
+  const status =
+    currentStep === step
+      ? "active"
+      : currentStep < step
+        ? "inactive"
+        : "complete";
 
   return (
     <motion.button

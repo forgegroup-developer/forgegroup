@@ -106,9 +106,11 @@ export default function MetodoForge({
                 >
                   {fase.letter}
                 </span>
-                <span className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
+                <span
+                  className={`hidden sm:inline font-display font-bold text-[clamp(0.85rem,1vw,1rem)] tracking-[0.14em] uppercase self-center [writing-mode:vertical-rl] rotate-180 ${
                     coral ? "text-white/90" : "text-brand-nero"
-                  }`}>
+                  }`}
+                >
                   {fase.verticalLabel}
                 </span>
               </div>
@@ -121,7 +123,9 @@ export default function MetodoForge({
                 >
                   {fase.title}
                 </h3>
-                <p className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}>
+                <p
+                  className={`text-base leading-relaxed max-w-2xl ${coral ? "text-white/80" : "text-brand-grigio"}`}
+                >
                   {fase.description}
                 </p>
                 <span

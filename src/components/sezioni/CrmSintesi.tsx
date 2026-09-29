@@ -18,7 +18,10 @@ const punti = [
 
 export default function CrmSintesi() {
   return (
-    <section id="crm" className="section-sabbia scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="crm"
+      className="section-sabbia scroll-mt-24 border-y py-20 md:py-28"
+    >
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-14 lg:px-8">
         <div>
           <p className="eyebrow eyebrow-mark mb-4 flex">Come lavoriamo</p>
@@ -31,8 +34,8 @@ export default function CrmSintesi() {
           <p className="body-lg mb-8">
             Insieme alle richieste ti diamo il gestionale dove finiscono tutte:
             quelle che stiamo portando noi e quelle che ti arrivano per
-            passaparola. È il posto dove vedi, senza chiedere niente a
-            nessuno, a che punto sta ogni trattativa.
+            passaparola. È il posto dove vedi, senza chiedere niente a nessuno,
+            a che punto sta ogni trattativa.
           </p>
 
           <ul className="mb-9 space-y-4">
