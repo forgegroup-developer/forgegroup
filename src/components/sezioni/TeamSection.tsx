@@ -65,11 +65,13 @@ function InstagramIcon() {
 
 export default function TeamSection() {
   return (
-    <section className="py-20 md:py-28 section-sabbia border-y">
+    <section className="py-20 md:py-28 section-bianco border-y">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="eyebrow mb-4">✦ Il Nostro Team</p>
-        <h2 className="heading-section text-brand-nero max-w-2xl mx-auto mb-16">
-          Le persone dietro <span className="text-brand-corallo">Forge Group</span>
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Il nostro team</span>
+        </p>
+        <h2 className="heading-section-xl text-balance max-w-4xl mx-auto mb-12 md:mb-16">
+          Le persone dietro <span className="text-brand-corallo-text">Forge Group</span>
         </h2>
 
         <div className="flex flex-wrap justify-center items-start gap-10 md:gap-12">
@@ -143,9 +145,9 @@ export default function TeamSection() {
         </div>
 
         <div className="mt-20 md:mt-28 pt-16 border-t border-brand-bordo">
-          <h2 className="heading-section text-brand-nero max-w-3xl mx-auto mb-12">
+          <h2 className="heading-section-xl text-balance max-w-4xl mx-auto mb-12">
             Un team di specialisti che lavorano{" "}
-            <span className="text-brand-corallo">insieme sul tuo progetto</span>.
+            <span className="text-brand-corallo-text">insieme sul tuo progetto</span>.
           </h2>
 
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">

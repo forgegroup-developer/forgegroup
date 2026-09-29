@@ -33,10 +33,11 @@ Le misure stanno in `src/components/blocchi/ui.tsx` e si usano da lì, mai riscr
 Colori solo dai token di `globals.css`: bianco, panna, corallo (`#c8502a`), mattone (`#6f2a12`).
 
 - **Niente nero** come colore di sfondo o di sezione.
-- **Sotto la hero (panna) le sezioni si alternano**: chiare (`section-bianco`, oppure `section-sabbia`
-  come respiro) e scure (`section-mattone`). **Due sezioni dello stesso colore non stanno mai una dopo
-  l'altra.** Sulle pagine esistenti si sistemano i colori dentro la struttura, senza togliere o
-  spostare sezioni.
+- **Solo due sfondi di sezione: bianco (`section-bianco`) e mattone (`section-mattone`)**, alternati
+  sotto la hero (che è panna). Niente `section-sabbia`, niente riquadri, schede o celle tinte di panna
+  o di verde (proprietà, 29/09: "troppe varianti di sfondo non va bene"). Le schede sono bianche.
+- Due sezioni dello stesso colore non stanno una dopo l'altra, se la struttura della pagina lo
+  permette; sulle pagine esistenti si sistemano i colori **senza togliere o spostare sezioni**.
 - **Schede chiare sul mattone:** `card-xl superficie-chiara`. Il testo scuro torna leggibile da solo.
 - **Il verde** solo nel tasto WhatsApp e nelle spunte di "per chi è" e dello studio di fattibilità.
 - **Le scene fatte con l'AI** portano sempre la scritta "Immagine generata con AI" (componente `ScenaAI`).
@@ -56,8 +57,12 @@ Colori solo dai token di `globals.css`: bianco, panna, corallo (`#c8502a`), matt
 ## 4 · TITOLI
 
 - **Una sola H1 per pagina.**
-- **Titoli di sezione con `<Titolo occhiello="…">`**: occhiello corto con la riga sotto, poi il titolo
-  (`heading-section-xl`), tutti della stessa misura.
+- **Titoli di sezione: tutti `heading-section-xl`, centrati, con l'occhiello `eyebrow-rule` sopra**
+  (`<Titolo occhiello="…">` o `SectionHeader`). Stessa misura e stesso grassetto ovunque: il modello è
+  "Non lavoriamo con tutte le imprese. Leggi prima di candidarti.". Mai `heading-section`, mai un
+  titolo spezzato in due misure (proprietà, 29/09).
+- **Una frase non si spezza fra titolo e sottotitolo**: il titolo è una frase completa, il
+  sottotitolo un'altra, con la maiuscola.
 - **Solo la prima lettera maiuscola.** Niente titoli tutti in maiuscolo.
 - **La parola chiave in `<Chiave>`**: corallo sul bianco; sul mattone diventa da sola evidenziatore.
   Una o due parole chiave per titolo, non di più.

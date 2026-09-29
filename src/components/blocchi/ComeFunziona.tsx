@@ -1,14 +1,13 @@
+import { GestionaleContenuto } from "@/components/blocchi/Gestionale";
 import {
   CONTENITORE,
   SEZIONE,
   STACCO,
   STRETTO,
   Chiave,
-  ScenaAI,
   Titolo,
 } from "@/components/blocchi/ui";
-import { crm, passi } from "@/data/blocchi";
-import { iniziaImages } from "@/data/images";
+import { passi } from "@/data/blocchi";
 
 /** I passi dopo la chiamata e il gestionale, in una sezione bianca. */
 export default function ComeFunziona() {
@@ -46,40 +45,7 @@ export default function ComeFunziona() {
             </ol>
           </div>
 
-          <Titolo
-            occhiello="Il gestionale"
-            sottotitolo="Il gestionale lo costruiamo noi, sul processo di vendita che mettiamo in piedi con te. Lo apri dal telefono, anche in cantiere."
-          >
-            Vedi tutto quello che succede,{" "}
-            <Chiave>anche quando sei in cantiere</Chiave>
-          </Titolo>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <ScenaAI
-              src={iniziaImages.cantiereTelefono}
-              alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
-              sizes="(min-width: 1024px) 540px, 100vw"
-            />
-            <ol className="space-y-7">
-              {crm.map((c, i) => (
-                <li key={c.titolo} className="flex gap-5">
-                  <span
-                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-corallo font-display text-lg font-bold text-white"
-                    aria-hidden
-                  >
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="mb-1 font-display text-xl font-bold leading-snug text-brand-nero">
-                      {c.titolo}
-                    </h3>
-                    <p className="text-[1.02rem] leading-relaxed text-brand-grigio">
-                      {c.testo}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <GestionaleContenuto />
         </div>
       </section>
     </>

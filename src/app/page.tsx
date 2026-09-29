@@ -13,7 +13,7 @@ import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
-import GaranziaTrasparenza from "@/components/sezioni/GaranziaTrasparenza";
+import Gestionale from "@/components/blocchi/Gestionale";
 import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import DeferredMount from "@/components/ui/DeferredMount";
@@ -193,20 +193,18 @@ export default function Home() {
           riquadro vuoto. E' solo testo, montarlo subito non costa niente. */}
       <MetodoForge className="section-mattone" />
 
-      {/* S5b — LA GARANZIA DI TRASPARENZA
-          Il punto esatto in cui il lettore si chiede "si', ma come faccio
-          a controllarvi". Il CRM e' l'unica risposta che dimostra invece
-          di dichiarare. */}
-      <DeferredMount minHeight="520px" rootMargin="320px 0px">
-        <GaranziaTrasparenza />
-      </DeferredMount>
+      {/* S5b — IL GESTIONALE
+          Al posto di "Cosa vedi tu, e quando" (proprieta', 29/09): il punto
+          in cui il lettore si chiede "come faccio a controllarvi" riceve la
+          risposta concreta, con il gestionale della landing. */}
+      <Gestionale />
 
       {/* S6 — SERVIZI
           Stavano prima del metodo: si elencava cosa facciamo a un lettore
           che non sapeva ancora perche' gli servisse, e si spezzava in due
           il blocco del problema. Qui arrivano dopo che il metodo ha un
           nome, e diventano "cosa c'e' dentro". */}
-      <section className={`section-sabbia border-y ${SEZIONE}`}>
+      <section className={`section-mattone ${SEZIONE}`}>
         <div className={CONTENITORE}>
           <SectionHeader
             eyebrow="Cosa facciamo per te"
@@ -237,7 +235,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* S7 — CONFRONTO (tabella comparativa unificata) */}
+      {/* S7 — CONFRONTO: a sinistra i problemi del titolare, in prima
+          persona (frasi delle call e i problemi della Testa aziendale), a
+          destra cosa facciamo. Prima parlava solo del servizio (proprieta',
+          29/09); e il valore si mostra con il metodo, senza svalutare chi
+          c'era prima. */}
       <DeferredMount minHeight="480px">
         <section className={`section-bianco border-y ${SEZIONE}`}>
           <div className={CONTENITORE}>
@@ -245,9 +247,9 @@ export default function Home() {
               eyebrow="Il confronto"
               title={
                 <>
-                  Dove si ferma un&apos;agenzia.{" "}
+                  Quello che vivi oggi.{" "}
                   <span className="text-brand-corallo-text">
-                    Dove arriviamo noi.
+                    Cosa cambia con noi.
                   </span>
                 </>
               }
@@ -256,14 +258,14 @@ export default function Home() {
               <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
                 {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
                 <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
-                  <div className="px-4 py-3 md:px-8 md:py-5 bg-brand-panna">
+                  <div className="px-4 py-3 md:px-8 md:py-5">
                     <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
-                      L&apos;agenzia che ti consegna il contatto
+                      Quello che vivi oggi
                     </p>
                   </div>
-                  <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,var(--color-brand-verde)_10%,var(--color-brand-bianco))]">
+                  <div className="px-4 py-3 md:px-8 md:py-5">
                     <p className="text-xs md:text-base font-bold text-brand-verde-text uppercase tracking-wide leading-snug">
-                      Forge Group
+                      Con Forge Group
                     </p>
                   </div>
                 </div>
@@ -271,38 +273,40 @@ export default function Home() {
                 {/* Righe allineate — sempre 2 colonne */}
                 {[
                   {
-                    other: "Ti consegna il contatto e il suo lavoro finisce lì",
+                    other:
+                      "Mi arrivano contatti che non sono nemmeno lavorabili",
                     forge:
-                      "Seguiamo con te ogni trattativa fino alla firma del contratto",
+                      "Il modulo chiede tipo di lavoro, tempi, budget e zona: il sopralluogo lo fissi solo quando vale il viaggio",
                   },
                   {
-                    other: "Ti manda chiunque abbia lasciato un numero",
-                    forge:
-                      "Filtriamo prima del sopralluogo: chi non può comprare non ci arriva",
-                  },
-                  {
-                    other: "Il preventivo mandato è affare tuo",
+                    other:
+                      "Faccio sopralluogo e preventivo, e poi il cliente sparisce",
                     forge:
                       "Scriviamo con te il processo di vendita, e ogni settimana guardiamo insieme le trattative",
                   },
                   {
-                    other:
-                      "Ti vende la pubblicità prima di sapere se la tua zona ha lavoro",
+                    other: "Pago la pubblicità e non so cosa mi torna indietro",
+                    forge:
+                      "Il gestionale ti mostra, contratto per contratto, quanto rende ogni euro",
+                  },
+                  {
+                    other: "Non so se nella mia zona c'è abbastanza lavoro",
                     forge:
                       "Prima lo studio di fattibilità: conta il lavoro della tua zona da fonti ufficiali, e può dire di no",
                   },
                   {
-                    other: "Ti manda un report a fine mese",
+                    other:
+                      "Arrivato il contatto, il resto è tutto sulle mie spalle",
                     forge:
-                      "Il gestionale lo apri tu, quando vuoi, anche dal cantiere",
+                      "Seguiamo con te ogni trattativa fino alla firma del contratto",
                   },
                   {
-                    other: "Report su visualizzazioni, clic e copertura",
+                    other: "Nei mesi morti aspetto che squilli il telefono",
                     forge:
-                      "Si contano i contratti firmati e il margine che lasciano",
+                      "Le campagne lavorano anche quando il passaparola si ferma",
                   },
                   {
-                    other: "Non ha mai visto un cantiere del tuo settore",
+                    other: "Chi mi seguiva non conosceva il mio mestiere",
                     forge:
                       "Lavoriamo solo con imprese edili, con i numeri e il nome dell'impresa sotto",
                   },
@@ -311,16 +315,16 @@ export default function Home() {
                     key={row.other}
                     className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
                   >
-                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-brand-panna/70 hover:bg-brand-panna transition-colors">
+                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4">
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-corallo"
                         aria-hidden
                       />
-                      <span className="text-xs md:text-sm leading-snug text-brand-grigio font-medium pt-0.5">
+                      <span className="text-xs md:text-sm leading-snug text-brand-nero font-medium italic pt-0.5">
                         {row.other}
                       </span>
                     </div>
-                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,var(--color-brand-verde)_8%,var(--color-brand-bianco))] hover:bg-[color-mix(in_srgb,var(--color-brand-verde)_14%,var(--color-brand-bianco))] transition-colors">
+                    <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4">
                       <span
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-verde"
                         aria-hidden
@@ -374,14 +378,6 @@ export default function Home() {
             <div className={STRETTO}>
               <FAQAccordion onCoral items={faqsPagina("home")} />
             </div>
-            <p className="mt-8 text-center copy-on-coral">
-              <Link
-                href="/servizi#domande"
-                className="arrow-link text-sm md:text-base"
-              >
-                Altre domande su come si lavora
-              </Link>
-            </p>
           </div>
         </section>
       </DeferredMount>

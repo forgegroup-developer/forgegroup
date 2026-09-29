@@ -158,6 +158,19 @@ for (const f of CARTELLE.flatMap((c) => file(path.join(RADICE, c)))) {
     if (t.includes("—")) segnala("ERRORE", f, i + 1, "lineetta lunga nel testo: usa i due punti o la virgola");
   });
 
+  // Stile (REGOLE §2 e §4): titoli piccoli e sfondi fuori palette.
+  // Avvisi finché servizi, casi, gestionale e 404 non sono rifatti (passi
+  // 4-7 dell'analisi del 29/09); poi diventano errori.
+  {
+    const grezzo = fs.readFileSync(f, "utf8");
+    grezzo.split("\n").forEach((r, i) => {
+      if (/className=["`{][^"`]*\bheading-section\b(?!-)/.test(r))
+        segnala("AVVISO", f, i + 1, "titolo con heading-section: i titoli di sezione sono heading-section-xl");
+      if (/\bsection-sabbia\b/.test(r) && !/^\s*(\*|\/\/)/.test(r))
+        segnala("AVVISO", f, i + 1, "sfondo section-sabbia: le sezioni sono bianche o mattone");
+    });
+  }
+
   // titolo e descrizione per Google, nelle pagine
   if (f.endsWith("page.tsx")) {
     const s = fs.readFileSync(f, "utf8");

@@ -30,18 +30,19 @@ const abitudini = [
 export default function PercheSceglierci() {
   return (
     <section id="perche" className="section-mattone scroll-mt-24 py-20 md:py-28">
+      {/* Il titolo sopra le due colonne, come tutti i titoli di sezione
+          (REGOLE-DEL-SITO §4): stessa misura e stesso grassetto. */}
+      <div className="mx-auto mb-12 max-w-4xl px-5 text-center sm:px-6 md:mb-16 lg:px-8">
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Perché scegliere Forge Group</span>
+        </p>
+        <h2 className="heading-section-xl text-balance">
+          La chiave per crescere in edilizia:{" "}
+          <span>il controllo della trattativa</span>
+        </h2>
+      </div>
       <div className="mx-auto grid max-w-6xl gap-10 px-5 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8">
         <div className="flex flex-col justify-center">
-          <p className="mb-6">
-            <span className="eyebrow-rule">Perché scegliere Forge Group</span>
-          </p>
-
-          <p className="mb-3 font-display text-xl font-bold leading-snug text-white/85 sm:text-2xl">
-            La chiave per crescere in edilizia:
-          </p>
-          <h2 className="titolo-meccanismo mb-6">
-            <span>il controllo della trattativa</span>
-          </h2>
 
           <p className="text-pretty text-lg leading-relaxed">
             Per questo abbiamo costruito il Metodo FORGE: ti portiamo
@@ -58,7 +59,7 @@ export default function PercheSceglierci() {
           </div>
         </div>
 
-        <div className="superficie-chiara rounded-3xl border border-brand-bordo bg-brand-panna p-7 shadow-lg sm:p-9">
+        <div className="superficie-chiara rounded-3xl border border-brand-bordo bg-brand-bianco p-7 shadow-lg sm:p-9">
           {/* La domanda apre e chiude l'elenco: in mezzo lui si conta dentro
               da solo, e nessuna riga lo sta accusando. */}
           <p className="mb-4 font-display text-lg font-bold text-brand-corallo-text sm:text-xl">

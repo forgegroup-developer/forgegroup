@@ -58,8 +58,10 @@ export default function ConfrontoCaos() {
   return (
     <section id="confronto-caos" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-        <p className="eyebrow-rule mb-6">Controllo del lavoro</p>
-        <h2 className="heading-section-xl mb-14 max-w-4xl text-balance">
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Controllo del lavoro</span>
+        </p>
+        <h2 className="heading-section-xl mx-auto mb-12 max-w-4xl text-center text-balance md:mb-16">
           Ecco perché il{" "}
           <span className="text-brand-corallo-text">Metodo FORGE</span> cambia
           la tua azienda
