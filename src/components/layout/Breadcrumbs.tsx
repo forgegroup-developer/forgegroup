@@ -42,7 +42,7 @@ export default function Breadcrumbs({ items, className = "", variant = "dark" }:
             const isLast = index === items.length - 1;
             return (
               <li key={`${item.label}-${index}`} className="flex items-center gap-2">
-                {index > 0 && <span aria-hidden className="opacity-50">//</span>}
+                {index > 0 && <span aria-hidden className="opacity-50">{"//"}</span>}
                 {item.href && !isLast ? (
                   <Link href={item.href} className={linkClass}>
                     {item.label}

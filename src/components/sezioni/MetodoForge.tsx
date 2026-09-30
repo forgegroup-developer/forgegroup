@@ -48,7 +48,7 @@ const fasi = [
     verticalLabel: "EVOLUZIONE",
     title: "Evoluzione",
     description:
-      "Scriviamo con te il processo di vendita: il materiale commerciale, le parole per richiamare, tutti i passaggi fino al contratto. Poi una consulenza al mese e una chiamata a settimana sulle trattative.",
+      "Scriviamo con te il processo di vendita: il materiale commerciale, le parole per richiamare, tutti i passaggi fino al contratto. Poi le consulenze, e noi al tuo fianco sulle trattative fino alla firma.",
     takeaway: "un modo di vendere scritto, che resta in azienda",
   },
 ] as const;

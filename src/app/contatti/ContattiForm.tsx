@@ -316,10 +316,12 @@ export default function ContattiForm({
             />
           </svg>
         </div>
-        <p className="eyebrow mb-4">✦ Candidatura ricevuta</p>
-        <h1 className="heading-section font-semibold text-brand-nero leading-tight mb-6">
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Candidatura ricevuta</span>
+        </p>
+        <h1 className="heading-section-xl text-balance text-brand-nero mb-6">
           Grazie. Adesso{" "}
-          <span className="text-brand-corallo">guardiamo i tuoi numeri</span>.
+          <span className="text-brand-corallo-text">guardiamo i tuoi numeri</span>.
         </h1>
         <div className="text-lg text-brand-grigio leading-relaxed mb-8 space-y-4 max-w-xl mx-auto">
           <p>

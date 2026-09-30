@@ -167,7 +167,7 @@ const serviziTabs: ServiziTab[] = [
             Ogni settimana le guardiamo <span>una per una</span>.
           </>
         ),
-        body: "Quattro chiamate al mese, dedicate solo alle trattative aperte. Si apre il gestionale e si passa in rassegna: a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
+        body: "Ogni settimana ti affianchiamo sulle trattative aperte: si apre il gestionale e si passa in rassegna a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
       },
     ],
   },
@@ -247,7 +247,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Servizi per imprese edili | Il Metodo FORGE",
     description:
-      "Pubblicità gestita da noi, richieste filtrate prima di arrivarti, e quattro chiamate al mese dedicate solo alle trattative aperte.",
+      "Pubblicità gestita da noi, richieste filtrate prima di arrivarti, e noi al tuo fianco sulle trattative aperte, fino alla firma.",
     url: "/servizi",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
   },
@@ -275,11 +275,10 @@ export default function ServiziHub() {
         testo={
           <>
             La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
-            richiesta ti arrivi. Poi una consulenza al mese, di persona o in videochiamata, e{" "}
-            <strong className="chiave">
-              quattro chiamate al mese
-            </strong>{" "}
-            dedicate solo alle trattative aperte.
+            richiesta ti arrivi. Poi le consulenze, di persona o in
+            videochiamata, e{" "}
+            <strong className="chiave">noi al tuo fianco sulle trattative aperte</strong>,
+            fino alla firma.
           </>
         }
         nota={

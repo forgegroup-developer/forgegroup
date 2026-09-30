@@ -163,8 +163,8 @@ export const altriProblemi: Problema[] = [
     ),
     soluzione: (
       <>
-        Nel gestionale ogni preventivo ha una data per richiamare, e nella
-        chiamata settimanale passiamo con te le trattative aperte una per una.{" "}
+        Nel gestionale ogni preventivo ha una data per richiamare, e nelle
+        consulenze passiamo con te le trattative aperte una per una.{" "}
         <strong>Nessuna resta lì.</strong>
       </>
     ),
@@ -270,9 +270,9 @@ export const passi = [
       "Due incontri per conoscere l'azienda e il modo in cui vendete oggi. Poi i video girati in cantiere e le campagne.",
   },
   {
-    titolo: "Ogni settimana",
+    titolo: "Al tuo fianco",
     testo:
-      "Una chiamata solo sulle trattative, e ogni mese una consulenza con te e la tua squadra. Le richieste le richiama la tua impresa, con il metodo e le parole che costruiamo insieme.",
+      "Le consulenze con te e la tua squadra, sulle trattative fino alla firma. Le richieste le richiama la tua impresa, con il metodo e le parole che costruiamo insieme.",
   },
   {
     titolo: "I numeri",
@@ -299,9 +299,9 @@ export const crm = [
       "Contatti, appuntamenti, contratti e costo per contatto, per ogni linea di lavoro. Vedi dove vanno i soldi della pubblicità e quanti tornano indietro, contratto per contratto.",
   },
   {
-    titolo: "Lo guardiamo insieme ogni settimana",
+    titolo: "Lo guardiamo insieme",
     testo:
-      "Nella chiamata settimanale apriamo il gestionale con te e passiamo le trattative una per una. Ogni tre mesi hai il report con tutti i numeri.",
+      "Nelle consulenze apriamo il gestionale con te e passiamo le trattative una per una. Ogni tre mesi hai il report con tutti i numeri.",
   },
 ];
 

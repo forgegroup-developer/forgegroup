@@ -45,7 +45,7 @@ export const faqs: Faq[] = [
   {
     q: "Il mio mestiere non c'è fra i casi: funziona lo stesso?",
     pagine: ["casi-studio"],
-    a: "Lavoriamo solo con imprese edili e della filiera: costruzioni e ristrutturazioni, coperture, serramenti, impianti, fotovoltaico, arredo. Il metodo è lo stesso per tutti: il modulo che filtra le richieste, il processo di vendita scritto con te, il gestionale e la chiamata ogni settimana. Cambiano gli annunci e i video. Se nella tua zona non ha senso, te lo dice prima lo studio di fattibilità.",
+    a: "Lavoriamo solo con imprese edili e della filiera: costruzioni e ristrutturazioni, coperture, serramenti, impianti, fotovoltaico, arredo. Il metodo è lo stesso per tutti: il modulo che filtra le richieste, il processo di vendita scritto con te, il gestionale e le consulenze con noi. Cambiano gli annunci e i video. Se nella tua zona non ha senso, te lo dice prima lo studio di fattibilità.",
   },
   {
     q: "Quanto ci hanno messo a vedere i primi risultati?",
