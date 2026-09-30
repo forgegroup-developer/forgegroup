@@ -18,7 +18,7 @@ export type RigaCrm = {
 export const righeCrm: RigaCrm[] = [
   {
     richiesta: "Ristrutturazione attività esistente",
-    zona: "Provincia di Napoli",
+    zona: "12 km dalla sede",
     fase: "1° APP. DI REVISIONE",
     tono: "avanti",
     nota: "Locale 50 mq, ristrutturazione completa. Ha già altri tre preventivi: 22, 28 e 33 mila. Non ha ancora un tecnico.",
@@ -26,7 +26,7 @@ export const righeCrm: RigaCrm[] = [
   },
   {
     richiesta: "Nuova attività, arredo e progettazione",
-    zona: "Provincia di Avellino",
+    zona: "25 km dalla sede",
     fase: "DA RICHIAMARE",
     tono: "attesa",
     nota: "Budget indicativo confermato in chiamata. Deve parlare con la proprietà del locale prima di decidere.",
@@ -34,7 +34,7 @@ export const righeCrm: RigaCrm[] = [
   },
   {
     richiesta: "Ha un progetto e cerca chi lo realizzi",
-    zona: "Provincia di Caserta",
+    zona: "8 km dalla sede",
     fase: "NON RISPONDE",
     tono: "fermo",
     nota: "Due chiamate, mattina e pomeriggio. Mandato messaggio su WhatsApp.",
@@ -50,7 +50,7 @@ export const righeCrm: RigaCrm[] = [
   },
   {
     richiesta: "Ristrutturazione attività esistente",
-    zona: "Provincia di Salerno",
+    zona: "30 km dalla sede",
     fase: "CONTRATTO",
     tono: "chiuso",
     nota: "Progetto approvato in sede. Piano dei lavori firmato.",

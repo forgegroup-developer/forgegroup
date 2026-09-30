@@ -107,6 +107,13 @@ export const iniziaImages = {
   sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
 } as const;
 
+/** Il prima e dopo dei casi studio: scene AI fatte apposta (29/09/2026). */
+export const primaDopoImages = {
+  disaPrima: "/images/casi-studio/prima-dopo/disa-prima.webp",
+  disaDopo: "/images/casi-studio/prima-dopo/disa-dopo.webp",
+  roviDopo: "/images/casi-studio/prima-dopo/rovi-dopo.webp",
+} as const;
+
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
 export const serviziSidebarImages = {
   acquisizione: "/images/servizi/magnete.webp",

@@ -116,9 +116,10 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 
 ## 8 · TRACCIAMENTO
 
-- **Google Analytics 4 parte solo dopo il consenso** alla misurazione nel banner iubenda
-  (`AnalyticsDopoConsenso`, Consent Mode v2). Non si aggiungono altri script di tracciamento senza
-  passare da lì e da iubenda.
+- **Google Analytics 4 si carica sempre, con Consent Mode v2** (dal 29/09/2026, PR #25): il widget
+  iubenda parte prima e imposta il consenso Google a "negato" finché il visitatore non sceglie dal
+  banner. Chi rifiuta viene contato solo in forma anonima. Non si aggiungono altri script di
+  tracciamento senza passare da iubenda.
 - **Gli eventi, e solo questi:**
 
 | Evento | Parametri | Quando |

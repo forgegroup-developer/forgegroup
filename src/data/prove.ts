@@ -70,7 +70,7 @@ export const casi = [
   {
     slug: "arredo-commerciale",
     chi: "ROVI",
-    settore: "Azienda che lavora in edilizia",
+    settore: "Arredamento negozi",
     numero: "25.000 €",
     numeroDetto:
       "chiusi in quattro mesi, e oltre 200.000 € di trattative aperte",

@@ -42,7 +42,7 @@ const COME_LAVORIAMO = `- Gestiamo noi la pubblicità su Meta e Google, con vide
 - Ogni richiesta passa da un modulo che chiede tipo di lavoro, tempi, budget e zona.
 - Le richieste le richiama l'impresa, con il metodo e le parole che scriviamo insieme. Forge non chiama i contatti del cliente.
 - Ogni richiesta arriva nel gestionale costruito da Forge, dove il titolare vede ogni trattativa e quanto rende ogni euro di pubblicità.
-- Una chiamata a settimana sulle trattative e una consulenza al mese.
+- Consulenze sul marketing e sulla vendita, con i fondatori al fianco del titolare sulle trattative fino alla firma.
 - Dopo 60 giorni si rivedono le stime sui dati veri; dopo 90 giorni il primo report: contatti, appuntamenti, contratti, costo per contatto.
 - Metodo F.O.R.G.E.: Fondamenta (audit commerciale), Organizzazione (social), Richieste (campagne), Gestione (gestionale), Evoluzione (processo di vendita e consulenza).`;
 
@@ -50,7 +50,7 @@ const STUDIO = `Prima di iniziare c'è lo studio di fattibilità: quanto lavoro 
 
 const PROVE = `- DISA (software per l'edilizia): 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto; circa 350.000 € in 12 mesi con circa 300 € al mese di pubblicità.
 - Tetti Top (coperture e lattoneria): 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 €, sopralluogo diventato a pagamento.
-- ROVI (azienda che lavora in edilizia): 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.
+- ROVI (arredamento negozi): 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.
 - Google: 5,0 su 6 recensioni.`;
 
 const staticMirrors: Record<string, MirrorPage> = {
@@ -86,7 +86,7 @@ ${faqs.map((f) => `**${f.q}**\n${f.a}`).join("\n\n")}
   servizi: {
     title: "Come lavoriamo | Forge Group",
     description:
-      "Come lavora Forge Group con un'impresa edile: pubblicità gestita, richieste filtrate, gestionale, chiamata settimanale sulle trattative.",
+      "Come lavora Forge Group con un'impresa edile: pubblicità gestita, richieste filtrate, gestionale, consulenze sulle trattative fino alla firma.",
     url: `${BASE}/servizi`,
     body: `
 # Come lavoriamo con un'impresa edile

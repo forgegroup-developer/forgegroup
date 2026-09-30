@@ -19,9 +19,11 @@ export default function Error({
   return (
     <section className="min-h-[60vh] flex items-center justify-center py-20 px-4 section-bianco">
       <div className="max-w-xl text-center">
-        <p className="eyebrow mb-4">✦ Errore</p>
-        <h1 className="heading-section font-semibold text-brand-nero mb-4">
-          Qualcosa è andato <span className="text-brand-corallo">storto</span>
+        <p className="mb-6 flex justify-center">
+          <span className="eyebrow-rule">Errore</span>
+        </p>
+        <h1 className="heading-section-xl text-balance text-brand-nero mb-4">
+          Qualcosa è andato <span className="text-brand-corallo-text">storto</span>.
         </h1>
         <p className="text-base text-brand-grigio leading-relaxed mb-8">
           Si è verificato un errore imprevisto. Puoi riprovare o tornare alla home.

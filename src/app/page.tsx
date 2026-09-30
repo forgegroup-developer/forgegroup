@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Evidenzia } from "@/components/blocchi/ui";
+import { Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
@@ -322,72 +322,59 @@ export default function Home() {
         </div>
       </section>
 
-      {/* S7 — CONFRONTO: a sinistra i problemi del titolare, in prima
-          persona (frasi delle call e i problemi della Testa aziendale), a
-          destra cosa facciamo. Prima parlava solo del servizio (proprieta',
-          29/09); e il valore si mostra con il metodo, senza svalutare chi
-          c'era prima. */}
+      {/* S7 — CONFRONTO: i problemi del titolare, in prima persona (frasi
+          delle call e Testa aziendale §3), e sotto ognuno cosa facciamo,
+          detto come meccanismo. Rifatto il 29/09 (proprietà: senza foto, le
+          scene stanno già in /servizi): al posto della tabella lunga, schede
+          a due colonne, problema sopra e risposta sotto. */}
       <DeferredMount minHeight="480px">
         <section className={`section-bianco border-y ${SEZIONE}`}>
           <div className={CONTENITORE}>
-            <SectionHeader
-              eyebrow="Il confronto"
-              title={
-                <>
-                  Quello che vivi oggi.{" "}
-                  <span className="text-brand-corallo-text">
-                    Cosa cambia con noi.
-                  </span>
-                </>
-              }
-            />
-            {/* Riga per riga: il problema come lo racconta il titolare (Testa
-                aziendale §3, frasi delle call) e cosa facciamo, detto come
-                meccanismo (Scheda dei fatti). Da telefono ogni riga diventa
-                una scheda con il problema sopra e la risposta sotto. */}
-            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
-              <div className="hidden grid-cols-2 border-b border-brand-bordo md:grid">
-                <p className="px-8 py-5 font-display text-lg font-bold text-brand-corallo-text">
-                  Quello che vivi oggi
-                </p>
-                <p className="border-l border-brand-bordo px-8 py-5 font-display text-lg font-bold text-brand-verde-text">
-                  Cosa facciamo con te
-                </p>
-              </div>
-              <ol>
-                {confronto.map((riga, idx) => (
-                  <li
-                    key={riga.problema}
-                    className={`grid md:grid-cols-2 ${idx > 0 ? "border-t border-brand-bordo" : ""}`}
-                  >
-                    <div className="flex gap-3.5 px-5 pt-5 md:px-8 md:py-6">
-                      <span className="segno-no mt-0.5" aria-hidden>
-                        ✕
-                      </span>
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
-                          {riga.tema}
-                        </p>
-                        <p className="mt-1 font-display text-base font-bold leading-snug text-brand-nero md:text-lg">
-                          &laquo;{riga.problema}&raquo;
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3.5 px-5 pb-5 pt-3 md:border-l md:border-brand-bordo md:px-8 md:py-6">
-                      <span className="segno-si mt-0.5" aria-hidden>
-                        ✓
-                      </span>
-                      <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
-                        <Evidenzia
-                          testo={riga.soluzione}
-                          chiave={riga.chiave}
-                        />
+            <Titolo
+              occhiello="Il confronto"
+              sottotitolo="Sono le frasi che ci dicono i titolari al primo appuntamento. Sotto ognuna, cosa facciamo con te."
+            >
+              Quello che vivi oggi, e <Chiave>cosa cambia con noi</Chiave>.
+            </Titolo>
+
+            <ol className="grid gap-5 md:grid-cols-2">
+              {confronto.map((riga, idx) => (
+                <li
+                  key={riga.problema}
+                  className="flex flex-col overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-sm"
+                >
+                  <div className="flex gap-4 p-6">
+                    <span className="font-display text-2xl font-bold leading-none text-brand-corallo-text">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-grigio">
+                        <span className="segno-no scale-75" aria-hidden>
+                          ✕
+                        </span>
+                        {riga.tema}
+                      </p>
+                      <p className="font-display text-lg font-bold leading-snug text-brand-nero md:text-xl">
+                        &laquo;{riga.problema}&raquo;
                       </p>
                     </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
+                  </div>
+                  <div className="mt-auto flex gap-3.5 border-t-2 border-brand-verde/30 bg-brand-bianco px-6 py-5">
+                    <span className="segno-si mt-0.5" aria-hidden>
+                      ✓
+                    </span>
+                    <div>
+                      <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand-verde-text">
+                        Con Forge
+                      </p>
+                      <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                        <Evidenzia testo={riga.soluzione} chiave={riga.chiave} />
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       </DeferredMount>

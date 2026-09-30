@@ -77,17 +77,25 @@ export default function HeroPagina({
       }
       before={
         sfondo ? (
-          <div className="hero-sfondo-foto" aria-hidden>
-            <Image
-              src={immagine.src}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              style={{ objectFit: "cover", objectPosition: "72% 62%" }}
-            />
-            <div className="hero-sfondo-velo" />
-          </div>
+          <>
+            <div className="hero-sfondo-foto" aria-hidden>
+              <Image
+                src={immagine.src}
+                alt=""
+                fill
+                priority
+                sizes="100vw"
+                style={{ objectFit: "cover", objectPosition: "72% 62%" }}
+              />
+              <div className="hero-sfondo-velo" />
+            </div>
+            {/* Le immagini fatte con l'AI portano la scritta (AI Act). */}
+            {immagine.didascalia && (
+              <p className="absolute bottom-3 right-3 z-20 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                {immagine.didascalia}
+              </p>
+            )}
+          </>
         ) : undefined
       }
     >
@@ -95,7 +103,7 @@ export default function HeroPagina({
         className={
           sfondo
             ? "flex max-w-3xl flex-col gap-5 px-4 pb-16 pt-12 sm:gap-6 sm:px-6 sm:pt-16 lg:pl-8 lg:pt-24 lg:pb-24"
-            : "order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20"
+            : "order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-20 lg:pl-8 lg:pr-14 lg:pt-20"
         }
       >
         <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
