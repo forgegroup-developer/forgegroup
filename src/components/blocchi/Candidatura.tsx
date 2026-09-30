@@ -8,6 +8,7 @@ import {
 } from "@/components/blocchi/ui";
 import { studio } from "@/data/blocchi";
 import { iniziaImages } from "@/data/images";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
 
 /** Cosa c'è nello studio di fattibilità, e accanto il modulo senza banner. `sorgente` separa le candidature in GA4. */
 export default function Candidatura({ sorgente }: { sorgente: string }) {
@@ -60,6 +61,8 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
               </p>
             </div>
             <div className="lg:sticky lg:top-28">
+              {/* Le recensioni accanto al modulo, come in /contatti (proprietà, 30/09). */}
+              <BannerGoogle className="mb-6" />
               <ContattiFormLoader sorgente={sorgente} senzaBanner />
             </div>
           </div>
