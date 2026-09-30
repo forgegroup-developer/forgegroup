@@ -16,7 +16,7 @@ import {
   getArticleBySlug,
   getPublishedArticles,
 } from "@/lib/blog/articlesAsync";
-import { getBlogImage } from "@/data/images";
+import { getBlogImage, isImmagineAI } from "@/data/images";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
 export const revalidate = 3600;
@@ -141,7 +141,7 @@ export default async function ArticleDetail({ params }: Props) {
                 </Link>
               </p>
               <h1 className="heading-section font-semibold leading-tight mb-6">{a.title}</h1>
-              <p className="text-lg md:text-xl text-brand-grigio leading-relaxed mb-6">
+              <p className="text-lg md:text-xl !text-white/85 leading-relaxed mb-6">
                 {a.description}
               </p>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/70 uppercase tracking-wide">
@@ -163,6 +163,11 @@ export default async function ArticleDetail({ params }: Props) {
                 sizes="(max-width: 896px) 100vw, 896px"
                 priority
               />
+              {isImmagineAI(getBlogImage(a.slug, a.featuredImage)) && (
+                <p className="absolute bottom-3 right-3 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                  Immagine generata con AI
+                </p>
+              )}
             </div>
           </div>
         </header>

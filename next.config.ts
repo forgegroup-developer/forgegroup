@@ -52,6 +52,17 @@ const nextConfig: NextConfig = {
         destination: IUBENDA.cookiePolicyUrl,
         permanent: false,
       },
+      // Articoli ritirati il 30/09/2026: erano del vecchio posizionamento
+      // (B2B, Campania, lead generation). Permanenti: Google li toglie
+      // dall'indice e passa il valore alla pagina di arrivo.
+      { source: "/blog/come-acquisire-clienti-b2b-campania", destination: "/servizi", permanent: true },
+      { source: "/blog/sistema-vendita-b2b-dalla-lead-al-contratto", destination: "/servizi", permanent: true },
+      { source: "/blog/agenzia-marketing-b2b-napoli", destination: "/", permanent: true },
+      { source: "/blog/quanto-costa-lead-generation-b2b", destination: "/servizi", permanent: true },
+      { source: "/blog/agenzia-marketing-b2b-campania-checklist", destination: "/", permanent: true },
+      { source: "/blog/come-farsi-pagare-di-piu-prodotti-servizi", destination: "/servizi", permanent: true },
+      { source: "/blog/come-aumentare-numero-clienti-attivita", destination: "/", permanent: true },
+      { source: "/blog/aumentare-clienti-smettere-passaparola", destination: "/blog/come-smettere-dipendere-passaparola", permanent: true },
       // Gli indirizzi che il playbook delle chiamate detta al telefono e
       // che si mandano su WhatsApp: corti, puliti, facili da scrivere a
       // mano. Temporanei apposta: la piattaforma di copy prevede che
