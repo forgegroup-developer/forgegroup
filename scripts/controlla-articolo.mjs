@@ -224,7 +224,10 @@ function controlla(file, esistenti) {
   } else {
     const atteso = `${a.date}T09:00:00${offsetRoma(a.date)}`;
     if (a.publishAt !== atteso) errori.push(`publishAt deve essere "${atteso}" (09:00 di Roma quel giorno), è "${a.publishAt}"`);
-    if (new Date(a.publishAt) <= new Date()) errori.push("publishAt è già passato: l'articolo uscirebbe subito");
+    // Una riscrittura sostituisce un articolo già online allo stesso indirizzo: esce subito,
+    // altrimenti la pagina resterebbe vuota fino alla data (proprietà, 30/09/2026).
+    if (!a.riscrittura && new Date(a.publishAt) <= new Date()) errori.push("publishAt è già passato: l'articolo uscirebbe subito");
+    if (a.riscrittura && new Date(a.publishAt) > new Date()) errori.push("una riscrittura esce subito: publishAt deve essere oggi o prima");
   }
 
   // Blocchi e parole.

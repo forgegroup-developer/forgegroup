@@ -53,6 +53,11 @@ Gli stessi campi del tipo `Article` in `src/data/articles.ts`:
 }
 ```
 
+**Riscritture.** Quando un articolo già online si riscrive allo stesso indirizzo (per esempio gli
+articoli del vecchio posizionamento), il file porta `"riscrittura": true` e `publishAt` alle 09:00
+del giorno della riscrittura: esce subito, così la pagina non resta mai vuota. Il vecchio testo si
+toglie da `src/data/scheduledArticles.ts` nella stessa PR.
+
 `publishAt` porta sempre il fuso di Roma: `+02:00` con l'ora legale (dall'ultima
 domenica di marzo all'ultima domenica di ottobre), `+01:00` il resto dell'anno.
 
