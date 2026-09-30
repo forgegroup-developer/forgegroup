@@ -1,0 +1,65 @@
+# Coda degli articoli del blog
+
+Ogni articolo è un file `<slug>.json` in questa cartella. Il nome del file deve essere
+uguale allo slug, altrimenti la build si ferma.
+
+## Come entra un articolo
+
+1. Il Redattore scrive il file e apre una PR.
+2. Nell'anteprima Vercel della PR l'articolo si vede già su `/blog/<slug>`, con una
+   scritta che dice quando esce.
+3. Il merge della PR è l'approvazione.
+4. In produzione l'articolo compare da solo quando arriva `publishAt`, entro un'ora
+   (le pagine del blog si rigenerano ogni ora; il cron delle 08:05 UTC la forza).
+
+Per ritirare un articolo in coda prima che esca: si cancella il file con una PR.
+
+## Formato
+
+Gli stessi campi del tipo `Article` in `src/data/articles.ts`:
+
+```json
+{
+  "slug": "cinque-appuntamenti-nessuna-firma",
+  "title": "…",
+  "description": "… (140-155 caratteri)",
+  "category": "Trattative e vendita",
+  "date": "2026-10-02",
+  "publishAt": "2026-10-02T09:00:00+02:00",
+  "readTime": "6 min",
+  "excerpt": "…",
+  "tags": ["…"],
+  "livello": 2,
+  "argomento": "sopralluoghi-a-vuoto",
+  "autore": "gianpio",
+  "inBreve": { "problema": "…", "causa": "…", "cambia": "…" },
+  "seo": {
+    "parolaChiave": "sopralluogo e preventivo",
+    "secondarie": ["sopralluogo a pagamento", "…"],
+    "domanda": "Keyword Planner 29/09: sotto soglia · oppure: non misurata (motivo)",
+    "serp": "chi c'è in prima pagina, per chi scrive (titolari o privati)",
+    "concorrente": ["principale:blog/…", "…", "…"],
+    "geo": "cosa fa l'articolo per le risposte delle AI",
+    "sem": "come si usa nelle campagne"
+  },
+  "faqs": [{ "q": "…", "a": "…" }],
+  "content": [
+    { "type": "p", "text": "Testo con [un link interno](/servizi)." },
+    { "type": "h2", "text": "…" },
+    { "type": "ul", "items": ["…", "…"] },
+    { "type": "quote", "text": "…" },
+    { "type": "cta", "text": "…" }
+  ]
+}
+```
+
+**Riscritture.** Quando un articolo già online si riscrive allo stesso indirizzo (per esempio gli
+articoli del vecchio posizionamento), il file porta `"riscrittura": true` e `publishAt` alle 09:00
+del giorno della riscrittura: esce subito, così la pagina non resta mai vuota. Il vecchio testo si
+toglie da `src/data/scheduledArticles.ts` nella stessa PR.
+
+`publishAt` porta sempre il fuso di Roma: `+02:00` con l'ora legale (dall'ultima
+domenica di marzo all'ultima domenica di ottobre), `+01:00` il resto dell'anno.
+
+Le regole di scrittura non stanno nel repo: sono nel manuale dei dipendenti AI su Drive,
+`www.forgegroup.it/05 - Dipendenti AI/` (da qui: `../dipendenti-ai/`).

@@ -16,7 +16,9 @@ import {
   getArticleBySlug,
   getPublishedArticles,
 } from "@/lib/blog/articlesAsync";
-import { getBlogImage } from "@/data/images";
+import { getBlogImage, isImmagineAI } from "@/data/images";
+import { AUTORI } from "@/data/autori";
+import { getArticlePublishDate, isArticleScheduled } from "@/lib/blog/publishing";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
 export const revalidate = 3600;
@@ -34,12 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!a) return {};
 
   const modified = a.updatedDate ?? a.date;
+  const firma = a.autore ? AUTORI[a.autore].nome : ARTICLE_AUTHOR;
 
   return {
     title: a.title,
     description: a.description,
     keywords: a.tags,
-    authors: [{ name: ARTICLE_AUTHOR }],
+    authors: [{ name: firma }],
     alternates: { canonical: `/blog/${a.slug}` },
     openGraph: {
       type: "article",
@@ -74,6 +77,7 @@ export default async function ArticleDetail({ params }: Props) {
   if (!a) notFound();
 
   const modified = a.updatedDate ?? a.date;
+  const autore = a.autore ? AUTORI[a.autore] : undefined;
   const articleUrl = absoluteUrl(`/blog/${a.slug}`);
   const imageUrl = absoluteUrl(getBlogImage(a.slug, a.featuredImage));
   const wordCount = countArticleWords(a);
@@ -85,13 +89,23 @@ export default async function ArticleDetail({ params }: Props) {
     "@id": `${articleUrl}#article`,
     headline: a.title,
     description: a.description,
+    // Per le intelligenze artificiali: il riassunto "In breve" e le parole chiave della ricerca.
+    ...(a.inBreve ? { abstract: `${a.inBreve.problema} ${a.inBreve.causa} ${a.inBreve.cambia}` } : {}),
+    ...(a.seo ? { keywords: [a.seo.parolaChiave, ...a.seo.secondarie].join(", ") } : {}),
     datePublished: a.date,
     dateModified: modified,
     wordCount,
     articleSection: a.category,
     inLanguage: "it-IT",
     mainEntityOfPage: { "@id": articleUrl },
-    author: { "@type": "Organization", name: ARTICLE_AUTHOR },
+    author: autore
+      ? {
+          "@type": "Person",
+          name: autore.nome,
+          jobTitle: autore.ruolo,
+          worksFor: { "@type": "Organization", name: SITE_NAME },
+        }
+      : { "@type": "Organization", name: ARTICLE_AUTHOR },
     publisher: {
       "@type": "Organization",
       name: SITE_NAME,
@@ -107,6 +121,11 @@ export default async function ArticleDetail({ params }: Props) {
   };
 
   const allPublished = await getPublishedArticles();
+  // Prima gli altri livelli dello stesso argomento, poi la stessa categoria.
+  const daLeggere = [
+    ...allPublished.filter((x) => x.slug !== a.slug && a.argomento && x.argomento === a.argomento),
+    ...allPublished.filter((x) => x.slug !== a.slug && x.category === a.category && (!a.argomento || x.argomento !== a.argomento)),
+  ].slice(0, 3);
   const prevArticle = allPublished
     .filter((x) => x.slug !== a.slug && new Date(x.date) < new Date(a.date))
     .sort((x, y) => new Date(y.date).getTime() - new Date(x.date).getTime())[0];
@@ -119,6 +138,20 @@ export default async function ArticleDetail({ params }: Props) {
       <script id={`ld-article-${a.slug}`} type="application/ld+json">
         {JSON.stringify(articleJsonLd)}
       </script>
+
+      {isArticleScheduled(a) && (
+        <p className="bg-brand-panna border-b border-brand-bordo px-4 py-3 text-center text-sm text-brand-mattone">
+          Anteprima: questo articolo è in coda, esce il giorno{" "}
+          {new Date(getArticlePublishDate(a)).toLocaleString("it-IT", {
+            timeZone: "Europe/Rome",
+            day: "numeric",
+            month: "long",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+          . Sul sito pubblico non si vede ancora.
+        </p>
+      )}
 
       <article>
         <header className="pt-16 pb-10 md:pt-24 md:pb-12 section-coral border-b">
@@ -141,7 +174,7 @@ export default async function ArticleDetail({ params }: Props) {
                 </Link>
               </p>
               <h1 className="heading-section font-semibold leading-tight mb-6">{a.title}</h1>
-              <p className="text-lg md:text-xl text-brand-grigio leading-relaxed mb-6">
+              <p className="text-lg md:text-xl !text-white/85 leading-relaxed mb-6">
                 {a.description}
               </p>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/70 uppercase tracking-wide">
@@ -149,7 +182,7 @@ export default async function ArticleDetail({ params }: Props) {
                 <span aria-hidden>·</span>
                 <span>{a.readTime} di lettura</span>
                 <span aria-hidden>·</span>
-                <span>di {ARTICLE_AUTHOR}</span>
+                <span>di {autore?.nome ?? ARTICLE_AUTHOR}</span>
               </div>
             </div>
           </div>
@@ -163,6 +196,11 @@ export default async function ArticleDetail({ params }: Props) {
                 sizes="(max-width: 896px) 100vw, 896px"
                 priority
               />
+              {isImmagineAI(getBlogImage(a.slug, a.featuredImage)) && (
+                <p className="absolute bottom-3 right-3 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                  Immagine generata con AI
+                </p>
+              )}
             </div>
           </div>
         </header>
@@ -171,6 +209,28 @@ export default async function ArticleDetail({ params }: Props) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
               <div className="max-w-3xl space-y-6">
+                {a.inBreve && (
+                  <aside
+                    aria-label="In breve"
+                    className="rounded-2xl border border-brand-bordo bg-brand-panna p-6"
+                  >
+                    <p className="eyebrow mb-3">In breve</p>
+                    <dl className="space-y-2 text-brand-nero">
+                      <div>
+                        <dt className="inline font-semibold">Il problema: </dt>
+                        <dd className="inline">{a.inBreve.problema}</dd>
+                      </div>
+                      <div>
+                        <dt className="inline font-semibold">La causa: </dt>
+                        <dd className="inline">{a.inBreve.causa}</dd>
+                      </div>
+                      <div>
+                        <dt className="inline font-semibold">Cosa cambia: </dt>
+                        <dd className="inline">{a.inBreve.cambia}</dd>
+                      </div>
+                    </dl>
+                  </aside>
+                )}
                 {a.content.map((block, i) => {
                   if (block.type === "p")
                     return (
@@ -254,6 +314,37 @@ export default async function ArticleDetail({ params }: Props) {
                 })}
 
                 {a.faqs && a.faqs.length > 0 && <FaqAccordion faqs={a.faqs} />}
+
+                {autore && (
+                  <aside
+                    aria-label="Chi scrive"
+                    className="rounded-2xl border border-brand-bordo p-6"
+                  >
+                    <p className="eyebrow mb-2">Chi scrive</p>
+                    <p className="font-semibold text-brand-nero">
+                      {autore.nome}, {autore.ruolo.toLowerCase()}
+                    </p>
+                    <p className="text-brand-grigio mt-1">{autore.bio}</p>
+                  </aside>
+                )}
+
+                {daLeggere.length > 0 && (
+                  <nav aria-label="Da leggere anche" className="border-t border-brand-bordo pt-8">
+                    <p className="eyebrow mb-4">Da leggere anche</p>
+                    <ul className="space-y-3">
+                      {daLeggere.map((x) => (
+                        <li key={x.slug}>
+                          <Link
+                            href={`/blog/${x.slug}`}
+                            className="font-semibold text-brand-corallo-text underline underline-offset-2 hover:opacity-80"
+                          >
+                            {x.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
 
                 {(prevArticle || nextArticle) && (
                   <nav

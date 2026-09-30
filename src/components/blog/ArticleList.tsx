@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/data/articles";
 import { ARTICLE_AUTHOR, categoryToSlug } from "@/data/articles";
-import { getBlogImage } from "@/data/images";
+import { getBlogImage, isImmagineAI } from "@/data/images";
 
 type Props = {
   articles: Article[];
@@ -48,6 +48,11 @@ export default function ArticleList({
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
+              {isImmagineAI(getBlogImage(article.slug, article.featuredImage)) && (
+                <span className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                  Immagine generata con AI
+                </span>
+              )}
             </Link>
             <div className="flex flex-col justify-center p-6 md:p-8 md:w-3/5">
               <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-brand-grigio-light">

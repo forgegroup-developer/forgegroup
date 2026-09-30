@@ -40,9 +40,12 @@ export async function fetchDbPublishedArticles(): Promise<Article[]> {
 
   try {
     const sql = neon(url);
+    // `::text`: senza, il driver restituisce le colonne `date` come oggetti Date
+    // e nelle pagine finivano "[object Object]" e date illeggibili per Google.
     const rows = (await sql`
       SELECT slug, title, description, category, excerpt, read_time,
-             tags, faqs, content, featured_image, date, updated_date
+             tags, faqs, content, featured_image,
+             date::text AS date, updated_date::text AS updated_date
       FROM articles
       WHERE status = 'published'
       ORDER BY date DESC NULLS LAST

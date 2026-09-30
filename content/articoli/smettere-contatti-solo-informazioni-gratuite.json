@@ -1,0 +1,210 @@
+{
+  "slug": "smettere-contatti-solo-informazioni-gratuite",
+  "title": "Come filtrare i clienti prima del sopralluogo, senza perderli?",
+  "description": "Chi chiama per il prezzo al metro quadro ti costa un sopralluogo. Come filtrare i clienti prima del sopralluogo, con il modulo e la cifra detta presto.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-09-30",
+  "publishAt": "2026-09-30T09:00:00+02:00",
+  "riscrittura": true,
+  "updatedDate": "2026-09-30",
+  "readTime": "5 min",
+  "excerpt": "C'è chi chiama solo per sapere quanto costa al metro quadro, e il sopralluogo diventa l'unico filtro. Le strade che si provano, e il filtro che mettiamo prima.",
+  "tags": [
+    "sopralluoghi",
+    "filtrare i clienti",
+    "modulo",
+    "prezzo"
+  ],
+  "livello": 3,
+  "argomento": "sopralluoghi-a-vuoto",
+  "autore": "marco",
+  "seo": {
+    "parolaChiave": "filtrare i clienti prima del sopralluogo",
+    "secondarie": [
+      "sopralluoghi a vuoto",
+      "prezzo al metro quadro",
+      "sopralluogo a pagamento",
+      "qualificare i clienti in edilizia"
+    ],
+    "domanda": "Keyword Planner sospeso (proprietà, 30/09). Non negli studi del 28/08 e del 03/09: non misurata",
+    "serp": "Google 30/09, 'filtrare i clienti prima del sopralluogo edilizia': metà della prima pagina è del concorrente A (sopralluogo-e-preventivo-in-edilizia, dal-preventivificio..., come-chiudere-preventivi-edilizia), poi un software di preventivi e un'agenzia. La ricerca la fanno i titolari. Nessuno porta un caso con il sopralluogo diventato a pagamento",
+    "concorrente": [
+      "principale:blog/come-filtrare-clienti-edilizia-prima-dell-offerta",
+      "principale:blog/sopralluogo-e-preventivo-in-edilizia",
+      "principale:blog/qualificare-clienti-edilizia"
+    ],
+    "geo": "In breve con problema, causa e cosa cambia; i quattro dati del modulo e i passi numerati, citabili da soli; FAQ come domande di Google; prova Tetti Top con i numeri della Scheda; firma di Marco",
+    "sem": "Livello 3: carosello su Meta con i quattro dati del modulo; remarketing verso chi ha visitato il sito; niente Google Ads search (domanda non misurata)"
+  },
+  "inBreve": {
+    "problema": "Arrivano richieste da chi vuole solo un prezzo, e per capirlo fai il sopralluogo: il filtro lo paghi tu, in giornate.",
+    "causa": "Prima del sopralluogo non sai che lavoro vuole, entro quando, con che budget e dove, perché nessuno lo ha chiesto.",
+    "cambia": "Per filtrare i clienti prima del sopralluogo bastano un modulo con quattro informazioni e la cifra detta presto, come fascia."
+  },
+  "faqs": [
+    {
+      "q": "Cosa chiedere al cliente prima del sopralluogo?",
+      "a": "Quattro cose: che lavoro vuole fare, entro quando vuole iniziare, quanto ha pensato di spendere, e dove si trova. Poi, al primo incontro, chi decide e chi paga. Con queste risposte sai se il sopralluogo vale la giornata."
+    },
+    {
+      "q": "Conviene far pagare il sopralluogo?",
+      "a": "Quando ci si riesce, il sopralluogo a pagamento seleziona da solo chi ha deciso di fare sul serio. È un obiettivo che ci mettiamo con le imprese, non una regola: con un'impresa di coperture ci siamo riusciti, con altre no. Si arriva lì dopo aver messo il filtro, non al posto del filtro."
+    },
+    {
+      "q": "Come rispondere a chi chiede il prezzo al metro quadro?",
+      "a": "Con una fascia, detta presto: il lavoro si aggira intorno a una certa cifra, e il rilievo delle misure serve a confermarla. Se la fascia è sostenibile si fissa il primo incontro, e il sopralluogo viene dopo. Chi cercava solo un numero da confrontare di solito si ferma lì."
+    },
+    {
+      "q": "Come filtrare i clienti prima del sopralluogo senza perderli?",
+      "a": "Con poche domande. Troppe domande all'inizio allontanano anche chi ha un lavoro vero da fare, perché la fiducia non c'è ancora. Il modulo raccoglie le quattro informazioni essenziali, il resto si chiede al primo incontro."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Persone che chiamano giusto per sapere quanto costa un infisso al metro quadro.»"
+    },
+    {
+      "type": "p",
+      "text": "L'ha detto chi guida un'azienda di serramenti, in un incontro conoscitivo con noi. Aveva già pagato qualcuno per avere contatti, e aveva un'altra frase per quello che gli arrivava: «quei pochi contatti che arrivavano non erano nemmeno lavorabili»."
+    },
+    {
+      "type": "p",
+      "text": "Se ti ci ritrovi, è normale. Tante imprese scoprono chi hanno davanti solo quando sono a casa sua, con il metro in mano."
+    },
+    {
+      "type": "p",
+      "text": "Il punto però non è chi chiama per curiosità. Il punto è che oggi il sopralluogo è l'unico filtro che hai, e quel filtro lo paghi tu, in giornate."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: IL SOPRALLUOGO COME UNICO FILTRO"
+    },
+    {
+      "type": "p",
+      "text": "Arriva una richiesta, chi risponde al telefono la gira al titolare, si fissa un giorno e si va. Nessuno ha chiesto quanto vuole spendere, entro quando vuole iniziare, e se decide lui."
+    },
+    {
+      "type": "p",
+      "text": "Così scopri tutto sul posto: che il lavoro è più piccolo di quello che sembrava, che il budget non c'è, o che stava solo raccogliendo preventivi per confrontarli."
+    },
+    {
+      "type": "p",
+      "text": "Ogni sopralluogo fatto a chi non poteva pagarti è mezza giornata tolta a chi poteva firmare."
+    },
+    {
+      "type": "h2",
+      "text": "TRE MODI DI FILTRARE CHE COSTANO GIORNATE, E UNO CHE NON FILTRA"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Fare il sopralluogo a tutti, per paura di perdere il lavoro buono: il lavoro buono spesso arriva, ma in mezzo a tante giornate che non tornano.",
+        "Dare un prezzo preciso al telefono, senza misure: ferma i curiosi, ma se la cifra è sbagliata ti lega le mani quando arrivi al rilievo.",
+        "Pagare un'agenzia che porta più contatti: aumentano le telefonate, non i sopralluoghi utili, se nessuno filtra prima.",
+        "Seguire un corso su come qualificare i clienti: capisci cosa chiedere, ma poi le domande le deve fare qualcuno, ogni giorno, tra un cantiere e l'altro."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Il nostro modo di lavorare, in una riga: le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona."
+    },
+    {
+      "type": "h2",
+      "text": "IN PRATICA: IL FILTRO PRIMA DEL SOPRALLUOGO"
+    },
+    {
+      "type": "p",
+      "text": "Il filtro lo mettiamo prima che la richiesta arrivi al tuo telefono. Poi mettiamo per iscritto con te cosa dire quando richiami. I passi sono questi."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Il modulo. Chi risponde alla pubblicità compila quattro campi: tipo di lavoro, entro quando vuole iniziare, budget a disposizione, zona. Li leggi prima di richiamare.",
+        "2. La cifra detta presto. Al telefono si dice la fascia di prezzo: il lavoro si aggira intorno a una certa somma. Se è sostenibile, si fissa il primo incontro.",
+        "3. Il primo incontro serve a capire chi decide, chi paga e quanto vuole spendere. Non si progetta ancora.",
+        "4. Il sopralluogo si fa al secondo incontro, per confermare le misure, e non coincide con la presentazione del progetto."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "E quando al telefono ti chiedono un'idea o un consiglio prima ancora del sopralluogo, il consiglio si dà, ma si vende: se il cliente può averlo senza pagarlo, il tuo lavoro per lui vale zero."
+    },
+    {
+      "type": "p",
+      "text": "Una cosa l'abbiamo imparata sul campo, con un'azienda di arredamento negozi che seguiamo. Il titolare scorreva la lista delle richieste arrivate dalla pubblicità, e gli sembrava che la maggior parte non rispondesse al telefono o non mandasse i documenti."
+    },
+    {
+      "type": "p",
+      "text": "La lettura di Gianpio era controintuitiva: il problema non era il filtro, era la fiducia. Troppe domande all'inizio allontanano chi ha appena scritto. Il modulo chiede solo le quattro cose che servono per decidere se richiamare; il resto si chiede al primo incontro."
+    },
+    {
+      "type": "h2",
+      "text": "CHI RISPONDE AL TELEFONO, E CON QUALI PAROLE"
+    },
+    {
+      "type": "p",
+      "text": "Il filtro del modulo lo gestiamo noi. Le richieste invece le richiama la tua impresa: tu, chi risponde al telefono per te, o un commerciale. Noi non telefoniamo ai tuoi contatti."
+    },
+    {
+      "type": "p",
+      "text": "Il cliente deve sentire la tua azienda, non un centralino di qualcun altro. Quello che facciamo è mettere per iscritto, insieme, cosa chiedere, in che ordine, e quando dire la cifra."
+    },
+    {
+      "type": "p",
+      "text": "Nelle richiamate aiutano le domande chiuse, a cui il cliente risponde in un secondo: il lavoro riguarda una parte o tutto? Si comincia entro l'estate o dopo? Decide lei o deve sentire qualcuno?"
+    },
+    {
+      "type": "p",
+      "text": "E si chiama sia sul fisso sia sul cellulare. Sembra un dettaglio, ma chi lavora in cantiere sa quante telefonate si perdono solo perché si è provato un numero."
+    },
+    {
+      "type": "h2",
+      "text": "LO STESSO FILTRO, IN UN ALTRO MESTIERE"
+    },
+    {
+      "type": "p",
+      "text": "Il filtro prima del contatto funziona anche fuori dai sopralluoghi. [DISA, che vende un software per le gare d'appalto alle imprese edili](/casi-studio/software-b2b), prima trovava clienti con le chiamate a freddo e chiedendo nomi ai clienti."
+    },
+    {
+      "type": "p",
+      "text": "Con le campagne su Meta e il modulo che raccoglie le informazioni chiave prima della telefonata, ha chiuso 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto."
+    },
+    {
+      "type": "p",
+      "text": "Il mestiere è diverso, il principio è lo stesso: chi richiama sa già con chi sta parlando e perché, e il tempo va a chi ha un bisogno vero."
+    },
+    {
+      "type": "p",
+      "text": "Vale anche per te, qualunque sia il tuo mestiere: coperture, serramenti, impianti o ristrutturazioni. Cambiano gli annunci, i video e le domande del modulo; non cambia l'idea di sapere chi hai davanti prima di spendere una giornata per lui."
+    },
+    {
+      "type": "h2",
+      "text": "LA PROVA: IL SOPRALLUOGO CHE DIVENTA A PAGAMENTO"
+    },
+    {
+      "type": "p",
+      "text": "[Tetti Top, un'impresa di coperture che seguiamo](/casi-studio/edilizia), faceva preventivi a chiunque chiedesse, e sopralluoghi anche per chi voleva solo un prezzo da confrontare."
+    },
+    {
+      "type": "p",
+      "text": "Oggi ha 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € + IVA, e il sopralluogo è diventato a pagamento. Chi lo prenota, di solito, ha già deciso di fare sul serio."
+    },
+    {
+      "type": "p",
+      "text": "Il sopralluogo a pagamento è un obiettivo che ci mettiamo con le imprese, e non ci riusciamo con tutte. Ma senza il filtro prima non ci si arriva: difficilmente un cliente paga un sopralluogo a chi non gli ha ancora detto quanto costerà il lavoro."
+    },
+    {
+      "type": "p",
+      "text": "Il filtro però è solo l'inizio. Se le richieste arrivano solo dal passaparola, il primo passo è [smettere di dipendere dal passaparola](/blog/come-smettere-dipendere-passaparola); se arrivano e poi si fermano dopo l'offerta, ne parla Gianpio in [perché il cliente sparisce dopo il preventivo](/blog/perche-clienti-spariscono-dopo-preventivo)."
+    },
+    {
+      "type": "p",
+      "text": "Come mettiamo in piedi pubblicità, modulo e gestionale con l'impresa lo trovi nella pagina su [come lavoriamo](/servizi)."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: guardiamo le richieste che ti arrivano oggi e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
