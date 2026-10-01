@@ -18,6 +18,9 @@ mkdir -p "$LOG"
 exec >>"$LOG/$OGGI.log" 2>&1
 echo "=== $(date '+%F %T') avvio ($REF)"
 
+# Una volta al giorno: il Mac lo lancia alle 09:30 e all'accensione (se alle 09:30 era spento).
+if [ -f "$LOG/fatto-$OGGI" ] && [ -z "${REDATTORE_FORZA:-}" ]; then echo "oggi ho già lavorato"; exit 0; fi
+
 # Un solo Redattore alla volta.
 if ! mkdir "$LOG/.in-corso" 2>/dev/null; then echo "già in corso, esco"; exit 0; fi
 trap 'rmdir "$LOG/.in-corso"' EXIT
@@ -31,7 +34,7 @@ git checkout -q --detach "$REF" || { avvisa "Redattore: non riesco ad aggiornare
 
 DA_SCRIVERE="$(node scripts/coda-articoli.mjs | python3 -c 'import json,sys; print(json.load(sys.stdin)["daScrivere"])')"
 echo "da scrivere: $DA_SCRIVERE"
-if [ "$DA_SCRIVERE" = "0" ]; then echo "coda piena, oggi non scrivo"; exit 0; fi
+if [ "$DA_SCRIVERE" = "0" ]; then echo "coda piena, oggi non scrivo"; touch "$LOG/fatto-$OGGI"; exit 0; fi
 
 MATERIALI="$HOME/Library/CloudStorage/GoogleDrive-info@forgegroup.it/Drive condivisi/FORGE GROUP/www.forgegroup.it"
 USCITA="$LOG/$OGGI-redattore.txt"
@@ -51,8 +54,22 @@ git checkout -q --detach "$REF"
 
 PR_URL="$(grep -oE 'PR: https://github.com/[^ ]+/pull/[0-9]+' "$USCITA" | tail -1 | sed 's/^PR: //')"
 if [ -n "$PR_URL" ]; then
-  node scripts/telegram.mjs articolo "${PR_URL##*/}" || osascript -e "display notification \"Articolo pronto: $PR_URL\" with title \"Redattore Forge\""
+  PR="${PR_URL##*/}"
+  BOZZA="$(gh pr view "$PR" --json isDraft --jq .isDraft)"
+  # Silenzio-assenso (decisione della proprietà, 01/10/2026): se il Revisore ha approvato e il
+  # controllo passa, l'articolo entra in coda da solo; su Telegram resta il tasto Ritira.
+  # Se esiste il file "approvazione-manuale", si torna al tasto Vai.
+  if [ "$BOZZA" = "false" ] && [ ! -f "$HOME/ForgeGroup/automazioni/approvazione-manuale" ] \
+     && node scripts/controlla-articolo.mjs >/dev/null 2>&1; then
+    node scripts/telegram.mjs articolo "$PR" automatico
+    gh pr merge "$PR" --squash --delete-branch && echo "PR #$PR unita (silenzio-assenso)"
+  else
+    node scripts/telegram.mjs articolo "$PR" || osascript -e "display notification \"Articolo pronto: $PR_URL\" with title \"Redattore Forge\""
+  fi
 else
   avvisa "Redattore: oggi non ho aperto la PR dell'articolo. Il motivo è in fondo al log del $OGGI ($USCITA)."
 fi
+touch "$LOG/fatto-$OGGI"
+IN_CODA="$(node scripts/coda-articoli.mjs | python3 -c 'import json,sys; print(json.load(sys.stdin)["inCoda"])')"
+[ "$IN_CODA" -lt 3 ] && avvisa "Attenzione: in coda restano solo $IN_CODA articoli. Se il Mac resta spento, fra $IN_CODA giorni le uscite si fermano."
 echo "=== $(date '+%F %T') fine"

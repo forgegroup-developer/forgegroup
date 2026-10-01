@@ -92,7 +92,7 @@ function testoIntero(a) {
   return messaggi;
 }
 
-async function articolo(n) {
+async function articolo(n, modo = "") {
   const pr = JSON.parse(gh("pr", "view", String(n), "--json", "title,url,isDraft,headRefName,files,body"));
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
   let a = {};
@@ -102,7 +102,9 @@ async function articolo(n) {
   }
   const esito = (pr.body.match(/ESITO:\s*([A-Z ]+)/) || [])[1]?.trim() ?? "vedi la PR";
   const testo = [
-    pr.isDraft ? "⚠️ <b>BOZZA: il Revisore ha dei dubbi, leggili nella PR</b>" : "📝 <b>Articolo nuovo: Vai, Correggi o Scarta?</b>",
+    automatico
+      ? "✅ <b>Articolo nuovo, già in coda.</b> Il Revisore l'ha approvato. Non devi fare niente: se non ti va, premi Ritira prima del giorno di uscita."
+      : pr.isDraft ? "⚠️ <b>BOZZA: il Revisore ha dei dubbi, leggili nella PR</b>" : "📝 <b>Articolo nuovo: Vai, Correggi o Scarta?</b>",
     "",
     `<b>${html(a.title ?? pr.title)}</b>`,
     a.date ? `Esce il ${html(a.date)} alle 09:00 · livello ${html(a.livello)} · firma ${html(a.autore)}` : "",
@@ -113,9 +115,12 @@ async function articolo(n) {
     `Revisore: ${html(esito)}`,
     `L'articolo intero è nei messaggi qui sopra. Anteprima sul sito e scheda di revisione nella PR: ${pr.url}`,
   ].filter((r) => r !== undefined).join("\n");
-  const tasti = pr.isDraft
-    ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
-    : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
+  const automatico = modo === "automatico";
+  const tasti = automatico
+    ? [{ text: "↩️ Ritira", callback_data: `ritira:${n}` }]
+    : pr.isDraft
+      ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
+      : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
   // La copertina scelta dal Redattore, come foto, prima del testo.
   if (a.featuredImage?.startsWith("/images/blog/")) {
     try {
@@ -214,6 +219,36 @@ async function usaCopertina(n, id) {
   }
 }
 
+/** Toglie dalla coda un articolo già unito: una PR che cancella il file (e la copertina), unita subito. */
+function ritira(n) {
+  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "state,files,title"));
+  if (pr.state === "OPEN") {
+    gh("pr", "close", String(n), "--delete-branch");
+    return `🗑 PR #${n} chiusa: l'articolo non entra in coda.`;
+  }
+  const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
+  if (!file) return `La PR #${n} non contiene un articolo: non tocco niente.`;
+  const slug = path.basename(file, ".json");
+  const blocco = path.join(LOG, ".in-corso");
+  fs.mkdirSync(LOG, { recursive: true });
+  try { fs.mkdirSync(blocco); } catch { return "Il Redattore sta lavorando: riprova fra qualche minuto."; }
+  try {
+    const git = (...x) => execFileSync("git", x, { cwd: COPIA, encoding: "utf8" });
+    const ramo = `articolo/ritira-${slug}`;
+    git("fetch", "-q", "origin");
+    git("checkout", "-q", "-B", ramo, "origin/main");
+    git("rm", "-q", "--ignore-unmatch", file, `public/images/blog/${slug}.jpg`);
+    git("commit", "-q", "-m", `articolo ritirato dalla proprietà: ${slug}`);
+    git("push", "-q", "-f", "origin", ramo);
+    execFileSync("gh", ["pr", "create", "--base", "main", "--head", ramo, "--title", `Ritiro: ${pr.title}`, "--body", `Ritirato dalla proprietà con il tasto Ritira su Telegram (PR #${n}).`], { cwd: COPIA });
+    execFileSync("gh", ["pr", "merge", ramo, "--squash", "--delete-branch"], { cwd: COPIA });
+    git("checkout", "-q", "--detach", "origin/main");
+    return `↩️ Articolo ritirato: non uscirà. L'argomento torna libero per il Redattore.`;
+  } finally {
+    fs.rmSync(blocco, { recursive: true, force: true });
+  }
+}
+
 async function collega() {
   const agg = await chiama("getUpdates", { timeout: 0 });
   const ultimo = [...agg].reverse().find((u) => u.message?.chat?.type === "private");
@@ -257,6 +292,9 @@ async function gestisci(u) {
         } else if (azione === "scarta") {
           gh("pr", "close", n, "--delete-branch");
           await messaggio(`🗑 PR #${n} chiusa. L'argomento torna libero.`);
+        } else if (azione === "ritira") {
+          await messaggio(`Ritiro l'articolo della PR #${n}…`);
+          await messaggio(ritira(n));
         } else if (azione === "fotook") {
           await messaggio(`👍 Copertina della PR #${n} confermata.`);
         } else if (azione === "foto") {
@@ -294,7 +332,7 @@ async function gestisci(u) {
 const [comando, ...resto] = process.argv.slice(2);
 if (comando === "collega") await collega();
 else if (comando === "messaggio") await messaggio(html(resto.join(" ")));
-else if (comando === "articolo") await articolo(resto[0]);
+else if (comando === "articolo") await articolo(resto[0], resto[1]);
 else if (comando === "ricevi") await ricevi();
 else {
   console.log("Uso: collega | messaggio \"testo\" | articolo <n PR> | ricevi");
