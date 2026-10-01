@@ -2952,3 +2952,74 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
 .section-coral .superficie-chiara .chiave {
   color: var(--color-brand-corallo-text);
 }
+
+/* ── Pulsanti: una misura sola su tutto il sito (proprietà, 01/10/2026) ──
+   Corallo, bordato e hero hanno la stessa altezza (56px), lo stesso testo
+   (16px) e lo stesso respiro ai lati. Il menu e il footer restano più
+   piccoli apposta. Nessun padding o font-size scritto a mano su un
+   pulsante: se serve una misura nuova, si aggiunge qui. */
+.btn-corallo,
+.btn-ghost {
+  min-height: 3.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+.btn-hero,
+.btn-hero-compatto {
+  font-size: 1rem;
+}
+header .btn-corallo,
+header .btn-ghost,
+nav .btn-corallo,
+nav .btn-ghost,
+footer .btn-corallo,
+footer .btn-ghost {
+  min-height: 0;
+}
+/* Il bordato dentro una scheda chiara sul mattone resta corallo. */
+.section-mattone .superficie-chiara .btn-ghost {
+  border-color: var(--color-brand-corallo);
+  color: var(--color-brand-corallo-text);
+  background-color: transparent;
+  padding: 0.75rem 1.75rem;
+  margin: 0;
+}
+.section-mattone .superficie-chiara .btn-ghost:hover {
+  background-color: color-mix(in srgb, var(--color-brand-corallo) 10%, transparent);
+}
+
+
+/* ── Evidenziatore nei titoli sul mattone (bug del 01/10/2026) ──
+   Con l'interlinea stretta dei titoli (1,02) il riquadro corallo usciva
+   sopra e sotto la sua riga e copriva le lettere della riga vicina
+   ("Quello che gli" mangiato da "imprenditori edili"). Sul mattone i
+   titoli prendono un'interlinea più ampia e il riquadro sta dentro la
+   riga, senza padding verticale. */
+.section-mattone .heading-section-xl,
+.section-mattone .heading-section,
+.section-mattone h2,
+.section-mattone h2.heading-section-xl {
+  line-height: 1.16;
+}
+.section-mattone .heading-section-xl span,
+.section-mattone .heading-section span,
+.section-mattone h2 span,
+.section-mattone h3 span,
+.section-mattone h2 .text-brand-corallo,
+.section-mattone h2 .text-brand-corallo-text,
+.section-mattone h3 .text-brand-corallo,
+.section-mattone h3 .text-brand-corallo-text {
+  padding: 0 0.18em;
+  margin: 0;
+  border-radius: 0.14em;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 10%,
+    var(--color-brand-corallo) 10%,
+    var(--color-brand-corallo) 96%,
+    transparent 96%
+  );
+}

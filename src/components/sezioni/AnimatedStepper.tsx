@@ -244,7 +244,7 @@ export function AnimatedStepper({
                   onClick={
                     isLastStep ? () => void handleComplete() : handleNext
                   }
-                  className="btn-corallo px-8 py-3.5 text-sm md:text-base"
+                  className="btn-corallo"
                   {...(isLastStep ? completeButtonProps : nextButtonProps)}
                 >
                   {isLastStep ? completeButtonText : nextButtonText}

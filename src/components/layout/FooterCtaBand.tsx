@@ -48,7 +48,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link href="/contatti" className="btn-corallo">
-            Voglio lo studio di fattibilità per la mia impresa
+            Richiedi lo studio di fattibilità
           </Link>
           <Link href="/casi-studio" className="arrow-link">
             Guarda i numeri di chi ci ha già scelto

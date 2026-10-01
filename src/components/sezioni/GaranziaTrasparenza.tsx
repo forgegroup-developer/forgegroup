@@ -91,7 +91,7 @@ export default function GaranziaTrasparenza() {
           </p>
           <div className="mt-7">
             <Link href="#metodo" className="btn-ghost">
-              Vedi le cinque fasi del Metodo FORGE
+              Vedi il Metodo FORGE
             </Link>
           </div>
         </div>
