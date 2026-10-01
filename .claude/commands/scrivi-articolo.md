@@ -55,9 +55,10 @@ automatico blocca ogni sequenza di otto parole uguale ai suoi testi. Non nominar
 Il blog esiste per portare traffico: l'argomento e le parole si scelgono su quello che il titolare
 cerca davvero. Guida editoriale §11. In ordine:
 
-1. **Keyword Planner** (account Forge `707-172-2793`, dal Chrome della proprietà): volumi della parola
-   chiave e di 5-10 varianti. Se il Chrome non è disponibile o i volumi sono sotto soglia, lo scrivi
-   in `seo.domanda` ("sotto soglia", "non misurata: Chrome non disponibile") e vai avanti con i punti 2 e 3.
+1. **Keyword Planner** (account Forge `707-172-2793`): `python3 ~/ForgeGroup/ricerca/keyword/keyword.py
+   "parola" "variante" …` dà i volumi della parola chiave e di 5-10 varianti. Se lo script dice che
+   l'accesso non è ancora configurato, o i volumi sono sotto soglia, lo scrivi in `seo.domanda`
+   ("sotto soglia", "non misurata: accesso Google Ads non configurato") e vai avanti con i punti 2 e 3.
 2. **Google** (WebSearch): cerca la parola chiave e due varianti. Annota chi c'è in prima pagina e
    per chi scrive (titolari o privati). Se in prima pagina ci sono i testi del concorrente A, quella
    ricerca la fanno i titolari: è un argomento buono.
@@ -73,6 +74,11 @@ cerca davvero. Guida editoriale §11. In ordine:
 6. Scrivi tutto nel campo `"seo"` del file (formato in `content/articoli/LEGGIMI.md`).
 
 ## 3 · Trova il materiale vero
+
+Esegui `python3 ~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py "$PWD"`: elenca i pezzi della
+**Banca del materiale vero** con quante volte sono già stati usati, i meno usati per primi. Preferisci
+un pezzo mai usato, e non aprire con lo stesso pezzo dell'articolo precedente. Se lo script avvisa che
+restano meno di dieci pezzi mai usati, scrivilo nel registro e nel messaggio finale.
 
 Prima di scrivere, individua **il pezzo di materiale vero** da cui parte l'articolo (guida §4):
 una scena, una regola di vendita, un caso con i suoi numeri, una frase di un cliente, una storia in
@@ -95,6 +101,24 @@ frasi dette davvero, con la fonte nella scheda di revisione; cifre in euro solo 
 costruzione dalle Regole v2, i fatti solo dalla Scheda e dalla testa aziendale, almeno 3 link
 interni dentro le frasi, l'invito giusto per il livello.
 
+## 4 bis · La copertina
+
+Ogni articolo ha la sua copertina. In quest'ordine:
+1. **Foto vere di Forge o dei clienti**, se nella cartella `~/ForgeGroup/progetti/sito/materiali/03 - Materiali sito/`
+   ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente.
+2. Altrimenti **Pixabay**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
+   due o tre ricerche), guarda le anteprime e scegli; poi `node scripts/copertina.mjs scarica <id> <slug>`.
+   Se lo script dice che manca la chiave, l'articolo esce con la copertina generica: scrivilo nella PR.
+
+Cosa si sceglie: una scena del mestiere che l'articolo racconta (sopralluogo, misure, cantiere, ufficio di
+un'impresa, preventivi sul tavolo), luce naturale, aspetto europeo e non americano, nessun logo o marchio
+leggibile, nessun volto in primo piano che sembri un nostro cliente. Mai una foto d'archivio presentata
+come un lavoro di DISA, Tetti Top o ROVI: accanto ai numeri dei casi vanno solo foto vere.
+
+Nel file dell'articolo metti i campi che lo script stampa: `featuredImage`, `copertina` (fonte, autore,
+pagina, licenza, e `ricerca` con le parole che hai usato: servono al tasto "Altre copertine" su Telegram) e **`featuredImageAlt` scritto da te**, in italiano, con cosa si vede davvero
+("Un operaio misura con il metro una parete da intonacare"). Il file dell'immagine va nella stessa PR.
+
 ## 5 · Controllo automatico
 
 `node scripts/controlla-articolo.mjs content/articoli/<slug>.json`. Correggi finché passa.
@@ -113,13 +137,16 @@ FAQ, link), la scheda di revisione e l'esito del Revisore. Non aprire la PR: asp
 proprietà corregge qualcosa, aggiorna il file e aggiungi la regola in
 `~/ForgeGroup/progetti/sito/dipendenti-ai/feedback.md` (con data e perché).
 
-**Modalità normale:**
+**Modalità normale** (anche quando giri da solo, lanciato da `scripts/redattore-automatico.sh`):
 1. `git switch -c articolo/<slug> origin/main`
-2. aggiungi solo il file dell'articolo, commit con messaggio `articolo: <titolo>`
+2. aggiungi solo il file dell'articolo e la sua copertina (`public/images/blog/<slug>.jpg`), commit con messaggio `articolo: <titolo>`
 3. `git push -u origin articolo/<slug>`
 4. `gh pr create --label articolo` con titolo `Articolo · <data> · <titolo>` e nel corpo la
    scheda di revisione compilata e l'esito del Revisore
-5. mai su `main`, mai merge: l'approvazione è della proprietà
+5. mai su `main`, mai merge: l'approvazione è della proprietà (merge su GitHub o tasto Vai su Telegram)
+6. se dopo due giri il Revisore dice ancora DA CORREGGERE, apri la PR lo stesso ma **come bozza**
+   (`gh pr create --draft`), con i dubbi in cima alla descrizione: la proprietà decide
+7. come ultima riga della tua risposta scrivi solo `PR: <link della PR>` (lo legge lo script che ti ha lanciato)
 
 ## 8 · Registro
 
