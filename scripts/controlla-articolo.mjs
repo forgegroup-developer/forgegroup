@@ -264,8 +264,11 @@ function controlla(file, esistenti) {
 
   // Segnali di testo fatto a macchina e parole vietate.
   if (/[—–]/.test(testoIntero)) errori.push("c'è una lineetta lunga (— o –): si usano virgola, puntini o due punti");
+  // Le parole vietate si cercano nel testo che si legge, non negli indirizzi dei link
+  // (un articolo riscritto tiene il suo vecchio indirizzo).
+  const testoLetto = testoIntero.replace(/\]\([^)]*\)/g, "]");
   for (const [re, motivo] of VIETATE) {
-    const m = testoIntero.match(re);
+    const m = testoLetto.match(re);
     if (m) errori.push(`"${m[0]}": ${motivo}`);
   }
   // "CRM" solo in maiuscolo, fuori dal nome della categoria (Scheda, decisioni del 29/09).
