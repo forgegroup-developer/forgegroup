@@ -100,6 +100,7 @@ async function articolo(n, modo = "") {
     execFileSync("git", ["fetch", "-q", "origin", pr.headRefName], { cwd: RADICE });
     a = JSON.parse(execFileSync("git", ["show", `origin/${pr.headRefName}:${file}`], { cwd: RADICE, encoding: "utf8" }));
   }
+  const automatico = modo === "automatico";
   const esito = (pr.body.match(/ESITO:\s*([A-Z ]+)/) || [])[1]?.trim() ?? "vedi la PR";
   const testo = [
     automatico
@@ -115,11 +116,10 @@ async function articolo(n, modo = "") {
     `Revisore: ${html(esito)}`,
     `L'articolo intero è nei messaggi qui sopra. Anteprima sul sito e scheda di revisione nella PR: ${pr.url}`,
   ].filter((r) => r !== undefined).join("\n");
-  const automatico = modo === "automatico";
   const tasti = automatico
     ? [{ text: "↩️ Ritira", callback_data: `ritira:${n}` }]
     : pr.isDraft
-      ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
+      ? [{ text: "✅ Vai lo stesso", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
       : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
   // La copertina scelta dal Redattore, come foto, prima del testo.
   if (a.featuredImage?.startsWith("/images/blog/")) {
@@ -287,6 +287,8 @@ async function gestisci(u) {
       await chiama("answerCallbackQuery", { callback_query_id: u.callback_query.id }).catch(() => {});
       try {
         if (azione === "vai") {
+          // Una bozza approvata dalla proprietà diventa pronta prima del merge.
+          if (JSON.parse(gh("pr", "view", n, "--json", "isDraft")).isDraft) gh("pr", "ready", n);
           gh("pr", "merge", n, "--squash", "--delete-branch");
           await messaggio(`✅ PR #${n} unita: l'articolo è in coda ed esce nel suo giorno.`);
         } else if (azione === "scarta") {
