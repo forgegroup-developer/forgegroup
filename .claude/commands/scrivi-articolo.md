@@ -106,7 +106,7 @@ interni dentro le frasi, l'invito giusto per il livello.
 Ogni articolo ha la sua copertina. In quest'ordine:
 1. **Foto vere di Forge o dei clienti**, se nella cartella `~/ForgeGroup/progetti/sito/materiali/03 - Materiali sito/`
    ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente.
-2. Altrimenti **Pexels**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
+2. Altrimenti **Pixabay**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
    due o tre ricerche), guarda le anteprime e scegli; poi `node scripts/copertina.mjs scarica <id> <slug>`.
    Se lo script dice che manca la chiave, l'articolo esce con la copertina generica: scrivilo nella PR.
 
