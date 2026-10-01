@@ -137,13 +137,25 @@ async function ricevi() {
   const offset = Number(leggi(FILE_OFFSET) || 0);
   const agg = await chiama("getUpdates", { offset, timeout: 0 });
   for (const u of agg) {
+    try {
+      await gestisci(u);
+    } catch (e) {
+      console.error(`aggiornamento ${u.update_id}: ${e.message}`);
+    }
+    // Segnato come letto solo dopo averlo gestito (anche se è fallito: non si ripete all'infinito).
     fs.writeFileSync(FILE_OFFSET, String(u.update_id + 1));
+  }
+}
+
+async function gestisci(u) {
+  {
     const daChi = String(u.callback_query?.message?.chat?.id ?? u.message?.chat?.id ?? "");
-    if (!chat() || daChi !== chat()) continue; // solo la proprietà
+    if (!chat() || daChi !== chat()) return; // solo la proprietà
 
     if (u.callback_query) {
       const [azione, n] = u.callback_query.data.split(":");
-      await chiama("answerCallbackQuery", { callback_query_id: u.callback_query.id });
+      // La conferma del tasto scade dopo pochi secondi: se è scaduta, si va avanti lo stesso.
+      await chiama("answerCallbackQuery", { callback_query_id: u.callback_query.id }).catch(() => {});
       try {
         if (azione === "vai") {
           gh("pr", "merge", n, "--squash", "--delete-branch");
@@ -158,15 +170,15 @@ async function ricevi() {
       } catch (e) {
         await messaggio(`Non ci sono riuscito: ${html(e.message).slice(0, 500)}`);
       }
-      continue;
+      return;
     }
 
     const testo = u.message?.text?.trim();
-    if (!testo || testo.startsWith("/")) continue;
+    if (!testo || testo.startsWith("/")) return;
     const attesa = leggi(FILE_ATTESA);
     if (!attesa) {
       await messaggio("Ricevuto. Per correggere un articolo premi prima ✏️ Correggi sotto l'articolo.");
-      continue;
+      return;
     }
     const { pr } = JSON.parse(attesa);
     fs.rmSync(FILE_ATTESA);
