@@ -3,8 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
-import FooterCtaBand from "@/components/layout/FooterCtaBand";
 import FooterNewsletter from "@/components/layout/FooterNewsletter";
 import { caseStudies } from "@/data/caseStudies";
 import { IUBENDA, LEGAL } from "@/data/legal";
@@ -56,20 +54,15 @@ function MobileCol({
 
 export default function Footer() {
   const [openCol, setOpenCol] = useState<ColKey | null>(null);
-  const pathname = usePathname();
-  const isCaseStudy = pathname?.startsWith("/casi-studio") ?? false;
-  const isVisione = pathname === "/visione";
-  const isContatti = pathname === "/contatti";
-  const isHome = pathname === "/";
   const toggle = (k: ColKey) => setOpenCol(openCol === k ? null : k);
   const year = new Date().getFullYear();
 
   return (
     <footer>
-      {/* CTA band — nascosta su /contatti */}
-      {!isContatti && !isVisione && !isHome && (
-        <FooterCtaBand isCaseStudy={isCaseStudy} />
-      )}
+      {/* La fascia "Il primo passo" sopra il footer e' stata tolta dalla
+          proprieta' il 29/09/2026 ("i problemi non sono reali"): ogni pagina
+          chiude con la sua richiesta. Il componente resta in
+          layout/FooterCtaBand.tsx per quando si decide come rifarla. */}
 
       {/* Corpo footer — sfondo corallo */}
       <div className="bg-brand-mattone">

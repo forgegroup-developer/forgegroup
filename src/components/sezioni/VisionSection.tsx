@@ -9,7 +9,10 @@ export default function VisionSection() {
     <>
       {/* Hero atmosferica */}
       <section className="vision-hero-atmosphere relative flex min-h-[88dvh] items-center justify-center overflow-hidden border-b md:min-h-screen">
-        <div className="pointer-events-none absolute inset-0 z-0 select-none" aria-hidden>
+        <div
+          className="pointer-events-none absolute inset-0 z-0 select-none"
+          aria-hidden
+        >
           <Image
             src="/images/team/vision/hero-atmosphere.jpg"
             alt=""
@@ -35,10 +38,12 @@ export default function VisionSection() {
           <div>
             <p className="eyebrow mb-6">✦ Visione</p>
             <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
-              <span className="text-brand-corallo">Forge Group</span> nasce da una domanda semplice.
+              <span className="text-brand-corallo">Forge Group</span> nasce da
+              una domanda semplice.
             </h1>
             <p className="mx-auto max-w-2xl text-xl font-bold leading-relaxed text-brand-nero md:text-2xl text-balance">
-              &ldquo;Perché tante aziende che hanno tutto per crescere, non crescono?&rdquo;
+              &ldquo;Perché tante aziende che hanno tutto per crescere, non
+              crescono?&rdquo;
             </p>
           </div>
         </div>

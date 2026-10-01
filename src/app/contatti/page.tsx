@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import ContattiFormLoader from "./ContattiFormLoader";
+import { studio } from "@/data/blocchi";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
+import {
+  CONTENITORE,
+  SEZIONE,
+  STRETTO,
+  Chiave,
+  Titolo,
+} from "@/components/blocchi/ui";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
@@ -8,7 +16,7 @@ import { faqsPagina } from "@/data/site";
 export const metadata: Metadata = {
   title: "Candida la tua impresa edile",
   description:
-    "Lo studio di fattibilità dice se ha senso lavorare insieme, e a volte la risposta è no. Prendiamo poche imprese per territorio. Rispondi a poche domande e ti chiamiamo entro 48 ore lavorative.",
+    "Candida la tua impresa edile: lo studio di fattibilità dice se ha senso lavorare insieme, e può dire di no. Ti chiamiamo entro 48 ore lavorative.",
   alternates: { canonical: "/contatti" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -16,7 +24,9 @@ export const metadata: Metadata = {
     description:
       "Lo studio di fattibilità dice se ha senso lavorare insieme. Prendiamo poche imprese per territorio. Ti chiamiamo entro 48 ore lavorative.",
     url: "/contatti",
-    images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" }],
+    images: [
+      { url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -26,69 +36,151 @@ export const metadata: Metadata = {
   },
 };
 
+/* Cosa chiediamo a chi si candida (proprietà, 30/09: "ho bisogno che anche
+   il cliente si comprometta"). Fatti dalla Scheda: selezione, un territorio
+   alla volta, le richieste le richiama l'impresa, contratto annuale. */
+const impegno = [
+  {
+    cosa: "Rispondi con i numeri veri.",
+    dettaglio:
+      "Le domande del modulo servono a fare i conti sulla tua impresa: più sono precise, più è onesta la risposta.",
+  },
+  {
+    cosa: "All'appuntamento porta chi decide con te.",
+    dettaglio:
+      "Il socio, un familiare, chi segue la vendita: lo studio si guarda insieme a chi poi dovrà scegliere.",
+  },
+  {
+    cosa: "Le richieste le richiama la tua impresa, in tempo.",
+    dettaglio:
+      "Il filtro e le parole le costruiamo noi con te, ma le telefonate le fa chi lavora in azienda.",
+  },
+  {
+    cosa: "Il titolare c'è.",
+    dettaglio:
+      "Il sistema lo costruiamo con te nelle consulenze, non al posto tuo, e resta in azienda anche dopo.",
+  },
+  {
+    cosa: "Un anno di lavoro insieme.",
+    dettaglio:
+      "In edilizia fra la prima richiesta e la firma passano spesso tre o quattro mesi: per vedere i frutti serve tempo.",
+  },
+];
+
 export default function ContattiPage() {
   return (
     <>
-      {/* Perche' si parla di candidatura e non di contatto: Forge seleziona,
-          un territorio alla volta. Decisione della proprieta' del 24/09/2026. */}
-      <section className="border-b border-brand-bordo section-sabbia py-14 md:py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <p className="eyebrow eyebrow-mark mb-4 flex">Perché si chiama così</p>
-          <h2 className="heading-section-xl mb-6 text-balance">
-            Qui non compri niente.{" "}
-            <span className="text-brand-corallo-text">
-              Qui vediamo se ha senso lavorare insieme.
-            </span>
-          </h2>
-          <p className="body-lg mb-5">
-            Quello che c’è sotto è uno studio di fattibilità. Serve a capire
-            quanto lavoro la tua impresa regge davvero oggi, con gli uomini e i
-            mezzi che hai, cosa c’è da prendere nella tua zona e come si può
-            crescere senza che ti salti la consegna.
-          </p>
-          <p className="body-lg mb-5">
-            A volte da lì esce un no, e te lo diciamo prima che tu abbia speso
-            un euro in pubblicità. Lavoriamo con poche imprese per territorio, e
-            preferiamo dirti subito che non è il caso piuttosto che scoprirlo
-            fra sei mesi tutti e due.
-          </p>
-          <p className="body-lg mb-8">
-            Le domande qui sotto sono quelle che servono a rispondere. Poi ti
-            chiamiamo noi, entro 48 ore lavorative, e da lì si capisce se
-            fissare un appuntamento.
-          </p>
+      {/* 1 · IN CIMA: cosa stai facendo (la candidatura per lo studio di
+          fattibilità) e accanto il modulo, come nel blocco candidatura della
+          landing. Il pulsante "Candida la tua azienda" del menu porta qui:
+          il titolo deve dire subito che cosa si riceve. */}
+      <section
+        className={`section-bianco border-b border-brand-bordo pt-12 pb-20 md:pt-16 md:pb-28`}
+      >
+        <div className={CONTENITORE}>
+          {/* Da telefono: titolo, poi subito il modulo, poi cosa c'è nello
+              studio. Da computer: testo a sinistra, modulo fermo a destra. */}
+          <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-0">
+            <div className="lg:col-start-1 lg:row-start-1">
+              <p className="mb-6">
+                <span className="eyebrow-rule">
+                  Candidatura · Studio di fattibilità
+                </span>
+              </p>
+              <h1 className="heading-display-frase mb-6 text-balance">
+                Candida la tua impresa per lo{" "}
+                <Chiave>studio di fattibilità</Chiave>.
+              </h1>
+              <p className="body-lg mb-8 text-pretty">
+                È il primo passo per lavorare con noi. Prima di parlare di
+                pubblicità facciamo i conti sulla tua impresa e sulla tua zona,
+                e decidiamo insieme se ha senso partire:{" "}
+                <strong className="chiave">a volte la risposta è no</strong>, e
+                te la diamo prima che tu abbia speso un euro.
+              </p>
+            </div>
+            <div className="lg:sticky lg:top-28 lg:col-start-2 lg:row-span-2 lg:row-start-1">
+              <div className="rounded-3xl border border-brand-bordo bg-brand-bianco p-6 shadow-xl shadow-black/5 md:p-8">
+                <p className="mb-2 font-display text-xl font-bold text-brand-nero">
+                  La tua candidatura
+                </p>
+                <BannerGoogle className="mb-6" />
+                <ContattiFormLoader sorgente="contatti" senzaBanner />
+              </div>
+            </div>
+            <div className="lg:col-start-1 lg:row-start-2">
+              <p className="mb-4 font-display text-lg font-bold text-brand-nero">
+                Nello studio di fattibilità trovi:
+              </p>
+              <ul className="mb-8 space-y-4">
+                {studio.map((riga) => (
+                  <li key={riga.cosa} className="flex gap-3.5">
+                    <span className="segno-si mt-1" aria-hidden>
+                      ✓
+                    </span>
+                    <p className="body-lg">
+                      <strong className="chiave">{riga.cosa}</strong>{" "}
+                      {riga.dettaglio}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="body-lg">
+                Compili il modulo in due minuti.{" "}
+                <strong className="chiave">
+                  Ti chiamiamo entro 48 ore lavorative
+                </strong>{" "}
+                e fissiamo l&apos;appuntamento in cui te lo presentiamo.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="border-b border-brand-bordo bg-brand-bianco py-10 md:py-12">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <p className="text-sm leading-relaxed text-brand-grigio md:text-base">
-            Prima di candidarti, puoi leggere i nostri{" "}
-            <Link href="/servizi" className="font-semibold text-brand-corallo-text hover:underline">
-              servizi
-            </Link>
-            , i{" "}
-            <Link href="/casi-studio" className="font-semibold text-brand-corallo-text hover:underline">
-              casi studio
-            </Link>{" "}
-            e la{" "}
-            <Link href="/visione" className="font-semibold text-brand-corallo-text hover:underline">
-              visione
-            </Link>{" "}
-            di Forge Group.
-          </p>
+      {/* 2 · COSA CHIEDIAMO A TE · mattone. Al posto di "Qui non compri
+          niente" (proprietà, 30/09): la selezione vale in tutte e due le
+          direzioni. */}
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="Prima di candidarti"
+            sottotitolo="Prendiamo poche imprese, un territorio alla volta. Se l'impresa non regge il lavoro che le arriva, il problema diventa di tutti e due."
+          >
+            Ci mettiamo impegno noi, e lo chiediamo <Chiave>anche a te</Chiave>.
+          </Titolo>
+          <ul className={`${STRETTO} grid gap-4 md:grid-cols-2`}>
+            {impegno.map((riga) => (
+              <li
+                key={riga.cosa}
+                className="card-xl superficie-chiara flex gap-3.5 rounded-2xl border p-6"
+              >
+                <span className="segno-si mt-0.5" aria-hidden>
+                  ✓
+                </span>
+                <div>
+                  <p className="mb-1 font-display text-lg font-bold text-brand-nero">
+                    {riga.cosa}
+                  </p>
+                  <p className="leading-relaxed">{riga.dettaglio}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
-      <ContattiFormLoader />
 
-      {/* Le domande che nascono proprio qui: cosa comporta candidarsi, la zona, la durata. */}
-      <section id="domande" className="scroll-mt-24 section-bianco border-y py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
-          <h2 className="heading-section-xl mb-10 text-balance">
-            Prima di compilare, <span className="text-brand-corallo-text">quello che chiedono tutti</span>.
-          </h2>
-          <FAQAccordion items={faqsPagina("contatti")} />
+      {/* 3 · LE DOMANDE · bianco: cosa comporta candidarsi, la zona, la durata. */}
+      <section
+        id="domande"
+        className={`section-bianco scroll-mt-24 ${SEZIONE}`}
+      >
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Domande frequenti">
+            Prima di compilare, <Chiave>quello che chiedono tutti</Chiave>.
+          </Titolo>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={faqsPagina("contatti")} />
+          </div>
         </div>
       </section>
 

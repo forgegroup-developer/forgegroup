@@ -22,7 +22,11 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
   const widthClass =
-    maxWidth === "5xl" ? "max-w-5xl" : maxWidth === "4xl" ? "max-w-4xl" : "max-w-3xl";
+    maxWidth === "5xl"
+      ? "max-w-5xl"
+      : maxWidth === "4xl"
+        ? "max-w-4xl"
+        : "max-w-3xl";
   const subtitleWidthClass =
     subtitleMaxWidth === "4xl"
       ? "max-w-4xl"
@@ -37,13 +41,18 @@ export default function SectionHeader({
     >
       {/* Il marcatore dell'occhiello arriva da .eyebrow-mark::before:
           decorativo, quindi fuori dal testo copiabile e dagli screen reader. */}
+      {/* Stesso stile dei titoli dei blocchi (REGOLE-DEL-SITO.md §4):
+          occhiello con la riga sotto, titolo pieno e compatto. Sul mattone
+          la parola chiave diventa da sola evidenziatore. */}
       {eyebrow && (
-        <p className={onCoral ? "eyebrow-coral eyebrow-mark mb-4" : "eyebrow eyebrow-mark mb-4"}>
-          {eyebrow}
+        <p
+          className={`mb-6 flex ${align === "center" ? "justify-center" : ""}`}
+        >
+          <span className="eyebrow-rule">{eyebrow}</span>
         </p>
       )}
       <h2
-        className={`heading-section ${onCoral ? "text-white [&_span]:text-brand-pesca-light" : "text-brand-nero"}`}
+        className={`heading-section-xl text-balance ${onCoral ? "text-white" : "text-brand-nero"}`}
       >
         {title}
       </h2>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-
+import { ConForge, ScenaAI } from "@/components/blocchi/ui";
+import type { Problema } from "@/data/blocchi";
 
 export type ServiziTabPoint = {
   title: ReactNode;
@@ -13,96 +13,153 @@ type Props = {
   number: string;
   title: ReactNode;
   intro: ReactNode;
+  /** La scena del problema principale (immagine AI della landing). */
+  scena: { src: string; alt: string };
+  /** I problemi della landing che questa macroarea risolve, con le stesse parole. */
+  problemi: Problema[];
   points: ServiziTabPoint[];
-  sidebarImage?: string;
-  sidebarImageAlt?: string;
+  /** Le regole che si scrivono con il cliente. */
+  pratica?: { titolo: string; voci: string[] };
+  /** Un blocco in più dopo i problemi (in acquisizione: il conto dei sopralluoghi). */
+  extra?: ReactNode;
 };
 
-function PointCard({ title, body }: ServiziTabPoint) {
-  return (
-    <div>
-      <div className="group h-full rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-corallo/50 hover:shadow-lg hover:shadow-brand-corallo/10">
-        <p className="font-display text-[1.125rem] md:text-[1.3rem] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo-text">
-          {title}
-        </p>
-        <div className="mt-4 flex items-start gap-3 border-t border-brand-pesca/40 pt-4">
-          <span
-            className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-corallo/10 text-brand-corallo-text text-sm font-bold"
-            aria-hidden
-          >
-            ✦
-          </span>
-          <p className="text-brand-grigio leading-relaxed text-[15px] md:text-base">{body}</p>
-        </div>
-      </div>
-    </div>
-  );
+/* Le colonne seguono il numero delle schede: niente scheda sola in fondo. */
+function colonne(n: number) {
+  if (n === 1) return "";
+  if (n === 3) return "lg:grid-cols-3";
+  return "md:grid-cols-2";
 }
 
+/*
+ * Una macroarea di /servizi. Rifatta il 29/09/2026 (proprietà: "troppo
+ * spazio a sinistra, foto piccola"): niente più colonna laterale. Tutto a
+ * piena larghezza, dall'alto in basso:
+ * 1. apertura: numero, nome e frase a sinistra, la scena grande a destra;
+ * 2. i problemi della landing, con le stesse parole e la soluzione accanto;
+ * 3. il blocco in più (il conto), dove c'è;
+ * 4. cosa facciamo, in concreto, affiancato;
+ * 5. le regole, dove ci sono, e il pulsante.
+ */
 export default function ServiziTabCard({
   id,
   number,
   title,
   intro,
+  scena,
+  problemi,
   points,
-  sidebarImage,
-  sidebarImageAlt,
+  pratica,
+  extra,
 }: Props) {
   return (
-    <div>
-      <article
-        id={id}
-        className="scroll-mt-28 overflow-hidden rounded-3xl border border-white/20 bg-brand-bianco shadow-xl shadow-black/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-black/15"
-      >
-        <div className="flex flex-col lg:flex-row">
-          <div className="flex flex-col border-b border-brand-bordo p-8 md:p-10 lg:min-h-[620px] lg:w-[min(100%,400px)] lg:shrink-0 lg:border-b-0 lg:border-r lg:bg-brand-panna/50">
-            <div>
-              <div>
-                <span className="font-display text-[clamp(3.5rem,10vw,5.5rem)] font-bold leading-none text-brand-corallo tabular-nums">
-                  {number}
-                </span>
-                <h3 className="font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase tracking-tight text-brand-corallo leading-tight mt-3 [&_span]:text-inherit">
-                  {title}
-                </h3>
-                <div className="my-5 border-t border-brand-bordo" aria-hidden />
-                <p className="font-display text-[clamp(1.35rem,2.5vw,1.75rem)] font-semibold text-brand-nero leading-snug tracking-tight [&_span]:text-brand-corallo">
-                  {intro}
-                </p>
-              </div>
-            </div>
-
-            {sidebarImage ? (
-              <div className="relative mt-6 hidden min-h-[220px] flex-1 lg:block">
-                <Image
-                  src={sidebarImage}
-                  alt={sidebarImageAlt ?? ""}
-                  fill
-                  className="object-contain object-bottom drop-shadow-sm"
-                  sizes="400px"
-                />
-              </div>
-            ) : null}
-
-            <div>
-              <Link
-                href="/contatti"
-                className="mt-8 inline-flex w-fit max-w-full items-center gap-1.5 whitespace-nowrap rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2.5 text-[11px] font-bold normal-case text-brand-corallo-text shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 sm:px-5 sm:text-xs lg:mt-auto"
-              >
-                Richiedi lo studio di fattibilità
-                <svg className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex flex-1 flex-col gap-4 p-6 md:gap-5 md:p-8 lg:py-10">
-            {points.map((point, idx) => (
-              <PointCard key={idx} {...point} />
-            ))}
-          </div>
+    <article
+      id={id}
+      className="card-xl superficie-chiara scroll-mt-28 overflow-hidden rounded-3xl border bg-brand-bianco shadow-xl shadow-black/10"
+    >
+      {/* 1 · Apertura */}
+      <div className="grid items-center gap-8 border-b border-brand-bordo p-6 md:p-10 lg:grid-cols-2 lg:gap-12">
+        <div>
+          <span className="font-display text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none tabular-nums text-brand-corallo">
+            {number}
+          </span>
+          <h3 className="mt-3 font-display text-[clamp(1.25rem,2.5vw,1.75rem)] font-semibold uppercase leading-tight tracking-tight text-brand-corallo [&_span]:text-inherit">
+            {title}
+          </h3>
+          <div className="my-5 w-16 border-t-2 border-brand-corallo" aria-hidden />
+          <p className="font-display text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-snug tracking-tight text-brand-nero [&_span]:text-brand-corallo">
+            {intro}
+          </p>
         </div>
-      </article>
-    </div>
+        <ScenaAI src={scena.src} alt={scena.alt} sizes="(min-width: 1024px) 520px, 100vw" />
+      </div>
+
+      <div className="space-y-12 p-6 md:p-10">
+        {/* 2 · I problemi */}
+        <div>
+          <p className="eyebrow mb-5">
+            {problemi.length > 1 ? "I problemi che risolve" : "Il problema che risolve"}
+          </p>
+          <ol className={`grid gap-5 ${colonne(problemi.length)}`}>
+            {problemi.map((p) => (
+              <li
+                key={p.tema}
+                className={`flex flex-col rounded-2xl border border-brand-bordo bg-brand-bianco p-5 md:p-6 ${
+                  problemi.length === 1 ? "md:grid md:grid-cols-2 md:items-start md:gap-8" : ""
+                }`}
+              >
+                <div className="flex items-start gap-3.5">
+                  <span className="segno-no mt-0.5" aria-hidden>
+                    ✕
+                  </span>
+                  <div className="min-w-0">
+                    <p className="mb-1.5 text-xs font-bold uppercase tracking-widest text-brand-grigio">
+                      {p.tema}
+                    </p>
+                    <p className="mb-2 font-display text-lg font-bold leading-snug text-brand-nero md:text-xl">
+                      &laquo;{p.frase}&raquo;
+                    </p>
+                    <p className="mb-4 leading-relaxed text-brand-grigio">{p.testo}</p>
+                  </div>
+                </div>
+                <div className="mt-auto">
+                  <ConForge>{p.soluzione}</ConForge>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        {/* 3 · Il blocco in più */}
+        {extra}
+
+        {/* 4 · Cosa facciamo */}
+        <div>
+          <p className="eyebrow mb-5">Cosa facciamo, in concreto</p>
+          <ul className={`grid gap-5 ${colonne(points.length)}`}>
+            {points.map((point, idx) => (
+              <li key={idx} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5 md:p-6">
+                <span className="segno-si mb-4" aria-hidden>
+                  ✓
+                </span>
+                <p className="font-display text-lg font-bold leading-snug text-brand-nero [&_span]:text-[color:var(--color-brand-corallo-text)]">
+                  {point.title}
+                </p>
+                <p className="mt-2 leading-relaxed text-brand-grigio">{point.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 5 · Le regole e il pulsante */}
+        {pratica && (
+          <div className="rounded-2xl border-l-4 border-brand-corallo bg-brand-bianco px-6 py-6 shadow-sm md:px-8">
+            <p className="mb-4 font-display text-xl font-bold text-brand-nero">{pratica.titolo}</p>
+            <ul className="grid gap-x-8 gap-y-3 md:grid-cols-2">
+              {pratica.voci.map((v) => (
+                <li key={v} className="flex items-start gap-3 leading-relaxed text-brand-grigio">
+                  <span className="segno-si mt-0.5" aria-hidden>
+                    ✓
+                  </span>
+                  <span>{v}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="flex justify-center">
+          {/* Il colore scritto per esteso: sul mattone la classe
+              text-brand-corallo-text diventa evidenziatore e toglie il
+              padding al pulsante. */}
+          <Link
+            href="/contatti"
+            className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border-2 border-brand-corallo px-6 py-3 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10"
+          >
+            Richiedi lo studio di fattibilità ↗
+          </Link>
+        </div>
+      </div>
+    </article>
   );
 }

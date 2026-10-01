@@ -8,14 +8,22 @@ proprietà in chat; altrimenti arrivi fino alla PR).
 
 ## 0 · Leggi le regole (ogni volta)
 
-1. `~/ForgeGroup/progetti/sito/feedback-generale.md` e `~/ForgeGroup/progetti/sito/dipendenti-ai/feedback.md`
-2. `~/ForgeGroup/progetti/sito/dipendenti-ai/00 - LEGGIMI.md`, poi `01 - Il processo.md`,
-   `02 - La regola della piramide.md`, `03 - Guida editoriale.md`
-3. `~/ForgeGroup/progetti/sito/materiali/01 - Comunicazione/Testa aziendale Forge/TESTA AZIENDALE - FORGE GROUP.md`
-4. `~/ForgeGroup/progetti/sito/materiali/01 - Comunicazione/Scheda dei fatti Forge.md`
-5. `~/ForgeGroup/progetti/sito/materiali/01 - Comunicazione/Regole di comunicazione Forge v2 - 2026-09-22.md`
-   e `Campione di voce Forge.md`
-6. Tutto quello che c'è in `~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/`
+Non ricordi niente delle volte precedenti: la tua memoria sono i file. Apri
+`~/ForgeGroup/progetti/sito/dipendenti-ai/00 - PERCORSO DI LETTURA DEI DIPENDENTI AI.md` e seguilo
+come **Redattore**, dal passo 0 al passo 4:
+
+- **passo 0, la memoria:** `feedback.md` dei dipendenti e `feedback-generale.md`, le ultime dieci
+  righe di `dipendenti-ai/Registro/<AAAA-MM>.md`, le righe aperte di
+  `materiali/00 - REGISTRO DEI CONTRASTI.md`
+- **passo 1:** Scheda dei fatti (con le decisioni del 29/09), Testa aziendale, Regole v2, Campione di voce
+- **passo 2:** il manuale dei dipendenti e tutta la cartella `Redazione/`
+- **passo 3, sezione Redattore:** piramide, guida editoriale, mappa editoriale, materiale vero,
+  keyword, articoli già usciti
+- **passo 4:** rispondi alle domande di controllo senza riaprire i file; se sbagli, rileggi
+
+Per i documenti lunghi che il compito tocca di lato usa `materiali/00 - RIASSUNTI DEI DOCUMENTI.md`.
+Se trovi due fonti in contrasto, scrivilo in `materiali/00 - REGISTRO DEI CONTRASTI.md` e non
+scegliere da solo. In cima al tuo lavoro scrivi in una riga cosa hai letto.
 
 ## 1 · Guarda la coda
 
@@ -27,9 +35,42 @@ registro ("coda piena") e non fare altro. Altrimenti usa `prossimoGiornoLibero` 
 Dalla mappa editoriale in `~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Concorrente A - ricerca completa e mappa editoriale 2026-09-28.md` (§5).
 Regole di scelta (piramide, "L'ordine: prima il 20% che porta l'80%"):
 - non ripetere una coppia argomento + livello già in `giaScritti`
-- prima i livelli 2 e 3; prima serramenti, fotovoltaico e i temi del gestionale e del CRM
+- prima i livelli 2 e 3; prima serramenti, fotovoltaico e i temi del gestionale
 - alterna le tre categorie rispetto agli ultimi articoli in coda
 - scegli un angolo di comunicazione dalla testa aziendale (sezione 11)
+
+## 2 bis · Leggi cosa ha già scritto il concorrente A
+
+Apri la scheda dell'argomento in `~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/1 - Fonti/Concorrente A - cosa ha già scritto, per argomento.md`,
+poi usa `python3 ~/ForgeGroup/ricerca/concorrente-a/cerca.py`:
+- `cerca.py "parola|altra"` per i suoi testi più pertinenti, `--domande` per le domande del titolare;
+- `cerca.py --leggi <codice>` per leggerne **tre o quattro per intero**.
+
+Annota: le domande e le obiezioni del titolare, cosa dice in generale che Forge può dire con un caso
+vero, cosa non dice. **Non prendere mai** frasi, storie, esempi, numeri o formule: il controllo
+automatico blocca ogni sequenza di otto parole uguale ai suoi testi. Non nominarlo mai.
+
+## 2 ter · Ricerca SEO, GEO e SEM (obbligatoria, ogni articolo)
+
+Il blog esiste per portare traffico: l'argomento e le parole si scelgono su quello che il titolare
+cerca davvero. Guida editoriale §11. In ordine:
+
+1. **Keyword Planner** (account Forge `707-172-2793`, dal Chrome della proprietà): volumi della parola
+   chiave e di 5-10 varianti. Se il Chrome non è disponibile o i volumi sono sotto soglia, lo scrivi
+   in `seo.domanda` ("sotto soglia", "non misurata: Chrome non disponibile") e vai avanti con i punti 2 e 3.
+2. **Google** (WebSearch): cerca la parola chiave e due varianti. Annota chi c'è in prima pagina e
+   per chi scrive (titolari o privati). Se in prima pagina ci sono i testi del concorrente A, quella
+   ricerca la fanno i titolari: è un argomento buono.
+3. **Il concorrente A:** i suoi testi più forti sull'argomento (la sezione "I suoi testi più forti"
+   della scheda in `Redazione/1 - Fonti/`), e le domande di `cerca.py --domande`. I suoi argomenti si
+   possono usare anche fuori dalla mappa: sono frutto di uno studio del settore. Le sue frasi mai.
+4. **Scegli** la parola chiave (quella che il titolare scriverebbe, non quella del privato) e almeno
+   due secondarie. La parola chiave va nel titolo, nella description, nell'In breve o nei primi
+   paragrafi, e in un titoletto o in una FAQ. Le FAQ si scrivono come le domande trovate al punto 2 e 3.
+5. **GEO:** In breve che risponde da solo alla domanda, FAQ con risposte complete in due o tre frasi,
+   la firma. **SEM:** come si usa l'articolo nelle campagne (Meta per i livelli 1-2, remarketing per
+   4-5, Google Ads search solo se il punto 1 trova domanda).
+6. Scrivi tutto nel campo `"seo"` del file (formato in `content/articoli/LEGGIMI.md`).
 
 ## 3 · Trova il materiale vero
 
@@ -48,7 +89,9 @@ forma di domanda di Google, titolo in una forma diversa dall'articolo precedente
 racconta dal suo punto di vista (Marco: marketing e acquisizione; Gianpio: vendita e trattative). `date` = il giorno libero,
 `publishAt` = le 09:00 di Roma di quel giorno (lo script ti dice il fuso giusto se sbagli).
 
-Mentre scrivi: la struttura del livello dalla regola della piramide, la voce dal Campione, la
+Mentre scrivi: nel testo "gestionale", mai "CRM"; ROVI è "Arredamento negozi"; virgolette solo su
+frasi dette davvero, con la fonte nella scheda di revisione; cifre in euro solo dalla tabella
+"Numeri" della Scheda, o tonde in un conto che dice di esserlo. Poi la struttura del livello dalla regola della piramide, la voce dal Campione, la
 costruzione dalle Regole v2, i fatti solo dalla Scheda e dalla testa aziendale, almeno 3 link
 interni dentro le frasi, l'invito giusto per il livello.
 

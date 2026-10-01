@@ -108,17 +108,13 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
       )}
 
       <div className="rounded-2xl border border-brand-bordo bg-brand-panna p-5 shadow-sm">
-        <h2 className="text-lg font-semibold text-brand-nero mb-2">Iniziamo</h2>
+        <h2 className="text-lg font-semibold text-brand-nero mb-2">Il primo passo</h2>
         <p className="text-sm text-brand-grigio mb-4">
-          Vuoi costruire un sistema di acquisizione clienti prevedibile?
+          Uno studio di fattibilità sulla tua impresa: quanto lavoro c&apos;è nella tua zona e quanto
+          ne reggi oggi. A volte la risposta è no, e te la diciamo lo stesso.
         </p>
-        <p className="text-sm text-brand-nero mb-1">
-          <a href="mailto:info@forgegroup.it" className="font-semibold text-brand-corallo-text hover:underline">
-            info@forgegroup.it
-          </a>
-        </p>
-        <Link href="/contatti" className="btn-corallo mt-4 inline-block text-sm">
-          Richiedi una call
+        <Link href="/contatti" className="btn-corallo inline-block text-sm">
+          Richiedi lo studio di fattibilità
         </Link>
       </div>
 

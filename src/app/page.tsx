@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
@@ -13,12 +14,13 @@ import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
-import GaranziaTrasparenza from "@/components/sezioni/GaranziaTrasparenza";
+import BannerGoogle from "@/components/sezioni/BannerGoogle";
+import Gestionale from "@/components/blocchi/Gestionale";
 import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import DeferredMount from "@/components/ui/DeferredMount";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "@/lib/seo/site";
-
+import { CONTENITORE, SEZIONE, STRETTO } from "@/components/blocchi/ui";
 
 const TeamSection = dynamic(() => import("@/components/sezioni/TeamSection"), {
   loading: () => <div className="min-h-[480px]" aria-hidden />,
@@ -42,6 +44,82 @@ export const metadata: Metadata = {
   },
 };
 
+/** Il confronto: i problemi della Testa aziendale §3, con le parole dei titolari. */
+const confronto = [
+  {
+    tema: "Sopralluoghi regalati",
+    problema: "Gli faccio sopralluogo e progetto, e poi sceglie un altro",
+    chiave: "il sopralluogo lo fissi solo quando vale il viaggio",
+    soluzione:
+      "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi: il sopralluogo lo fissi solo quando vale il viaggio.",
+  },
+  {
+    tema: "Il preventivo e poi il silenzio",
+    problema: "Dopo il ci devo pensare non si è più fatto sentire",
+    chiave: "ogni settimana passiamo con te le trattative aperte",
+    soluzione:
+      "Nel gestionale ogni preventivo ha una data per richiamare, e ogni settimana passiamo con te le trattative aperte una per una.",
+  },
+  {
+    tema: "La guerra dei prezzi",
+    problema: "Per 500 euro in meno ha scelto l'altra azienda",
+    chiave: "il cliente vede cosa compra prima del totale",
+    soluzione:
+      "Al posto del solito preventivo costruiamo con te il piano dei lavori e il materiale per presentarlo: il cliente vede cosa compra prima del totale.",
+  },
+  {
+    tema: "L'agenzia di prima",
+    problema: "Ho pagato, ma i contatti non erano nemmeno lavorabili",
+    chiave: "quanto ti rende ogni euro",
+    soluzione:
+      "Il filtro lo mettiamo noi, e nel gestionale vedi contratto per contratto quanto ti rende ogni euro. Dopo 60 giorni rivediamo le stime sui dati veri.",
+  },
+  {
+    tema: "I mesi morti",
+    problema: "In quelli morti aspetto che squilli il telefono",
+    chiave: "lavorano anche quando il passaparola si ferma",
+    soluzione:
+      "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri: lavorano anche quando il passaparola si ferma.",
+  },
+  {
+    tema: "La paura di vendere",
+    problema: "Non richiamo per non sembrare insistente",
+    chiave: "Le parole per richiamare le scriviamo insieme",
+    soluzione:
+      "Le parole per richiamare le scriviamo insieme, così chi risponde al telefono sa cosa dire e quando dire la cifra.",
+  },
+  {
+    tema: "Il titolare dentro il cantiere",
+    problema: "Dalle 8 alle 20 sto in cantiere, e il resto lo faccio io",
+    chiave: "Tu guardi i numeri, anche dal cantiere",
+    soluzione:
+      "Il processo di vendita lo mettiamo per iscritto, così può seguirlo anche chi risponde al telefono. Tu guardi i numeri, anche dal cantiere.",
+  },
+  {
+    tema: "I soldi che non entrano",
+    problema: "Il lavoro l'ho finito, ma i soldi non arrivano",
+    chiave: "come e quando ti pagano si decide prima di iniziare",
+    soluzione:
+      "Nel processo di vendita come e quando ti pagano si decide prima di iniziare, per iscritto: acconto, saldo, bonifico.",
+  },
+];
+
+const mestieri = [
+  "Costruzioni e ristrutturazioni",
+  "Edilizia residenziale",
+  "Coperture e tetti",
+  "Lattoneria",
+  "Serramenti e infissi",
+  "Impianti",
+  "Fotovoltaico",
+  "Pompe di calore",
+  "Climatizzazione",
+  "Arredo casa",
+  "Arredo negozi",
+  "Software per l'edilizia",
+  "Fornitori del settore",
+];
+
 export default function Home() {
   return (
     <>
@@ -64,48 +142,39 @@ export default function Home() {
       >
         <div className="order-1 flex flex-col justify-center gap-5 px-4 pb-8 pt-12 sm:gap-6 sm:px-6 sm:pt-14 lg:justify-start lg:pb-0 lg:pl-8 lg:pr-14 lg:pt-20">
           <p className="hero-enter hero-enter-d1 eyebrow eyebrow-mark pillola-occhiello-corallo self-start rounded-full border px-5 py-2.5 text-xs sm:text-sm">
-            Specializzati nell&apos;acquisizione clienti in edilizia
+            Specializzati nelle richieste di lavoro per imprese edili
           </p>
 
-          {/* L'H1 e' la promessa per intero, non uno slogan: dice chi
-              portiamo, chi togliamo e fin dove restiamo. In corallo solo
-              i due punti che il lettore deve portarsi via se legge
-              soltanto quelli: che i clienti possono pagarlo, e che non
-              lo lasciamo solo in trattativa. */}
-          {/* Impianto preso dalla hero di Gasparotto: "Aumenta margini,
-              utili aziendali e compensi personali grazie al controllo dei
-              numeri." Verbo all'imperativo, tre benefici in fila di cui
-              due marcati, poi "grazie al" e il nome del meccanismo. Il
-              lettore sa in dieci parole cosa ottiene e con che cosa.
-              La promessa per intero — chi portiamo, chi togliamo, fin dove
-              restiamo — scende nella riga sotto, dove c'e' spazio per
-              dirla senza spezzare il titolo. */}
+          {/* La USP intera, approvata dalla proprieta' (28/09, "gestionale"
+              al posto di "CRM" dal 29/09), in due frasi complete: nel titolo
+              chi, cosa riceve e in quanto tempo lo vede; nel sottotitolo come
+              e senza cosa. Spezzata a meta' frase si leggeva mezza grande e
+              mezza piccola (proprieta', 29/09). */}
           <h1 className="hero-enter hero-enter-d2 heading-display-frase text-pretty">
-            Acquisisci clienti disposti a{" "}
-            <span className="text-brand-corallo no-spezza">pagarti quanto chiedi</span>,
-            chiudi più contratti e diventa{" "}
-            <span className="text-brand-corallo no-spezza">il riferimento della tua zona</span>{" "}
-            grazie al Metodo FORGE.
+            Aiutiamo gli imprenditori edili che vivono di passaparola a ricevere{" "}
+            <span className="text-brand-corallo">richieste di lavoro</span>{" "}
+            {/* l'ultima parola resta attaccata alla virgola: niente virgola
+                sola a inizio riga */}
+            <span className="whitespace-nowrap">
+              <span className="text-brand-corallo">qualificate</span>,
+            </span>{" "}
+            con i numeri nero su bianco in 90 giorni.
           </h1>
 
-          <p className="hero-enter hero-enter-d3 text-pretty text-lg leading-relaxed text-brand-grigio sm:text-xl">
-            Ti portiamo richieste da chi il lavoro può pagarlo, scartiamo chi
-            tratta solo sul prezzo e restiamo in trattativa con te{" "}
-            <strong className="font-semibold text-brand-nero">
-              fino alla firma
+          <p className="hero-enter hero-enter-d3 max-w-xl text-pretty text-lg leading-relaxed text-brand-grigio">
+            Lo facciamo con un processo di vendita strutturato e un gestionale
+            che ti mostra{" "}
+            <strong className="chiave">
+              quanto rende ogni euro di pubblicità
             </strong>
-            . Senza perdere i sabati con chi cerca solo un preventivo da
-            confrontare, senza rincorrere nessuno e senza che tu debba
-            diventare un esperto di pubblicità.
+            : senza più regalare sopralluoghi a chi cerca solo il prezzo più
+            basso, e senza pagare più agenzie generaliste.
           </p>
 
           <p className="hero-enter hero-enter-d3 firma-fondatori">
             Il Metodo FORGE l&apos;abbiamo costruito noi due,{" "}
-            <strong className="font-semibold text-brand-nero">
-              Marco e Gianpio
-            </strong>
-            , su oltre ventimila contatti gestiti e partendo da imprese che
-            oggi lavorano con un metodo, senza rincorrere i clienti.
+            <strong className="chiave">Marco e Gianpio</strong>, dopo aver
+            analizzato sul campo i processi di centinaia di imprese edili.
           </p>
 
           {/* Due pulsanti larghi quanto il loro testo: prima erano due
@@ -135,6 +204,7 @@ export default function Home() {
             </Link>
           </div>
 
+          <BannerGoogle className="hero-enter hero-enter-d3" />
         </div>
 
         <div className="hero-foto order-2">
@@ -150,8 +220,7 @@ export default function Home() {
                 grigia che nessuno legge. Il velo in basso e' li' apposta
                 per reggerla. */}
             <p className="hero-foto-firma">
-              <span aria-hidden>✳</span>
-              I fondatori di Forge Group
+              <span aria-hidden>✳</span>I fondatori di Forge Group
             </p>
           </div>
         </div>
@@ -159,14 +228,23 @@ export default function Home() {
         {/* Il perimetro dei mestieri, con lo stesso asterisco
             dell'occhiello in cima: e' la nota a piede della promessa, e
             sta sotto entrambe le colonne perche' vale per tutta la hero. */}
-        <p className="hero-enter hero-enter-d3 riga-mestieri order-3">
-          <span className="riga-mestieri-asterisco" aria-hidden>
-            ✳
-          </span>
-          Imprese edili, serramentisti, impiantisti, fotovoltaico, arredo
-          commerciale, software per l&apos;edilizia e fornitori del settore.
-        </p>
-
+        {/* I mestieri: le nicchie della Testa aziendale (§2), comprese quelle
+            su cui il concorrente non scrive (fotovoltaico, pompe di calore,
+            climatizzazione, lattoneria, tetti, arredo negozi: ricerca del
+            28/09). Larga quanto tutta la hero (proprietà, 29/09). */}
+        <div className="hero-enter hero-enter-d3 riga-mestieri order-3">
+          <p className="riga-mestieri-titolo">
+            <span className="riga-mestieri-asterisco" aria-hidden>
+              ✳
+            </span>
+            Lavoriamo solo con imprese edili e della filiera:
+          </p>
+          <ul className="riga-mestieri-elenco">
+            {mestieri.map((m) => (
+              <li key={m}>{m}</li>
+            ))}
+          </ul>
+        </div>
       </HeroGooeySection>
 
       {/* S2 — LOGHI CLIENTI */}
@@ -185,13 +263,11 @@ export default function Home() {
           e deve capire cosa lo separa da quei numeri. */}
       <PercheSceglierci />
 
-
       {/* S3b — IL REGISTRO DEI CONTATTI
           Risponde all'obiezione che ferma piu' trattative di ogni altra:
           "non so come lavorate davvero". Sta qui perche' la domanda nasce
           dopo il problema e prima del metodo. */}
       <ConfrontoCaos />
-
 
       {/* S4 — METODO FORGE
           Era sepolto in /servizi: e' il metodo con nome proprio, l'asset che
@@ -204,27 +280,28 @@ export default function Home() {
           riquadro vuoto. E' solo testo, montarlo subito non costa niente. */}
       <MetodoForge className="section-mattone" />
 
-      {/* S5b — LA GARANZIA DI TRASPARENZA
-          Il punto esatto in cui il lettore si chiede "si', ma come faccio
-          a controllarvi". Il CRM e' l'unica risposta che dimostra invece
-          di dichiarare. */}
-      <DeferredMount minHeight="520px" rootMargin="320px 0px">
-        <GaranziaTrasparenza />
-      </DeferredMount>
+      {/* S5b — IL GESTIONALE
+          Al posto di "Cosa vedi tu, e quando" (proprieta', 29/09): il punto
+          in cui il lettore si chiede "come faccio a controllarvi" riceve la
+          risposta concreta, con il gestionale della landing. */}
+      <Gestionale />
 
       {/* S6 — SERVIZI
           Stavano prima del metodo: si elencava cosa facciamo a un lettore
           che non sapeva ancora perche' gli servisse, e si spezzava in due
           il blocco del problema. Qui arrivano dopo che il metodo ha un
           nome, e diventano "cosa c'e' dentro". */}
-      <section className="py-20 md:py-28 section-sabbia border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={`section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
           <SectionHeader
             eyebrow="Cosa facciamo per te"
             title={
               <>
                 Ti affianchiamo dal primo contatto{" "}
-                <span className="text-brand-corallo-text">alla firma del contratto</span>.
+                <span className="text-brand-corallo-text">
+                  alla firma del contratto
+                </span>
+                .
               </>
             }
           />
@@ -239,93 +316,67 @@ export default function Home() {
 
           <div className="mt-10 flex justify-center">
             <Link href="/servizi" className="btn-ghost">
-              Vedi il Metodo FORGE, i 5 step
+              Vedi le cinque fasi del Metodo FORGE
             </Link>
           </div>
         </div>
       </section>
 
-
-      {/* S7 — CONFRONTO (tabella comparativa unificata) */}
+      {/* S7 — CONFRONTO: i problemi del titolare, in prima persona (frasi
+          delle call e Testa aziendale §3), e sotto ognuno cosa facciamo,
+          detto come meccanismo. Rifatto il 29/09 (proprietà: senza foto, le
+          scene stanno già in /servizi): al posto della tabella lunga, schede
+          a due colonne, problema sopra e risposta sotto. */}
       <DeferredMount minHeight="480px">
-      <section className="py-20 md:py-28 section-bianco border-y">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Il confronto"
-            title={
-              <>
-                Dove si ferma un&apos;agenzia.{" "}
-                <span className="text-brand-corallo-text">Dove arriviamo noi.</span>
-              </>
-            }
-          />
-          <div>
-            <div className="max-w-5xl mx-auto rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
-              {/* Intestazioni colonne — sempre 2 colonne anche su mobile */}
-              <div className="grid grid-cols-2 divide-x divide-brand-bordo border-b border-brand-bordo">
-                <div className="px-4 py-3 md:px-8 md:py-5 bg-brand-panna">
-                  <p className="text-xs md:text-base font-bold text-brand-corallo-text uppercase tracking-wide leading-snug">
-                    L&apos;agenzia che ti consegna il contatto
-                  </p>
-                </div>
-                <div className="px-4 py-3 md:px-8 md:py-5 bg-[color-mix(in_srgb,var(--color-brand-verde)_10%,var(--color-brand-bianco))]">
-                  <p className="text-xs md:text-base font-bold text-brand-verde-text uppercase tracking-wide leading-snug">
-                    Forge Group
-                  </p>
-                </div>
-              </div>
+        <section className={`section-bianco border-y ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <Titolo
+              occhiello="Il confronto"
+              sottotitolo="Sono le frasi che ci dicono i titolari al primo appuntamento. Sotto ognuna, cosa facciamo con te."
+            >
+              Quello che vivi oggi, e <Chiave>cosa cambia con noi</Chiave>.
+            </Titolo>
 
-              {/* Righe allineate — sempre 2 colonne */}
-              {[
-                {
-                  other: "Ti consegna il contatto e il suo lavoro finisce lì",
-                  forge: "Restiamo dentro fino alla firma del contratto",
-                },
-                {
-                  other: "Ti manda chiunque abbia lasciato un numero",
-                  forge: "Filtriamo prima del sopralluogo: chi non può comprare non ci arriva",
-                },
-                {
-                  other: "Il preventivo mandato è affare tuo",
-                  forge: "Prepariamo la trattativa e ti addestriamo a chiuderla",
-                },
-                {
-                  other: "Report su visualizzazioni, clic e copertura",
-                  forge: "Si contano i contratti firmati e il margine che lasciano",
-                },
-                {
-                  other: "Non ha mai visto un cantiere del tuo settore",
-                  forge: "In cantiere ci veniamo, e in edilizia abbiamo numeri veri",
-                },
-              ].map((row, idx) => (
-                <div
-                  key={row.other}
-                  className={`grid grid-cols-2 divide-x divide-brand-bordo/60 ${idx > 0 ? "border-t border-brand-bordo/60" : ""}`}
+            <ol className="grid gap-5 md:grid-cols-2">
+              {confronto.map((riga, idx) => (
+                <li
+                  key={riga.problema}
+                  className="flex flex-col overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-sm"
                 >
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-brand-panna/70 hover:bg-brand-panna transition-colors">
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-corallo"
-                      aria-hidden
-                    />
-                    <span className="text-xs md:text-sm leading-snug text-brand-grigio font-medium pt-0.5">
-                      {row.other}
+                  <div className="flex gap-4 p-6">
+                    <span className="font-display text-2xl font-bold leading-none text-brand-corallo-text">
+                      {String(idx + 1).padStart(2, "0")}
                     </span>
+                    <div>
+                      <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-grigio">
+                        <span className="segno-no scale-75" aria-hidden>
+                          ✕
+                        </span>
+                        {riga.tema}
+                      </p>
+                      <p className="font-display text-lg font-bold leading-snug text-brand-nero md:text-xl">
+                        &laquo;{riga.problema}&raquo;
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-[color-mix(in_srgb,var(--color-brand-verde)_8%,var(--color-brand-bianco))] hover:bg-[color-mix(in_srgb,var(--color-brand-verde)_14%,var(--color-brand-bianco))] transition-colors">
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-verde"
-                      aria-hidden
-                    />
-                    <span className="text-xs md:text-sm leading-snug font-semibold text-brand-nero pt-0.5">
-                      {row.forge}
+                  <div className="mt-auto flex gap-3.5 border-t-2 border-brand-verde/30 bg-brand-bianco px-6 py-5">
+                    <span className="segno-si mt-0.5" aria-hidden>
+                      ✓
                     </span>
+                    <div>
+                      <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand-verde-text">
+                        Con Forge
+                      </p>
+                      <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                        <Evidenzia testo={riga.soluzione} chiave={riga.chiave} />
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
-        </div>
-      </section>
+        </section>
       </DeferredMount>
 
       {/* S5 — CASI STUDIO, uno alla volta */}
@@ -348,39 +399,34 @@ export default function Home() {
 
       {/* S8 — FAQ */}
       <DeferredMount minHeight="360px">
-      <section id="faq" className="scroll-mt-24 py-20 md:py-28 section-mattone">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Domande Frequenti"
-            title={
-              <>
-                Quello che gli{" "}
-                <span className="text-brand-corallo-text">imprenditori edili</span>{" "}
-                ci chiedono sempre.
-              </>
-            }
-          />
-          <div>
-            <FAQAccordion onCoral items={faqsPagina("home")} />
+        <section id="faq" className={`section-mattone scroll-mt-24 ${SEZIONE}`}>
+          <div className={CONTENITORE}>
+            <SectionHeader
+              eyebrow="Domande Frequenti"
+              title={
+                <>
+                  Quello che gli{" "}
+                  <span className="text-brand-corallo-text">
+                    imprenditori edili
+                  </span>{" "}
+                  ci chiedono sempre
+                </>
+              }
+            />
+            <div className={STRETTO}>
+              <FAQAccordion onCoral items={faqsPagina("home")} />
+            </div>
           </div>
-          <p className="mt-8 text-center copy-on-coral">
-            <Link href="/servizi#domande" className="arrow-link text-sm md:text-base">
-              Altre domande su come si lavora
-            </Link>
-          </p>
-        </div>
-      </section>
+        </section>
       </DeferredMount>
-
 
       {/* S9 — IL FILTRO
           Chiude la pagina qualificando invece di chiedere: chi si
           riconosce a destra non ci fa perdere una conoscitiva, chi si
           riconosce a sinistra scrive gia' convinto. */}
       <DeferredMount minHeight="620px">
-        <PerChiSiPerChiNo />
+        <PerChiSiPerChiNo studio />
       </DeferredMount>
-
     </>
   );
 }

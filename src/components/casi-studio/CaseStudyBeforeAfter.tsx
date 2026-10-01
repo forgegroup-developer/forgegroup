@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export type BeforeAfterRow = {
   /** Etichetta opzionale della riga (es. Acquisizione, Vendita) */
   aspect?: string;
@@ -5,68 +7,89 @@ export type BeforeAfterRow = {
   after: string;
 };
 
+type Foto = { src: string; alt: string };
+
 type Props = {
   rows: BeforeAfterRow[];
+  /** Le due scene, prima e dopo (immagini AI, con la scritta). */
+  foto?: { prima: Foto; dopo: Foto };
 };
 
-export default function CaseStudyBeforeAfter({ rows }: Props) {
+/*
+ * Prima e dopo (rifatto il 29/09/2026, proprietà: "layout pessimo").
+ * Sopra le due scene affiancate, sotto una tabella sola come quella del
+ * confronto in home: una riga per aspetto, a sinistra com'era (✕), a
+ * destra com'è (✓). Da telefono ogni riga diventa una scheda con il prima
+ * sopra e il dopo sotto. Schede bianche, il verde solo nella spunta.
+ */
+export default function CaseStudyBeforeAfter({ rows, foto }: Props) {
   return (
-    <div className="rounded-2xl border border-brand-bordo overflow-hidden bg-brand-bianco shadow-lg">
-      {/* Intestazioni — sempre 2 colonne anche su mobile */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:divide-x divide-brand-bordo border-b border-brand-bordo">
-        <div className="px-4 py-3 md:px-8 md:py-5 bg-red-50 border-b border-brand-bordo sm:border-b-0">
-          <p className="text-xs md:text-base font-bold text-red-800 uppercase tracking-wide leading-snug">
-            Prima
-          </p>
+    <div>
+      {foto && (
+        <div className="mb-10 grid gap-4 sm:grid-cols-2">
+          {(
+            [
+              ["Prima", foto.prima, "bg-brand-corallo"],
+              ["Dopo", foto.dopo, "bg-brand-verde"],
+            ] as const
+          ).map(([etichetta, f, colore]) => (
+            <figure key={etichetta} className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-brand-bianco">
+              <Image src={f.src} alt={f.alt} fill sizes="(min-width: 640px) 440px, 100vw" className="object-cover" />
+              <p className={`absolute left-3 top-3 rounded-full px-4 py-1.5 text-sm font-bold text-white shadow ${colore}`}>
+                {etichetta}
+              </p>
+              <figcaption className="absolute bottom-2 right-2 rounded-full bg-black/55 px-2.5 py-1 text-[0.7rem] text-white">
+                Immagine generata con AI
+              </figcaption>
+            </figure>
+          ))}
         </div>
-        <div className="px-4 py-3 md:px-8 md:py-5 bg-emerald-50">
-          <p className="text-xs md:text-base font-bold text-emerald-800 uppercase tracking-wide leading-snug">
+      )}
+
+      <div className="overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-lg">
+        <div className="hidden grid-cols-2 border-b border-brand-bordo md:grid">
+          <p className="px-8 py-5 font-display text-lg font-bold text-brand-corallo-text">Prima</p>
+          <p className="border-l border-brand-bordo px-8 py-5 font-display text-lg font-bold text-brand-verde-text">
             Dopo
           </p>
         </div>
+        <ol>
+          {rows.map((row, idx) => (
+            <li
+              key={row.before}
+              className={`grid md:grid-cols-2 ${idx > 0 ? "border-t border-brand-bordo" : ""}`}
+            >
+              <div className="flex gap-3.5 px-5 pt-5 md:px-8 md:py-6">
+                <span className="segno-no mt-0.5" aria-hidden>
+                  ✕
+                </span>
+                <div>
+                  {row.aspect && (
+                    <p className="text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
+                      {row.aspect}
+                    </p>
+                  )}
+                  <p className="mt-1 leading-snug text-brand-grigio">{row.before}</p>
+                </div>
+              </div>
+              <div className="flex gap-3.5 px-5 pb-5 pt-3 md:border-l md:border-brand-bordo md:px-8 md:py-6">
+                <span className="segno-si mt-0.5" aria-hidden>
+                  ✓
+                </span>
+                <div>
+                  {row.aspect && (
+                    <p className="text-xs font-bold uppercase tracking-widest text-brand-verde-text">
+                      <span className="md:hidden">Dopo</span>
+                      <span className="hidden md:inline">{row.aspect}</span>
+                    </p>
+                  )}
+                  <p className="mt-1 font-display font-bold leading-snug text-brand-nero">{row.after}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
-
-      {rows.map((row, idx) => (
-        <div
-          key={idx}
-          className={`grid grid-cols-1 sm:grid-cols-2 sm:divide-x divide-brand-bordo/60 ${
-            idx > 0 ? "border-t border-brand-bordo/60" : ""
-          }`}
-        >
-          <div className="flex items-start gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 bg-red-50/70 border-b border-brand-bordo/40 sm:border-b-0">
-            <span
-              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-red-400/80"
-              aria-hidden
-            />
-            <div className="min-w-0">
-              {row.aspect && (
-                <p className="text-[10px] md:text-xs uppercase tracking-widest text-red-700/80 font-bold mb-1">
-                  {row.aspect}
-                </p>
-              )}
-              <span className="text-xs md:text-sm leading-snug text-red-950/85 font-medium pt-0.5">
-                {row.before}
-              </span>
-            </div>
-          </div>
-          <div className="flex items-start gap-2 md:gap-3 px-3 md:px-8 py-3 md:py-4 bg-emerald-50/80">
-            <span
-              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600/80"
-              aria-hidden
-            />
-            <div className="min-w-0">
-              {row.aspect && (
-                <p className="text-[10px] md:text-xs uppercase tracking-widest text-emerald-800/80 font-bold mb-1">
-                  {row.aspect}
-                </p>
-              )}
-              <span className="text-xs md:text-sm leading-snug font-semibold text-emerald-950 pt-0.5">
-                {row.after}
-              </span>
-            </div>
-          </div>
-        </div>
-      ))}
     </div>
   );
 }

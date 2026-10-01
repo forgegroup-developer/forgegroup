@@ -1,15 +1,16 @@
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import CasiStudioElenco from "@/components/casi-studio/CasiStudioElenco";
-import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
+import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
+import { iniziaImages } from "@/data/images";
+import { CONTENITORE, SEZIONE, Chiave, Titolo } from "@/components/blocchi/ui";
 
 export const metadata: Metadata = {
   title: "Casi studio: imprese edili, con i numeri e il nome sotto",
   description:
-    "Coperture, arredamento negozi, software per l'edilizia. Per ognuna: com'era prima, cosa abbiamo messo in piedi e quanto è entrato. Numeri veri, con il nome dell'impresa sotto.",
+    "Tre imprese edili: com'era prima, cosa abbiamo messo in piedi e quanto è entrato. Numeri veri, con il nome dell'impresa sotto, da chiedere a loro.",
   alternates: { canonical: "/casi-studio" },
   openGraph: {
     title: "Casi studio imprese edili | Forge Group",
@@ -33,19 +34,19 @@ export default function CasiStudioHub() {
         occhiello="Casi studio"
         titolo={
           <>
-            Cerca l&apos;impresa che fa il tuo mestiere. I numeri sono{" "}
-            <span className="text-brand-corallo no-spezza">veri</span>, con il
-            nome sotto.
+            Sopralluoghi regalati, preventivi senza risposta, trattative perse
+            sul prezzo:{" "}
+            <span className="text-brand-corallo">come ne sono uscite</span> tre
+            imprese.
           </>
         }
         testo={
           <>
-            Coperture, arredamento negozi, software per l&apos;edilizia. Per
-            ognuna c&apos;è com&apos;era prima, cosa abbiamo messo in piedi e{" "}
-            <strong className="font-semibold text-brand-nero">
-              quanto è entrato
-            </strong>
-            .
+            Il lavoro lo sapevano fare: mancava un modo per trovare i clienti
+            giusti e <strong className="chiave">portarli alla firma</strong>.
+            L&apos;abbiamo costruito con loro: richieste filtrate prima del
+            sopralluogo, un processo di vendita scritto, il gestionale, e noi al
+            loro fianco ogni settimana.
           </>
         }
         nota={
@@ -64,39 +65,36 @@ export default function CasiStudioHub() {
           testo: "Guarda i tre casi",
           freccia: "↓",
         }}
+        foto="sfondo"
         immagine={{
-          src: "/images/casi-studio/edilizia.jpg",
-          alt: "Copertura realizzata da un'impresa edile seguita da Forge Group",
-          didascalia: "Tetti Top, coperture",
+          src: iniziaImages.hero,
+          alt: "",
+          didascalia: "Immagine generata con AI",
         }}
       />
 
-      <section id="casi-studio-contenuto" className="scroll-mt-24 py-20 md:py-28 section-bianco">
-        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
-          <CasiStudioElenco />
-        </div>
-      </section>
+      {/* La stessa sezione della home (proprietà, 29/09: "era molto meglio
+          a livello grafico"): un caso alla volta, con la prova accanto. */}
+      <div id="casi-studio-contenuto" className="scroll-mt-24">
+        <CasiStudioCarousel senzaLinkElenco />
+      </div>
 
       {/* Le domande che nascono proprio qui: uno ha appena letto i numeri di un altro e si chiede se valgono per lui. */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-4 flex">Domande frequenti</p>
-          <h2 className="heading-section-xl mb-10 text-balance">
-            Hai visto i numeri.{" "}<span className="text-brand-corallo-text">Adesso le domande</span>.
-          </h2>
-          <FAQAccordion items={faqsPagina("casi-studio")} />
+      <section id="domande" className={`scroll-mt-24 section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Domande frequenti">
+            Hai visto i numeri, adesso <Chiave>le domande</Chiave>.
+          </Titolo>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={faqsPagina("casi-studio")} />
+          </div>
         </div>
       </section>
 
       <JsonLdFAQ items={faqsPagina("casi-studio")} />
 
-      <RelatedBlogLinks
-        slugs={[
-          "agenzia-marketing-b2b-napoli",
-          "agenzia-marketing-b2b-campania-checklist",
-          "sistema-vendita-b2b-dalla-lead-al-contratto",
-        ]}
-      />
+      {/* I link agli articoli tornano quando ci sono quelli nuovi sulle
+          imprese edili: i vecchi (B2B, Campania) si ritirano. */}
     </>
   );
 }

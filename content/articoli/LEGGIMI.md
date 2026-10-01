@@ -33,6 +33,15 @@ Gli stessi campi del tipo `Article` in `src/data/articles.ts`:
   "argomento": "sopralluoghi-a-vuoto",
   "autore": "gianpio",
   "inBreve": { "problema": "…", "causa": "…", "cambia": "…" },
+  "seo": {
+    "parolaChiave": "sopralluogo e preventivo",
+    "secondarie": ["sopralluogo a pagamento", "…"],
+    "domanda": "Keyword Planner 29/09: sotto soglia · oppure: non misurata (motivo)",
+    "serp": "chi c'è in prima pagina, per chi scrive (titolari o privati)",
+    "concorrente": ["principale:blog/…", "…", "…"],
+    "geo": "cosa fa l'articolo per le risposte delle AI",
+    "sem": "come si usa nelle campagne"
+  },
   "faqs": [{ "q": "…", "a": "…" }],
   "content": [
     { "type": "p", "text": "Testo con [un link interno](/servizi)." },
@@ -43,6 +52,11 @@ Gli stessi campi del tipo `Article` in `src/data/articles.ts`:
   ]
 }
 ```
+
+**Riscritture.** Quando un articolo già online si riscrive allo stesso indirizzo (per esempio gli
+articoli del vecchio posizionamento), il file porta `"riscrittura": true` e `publishAt` alle 09:00
+del giorno della riscrittura: esce subito, così la pagina non resta mai vuota. Il vecchio testo si
+toglie da `src/data/scheduledArticles.ts` nella stessa PR.
 
 `publishAt` porta sempre il fuso di Roma: `+02:00` con l'ora legale (dall'ultima
 domenica di marzo all'ultima domenica di ottobre), `+01:00` il resto dell'anno.

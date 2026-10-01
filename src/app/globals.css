@@ -42,7 +42,9 @@
 
 @theme {
   --color-brand-bianco: #ffffff;
-  --color-brand-panna: #fbf5f2;
+  /* Dal 29/09/2026 il panna è bianco: sul sito ci sono solo due sfondi,
+     bianco e mattone (proprietà). Il nome resta per non toccare ogni pagina. */
+  --color-brand-panna: #ffffff;
   /* Crema di passaggio. Era stata eliminata a settembre insieme a
      visione-bg perche' stavano a otto punti dalla panna e sembravano
      bianchi sbagliati: e' rientrata da sola. Vedi la nota in fondo. */
@@ -2374,6 +2376,21 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   background-color: rgba(255, 255, 255, 0.06);
 }
 
+/* La scheda chiara sul mattone resta bianca piena: e' quella che porta
+   testo scuro (le regole .superficie-chiara piu' sotto), e sul velo al 6%
+   quel testo non si leggeva. Il segno di spunta tiene il suo tondo verde. */
+.section-mattone .card-xl.superficie-chiara {
+  border-color: var(--color-brand-bordo);
+  background-color: var(--color-brand-bianco);
+}
+
+.section-mattone .card-xl.superficie-chiara span.segno-si {
+  background-color: #1f7a5c;
+  color: #ffffff;
+  padding: 0;
+  margin-top: 0.1rem;
+}
+
 /* ── Carosello casi studio ───────────────────────────────────────
    Una scheda alla volta: testo a sinistra, prova visiva a destra.
    Le frecce stanno fuori dalla scheda su schermo largo e sotto di
@@ -2489,8 +2506,8 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
    all'occhiello in cima alla hero — stessa marca, stessa famiglia. */
 .riga-mestieri {
   display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
+  flex-direction: column;
+  gap: 0.9rem;
   padding: 1.75rem 1rem 3rem;
   font-size: 0.9rem;
   line-height: 1.55;
@@ -2506,8 +2523,9 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 
 @media (min-width: 1024px) {
   .riga-mestieri {
-    grid-column: 1 / 2;
-    padding: 2.25rem 3.5rem 3.5rem 2rem;
+    /* larga quanto tutta la hero, sotto le due colonne (29/09) */
+    grid-column: 1 / -1;
+    padding: 2.25rem 2rem 3.5rem 2rem;
   }
 }
 
@@ -2515,6 +2533,29 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   .riga-mestieri {
     padding-left: 4rem;
   }
+}
+
+.riga-mestieri-titolo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: var(--color-brand-nero);
+}
+
+.riga-mestieri-elenco {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.riga-mestieri-elenco li {
+  border: 1px solid var(--color-brand-bordo);
+  border-radius: 999px;
+  background: var(--color-brand-bianco);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--color-brand-nero);
 }
 
 .riga-mestieri-asterisco {
@@ -2570,7 +2611,7 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 /* E la sottolineatura pesca non entra nelle card: li' il fondo e'
    chiaro, quindi il corallo pieno stacca da solo e la barra sarebbe
    solo rumore. */
-.section-mattone .superficie-chiara span:not(.segno-no),
+.section-mattone .superficie-chiara span:not(.segno-no):not(.segno-si),
 .section-mattone .superficie-chiara .text-brand-corallo,
 .section-mattone .superficie-chiara .text-brand-corallo-text {
   background-color: transparent;
@@ -2861,4 +2902,53 @@ html body #iubenda-cs-banner#iubenda-cs-banner a:focus-visible {
       color-mix(in srgb, var(--color-brand-panna) 62%, transparent) 100%
     );
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DUE SOLI SFONDI: BIANCO E MATTONE (proprietà, 29/09/2026)
+   Il panna è diventato bianco nel token; qui le sfumature pesca delle
+   hero e le sezioni corallo (testate dei casi, del blog, la fascia
+   animata dei servizi) passano al bianco o al mattone.
+   ══════════════════════════════════════════════════════════════════ */
+.hero-fondale {
+  background: var(--color-brand-bianco);
+}
+
+.section-coral,
+.section-coral.forge-gradient-bg,
+.section-coral.section-coral-gradient {
+  background-color: var(--color-brand-mattone);
+  background-image: none;
+}
+
+.section-coral .forge-gradient-layer-1,
+.section-coral .forge-gradient-layer-2,
+.section-coral .forge-gradient-radial {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LE PAROLE CHIAVE (proprietà, 29/09/2026)
+   Nei testi ogni paragrafo mette in evidenza la sua parola o frase chiave:
+   corallo e grassetto. Si legge prima, si capisce di cosa parla il
+   blocco, e aiuta Google e le intelligenze artificiali a capire il tema.
+   Sul mattone il corallo non si legge: diventa pesca. Nelle schede chiare
+   sul mattone torna corallo.
+   ══════════════════════════════════════════════════════════════════ */
+.chiave {
+  color: var(--color-brand-corallo-text);
+  font-weight: 700;
+}
+
+.section-mattone .chiave,
+.section-coral .chiave {
+  color: var(--color-brand-pesca);
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.section-mattone .superficie-chiara .chiave,
+.section-coral .superficie-chiara .chiave {
+  color: var(--color-brand-corallo-text);
 }

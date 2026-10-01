@@ -68,18 +68,43 @@ export const caseStudyImageLayout: Record<string, CaseStudyImageLayout> = {
   "hotel-hospitality": { fit: "cover", position: "50% 54%" },
 };
 
-export const blogImages: Record<string, string> = {
-  "come-acquisire-clienti-b2b-campania":
-    "/images/blog/come-acquisire-clienti-b2b-campania.jpg",
-  "sistema-vendita-b2b-dalla-lead-al-contratto":
-    "/images/blog/sistema-vendita-b2b-dalla-lead-al-contratto.jpg",
-  "agenzia-marketing-b2b-napoli": "/images/blog/agenzia-marketing-b2b-napoli.jpg",
-};
 
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
   /** Copertina della videorecensione DISA, l'unico video del sito. */
   videoPoster: "/images/video-recensione-poster.jpg",
+} as const;
+
+/** Foto dei fondatori, verticali 2:3; foundersDuo e' quella del TEDx in home. */
+export const teamImages = {
+  marco: "/images/team/foto-marco.webp",
+  gianpio: "/images/team/foto-gianpio.jpg",
+  foundersDuo: "/images/team/vision/founders-duo.png",
+  /** Il videomaker che riprende il titolare di ROVI, nel loro showroom. */
+  setVideoCliente: "/images/team/squadra-set-video.webp",
+} as const;
+
+/**
+ * Pagina /inizia. Le tre scene sono generate con AI (persone non reali):
+ * accanto va sempre la scritta "Immagine generata con AI" (AI Act, vedi
+ * progetti/ai-act/02-checklist-situazioni.md). Tutte 3:2.
+ */
+export const iniziaImages = {
+  /** Orizzontale 16:9, cielo libero a sinistra per il testo. */
+  hero: "/images/inizia/hero-stretta-di-mano.webp",
+  prezzoPiuBasso: "/images/inizia/prezzo-piu-basso.webp",
+  studioDiFattibilita: "/images/inizia/studio-di-fattibilita.webp",
+  fattureScadute: "/images/inizia/fatture-scadute.webp",
+  cantiereTelefono: "/images/inizia/cantiere-telefono.webp",
+  cantiereAlle20: "/images/inizia/cantiere-alle-20.webp",
+  sopralluogoAVuoto: "/images/inizia/sopralluogo-a-vuoto.webp",
+} as const;
+
+/** Il prima e dopo dei casi studio: scene AI fatte apposta (29/09/2026). */
+export const primaDopoImages = {
+  disaPrima: "/images/casi-studio/prima-dopo/disa-prima.webp",
+  disaDopo: "/images/casi-studio/prima-dopo/disa-dopo.webp",
+  roviDopo: "/images/casi-studio/prima-dopo/rovi-dopo.webp",
 } as const;
 
 /** Illustrazioni macroaree — stesse della home (magnete, bersaglio, bussola) */
@@ -111,4 +136,21 @@ export function getBlogImage(slug: string, featuredImage?: string): string {
   // altrimenti next/image risponde 400 e l'immagine risulta rotta.
   if (src && (src.startsWith("/") || isAllowedRemoteImage(src))) return src;
   return blogImages[slug] ?? siteImages.heroGrowth;
+}
+
+/*
+ * Le copertine del blog (30/09/2026): le scene AI della landing, una per
+ * problema. Gli articoli del vecchio posizionamento sono stati ritirati e
+ * le loro foto tolte.
+ */
+export const blogImages: Record<string, string> = {
+  "come-smettere-dipendere-passaparola": iniziaImages.cantiereAlle20,
+  "perche-clienti-spariscono-dopo-preventivo": iniziaImages.prezzoPiuBasso,
+  "smettere-contatti-solo-informazioni-gratuite": iniziaImages.sopralluogoAVuoto,
+  "gare-appalto-vs-clienti-privati-pagano": iniziaImages.fattureScadute,
+};
+
+/** Le immagini fatte con l'AI: dove compaiono serve la scritta (AI Act). */
+export function isImmagineAI(src: string): boolean {
+  return src.startsWith("/images/inizia/") || src.startsWith("/images/casi-studio/prima-dopo/");
 }

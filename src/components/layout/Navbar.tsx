@@ -101,6 +101,36 @@ export default function Navbar() {
     return () => desktopNav.removeEventListener("change", closeOnDesktop);
   }, []);
 
+  /* /inizia e' una landing che arriva dopo la telefonata: niente menu e
+     niente link che portano altrove, il logo non e' cliccabile. Resta solo
+     il pulsante che scende al modulo in fondo alla pagina. */
+  if (pathname === "/inizia") {
+    return (
+      <header className="sticky top-0 z-[100] isolate bg-brand-bianco border-b border-brand-bordo shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-2.5 shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Forge Group"
+                width={56}
+                height={56}
+                priority
+                className="h-14 w-auto"
+              />
+              <span className="hidden sm:block font-semibold text-xl tracking-tight text-brand-nero">
+                FORGE<span className="text-brand-corallo">GROUP</span>
+              </span>
+            </div>
+            <a href="#candidati" className="btn-ghost text-sm">
+              Richiedi lo studio di fattibilità
+            </a>
+          </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="sticky top-0 z-[100] isolate bg-brand-bianco border-b border-brand-bordo shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -350,7 +380,7 @@ export default function Navbar() {
               onClick={closeMenu}
               className="block btn-corallo w-full text-center text-base py-4 rounded-full"
             >
-              HAI UN MINUTO?
+              Richiedi lo studio di fattibilità
             </Link>
           </div>
         </div>

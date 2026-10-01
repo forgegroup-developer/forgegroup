@@ -1,33 +1,86 @@
 import Link from "next/link";
 import HeroPagina from "@/components/sezioni/HeroPagina";
 import type { Metadata } from "next";
-import ForgeGradientBackground from "@/components/sfondi/ForgeGradientBackground";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ServiziTabCard, { type ServiziTabPoint } from "@/components/sezioni/ServiziTabCard";
-import RelatedBlogLinks from "@/components/blog/RelatedBlogLinks";
 import FAQAccordion from "@/components/ui/FAQAccordion";
 import JsonLdFAQ from "@/components/ui/JsonLdFAQ";
 import { faqsPagina } from "@/data/site";
-import SectionHeader from "@/components/ui/SectionHeader";
-import { serviziSidebarImages } from "@/data/images";
+import { CONTENITORE, SEZIONE, STRETTO, Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
+import { altriProblemi, problemiConScena, type Problema } from "@/data/blocchi";
 
 type ServiziTab = {
   id: string;
+  scena: { src: string; alt: string };
+  problemi: Problema[];
+  pratica?: { titolo: string; voci: string[] };
+  extra?: React.ReactNode;
   number: string;
   title: React.ReactNode;
   intro: React.ReactNode;
   points: ServiziTabPoint[];
-  sidebarImage: string;
-  sidebarImageAlt: string;
 };
+
+/* I problemi sono quelli della landing /inizia, con le stesse parole:
+   chi arriva da lì ritrova le sue frasi, e un testo cambia in un posto solo. */
+const tutti = [...problemiConScena, ...altriProblemi];
+const problemi = (...temi: string[]) =>
+  temi.map((t) => {
+    const p = tutti.find((x) => x.tema === t);
+    if (!p) throw new Error(`Problema non trovato: ${t}`);
+    return p;
+  });
+const scena = (tema: string) => {
+  const p = problemiConScena.find((x) => x.tema === tema)!;
+  return { src: p.src, alt: p.alt };
+};
+
+/* Il conto della landing, disegnato: riquadri uniti dalla freccia. */
+function ContoSopralluoghi() {
+  const passi = [
+    "Esci per otto sopralluoghi al mese",
+    "Ne chiudi uno",
+    "Sono sette giornate a vuoto al mese, più di ottanta l'anno",
+  ];
+  return (
+    // Dentro la scheda chiara il testo diventa scuro da solo: qui il fondo e'
+    // mattone, quindi il bianco e' forzato.
+    <div className="rounded-2xl bg-brand-mattone p-6 md:p-8">
+      <p className="mb-4 text-sm font-semibold uppercase tracking-wide !text-white/80">
+        Facciamo due conti, con numeri tondi
+      </p>
+      {/* Da computer i riquadri stanno in fila con la freccia a destra,
+          da telefono uno sotto l'altro con la freccia in basso. */}
+      <ol className="flex flex-col gap-2 md:flex-row md:items-stretch">
+        {passi.map((p, i) => (
+          <li key={p} className="flex flex-col md:flex-1 md:flex-row md:items-center">
+            <p className="flex-1 rounded-xl border border-white/20 bg-white/5 px-4 py-4 font-medium !text-white md:h-full">
+              {p}
+            </p>
+            {i < passi.length - 1 && (
+              <p className="py-1 text-center text-xl font-bold !text-white/80 md:px-3 md:py-0" aria-hidden>
+                <span className="md:hidden">↓</span>
+                <span className="hidden md:inline">→</span>
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+      <p className="mt-6 text-center font-display text-xl font-bold leading-snug !text-white md:text-2xl">
+        Più di quattro mesi di lavoro regalati a chi non avrebbe mai firmato.
+      </p>
+    </div>
+  );
+}
 
 const serviziTabs: ServiziTab[] = [
   {
     id: "acquisizione",
     number: "01",
-    sidebarImage: serviziSidebarImages.acquisizione,
-    sidebarImageAlt: "Illustrazione acquisizione clienti",
+    scena: scena("Sopralluoghi regalati"),
+    problemi: problemi("Sopralluoghi regalati", "I mesi morti", "L'agenzia di prima"),
+    extra: <ContoSopralluoghi />,
     title: "Acquisizione Clienti",
     intro: (
       <>
@@ -66,8 +119,23 @@ const serviziTabs: ServiziTab[] = [
   {
     id: "vendite",
     number: "02",
-    sidebarImage: serviziSidebarImages.vendite,
-    sidebarImageAlt: "Illustrazione processi di vendita",
+    pratica: {
+      titolo: "Le regole del processo di vendita che scriviamo con te:",
+      voci: [
+        "Al primo incontro si capisce chi decide e chi paga, prima di progettare.",
+        "La cifra si dice presto: se è sostenibile, si fissa il sopralluogo.",
+        "Non è più un preventivo ma un piano dei lavori, presentato di persona e mai su WhatsApp.",
+        "Ogni incontro finisce con una data, scritta nel gestionale prima di salutarsi.",
+        "Come e quando si paga si decide prima di iniziare, per iscritto.",
+      ],
+    },
+    scena: scena("La guerra dei prezzi"),
+    problemi: problemi(
+      "La guerra dei prezzi",
+      "Il preventivo e poi il silenzio",
+      "La paura di vendere",
+      "I soldi che non entrano",
+    ),
     title: "Processi di Vendita",
     intro: (
       <>
@@ -91,7 +159,7 @@ const serviziTabs: ServiziTab[] = [
             Nessuna richiesta resta ferma <span>perché ci si è dimenticati</span>.
           </>
         ),
-        body: "Ogni contatto entra nel CRM con uno stato, una data e la persona che lo segue. Se una trattativa è ferma da due settimane lo vedi senza doverlo chiedere a nessuno.",
+        body: "Ogni contatto entra nel gestionale con uno stato, una data e la persona che lo segue. Se una trattativa è ferma da due settimane lo vedi senza doverlo chiedere a nessuno.",
       },
       {
         title: (
@@ -99,18 +167,18 @@ const serviziTabs: ServiziTab[] = [
             Ogni settimana le guardiamo <span>una per una</span>.
           </>
         ),
-        body: "Quattro chiamate al mese, dedicate solo alle trattative aperte. Si apre il CRM e si passa in rassegna: a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
+        body: "Ogni settimana ti affianchiamo sulle trattative aperte: si apre il gestionale e si passa in rassegna a che punto è, chi decide, cosa gli manca per firmare, quando lo risenti.",
       },
     ],
   },
   {
     id: "consulenza",
     number: "03",
-    sidebarImage: serviziSidebarImages.consulenza,
-    sidebarImageAlt: "Illustrazione consulenza e formazione",
+    scena: scena("Il titolare dentro il cantiere"),
+    problemi: problemi("Il titolare dentro il cantiere"),
     title: (
       <>
-        Consulenza <span className="whitespace-nowrap">e Formazione</span>
+        Consulenza <span className="whitespace-nowrap">e metodo</span>
       </>
     ),
     intro: (
@@ -149,15 +217,37 @@ const serviziTabs: ServiziTab[] = [
   },
 ];
 
+/* Le tre domande dello studio di fattibilità (Scheda dei fatti). */
+const studio = [
+  {
+    titolo: "Quanto lavoro reggi davvero oggi.",
+    testo:
+      "Con gli uomini e i mezzi che hai adesso: se il mese prossimo arrivassero dieci sopralluoghi in più, li porteresti a casa o ne perderesti metà per strada?",
+    chiave: "dieci sopralluoghi in più",
+  },
+  {
+    titolo: "Come si alimenta la macchina senza sovraccaricarla.",
+    testo:
+      "Il lavoro in più serve a poco se poi salta una consegna e ti bruci il cliente che avevi già.",
+    chiave: "ti bruci il cliente che avevi già",
+  },
+  {
+    titolo: "Il tuo territorio e la tua storia.",
+    testo:
+      "Quanto c'è da prendere nella tua zona, chi c'è già, da quanto tempo lavori e dove può arrivare la tua impresa.",
+    chiave: "Quanto c'è da prendere nella tua zona",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Servizi per imprese edili | Il Metodo FORGE",
   description:
-    "Come lavoriamo con un'impresa edile: la pubblicità la giriamo noi, le richieste sono filtrate prima di arrivarti, e ogni settimana guardiamo le trattative aperte una per una.",
+    "Come lavoriamo con un'impresa edile: la pubblicità la gestiamo noi, le richieste arrivano filtrate, e ogni settimana guardiamo insieme le trattative.",
   alternates: { canonical: "/servizi" },
   openGraph: {
     title: "Servizi per imprese edili | Il Metodo FORGE",
     description:
-      "Pubblicità gestita da noi, richieste filtrate prima di arrivarti, e quattro chiamate al mese dedicate solo alle trattative aperte.",
+      "Pubblicità gestita da noi, richieste filtrate prima di arrivarti, e noi al tuo fianco sulle trattative aperte, fino alla firma.",
     url: "/servizi",
     images: [{ url: "/logo.png", width: 1024, height: 1024, alt: "Forge Group Servizi" }],
   },
@@ -185,11 +275,10 @@ export default function ServiziHub() {
         testo={
           <>
             La pubblicità la giriamo noi. Il filtro lo mettiamo prima che la
-            richiesta ti arrivi. Poi una consulenza al mese in azienda, e{" "}
-            <strong className="font-semibold text-brand-nero">
-              quattro chiamate al mese
-            </strong>{" "}
-            dedicate solo alle trattative aperte.
+            richiesta ti arrivi. Poi le consulenze, di persona o in
+            videochiamata, e{" "}
+            <strong className="chiave">noi al tuo fianco sulle trattative aperte</strong>,
+            fino alla firma.
           </>
         }
         nota={
@@ -215,23 +304,15 @@ export default function ServiziHub() {
         }}
       />
 
-      {/* TRE SERVIZI — layout originale, copy LP */}
-      <ForgeGradientBackground
-        as="section"
-        id="servizi-contenuto"
-        className="scroll-mt-24 py-16 md:py-24 section-coral section-coral-gradient"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            onCoral
-            eyebrow="Come lavoriamo"
-            title={
-              <>
-                Le <span>3 macroaree</span>
-              </>
-            }
-            maxWidth="4xl"
-          />
+      {/* TRE MACROAREE · mattone. Ognuna parte dal suo problema. */}
+      <section id="servizi-contenuto" className={`scroll-mt-24 section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="Come lavoriamo"
+            sottotitolo="Ognuna parte dai problemi che ci raccontano i titolari al primo appuntamento, con le loro parole, e accanto c'è cosa facciamo per risolverli."
+          >
+            Tre macroaree, dal <Chiave>primo contatto</Chiave> alla firma.
+          </Titolo>
 
           <div className="space-y-6 md:space-y-8">
             {serviziTabs.map((tab) => (
@@ -239,101 +320,72 @@ export default function ServiziHub() {
             ))}
           </div>
         </div>
-      </ForgeGradientBackground>
+      </section>
 
       <ClientiLogos />
 
-      <MetodoForge />
+      <MetodoForge className="section-mattone" />
 
       {/* STUDIO DI FATTIBILITA': sostituisce il blocco garanzia.
           La domanda "e se non funziona?" si chiude prima di cominciare,
           con la selezione, non dopo con un rimborso. Decisione della
           proprieta' del 24/09/2026. */}
-      <section className="section-bianco border-y py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
-          <p className="eyebrow eyebrow-mark mb-4 flex">Prima di cominciare</p>
-          <h2 className="heading-section-xl mb-6 text-balance">
-            La prima domanda non è quanto costa.{" "}
-            <span className="text-brand-corallo-text">
-              È se ha senso lavorare insieme.
-            </span>
-          </h2>
-          <p className="body-lg mb-6 max-w-2xl">
-            Il primo passo è uno studio di fattibilità, e serve a rispondere a
-            quella domanda lì. A volte la risposta è no, e te la diamo prima che
-            tu abbia speso un euro in pubblicità.
-          </p>
+      <section className={`section-bianco ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo
+            occhiello="Prima di cominciare"
+            sottotitolo="Il primo passo è uno studio di fattibilità, e serve a rispondere a quella domanda. A volte la risposta è no, e te la diamo prima che tu abbia speso un euro in pubblicità."
+          >
+            La prima domanda non è quanto costa, ma se ha senso <Chiave>lavorare insieme</Chiave>.
+          </Titolo>
 
-          <ol className="mb-8 space-y-5 max-w-2xl">
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Quanto lavoro reggi davvero oggi.
-              </span>{" "}
-              Con gli uomini e i mezzi che hai adesso. Se il mese prossimo ti
-              arrivassero dieci sopralluoghi in più, li porteresti a casa o ne
-              perderesti metà per strada? È la domanda che nessuno ti fa prima
-              di venderti la pubblicità.
-            </li>
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Come si alimenta la macchina senza mandarla in sovraccarico.
-              </span>{" "}
-              Il lavoro in più serve a poco se poi ti salta la consegna e ti
-              bruci il cliente che avevi già.
-            </li>
-            <li className="body-lg">
-              <span className="font-semibold text-brand-nero">
-                Il tuo territorio, e la tua storia.
-              </span>{" "}
-              Quanto c’è da prendere nella tua zona, chi c’è già, da quanto
-              tempo lavori e dove può arrivare la tua impresa.
-            </li>
+          <ol className={`${STRETTO} mb-10 grid gap-5 md:grid-cols-3`}>
+            {studio.map((voce, i) => (
+              <li key={voce.titolo} className="rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
+                <p className="eyebrow mb-2">Domanda #{i + 1}</p>
+                <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero">
+                  {voce.titolo}
+                </h3>
+                <p className="leading-relaxed text-brand-grigio">
+                  <Evidenzia testo={voce.testo} chiave={voce.chiave} />
+                </p>
+              </li>
+            ))}
           </ol>
 
-          <p className="body-lg mb-8 max-w-2xl">
-            Non lavoriamo con chiunque. Prendiamo poche imprese, un territorio
-            alla volta, e solo quelle che hanno una storia alle spalle e margine
-            per crescere. Non è per fare i difficili: è che se la tua azienda
-            non regge il lavoro che le arriva, il problema diventa di tutti e
-            due.
+          <p className={`${STRETTO} body-lg mb-10 text-pretty text-center`}>
+            Non lavoriamo con chiunque. Prendiamo poche imprese,{" "}
+            <strong className="chiave">un territorio alla volta</strong>, e solo quelle che
+            hanno una storia alle spalle e margine per crescere. Se la tua azienda non regge il
+            lavoro che le arriva, il problema diventa di tutti e due.
           </p>
 
-          <Link
-            href="/contatti"
-            className="btn-corallo inline-block px-8 py-4 text-sm md:text-base"
-          >
-            Richiedi lo studio di fattibilità
-          </Link>
+          <div className="flex justify-center">
+            <Link href="/contatti" className="btn-ghost text-center">
+              Richiedi lo studio di fattibilità ↗
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Le domande di questa pagina: quelle su come si lavora. Le altre
           stanno dove il dubbio nasce (prezzo e prova nei casi studio,
           controllo nel CRM, ingresso nei contatti). */}
-      <section id="domande" className="scroll-mt-24 section-sabbia border-y py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Domande frequenti"
-            title={
-              <>
-                Come si lavora,{" "}
-                <span className="text-brand-corallo-text">nel concreto</span>.
-              </>
-            }
-          />
-          <FAQAccordion items={faqsPagina("servizi")} />
+      <section id="domande" className={`scroll-mt-24 section-mattone ${SEZIONE}`}>
+        <div className={CONTENITORE}>
+          <Titolo occhiello="Domande frequenti">
+            Come si lavora, <Chiave>nel concreto</Chiave>.
+          </Titolo>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion items={faqsPagina("servizi")} />
+          </div>
         </div>
       </section>
 
       <JsonLdFAQ items={faqsPagina("servizi")} />
 
-      <RelatedBlogLinks
-        slugs={[
-          "come-acquisire-clienti-b2b-campania",
-          "sistema-vendita-b2b-dalla-lead-al-contratto",
-          "quanto-costa-lead-generation-b2b",
-        ]}
-      />
+      {/* I link agli articoli tornano quando ci sono quelli nuovi sulle
+          imprese edili: i vecchi (B2B, Campania) si ritirano. */}
     </>
   );
 }

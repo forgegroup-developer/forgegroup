@@ -20,8 +20,8 @@ import Link from "next/link";
 
 const garanzie = [
   {
-    t: "Il CRM gestionale è tuo",
-    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il CRM, aperto.",
+    t: "Il gestionale lo apri tu",
+    d: "Ogni richiesta che entra ha uno stato, una data e una persona che la segue. Lo apri tu dal telefono, quando vuoi, e vedi a che punto sta. Non è un report che arriva a fine mese: è il gestionale, aperto.",
   },
   {
     t: "Sai dove finiscono i tuoi soldi",
@@ -39,10 +39,16 @@ const garanzie = [
 
 export default function GaranziaTrasparenza() {
   return (
-    <section id="trasparenza" className="section-bianco scroll-mt-24 border-y py-20 md:py-28">
+    <section
+      id="trasparenza"
+      className="section-bianco scroll-mt-24 border-y py-20 md:py-28"
+    >
       <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <p className="mb-6 flex justify-center">
-          <span className="eyebrow-rule">La garanzia di trasparenza</span>
+          <span className="eyebrow-rule">Cosa vedi tu, e quando</span>
+        </p>
+        <p className="mb-4 text-center font-display text-xl font-bold text-brand-grigio">
+          &laquo;E se poi non funziona anche stavolta?&raquo;
         </p>
         <h2 className="heading-section-xl mb-6 text-center text-balance">
           Non ti chiediamo di fidarti.{" "}
@@ -51,8 +57,8 @@ export default function GaranziaTrasparenza() {
         <p className="mx-auto mb-14 max-w-2xl text-center text-pretty text-lg leading-relaxed text-brand-grigio md:mb-16">
           Quasi nessuno degli imprenditori con cui parliamo è al primo
           tentativo. E quasi nessuno si lamenta dei risultati: si lamenta di
-          aver pagato un canone senza poter vedere niente. Ecco cosa vedi tu,
-          e quando.
+          aver pagato un canone senza poter vedere niente. Ecco cosa vedi tu, e
+          quando.
         </p>
 
         <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
@@ -70,14 +76,22 @@ export default function GaranziaTrasparenza() {
 
         <div className="mt-14 rounded-2xl bg-brand-panna p-7 text-center sm:p-9">
           <p className="mx-auto max-w-3xl text-pretty text-lg leading-relaxed text-brand-nero">
-            Il <strong className="font-semibold">CRM lo diamo a ogni impresa</strong>{" "}
+            Il{" "}
+            <strong className="font-semibold">
+              gestionale lo diamo a ogni impresa
+            </strong>{" "}
             che decide di lavorare con noi. Non è un extra da comprare a parte:
             è la parte del Metodo FORGE che ti fa vedere quello che sta
-            succedendo, richiesta per richiesta.
+            succedendo, richiesta per richiesta. E dopo 60 giorni rivediamo
+            insieme le stime sui dati veri:{" "}
+            <strong className="font-semibold">
+              se i numeri non si muovono, cambiamo strategia, campagne o budget
+            </strong>
+            .
           </p>
           <div className="mt-7">
             <Link href="#metodo" className="btn-ghost">
-              Vedi il Metodo FORGE, i 5 step
+              Vedi le cinque fasi del Metodo FORGE
             </Link>
           </div>
         </div>
