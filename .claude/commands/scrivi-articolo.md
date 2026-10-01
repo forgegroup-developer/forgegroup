@@ -101,6 +101,24 @@ frasi dette davvero, con la fonte nella scheda di revisione; cifre in euro solo 
 costruzione dalle Regole v2, i fatti solo dalla Scheda e dalla testa aziendale, almeno 3 link
 interni dentro le frasi, l'invito giusto per il livello.
 
+## 4 bis · La copertina
+
+Ogni articolo ha la sua copertina. In quest'ordine:
+1. **Foto vere di Forge o dei clienti**, se nella cartella `~/ForgeGroup/progetti/sito/materiali/03 - Materiali sito/`
+   ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente.
+2. Altrimenti **Pexels**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
+   due o tre ricerche), guarda le anteprime e scegli; poi `node scripts/copertina.mjs scarica <id> <slug>`.
+   Se lo script dice che manca la chiave, l'articolo esce con la copertina generica: scrivilo nella PR.
+
+Cosa si sceglie: una scena del mestiere che l'articolo racconta (sopralluogo, misure, cantiere, ufficio di
+un'impresa, preventivi sul tavolo), luce naturale, aspetto europeo e non americano, nessun logo o marchio
+leggibile, nessun volto in primo piano che sembri un nostro cliente. Mai una foto d'archivio presentata
+come un lavoro di DISA, Tetti Top o ROVI: accanto ai numeri dei casi vanno solo foto vere.
+
+Nel file dell'articolo metti i campi che lo script stampa: `featuredImage`, `copertina` (fonte, autore,
+pagina, licenza) e **`featuredImageAlt` scritto da te**, in italiano, con cosa si vede davvero
+("Un operaio misura con il metro una parete da intonacare"). Il file dell'immagine va nella stessa PR.
+
 ## 5 · Controllo automatico
 
 `node scripts/controlla-articolo.mjs content/articoli/<slug>.json`. Correggi finché passa.
@@ -121,7 +139,7 @@ proprietà corregge qualcosa, aggiorna il file e aggiungi la regola in
 
 **Modalità normale** (anche quando giri da solo, lanciato da `scripts/redattore-automatico.sh`):
 1. `git switch -c articolo/<slug> origin/main`
-2. aggiungi solo il file dell'articolo, commit con messaggio `articolo: <titolo>`
+2. aggiungi solo il file dell'articolo e la sua copertina (`public/images/blog/<slug>.jpg`), commit con messaggio `articolo: <titolo>`
 3. `git push -u origin articolo/<slug>`
 4. `gh pr create --label articolo` con titolo `Articolo · <data> · <titolo>` e nel corpo la
    scheda di revisione compilata e l'esito del Revisore

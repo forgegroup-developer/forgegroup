@@ -36,6 +36,10 @@ export type Article = {
   content: ArticleContentBlock[];
   /** Copertina da ForgeFlow (override immagine predefinita per slug) */
   featuredImage?: string;
+  /** Cosa si vede nella copertina (regola 7 delle immagini). Se manca si usa il titolo. */
+  featuredImageAlt?: string;
+  /** Da dove viene la copertina e con che licenza (Pexels, foto vera di un cliente…). */
+  copertina?: { fonte: string; autore?: string; pagina?: string; licenza: string };
   /** Articoli della coda: livello della piramide di consapevolezza (1-5). */
   livello?: 1 | 2 | 3 | 4 | 5;
   /** Articoli della coda: l'argomento della mappa editoriale, comune ai cinque livelli. */

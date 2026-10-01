@@ -40,7 +40,7 @@ claude -p "/scrivi-articolo" \
   --add-dir "$MATERIALI" "$HOME/ForgeGroup/ricerca" "$HOME/ForgeGroup/progetti/sito/materiali" "$HOME/ForgeGroup/progetti/sito/dipendenti-ai" "$HOME/Desktop/Claude Code Forge Group" \
   --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" "Agent" "Task" \
     "Bash(git:*)" "Bash(gh pr create:*)" "Bash(gh pr list:*)" "Bash(gh pr view:*)" \
-    "Bash(node scripts/coda-articoli.mjs:*)" "Bash(node scripts/controlla-articolo.mjs:*)" \
+    "Bash(node scripts/coda-articoli.mjs:*)" "Bash(node scripts/copertina.mjs:*)" "Bash(node scripts/controlla-articolo.mjs:*)" \
     "Bash(python3 $HOME/ForgeGroup/ricerca/concorrente-a/cerca.py:*)" "Bash(python3 $HOME/ForgeGroup/ricerca/keyword/keyword.py:*)" \
     "Bash(python3 $HOME/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py:*)" \
     "Bash(ls:*)" "Bash(date:*)" "Bash(wc:*)" \

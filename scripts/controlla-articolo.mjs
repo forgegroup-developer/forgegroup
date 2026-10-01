@@ -218,6 +218,20 @@ function controlla(file, esistenti) {
     }
   }
 
+  // La copertina (regole delle immagini in src/data/images.ts): file presente, sotto i 300 KB,
+  // descrizione di cosa si vede, fonte e licenza.
+  if (!a.featuredImage) {
+    avvisi.push("nessuna copertina: il sito userà quella generica (passo 4 bis del Redattore)");
+  } else if (a.featuredImage.startsWith("/images/blog/")) {
+    const f = path.join(RADICE, "public", a.featuredImage);
+    if (!fs.existsSync(f)) errori.push(`copertina: il file ${a.featuredImage} non c'è in public/`);
+    else if (fs.statSync(f).size > 300 * 1024) errori.push(`copertina di ${Math.round(fs.statSync(f).size / 1024)} KB: massimo 300`);
+    if (!a.featuredImageAlt || a.featuredImageAlt.includes("[") || a.featuredImageAlt.trim().split(/\s+/).length < 4) {
+      errori.push("featuredImageAlt: scrivi in italiano cosa si vede nella foto (almeno quattro parole)");
+    }
+    if (!a.copertina?.fonte || !a.copertina?.licenza) errori.push("copertina: servono fonte e licenza");
+  }
+
   // Data e ora di uscita: le 09:00 di Roma, con il fuso giusto per quel giorno.
   if (!/^\d{4}-\d{2}-\d{2}$/.test(a.date)) {
     errori.push("date: formato AAAA-MM-GG");

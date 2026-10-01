@@ -113,6 +113,19 @@ async function articolo(n) {
   const tasti = pr.isDraft
     ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
     : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
+  // La copertina scelta dal Redattore, come foto, prima del testo.
+  if (a.featuredImage?.startsWith("/images/blog/")) {
+    try {
+      const foto = execFileSync("git", ["show", `origin/${pr.headRefName}:public${a.featuredImage}`], { cwd: RADICE });
+      const dati = new FormData();
+      dati.append("chat_id", chat());
+      dati.append("caption", `Copertina: ${a.featuredImageAlt ?? ""}${a.copertina ? ` (${a.copertina.fonte})` : ""}`.slice(0, 1000));
+      dati.append("photo", new Blob([foto], { type: "image/jpeg" }), "copertina.jpg");
+      await fetch(`${API}/sendPhoto`, { method: "POST", body: dati });
+    } catch (e) {
+      console.error(`copertina non inviata: ${e.message}`);
+    }
+  }
   if (a.content) {
     const pezzi = testoIntero(a);
     for (const [i, pezzo] of pezzi.entries()) await messaggio(`${pezzo}\n\n<i>(${i + 1}/${pezzi.length})</i>`);

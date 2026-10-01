@@ -190,7 +190,7 @@ export default async function ArticleDetail({ params }: Props) {
             <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-brand-bordo shadow-md">
               <Image
                 src={getBlogImage(a.slug, a.featuredImage)}
-                alt={a.title}
+                alt={a.featuredImageAlt ?? a.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 896px) 100vw, 896px"
