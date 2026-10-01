@@ -46,6 +46,8 @@ claude -p "/scrivi-articolo" \
     "Bash(ls:*)" "Bash(date:*)" "Bash(wc:*)" \
   > "$USCITA" 2>&1
 echo "claude uscito con codice $?"
+# Il Redattore ha lavorato su un ramo dell'articolo: si torna al ramo di partenza prima di usare gli script.
+git checkout -q --detach "$REF"
 
 PR_URL="$(grep -oE 'PR: https://github.com/[^ ]+/pull/[0-9]+' "$USCITA" | tail -1 | sed 's/^PR: //')"
 if [ -n "$PR_URL" ]; then
@@ -53,5 +55,4 @@ if [ -n "$PR_URL" ]; then
 else
   avvisa "Redattore: oggi non ho aperto la PR dell'articolo. Il motivo è in fondo al log del $OGGI ($USCITA)."
 fi
-git checkout -q --detach origin/main
 echo "=== $(date '+%F %T') fine"
