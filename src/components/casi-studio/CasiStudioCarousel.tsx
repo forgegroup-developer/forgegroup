@@ -165,9 +165,9 @@ export default function CasiStudioCarousel({ senzaLinkElenco = false }: Props) {
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/contatti"
-            className="btn-hero btn-hero-chiaro px-8 py-4 text-center text-sm md:text-base"
+            className="btn-hero btn-hero-compatto btn-hero-chiaro"
           >
-            Voglio lo studio di fattibilità per la mia impresa
+            Richiedi lo studio di fattibilità
           </Link>
           {!senzaLinkElenco && (
             <Link href="/casi-studio" className="arrow-link !text-white">

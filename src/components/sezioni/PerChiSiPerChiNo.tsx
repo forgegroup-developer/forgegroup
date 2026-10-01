@@ -159,7 +159,7 @@ export default function PerChiSiPerChiNo({
             </p>
           )}
           <Link href={ctaHref} className="btn-corallo">
-            Voglio lo studio di fattibilità per la mia impresa
+            Richiedi lo studio di fattibilità
           </Link>
         </div>
       </div>

@@ -288,13 +288,13 @@ export default async function ArticleDetail({ params }: Props) {
                           ✦ Vuoi applicarlo alla tua azienda?
                         </p>
                         <h3 className="text-xl font-semibold md:text-3xl text-brand-nero mb-4">
-                          {block.text || "Compila la prequalifica"}
+                          {block.text || "Richiedi lo studio di fattibilità"}
                         </h3>
                         <p className="text-brand-grigio mb-6">
                           Se hai un&apos;impresa edile e ti ci ritrovi, ne parliamo entro 48 ore.
                         </p>
                         <Link href="/contatti" className="btn-corallo">
-                          HAI UN MINUTO?
+                          Richiedi lo studio di fattibilità
                         </Link>
                       </div>
                     );

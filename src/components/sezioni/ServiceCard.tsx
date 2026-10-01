@@ -170,7 +170,7 @@ export default function ServiceCard({
         <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
           <Evidenzia testo={item.soluzione} chiave={item.chiave} />
         </p>
-        <div className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-all duration-200 group-hover:gap-3 group-hover:bg-brand-corallo/10">
+        <div className="btn-ghost mt-auto w-fit">
           → Scopri come
         </div>
       </div>

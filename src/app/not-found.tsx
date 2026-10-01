@@ -14,10 +14,10 @@ export default function NotFound() {
           Il link che hai seguito non esiste o è stato spostato. Torna alla home o contattaci.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/" className="btn-corallo px-8 py-4">
+          <Link href="/" className="btn-corallo">
             Torna alla Home
           </Link>
-          <Link href="/contatti" className="btn-ghost px-8 py-4">
+          <Link href="/contatti" className="btn-ghost">
             Contattaci
           </Link>
         </div>

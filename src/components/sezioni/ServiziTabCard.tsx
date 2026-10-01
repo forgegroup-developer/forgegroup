@@ -154,7 +154,7 @@ export default function ServiziTabCard({
               padding al pulsante. */}
           <Link
             href="/contatti"
-            className="inline-flex w-fit max-w-full items-center gap-1.5 rounded-full border-2 border-brand-corallo px-6 py-3 text-sm font-bold text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10"
+            className="btn-ghost"
           >
             Richiedi lo studio di fattibilità ↗
           </Link>

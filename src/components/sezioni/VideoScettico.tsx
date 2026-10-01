@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { caseStudies } from "@/data/caseStudies";
+import { siteImages } from "@/data/images";
 
 /**
  * Il blocco per chi è scettico.
@@ -66,8 +67,8 @@ export default function VideoScettico({ senzaLinkCaso = false }: Props) {
             ) : (
               <button type="button" onClick={avvia} className="avvia-video">
                 <Image
-                  src="/images/casi-studio/software-b2b.jpg"
-                  alt=""
+                  src={siteImages.videoPoster}
+                  alt="Il titolare di DISA racconta i 126.500 € in 90 giorni"
                   fill
                   sizes="(min-width: 1024px) 52vw, 100vw"
                 />
