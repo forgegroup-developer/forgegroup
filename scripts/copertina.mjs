@@ -55,7 +55,8 @@ async function scarica(id, slug) {
   const f = (await pixabay({ id: String(Number(id)) })).hits?.[0];
   if (!f) throw new Error("foto non trovata");
   const tmp = path.join(os.tmpdir(), `copertina-${id}.jpg`);
-  const r = await fetch(f.largeImageURL);
+  // Pixabay rifiuta i download senza l'intestazione di un browser (403).
+  const r = await fetch(f.largeImageURL, { headers: { "User-Agent": "Mozilla/5.0 (Macintosh) ForgeRedattore" } });
   if (!r.ok) throw new Error(`download non riuscito (${r.status})`);
   fs.writeFileSync(tmp, Buffer.from(await r.arrayBuffer()));
 
