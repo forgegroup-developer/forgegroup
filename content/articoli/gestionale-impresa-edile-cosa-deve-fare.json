@@ -16,6 +16,14 @@
   "livello": 3,
   "argomento": "trattative-nella-testa",
   "autore": "marco",
+  "featuredImage": "/images/blog/gestionale-impresa-edile-cosa-deve-fare.jpg",
+  "featuredImageAlt": "Una scrivania con un portatile aperto, un quaderno, una penna, il telefono e una tazza di caffè",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "AJS1",
+    "pagina": "https://pixabay.com/photos/desk-pen-work-computer-to-write-4945693/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)"
+  },
   "seo": {
     "parolaChiave": "gestionale impresa edile",
     "secondarie": [
