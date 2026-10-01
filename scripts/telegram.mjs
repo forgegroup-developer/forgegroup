@@ -24,6 +24,9 @@ const FILE_CHAT = path.join(CARTELLA, "chat-id");
 const FILE_OFFSET = path.join(CARTELLA, "offset");
 const FILE_ATTESA = path.join(CARTELLA, "correzione-in-attesa.json");
 const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+// La copia di lavoro dove si cambiano le copertine (la stessa del Redattore automatico).
+const COPIA = path.join(os.homedir(), "ForgeGroup", "progetti", "sito", "repo-redattore");
+const LOG = path.join(os.homedir(), "ForgeGroup", "logs", "redattore");
 fs.mkdirSync(CARTELLA, { recursive: true });
 
 function chiave() {
@@ -121,6 +124,10 @@ async function articolo(n) {
       dati.append("chat_id", chat());
       dati.append("caption", `Copertina: ${a.featuredImageAlt ?? ""}${a.copertina ? ` (${a.copertina.fonte})` : ""}`.slice(0, 1000));
       dati.append("photo", new Blob([foto], { type: "image/jpeg" }), "copertina.jpg");
+      dati.append("reply_markup", JSON.stringify({ inline_keyboard: [[
+        { text: "👍 Va bene", callback_data: `fotook:${n}` },
+        { text: "🔄 Altre copertine", callback_data: `foto:${n}` },
+      ]] }));
       await fetch(`${API}/sendPhoto`, { method: "POST", body: dati });
     } catch (e) {
       console.error(`copertina non inviata: ${e.message}`);
@@ -131,6 +138,80 @@ async function articolo(n) {
     for (const [i, pezzo] of pezzi.entries()) await messaggio(`${pezzo}\n\n<i>(${i + 1}/${pezzi.length})</i>`);
   }
   await messaggio(testo, tasti);
+}
+
+/** Una foto (file locale) con didascalia e tasti. */
+async function foto(buffer, didascalia, tasti) {
+  const dati = new FormData();
+  dati.append("chat_id", chat());
+  dati.append("caption", didascalia.slice(0, 1000));
+  dati.append("photo", new Blob([buffer], { type: "image/jpeg" }), "foto.jpg");
+  if (tasti) dati.append("reply_markup", JSON.stringify({ inline_keyboard: [tasti] }));
+  const r = await (await fetch(`${API}/sendPhoto`, { method: "POST", body: dati })).json();
+  if (!r.ok) throw new Error(`Telegram sendPhoto: ${r.description}`);
+}
+
+/** L'articolo di una PR, letto dal suo ramo. */
+function articoloDellaPr(n) {
+  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "headRefName,files,state"));
+  if (pr.state !== "OPEN") throw new Error(`la PR #${n} non è aperta`);
+  const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
+  if (!file) throw new Error(`la PR #${n} non contiene un articolo`);
+  execFileSync("git", ["fetch", "-q", "origin", pr.headRefName], { cwd: RADICE });
+  const a = JSON.parse(execFileSync("git", ["show", `origin/${pr.headRefName}:${file}`], { cwd: RADICE, encoding: "utf8" }));
+  return { pr, file, a };
+}
+
+/** Tre copertine alternative da Pixabay, ognuna con il tasto "Usa questa". */
+async function altreCopertine(n) {
+  const { a } = articoloDellaPr(n);
+  const attuale = String(a.copertina?.pagina ?? "").match(/-(\d+)\/?$/)?.[1];
+  const ricerche = [a.copertina?.ricerca, a.seo?.parolaChiave, a.tags?.[0]].filter(Boolean);
+  const visti = new Set([attuale]);
+  const scelte = [];
+  for (const q of ricerche) {
+    const lista = JSON.parse(execFileSync("node", [path.join(RADICE, "scripts", "copertina.mjs"), "cerca", q], { encoding: "utf8" }));
+    for (const f of lista) if (!visti.has(String(f.id)) && scelte.length < 3) { visti.add(String(f.id)); scelte.push(f); }
+    if (scelte.length >= 3) break;
+  }
+  if (!scelte.length) return messaggio("Non ho trovato altre copertine adatte: dimmi in chat cosa vorresti vedere.");
+  for (const f of scelte) {
+    const img = Buffer.from(await (await fetch(f.anteprima, { headers: { "User-Agent": "Mozilla/5.0 (Macintosh) ForgeRedattore" } })).arrayBuffer());
+    await foto(img, `Alternativa per la PR #${n} (Pixabay)`, [{ text: "✅ Usa questa", callback_data: `usa:${n}:${f.id}` }]);
+  }
+}
+
+/**
+ * Mette nella PR la copertina scelta: scarica, comprime, aggiorna il file dell'articolo,
+ * commit e push sul ramo della PR. Nessun agente: solo questo script, sulla copia del Redattore.
+ */
+async function usaCopertina(n, id) {
+  fs.mkdirSync(LOG, { recursive: true });
+  if (!fs.existsSync(COPIA)) throw new Error("la copia di lavoro del Redattore non c'è ancora");
+  const blocco = path.join(LOG, ".in-corso");
+  try { fs.mkdirSync(blocco); } catch { throw new Error("il Redattore sta lavorando: riprova fra qualche minuto"); }
+  try {
+    const { pr, file, a } = articoloDellaPr(n);
+    const git = (...x) => execFileSync("git", x, { cwd: COPIA, encoding: "utf8" });
+    git("fetch", "-q", "origin", pr.headRefName);
+    git("checkout", "-q", "-B", pr.headRefName, `origin/${pr.headRefName}`);
+    const esito = JSON.parse(execFileSync("node", [path.join(RADICE, "scripts", "copertina.mjs"), "scarica", String(Number(id)), a.slug, COPIA], { encoding: "utf8" }));
+    const percorso = path.join(COPIA, file);
+    const art = JSON.parse(fs.readFileSync(percorso, "utf8"));
+    art.featuredImage = esito.featuredImage;
+    art.featuredImageAlt = `Immagine di copertina dell'articolo: ${art.title}`;
+    art.copertina = { ...esito.copertina, ricerca: a.copertina?.ricerca };
+    fs.writeFileSync(percorso, JSON.stringify(art, null, 2) + "\n");
+    git("add", file, `public${esito.featuredImage}`);
+    git("commit", "-q", "-m", `articolo: copertina scelta dalla proprietà su Telegram (Pixabay ${id})`);
+    git("push", "-q", "origin", `HEAD:${pr.headRefName}`);
+    git("checkout", "-q", "--detach", "origin/main");
+    await foto(fs.readFileSync(path.join(COPIA, "public", esito.featuredImage)), `Copertina aggiornata nella PR #${n}. Se ti va bene anche l'articolo, premi Vai sul suo messaggio.`, [
+      { text: "✅ Vai", callback_data: `vai:${n}` },
+    ]);
+  } finally {
+    fs.rmSync(blocco, { recursive: true, force: true });
+  }
 }
 
 async function collega() {
@@ -176,6 +257,14 @@ async function gestisci(u) {
         } else if (azione === "scarta") {
           gh("pr", "close", n, "--delete-branch");
           await messaggio(`🗑 PR #${n} chiusa. L'argomento torna libero.`);
+        } else if (azione === "fotook") {
+          await messaggio(`👍 Copertina della PR #${n} confermata.`);
+        } else if (azione === "foto") {
+          await messaggio(`Cerco altre copertine per la PR #${n}…`);
+          await altreCopertine(n);
+        } else if (azione === "usa") {
+          await messaggio(`Metto la copertina scelta nella PR #${n}…`);
+          await usaCopertina(n, u.callback_query.data.split(":")[2]);
         } else if (azione === "correggi") {
           fs.writeFileSync(FILE_ATTESA, JSON.stringify({ pr: n, quando: Date.now() }));
           await messaggio(`✏️ Scrivimi (o detta) cosa cambiare nell'articolo della PR #${n}.`);

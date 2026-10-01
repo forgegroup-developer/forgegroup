@@ -116,7 +116,7 @@ leggibile, nessun volto in primo piano che sembri un nostro cliente. Mai una fot
 come un lavoro di DISA, Tetti Top o ROVI: accanto ai numeri dei casi vanno solo foto vere.
 
 Nel file dell'articolo metti i campi che lo script stampa: `featuredImage`, `copertina` (fonte, autore,
-pagina, licenza) e **`featuredImageAlt` scritto da te**, in italiano, con cosa si vede davvero
+pagina, licenza, e `ricerca` con le parole che hai usato: servono al tasto "Altre copertine" su Telegram) e **`featuredImageAlt` scritto da te**, in italiano, con cosa si vede davvero
 ("Un operaio misura con il metro una parete da intonacare"). Il file dell'immagine va nella stessa PR.
 
 ## 5 · Controllo automatico

@@ -6,7 +6,7 @@
  *
  * Uso:
  *   node scripts/copertina.mjs cerca "parole in inglese o italiano"   10 foto orizzontali
- *   node scripts/copertina.mjs scarica <id foto> <slug articolo>      la scarica, la comprime
+ *   node scripts/copertina.mjs scarica <id foto> <slug articolo> [repo]   la scarica, la comprime
  *        sotto i 300 KB in public/images/blog/<slug>.jpg e stampa i campi da mettere nel file
  *        dell'articolo (featuredImage, featuredImageAlt da scrivere, copertina con la fonte)
  *
@@ -50,7 +50,7 @@ async function cerca(parole) {
   console.log(JSON.stringify(foto, null, 1));
 }
 
-async function scarica(id, slug) {
+async function scarica(id, slug, radice = RADICE) {
   if (!/^[a-z0-9-]+$/.test(slug)) throw new Error("slug non valido");
   const f = (await pixabay({ id: String(Number(id)) })).hits?.[0];
   if (!f) throw new Error("foto non trovata");
@@ -60,7 +60,7 @@ async function scarica(id, slug) {
   if (!r.ok) throw new Error(`download non riuscito (${r.status})`);
   fs.writeFileSync(tmp, Buffer.from(await r.arrayBuffer()));
 
-  const dest = path.join(RADICE, "public", "images", "blog", `${slug}.jpg`);
+  const dest = path.join(radice, "public", "images", "blog", `${slug}.jpg`);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   // Larghezza 1600 e qualità che scende finché il file sta sotto i 300 KB (regola 6 delle immagini).
   for (const qualita of [72, 65, 58, 50, 42]) {
@@ -86,7 +86,7 @@ async function scarica(id, slug) {
 
 const [comando, ...resto] = process.argv.slice(2);
 if (comando === "cerca") await cerca(resto.join(" "));
-else if (comando === "scarica") await scarica(resto[0], resto[1]);
+else if (comando === "scarica") await scarica(resto[0], resto[1], resto[2]);
 else {
   console.log('Uso: cerca "parole" | scarica <id> <slug>');
   process.exit(1);
