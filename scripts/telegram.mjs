@@ -60,6 +60,35 @@ async function messaggio(testo, tasti) {
 
 const html = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+/** L'articolo intero, come lo legge il titolare: titoletti, paragrafi, elenchi, invito, FAQ. */
+function testoIntero(a) {
+  const conLink = (t) =>
+    html(t).replace(/\[([^\]]+)\]\((\/[^)]*)\)/g, (_, testo, url) => `<a href="https://www.forgegroup.it${url}">${testo}</a>`);
+  const parti = [`<b>${html(a.title)}</b>`];
+  for (const b of a.content ?? []) {
+    if (b.type === "h2" || b.type === "h3") parti.push(`<b>${html(b.text)}</b>`);
+    else if (b.type === "ul") parti.push(b.items.map((v) => `• ${conLink(v)}`).join("\n"));
+    else if (b.type === "quote") parti.push(`<i>${conLink(b.text)}</i>`);
+    else if (b.type === "cta") parti.push(`👉 <b>${html(b.text)}</b>`);
+    else if (b.text) parti.push(conLink(b.text));
+  }
+  if (a.faqs?.length) {
+    parti.push("<b>DOMANDE FREQUENTI</b>");
+    for (const f of a.faqs) parti.push(`<b>${html(f.q)}</b>\n${html(f.a)}`);
+  }
+  // Telegram accetta al massimo 4096 caratteri per messaggio: si divide fra un paragrafo e l'altro.
+  const messaggi = [];
+  let corrente = "";
+  for (const p of parti) {
+    if ((corrente + "\n\n" + p).length > 3800) {
+      messaggi.push(corrente);
+      corrente = p;
+    } else corrente = corrente ? `${corrente}\n\n${p}` : p;
+  }
+  if (corrente) messaggi.push(corrente);
+  return messaggi;
+}
+
 async function articolo(n) {
   const pr = JSON.parse(gh("pr", "view", String(n), "--json", "title,url,isDraft,headRefName,files,body"));
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
@@ -70,7 +99,7 @@ async function articolo(n) {
   }
   const esito = (pr.body.match(/ESITO:\s*([A-Z ]+)/) || [])[1]?.trim() ?? "vedi la PR";
   const testo = [
-    pr.isDraft ? "⚠️ <b>BOZZA: il Revisore ha dei dubbi, leggili nella PR</b>" : "📝 <b>Articolo nuovo</b>",
+    pr.isDraft ? "⚠️ <b>BOZZA: il Revisore ha dei dubbi, leggili nella PR</b>" : "📝 <b>Articolo nuovo: Vai, Correggi o Scarta?</b>",
     "",
     `<b>${html(a.title ?? pr.title)}</b>`,
     a.date ? `Esce il ${html(a.date)} alle 09:00 · livello ${html(a.livello)} · firma ${html(a.autore)}` : "",
@@ -79,11 +108,15 @@ async function articolo(n) {
     a.inBreve ? `<b>Il problema:</b> ${html(a.inBreve.problema)}\n<b>La causa:</b> ${html(a.inBreve.causa)}\n<b>Cosa cambia:</b> ${html(a.inBreve.cambia)}` : "",
     "",
     `Revisore: ${html(esito)}`,
-    `Leggilo intero (anteprima nella PR): ${pr.url}`,
+    `L'articolo intero è nei messaggi qui sopra. Anteprima sul sito e scheda di revisione nella PR: ${pr.url}`,
   ].filter((r) => r !== undefined).join("\n");
   const tasti = pr.isDraft
     ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
     : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
+  if (a.content) {
+    const pezzi = testoIntero(a);
+    for (const [i, pezzo] of pezzi.entries()) await messaggio(`${pezzo}\n\n<i>(${i + 1}/${pezzi.length})</i>`);
+  }
   await messaggio(testo, tasti);
 }
 
