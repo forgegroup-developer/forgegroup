@@ -365,12 +365,11 @@ export default function VisionJoinSection() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-corallo-dark px-6 py-4 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:brightness-90 disabled:cursor-not-allowed disabled:opacity-60 sm:text-base md:w-auto md:px-8"
-                  style={{ fontFamily: "var(--font-vision-join-body)" }}
+                  className="btn-corallo group mt-2 w-full disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
                 >
                   {submitting
                     ? "Invio in corso..."
-                    : "Entra a far parte di Forge Group"}
+                    : "Invia la candidatura"}
                   {!submitting ? (
                     <ArrowRight
                       className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5"

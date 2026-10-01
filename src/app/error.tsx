@@ -29,10 +29,10 @@ export default function Error({
           Si è verificato un errore imprevisto. Puoi riprovare o tornare alla home.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button type="button" onClick={reset} className="btn-corallo px-8 py-4">
+          <button type="button" onClick={reset} className="btn-corallo">
             Riprova
           </button>
-          <Link href="/" className="btn-ghost px-8 py-4">
+          <Link href="/" className="btn-ghost">
             Torna alla Home
           </Link>
         </div>

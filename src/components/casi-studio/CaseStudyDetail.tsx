@@ -16,46 +16,9 @@ import {
 } from "@/components/blocchi/ui";
 import { caseStudies, type CaseStudy } from "@/data/caseStudies";
 import { recensioniGoogle } from "@/data/prove";
-import { getCaseStudyImage, getCaseStudyImagePosition, iniziaImages, primaDopoImages, teamImages } from "@/data/images";
+import { getCaseStudyImage, getCaseStudyImagePosition, teamImages } from "@/data/images";
+import { scenePrimaDopo } from "@/data/scenePrimaDopo";
 
-/*
- * Le scene del prima e dopo (immagini AI). Tetti Top usa ancora quelle
- * della landing; DISA e ROVI hanno le loro, fatte apposta il 29/09.
- */
-type Scena = { src: string; alt: string };
-const scenaCantiere: Scena = {
-  src: iniziaImages.cantiereTelefono,
-  alt: "Un imprenditore edile in cantiere guarda sul telefono le richieste, mentre due operai alzano un muro",
-};
-const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
-  edilizia: {
-    prima: {
-      src: iniziaImages.sopralluogoAVuoto,
-      alt: "Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono",
-    },
-    dopo: scenaCantiere,
-  },
-  "arredo-commerciale": {
-    prima: {
-      src: iniziaImages.prezzoPiuBasso,
-      alt: "Un titolare guarda due preventivi affiancati: il cliente indica quello più basso",
-    },
-    dopo: {
-      src: primaDopoImages.roviDopo,
-      alt: "In un negozio appena arredato, l'arredatore e la titolare guardano sorridendo il piano dei lavori su un tablet",
-    },
-  },
-  "software-b2b": {
-    prima: {
-      src: primaDopoImages.disaPrima,
-      alt: "Un commerciale alla scrivania al telefono, stanco, davanti a un elenco di numeri da chiamare",
-    },
-    dopo: {
-      src: primaDopoImages.disaDopo,
-      alt: "Lo stesso commerciale sorride in videochiamata con un imprenditore edile in cantiere, con il contratto firmato sulla scrivania",
-    },
-  },
-};
 
 /*
  * La pagina di un caso studio (rifatta il 29/09/2026).
@@ -203,7 +166,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <div>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="#risultati" className="btn-hero btn-hero-compatto btn-hero-chiaro text-base">
+              <Link href="#risultati" className="btn-hero btn-hero-compatto btn-hero-chiaro">
                 Guarda i numeri
                 <span className="btn-hero-freccia" aria-hidden>
                   ↓
@@ -554,7 +517,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
 
           <div className="mt-14 flex justify-center">
             <Link href="/contatti" className="btn-corallo text-center">
-              Richiedi lo studio di fattibilità per la tua impresa
+              Richiedi lo studio di fattibilità
             </Link>
           </div>
         </div>

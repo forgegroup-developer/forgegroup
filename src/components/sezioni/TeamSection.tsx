@@ -46,7 +46,7 @@ const collaborators = [
 ];
 
 const chipOutlineClass =
-  "inline-flex items-center rounded-full border-2 border-brand-corallo bg-transparent px-5 py-2.5 text-sm font-semibold text-brand-corallo-text shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-corallo/10";
+  "btn-ghost";
 
 function LinkedInIcon() {
   return (

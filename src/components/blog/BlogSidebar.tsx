@@ -113,8 +113,8 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
           Uno studio di fattibilità sulla tua impresa: quanto lavoro c&apos;è nella tua zona e quanto
           ne reggi oggi. A volte la risposta è no, e te la diciamo lo stesso.
         </p>
-        <Link href="/contatti" className="btn-corallo inline-block text-sm">
-          Richiedi lo studio di fattibilità
+        <Link href="/contatti" className="btn-corallo w-full">
+          Richiedi lo studio
         </Link>
       </div>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Chiave, Evidenzia, Titolo } from "@/components/blocchi/ui";
+import { Chiave, Titolo } from "@/components/blocchi/ui";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
@@ -11,6 +11,7 @@ import CasiStudioCarousel from "@/components/casi-studio/CasiStudioCarousel";
 import MetodoForge from "@/components/sezioni/MetodoForge";
 import ClientiLogos from "@/components/sezioni/ClientiLogos";
 import ConfrontoCaos from "@/components/sezioni/ConfrontoCaos";
+import StorieClienti from "@/components/sezioni/StorieClienti";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
@@ -43,66 +44,6 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
 };
-
-/** Il confronto: i problemi della Testa aziendale §3, con le parole dei titolari. */
-const confronto = [
-  {
-    tema: "Sopralluoghi regalati",
-    problema: "Gli faccio sopralluogo e progetto, e poi sceglie un altro",
-    chiave: "il sopralluogo lo fissi solo quando vale il viaggio",
-    soluzione:
-      "Il modulo chiede tipo di lavoro, tempi, budget e zona prima che la richiesta ti arrivi: il sopralluogo lo fissi solo quando vale il viaggio.",
-  },
-  {
-    tema: "Il preventivo e poi il silenzio",
-    problema: "Dopo il ci devo pensare non si è più fatto sentire",
-    chiave: "ogni settimana passiamo con te le trattative aperte",
-    soluzione:
-      "Nel gestionale ogni preventivo ha una data per richiamare, e ogni settimana passiamo con te le trattative aperte una per una.",
-  },
-  {
-    tema: "La guerra dei prezzi",
-    problema: "Per 500 euro in meno ha scelto l'altra azienda",
-    chiave: "il cliente vede cosa compra prima del totale",
-    soluzione:
-      "Al posto del solito preventivo costruiamo con te il piano dei lavori e il materiale per presentarlo: il cliente vede cosa compra prima del totale.",
-  },
-  {
-    tema: "L'agenzia di prima",
-    problema: "Ho pagato, ma i contatti non erano nemmeno lavorabili",
-    chiave: "quanto ti rende ogni euro",
-    soluzione:
-      "Il filtro lo mettiamo noi, e nel gestionale vedi contratto per contratto quanto ti rende ogni euro. Dopo 60 giorni rivediamo le stime sui dati veri.",
-  },
-  {
-    tema: "I mesi morti",
-    problema: "In quelli morti aspetto che squilli il telefono",
-    chiave: "lavorano anche quando il passaparola si ferma",
-    soluzione:
-      "Le campagne su Meta e Google le gestiamo noi, con i video girati nei tuoi cantieri: lavorano anche quando il passaparola si ferma.",
-  },
-  {
-    tema: "La paura di vendere",
-    problema: "Non richiamo per non sembrare insistente",
-    chiave: "Le parole per richiamare le scriviamo insieme",
-    soluzione:
-      "Le parole per richiamare le scriviamo insieme, così chi risponde al telefono sa cosa dire e quando dire la cifra.",
-  },
-  {
-    tema: "Il titolare dentro il cantiere",
-    problema: "Dalle 8 alle 20 sto in cantiere, e il resto lo faccio io",
-    chiave: "Tu guardi i numeri, anche dal cantiere",
-    soluzione:
-      "Il processo di vendita lo mettiamo per iscritto, così può seguirlo anche chi risponde al telefono. Tu guardi i numeri, anche dal cantiere.",
-  },
-  {
-    tema: "I soldi che non entrano",
-    problema: "Il lavoro l'ho finito, ma i soldi non arrivano",
-    chiave: "come e quando ti pagano si decide prima di iniziare",
-    soluzione:
-      "Nel processo di vendita come e quando ti pagano si decide prima di iniziare, per iscritto: acconto, saldo, bonifico.",
-  },
-];
 
 const mestieri = [
   "Costruzioni e ristrutturazioni",
@@ -186,7 +127,7 @@ export default function Home() {
           <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href="/contatti"
-              className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
+              className="btn-hero btn-hero-compatto btn-hero-caldo"
             >
               <span>Richiedi lo studio di fattibilità</span>
               <span className="btn-hero-freccia" aria-hidden>
@@ -195,7 +136,7 @@ export default function Home() {
             </Link>
             <Link
               href="#metodo"
-              className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
+              className="btn-hero btn-hero-compatto btn-hero-freddo"
             >
               <span>Guarda il Metodo FORGE</span>
               <span className="btn-hero-freccia" aria-hidden>
@@ -316,65 +257,25 @@ export default function Home() {
 
           <div className="mt-10 flex justify-center">
             <Link href="/servizi" className="btn-ghost">
-              Vedi le cinque fasi del Metodo FORGE
+              Vedi il Metodo FORGE
             </Link>
           </div>
         </div>
       </section>
 
-      {/* S7 — CONFRONTO: i problemi del titolare, in prima persona (frasi
-          delle call e Testa aziendale §3), e sotto ognuno cosa facciamo,
-          detto come meccanismo. Rifatto il 29/09 (proprietà: senza foto, le
-          scene stanno già in /servizi): al posto della tabella lunga, schede
-          a due colonne, problema sopra e risposta sotto. */}
-      <DeferredMount minHeight="480px">
+      {/* S7 — STORIE DEI CLIENTI: al posto delle schede del confronto
+          (proprietà, 01/10: "foto con commento della situazione e storie di
+          clienti, e come hanno risolto il loro problema"). */}
+      <DeferredMount minHeight="560px">
         <section className={`section-bianco border-y ${SEZIONE}`}>
           <div className={CONTENITORE}>
             <Titolo
-              occhiello="Il confronto"
-              sottotitolo="Sono le frasi che ci dicono i titolari al primo appuntamento. Sotto ognuna, cosa facciamo con te."
+              occhiello="Storie di clienti"
+              sottotitolo="Scegli un'impresa, guarda com'era prima e com'è andata dopo."
             >
-              Quello che vivi oggi, e <Chiave>cosa cambia con noi</Chiave>.
+              Tre imprese, tre problemi veri, e <Chiave>come li hanno risolti</Chiave>.
             </Titolo>
-
-            <ol className="grid gap-5 md:grid-cols-2">
-              {confronto.map((riga, idx) => (
-                <li
-                  key={riga.problema}
-                  className="flex flex-col overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco shadow-sm"
-                >
-                  <div className="flex gap-4 p-6">
-                    <span className="font-display text-2xl font-bold leading-none text-brand-corallo-text">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <div>
-                      <p className="mb-1.5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-grigio">
-                        <span className="segno-no scale-75" aria-hidden>
-                          ✕
-                        </span>
-                        {riga.tema}
-                      </p>
-                      <p className="font-display text-lg font-bold leading-snug text-brand-nero md:text-xl">
-                        &laquo;{riga.problema}&raquo;
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-auto flex gap-3.5 border-t-2 border-brand-verde/30 bg-brand-bianco px-6 py-5">
-                    <span className="segno-si mt-0.5" aria-hidden>
-                      ✓
-                    </span>
-                    <div>
-                      <p className="mb-1 text-xs font-bold uppercase tracking-widest text-brand-verde-text">
-                        Con Forge
-                      </p>
-                      <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
-                        <Evidenzia testo={riga.soluzione} chiave={riga.chiave} />
-                      </p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ol>
+            <StorieClienti />
           </div>
         </section>
       </DeferredMount>

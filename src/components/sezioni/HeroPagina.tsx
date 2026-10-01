@@ -125,7 +125,7 @@ export default function HeroPagina({
         <div className="hero-enter hero-enter-d3 mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
           <Link
             href={primario.href}
-            className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
+            className="btn-hero btn-hero-compatto btn-hero-caldo"
           >
             <span>{primario.testo}</span>
             <span className="btn-hero-freccia" aria-hidden>
@@ -135,7 +135,7 @@ export default function HeroPagina({
           {secondario && (
             <Link
               href={secondario.href}
-              className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
+              className="btn-hero btn-hero-compatto btn-hero-freddo"
             >
               <span>{secondario.testo}</span>
               <span className="btn-hero-freccia" aria-hidden>

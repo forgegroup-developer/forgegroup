@@ -428,7 +428,7 @@ export default function ContattiForm({
                         type="button"
                         onClick={() => void handleSubmit()}
                         disabled={submitting}
-                        className="btn-corallo px-10 py-4 text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="btn-corallo disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
                       </button>
@@ -436,7 +436,7 @@ export default function ContattiForm({
                       <button
                         type="button"
                         onClick={handleNext}
-                        className="btn-corallo px-10 py-4 text-base"
+                        className="btn-corallo"
                       >
                         Continua →
                       </button>

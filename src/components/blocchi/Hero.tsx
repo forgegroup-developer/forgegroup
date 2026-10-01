@@ -120,7 +120,7 @@ export default function Hero({
         <div className="mt-1 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={principale.href}
-            className="btn-hero btn-hero-compatto btn-hero-caldo text-base"
+            className="btn-hero btn-hero-compatto btn-hero-caldo"
           >
             <span>{principale.testo}</span>
             <span className="btn-hero-freccia" aria-hidden>
@@ -129,7 +129,7 @@ export default function Hero({
           </a>
           <a
             href={secondario.href}
-            className="btn-hero btn-hero-compatto btn-hero-freddo text-base"
+            className="btn-hero btn-hero-compatto btn-hero-freddo"
           >
             <span>{secondario.testo}</span>
             <span className="btn-hero-freccia" aria-hidden>

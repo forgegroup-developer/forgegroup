@@ -77,7 +77,7 @@ export default function PercheSceglierci() {
 
           <div className="mt-9">
             <Link href="#metodo" className="btn-ghost">
-              Vedi le cinque fasi del Metodo FORGE
+              Vedi il Metodo FORGE
             </Link>
           </div>
         </div>
