@@ -119,6 +119,15 @@ Nel file dell'articolo metti i campi che lo script stampa: `featuredImage`, `cop
 pagina, licenza, e `ricerca` con le parole che hai usato: servono al tasto "Altre copertine" su Telegram) e **`featuredImageAlt` scritto da te**, in italiano, con cosa si vede davvero
 ("Un operaio misura con il metro una parete da intonacare"). Il file dell'immagine va nella stessa PR.
 
+**Decisioni della proprietà del 03/10/2026, che non sono motivo di bozza:**
+- le frasi del documento "Voce diretta del target" si citano senza chiedere, sempre senza nomi di
+  persone né di aziende;
+- le frasi di chi era cliente del concorrente A si usano anonime, senza nominare il concorrente;
+- due articoli sullo stesso tema vanno bene se il taglio è diverso: parola chiave, apertura e
+  materiale vero diversi.
+Restano motivo di bozza solo un fatto, un numero o una frase che non sta in nessuna fonte, o una
+scena che la Banca del materiale segna "da verificare".
+
 ## 5 · Controllo automatico
 
 `node scripts/controlla-articolo.mjs content/articoli/<slug>.json`. Correggi finché passa.

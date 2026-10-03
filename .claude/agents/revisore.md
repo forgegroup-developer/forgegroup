@@ -97,5 +97,14 @@ DUBBI PER LA PROPRIETÀ
 - [cosa solo Marco o Gianpio possono decidere]
 ```
 
+**Decisioni della proprietà del 03/10/2026, che non sono dubbi per la proprietà:**
+- le frasi del documento "Voce diretta del target" si citano senza chiedere, sempre senza nomi di
+  persone né di aziende;
+- le frasi di chi era cliente del concorrente A si usano anonime, senza nominare il concorrente;
+- due articoli sullo stesso tema vanno bene se il taglio è diverso: parola chiave, apertura e
+  materiale vero diversi.
+Restano motivo di bozza solo un fatto, un numero o una frase che non sta in nessuna fonte, o una
+scena che la Banca del materiale segna "da verificare".
+
 Approvi solo se non c'è nessun fatto senza fonte e nessuna regola violata. Nel dubbio, DA
 CORREGGERE: è meglio un giro in più che un errore davanti a un cliente.
