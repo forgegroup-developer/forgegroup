@@ -6,6 +6,9 @@
  *   node scripts/telegram.mjs collega               salva la chat della proprietà (dopo /start al bot)
  *   node scripts/telegram.mjs messaggio "testo"     manda un messaggio semplice
  *   node scripts/telegram.mjs articolo <n PR>       manda l'articolo della PR con i tre tasti
+ *   node scripts/telegram.mjs automatico <n PR>     silenzio-assenso: unisce la PR e poi manda
+ *                                                   l'articolo "già in coda" con il tasto Ritira
+ *   node scripts/telegram.mjs promemoria            una volta al giorno: le bozze ferme da 2 giorni
  *   node scripts/telegram.mjs ricevi                legge i tasti premuti e i messaggi (lo lancia
  *                                                   il Mac ogni minuto) e fa quello che chiedono
  *
@@ -39,8 +42,45 @@ function chiave() {
 }
 const API = `https://api.telegram.org/bot${chiave()}`;
 
+/** fetch con 3 tentativi sugli errori di rete (il Mac appena sveglio, il Wi-Fi che salta). */
+async function invia(url, init) {
+  const attese = [2000, 5000, 10000];
+  for (let i = 0; ; i++) {
+    try {
+      return await fetch(url, init);
+    } catch (e) {
+      if (i >= attese.length) throw e;
+      await new Promise((ok) => setTimeout(ok, attese[i]));
+    }
+  }
+}
+
+/**
+ * Il blocco condiviso con il Redattore del mattino: una cartella con il PID di chi lavora.
+ * Un blocco di un processo morto, o più vecchio di 3 ore, si toglie (Mac spento a metà lavoro).
+ */
+function prendiBlocco() {
+  const blocco = path.join(LOG, ".in-corso");
+  fs.mkdirSync(LOG, { recursive: true });
+  for (let i = 0; i < 2; i++) {
+    try {
+      fs.mkdirSync(blocco);
+      fs.writeFileSync(path.join(blocco, "pid"), String(process.pid));
+      return () => fs.rmSync(blocco, { recursive: true, force: true });
+    } catch {
+      const pid = Number(leggi(path.join(blocco, "pid")) || 0);
+      const eta = Date.now() - fs.statSync(blocco).mtimeMs;
+      let vivo = false;
+      try { if (pid) { process.kill(pid, 0); vivo = true; } } catch { vivo = false; }
+      if (vivo && eta < 3 * 3600 * 1000) return null;
+      fs.rmSync(blocco, { recursive: true, force: true });
+    }
+  }
+  return null;
+}
+
 async function chiama(metodo, dati = {}) {
-  const r = await fetch(`${API}/${metodo}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dati) });
+  const r = await invia(`${API}/${metodo}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(dati) });
   const j = await r.json();
   if (!j.ok) throw new Error(`Telegram ${metodo}: ${j.description}`);
   return j.result;
@@ -100,6 +140,7 @@ async function articolo(n, modo = "") {
     execFileSync("git", ["fetch", "-q", "origin", pr.headRefName], { cwd: RADICE });
     a = JSON.parse(execFileSync("git", ["show", `origin/${pr.headRefName}:${file}`], { cwd: RADICE, encoding: "utf8" }));
   }
+  const automatico = modo === "automatico";
   const esito = (pr.body.match(/ESITO:\s*([A-Z ]+)/) || [])[1]?.trim() ?? "vedi la PR";
   const testo = [
     automatico
@@ -115,11 +156,10 @@ async function articolo(n, modo = "") {
     `Revisore: ${html(esito)}`,
     `L'articolo intero è nei messaggi qui sopra. Anteprima sul sito e scheda di revisione nella PR: ${pr.url}`,
   ].filter((r) => r !== undefined).join("\n");
-  const automatico = modo === "automatico";
   const tasti = automatico
     ? [{ text: "↩️ Ritira", callback_data: `ritira:${n}` }]
     : pr.isDraft
-      ? [{ text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
+      ? [{ text: "✅ Vai lo stesso", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }]
       : [{ text: "✅ Vai", callback_data: `vai:${n}` }, { text: "✏️ Correggi", callback_data: `correggi:${n}` }, { text: "🗑 Scarta", callback_data: `scarta:${n}` }];
   // La copertina scelta dal Redattore, come foto, prima del testo.
   if (a.featuredImage?.startsWith("/images/blog/")) {
@@ -133,7 +173,7 @@ async function articolo(n, modo = "") {
         { text: "👍 Va bene", callback_data: `fotook:${n}` },
         { text: "🔄 Altre copertine", callback_data: `foto:${n}` },
       ]] }));
-      await fetch(`${API}/sendPhoto`, { method: "POST", body: dati });
+      await invia(`${API}/sendPhoto`, { method: "POST", body: dati });
     } catch (e) {
       console.error(`copertina non inviata: ${e.message}`);
     }
@@ -152,7 +192,7 @@ async function foto(buffer, didascalia, tasti) {
   dati.append("caption", didascalia.slice(0, 1000));
   dati.append("photo", new Blob([buffer], { type: "image/jpeg" }), "foto.jpg");
   if (tasti) dati.append("reply_markup", JSON.stringify({ inline_keyboard: [tasti] }));
-  const r = await (await fetch(`${API}/sendPhoto`, { method: "POST", body: dati })).json();
+  const r = await (await invia(`${API}/sendPhoto`, { method: "POST", body: dati })).json();
   if (!r.ok) throw new Error(`Telegram sendPhoto: ${r.description}`);
 }
 
@@ -191,10 +231,9 @@ async function altreCopertine(n) {
  * commit e push sul ramo della PR. Nessun agente: solo questo script, sulla copia del Redattore.
  */
 async function usaCopertina(n, id) {
-  fs.mkdirSync(LOG, { recursive: true });
   if (!fs.existsSync(COPIA)) throw new Error("la copia di lavoro del Redattore non c'è ancora");
-  const blocco = path.join(LOG, ".in-corso");
-  try { fs.mkdirSync(blocco); } catch { throw new Error("il Redattore sta lavorando: riprova fra qualche minuto"); }
+  const libera = prendiBlocco();
+  if (!libera) throw new Error("il Redattore sta lavorando: riprova fra qualche minuto");
   try {
     const { pr, file, a } = articoloDellaPr(n);
     const git = (...x) => execFileSync("git", x, { cwd: COPIA, encoding: "utf8" });
@@ -215,7 +254,7 @@ async function usaCopertina(n, id) {
       { text: "✅ Vai", callback_data: `vai:${n}` },
     ]);
   } finally {
-    fs.rmSync(blocco, { recursive: true, force: true });
+    libera();
   }
 }
 
@@ -229,9 +268,8 @@ function ritira(n) {
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
   if (!file) return `La PR #${n} non contiene un articolo: non tocco niente.`;
   const slug = path.basename(file, ".json");
-  const blocco = path.join(LOG, ".in-corso");
-  fs.mkdirSync(LOG, { recursive: true });
-  try { fs.mkdirSync(blocco); } catch { return "Il Redattore sta lavorando: riprova fra qualche minuto."; }
+  const libera = prendiBlocco();
+  if (!libera) return "Il Redattore sta lavorando: riprova fra qualche minuto.";
   try {
     const git = (...x) => execFileSync("git", x, { cwd: COPIA, encoding: "utf8" });
     const ramo = `articolo/ritira-${slug}`;
@@ -245,8 +283,46 @@ function ritira(n) {
     git("checkout", "-q", "--detach", "origin/main");
     return `↩️ Articolo ritirato: non uscirà. L'argomento torna libero per il Redattore.`;
   } finally {
-    fs.rmSync(blocco, { recursive: true, force: true });
+    libera();
   }
+}
+
+/**
+ * Silenzio-assenso: prima si unisce la PR, poi si avvisa. Se l'unione non riesce, arriva
+ * l'articolo con Vai, Correggi e Scarta, e un messaggio con il motivo.
+ */
+async function automatico(n) {
+  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "headRefName"));
+  try {
+    gh("pr", "merge", String(n), "--squash");
+  } catch (e) {
+    await articolo(n);
+    await messaggio(`Non sono riuscito a mettere in coda da solo la PR #${n}: ${html(e.message).slice(0, 300)}. Premi Vai se ti va bene.`);
+    return;
+  }
+  await articolo(n, "automatico"); // il ramo esiste ancora: si legge da lì
+  try {
+    execFileSync("git", ["push", "-q", "origin", "--delete", pr.headRefName], { cwd: RADICE, stdio: "ignore" });
+  } catch {
+    /* il ramo si può cancellare anche dopo */
+  }
+}
+
+/** Una volta al giorno: le bozze ferme da più di 2 giorni. */
+async function promemoria() {
+  const file = path.join(CARTELLA, `promemoria-${new Date().toISOString().slice(0, 10)}`);
+  if (fs.existsSync(file)) return;
+  const bozze = JSON.parse(gh("pr", "list", "--state", "open", "--label", "articolo", "--draft", "--json", "number,title,createdAt"));
+  const ferme = bozze.filter((b) => Date.now() - new Date(b.createdAt).getTime() > 2 * 24 * 3600 * 1000);
+  if (ferme.length) {
+    await messaggio(
+      "⏳ <b>Bozze che aspettano una tua scelta</b>\n\n" +
+        ferme.map((b) => `• PR #${b.number}: ${html(b.title)}`).join("\n") +
+        "\n\nI tasti sono sotto i loro messaggi. Se il giorno di uscita passa senza risposta, la bozza si chiude da sola.",
+      ferme.slice(0, 3).map((b) => ({ text: `✅ Vai #${b.number}`, callback_data: `vai:${b.number}` }))
+    );
+  }
+  fs.writeFileSync(file, "");
 }
 
 async function collega() {
@@ -287,6 +363,8 @@ async function gestisci(u) {
       await chiama("answerCallbackQuery", { callback_query_id: u.callback_query.id }).catch(() => {});
       try {
         if (azione === "vai") {
+          // Una bozza approvata dalla proprietà diventa pronta prima del merge.
+          if (JSON.parse(gh("pr", "view", n, "--json", "isDraft")).isDraft) gh("pr", "ready", n);
           gh("pr", "merge", n, "--squash", "--delete-branch");
           await messaggio(`✅ PR #${n} unita: l'articolo è in coda ed esce nel suo giorno.`);
         } else if (azione === "scarta") {
@@ -333,8 +411,10 @@ const [comando, ...resto] = process.argv.slice(2);
 if (comando === "collega") await collega();
 else if (comando === "messaggio") await messaggio(html(resto.join(" ")));
 else if (comando === "articolo") await articolo(resto[0], resto[1]);
+else if (comando === "automatico") await automatico(resto[0]);
+else if (comando === "promemoria") await promemoria();
 else if (comando === "ricevi") await ricevi();
 else {
-  console.log("Uso: collega | messaggio \"testo\" | articolo <n PR> | ricevi");
+  console.log("Uso: collega | messaggio \"testo\" | articolo <n PR> | automatico <n PR> | promemoria | ricevi");
   process.exit(1);
 }
