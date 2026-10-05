@@ -1,0 +1,220 @@
+{
+  "slug": "gestione-clienti-impresa-edile-cantiere",
+  "title": "Chi fa la gestione clienti dell'impresa edile se sei in cantiere?",
+  "description": "Gestione clienti impresa edile: se le trattative stanno nella tua testa, quando sei in cantiere si fermano. Il conto di un anno e tre domande da farti.",
+  "category": "Gestione e CRM",
+  "date": "2026-10-06",
+  "publishAt": "2026-10-06T09:00:00+02:00",
+  "readTime": "5 min",
+  "excerpt": "Sei in cantiere dalla mattina alla sera e ogni trattativa la segui a memoria. Quanto costa in un anno, e come cambia la settimana quando le trattative stanno scritte.",
+  "tags": [
+    "gestione clienti",
+    "trattative",
+    "preventivi",
+    "gestionale"
+  ],
+  "livello": 2,
+  "argomento": "trattative-nella-testa",
+  "autore": "gianpio",
+  "featuredImage": "/images/blog/gestione-clienti-impresa-edile-cantiere.jpg",
+  "featuredImageAlt": "Un operaio con il casco rosso, di spalle, visto attraverso l'apertura di un muro di cemento in un cantiere con la gru",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "phooto",
+    "pagina": "https://pixabay.com/photos/construction-construction-worker-4754309/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "ricerca": "worker phone call construction site"
+  },
+  "seo": {
+    "parolaChiave": "gestione clienti impresa edile",
+    "secondarie": [
+      "programma gestione impresa edile",
+      "gestionale impresa edile",
+      "richiamare i clienti dopo il preventivo",
+      "trattative impresa edile"
+    ],
+    "domanda": "Keyword Planner sospeso (proprietà, 30/09). 'gestione clienti impresa edile' non misurata (Keyword Planner sospeso). Dagli studi: 'programma gestione impresa edile' 10-100 (studi del 28/08 e del 03/09), 'gestionale impresa edile' 100-1K (studi del 28/08 e del 03/09). 'richiamare i clienti dopo il preventivo' e 'trattative impresa edile' non misurate",
+    "serp": "Google 05/10, 'gestione clienti impresa edile trattative preventivi', 'programma gestione impresa edile clienti', 'gestione clienti edilizia trattative': la prima pagina è di produttori di software (gestionali per cantiere, fatturazione, preventivi) e di guide su come compilare un preventivo, scritte per titolari ma tutte sullo strumento. Nessuno parla della trattativa che resta nella testa del titolare né fa il conto dei preventivi non richiamati. Il concorrente A tratta il tema in chiave di organizzazione e intelligenza artificiale (testi letti sotto); la ricerca mostra pochi risultati diretti: segnale che la parola esatta ha poca domanda, ma le varianti sul gestionale ce l'hanno",
+    "concorrente": [
+      "principale:blog/intelligenza-artificiale-gestione-clienti-edilizia",
+      "principale:blog/recuperare-clienti-edilizia",
+      "principale:blog/organizzazione-aziendale-in-edilizia",
+      "principale:blog/standardizzare-informazioni-venditori-offerte-edilizia"
+    ],
+    "geo": "In breve che risponde da solo a 'come si gestiscono i clienti in un'impresa edile quando il titolare è in cantiere'; conto con numeri tondi dichiarati; quattro FAQ scritte come domande di Google, con risposte complete in due o tre frasi; firma di Gianpio",
+    "sem": "Livello 2: su Meta per farsi conoscere dai titolari (il conto dei 48 preventivi fermi e le tre domande si prestano a un carosello e a una storia con sondaggio); niente Google Ads search (parola non misurata, decisione di agosto)"
+  },
+  "inBreve": {
+    "problema": "Gestione clienti impresa edile: in tante imprese ogni trattativa la segue il titolare a memoria, mentre passa la giornata in cantiere.",
+    "causa": "Le trattative stanno in un posto solo, la testa del titolare: nessun altro in azienda sa chi richiamare, quando e cosa dirgli.",
+    "cambia": "Quando ogni trattativa è scritta con la data del prossimo contatto, chi risponde al telefono per te la porta avanti anche mentre sei in cantiere."
+  },
+  "faqs": [
+    {
+      "q": "Gestione clienti impresa edile: come si fa se il titolare è sempre in cantiere?",
+      "a": "Le trattative vanno scritte in un posto che tutta l'impresa può aprire: cosa ha chiesto il cliente, a che punto è e la data del prossimo contatto. Così chi risponde al telefono per il titolare sa cosa dire, e le richiamate partono anche quando lui è in cantiere."
+    },
+    {
+      "q": "Ogni quanto richiamare un cliente dopo il preventivo?",
+      "a": "Non c'è un numero di giorni fisso: la data si decide alla fine di ogni incontro, sulla scadenza vera del cliente, e si scrive subito. Se deve sentire qualcuno prima di decidere, si richiama dopo quel momento. Una richiamata senza data, di solito, non parte mai."
+    },
+    {
+      "q": "Chi deve richiamare i clienti in un'impresa edile?",
+      "a": "L'impresa: il titolare, chi risponde al telefono per lui o un commerciale. Conta che chi chiama trovi scritto cosa ha chiesto il cliente e cosa gli è stato detto. Se queste informazioni stanno solo nella testa del titolare, nessun altro può farlo al suo posto."
+    },
+    {
+      "q": "Serve un gestionale a una piccola impresa edile?",
+      "a": "Anche in un'impresa da due a dieci persone serve un posto dove ogni trattativa è scritta, con la data del prossimo contatto, e che tutti possono aprire. Un gestionale fa questo, ti fa vedere le richiamate in scadenza e ti dice quante richieste sono diventate contratti."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Se potesse recuperare anche solo metà dei preventivi che oggi non richiamate più, che differenza farebbe sul fatturato dell'anno?»"
+    },
+    {
+      "type": "p",
+      "text": "È una delle domande che facciamo al telefono ai titolari di imprese edili. Per rispondere, però, bisogna sapere quali sono quei preventivi: a chi sono andati, quando, e cosa aveva chiesto il cliente."
+    },
+    {
+      "type": "p",
+      "text": "In tante imprese queste informazioni stanno in un posto solo, la testa del titolare. È normale, e non vuol dire che lavori male."
+    },
+    {
+      "type": "p",
+      "text": "Sei in cantiere dalle otto di mattina alle otto di sera, segui la squadra, senti i fornitori, e intanto ti ricordi a memoria chi aspetta una risposta. Finché i clienti sono pochi, regge."
+    },
+    {
+      "type": "p",
+      "text": "Il punto è che non ti manca un programma. Ti manca un posto, fuori dalla tua testa, dove le trattative stanno scritte e chiunque in azienda può leggerle."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: LE TRATTATIVE CHE CONOSCI SOLO TU"
+    },
+    {
+      "type": "p",
+      "text": "Pensa all'ultimo preventivo che hai mandato. Sai a chi, sai più o meno la cifra, e forse ti ricordi che il cliente doveva sentire qualcuno in famiglia prima di decidere."
+    },
+    {
+      "type": "p",
+      "text": "Ora pensa a chi risponde al telefono per te: la segretaria, un collaboratore, un familiare in ufficio. Se quel cliente chiama domani mattina, cosa sa di lui?"
+    },
+    {
+      "type": "p",
+      "text": "Sa il nome. Non sa cosa ha chiesto, cosa gli hai detto al sopralluogo, né se andava richiamato questa settimana o il mese prossimo. Allora gli dice che lo farai richiamare da te, e la trattativa aspetta che tu esca dal cantiere."
+    },
+    {
+      "type": "p",
+      "text": "Lo stesso succede con i preventivi rimasti senza risposta. Nessuno li richiama, perché l'unico che sa quali sono sta in cantiere fino a sera, e la sera ha le offerte nuove da preparare."
+    },
+    {
+      "type": "h2",
+      "text": "IL CONTO DEI PREVENTIVI CHE NESSUNO RICHIAMA"
+    },
+    {
+      "type": "p",
+      "text": "Facciamo il conto con numeri tondi, poi rifallo con i tuoi."
+    },
+    {
+      "type": "p",
+      "text": "Mandi sei preventivi al mese, da circa 10.000 euro l'uno, e ne chiudi due. Gli altri quattro restano senza risposta, e nessuno li richiama."
+    },
+    {
+      "type": "p",
+      "text": "In un anno fanno quarantotto preventivi fermi. Prendi la domanda dell'inizio e recuperane solo la metà: sono ventiquattro trattative riaperte."
+    },
+    {
+      "type": "p",
+      "text": "Se anche una su quattro diventasse un contratto, sarebbero sei contratti in più. Sei lavori da 10.000 euro fanno 60.000 euro in un anno, su preventivi che hai GIÀ FATTO e già pagato in ore di sopralluogo."
+    },
+    {
+      "type": "p",
+      "text": "È un conto, non una previsione: serve a vedere quanto pesa quello che oggi nessuno guarda."
+    },
+    {
+      "type": "h2",
+      "text": "PERCHÉ LE RICHIESTE IN PIÙ SEMBRANO UN PROBLEMA"
+    },
+    {
+      "type": "p",
+      "text": "Molti titolari con cui parliamo hanno paura di crescere, perché crescere vuol dire assumere, e assumere vuol dire altre responsabilità sulle spalle."
+    },
+    {
+      "type": "p",
+      "text": "C'è anche un motivo più semplice, che si vede meno. Se ogni trattativa sta nella tua testa, ogni richiesta in più è una cosa in più da ricordare, e più richieste arrivano, più ne perdi per strada."
+    },
+    {
+      "type": "p",
+      "text": "Così il limite della tua impresa diventa quello che riesci a ricordare tu, e la pubblicità che porta altre richieste ti sembra solo altro lavoro da rincorrere."
+    },
+    {
+      "type": "h2",
+      "text": "UNA LISTA SCRITTA SI PUÒ LEGGERE"
+    },
+    {
+      "type": "p",
+      "text": "Quando le trattative sono scritte, le puoi leggere tutte insieme, una sotto l'altra, invece di ripassarle a memoria."
+    },
+    {
+      "type": "p",
+      "text": "A settembre, in una consulenza, il titolare di [un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale) scorreva la lista dei contatti arrivati dalla pubblicità: di parecchi diceva che non rispondevano."
+    },
+    {
+      "type": "p",
+      "text": "Con la lista davanti, quei contatti fermi erano lì, uno per riga, e se ne poteva parlare invece di ricordarli. Cosa ne abbiamo capito l'ho raccontato nell'articolo sui [sopralluoghi e preventivi a vuoto](/blog/sopralluoghi-a-vuoto-quanto-costano)."
+    },
+    {
+      "type": "h2",
+      "text": "COME CAMBIA LA SETTIMANA QUANDO LE TRATTATIVE SONO SCRITTE"
+    },
+    {
+      "type": "p",
+      "text": "Immagina di passare tutto il martedì in cantiere. In ufficio, chi risponde al telefono apre la scheda del cliente e trova scritto cosa ha chiesto, a che punto è e quando va richiamato."
+    },
+    {
+      "type": "p",
+      "text": "Prima di salutare il cliente, a ogni incontro, si fissa con lui il giorno in cui risentirsi, e si scrive subito nella scheda, non la sera a casa. Così i preventivi senza risposta hanno una data accanto, e quel giorno qualcuno li richiama."
+    },
+    {
+      "type": "p",
+      "text": "Le richiamate le fa la tua impresa: tu, chi risponde per te o un commerciale. Noi non telefoniamo ai tuoi clienti: nelle consulenze ci siamo noi a guardare con te le trattative, una per una, fino alla firma."
+    },
+    {
+      "type": "p",
+      "text": "La sera, invece di ripassare a memoria chi aspetta cosa, apri una lista. E se ti fermi una settimana, la lista resta lì e le trattative vanno avanti."
+    },
+    {
+      "type": "p",
+      "text": "Cosa deve fare lo strumento in cui si scrivono, passo per passo, l'ha raccontato Marco in [cosa deve fare un gestionale per impresa edile prima del cantiere](/blog/gestionale-impresa-edile-cosa-deve-fare). Quello che usiamo con le imprese che seguiamo è descritto nella pagina sul [gestionale per l'edilizia](/crm-gestionale-edilizia)."
+    },
+    {
+      "type": "h2",
+      "text": "TRE DOMANDE SULLE TUE TRATTATIVE"
+    },
+    {
+      "type": "p",
+      "text": "Rispondi più o meno, senza andare a cercare i numeri. Le prime due vengono dalle domande che facciamo al telefono."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Quanti preventivi hai mandato negli ultimi tre mesi, più o meno? Di questi, quanti sono diventati lavoro?",
+        "Quelli che non hanno chiuso li hai richiamati, o restano lì?",
+        "Se domani ti fermi una settimana, chi in azienda sa a chi va richiamato e cosa gli va detto?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Se alla terza hai risposto nessuno, il punto da cui partire è quello. Cosa dire al cliente quando lo richiami dopo il preventivo l'ho scritto in [perché il cliente sparisce dopo il preventivo](/blog/perche-clienti-spariscono-dopo-preventivo)."
+    },
+    {
+      "type": "p",
+      "text": "Dove si fermano oggi le tue trattative è anche una delle cose che guardiamo nello studio di fattibilità, prima di qualunque pubblicità. Risponde a una domanda sola, se ha senso lavorare insieme, e la risposta può essere no."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: partiamo dai preventivi che restano fermi e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
