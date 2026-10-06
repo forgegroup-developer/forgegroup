@@ -40,6 +40,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -66,10 +68,14 @@ jobs:
         id: articoli
         continue-on-error: true
         run: |
-          if ls content/articoli/*.json >/dev/null 2>&1; then
-            node scripts/controlla-articolo.mjs 2>&1 | tee articoli.txt
+          # Solo gli articoli aggiunti o cambiati in questa PR: quelli già
+          # usciti hanno publishAt passato e non vanno ricontrollati.
+          git fetch -q origin "${{ github.base_ref }}" --depth=1
+          file=$(git diff --name-only --diff-filter=AM "origin/${{ github.base_ref }}" HEAD -- 'content/articoli/*.json' || true)
+          if [ -n "$file" ]; then
+            node scripts/controlla-articolo.mjs $file 2>&1 | tee articoli.txt
           else
-            echo "Nessun articolo in coda." | tee articoli.txt
+            echo "Nessun articolo nuovo o cambiato in questa PR." | tee articoli.txt
           fi
 
       - name: Costruisci e avvia il sito

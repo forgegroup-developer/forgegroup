@@ -45,8 +45,10 @@ const collaborators = [
   "Videomaker & Fotografi Professionisti",
 ];
 
+/* Etichette dei ruoli e link ai profili: piccole apposta, non sono i
+   pulsanti d'azione del sito (quelli sono tutti alti 56 px). */
 const chipOutlineClass =
-  "btn-ghost";
+  "inline-flex items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2 text-center text-sm font-semibold leading-snug text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10";
 
 function LinkedInIcon() {
   return (
