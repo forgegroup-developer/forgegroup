@@ -191,7 +191,7 @@ export default function CrmGestionalePage() {
               guardiamo le trattative una per una.
             </p>
             <Link href="/servizi#metodo" className="btn-ghost text-center">
-              Guarda il Metodo FORGE per intero ↗
+              Guarda il Metodo FORGE ↗
             </Link>
           </div>
         </div>

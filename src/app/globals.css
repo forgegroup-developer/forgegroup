@@ -3011,15 +3011,17 @@ footer .btn-ghost {
 .section-mattone h2 .text-brand-corallo-text,
 .section-mattone h3 .text-brand-corallo,
 .section-mattone h3 .text-brand-corallo-text {
-  padding: 0 0.18em;
+  padding: 0 0.08em;
   margin: 0;
   border-radius: 0.14em;
   background-color: transparent;
+  /* La fascia corallo sta dentro la riga: 16-92% dell'altezza del testo,
+     così non tocca le lettere della riga sopra né di quella sotto. */
   background-image: linear-gradient(
     to bottom,
-    transparent 10%,
-    var(--color-brand-corallo) 10%,
-    var(--color-brand-corallo) 96%,
-    transparent 96%
+    transparent 16%,
+    var(--color-brand-corallo) 16%,
+    var(--color-brand-corallo) 92%,
+    transparent 92%
   );
 }

@@ -156,7 +156,7 @@ export default function ServiziTabCard({
             href="/contatti"
             className="btn-ghost"
           >
-            Richiedi lo studio di fattibilità ↗
+            Richiedi lo studio ↗
           </Link>
         </div>
       </div>
