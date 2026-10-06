@@ -1,0 +1,134 @@
+# Il Revisore automatico (proprietà, 06/10/2026: "un revisore che fa dei
+# check ogni volta che ci sono modifiche importanti, e parte in automatico").
+#
+# Parte da solo su ogni PR verso main che tocca il sito. Costruisce il sito
+# come Vercel, poi controlla:
+#   1. TypeScript
+#   2. le regole dei testi e dei numeri (scripts/controlla-sito.mjs)
+#   3. gli articoli in coda (scripts/controlla-articolo.mjs)
+#   4. la grafica di tutte le pagine, da computer e da telefono
+#      (scripts/revisore-grafico.mjs: evidenziatore, pulsanti, pagina più
+#      larga dello schermo, immagini rotte, testo fuori dalle schede)
+# e scrive l'esito in un commento della PR, aggiornato a ogni nuovo push.
+# Se un controllo fallisce, la PR resta segnata in rosso: si corregge prima
+# di unire.
+name: Revisore
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "content/**"
+      - "public/**"
+      - "scripts/**"
+      - "next.config.ts"
+      - "package.json"
+      - "package-lock.json"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: revisore-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  revisore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Installa
+        run: |
+          npm ci
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: 1 · TypeScript
+        id: tsc
+        continue-on-error: true
+        run: npx tsc --noEmit -p . 2>&1 | tee tsc.txt
+
+      - name: 2 · Regole dei testi e dei numeri
+        id: testi
+        continue-on-error: true
+        run: npm run -s controlla:sito 2>&1 | tee testi.txt
+
+      - name: 3 · Articoli in coda
+        id: articoli
+        continue-on-error: true
+        run: |
+          if ls content/articoli/*.json >/dev/null 2>&1; then
+            node scripts/controlla-articolo.mjs 2>&1 | tee articoli.txt
+          else
+            echo "Nessun articolo in coda." | tee articoli.txt
+          fi
+
+      - name: Costruisci e avvia il sito
+        run: |
+          npm run build
+          (npm run start -- -p 3000 > server.log 2>&1 &)
+          for i in $(seq 1 60); do curl -sf http://localhost:3000/ >/dev/null && break; sleep 2; done
+
+      - name: 4 · Grafica di tutte le pagine
+        id: grafica
+        continue-on-error: true
+        run: node scripts/revisore-grafico.mjs http://localhost:3000 grafica.md
+
+      - name: Scrivi l'esito nella PR
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          FILES: ${{ github.event.pull_request.changed_files }}
+          ADD: ${{ github.event.pull_request.additions }}
+          DEL: ${{ github.event.pull_request.deletions }}
+        run: |
+          esito() { [ "$1" = "success" ] && echo "✓" || echo "✕"; }
+          {
+            echo "<!-- revisore-forge -->"
+            echo "# Revisore automatico"
+            echo
+            echo "Modifica: $FILES file, +$ADD / −$DEL righe."
+            if [ "$((ADD + DEL))" -gt 300 ] || [ "$FILES" -gt 10 ]; then
+              echo
+              echo "**Modifica grande:** prima di unire, apri l'anteprima Vercel da telefono e guarda le pagine toccate."
+            fi
+            echo
+            echo "| Controllo | Esito |"
+            echo "|---|---|"
+            echo "| TypeScript | $(esito '${{ steps.tsc.outcome }}') |"
+            echo "| Regole dei testi e dei numeri | $(esito '${{ steps.testi.outcome }}') |"
+            echo "| Articoli in coda | $(esito '${{ steps.articoli.outcome }}') |"
+            echo "| Grafica (computer e telefono) | $(esito '${{ steps.grafica.outcome }}') |"
+            echo
+            [ -f grafica.md ] && cat grafica.md
+            echo
+            echo "<details><summary>Dettagli dei controlli</summary>"
+            echo
+            echo '```'
+            tail -n 40 tsc.txt testi.txt articoli.txt 2>/dev/null
+            echo '```'
+            echo "</details>"
+          } > commento.md
+          id=$(gh api "repos/${{ github.repository }}/issues/$PR/comments" --jq '[.[] | select(.body | contains("<!-- revisore-forge -->"))][0].id')
+          if [ -n "$id" ] && [ "$id" != "null" ]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/$id" -F body=@commento.md >/dev/null
+          else
+            gh pr comment "$PR" --body-file commento.md
+          fi
+
+      - name: Esito finale
+        if: always()
+        run: |
+          for o in "${{ steps.tsc.outcome }}" "${{ steps.testi.outcome }}" "${{ steps.articoli.outcome }}" "${{ steps.grafica.outcome }}"; do
+            [ "$o" = "success" ] || { echo "Almeno un controllo non è passato: guarda il commento nella PR."; exit 1; }
+          done
