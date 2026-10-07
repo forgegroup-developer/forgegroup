@@ -50,6 +50,10 @@ const collaborators = [
 const chipOutlineClass =
   "inline-flex items-center gap-1.5 rounded-full border-2 border-brand-corallo bg-transparent px-4 py-2 text-center text-sm font-semibold leading-snug text-[color:var(--color-brand-corallo-text)] transition-colors hover:bg-brand-corallo/10";
 
+/* I link ai profili si toccano col dito: almeno 44 px di altezza
+   (le etichette dei ruoli restano basse, non si cliccano). */
+const chipLinkClass = `${chipOutlineClass} min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-corallo`;
+
 function LinkedInIcon() {
   return (
     <svg
@@ -139,7 +143,7 @@ export default function TeamSection() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`gap-2 ${chipOutlineClass}`}
+                      className={`gap-2 ${chipLinkClass}`}
                     >
                       <LinkedInIcon />
                       LinkedIn
@@ -150,7 +154,7 @@ export default function TeamSection() {
                       href={member.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`gap-2 ${chipOutlineClass}`}
+                      className={`gap-2 ${chipLinkClass}`}
                     >
                       <InstagramIcon />
                       Instagram
