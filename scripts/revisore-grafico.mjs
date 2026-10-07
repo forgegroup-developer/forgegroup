@@ -70,11 +70,56 @@ for (const [disp, larghezza] of DISPOSITIVI) {
         const fuoriMenu = (e) => !e.closest("header, nav, footer");
 
         // 1 · evidenziatore
+        // Colore della fascia: il fondo pieno, o il primo colore non trasparente
+        // del gradiente (la fascia dei titoli sul mattone e' un background-image).
+        const rgb = (c) => (c.match(/[\d.]+/g) || []).map(Number);
+        const fascia = (cs) => {
+          const bg = rgb(cs.backgroundColor);
+          if (bg.length >= 3 && (bg[3] ?? 1) > 0.5) return bg;
+          if (!cs.backgroundImage || !cs.backgroundImage.includes("gradient")) return null;
+          for (const c of cs.backgroundImage.match(/rgba?\([^)]*\)/g) || []) {
+            const v = rgb(c);
+            if ((v[3] ?? 1) > 0.5) return v;
+          }
+          return null;
+        };
+        const lum = ([r, g, b]) => {
+          const f = (x) => ((x /= 255) <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4);
+          return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+        };
+        const contrasto = (a, b) => {
+          const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m);
+          return (x + 0.05) / (y + 0.05);
+        };
         for (const e of document.querySelectorAll("body *")) {
           const cs = getComputedStyle(e);
-          if (cs.display !== "inline" || !(e.innerText || "").trim()) continue;
+          if (!(e.innerText || "").trim() || e.getClientRects().length === 0) continue;
           const pieno = cs.backgroundColor !== "rgba(0, 0, 0, 0)" || (cs.backgroundImage && cs.backgroundImage !== "none");
           if (!pieno) continue;
+          // 1a · la parola si deve leggere sulla sua fascia (corallo su corallo no),
+          // per ogni pezzo di testo dentro, anche se e' un block o inline-block.
+          const f = fascia(cs);
+          if (f && e.closest("h1,h2,h3,h4,p,li")) {
+            const w0 = document.createTreeWalker(e, NodeFilter.SHOW_TEXT);
+            while (w0.nextNode()) {
+              const n = w0.currentNode;
+              if (!n.textContent.trim()) continue;
+              // Il testo si confronta col fondo piu' vicino: se un elemento in
+              // mezzo ha un fondo suo (un pallino, un'etichetta) vale quello.
+              let mezzo = n.parentElement, suo = false;
+              while (mezzo && mezzo !== e) {
+                if (fascia(getComputedStyle(mezzo))) { suo = true; break; }
+                mezzo = mezzo.parentElement;
+              }
+              if (suo) continue;
+              const k = contrasto(rgb(getComputedStyle(n.parentElement).color), f);
+              if (k < 3) {
+                out.evid.push(`«${n.textContent.trim().slice(0, 40)}» non si legge sulla sua fascia (contrasto ${k.toFixed(2)}:1)`);
+                break;
+              }
+            }
+          }
+          if (cs.display !== "inline") continue;
           const blocco = e.closest("h1,h2,h3,h4,p,li,td,dd,dt,div");
           if (!blocco) continue;
           const rng = document.createRange();
