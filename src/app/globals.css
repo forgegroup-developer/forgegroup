@@ -2615,6 +2615,9 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
 .section-mattone .superficie-chiara .text-brand-corallo,
 .section-mattone .superficie-chiara .text-brand-corallo-text {
   background-color: transparent;
+  /* Anche la fascia dei titoli (background-image, sotto): dentro la card
+     la parola corallo sulla fascia corallo spariva. */
+  background-image: none;
   padding: 0;
   margin: 0;
 }
