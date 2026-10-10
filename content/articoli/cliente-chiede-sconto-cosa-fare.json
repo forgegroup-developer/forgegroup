@@ -1,0 +1,99 @@
+{
+  "slug": "cliente-chiede-sconto-cosa-fare",
+  "title": "Il cliente chiede lo sconto: cosa cambiare prima del prezzo",
+  "description": "Il cliente chiede lo sconto sul preventivo? Prima di scendere di prezzo, cinque regole di vendita per l'impresa edile, dal budget detto presto all'offerta.",
+  "category": "Trattative e vendita",
+  "date": "2026-10-11",
+  "publishAt": "2026-10-11T09:00:00+02:00",
+  "readTime": "5 min",
+  "excerpt": "Fare lo sconto, spiegare l'offerta voce per voce, un programma per preventivi più ordinati: le strade che si provano. E le cinque regole che cambiano la trattativa prima che arrivi la domanda dello sconto.",
+  "tags": ["sconto", "guerra dei prezzi", "trattativa", "offerta"],
+  "livello": 3,
+  "argomento": "guerra-dei-prezzi",
+  "autore": "gianpio",
+  "featuredImage": "/images/blog/cliente-chiede-sconto-cosa-fare.jpg",
+  "featuredImageAlt": "Planimetrie con le misure stese su un tavolo, due disegni arrotolati, una matita, una gomma e un righello giallo",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "ds_30",
+    "pagina": "https://pixabay.com/photos/plan-drawing-architecture-planning-5370032/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "ricerca": ["craftsman measuring tape window", "contractor client meeting plans table", "metro a nastro misure"]
+  },
+  "inBreve": {
+    "problema": "Il cliente chiede lo sconto sull'offerta, e tu devi scegliere fra scendere di prezzo e perdere un lavoro che sai fare meglio degli altri.",
+    "causa": "Il budget non si conosceva prima del sopralluogo, l'offerta è arrivata in chat voce per voce, e il cliente ha potuto confrontare solo il totale.",
+    "cambia": "Quando il budget si conosce prima, il rilievo si vede nell'offerta e la presenti di persona con due opzioni, si discute quale lavoro fare, non quanto togliere."
+  },
+  "seo": {
+    "parolaChiave": "cliente chiede lo sconto",
+    "secondarie": ["sconto sul preventivo edile", "preventivo troppo caro", "guerra dei prezzi edilizia", "vendere senza fare sconti"],
+    "domanda": "Non misurata (Keyword Planner sospeso, proprietà 30/09): nessuna delle cinque parole è negli studi del 03/09 e del 28/08. Segnale indiretto: nei testi del concorrente A le domande 'Perché i tuoi clienti ti chiedono sempre lo sconto?' e 'Conviene fare uno sconto per chiudere?' ricorrono più volte, e il suo testo sul metodo di vendita senza sconti è fra quelli a cui manda più link e che aggiorna nel 2026",
+    "serp": "Google 10/10. Su 'cliente chiede lo sconto impresa edile come rispondere', 'come vendere lavori edili senza fare sconti' e 'preventivo troppo caro cliente edilizia cosa rispondere': la prima pagina è quasi tutta sullo sconto in fattura dei bonus (condominioweb, money.it, pmi.it), forum di privati che confrontano preventivi (arredamento.it), pagine di sconti su software e guide generiche di negoziazione. Nessun testo scritto per il titolare di un'impresa edile con regole pratiche e un caso con i numeri: lo spazio è libero",
+    "concorrente": [
+      "principale:blog/come-difendere-margini-guerra-prezzi-edilizia",
+      "principale:blog/metodo-vendita-per-aziende-in-edilizia",
+      "serramenti:vendere-serramenti-perche-i-clienti-guardano-solo-il-prezzo",
+      "principale:blog/perche-cliente-solo-offerta-non-piano-lavori"
+    ],
+    "geo": "In breve che risponde da solo a 'cosa fare quando il cliente chiede lo sconto'; le cinque regole in un elenco numerato citabile da solo; FAQ scritte come domande di Google con risposte complete in due o tre frasi; prova ROVI con i numeri della Scheda; firma di Gianpio",
+    "sem": "Livello 3: carosello su Meta per i titolari con le cinque regole e la scena delle due vetrine; remarketing verso chi ha visitato /servizi e l'articolo di livello 2 sulla guerra dei prezzi. Niente Google Ads search: domanda non misurata e decisione di agosto sul servizio"
+  },
+  "faqs": [
+    {
+      "q": "Come rispondere a un cliente che chiede lo sconto su un lavoro edile?",
+      "a": "Prima di togliere una cifra, riporta la trattativa sulle due opzioni: chiedi quale si avvicina di più a quello che aveva in mente e cosa toglierebbe dalla più completa. Se il budget te l'aveva detto prima del sopralluogo, riparti da quello. Così cambia il lavoro, non il prezzo dello stesso lavoro."
+    },
+    {
+      "q": "Conviene fare lo sconto per chiudere un lavoro edile?",
+      "a": "Lo sconto chiude il lavoro, ma i costi restano quelli e la differenza la paghi tu, dal margine. E il cliente impara che il primo prezzo si poteva toccare. Prima di scendere, guarda se al tavolo c'era chi decide e paga, e se l'offerta l'ha sentita spiegare da te."
+    },
+    {
+      "q": "Meglio un preventivo edile voce per voce o un prezzo per tutto il lavoro?",
+      "a": "L'elenco voce per voce sembra più chiaro, ma il cliente lo mette accanto agli altri e ti chiede di togliere le righe che non capisce. Un prezzo per il lavoro intero, presentato di persona con le misure e le soluzioni scelte, porta il discorso su quello che hai visto al sopralluogo."
+    },
+    {
+      "q": "Perché i clienti chiedono sempre lo sconto all'impresa edile?",
+      "a": "Spesso perché in mano hanno solo un totale, arrivato in chat insieme a quelli delle altre imprese, e il budget non l'ha chiesto nessuno prima del sopralluogo. Quando la cifra si dice presto e l'offerta si presenta di persona, con il rilievo e due opzioni, la domanda diventa quale lavoro fare."
+    }
+  ],
+  "content": [
+    { "type": "p", "text": "Un negozio aveva già in mano altri preventivi. In uno c'erano due vetrine da un metro e settantacinque più il banco cassa: messi così, la porta del locale non si apriva più." },
+    { "type": "p", "text": "Chi aveva fatto quell'offerta non era andato a prendere le misure sul posto. ROVI, un'azienda di arredamento negozi che seguiamo, il rilievo l'aveva fatto, e il cliente l'ha scelta ANCHE per quello. Ce l'hanno raccontato in una consulenza, ad agosto." },
+    { "type": "p", "text": "Quel cliente non ha scelto guardando solo la cifra in fondo al foglio. Ha visto una cosa che gli altri non avevano fatto, e l'ha vista prima di firmare." },
+    { "type": "p", "text": "Se invece a te il cliente chiede lo sconto, è normale pensare che il problema sia il prezzo. La domanda arriva alla fine della trattativa, ma come per quelle vetrine si decide prima: al telefono, al sopralluogo e nel modo in cui consegni l'offerta." },
+    { "type": "h2", "text": "LE STRADE CHE SI PROVANO QUANDO IL CLIENTE CHIEDE LO SCONTO" },
+    { "type": "p", "text": "Quando arriva la richiesta, le risposte che vedo provare dai titolari sono più o meno sempre queste, e ognuna ha un pezzo di ragione." },
+    { "type": "ul", "items": [
+      "Fare lo sconto: chiudi il lavoro, ma lo togli tutto dal tuo margine, perché i costi non scendono con il prezzo. E il cliente impara che il primo prezzo si poteva toccare.",
+      "Spiegare l'offerta voce per voce: sembra trasparenza, ma dai al cliente un elenco da mettere accanto a quello degli altri, riga per riga, e la riga che non capisce è la prima che ti chiede di togliere.",
+      "Un programma che fa preventivi più ordinati: il foglio è più bello e lo prepari prima, ma se arriva su WhatsApp insieme a quelli degli altri, il cliente lo apre e va dritto al totale.",
+      "Più contatti dalla pubblicità: se nessuno filtra chi chiama, aumentano i preventivi per chi vuole solo spendere meno, e insieme a loro le richieste di sconto.",
+      "Il consulente che ti spiega come si vende: capisci cosa andrebbe fatto, ma le regole da scrivere, il materiale da preparare e le trattative da seguire restano a te."
+    ] },
+    { "type": "p", "text": "Il nostro modo di lavorare, in una riga: le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona." },
+    { "type": "h2", "text": "IN PRATICA: CINQUE REGOLE PRIMA CHE ARRIVI LA DOMANDA DELLO SCONTO" },
+    { "type": "p", "text": "Lo sconto si gioca quasi tutto prima dell'offerta. Sono cinque cose da sistemare, nell'ordine in cui succedono: quattro vengono dalle regole di vendita scritte con ROVI, la terza dalla scena delle vetrine." },
+    { "type": "ul", "items": [
+      "1. Il budget si conosce prima del sopralluogo. Il modulo della pubblicità chiede tipo di lavoro, entro quando iniziare, budget e zona. Poi al telefono la cifra si dice presto, come fascia: «si aggira intorno a…», e subito dopo chiedi se è sostenibile. Il sopralluogo si fissa solo se la risposta è sì.",
+      "2. Il primo incontro serve a capire chi decide, chi paga e quanto vuole spendere. Non si progetta ancora. Se al tavolo manca chi paga, la richiesta di sconto arriverà dopo, da qualcuno che la tua offerta non l'ha mai sentita spiegare.",
+      "3. Il rilievo si fa sul posto, e si vede nell'offerta: le misure prese, il problema trovato, la soluzione scelta. Come la porta che con quelle vetrine non si sarebbe aperta. È la parte che il cliente non trova negli altri fogli.",
+      "4. Un prezzo per il lavoro intero, e due opzioni. Marco la chiama offerta al corpo: un solo prezzo per il lavoro, non scorporato voce per voce. Le opzioni sono due, una presentata come quella standard, e la domanda del cliente diventa quale delle due scegliere.",
+      "5. L'offerta si presenta di persona, in sede, o in videochiamata con lo schermo condiviso. Mai su WhatsApp. Un file in chat si inoltra, si mette accanto agli altri e si legge partendo dal totale."
+    ] },
+    { "type": "p", "text": "Con ROVI l'offerta si chiama piano dei lavori, e non si lascia in copia prima della firma." },
+    { "type": "h2", "text": "QUANDO IL CLIENTE CHIEDE LO SCONTO LO STESSO" },
+    { "type": "p", "text": "Succede anche con tutte e cinque le regole. La differenza è che a quel punto hai qualcosa da cui ripartire, e non devi scegliere solo fra dire sì e perdere il lavoro." },
+    { "type": "p", "text": "Se il cliente dice che è troppo, invece di togliere una cifra torni alle due opzioni: gli chiedi quale delle due si avvicina di più a quello che aveva in mente, e cosa toglierebbe dalla più completa." },
+    { "type": "p", "text": "Se il budget detto al telefono era più basso, riparti da lì. La fascia l'aveva sentita prima del sopralluogo, e l'offerta è stata costruita su quella: se è cambiato qualcosa, si cambia il lavoro, non il prezzo dello stesso lavoro." },
+    { "type": "p", "text": "Se chiede lo sconto senza un motivo, prima di rispondere guarda chi hai davanti. È chi decide e paga? Ha visto il rilievo? L'offerta l'ha sentita spiegare da te, o l'ha letta in chat?" },
+    { "type": "p", "text": "In tutti e tre i casi la trattativa resta tua. Le richieste le richiama la tua impresa, tu o chi risponde al telefono per te: noi non telefoniamo ai tuoi contatti. Costruiamo con te le regole, il materiale per presentare l'offerta e il [gestionale per l'edilizia](/crm-gestionale-edilizia) dove si scrive ogni trattativa, e restiamo al tuo fianco fino alla firma." },
+    { "type": "h2", "text": "LA PROVA: DALLE TRATTATIVE PERSE SUL PREZZO AL BUDGET CONOSCIUTO PRIMA" },
+    { "type": "p", "text": "Prima ROVI andava a fare sopralluoghi e progetti per chiunque chiedesse, e tante trattative saltavano sul prezzo. Adesso le richieste arrivano filtrate, il budget del cliente lo sa prima dell'appuntamento, e all'appuntamento arriva preparata." },
+    { "type": "p", "text": "I numeri sono [nel caso studio di ROVI](/casi-studio/arredo-commerciale): 25.000 € di lavori chiusi in quattro mesi, e oltre 200.000 € di trattative aperte." },
+    { "type": "p", "text": "Il tuo mestiere sarà un altro: serramenti, coperture, impianti, ristrutturazioni. Nei serramenti, per esempio, il mercato è in calo, ci sono poche grandi aziende e il cliente guarda solo il prezzo: la differenza va fatta vedere prima che arrivi al totale." },
+    { "type": "p", "text": "Perché la parte migliore del tuo lavoro finisce spesso fuori dall'offerta l'ho raccontato in [lavori meglio e il cliente sceglie il preventivo più basso](/blog/cliente-sceglie-preventivo-piu-basso). Come si filtrano le richieste prima di fare il sopralluogo lo spiega Marco in [come filtrare i clienti prima del sopralluogo](/blog/smettere-contatti-solo-informazioni-gratuite)." },
+    { "type": "p", "text": "Il percorso intero, dal modulo alle trattative fino alla firma, è nella pagina su [come lavoriamo con le imprese edili](/servizi)." },
+    { "type": "cta", "text": "Richiedi lo studio di fattibilità: partiamo da come vendi oggi e ti diciamo se ha senso lavorare insieme." }
+  ]
+}
