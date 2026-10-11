@@ -1,0 +1,224 @@
+{
+  "slug": "trovare-clienti-fotovoltaico",
+  "title": "Come trovare clienti per il fotovoltaico, se lo vendono tutti?",
+  "description": "Trovare clienti per il fotovoltaico quando lo vendono tutti: perché il cliente confronta solo il prezzo, quanto ti costa e quattro domande da cui partire.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-10-12",
+  "publishAt": "2026-10-12T09:00:00+02:00",
+  "readTime": "5 min",
+  "excerpt": "Nel fotovoltaico lo vendono in tanti e il cliente non sa cosa compra: così confronta il prezzo. Quanto ti costa, e da dove partire per trovare clienti senza aspettare il passaparola.",
+  "tags": [
+    "fotovoltaico",
+    "trovare clienti",
+    "passaparola",
+    "sopralluoghi"
+  ],
+  "livello": 2,
+  "argomento": "dipendere-dal-passaparola",
+  "autore": "marco",
+  "featuredImage": "/images/blog/trovare-clienti-fotovoltaico.jpg",
+  "featuredImageAlt": "Il tetto di una casa di campagna coperto di pannelli fotovoltaici, con un campo di grano davanti e i boschi dietro",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "RoyBuri",
+    "pagina": "https://pixabay.com/photos/solar-roof-solar-energy-2666770/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "ricerca": [
+      "solar panels roof installation",
+      "pannelli solari tetto",
+      "solar panel installer"
+    ]
+  },
+  "inBreve": {
+    "problema": "Nel fotovoltaico le richieste arrivano dal passaparola, quando capita, o da chi chiede più preventivi e confronta solo il prezzo finale.",
+    "causa": "Lo vendono in tanti e il cliente non sa cosa compra: se nessuno gli dà gli elementi per distinguerti, gli resta solo il prezzo.",
+    "cambia": "Per trovare clienti per il fotovoltaico serve sapere quanti impianti si fanno ogni anno nella tua zona, e ricevere richieste già filtrate prima del sopralluogo."
+  },
+  "seo": {
+    "parolaChiave": "trovare clienti per il fotovoltaico",
+    "secondarie": [
+      "clienti fotovoltaico",
+      "marketing fotovoltaico",
+      "richieste impianti fotovoltaici",
+      "passaparola fotovoltaico"
+    ],
+    "domanda": "Keyword Planner sospeso (proprietà, 30/09). La parola chiave è la forma scritta per esteso di 'trovare clienti fotovoltaico', che nello studio del 03/09 ha 10-100 ricerche al mese in Italia, segnale +∞ (domanda che nasce ora), CPC 3,17 €, concorrenza alta; sotto soglia al Sud. Le secondarie non misurate (Keyword Planner sospeso)",
+    "serp": "Google 11/10 su 'trovare clienti fotovoltaico', 'come trovare clienti per impianti fotovoltaici installatore' e 'marketing fotovoltaico installatori richieste clienti': stampa di settore per installatori (newsletter SolareB2B, QualEnergia), portali che vendono richieste agli installatori, blog di software. Scrivono per chi installa, quindi per i titolari. Il concorrente A non c'è (zero testi sul fotovoltaico). Nessuno parla di contare il mercato della zona dai dati GSE né del limite del passaparola in questa nicchia",
+    "concorrente": [
+      "principale:blog/rischio-dipendenza-passaparola-edilizia",
+      "principale:blog/lead-generation-edilizia-strategia-nuovi-clienti",
+      "agenzia:strategie-per-acquisire-nuovi-clienti"
+    ],
+    "geo": "In breve che risponde da solo a 'come trovare clienti per il fotovoltaico'; il conto con numeri tondi dichiarati; FAQ scritte come domande di Google con risposte complete in due o tre frasi; il conteggio degli impianti dai dati GSE come informazione citabile; firma di Marco",
+    "sem": "Livello 2: contenuto per farsi conoscere su Meta dai titolari che installano fotovoltaico (carosello con il conto delle 48 giornate); Google Ads search solo come test piccolo su 'trovare clienti fotovoltaico' se la proprietà lo decide (10-100 ricerche, CPC 3,17 €), altrimenti niente search; post sulla scheda Google Business con il link"
+  },
+  "faqs": [
+    {
+      "q": "Come trovare clienti per il fotovoltaico?",
+      "a": "Prima si conta quanti impianti si installano ogni anno nella tua zona: il GSE ne pubblica i dati. Poi servono richieste che arrivino con tipo di lavoro, tempi, budget e zona già scritti, così il sopralluogo lo fai solo a chi può firmare. Il passaparola da solo non basta, perché l'impianto si compra una volta."
+    },
+    {
+      "q": "Perché il cliente del fotovoltaico confronta solo il prezzo?",
+      "a": "Perché spesso non sa cosa distingue un impianto da un altro, e mette i preventivi uno accanto all'altro. Se le offerte gli sembrano uguali, sceglie la più bassa. Gli elementi per distinguerti vanno dati prima e durante il sopralluogo, non solo nel preventivo."
+    },
+    {
+      "q": "Conviene comprare contatti per il fotovoltaico?",
+      "a": "Dipende da quanto sono filtrati e da chi altro li riceve. Se la stessa richiesta arriva anche ad altre imprese, il confronto sul prezzo comincia prima ancora che tu chiami. Conta quante richieste diventano sopralluoghi e contratti, non quanto costa ciascuna."
+    },
+    {
+      "q": "Come sapere quanti impianti fotovoltaici si fanno nella mia zona?",
+      "a": "Il GSE pubblica i dati degli impianti fotovoltaici installati, e da lì si contano quelli registrati ogni anno nei comuni dove lavori. È un conteggio di lavori veri, più solido di una stima fatta sugli abitanti. Nello studio di fattibilità lo facciamo dentro il raggio in cui opera l'impresa."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Avete mai provato ad acquisire clienti privati in modo strutturato, o è sempre stato solo passaparola?»"
+    },
+    {
+      "type": "p",
+      "text": "È una delle domande che faccio al telefono ai titolari delle imprese edili. Quando dall'altra parte c'è chi installa impianti fotovoltaici, il problema che sentiamo di più nelle chiamate è doppio: lo vendono in troppi, e il cliente non sa bene cosa sta comprando."
+    },
+    {
+      "type": "p",
+      "text": "Se ti ci ritrovi, è normale. E viene spontaneo pensare che per trovare clienti per il fotovoltaico restino due strade: abbassare il prezzo, oppure aspettare che un cliente contento faccia il tuo nome a un vicino."
+    },
+    {
+      "type": "p",
+      "text": "La concorrenza c'è, ma i lavori li perdi quando il cliente non ha niente per distinguerti, e allora confronta l'unica cosa che capisce: il numero in fondo al preventivo."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: UN CLIENTE CHE NON SA COSA COMPRA"
+    },
+    {
+      "type": "p",
+      "text": "Chi vuole un impianto per casa sua di solito non sa che differenza c'è fra un'offerta e l'altra. Non sa cosa guardare fra pannelli, inverter e accumulo, e non ha modo di capire chi lavora meglio."
+    },
+    {
+      "type": "p",
+      "text": "Così fa quello che farebbe chiunque al suo posto: chiede più preventivi e li mette uno accanto all'altro. Se le offerte gli sembrano uguali, sceglie la più bassa."
+    },
+    {
+      "type": "p",
+      "text": "Quando nella stessa zona lo vendono in tanti, ogni preventivo che mandi finisce accanto a quelli di altre imprese. E il tuo sopralluogo diventa uno dei TANTI che quel cliente ha fatto fare."
+    },
+    {
+      "type": "h2",
+      "text": "IL LIMITE DEL PASSAPAROLA NEL FOTOVOLTAICO"
+    },
+    {
+      "type": "p",
+      "text": "Nel fotovoltaico il passaparola ha un limite in più: l'impianto si compra una volta sola. Il cliente contento può portarti altri clienti, ma non altri lavori suoi."
+    },
+    {
+      "type": "p",
+      "text": "E anche lui, prima di firmare, sapeva poco di pannelli e inverter. A chi gli chiede consiglio può dire che si è trovato bene, ma difficilmente sa spiegare perché il tuo lavoro era migliore di un altro."
+    },
+    {
+      "type": "p",
+      "text": "Così chi arriva per passaparola spesso porta con sé una cifra sentita da un altro, e il confronto sul prezzo comincia prima del tuo sopralluogo."
+    },
+    {
+      "type": "h2",
+      "text": "IL CONTO: QUARANTOTTO GIORNATE IN UN ANNO"
+    },
+    {
+      "type": "p",
+      "text": "Facciamo un conto con numeri tondi, solo per vedere come funziona. Mettiamo che tu faccia dieci sopralluoghi al mese, e che ne firmi due."
+    },
+    {
+      "type": "p",
+      "text": "Gli altri otto sono andati a chi raccoglieva prezzi, a chi non aveva ancora deciso o a chi non poteva spendere. Se ognuno ti è costato mezza giornata fra viaggio, rilievo sul tetto e preventivo, sono quattro giornate al mese."
+    },
+    {
+      "type": "p",
+      "text": "In un anno fanno 48 giornate: quasi DIECI settimane di lavoro, passate a preparare offerte per chi non avrebbe firmato."
+    },
+    {
+      "type": "p",
+      "text": "Quelle giornate pesano anche sulle trattative: più ne dai a chi non firma, meno ne restano per seguire chi stava per firmare, e più cresce la voglia di fare lo sconto pur di chiuderne almeno qualcuna."
+    },
+    {
+      "type": "p",
+      "text": "Su questo Gianpio ha scritto cosa cambiare [quando il cliente chiede lo sconto](/blog/cliente-chiede-sconto-cosa-fare), prima ancora di toccare il prezzo."
+    },
+    {
+      "type": "h2",
+      "text": "PRIMA DI SALIRE SUL TETTO"
+    },
+    {
+      "type": "p",
+      "text": "Pensa a richieste che ti dicono già quattro cose: se vogliono l'impianto, l'accumulo o tutti e due, entro quando vogliono montarlo, quanto hanno pensato di spendere e in che comune stanno."
+    },
+    {
+      "type": "p",
+      "text": "Prima di salire su un tetto sai già se quella persona vuole solo un prezzo o ha deciso di fare l'impianto. E il sopralluogo lo fai a chi può firmare."
+    },
+    {
+      "type": "p",
+      "text": "Se vendi anche pompe di calore o climatizzazione, ogni linea ha le sue richieste e i suoi numeri. Vedi quale risponde meglio e ci sposti il budget, invece di aspettare che il telefono squilli per qualunque cosa."
+    },
+    {
+      "type": "p",
+      "text": "E sai quanto lavoro c'è davvero intorno a te. Il GSE pubblica i dati degli impianti fotovoltaici installati: da lì si contano quelli registrati ogni anno nel raggio in cui lavori. È un conteggio di lavori veri, più solido di una stima fatta sugli abitanti."
+    },
+    {
+      "type": "p",
+      "text": "Con quel numero in mano la domanda cambia. Non ti chiedi più come farti trovare da qualcuno, ma quanti di quei clienti puoi prendere ogni anno con la squadra che hai."
+    },
+    {
+      "type": "h2",
+      "text": "LE RICHIESTE CHE ARRIVANO A PIÙ IMPRESE INSIEME"
+    },
+    {
+      "type": "p",
+      "text": "Quando le richieste calano, la tentazione è comprarne di più, da chiunque le venda. Ma una richiesta che arriva a te e insieme ad altre imprese ti riporta dritto al confronto sul prezzo."
+    },
+    {
+      "type": "p",
+      "text": "Lo dico come lo dico al telefono: «Il problema non è \"pochi contatti\", è \"contatti sprecati\".» Poche richieste di chi ha già deciso di fare l'impianto ti rendono più di tante di chi sta solo raccogliendo prezzi."
+    },
+    {
+      "type": "p",
+      "text": "Il caso che lo mostra meglio non viene dal fotovoltaico, ma il meccanismo è lo stesso. [DISA, che vende un software alle imprese edili](/casi-studio/software-b2b), trovava clienti con le chiamate a freddo e chiedendo referenze."
+    },
+    {
+      "type": "p",
+      "text": "Con le campagne su Meta e le informazioni raccolte prima della telefonata ha chiuso 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto."
+    },
+    {
+      "type": "h2",
+      "text": "QUATTRO DOMANDE SUL TUO MERCATO"
+    },
+    {
+      "type": "p",
+      "text": "Basta una stima a occhio, come la daresti a un collega che installa come te."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Quanti sopralluoghi fai al mese, e quanti diventano un impianto firmato?",
+        "Delle richieste dell'ultimo mese, quante sono arrivate dal passaparola e quante da altro?",
+        "Prima di salire sul tetto, sai già quanto il cliente ha pensato di spendere?",
+        "Sai quanti impianti si installano ogni anno nella zona in cui lavori?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Se alla prima hai risposto con pochi impianti firmati e all'ultima con un no, parti dal mercato che hai intorno e da un filtro prima del sopralluogo, prima ancora di toccare il prezzo."
+    },
+    {
+      "type": "p",
+      "text": "Da dove arrivano le richieste quando il passaparola non basta lo racconto in [trovare clienti per un'impresa edile quando il passaparola tace](/blog/trovare-clienti-impresa-edile). Come lavoriamo, dalla pubblicità al modulo che filtra fino alla firma, lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi)."
+    },
+    {
+      "type": "p",
+      "text": "Lo studio di fattibilità parte proprio da qui: contiamo il mercato della tua zona dalle fonti ufficiali, guardiamo quanto lavoro regge oggi la tua impresa e ti diciamo se ha senso lavorare insieme. La risposta può anche essere no."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: contiamo gli impianti della tua zona e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
