@@ -26,6 +26,7 @@ const clienti = [
   clientLogos.tettitop,
   clientLogos.disa,
   clientLogos.sosAppalti,
+  clientLogos.fensterBauSystem,
 ];
 
 function LogoItem({ name, src }: { name: string; src: string }) {
