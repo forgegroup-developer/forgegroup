@@ -23,7 +23,7 @@ import { siteImages } from "@/data/images";
  * chiede: un prospect se n'era andato perché il video si bloccava.
  */
 
-const caso = caseStudies.find((c) => c.slug === "software-b2b")!;
+const caso = caseStudies.find((c) => c.slug === "software-edilizia")!;
 
 type Props = {
   /** Sulle landing il link al caso porterebbe fuori dalla pagina. */

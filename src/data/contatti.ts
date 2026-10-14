@@ -25,7 +25,7 @@ const MESSAGGI_PER_PAGINA: Record<string, string> = {
     "Buongiorno, ho visto sul vostro sito il caso di Tetti Top. Vorrei capire se si può fare qualcosa di simile per la mia impresa.",
   "/casi-studio/arredo-commerciale":
     "Buongiorno, ho visto sul vostro sito il caso di ROVI. Vorrei capire se si può fare qualcosa di simile per la mia azienda.",
-  "/casi-studio/software-b2b":
+  "/casi-studio/software-edilizia":
     "Buongiorno, ho visto sul vostro sito il caso di DISA. Vorrei capire se si può fare qualcosa di simile per la mia azienda.",
   "/casi-studio":
     "Buongiorno, ho guardato i vostri casi studio. Vorrei capire se si può fare qualcosa di simile per la mia impresa.",

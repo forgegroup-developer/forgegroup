@@ -32,7 +32,7 @@ export const clientLogos = {
 
 /** Logo per ogni caso studio (slug → cliente + eventuale prodotto) */
 export const caseStudyLogosBySlug = {
-  "software-b2b": {
+  "software-edilizia": {
     clientLogo: clientLogos.disa.src,
     clientLogoFull: "/images/clienti/cliente-disa-full.png",
     clientLogoAlt: clientLogos.disa.alt,

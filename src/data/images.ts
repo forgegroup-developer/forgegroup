@@ -49,7 +49,7 @@ import { isAllowedRemoteImage } from "./imageHosts";
 
 /** Percorsi immagini professionali in /public/images */
 export const caseStudyImages: Record<string, string> = {
-  "software-b2b": "/images/casi-studio/software-b2b.jpg",
+  "software-edilizia": "/images/casi-studio/software-b2b.jpg",
   edilizia: "/images/casi-studio/edilizia.jpg",
   "arredo-commerciale": "/images/casi-studio/arredo-commerciale.jpg",
   "hotel-hospitality": "/images/casi-studio/hotel-hospitality.jpg",
@@ -62,7 +62,7 @@ export type CaseStudyImageLayout = {
 
 /** Layout per copertina: inquadratura e fit ottimizzati per ogni foto 16:9 */
 export const caseStudyImageLayout: Record<string, CaseStudyImageLayout> = {
-  "software-b2b": { fit: "cover", position: "50% 42%" },
+  "software-edilizia": { fit: "cover", position: "50% 42%" },
   edilizia: { fit: "cover", position: "54% 36%" },
   "arredo-commerciale": { fit: "cover", position: "50% 36%" },
   "hotel-hospitality": { fit: "cover", position: "50% 54%" },

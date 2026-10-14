@@ -34,7 +34,7 @@ export const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
       commento: "Il piano dei lavori presentato di persona, e il negozio consegnato.",
     },
   },
-  "software-b2b": {
+  "software-edilizia": {
     prima: {
       src: primaDopoImages.disaPrima,
       alt: "Un commerciale alla scrivania al telefono, stanco, davanti a un elenco di numeri da chiamare",

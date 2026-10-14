@@ -305,7 +305,7 @@ export const caseStudies: CaseStudy[] = [
     ...caseStudyLogosBySlug["arredo-commerciale"],
   },
   {
-    slug: "software-b2b",
+    slug: "software-edilizia",
     sector: "Software per l'edilizia",
     title: "Software per l'edilizia: 126.500 € in 90 giorni solo dalle Meta Ads",
     shortTitle: "Software per l'edilizia",
@@ -397,7 +397,7 @@ export const caseStudies: CaseStudy[] = [
       { text: "crescere sul mercato", highlight: true },
       { text: "." },
     ],
-    ...caseStudyLogosBySlug["software-b2b"],
+    ...caseStudyLogosBySlug["software-edilizia"],
     evolutionEyebrow: "Prima e dopo",
     evolutionHeading: "Cosa è cambiato",
     evolutionHeadingHighlight: "per DISA",

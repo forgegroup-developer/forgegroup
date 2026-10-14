@@ -10,7 +10,7 @@ import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 // dall'indice, così /blog resta prerenderizzato e servito dalla CDN.
 export const metadata: Metadata = {
   title: "Cerca nel blog",
-  description: "Cerca tra gli articoli del blog Forge Group su marketing B2B e acquisizione clienti.",
+  description: "Cerca tra gli articoli del blog Forge Group per i titolari di imprese edili: richieste di lavoro, sopralluoghi, preventivi, trattative e gestionale.",
   robots: { index: false, follow: true },
 };
 
