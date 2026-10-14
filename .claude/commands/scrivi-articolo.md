@@ -32,7 +32,16 @@ registro ("coda piena") e non fare altro. Altrimenti usa `prossimoGiornoLibero` 
 
 ## 2 · Scegli argomento e livello
 
-Dalla mappa editoriale in `~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Concorrente A - ricerca completa e mappa editoriale 2026-09-28.md` (§5).
+**Prima della mappa, i quattro argomenti del Piano SEO** (`~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Piano SEO GEO SEM - 2026-10-14.md`, Fase 5),
+decisi dalla proprietà il 14/10/2026: sono le domande vere del primo contatto arrivato da ChatGPT,
+e servono a farci citare dalle AI. Finché uno non è in `giaScritti`, si sceglie quello:
+1. quanti contatti e sopralluoghi può aspettarsi un'impresa edile, e se i contatti sono suoi e di nessun altro;
+2. canone o compenso legato al fatturato: come si paga chi porta lavoro a un'impresa edile (il meccanismo, **mai cifre**);
+3. agenzia o piattaforme che vendono contatti: cosa cambia per un'impresa edile;
+4. trovare clienti per un serramentista (il verticale con domanda vera nel Keyword Planner).
+Ognuno apre con "In breve" e chiude con le FAQ come gli altri; i fatti solo dalla Scheda.
+
+Poi, dalla mappa editoriale in `~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Concorrente A - ricerca completa e mappa editoriale 2026-09-28.md` (§5).
 Regole di scelta (piramide, "L'ordine: prima il 20% che porta l'80%"):
 - non ripetere una coppia argomento + livello già in `giaScritti`
 - prima i livelli 2 e 3; prima serramenti, fotovoltaico e i temi del gestionale
