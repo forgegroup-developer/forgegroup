@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Article } from "@/data/articles";
 import { ARTICLE_AUTHOR, categoryToSlug } from "@/data/articles";
+import { AUTORI } from "@/data/autori";
 import { getBlogImage, isImmagineAI } from "@/data/images";
 
 type Props = {
@@ -65,7 +66,7 @@ export default function ArticleList({
                 <span aria-hidden>·</span>
                 <time dateTime={article.date}>{formatDate(article.date)}</time>
                 <span aria-hidden>·</span>
-                <span>di {ARTICLE_AUTHOR}</span>
+                <span>di {article.autore ? AUTORI[article.autore].nome : ARTICLE_AUTHOR}</span>
               </div>
               <h2 className="mb-3 text-xl font-semibold leading-snug text-brand-nero md:text-2xl">
                 <Link href={`/blog/${article.slug}`} className="group-hover:text-brand-corallo-text transition-colors">

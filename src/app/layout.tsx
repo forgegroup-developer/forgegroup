@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Script from "next/script";
 import { IUBENDA } from "@/data/legal";
+import { AUTORI, AUTORE_IDS, autorePath } from "@/data/autori";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -82,6 +83,15 @@ const organizationJsonLd = {
   email: "info@forgegroup.it",
   description: SITE_DESCRIPTION,
   sameAs: [...SOCIAL_SAME_AS],
+  // I fondatori, con lo stesso @id delle pagine autore: Google e le AI collegano le persone
+  // all'azienda e agli articoli che firmano.
+  founder: AUTORE_IDS.map((id) => ({
+    "@type": "Person",
+    "@id": `${siteUrl}${autorePath(id)}#persona`,
+    name: AUTORI[id].nome,
+    url: `${siteUrl}${autorePath(id)}`,
+    sameAs: [AUTORI[id].linkedin],
+  })),
   contactPoint: {
     "@type": "ContactPoint",
     email: "info@forgegroup.it",

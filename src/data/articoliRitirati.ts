@@ -39,5 +39,7 @@ export const CATEGORIE_RITIRATE: Ritiro[] = [
   { slug: "vendite-b2b", destinazione: "/blog" },
   // Restava solo "come-farsi-pagare-di-più", ritirato.
   { slug: "pricing-e-margine", destinazione: "/blog" },
+  // Restava solo la vecchia versione di "come-smettere-dipendere-passaparola", ora dal file.
+  { slug: "acquisizione-clienti", destinazione: "/blog" },
   { slug: "gestione-e-crm", destinazione: "/blog/categoria/gestionale" },
 ];

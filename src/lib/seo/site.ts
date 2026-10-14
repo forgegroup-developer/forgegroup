@@ -22,6 +22,8 @@ export const SOCIAL_PROFILES = {
   facebook: "https://www.facebook.com/profile.php?id=61590577058663",
   instagram: "https://www.instagram.com/forgegroupitalia/",
   linkedin: "https://www.linkedin.com/company/forge-group-italia",
+  /** La scheda dell'azienda su Google (link stabile con il CID). */
+  google: "https://www.google.com/maps?cid=16002235616676818453",
 } as const;
 
 export const SOCIAL_SAME_AS = Object.values(SOCIAL_PROFILES);
@@ -95,6 +97,18 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
     priority: 0.8,
     changeFrequency: "weekly",
     inLlmsMainPages: true,
+  },
+  {
+    path: "/autori/marco-pio-cerbone",
+    label: "Marco Pio Cerbone",
+    priority: 0.6,
+    changeFrequency: "monthly",
+  },
+  {
+    path: "/autori/gianpio-uva",
+    label: "Gianpio Uva",
+    priority: 0.6,
+    changeFrequency: "monthly",
   },
   {
     path: "/privacy-policy",
