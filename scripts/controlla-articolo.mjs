@@ -93,7 +93,7 @@ const ROTTE = new Set([
   "/casi-studio",
   "/casi-studio/edilizia",
   "/casi-studio/arredo-commerciale",
-  "/casi-studio/software-b2b",
+  "/casi-studio/software-edilizia",
   "/visione",
   "/contatti",
   "/blog",

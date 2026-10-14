@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { allowedImageHosts } from "./src/data/imageHosts";
 import { IUBENDA } from "./src/data/legal";
-import { ARTICOLI_RITIRATI, CATEGORIE_RITIRATE } from "./src/data/articoliRitirati";
+import { ARTICOLI_RITIRATI, CASI_RINOMINATI, CATEGORIE_RITIRATE } from "./src/data/articoliRitirati";
 
 const nextConfig: NextConfig = {
   // Gli articoli in coda si leggono da disco (src/lib/blog/fileArticles.ts):
@@ -67,6 +67,11 @@ const nextConfig: NextConfig = {
         destination: r.destinazione,
         permanent: true,
       })),
+      ...CASI_RINOMINATI.map((r) => ({
+        source: `/casi-studio/${r.slug}`,
+        destination: r.destinazione,
+        permanent: true,
+      })),
       ...CATEGORIE_RITIRATE.map((r) => ({
         source: `/blog/categoria/${r.slug}`,
         destination: r.destinazione,
@@ -83,7 +88,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/disa",
-        destination: "/casi-studio/software-b2b",
+        destination: "/casi-studio/software-edilizia",
         permanent: false,
       },
       // La pagina del CRM ha cambiato nome il 9 settembre 2026: era

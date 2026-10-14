@@ -9,7 +9,7 @@ import { casi } from "@/data/prove";
  * src/data/prove.ts (proprietà, 29/09). Ogni numero ha sotto il cliente.
  */
 const link: Record<string, string> = {
-  "software-b2b": "/casi-studio/software-b2b",
+  "software-edilizia": "/casi-studio/software-edilizia",
   edilizia: "/casi-studio/edilizia",
   "arredo-commerciale": "/casi-studio/arredo-commerciale",
 };

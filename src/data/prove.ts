@@ -48,7 +48,7 @@ export const recensioniGoogle = {
 /** I tre casi, come li racconta la landing. */
 export const casi = [
   {
-    slug: "software-b2b",
+    slug: "software-edilizia",
     chi: "DISA",
     settore: "Software per l'edilizia",
     numero: "350.000 €",

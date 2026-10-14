@@ -33,6 +33,11 @@ export const CATEGORIE_RINOMINATE: Record<string, string> = {
   "Gestione e CRM": "Gestionale",
 };
 
+/** Casi studio che hanno cambiato indirizzo: il vecchio diceva "b2b" (14/10/2026). */
+export const CASI_RINOMINATI: Ritiro[] = [
+  { slug: "software-b2b", destinazione: "/casi-studio/software-edilizia" },
+];
+
 /** Indirizzi di categoria che non esistono più → dove vanno. */
 export const CATEGORIE_RITIRATE: Ritiro[] = [
   { slug: "agenzia-marketing-b2b", destinazione: "/blog" },
