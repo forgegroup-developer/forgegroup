@@ -99,22 +99,19 @@ const localBusinessJsonLd = {
   image: `${siteUrl}/logo.png`,
   url: siteUrl,
   email: "info@forgegroup.it",
-  priceRange: "€€€",
   sameAs: [...SOCIAL_SAME_AS],
+  // Sede operativa (Testa aziendale). Clienti in tutta Italia: niente regioni né città,
+  // che facevano leggere a Google e alle AI "agenzia campana". Niente priceRange: i prezzi
+  // non si pubblicano.
   address: {
     "@type": "PostalAddress",
-    addressRegion: "Campania",
+    streetAddress: "Contrada Fosso Cavallo 38",
+    postalCode: "83040",
+    addressLocality: "Fontanarosa",
+    addressRegion: "AV",
     addressCountry: "IT",
   },
-  areaServed: [
-    { "@type": "Country", name: "Italia" },
-    { "@type": "AdministrativeArea", name: "Campania" },
-    { "@type": "City", name: "Napoli" },
-    { "@type": "City", name: "Salerno" },
-    { "@type": "City", name: "Caserta" },
-    { "@type": "City", name: "Avellino" },
-    { "@type": "City", name: "Benevento" },
-  ],
+  areaServed: { "@type": "Country", name: "Italia" },
 };
 
 const websiteJsonLd = {

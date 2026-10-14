@@ -9,6 +9,7 @@ import {
   isArticlePublished,
 } from "@/lib/blog/publishing";
 import { fetchDbPublishedArticles } from "@/lib/blog/dbArticles";
+import { CATEGORIE_RINOMINATE, SLUG_RITIRATI } from "@/data/articoliRitirati";
 
 /**
  * `cache()` deduplica per richiesta: una pagina del blog chiama più helper
@@ -17,9 +18,19 @@ import { fetchDbPublishedArticles } from "@/lib/blog/dbArticles";
  */
 const mergedArticles = cache(async function mergedArticles(): Promise<Article[]> {
   const fromDb = await fetchDbPublishedArticles();
-  const dbSlugs = new Set(fromDb.map((a) => a.slug));
-  const localOnly = articles.filter((a) => !dbSlugs.has(a.slug));
-  return [...localOnly, ...fromDb];
+  // Vince il file del repo: è lì che il Redattore scrive e riscrive dal 30/09. Prima vinceva
+  // il DB, e "come-smettere-dipendere-passaparola" online era ancora la versione vecchia.
+  const localSlugs = new Set(articles.map((a) => a.slug));
+  const dbOnly = fromDb.filter((a) => !localSlugs.has(a.slug));
+  // Gli articoli ritirati restano pubblicati nel DB: si scartano qui, e le categorie
+  // rinominate prendono il nome nuovo (src/data/articoliRitirati.ts).
+  return [...articles, ...dbOnly]
+    .filter((a) => !SLUG_RITIRATI.has(a.slug))
+    .map((a) =>
+      CATEGORIE_RINOMINATE[a.category]
+        ? { ...a, category: CATEGORIE_RINOMINATE[a.category] }
+        : a
+    );
 });
 
 export const getPublishedArticles = cache(

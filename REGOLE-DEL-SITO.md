@@ -111,6 +111,8 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 - **Tre righe di sintesi in alto** sulle pagine chiave (il problema, la causa, cosa cambia).
 - **Link interni:** ogni pagina porta ad almeno un caso studio; nessuna pagina orfana. Una pagina nuova
   va aggiunta a `STATIC_SEO_ROUTES` (`src/lib/seo/site.ts`) per la sitemap.
+- **Articoli e categorie ritirati** stanno in `src/data/articoliRitirati.ts`: da lì escono i redirect
+  permanenti e il filtro che li toglie da sitemap, categorie, feed e ricerca. Il DB non si tocca.
 - **`/llms.txt` e le versioni `/index.md`** (`src/lib/aiSeo/mirrors.ts`) sono quello che leggono ChatGPT
   e le risposte di Google: solo fatti della Scheda, mai prezzi.
 
