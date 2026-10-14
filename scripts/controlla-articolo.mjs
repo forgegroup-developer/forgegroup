@@ -18,7 +18,7 @@ import path from "node:path";
 const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const CODA = path.join(RADICE, "content", "articoli");
 
-const CATEGORIE = ["Clienti e sopralluoghi", "Trattative e vendita", "Gestione e CRM"];
+const CATEGORIE = ["Clienti e sopralluoghi", "Trattative e vendita", "Gestionale"];
 const TIPI_BLOCCO = ["p", "h2", "h3", "ul", "quote", "cta", "image"];
 
 /** Parole per livello, dalla regola della piramide. */

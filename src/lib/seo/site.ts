@@ -33,12 +33,11 @@ export const SITE_KEYWORDS = [
   "trovare clienti impresa edile",
   "pubblicita impresa edile",
   "acquisizione clienti imprese edili",
-  "reparto commerciale esterno edilizia",
   "ricerca personale edile",
   "controllo di gestione impresa edile",
   "sito web impresa edile",
   "marketing per serramentisti",
-  "crm edilizia",
+  "gestionale impresa edile",
 ];
 
 export type SeoRoute = {
