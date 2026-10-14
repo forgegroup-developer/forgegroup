@@ -25,6 +25,7 @@ const clienti = [
   clientLogos.evaConsulting,
   clientLogos.tettitop,
   clientLogos.disa,
+  clientLogos.fensterBauSystem,
   clientLogos.sosAppalti,
 ];
 

@@ -24,6 +24,10 @@ export const clientLogos = {
     src: "/images/clienti/cliente-hotel-dream.png",
     alt: "Dream Hotel",
   },
+  fensterBauSystem: {
+    src: "/images/clienti/cliente-fenster-bau-system.png",
+    alt: "Fenster Bau System",
+  },
 } as const;
 
 /** Logo per ogni caso studio (slug → cliente + eventuale prodotto) */
