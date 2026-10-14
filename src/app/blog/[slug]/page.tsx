@@ -17,7 +17,7 @@ import {
   getPublishedArticles,
 } from "@/lib/blog/articlesAsync";
 import { getBlogImage, isImmagineAI } from "@/data/images";
-import { AUTORI } from "@/data/autori";
+import { AUTORI, autorePath } from "@/data/autori";
 import { getArticlePublishDate, isArticleScheduled } from "@/lib/blog/publishing";
 import { SITE_NAME, SITE_URL, absoluteUrl } from "@/lib/seo/site";
 
@@ -101,9 +101,12 @@ export default async function ArticleDetail({ params }: Props) {
     author: autore
       ? {
           "@type": "Person",
+          "@id": `${SITE_URL}${autorePath(a.autore!)}#persona`,
           name: autore.nome,
           jobTitle: autore.ruolo,
-          worksFor: { "@type": "Organization", name: SITE_NAME },
+          url: `${SITE_URL}${autorePath(a.autore!)}`,
+          sameAs: [autore.linkedin],
+          worksFor: { "@id": `${SITE_URL}#organization` },
         }
       : { "@type": "Organization", name: ARTICLE_AUTHOR },
     publisher: {
@@ -182,7 +185,16 @@ export default async function ArticleDetail({ params }: Props) {
                 <span aria-hidden>·</span>
                 <span>{a.readTime} di lettura</span>
                 <span aria-hidden>·</span>
-                <span>di {autore?.nome ?? ARTICLE_AUTHOR}</span>
+                <span>
+                  di{" "}
+                  {autore ? (
+                    <Link href={autorePath(a.autore!)} className="hover:underline">
+                      {autore.nome}
+                    </Link>
+                  ) : (
+                    ARTICLE_AUTHOR
+                  )}
+                </span>
               </div>
             </div>
           </div>
@@ -322,7 +334,10 @@ export default async function ArticleDetail({ params }: Props) {
                   >
                     <p className="eyebrow mb-2">Chi scrive</p>
                     <p className="font-semibold text-brand-nero">
-                      {autore.nome}, {autore.ruolo.toLowerCase()}
+                      <Link href={autorePath(a.autore!)} className="hover:underline">
+                        {autore.nome}
+                      </Link>
+                      , {autore.ruolo.toLowerCase()}
                     </p>
                     <p className="text-brand-grigio mt-1">{autore.bio}</p>
                   </aside>

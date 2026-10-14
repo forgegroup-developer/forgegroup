@@ -27,18 +27,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Articoli su ${categoryName}`,
-    description: `Guide e articoli su ${categoryName.toLowerCase()} per imprenditori B2B. Strategie pratiche da Forge Group.`,
+    description: `Gli articoli di Forge Group su ${categoryName.toLowerCase()} per i titolari di imprese edili: come arriva la richiesta, il sopralluogo, il preventivo e la firma.`,
     alternates: { canonical: `/blog/categoria/${category}` },
     openGraph: {
       title: `${categoryName} | Blog Forge Group`,
-      description: `Articoli su ${categoryName.toLowerCase()} per imprenditori e aziende B2B.`,
+      description: `Gli articoli di Forge Group su ${categoryName.toLowerCase()} per i titolari di imprese edili.`,
       url: `/blog/categoria/${category}`,
       images: [{ url: "/logo.png", width: 1024, height: 1024, alt: `Blog ${categoryName}` }],
     },
     twitter: {
       card: "summary",
       title: `${categoryName} | Blog Forge Group`,
-      description: `Articoli su ${categoryName.toLowerCase()} per imprenditori B2B.`,
+      description: `Gli articoli di Forge Group su ${categoryName.toLowerCase()} per i titolari di imprese edili.`,
     },
   };
 }
