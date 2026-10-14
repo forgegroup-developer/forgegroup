@@ -3,6 +3,7 @@ const FIELD_LABELS: Record<string, string> = {
   occupazione: "Di cosa si occupa",
   ostacolo: "Ostacolo principale",
   acquisizione_attuale: "Come acquisisce clienti oggi",
+  fonte: "Come ci ha conosciuto",
   nome_cognome: "Nome e Cognome",
   telefono: "Telefono",
   email: "Email",
