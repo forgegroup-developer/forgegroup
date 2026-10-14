@@ -10,6 +10,7 @@ import { altriProblemi, problemiConScena } from "@/data/blocchi";
 import { iniziaImages } from "@/data/images";
 import { faqsPagina } from "@/data/site";
 import { SITE_NAME } from "@/lib/seo/site";
+import { getArticlesByCategory } from "@/lib/blog/articlesAsync";
 
 /**
  * La pagina del gestionale (rifatta il 29/09/2026).
@@ -59,7 +60,13 @@ const confronto = {
   ],
 };
 
-export default function CrmGestionalePage() {
+// Rigenerata ogni ora: l'elenco degli articoli sul gestionale cresce con il Redattore.
+export const revalidate = 3600;
+
+export default async function CrmGestionalePage() {
+  // Link interni dalla pagina agli articoli della categoria (piano SEO del 14/10/2026):
+  // gli articoli già portano qui, ora la pagina porta a loro.
+  const articoli = (await getArticlesByCategory("Gestionale")).slice(0, 4);
   return (
     <>
       <div className={`${CONTENITORE} pt-6`}>
@@ -205,6 +212,23 @@ export default function CrmGestionalePage() {
           </Titolo>
           <div className="mx-auto max-w-3xl">
             <FAQAccordion items={faqsPagina("crm")} />
+            {articoli.length > 0 && (
+              <nav aria-label="Da leggere sul gestionale" className="mt-12 border-t border-brand-bordo pt-8">
+                <p className="eyebrow mb-4">Da leggere sul gestionale</p>
+                <ul className="space-y-3">
+                  {articoli.map((x) => (
+                    <li key={x.slug}>
+                      <Link
+                        href={`/blog/${x.slug}`}
+                        className="font-semibold text-brand-nero hover:text-brand-corallo-text hover:underline"
+                      >
+                        {x.title} →
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
           </div>
         </div>
       </section>
