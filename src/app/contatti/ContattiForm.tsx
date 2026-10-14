@@ -11,6 +11,7 @@ type FormData = {
   occupazione: string;
   ostacolo: string;
   acquisizione_attuale: string;
+  fonte: string;
   nome_cognome: string;
   telefono: string;
   email: string;
@@ -21,6 +22,7 @@ const initialFormData: FormData = {
   occupazione: "",
   ostacolo: "",
   acquisizione_attuale: "",
+  fonte: "",
   nome_cognome: "",
   telefono: "",
   email: "",
@@ -76,6 +78,22 @@ const steps: FormStep[] = [
     type: "textarea",
     rows: 3,
     placeholder: "Passaparola, ads, fiere, outbound...",
+  },
+  {
+    // Le visite dalle AI non portano la parola cercata: questa risposta dice da dove arriva
+    // davvero la candidatura (piano SEO del 14/10/2026). Va anche nell'evento GA4.
+    name: "fonte",
+    label: "Come ci hai conosciuto?",
+    type: "select",
+    options: [
+      { value: "Su Google", label: "Su Google" },
+      { value: "Da ChatGPT o un'altra intelligenza artificiale", label: "Da ChatGPT o un'altra intelligenza artificiale" },
+      { value: "Su LinkedIn", label: "Su LinkedIn" },
+      { value: "Su Instagram o Facebook", label: "Su Instagram o Facebook" },
+      { value: "Me ne ha parlato un'altra impresa", label: "Me ne ha parlato un'altra impresa" },
+      { value: "Ci siamo già sentiti con Forge Group", label: "Ci siamo già sentiti con Forge Group" },
+      { value: "Altro", label: "Altro" },
+    ],
   },
   {
     name: "nome_cognome",
@@ -171,7 +189,7 @@ export default function ContattiForm({
         throw new Error(j.message || "Errore durante l'invio del modulo.");
       }
 
-      sendGAEvent("event", "generate_lead", { form_name: sorgente });
+      sendGAEvent("event", "generate_lead", { form_name: sorgente, fonte: form.fonte });
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return true;
