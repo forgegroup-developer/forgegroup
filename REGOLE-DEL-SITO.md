@@ -132,6 +132,7 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 
 - **Ogni modulo nuovo passa la sua `sorgente`** (`<ContattiFormLoader sorgente="…" />`), così le
   candidature si contano pagina per pagina. **Ogni link WhatsApp nuovo ha `data-wa`.**
+- **Le nostre visite non si contano.** La rete dell'ufficio è esclusa per IP (GA4, regola "Ufficio Marco"); ogni altro dispositivo nostro (telefoni, Gianpio, collaboratori) apre una volta `forgegroup.it/?interno=si` e da lì manda `traffic_type=internal`, che il filtro "Internal Traffic" di GA4 esclude. `?interno=no` lo toglie. Lo script sta in `src/app/layout.tsx`.
 - **Mai dati personali** negli eventi né negli indirizzi (niente nome, telefono o email nei parametri).
 - In GA4 `generate_lead` è l'evento chiave.
 

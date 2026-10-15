@@ -164,6 +164,14 @@ export default function RootLayout({
         {/* Prima di GA: il widget imposta il consenso Google a "negato"
             finché il visitatore non sceglie dal banner (Consent Mode v2). */}
         <Script id="iubenda" src={IUBENDA.widgetSrc} strategy="beforeInteractive" />
+        {/* Le nostre visite fuori dai report (15/10/2026). Chi apre una volta
+            forgegroup.it/?interno=si resta segnato su quel browser (?interno=no
+            lo toglie): GA riceve traffic_type=internal e il filtro "Internal
+            Traffic" di GA4 lo esclude. Serve per i telefoni e per chi non è
+            sulla rete dell'ufficio, già esclusa per indirizzo IP. */}
+        <Script id="traffico-interno" strategy="beforeInteractive">
+          {`try{var q=new URLSearchParams(location.search).get("interno");if(q==="si")localStorage.setItem("forge_interno","1");if(q==="no")localStorage.removeItem("forge_interno");if(localStorage.getItem("forge_interno")==="1"){window.dataLayer=window.dataLayer||[];(function(){window.dataLayer.push(arguments)})("set",{traffic_type:"internal"})}}catch(e){}`}
+        </Script>
         <script id="ld-org" type="application/ld+json">
           {JSON.stringify(organizationJsonLd)}
         </script>
