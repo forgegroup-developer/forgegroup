@@ -147,7 +147,9 @@ export default function ServiceCard({
       href={item.href}
       className="superficie-chiara group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-bordo bg-brand-bianco shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-corallo/40 hover:shadow-xl"
     >
-      <div className="relative aspect-[16/10] bg-brand-bianco">
+      {/* Da telefono senza illustrazione: tre disegni alti 200 px
+          allungavano la sezione senza dire niente (proprietà, 15/10). */}
+      <div className="relative aspect-[16/10] bg-brand-bianco max-md:hidden">
         <Image
           src={item.image}
           alt=""
@@ -156,7 +158,7 @@ export default function ServiceCard({
           sizes="(max-width: 768px) 100vw, 360px"
         />
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-7">
+      <div className="flex flex-1 flex-col gap-4 p-6 md:p-7">
         <span className="text-xs font-bold uppercase tracking-widest text-brand-corallo-text">
           {item.label}
         </span>

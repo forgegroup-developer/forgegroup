@@ -37,13 +37,14 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
               <button
                 id={`${base}-d${idx}`}
                 onClick={() => setOpenIdx(isOpen ? null : idx)}
-                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                className="w-full flex items-center justify-between gap-4 px-5 py-4 md:px-6 md:py-5 text-left"
                 aria-expanded={isOpen}
                 aria-controls={`${base}-r${idx}`}
               >
-                <span className="font-semibold text-brand-nero text-lg">{f.q}</span>
+                <span className="font-semibold text-brand-nero text-base md:text-lg">{f.q}</span>
                 <span
-                  className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
+                  data-aperta={isOpen ? "" : undefined}
+                  className={`faq-icona w-8 h-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${
                     isOpen
                       ? "border-brand-corallo bg-brand-corallo text-white rotate-45"
                       : "border-brand-bordo text-brand-grigio"
@@ -70,7 +71,7 @@ export default function FAQAccordion({ items = faqs, onCoral = false }: Props) {
               className={`accordion-content ${isOpen ? "open" : ""}`}
             >
               <div>
-                <div className="px-6 pb-6 text-brand-grigio leading-relaxed">{f.a}</div>
+                <div className="px-5 pb-5 md:px-6 md:pb-6 text-brand-grigio leading-relaxed">{f.a}</div>
               </div>
             </div>
           </div>

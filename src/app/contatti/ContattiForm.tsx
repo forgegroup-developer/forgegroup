@@ -8,9 +8,8 @@ import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type FormData = {
   nome_attivita: string;
-  occupazione: string;
+  zona: string;
   ostacolo: string;
-  acquisizione_attuale: string;
   fonte: string;
   nome_cognome: string;
   telefono: string;
@@ -19,106 +18,133 @@ type FormData = {
 
 const initialFormData: FormData = {
   nome_attivita: "",
-  occupazione: "",
+  zona: "",
   ostacolo: "",
-  acquisizione_attuale: "",
   fonte: "",
   nome_cognome: "",
   telefono: "",
   email: "",
 };
 
-type StepType = "text" | "textarea" | "tel" | "email" | "select";
+type FieldType = "text" | "tel" | "email" | "select";
 
-type FormStep = {
+type Field = {
   name: keyof FormData;
-  label: string;
-  type: StepType;
+  /** Etichetta sopra il campo: serve solo quando la schermata ha più campi. */
+  label?: string;
+  type: FieldType;
   placeholder?: string;
-  rows?: number;
+  autoComplete?: string;
   options?: { value: string; label: string }[];
 };
 
+type FormStep = {
+  title: string;
+  fields: Field[];
+};
+
+// Quattro schermate invece di otto (15/10/2026): via le due domande a testo
+// libero, che da telefono fermavano chi compilava. Quello che serviva sapere
+// prima di chiamare (impresa e zona) sta nella prima schermata.
 const steps: FormStep[] = [
   {
-    name: "nome_attivita",
-    label: "Nome attività / Azienda",
-    type: "text",
-    placeholder: "Es. Edil Srl",
-  },
-  {
-    name: "occupazione",
-    label: "Di cosa ti occupi? (in 1-3 frasi, come se mi parlassi di persona)",
-    type: "textarea",
-    rows: 4,
-    placeholder: "Raccontaci cosa fa la tua azienda...",
-  },
-  {
-    name: "ostacolo",
-    label: "Qual è il tuo più grande ostacolo attualmente?",
-    type: "select",
-    options: [
+    title: "Come si chiama la tua impresa, e dove lavora?",
+    fields: [
       {
-        value: "Aumentare i potenziali clienti da contattare",
-        label: "Aumentare i potenziali clienti da contattare",
+        name: "nome_attivita",
+        label: "Nome dell'impresa",
+        type: "text",
+        placeholder: "Es. Edil Srl",
+        autoComplete: "organization",
       },
       {
-        value: "Aumentare il tasso di conversione e vendere di più",
-        label: "Aumentare il tasso di conversione e vendere di più",
-      },
-      {
-        value: "Aumentare la qualità dei clienti e il margine dell'azienda",
-        label: "Aumentare la qualità dei clienti e il margine dell'azienda",
+        name: "zona",
+        label: "Zona in cui lavori",
+        type: "text",
+        placeholder: "Es. Bari e provincia",
+        autoComplete: "address-level2",
       },
     ],
   },
   {
-    name: "acquisizione_attuale",
-    label: "Come acquisisci clienti ad oggi?",
-    type: "textarea",
-    rows: 3,
-    placeholder: "Passaparola, ads, fiere, outbound...",
+    title: "Qual è il tuo più grande ostacolo oggi?",
+    fields: [
+      {
+        name: "ostacolo",
+        type: "select",
+        options: [
+          {
+            value: "Aumentare i potenziali clienti da contattare",
+            label: "Aumentare i potenziali clienti da contattare",
+          },
+          {
+            value: "Aumentare il tasso di conversione e vendere di più",
+            label: "Aumentare il tasso di conversione e vendere di più",
+          },
+          {
+            value: "Aumentare la qualità dei clienti e il margine dell'azienda",
+            label: "Aumentare la qualità dei clienti e il margine dell'azienda",
+          },
+        ],
+      },
+    ],
   },
   {
     // Le visite dalle AI non portano la parola cercata: questa risposta dice da dove arriva
     // davvero la candidatura (piano SEO del 14/10/2026). Va anche nell'evento GA4.
-    name: "fonte",
-    label: "Come ci hai conosciuto?",
-    type: "select",
-    options: [
-      { value: "Su Google", label: "Su Google" },
-      { value: "Da ChatGPT o un'altra intelligenza artificiale", label: "Da ChatGPT o un'altra intelligenza artificiale" },
-      { value: "Su LinkedIn", label: "Su LinkedIn" },
-      { value: "Su Instagram o Facebook", label: "Su Instagram o Facebook" },
-      { value: "Me ne ha parlato un'altra impresa", label: "Me ne ha parlato un'altra impresa" },
-      { value: "Ci siamo già sentiti con Forge Group", label: "Ci siamo già sentiti con Forge Group" },
-      { value: "Altro", label: "Altro" },
+    title: "Come ci hai conosciuto?",
+    fields: [
+      {
+        name: "fonte",
+        type: "select",
+        options: [
+          { value: "Su Google", label: "Su Google" },
+          { value: "Da ChatGPT o un'altra intelligenza artificiale", label: "Da ChatGPT o un'altra intelligenza artificiale" },
+          { value: "Su LinkedIn", label: "Su LinkedIn" },
+          { value: "Su Instagram o Facebook", label: "Su Instagram o Facebook" },
+          { value: "Me ne ha parlato un'altra impresa", label: "Me ne ha parlato un'altra impresa" },
+          { value: "Ci siamo già sentiti con Forge Group", label: "Ci siamo già sentiti con Forge Group" },
+          { value: "Altro", label: "Altro" },
+        ],
+      },
     ],
   },
   {
-    name: "nome_cognome",
-    label: "Nome e Cognome",
-    type: "text",
-    placeholder: "Mario Rossi",
-  },
-  {
-    name: "telefono",
-    label: "Telefono",
-    type: "tel",
-    placeholder: "+39 333 1234567",
-  },
-  {
-    name: "email",
-    label: "Email",
-    type: "email",
-    placeholder: "nome@azienda.it",
+    title: "Dove ti chiamiamo entro 48 ore?",
+    fields: [
+      {
+        name: "nome_cognome",
+        label: "Nome e cognome",
+        type: "text",
+        placeholder: "Mario Rossi",
+        autoComplete: "name",
+      },
+      {
+        name: "telefono",
+        label: "Telefono",
+        type: "tel",
+        placeholder: "333 1234567",
+        autoComplete: "tel",
+      },
+      {
+        name: "email",
+        label: "Email",
+        type: "email",
+        placeholder: "nome@azienda.it",
+        autoComplete: "email",
+      },
+    ],
   },
 ];
 
+const isSelectStep = (step: FormStep) =>
+  step.fields.length === 1 && step.fields[0].type === "select";
+
 const ERROR_ID = "form-errore-step";
 
+// text-base o più: sotto i 16 px iPhone ingrandisce la pagina quando si tocca il campo.
 const inputCls =
-  "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-5 py-4 text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
+  "w-full bg-brand-bianco border-2 border-brand-bordo rounded-xl px-4 py-3.5 text-base md:text-lg text-brand-nero placeholder:text-brand-grigio-light focus:border-brand-corallo focus:outline-none focus:ring-2 focus:ring-brand-corallo/20 transition-all";
 
 type Props = {
   /** Da quale pagina arriva la candidatura, per contarle a parte in GA4. */
@@ -137,8 +163,9 @@ export default function ContattiForm({
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [stepError, setStepError] = useState("");
+  const [campoErrato, setCampoErrato] = useState<keyof FormData | null>(null);
   const [honeypot, setHoneypot] = useState("");
-  const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+  const campiRef = useRef<Partial<Record<keyof FormData, HTMLInputElement | null>>>({});
 
   const current = steps[stepIndex];
   const isLastStep = stepIndex === steps.length - 1;
@@ -146,31 +173,37 @@ export default function ContattiForm({
   const updateField = (name: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [name]: value }));
     setStepError("");
+    setCampoErrato(null);
   };
 
   const validateStep = useCallback(
     (index = stepIndex): boolean => {
-      const step = steps[index];
-      const value = form[step.name].trim();
-      if (!value) {
-        setStepError("Completa questa domanda per continuare.");
-        return false;
-      }
-      if (step.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        setStepError("Inserisci un indirizzo email valido.");
-        return false;
+      for (const field of steps[index].fields) {
+        const value = form[field.name].trim();
+        let messaggio = "";
+        if (!value) {
+          messaggio =
+            field.type === "select"
+              ? "Scegli una risposta per continuare."
+              : `Manca: ${(field.label ?? "questa risposta").toLowerCase()}.`;
+        } else if (field.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          messaggio = "Controlla l'email: sembra scritta male.";
+        } else if (field.type === "tel" && value.replace(/\D/g, "").length < 8) {
+          messaggio = "Controlla il numero di telefono: sembra incompleto.";
+        }
+        if (messaggio) {
+          setStepError(messaggio);
+          setCampoErrato(field.name);
+          campiRef.current[field.name]?.focus();
+          return false;
+        }
       }
       setStepError("");
+      setCampoErrato(null);
       return true;
     },
     [form, stepIndex],
   );
-
-  const goNext = useCallback(() => {
-    if (!validateStep()) return;
-    if (isLastStep) return;
-    setStepIndex((s) => s + 1);
-  }, [isLastStep, validateStep]);
 
   const handleSubmit = async (): Promise<boolean> => {
     if (!validateStep()) return false;
@@ -205,113 +238,124 @@ export default function ContattiForm({
     }
   };
 
-  // Il cursore va nel campo solo quando si passa alla domanda dopo: al primo
-  // caricamento il focus farebbe scorrere la pagina fino al modulo, e su
+  // Il cursore va nel primo campo solo quando si passa alla domanda dopo: al
+  // primo caricamento il focus farebbe scorrere la pagina fino al modulo, e su
   // /inizia il modulo sta in fondo.
   const domandaPrecedente = useRef(stepIndex);
   useEffect(() => {
     if (domandaPrecedente.current === stepIndex) return;
     domandaPrecedente.current = stepIndex;
-    inputRef.current?.focus();
+    const primo = steps[stepIndex].fields[0];
+    if (primo.type !== "select") campiRef.current[primo.name]?.focus();
   }, [stepIndex]);
 
+  // Invio sulla tastiera: passa al campo dopo della stessa schermata, poi
+  // alla schermata dopo, e sull'ultima invia.
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key !== "Enter" || e.shiftKey) return;
-    if (current.type === "textarea" || current.type === "select") return;
+    if (isSelectStep(current)) return;
     e.preventDefault();
+    const campi = current.fields;
+    const qui = campi.findIndex((f) => campiRef.current[f.name] === e.target);
+    if (qui >= 0 && qui < campi.length - 1) {
+      campiRef.current[campi[qui + 1].name]?.focus();
+      return;
+    }
     if (isLastStep) {
       void handleSubmit();
-    } else {
-      goNext();
+    } else if (validateStep()) {
+      setStepIndex((s) => s + 1);
     }
   };
 
-  const renderField = (step: FormStep) => {
-    const fieldId = `campo-${step.name}`;
-    const describedBy = stepError ? ERROR_ID : undefined;
+  const renderSelect = (step: FormStep, field: Field) => (
+    <div
+      role="radiogroup"
+      aria-labelledby={`titolo-${stepIndex}`}
+      aria-required="true"
+      aria-invalid={stepError ? true : undefined}
+      aria-describedby={stepError ? ERROR_ID : undefined}
+      className="space-y-2.5"
+    >
+      {field.options?.map((opt) => {
+        const selected = form[field.name] === opt.value;
+        const stepIsLast = steps.indexOf(step) === steps.length - 1;
+        return (
+          <button
+            key={opt.value}
+            type="button"
+            role="radio"
+            aria-checked={selected}
+            onClick={() => {
+              updateField(field.name, opt.value);
+              if (!stepIsLast) {
+                window.setTimeout(() => setStepIndex((i) => i + 1), 280);
+              }
+            }}
+            className={`w-full text-left rounded-xl border-2 px-4 py-3.5 text-base md:px-5 md:py-4 md:text-lg transition-all duration-200 ${
+              selected
+                ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero font-semibold shadow-sm"
+                : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50 hover:bg-brand-panna/50"
+            }`}
+          >
+            {opt.label}
+          </button>
+        );
+      })}
+    </div>
+  );
 
-    if (step.type === "select" && step.options) {
-      return (
-        <div
-          role="radiogroup"
-          aria-labelledby={`titolo-${step.name}`}
-          aria-required="true"
-          aria-invalid={stepError ? true : undefined}
-          aria-describedby={describedBy}
-          className="space-y-3"
-        >
-          {step.options.map((opt) => {
-            const selected = form[step.name] === opt.value;
-            const stepIsLast = steps.indexOf(step) === steps.length - 1;
-            return (
-              <button
-                key={opt.value}
-                type="button"
-                role="radio"
-                aria-checked={selected}
-                onClick={() => {
-                  updateField(step.name, opt.value);
-                  if (!stepIsLast) {
-                    window.setTimeout(() => setStepIndex((i) => i + 1), 280);
-                  }
-                }}
-                className={`w-full text-left rounded-xl border-2 px-5 py-4 text-base md:text-lg transition-all duration-200 ${
-                  selected
-                    ? "border-brand-corallo bg-brand-corallo/5 text-brand-nero font-semibold shadow-sm"
-                    : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50 hover:bg-brand-panna/50"
-                }`}
-              >
-                {opt.label}
-              </button>
-            );
-          })}
-        </div>
-      );
-    }
-
-    if (step.type === "textarea") {
-      return (
-        <textarea
+  const renderInput = (field: Field) => {
+    const fieldId = `campo-${field.name}`;
+    const errato = campoErrato === field.name;
+    return (
+      <div key={field.name}>
+        {field.label && (
+          <label
+            htmlFor={fieldId}
+            className="mb-1.5 block text-sm font-semibold text-brand-nero"
+          >
+            {field.label}
+          </label>
+        )}
+        <input
           id={fieldId}
-          ref={inputRef as React.RefObject<HTMLTextAreaElement>}
-          value={form[step.name]}
-          onChange={(e) => updateField(step.name, e.target.value)}
-          rows={step.rows ?? 4}
-          placeholder={step.placeholder}
+          name={field.name}
+          ref={(el) => {
+            campiRef.current[field.name] = el;
+          }}
+          type={field.type}
+          inputMode={field.type === "tel" ? "tel" : field.type === "email" ? "email" : undefined}
+          enterKeyHint={
+            field === current.fields[current.fields.length - 1]
+              ? isLastStep
+                ? "send"
+                : "next"
+              : "next"
+          }
+          autoCapitalize={field.type === "email" ? "none" : "words"}
+          autoCorrect="off"
+          spellCheck={false}
+          value={form[field.name]}
+          onChange={(e) => updateField(field.name, e.target.value)}
+          placeholder={field.placeholder}
           required
           aria-required="true"
-          aria-invalid={stepError ? true : undefined}
-          aria-describedby={describedBy}
-          className={`${inputCls} resize-y min-h-[140px]`}
+          aria-invalid={errato ? true : undefined}
+          aria-describedby={errato ? ERROR_ID : undefined}
+          className={`${inputCls} ${errato ? "border-brand-corallo" : ""}`}
+          autoComplete={field.autoComplete}
         />
-      );
-    }
-
-    return (
-      <input
-        id={fieldId}
-        ref={inputRef as React.RefObject<HTMLInputElement>}
-        type={step.type}
-        value={form[step.name]}
-        onChange={(e) => updateField(step.name, e.target.value)}
-        placeholder={step.placeholder}
-        required
-        aria-required="true"
-        aria-invalid={stepError ? true : undefined}
-        aria-describedby={describedBy}
-        className={inputCls}
-        autoComplete={
-          step.type === "email"
-            ? "email"
-            : step.type === "tel"
-              ? "tel"
-              : step.name === "nome_cognome"
-                ? "name"
-                : "organization"
-        }
-      />
+      </div>
     );
   };
+
+  const renderStep = (step: FormStep) =>
+    isSelectStep(step) ? (
+      renderSelect(step, step.fields[0])
+    ) : (
+      <div className="space-y-4">{step.fields.map(renderInput)}</div>
+    );
 
   if (success) {
     return (
@@ -448,9 +492,9 @@ export default function ContattiForm({
                         disabled={submitting}
                         className="btn-corallo disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {submitting ? "INVIO IN CORSO..." : "INVIA CANDIDATURA"}
+                        {submitting ? "Invio in corso..." : "Invia la candidatura"}
                       </button>
-                    ) : current.type !== "select" ? (
+                    ) : !isSelectStep(current) ? (
                       <button
                         type="button"
                         onClick={handleNext}
@@ -460,7 +504,7 @@ export default function ContattiForm({
                       </button>
                     ) : (
                       <p className="text-sm text-brand-grigio text-center sm:text-right">
-                        Seleziona un&apos;opzione per continuare
+                        Tocca una risposta per continuare
                       </p>
                     )}
                   </div>
@@ -481,16 +525,9 @@ export default function ContattiForm({
                 </>
               )}
             >
-              {steps.map((step) => (
-                <Step
-                  key={step.name}
-                  title={step.label}
-                  titleId={`titolo-${step.name}`}
-                  fieldId={
-                    step.type === "select" ? undefined : `campo-${step.name}`
-                  }
-                >
-                  {renderField(step)}
+              {steps.map((step, i) => (
+                <Step key={step.title} title={step.title} titleId={`titolo-${i}`}>
+                  {renderStep(step)}
                 </Step>
               ))}
             </AnimatedStepper>

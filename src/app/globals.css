@@ -3028,3 +3028,17 @@ footer .btn-ghost {
     transparent 92%
   );
 }
+
+/* L'icona + / x delle domande frequenti sta dentro un h3: sul mattone la
+   regola dell'evidenziatore la faceva bianca su bianco e quadrata
+   (15/10/2026, visto da telefono). Torna tonda e leggibile. */
+.section-mattone .superficie-chiara span.faq-icona:not(.segno-no) {
+  border-radius: 9999px;
+  color: var(--color-brand-grigio);
+  border-color: var(--color-brand-bordo);
+}
+.section-mattone .superficie-chiara span.faq-icona[data-aperta]:not(.segno-no) {
+  color: #ffffff;
+  background-color: var(--color-brand-corallo);
+  border-color: var(--color-brand-corallo);
+}
