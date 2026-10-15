@@ -40,7 +40,7 @@ export default function ArticleList({
           <div className="flex flex-col md:flex-row">
             <Link
               href={`/blog/${article.slug}`}
-              className="relative aspect-[16/10] md:aspect-auto md:w-2/5 md:min-h-[220px] shrink-0 overflow-hidden"
+              className="relative aspect-[2/1] md:aspect-auto md:w-2/5 md:min-h-[220px] shrink-0 overflow-hidden"
             >
               <Image
                 src={getBlogImage(article.slug, article.featuredImage)}
@@ -55,7 +55,7 @@ export default function ArticleList({
                 </span>
               )}
             </Link>
-            <div className="flex flex-col justify-center p-6 md:p-8 md:w-3/5">
+            <div className="flex flex-col justify-center p-5 md:p-8 md:w-3/5">
               <div className="mb-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-brand-grigio-light">
                 <Link
                   href={`/blog/categoria/${categoryToSlug(article.category)}`}
@@ -73,7 +73,9 @@ export default function ArticleList({
                   {article.title}
                 </Link>
               </h2>
-              <p className="mb-5 text-brand-grigio leading-relaxed line-clamp-3">{article.excerpt}</p>
+              {/* Da telefono basta il titolo: l'anteprima tagliata a tre righe
+                  allungava l'elenco senza dire di più (proprietà, 15/10). */}
+              <p className="mb-5 text-brand-grigio leading-relaxed line-clamp-3 max-md:hidden">{article.excerpt}</p>
               <Link
                 href={`/blog/${article.slug}`}
                 className="inline-flex items-center gap-2 text-sm font-bold text-brand-corallo-text hover:underline"

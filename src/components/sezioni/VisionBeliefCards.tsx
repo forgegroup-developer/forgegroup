@@ -42,7 +42,7 @@ const beliefCards: {
     subtitle:
       "Non mancano i prodotti e servizi. Non mancano le persone. Manca qualcuno che entra dentro, capisce come funziona davvero quell'azienda, e costruisce con loro qualcosa che regge nel tempo.",
     variant: "coral",
-    rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
+    rotateClass: "md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "",
     icon: Star,
     photoObjectPosition: "center 30%",
@@ -55,7 +55,7 @@ const beliefCards: {
     subtitle:
       "Restiamo fianco a fianco sul marketing, sul processo commerciale, sulla struttura. Lavoriamo con te finché il sistema regge con meno intervento nostro.",
     variant: "dark",
-    rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
+    rotateClass: "md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:mt-0 md:mt-10 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
@@ -68,7 +68,7 @@ const beliefCards: {
     subtitle:
       "Ma quello che ci interessa davvero non è solo il numero a fine mese. È quello che succede dentro quell'azienda quando le cose iniziano ad andare bene. Come cambia l'imprenditore. Come respira il suo team. Quanto tempo riesce finalmente a dedicare a quello che conta.",
     variant: "coral",
-    rotateClass: "-rotate-[2deg] md:-rotate-[4deg] md:hover:rotate-0",
+    rotateClass: "md:-rotate-[4deg] md:hover:rotate-0",
     wrapClass: "md:mt-4",
     icon: Star,
   },
@@ -80,7 +80,7 @@ const beliefCards: {
     subtitle:
       "Chi lavora con noi, cliente o collaboratore, trova un ambiente preciso. Lavoriamo con lealtà e trasparenza. Cerchiamo imprenditori con cui costruire insieme nel tempo. Se leggendo questo hai sentito qualcosa, il resto lo scopriamo davanti a un caffè.",
     variant: "dark",
-    rotateClass: "rotate-[2deg] md:rotate-[4deg] md:hover:rotate-0",
+    rotateClass: "md:rotate-[4deg] md:hover:rotate-0",
     wrapClass: "max-md:mt-0 md:mt-14 md:-ml-6 lg:-ml-8",
     icon: ArrowUpRight,
     iconClassName: "-rotate-45",
@@ -111,7 +111,7 @@ function BeliefCard({
           isCoral ? "bg-brand-corallo-dark" : "bg-brand-nero-soft"
         }`}
       >
-        <div className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-t-[24px] md:h-[300px]">
+        <div className="relative h-[180px] w-full shrink-0 overflow-hidden rounded-t-[24px] md:h-[300px]">
           <Image
             src={photo}
             alt={alt}
@@ -134,7 +134,7 @@ function BeliefCard({
           </span>
         </div>
 
-        <div className="flex flex-1 flex-col p-8">
+        <div className="flex flex-1 flex-col p-6 md:p-8">
           <h3
             className="text-balance leading-[1.1] text-white"
             style={{
