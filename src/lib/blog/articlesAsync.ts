@@ -9,7 +9,18 @@ import {
   isArticlePublished,
 } from "@/lib/blog/publishing";
 import { fetchDbPublishedArticles } from "@/lib/blog/dbArticles";
-import { CATEGORIE_RINOMINATE, SLUG_RITIRATI } from "@/data/articoliRitirati";
+import {
+  CATEGORIE_RINOMINATE,
+  CATEGORIE_RITIRATE,
+  SLUG_RITIRATI,
+} from "@/data/articoliRitirati";
+
+/**
+ * Le categorie ritirate hanno un redirect permanente (next.config): non devono più avere una
+ * pagina, né stare in sitemap o nella barra laterale, anche se un articolo del DB le usa ancora.
+ */
+const SLUG_CATEGORIE_RITIRATE = new Set(CATEGORIE_RITIRATE.map((c) => c.slug));
+const categoriaAttiva = (nome: string) => !SLUG_CATEGORIE_RITIRATE.has(categoryToSlug(nome));
 
 /**
  * `cache()` deduplica per richiesta: una pagina del blog chiama più helper
@@ -43,7 +54,7 @@ export const getPublishedArticles = cache(
 
 export async function getCategorySlugsForBuild(): Promise<string[]> {
   const merged = await mergedArticles();
-  return [...new Set(merged.map((a) => categoryToSlug(a.category)))];
+  return [...new Set(merged.map((a) => a.category).filter(categoriaAttiva).map(categoryToSlug))];
 }
 
 export async function getCategoryFromSlug(
@@ -63,6 +74,7 @@ export async function getCategories(): Promise<
     map.set(article.category, (map.get(article.category) ?? 0) + 1);
   }
   return [...map.entries()]
+    .filter(([name]) => categoriaAttiva(name))
     .map(([name, count]) => ({ name, slug: categoryToSlug(name), count }))
     .sort((a, b) => a.name.localeCompare(b.name, "it"));
 }

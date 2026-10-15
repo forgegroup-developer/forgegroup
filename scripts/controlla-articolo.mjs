@@ -98,6 +98,8 @@ const ROTTE = new Set([
   "/contatti",
   "/blog",
   "/inizia",
+  // Le pagine degli autori (link buono per E-E-A-T e GEO), lette da src/data/autori.ts.
+  ...[...fs.readFileSync(path.join(RADICE, "src", "data", "autori.ts"), "utf8").matchAll(/slug: "([a-z0-9-]+)"/g)].map((m) => `/autori/${m[1]}`),
 ]);
 
 /**

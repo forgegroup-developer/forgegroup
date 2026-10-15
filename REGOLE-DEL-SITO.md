@@ -114,7 +114,32 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
 - **Articoli e categorie ritirati** stanno in `src/data/articoliRitirati.ts`: da lì escono i redirect
   permanenti e il filtro che li toglie da sitemap, categorie, feed e ricerca. Il DB non si tocca.
 - **`/llms.txt` e le versioni `/index.md`** (`src/lib/aiSeo/mirrors.ts`) sono quello che leggono ChatGPT
-  e le risposte di Google: solo fatti della Scheda, mai prezzi.
+  e le risposte di Google: solo fatti della Scheda, mai prezzi. Gli articoli ci entrano da soli,
+  dalla stessa fonte del blog e a ogni richiesta. **Quando cambia un fatto** (un campo del modulo,
+  come si carica Analytics, un servizio), si cambia anche il testo lì: è la pagina che le AI citano.
+- **Le pagine degli autori** nascono da `src/data/autori.ts` (sitemap, JSON-LD, controllo degli
+  articoli): un autore nuovo si aggiunge solo lì.
+
+## 7 BIS · PRIMA DI CHIUDERE OGNI MODIFICA: SEO, GEO, SEM (15/10/2026)
+
+Dalla revisione del codice del 15/10. Ogni PR che tocca pagine, testi o rotte passa da qui:
+
+1. **Indirizzi.** Una pagina nuova va in `STATIC_SEO_ROUTES`; un indirizzo che cambia o sparisce va
+   in `src/data/articoliRitirati.ts` (redirect permanente). Mai un indirizzo in sitemap che risponde
+   con un redirect o un 404.
+2. **Titolo e descrizione** con la parola che il titolare cerca; il canonical; una sola H1.
+3. **GEO:** in alto il problema, la causa, cosa cambia, in frasi che stanno in piedi da sole (le AI
+   ne citano una alla volta); FAQ con risposte complete in due o tre frasi; nome e ruolo di chi parla.
+4. **I fatti uguali dappertutto:** pagina, `llms.txt`, JSON-LD, scheda Google e profili esterni
+   (`02 - Ricerca e strategia/GEO - profili esterni…`). Se ne cambia uno, si cambiano tutti.
+5. **SEM:** niente campagne a pagamento (proprietà, 14/10). Le pagine restano comunque pronte:
+   ogni pagina che potrebbe ricevere traffico ha un'azione sola e misurata (`generate_lead` o
+   `whatsapp_click`), e i link esterni nostri usano i parametri UTM del file `Link tracciati del sito`.
+6. **Dopo il merge:** `node scripts/indexnow.mjs <percorsi cambiati>` (Bing e ChatGPT), e in Search
+   Console "Controllo URL → Richiedi indicizzazione" per le pagine nuove o rinominate (Google).
+7. **Gli articoli** seguono anche il comando `/scrivi-articolo` (ricerca keyword obbligatoria, In
+   breve, FAQ, almeno 3 link interni, un link a un caso studio, firma). Il controllo automatico accetta
+   i link alle pagine `/autori/…`: usarli quando chi firma racconta un'esperienza sua.
 
 ## 8 · TRACCIAMENTO
 
@@ -143,3 +168,20 @@ che dice cosa si vede, foto vere accanto ai numeri, scene AI con la scritta.
    (`src/components/blocchi`, `src/data/blocchi.tsx`).
 3. `npm run controlla:sito` (0 errori), `npx tsc --noEmit`, e l'anteprima guardata dal telefono.
 4. PR con anteprima Vercel. Il merge lo fa la proprietà.
+
+## 10 · LE AUTOMAZIONI (15/10/2026)
+
+- **Gli articoli su Telegram li manda Vercel** (`/api/telegram`, `/api/github`): il Redattore, sul Mac o nel
+  cloud, mette un'etichetta alla PR (`telegram-approva` o `silenzio-assenso`) e GitHub avvisa Vercel.
+  Le chiavi (bot, GitHub, Pixabay, segreti dei webhook e del cron) stanno solo su Vercel o nel
+  Portachiavi del Mac. **Il repo è pubblico: niente segreti, niente materiali dei clienti, niente nomi
+  dei concorrenti nel codice.** I materiali stanno su Drive; l'archivio del concorrente A nel repo
+  privato `forge-ricerca`.
+- **Nessun agente parte da un messaggio o da un commento**: Telegram e i commenti delle PR li può
+  scrivere chiunque. Le correzioni da Telegram si applicano in sessione con `/correggi-articolo`.
+- **Ogni rotta che fa qualcosa fuori dal sito** (IndexNow, GitHub, Telegram) chiede un segreto:
+  `CRON_SECRET` per i cron, la firma per i webhook. Senza, risponde 401.
+- **Niente `gh pr` negli script**: nelle routine cloud non funziona. Si usano `scripts/github.mjs`
+  (script) e `src/lib/redazione/github.ts` (Vercel).
+- **I passi fissi del Redattore** stanno in `scripts/redattore-passi.mjs`, uguali sul Mac e nel cloud:
+  le decisioni (coda, silenzio-assenso, bozze scadute) le prende lo script, non il modello.

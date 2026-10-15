@@ -1,4 +1,5 @@
-import { articles, getPublishedArticles } from "@/data/articles";
+import type { Article } from "@/data/articles";
+import { getPublishedArticles } from "@/lib/blog/articlesAsync";
 import { caseStudies } from "@/data/caseStudies";
 import { faqs } from "@/data/site";
 import { IUBENDA, LEGAL, LEGAL_CONTROLLERS } from "@/data/legal";
@@ -12,14 +13,15 @@ export type MirrorPage = {
 };
 
 const BASE = SITE_URL;
-const TODAY = new Date().toISOString().slice(0, 10);
+// La data di ogni risposta, non quella di avvio del server (una funzione resta viva per giorni).
+const oggi = () => new Date().toISOString().slice(0, 10);
 
 function frontmatter(page: MirrorPage): string {
   return `---
 title: ${page.title}
 description: ${page.description}
 url: ${page.url}
-last_updated: ${TODAY}
+last_updated: ${oggi()}
 ---
 
 `;
@@ -110,7 +112,7 @@ ${BASE}/contatti
     body: `
 # Candida la tua impresa
 
-Il modulo chiede alcune informazioni sull'impresa: attività, zona, come arrivano oggi i clienti, tempi.
+Il modulo chiede il nome dell'impresa, la zona in cui lavora, cosa vuole migliorare per primo, come ci ha conosciuto, nome e telefono.
 
 ## Cosa succede dopo
 1. Guardiamo la tua impresa e la tua zona prima di sentirti.
@@ -161,19 +163,6 @@ Cerchiamo imprenditori con cui costruire, non clienti da gestire.
 Contatto: ${BASE}/contatti
 `,
   },
-  blog: {
-    title: "Blog Forge Group | Clienti, preventivi e margini per imprese edili",
-    description: "Articoli per i titolari di imprese edili: come arrivano i clienti, perché i preventivi restano senza risposta, dove si perdono i margini.",
-    url: `${BASE}/blog`,
-    body: `
-# Blog Forge Group
-
-Articoli per chi un'impresa edile la porta avanti.
-
-## Articoli
-${getPublishedArticles().map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
-`,
-  },
   "privacy-policy": {
     title: "Privacy Policy | Forge Group",
     description: "Informativa sul trattamento dei dati personali ai sensi del GDPR.",
@@ -198,8 +187,9 @@ Email: ${LEGAL.controllerEmail}
 
 Informativa cookie gestita su iubenda: ${IUBENDA.cookiePolicyUrl}
 
-Il sito usa Google Analytics 4 solo dopo il consenso dato dal banner cookie
-(Google Consent Mode v2). Le preferenze si cambiano in ogni momento dal
+Il sito usa Google Analytics 4 con Google Consent Mode v2: finché il visitatore
+non accetta dal banner cookie il consenso resta negato, e Analytics riceve solo
+segnali anonimi, senza cookie. Le preferenze si cambiano in ogni momento dal
 pulsante privacy in basso nella pagina.
 `,
   },
@@ -233,58 +223,79 @@ Scopri i servizi: ${BASE}/servizi
   };
 }
 
-for (const a of getPublishedArticles()) {
-  const contentMd = a.content
-    .map((block) => {
-      if (block.type === "h2") return `## ${block.text}`;
-      if (block.type === "h3") return `### ${block.text}`;
-      if (block.type === "p") return block.text ?? "";
-      if (block.type === "ul" && block.items) return block.items.map((i) => `- ${i}`).join("\n");
-      if (block.type === "quote") return `> ${block.text}`;
-      return "";
-    })
-    .filter(Boolean)
-    .join("\n\n");
-
-  staticMirrors[`blog/${a.slug}`] = {
-    title: a.title,
-    description: a.description,
-    url: `${BASE}/blog/${a.slug}`,
+/**
+ * Le pagine .md degli articoli si calcolano a ogni richiesta, dalla stessa fonte del blog
+ * (file del repo + database, senza i ritirati e con le categorie rinominate). Prima si
+ * calcolavano una volta all'avvio del server: un articolo uscito dopo restava fuori da
+ * llms.txt fino al deploy successivo, anche se IndexNow l'aveva già annunciato.
+ */
+function paginePerArticoli(articoli: Article[]): Record<string, MirrorPage> {
+  const pagine: Record<string, MirrorPage> = {};
+  pagine.blog = {
+    title: "Blog Forge Group | Clienti, preventivi e margini per imprese edili",
+    description: "Articoli per i titolari di imprese edili: come arrivano i clienti, perché i preventivi restano senza risposta, dove si perdono i margini.",
+    url: `${BASE}/blog`,
     body: `
-# ${a.title}
+# Blog Forge Group
 
-**Categoria:** ${a.category}  
-**Data:** ${a.date}
+Articoli per chi un'impresa edile la porta avanti.
 
-${a.description}
-
-${contentMd}
+## Articoli
+${articoli.map((a) => `- [${a.title}](${BASE}/blog/${a.slug}): ${a.description}`).join("\n")}
 `,
   };
+  for (const a of articoli) {
+    const contentMd = a.content
+      .map((block) => {
+        if (block.type === "h2") return `## ${block.text}`;
+        if (block.type === "h3") return `### ${block.text}`;
+        if (block.type === "p") return block.text ?? "";
+        if (block.type === "ul" && block.items) return block.items.map((i) => `- ${i}`).join("\n");
+        if (block.type === "quote") return `> ${block.text}`;
+        return "";
+      })
+      .filter(Boolean)
+      .join("\n\n");
+  
+    pagine[`blog/${a.slug}`] = {
+      title: a.title,
+      description: a.description,
+      url: `${BASE}/blog/${a.slug}`,
+      body: `
+  # ${a.title}
+  
+  **Categoria:** ${a.category}  
+  **Data:** ${a.date}
+  
+  ${a.description}
+  
+  ${contentMd}
+  `,
+    };
+  }
+  return pagine;
+}
+
+async function tutteLePagine(): Promise<Record<string, MirrorPage>> {
+  return { ...staticMirrors, ...paginePerArticoli(await getPublishedArticles()) };
 }
 
 /** Whitelist of paths — prevents path traversal in mirror API */
-export function getMirrorPath(pathSegments: string[] | undefined): string | null {
+export async function getMirrorMarkdown(pathSegments: string[] | undefined): Promise<string | null> {
   const path = (pathSegments ?? []).join("/");
   if (path.includes("..") || path.includes("\\")) return null;
-  if (!(path in staticMirrors)) return null;
-  return path;
+  const page = (await tutteLePagine())[path];
+  return page ? toMarkdown(page) : null;
 }
 
-export function getMirrorMarkdown(path: string): string | null {
-  const page = staticMirrors[path];
-  if (!page) return null;
-  return toMarkdown(page);
-}
-
-export function listMirrorUrls(): string[] {
-  return Object.keys(staticMirrors)
+export async function listMirrorUrls(): Promise<string[]> {
+  return Object.keys(await tutteLePagine())
     .sort()
     .map((p) => (p === "" ? `${BASE}/index.md` : `${BASE}/${p}/index.md`));
 }
 
-export function buildLlmsTxt(): string {
-  const mirrorList = listMirrorUrls().map((u) => `- ${u}`).join("\n");
+export async function buildLlmsTxt(): Promise<string> {
+  const mirrorList = (await listMirrorUrls()).map((u) => `- ${u}`).join("\n");
   const mainPages = STATIC_SEO_ROUTES.filter((r) => r.inLlmsMainPages)
     .map((r) => `- ${absoluteUrl(r.path)}`)
     .join("\n");
