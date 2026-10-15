@@ -54,8 +54,10 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
         </form>
       </div>
 
+      {/* Da telefono, sotto l'elenco del blog, ripeterebbe i primi tre
+          articoli appena letti: resta solo dentro un articolo. */}
       {recent.length > 0 && (
-        <div className="rounded-2xl border border-brand-bordo bg-brand-bianco p-5 shadow-sm">
+        <div className={`rounded-2xl border border-brand-bordo bg-brand-bianco p-5 shadow-sm ${excludeSlug ? "" : "max-md:hidden"}`}>
           <h2 className="text-lg font-semibold text-brand-nero mb-4">Articoli recenti</h2>
           <ul className="space-y-4">
             {recent.map((article) => (

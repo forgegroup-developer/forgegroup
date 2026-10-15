@@ -8,7 +8,7 @@ export default function VisionSection() {
   return (
     <>
       {/* Hero atmosferica */}
-      <section className="vision-hero-atmosphere relative flex min-h-[88dvh] items-center justify-center overflow-hidden border-b md:min-h-screen">
+      <section className="vision-hero-atmosphere relative flex min-h-[60dvh] items-center justify-center overflow-hidden border-b md:min-h-screen">
         <div
           className="pointer-events-none absolute inset-0 z-0 select-none"
           aria-hidden
@@ -34,7 +34,7 @@ export default function VisionSection() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-28 text-center sm:px-6 md:py-36">
+        <div className="relative z-10 mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 md:py-36">
           <div>
             <p className="eyebrow mb-6">✦ Visione</p>
             <h1 className="heading-hero heading-hero-home text-brand-nero mb-8 text-balance">
