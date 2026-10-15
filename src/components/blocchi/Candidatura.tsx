@@ -53,7 +53,7 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
                 ))}
               </ul>
               <p className="body-lg">
-                Compili il modulo in due minuti.{" "}
+                Compili il modulo in un minuto.{" "}
                 <strong className="chiave">
                   Ti chiamiamo entro 48 ore lavorative
                 </strong>{" "}

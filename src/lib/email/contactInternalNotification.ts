@@ -1,8 +1,7 @@
 const FIELD_LABELS: Record<string, string> = {
   nome_attivita: "Nome attività",
-  occupazione: "Di cosa si occupa",
+  zona: "Zona",
   ostacolo: "Ostacolo principale",
-  acquisizione_attuale: "Come acquisisce clienti oggi",
   fonte: "Come ci ha conosciuto",
   nome_cognome: "Nome e Cognome",
   telefono: "Telefono",

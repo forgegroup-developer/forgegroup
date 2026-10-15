@@ -112,7 +112,9 @@ export default function Home() {
             basso, e senza pagare più agenzie generaliste.
           </p>
 
-          <p className="hero-enter hero-enter-d3 firma-fondatori">
+          {/* Da telefono la firma non c'è: i fondatori li nomina già la foto
+              subito sotto (proprietà, 15/10: alleggerire la lettura da telefono). */}
+          <p className="hero-enter hero-enter-d3 firma-fondatori max-md:hidden">
             Il Metodo FORGE l&apos;abbiamo costruito noi due,{" "}
             <strong className="chiave">Marco e Gianpio</strong>, dopo aver
             analizzato sul campo i processi di centinaia di imprese edili.
@@ -173,14 +175,18 @@ export default function Home() {
             su cui il concorrente non scrive (fotovoltaico, pompe di calore,
             climatizzazione, lattoneria, tetti, arredo negozi: ricerca del
             28/09). Larga quanto tutta la hero (proprietà, 29/09). */}
+        {/* Da telefono i tredici mestieri occupavano uno schermo intero:
+            resta solo la frase (proprietà, 15/10). */}
         <div className="hero-enter hero-enter-d3 riga-mestieri order-3">
           <p className="riga-mestieri-titolo">
             <span className="riga-mestieri-asterisco" aria-hidden>
               ✳
             </span>
-            Lavoriamo solo con imprese edili e della filiera:
+            Lavoriamo solo con imprese edili e della filiera
+            <span className="max-md:hidden">:</span>
+            <span className="md:hidden">.</span>
           </p>
-          <ul className="riga-mestieri-elenco">
+          <ul className="riga-mestieri-elenco max-md:hidden">
             {mestieri.map((m) => (
               <li key={m}>{m}</li>
             ))}
@@ -280,10 +286,14 @@ export default function Home() {
         </section>
       </DeferredMount>
 
-      {/* S5 — CASI STUDIO, uno alla volta */}
-      <DeferredMount minHeight="720px" rootMargin="320px 0px">
-        <CasiStudioCarousel />
-      </DeferredMount>
+      {/* S5 — CASI STUDIO, uno alla volta. Da telefono non c'è: sono le
+          stesse tre imprese delle storie appena sopra, e la pagina era lunga
+          trenta schermate (proprietà, 15/10). */}
+      <div className="max-md:hidden">
+        <DeferredMount minHeight="720px" rootMargin="320px 0px">
+          <CasiStudioCarousel />
+        </DeferredMount>
+      </div>
 
       {/* S6b — PER CHI E' SCETTICO
           Quattro imprenditori su quattro, nelle conoscitive, avevano gia'

@@ -13,11 +13,11 @@ import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
+// Modulo corto dal 15/10/2026: via "di cosa ti occupi" e "come acquisisci clienti", dentro la zona.
 const REQUIRED_FIELDS = [
   "nome_attivita",
-  "occupazione",
+  "zona",
   "ostacolo",
-  "acquisizione_attuale",
   "nome_cognome",
   "telefono",
   "email",

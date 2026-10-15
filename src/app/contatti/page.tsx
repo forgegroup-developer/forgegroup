@@ -80,35 +80,39 @@ export default function ContattiPage() {
         <div className={CONTENITORE}>
           {/* Da telefono: titolo, poi subito il modulo, poi cosa c'è nello
               studio. Da computer: testo a sinistra, modulo fermo a destra. */}
-          <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-0">
-            <div className="lg:col-start-1 lg:row-start-1">
-              <p className="mb-6">
+          <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-0">
+            <div className="order-1 lg:col-start-1 lg:row-start-1">
+              <p className="mb-5 md:mb-6">
                 <span className="eyebrow-rule">
                   Candidatura · Studio di fattibilità
                 </span>
               </p>
-              <h1 className="heading-display-frase mb-6 text-balance">
+              <h1 className="heading-display-frase text-balance lg:mb-6">
                 Candida la tua impresa per lo{" "}
                 <Chiave>studio di fattibilità</Chiave>.
               </h1>
-              <p className="body-lg mb-8 text-pretty">
-                È il primo passo per lavorare con noi. Prima di parlare di
-                pubblicità facciamo i conti sulla tua impresa e sulla tua zona,
-                e decidiamo insieme se ha senso partire:{" "}
-                <strong className="chiave">a volte la risposta è no</strong>, e
-                te la diamo prima che tu abbia speso un euro.
-              </p>
             </div>
-            <div className="lg:sticky lg:top-28 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-              <div className="rounded-3xl border border-brand-bordo bg-brand-bianco p-6 shadow-xl shadow-black/5 md:p-8">
+            {/* Da telefono il testo va sotto il modulo (proprietà, 30/09: il
+                modulo subito sotto il titolo). */}
+            <p className="body-lg order-3 text-pretty lg:col-start-1 lg:row-start-2 lg:mb-8">
+              È il primo passo per lavorare con noi. Prima di parlare di
+              pubblicità facciamo i conti sulla tua impresa e sulla tua zona,
+              e decidiamo insieme se ha senso partire:{" "}
+              <strong className="chiave">a volte la risposta è no</strong>, e
+              te la diamo prima che tu abbia speso un euro.
+            </p>
+            {/* Da telefono niente riquadro intorno: il modulo ha già il suo, e
+                due bordi uno dentro l'altro lasciavano al campo 200 px. */}
+            <div className="order-2 lg:sticky lg:top-28 lg:col-start-2 lg:row-span-3 lg:row-start-1">
+              <div className="lg:rounded-3xl lg:border lg:border-brand-bordo lg:bg-brand-bianco lg:p-8 lg:shadow-xl lg:shadow-black/5">
                 <p className="mb-2 font-display text-xl font-bold text-brand-nero">
                   La tua candidatura
                 </p>
-                <BannerGoogle className="mb-6" />
+                <BannerGoogle className="mb-5 md:mb-6" />
                 <ContattiFormLoader sorgente="contatti" senzaBanner />
               </div>
             </div>
-            <div className="lg:col-start-1 lg:row-start-2">
+            <div className="order-4 lg:col-start-1 lg:row-start-3">
               <p className="mb-4 font-display text-lg font-bold text-brand-nero">
                 Nello studio di fattibilità trovi:
               </p>
@@ -126,7 +130,7 @@ export default function ContattiPage() {
                 ))}
               </ul>
               <p className="body-lg">
-                Compili il modulo in due minuti.{" "}
+                Compili il modulo in un minuto.{" "}
                 <strong className="chiave">
                   Ti chiamiamo entro 48 ore lavorative
                 </strong>{" "}

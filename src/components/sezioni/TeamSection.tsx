@@ -92,11 +92,13 @@ export default function TeamSection() {
           <span className="text-brand-corallo-text">Forge Group</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center items-start gap-10 md:gap-12">
+        {/* Da telefono due per riga: una foto alla volta erano quattro
+            schermate di volti (proprietà, 15/10). */}
+        <div className="grid grid-cols-2 items-start gap-x-4 gap-y-10 sm:flex sm:flex-wrap sm:justify-center sm:gap-10 md:gap-12">
           {team.map((member) => (
             <div
               key={member.name}
-              className="group flex w-[min(100%,260px)] flex-col items-center text-center sm:w-[280px]"
+              className="group flex w-full flex-col items-center text-center sm:w-[280px]"
             >
               <div className="relative w-full aspect-[2/3] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna shadow-[0_12px_40px_rgba(17,17,17,0.1)] transition-shadow duration-300 group-hover:shadow-[0_16px_48px_rgba(17,17,17,0.14)]">
                 {member.photo ? (
@@ -106,7 +108,7 @@ export default function TeamSection() {
                     width={1440}
                     height={2160}
                     className="h-full w-full object-cover object-center"
-                    sizes="(max-width: 640px) 260px, 280px"
+                    sizes="(max-width: 640px) 45vw, 280px"
                     quality={92}
                   />
                 ) : (
@@ -121,16 +123,16 @@ export default function TeamSection() {
                   </div>
                 )}
               </div>
-              <h3 className="text-xl font-semibold mt-6 mb-1 text-brand-nero">
+              <h3 className="text-base font-semibold mt-4 mb-1 text-brand-nero sm:text-xl sm:mt-6">
                 {member.name}
               </h3>
               <p className="text-brand-corallo-text text-sm font-semibold leading-snug mb-1">
                 {member.forgeRole}
               </p>
               <p
-                className={`text-brand-grigio text-sm leading-snug ${
+                className={`text-brand-grigio text-xs leading-snug sm:text-sm ${
                   "roleNoWrap" in member && member.roleNoWrap
-                    ? "whitespace-nowrap"
+                    ? "sm:whitespace-nowrap"
                     : ""
                 }`}
               >
@@ -166,7 +168,9 @@ export default function TeamSection() {
           ))}
         </div>
 
-        <div className="mt-20 md:mt-28 pt-16 border-t border-brand-bordo">
+        {/* Le etichette degli specialisti da telefono non ci sono: nove
+            pillole da leggere una a una (proprietà, 15/10). */}
+        <div className="mt-20 md:mt-28 pt-16 border-t border-brand-bordo max-md:hidden">
           <h2 className="heading-section-xl text-balance max-w-4xl mx-auto mb-12">
             Un team di specialisti che lavorano{" "}
             <span className="text-brand-corallo-text">

@@ -149,10 +149,10 @@ export function AnimatedStepper({
         }`}
       >
         {isTypeform ? (
-          <div className="px-6 pt-6 pb-2 md:px-8 md:pt-8">
+          <div className="px-5 pt-5 pb-1 md:px-8 md:pt-8">
             <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-widest text-brand-grigio mb-2">
               <span>
-                Domanda {currentStep} di {totalSteps}
+                Passo {currentStep} di {totalSteps}
               </span>
               <span>{progress}%</span>
             </div>
@@ -207,8 +207,8 @@ export function AnimatedStepper({
           isCompleted={isCompleted}
           currentStep={currentStep}
           direction={direction}
-          minContentHeight={isTypeform ? 320 : undefined}
-          className={`${isTypeform ? "px-6 md:px-8" : "px-8"} ${contentClassName}`}
+          minContentHeight={undefined}
+          className={`${isTypeform ? "px-5 md:px-8" : "px-8"} ${contentClassName}`}
         >
           {stepsArray[currentStep - 1]}
         </StepContentWrapper>
@@ -216,7 +216,7 @@ export function AnimatedStepper({
         {!isCompleted &&
           (renderFooter ? (
             <div
-              className={`px-6 pb-6 pt-2 md:px-8 md:pb-8 ${footerClassName}`}
+              className={`px-5 pb-5 pt-2 md:px-8 md:pb-8 ${footerClassName}`}
             >
               {renderFooter(footerProps)}
             </div>
@@ -367,7 +367,7 @@ export function Step({
   titleId?: string;
 }) {
   const titleCls =
-    "block text-2xl md:text-3xl font-semibold text-brand-nero leading-snug mb-6 md:mb-8";
+    "block text-xl sm:text-2xl md:text-3xl font-semibold text-brand-nero leading-snug mb-5 md:mb-8";
 
   const titleContent = (
     <>
@@ -384,7 +384,7 @@ export function Step({
   );
 
   return (
-    <div className="py-4 md:py-6">
+    <div className="py-3 md:py-6">
       {title &&
         (fieldId ? (
           <label id={titleId} htmlFor={fieldId} className={titleCls}>
