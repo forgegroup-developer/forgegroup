@@ -129,7 +129,9 @@ export default function MetodoForge({
                   {fase.description}
                 </p>
                 <span
-                  className={`inline-flex w-fit items-center gap-1.5 mt-4 rounded-full border-2 bg-transparent px-5 py-2.5 text-sm font-bold normal-case shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 ${
+                  /* Da telefono l'etichetta "Per te" ripete la frase sopra:
+                     resta da computer (proprietà, 15/10). */
+                  className={`max-md:hidden inline-flex w-fit items-center gap-1.5 mt-4 rounded-full border-2 bg-transparent px-5 py-2.5 text-sm font-bold normal-case shadow-sm transition-all duration-200 hover:bg-brand-corallo/10 ${
                     coral
                       ? "border-white text-white hover:bg-white/10"
                       : "border-brand-corallo text-brand-corallo"

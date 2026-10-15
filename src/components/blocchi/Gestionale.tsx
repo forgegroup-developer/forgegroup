@@ -24,11 +24,15 @@ export function GestionaleContenuto() {
         <Chiave>anche quando sei in cantiere</Chiave>
       </Titolo>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <ScenaAI
-          src={iniziaImages.cantiereTelefono}
-          alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
-          sizes="(min-width: 1024px) 540px, 100vw"
-        />
+        {/* Da telefono senza scena (proprietà, 15/10: alleggerire la
+            lettura da telefono). */}
+        <div className="max-md:hidden">
+          <ScenaAI
+            src={iniziaImages.cantiereTelefono}
+            alt="Un imprenditore edile in cantiere, casco sotto il braccio, guarda il telefono sorridendo mentre due operai alzano un muro"
+            sizes="(min-width: 1024px) 540px, 100vw"
+          />
+        </div>
         <ol className="space-y-7">
           {crm.map((c, i) => (
             <li key={c.titolo} className="flex gap-5">

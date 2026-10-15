@@ -137,7 +137,9 @@ export default function Hero({
             </span>
           </a>
         </div>
-        <figure className="relative mt-2 aspect-[16/9] overflow-hidden rounded-2xl lg:hidden">
+        {/* Da telefono la foto non c'è: chiudeva la hero dopo i pulsanti senza
+            aggiungere niente (proprietà, 15/10: alleggerire la lettura da telefono). */}
+        <figure className="relative mt-2 hidden aspect-[16/9] overflow-hidden rounded-2xl md:block lg:hidden">
           <Image
             src={iniziaImages.hero}
             alt="Un imprenditore edile stringe la mano a una coppia di clienti davanti al cantiere, con il contratto firmato sul cofano del furgone"
