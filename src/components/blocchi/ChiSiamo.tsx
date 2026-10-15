@@ -70,7 +70,9 @@ export default function ChiSiamo({
           </div>
 
           <div className="grid items-center gap-8 md:grid-cols-[3fr_2fr] md:gap-12">
-            <div className="md:order-2">
+            {/* Da telefono senza la foto del set: la squadra la dice il
+                testo accanto (proprietà, 15/10: alleggerire la lettura da telefono). */}
+            <div className="max-md:hidden md:order-2">
               <figure>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand-bordo bg-brand-panna">
                   <Image

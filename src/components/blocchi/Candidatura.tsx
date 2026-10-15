@@ -28,7 +28,8 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
           </Titolo>
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <div className="mb-8">
+              {/* Da telefono senza scena (proprietà, 15/10: alleggerire la lettura da telefono). */}
+              <div className="mb-8 max-md:hidden">
                 <ScenaAI
                   src={iniziaImages.studioDiFattibilita}
                   alt="Un consulente mostra a un imprenditore edile lo studio di fattibilità, con la cartina della zona e i grafici sul tavolo"
@@ -60,7 +61,9 @@ export default function Candidatura({ sorgente }: { sorgente: string }) {
                 e fissiamo l&apos;appuntamento in cui te lo presentiamo.
               </p>
             </div>
-            <div className="lg:sticky lg:top-28">
+            {/* Da telefono il modulo viene prima di cosa c'è nello studio: è
+                in fondo alla pagina, chi arriva qui ha già letto tutto. */}
+            <div className="max-md:order-first lg:sticky lg:top-28">
               {/* Le recensioni accanto al modulo, come in /contatti (proprietà, 30/09). */}
               <BannerGoogle className="mb-6" />
               <ContattiFormLoader sorgente={sorgente} senzaBanner />

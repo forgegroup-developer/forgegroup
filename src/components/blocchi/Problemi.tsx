@@ -25,13 +25,15 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
             Ti suona <Chiave>familiare?</Chiave>
           </Titolo>
 
-          <div className={`${STACCO} space-y-16 md:space-y-20`}>
+          <div className={`${STACCO} space-y-10 md:space-y-20`}>
             {problemiConScena.map((p, i) => (
               <article
                 key={p.tema}
                 className="grid items-center gap-6 md:grid-cols-2 md:gap-12"
               >
-                <div className={i % 2 === 1 ? "md:order-2" : undefined}>
+                {/* Da telefono senza scena: cinque immagini alte 200 px
+                    fra un problema e l'altro (proprietà, 15/10: alleggerire la lettura da telefono). */}
+                <div className={i % 2 === 1 ? "max-md:hidden md:order-2" : "max-md:hidden"}>
                   <ScenaAI
                     src={p.src}
                     alt={p.alt}
@@ -40,12 +42,13 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
                 </div>
                 <div>
                   <p className="eyebrow mb-3">{p.tema}</p>
-                  <p className="mb-4 font-display text-2xl font-bold leading-snug text-brand-nero md:text-3xl">
+                  <p className="mb-4 font-display text-xl font-bold leading-snug text-brand-nero sm:text-2xl md:text-3xl">
                     <Chiave>&laquo;</Chiave>
                     {p.frase}
                     <Chiave>&raquo;</Chiave>
                   </p>
-                  <p className="body-lg mb-5">{p.testo}</p>
+                  {/* Da telefono restano la frase del titolare e "Con Forge". */}
+                  <p className="body-lg mb-5 max-md:hidden">{p.testo}</p>
                   <ConForge>{p.soluzione}</ConForge>
                 </div>
               </article>
@@ -62,7 +65,7 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
               {altriProblemi.map((p, i) => (
                 <li
                   key={p.tema}
-                  className="grid gap-3 border-b border-brand-bordo py-7 last:border-b-0 md:grid-cols-[3rem_1fr_1fr] md:gap-8"
+                  className="grid gap-3 border-b border-brand-bordo py-6 last:border-b-0 md:grid-cols-[3rem_1fr_1fr] md:gap-8 md:py-7"
                 >
                   <span
                     className="font-display text-2xl font-bold leading-none text-brand-corallo-text"
@@ -75,7 +78,7 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
                     <p className="mb-2 font-display text-lg font-bold leading-snug text-brand-nero">
                       {p.frase}
                     </p>
-                    <p className="text-[0.98rem] leading-relaxed text-brand-grigio">
+                    <p className="text-[0.98rem] leading-relaxed text-brand-grigio max-md:hidden">
                       {p.testo}
                     </p>
                   </div>
