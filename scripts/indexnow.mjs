@@ -15,8 +15,10 @@ let urls;
 if (percorsi.length > 0) {
   urls = percorsi.map((p) => SITO + (p.startsWith("/") ? p : `/${p}`));
 } else {
-  const sitemap = await (await fetch(`${SITO}/sitemap.xml`)).text();
-  urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const r = await fetch(`${SITO}/sitemap.xml`);
+  if (!r.ok) throw new Error(`sitemap non letta: ${r.status}`);
+  urls = [...(await r.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  if (!urls.length) throw new Error("sitemap senza indirizzi: non invio niente");
 }
 
 const risposta = await fetch("https://api.indexnow.org/indexnow", {

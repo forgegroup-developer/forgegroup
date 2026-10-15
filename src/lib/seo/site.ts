@@ -1,3 +1,4 @@
+import { AUTORE_IDS, AUTORI, autorePath } from "@/data/autori";
 /**
  * Configurazione SEO centralizzata — sitemap, mirror AI, documentazione.
  * Aggiornare qui quando si aggiunge una nuova pagina indicizzabile.
@@ -98,18 +99,16 @@ export const STATIC_SEO_ROUTES: SeoRoute[] = [
     changeFrequency: "weekly",
     inLlmsMainPages: true,
   },
-  {
-    path: "/autori/marco-pio-cerbone",
-    label: "Marco Pio Cerbone",
-    priority: 0.6,
-    changeFrequency: "monthly",
-  },
-  {
-    path: "/autori/gianpio-uva",
-    label: "Gianpio Uva",
-    priority: 0.6,
-    changeFrequency: "monthly",
-  },
+  // Le pagine degli autori nascono da src/data/autori.ts: un autore nuovo o uno slug cambiato
+  // arriva da solo in sitemap, menu del sito per le AI e JSON-LD.
+  ...AUTORE_IDS.map(
+    (id): SeoRoute => ({
+      path: autorePath(id),
+      label: AUTORI[id].nome,
+      priority: 0.6,
+      changeFrequency: "monthly",
+    })
+  ),
   {
     path: "/privacy-policy",
     label: "Privacy policy",
