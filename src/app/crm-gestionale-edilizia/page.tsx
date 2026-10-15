@@ -131,7 +131,7 @@ export default async function CrmGestionalePage() {
                 <p className="mb-3 font-display text-xl font-bold leading-snug text-brand-nero">
                   &laquo;{p.frase}&raquo;
                 </p>
-                <p className="mb-5 leading-relaxed">{p.testo}</p>
+                <p className="mb-5 leading-relaxed max-md:hidden">{p.testo}</p>
                 <div className="mt-auto">
                   <ConForge>{p.soluzione}</ConForge>
                 </div>
