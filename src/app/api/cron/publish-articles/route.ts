@@ -23,12 +23,10 @@ export const runtime = "nodejs";
  */
 const FINESTRA_ORE = 26;
 export async function GET(request: Request) {
+  // Il segreto è obbligatorio: la rotta manda IndexNow, non deve poterla chiamare chiunque.
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = request.headers.get("authorization");
-    if (auth !== `Bearer ${secret}`) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+  if (!secret || request.headers.get("authorization") !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   revalidatePath("/blog");
