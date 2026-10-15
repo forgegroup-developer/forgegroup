@@ -15,6 +15,7 @@
  * I conti li fa questo script, non il modello.
  */
 import { execFileSync } from "node:child_process";
+import { prElenco } from "./github.mjs";
 
 const OBIETTIVO_CODA = 7;
 const MASSIMO_BOZZE = 2;
@@ -38,12 +39,9 @@ function articoliSuMain() {
 }
 
 function articoliInPr() {
-  let pr = [];
-  try {
-    pr = JSON.parse(esegui("gh", ["pr", "list", "--state", "open", "--label", "articolo", "--json", "number,headRefName,files,isDraft"]));
-  } catch {
-    return [];
-  }
+  // Se GitHub non risponde ci si ferma: una coda letta vuota per errore farebbe scrivere
+  // articoli per giorni già occupati (nel cloud `gh pr list` falliva in silenzio).
+  const pr = prElenco({ etichetta: "articolo" });
   const articoli = [];
   for (const p of pr) {
     for (const f of p.files.map((x) => x.path).filter((x) => x.startsWith("content/articoli/") && x.endsWith(".json"))) {
