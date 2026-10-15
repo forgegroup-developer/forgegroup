@@ -12,8 +12,9 @@
  *   node scripts/telegram.mjs ricevi                legge i tasti premuti e i messaggi (lo lancia
  *                                                   il Mac ogni minuto) e fa quello che chiedono
  *
- * La chiave del bot sta nel Portachiavi del Mac (servizio "forge-telegram-redattore"), mai nel
- * repo. Il bot obbedisce solo alla chat salvata con "collega": gli altri messaggi li ignora.
+ * La chiave del bot sta nella variabile TELEGRAM_BOT_TOKEN (routine nel cloud, Vercel) oppure nel
+ * Portachiavi del Mac (servizio "forge-telegram-redattore"), mai nel repo. La chat della proprietà
+ * sta in TELEGRAM_CHAT_ID oppure nel file salvato da "collega". Il bot obbedisce solo alla chat salvata con "collega": gli altri messaggi li ignora.
  * Vai = merge della PR (l'articolo entra in coda), Scarta = PR chiusa, Correggi = la correzione
  * scritta finisce come commento nella PR, e si applica in sessione con /correggi-articolo.
  */
@@ -21,6 +22,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { prChiudi, prCommenta, prCrea, prElenco, prPronta, prUnisci, prVedi } from "./github.mjs";
 
 const CARTELLA = path.join(os.homedir(), "ForgeGroup", "logs", "telegram");
 const FILE_CHAT = path.join(CARTELLA, "chat-id");
@@ -33,10 +35,11 @@ const LOG = path.join(os.homedir(), "ForgeGroup", "logs", "redattore");
 fs.mkdirSync(CARTELLA, { recursive: true });
 
 function chiave() {
+  if (process.env.TELEGRAM_BOT_TOKEN) return process.env.TELEGRAM_BOT_TOKEN.trim();
   try {
     return execFileSync("security", ["find-generic-password", "-s", "forge-telegram-redattore", "-w"], { encoding: "utf8" }).trim();
   } catch {
-    console.error("Manca la chiave del bot nel Portachiavi (servizio forge-telegram-redattore).");
+    console.error("Manca la chiave del bot: né TELEGRAM_BOT_TOKEN né il Portachiavi (servizio forge-telegram-redattore).");
     process.exit(2);
   }
 }
@@ -87,8 +90,7 @@ async function chiama(metodo, dati = {}) {
 }
 
 const leggi = (f) => (fs.existsSync(f) ? fs.readFileSync(f, "utf8").trim() : "");
-const chat = () => leggi(FILE_CHAT);
-const gh = (...a) => execFileSync("gh", a, { cwd: RADICE, encoding: "utf8" });
+const chat = () => (process.env.TELEGRAM_CHAT_ID || leggi(FILE_CHAT)).trim();
 
 async function messaggio(testo, tasti) {
   if (!chat()) throw new Error("Chat non collegata: scrivi /start al bot e lancia `node scripts/telegram.mjs collega`.");
@@ -133,7 +135,7 @@ function testoIntero(a) {
 }
 
 async function articolo(n, modo = "") {
-  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "title,url,isDraft,headRefName,files,body"));
+  const pr = prVedi(n);
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
   let a = {};
   if (file) {
@@ -198,7 +200,7 @@ async function foto(buffer, didascalia, tasti) {
 
 /** L'articolo di una PR, letto dal suo ramo. */
 function articoloDellaPr(n) {
-  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "headRefName,files,state"));
+  const pr = prVedi(n);
   if (pr.state !== "OPEN") throw new Error(`la PR #${n} non è aperta`);
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
   if (!file) throw new Error(`la PR #${n} non contiene un articolo`);
@@ -260,9 +262,9 @@ async function usaCopertina(n, id) {
 
 /** Toglie dalla coda un articolo già unito: una PR che cancella il file (e la copertina), unita subito. */
 function ritira(n) {
-  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "state,files,title"));
+  const pr = prVedi(n);
   if (pr.state === "OPEN") {
-    gh("pr", "close", String(n), "--delete-branch");
+    prChiudi(n);
     return `🗑 PR #${n} chiusa: l'articolo non entra in coda.`;
   }
   const file = pr.files.map((f) => f.path).find((p) => p.startsWith("content/articoli/") && p.endsWith(".json"));
@@ -278,8 +280,8 @@ function ritira(n) {
     git("rm", "-q", "--ignore-unmatch", file, `public/images/blog/${slug}.jpg`);
     git("commit", "-q", "-m", `articolo ritirato dalla proprietà: ${slug}`);
     git("push", "-q", "-f", "origin", ramo);
-    execFileSync("gh", ["pr", "create", "--base", "main", "--head", ramo, "--title", `Ritiro: ${pr.title}`, "--body", `Ritirato dalla proprietà con il tasto Ritira su Telegram (PR #${n}).`], { cwd: COPIA });
-    execFileSync("gh", ["pr", "merge", ramo, "--squash", "--delete-branch"], { cwd: COPIA });
+    const ritiro = prCrea({ ramo, titolo: `Ritiro: ${pr.title}`, corpo: `Ritirato dalla proprietà con il tasto Ritira su Telegram (PR #${n}).` });
+    prUnisci(ritiro.number);
     git("checkout", "-q", "--detach", "origin/main");
     return `↩️ Articolo ritirato: non uscirà. L'argomento torna libero per il Redattore.`;
   } finally {
@@ -292,9 +294,9 @@ function ritira(n) {
  * l'articolo con Vai, Correggi e Scarta, e un messaggio con il motivo.
  */
 async function automatico(n) {
-  const pr = JSON.parse(gh("pr", "view", String(n), "--json", "headRefName"));
+  const pr = prVedi(n);
   try {
-    gh("pr", "merge", String(n), "--squash");
+    prUnisci(n, { cancella: false });
   } catch (e) {
     await articolo(n);
     await messaggio(`Non sono riuscito a mettere in coda da solo la PR #${n}: ${html(e.message).slice(0, 300)}. Premi Vai se ti va bene.`);
@@ -312,7 +314,7 @@ async function automatico(n) {
 async function promemoria() {
   const file = path.join(CARTELLA, `promemoria-${new Date().toISOString().slice(0, 10)}`);
   if (fs.existsSync(file)) return;
-  const bozze = JSON.parse(gh("pr", "list", "--state", "open", "--label", "articolo", "--draft", "--json", "number,title,createdAt"));
+  const bozze = prElenco({ etichetta: "articolo", bozze: true });
   const ferme = bozze.filter((b) => Date.now() - new Date(b.createdAt).getTime() > 2 * 24 * 3600 * 1000);
   if (ferme.length) {
     await messaggio(
@@ -364,11 +366,11 @@ async function gestisci(u) {
       try {
         if (azione === "vai") {
           // Una bozza approvata dalla proprietà diventa pronta prima del merge.
-          if (JSON.parse(gh("pr", "view", n, "--json", "isDraft")).isDraft) gh("pr", "ready", n);
-          gh("pr", "merge", n, "--squash", "--delete-branch");
+          if (prVedi(n).isDraft) prPronta(n);
+          prUnisci(n);
           await messaggio(`✅ PR #${n} unita: l'articolo è in coda ed esce nel suo giorno.`);
         } else if (azione === "scarta") {
-          gh("pr", "close", n, "--delete-branch");
+          prChiudi(n);
           await messaggio(`🗑 PR #${n} chiusa. L'argomento torna libero.`);
         } else if (azione === "ritira") {
           await messaggio(`Ritiro l'articolo della PR #${n}…`);
@@ -402,7 +404,7 @@ async function gestisci(u) {
     fs.rmSync(FILE_ATTESA);
     // La correzione resta scritta nella PR: la applica il Redattore in una sessione con la proprietà
     // (/correggi-articolo). Nessun agente parte da solo su un messaggio arrivato da Telegram.
-    gh("pr", "comment", String(pr), "--body", `**Correzione della proprietà (da Telegram):**\n\n${testo}`);
+    prCommenta(pr, `**Correzione della proprietà (da Telegram):**\n\n${testo}`);
     await messaggio(`Correzione salvata nella PR #${pr}. La applichiamo con /correggi-articolo ${pr} in una sessione.`);
   }
 }
