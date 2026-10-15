@@ -38,7 +38,7 @@ export default function CrmGestionale() {
 
         <ol className="mb-16 grid gap-5 md:mb-20 md:grid-cols-2">
           {crm.map((c, i) => (
-            <li key={c.titolo} className="flex gap-5 rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
+            <li key={c.titolo} className="flex gap-5 max-md:items-center max-md:p-4 rounded-2xl border border-brand-bordo bg-brand-bianco p-6">
               <span
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-corallo font-display text-lg font-bold text-white"
                 aria-hidden
@@ -46,10 +46,10 @@ export default function CrmGestionale() {
                 {i + 1}
               </span>
               <div>
-                <h3 className="mb-1.5 font-display text-xl font-bold leading-snug text-brand-nero">
+                <h3 className="mb-1.5 max-md:mb-0 font-display text-xl font-bold leading-snug text-brand-nero">
                   {c.titolo}
                 </h3>
-                <p className="leading-relaxed text-brand-grigio">
+                <p className="leading-relaxed text-brand-grigio max-md:hidden">
                   <Evidenzia testo={c.testo} chiave={chiavi[i]} />
                 </p>
               </div>
@@ -64,7 +64,29 @@ export default function CrmGestionale() {
             <p className="text-xs text-brand-grigio">Dati di prova, anonimi</p>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Da telefono la tabella usciva dallo schermo e la colonna delle
+              note, quella che conta, non si vedeva: ogni richiesta diventa
+              una scheda con la fase e la nota. */}
+          <ul className="divide-y divide-brand-bordo/60 md:hidden">
+            {righeCrm.map((r) => (
+              <li key={r.nota} className="px-5 py-4">
+                <div className="mb-1.5 flex items-start justify-between gap-3">
+                  <p className="text-sm font-semibold leading-snug text-brand-nero">{r.richiesta}</p>
+                  <span
+                    className={`inline-block shrink-0 whitespace-nowrap rounded-full border px-2.5 py-0.5 text-[0.62rem] font-bold uppercase tracking-wide ${stileFase[r.tono]}`}
+                  >
+                    {r.fase}
+                  </span>
+                </div>
+                <p className="text-sm leading-snug text-brand-grigio">{r.nota}</p>
+                <p className="mt-1.5 text-xs font-semibold text-brand-nero">
+                  {r.zona} · {r.quando}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="overflow-x-auto max-md:hidden">
             <table className="w-full min-w-[46rem] border-collapse text-left">
               <thead>
                 <tr className="border-b border-brand-bordo">
@@ -101,7 +123,7 @@ export default function CrmGestionale() {
           </div>
         </div>
 
-        <p className="mx-auto mt-8 max-w-3xl text-pretty text-center leading-relaxed text-brand-grigio">
+        <p className="mx-auto mt-8 max-w-3xl text-pretty text-center leading-relaxed text-brand-grigio max-md:hidden">
           Quella colonna delle note è il punto. Non è un elenco di numeri di telefono:{" "}
           <strong className="chiave">è la trattativa scritta</strong>. Quanto ha di budget, quanti
           altri preventivi ha in mano, chi decide davvero, cosa gli serve prima di firmare.

@@ -146,22 +146,27 @@ export default function HeroPagina({
         </div>
       </div>
 
+      {/* Da telefono la foto non c'è: chiudeva la hero dopo i pulsanti
+          senza dire niente di nuovo (proprietà, 15/10). Il contenitore in
+          più serve perché .hero-foto, fuori dai layer, vince su max-md:hidden. */}
       {!sfondo && (
-        <div className="hero-foto order-2">
-          <div className="hero-foto-cornice">
-            <Image
-              src={immagine.src}
-              alt={immagine.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 48vw, 100vw"
-            />
-            {immagine.didascalia && (
-              <p className="hero-foto-firma">
-                <span aria-hidden>✳</span>
-                {immagine.didascalia}
-              </p>
-            )}
+        <div className="max-md:hidden md:contents">
+          <div className="hero-foto order-2">
+            <div className="hero-foto-cornice">
+              <Image
+                src={immagine.src}
+                alt={immagine.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 48vw, 100vw"
+              />
+              {immagine.didascalia && (
+                <p className="hero-foto-firma">
+                  <span aria-hidden>✳</span>
+                  {immagine.didascalia}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       )}

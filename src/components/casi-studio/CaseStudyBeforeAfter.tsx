@@ -26,7 +26,7 @@ export default function CaseStudyBeforeAfter({ rows, foto }: Props) {
   return (
     <div>
       {foto && (
-        <div className="mb-10 grid gap-4 sm:grid-cols-2">
+        <div className="mb-10 grid gap-4 max-md:hidden sm:grid-cols-2">
           {(
             [
               ["Prima", foto.prima, "bg-brand-corallo"],

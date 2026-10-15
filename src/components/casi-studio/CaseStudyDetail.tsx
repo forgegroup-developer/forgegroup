@@ -142,7 +142,9 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           {/* La sintesi in apertura: chi legge solo questo sa già tutto
               (studio del concorrente A, "da prendere"; serve anche a Google
               e alle intelligenze artificiali). */}
-          <dl className="mt-10 grid gap-4 md:grid-cols-3">
+          {/* Da telefono la sintesi non c'è: ripeteva il titolo e le sezioni
+              sotto, e spingeva i numeri tre schede più in giù (proprietà, 15/10). */}
+          <dl className="mt-10 grid gap-4 max-md:hidden md:grid-cols-3">
             {(
               [
                 ["Il problema", c.sintesi.problema],
@@ -184,7 +186,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
             Il cliente: <Chiave>{clientName}</Chiave>, {c.sector.charAt(0).toLowerCase() + c.sector.slice(1)}.
           </Titolo>
 
-          <p className={`${STRETTO} mb-12 text-pretty text-center text-lg leading-relaxed text-brand-grigio`}>
+          <p className={`${STRETTO} mb-12 text-pretty text-center text-lg leading-relaxed text-brand-grigio max-md:hidden`}>
             <ConChiavi text={unito(c.excerpt)} highlights={c.excerptHighlights?.map(unito)} />
           </p>
 
@@ -250,12 +252,12 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                 {c.diagnosis.map((d, i) => {
                   const { titolo, testo } = dividi(d);
                   return (
-                    <li key={d} className="card-xl superficie-chiara rounded-2xl border p-6">
+                    <li key={d} className="card-xl superficie-chiara rounded-2xl border p-6 max-md:p-5">
                       <p className="eyebrow mb-2">Problema #{i + 1}</p>
-                      <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero">
+                      <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero max-md:mb-0">
                         {titolo}
                       </h3>
-                      {testo && <p className="leading-relaxed">{testo}</p>}
+                      {testo && <p className="leading-relaxed max-md:hidden">{testo}</p>}
                     </li>
                   );
                 })}
@@ -456,7 +458,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           </Titolo>
 
           <div className={`${STRETTO} grid items-center gap-8 rounded-2xl border border-brand-bordo bg-brand-bianco p-6 md:grid-cols-[220px_1fr] md:p-8`}>
-            <figure className="relative mx-auto aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-xl">
+            <figure className="relative mx-auto aspect-[4/5] w-full max-w-[220px] overflow-hidden rounded-xl max-md:hidden">
               <Image
                 src={teamImages.foundersDuo}
                 alt="Marco Pio Cerbone e Gianpio Uva, i fondatori di Forge Group"
@@ -494,7 +496,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                     href={`/casi-studio/${altro.slug}`}
                     className="group overflow-hidden rounded-2xl border border-brand-bordo bg-brand-bianco transition-shadow hover:shadow-lg"
                   >
-                    <div className="relative aspect-[16/9]">
+                    <div className="relative aspect-[16/9] max-md:hidden">
                       <Image
                         src={getCaseStudyImage(altro.slug)}
                         alt=""
