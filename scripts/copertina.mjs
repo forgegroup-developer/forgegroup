@@ -10,22 +10,25 @@
  *        sotto i 300 KB in public/images/blog/<slug>.jpg e stampa i campi da mettere nel file
  *        dell'articolo (featuredImage, featuredImageAlt da scrivere, copertina con la fonte)
  *
- * La chiave di Pixabay sta nel Portachiavi del Mac (servizio "forge-pixabay"), mai nel repo.
+ * La chiave di Pixabay sta in PIXABAY_API_KEY (routine cloud) oppure nel Portachiavi del Mac
+ * (servizio "forge-pixabay"), mai nel repo. La compressione usa sharp, così gira anche fuori dal Mac.
  * Le regole su cosa scegliere sono nel comando /scrivi-articolo, passo 4 bis.
  */
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import sharp from "sharp";
 
 const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const MAX_BYTE = 300 * 1024;
 
 function chiave() {
+  if (process.env.PIXABAY_API_KEY) return process.env.PIXABAY_API_KEY.trim();
   try {
     return execFileSync("security", ["find-generic-password", "-s", "forge-pixabay", "-w"], { encoding: "utf8" }).trim();
   } catch {
-    console.error("Manca la chiave di Pixabay nel Portachiavi (servizio forge-pixabay): copertina non scelta.");
+    console.error("Manca la chiave di Pixabay (PIXABAY_API_KEY o Portachiavi, servizio forge-pixabay): copertina non scelta.");
     process.exit(2);
   }
 }
@@ -64,8 +67,9 @@ async function scarica(id, slug, radice = RADICE) {
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   // Larghezza 1600 e qualità che scende finché il file sta sotto i 300 KB (regola 6 delle immagini).
   for (const qualita of [72, 65, 58, 50, 42]) {
-    execFileSync("sips", ["-Z", "1600", "-s", "format", "jpeg", "-s", "formatOptions", String(qualita), tmp, "--out", dest], { stdio: "ignore" });
-    if (fs.statSync(dest).size <= MAX_BYTE) break;
+    const jpg = await sharp(tmp).resize({ width: 1600, height: 1600, fit: "inside", withoutEnlargement: true }).jpeg({ quality: qualita, mozjpeg: true }).toBuffer();
+    fs.writeFileSync(dest, jpg);
+    if (jpg.length <= MAX_BYTE) break;
   }
   const kb = Math.round(fs.statSync(dest).size / 1024);
   if (kb > 300) throw new Error(`il file resta di ${kb} KB: scegli un'altra foto`);

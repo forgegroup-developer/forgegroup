@@ -8,6 +8,14 @@ proprietà in chat; altrimenti arrivi fino alla PR).
 
 ## 0 · Leggi le regole (ogni volta)
 
+**Prima di tutto:** `node scripts/redattore-passi.mjs dove`. Ti dice se giri sul Mac o nel cloud e
+dove stanno i materiali. Sul Mac valgono i percorsi `~/ForgeGroup/...` scritti qui sotto. **Nel cloud**
+quei percorsi non esistono: ogni file si legge da Google Drive con il connettore
+(`read_file_content` con l'ID preso da `forge-ricerca/materiali-drive.md`, dove `materiali/` e
+`dipendenti-ai/` sono `www.forgegroup.it/` e `05 - Dipendenti AI/`); `feedback-generale.md` e
+`cerca.py` sono nel repo `forge-ricerca`. Nel cloud non scrivi mai file su Drive tranne il Registro
+(passo 8) e il Registro dei contrasti.
+
 Non ricordi niente delle volte precedenti: la tua memoria sono i file. Apri
 `~/ForgeGroup/progetti/sito/dipendenti-ai/00 - PERCORSO DI LETTURA DEI DIPENDENTI AI.md` e seguilo
 come **Redattore**, dal passo 0 al passo 4:
@@ -51,7 +59,8 @@ Regole di scelta (piramide, "L'ordine: prima il 20% che porta l'80%"):
 ## 2 bis · Leggi cosa ha già scritto il concorrente A
 
 Apri la scheda dell'argomento in `~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/1 - Fonti/Concorrente A - cosa ha già scritto, per argomento.md`,
-poi usa `python3 ~/ForgeGroup/ricerca/concorrente-a/cerca.py`:
+poi usa `python3 <cerca>` (il percorso te lo dà `redattore-passi.mjs dove`; sul Mac è
+`~/ForgeGroup/ricerca/concorrente-a/cerca.py`):
 - `cerca.py "parola|altra"` per i suoi testi più pertinenti, `--domande` per le domande del titolare;
 - `cerca.py --leggi <codice>` per leggerne **tre o quattro per intero**.
 
@@ -68,6 +77,9 @@ cerca davvero. Guida editoriale §11. In ordine:
    "parola" "variante" …` dà i volumi della parola chiave e di 5-10 varianti. Se lo script dice che
    l'accesso non è ancora configurato, o i volumi sono sotto soglia, lo scrivi in `seo.domanda`
    ("sotto soglia", "non misurata: accesso Google Ads non configurato") e vai avanti con i punti 2 e 3.
+   **Nel cloud** lo script non c'è (usa la chiave Ads del Mac): prendi i volumi già misurati dai
+   documenti di keyword su Drive (`Keyword Planner - Piramide Schwartz`, `Ricerca Keyword Google Ads`,
+   `Liste Keyword da Testare`) e, se la parola non c'è, scrivi "non misurata: routine cloud".
 2. **Google** (WebSearch): cerca la parola chiave e due varianti. Annota chi c'è in prima pagina e
    per chi scrive (titolari o privati). Se in prima pagina ci sono i testi del concorrente A, quella
    ricerca la fanno i titolari: è un argomento buono.
@@ -84,7 +96,9 @@ cerca davvero. Guida editoriale §11. In ordine:
 
 ## 3 · Trova il materiale vero
 
-Esegui `python3 ~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py "$PWD"`: elenca i pezzi della
+Esegui `python3 ~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py "$PWD"` (nel cloud: scarica
+da Drive `banca.py` e `Banca del materiale vero.md` in una cartella temporanea e lancia
+`BANCA_FILE=<file .md> python3 <banca.py> "$PWD"`): elenca i pezzi della
 **Banca del materiale vero** con quante volte sono già stati usati, i meno usati per primi. Preferisci
 un pezzo mai usato, e non aprire con lo stesso pezzo dell'articolo precedente. Se lo script avvisa che
 restano meno di dieci pezzi mai usati, scrivilo nel registro e nel messaggio finale.
@@ -114,7 +128,8 @@ interni dentro le frasi, l'invito giusto per il livello.
 
 Ogni articolo ha la sua copertina. In quest'ordine:
 1. **Foto vere di Forge o dei clienti**, se nella cartella `~/ForgeGroup/progetti/sito/materiali/03 - Materiali sito/`
-   ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente.
+   ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente (nel cloud: solo
+   quelle già in `public/images/`).
 2. Altrimenti **Pixabay**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
    due o tre ricerche), guarda le anteprime e scegli; poi `node scripts/copertina.mjs scarica <id> <slug>`.
    Se lo script dice che manca la chiave, l'articolo esce con la copertina generica: scrivilo nella PR.
@@ -159,14 +174,18 @@ proprietà corregge qualcosa, aggiorna il file e aggiungi la regola in
 1. `git switch -c articolo/<slug> origin/main`
 2. aggiungi solo il file dell'articolo e la sua copertina (`public/images/blog/<slug>.jpg`), commit con messaggio `articolo: <titolo>`
 3. `git push -u origin articolo/<slug>`
-4. `gh pr create --label articolo` con titolo `Articolo · <data> · <titolo>` e nel corpo la
-   scheda di revisione compilata e l'esito del Revisore
+4. scrivi in un file temporaneo la scheda di revisione compilata e l'esito del Revisore (la riga
+   `ESITO: APPROVATO` o `ESITO: DA CORREGGERE`), poi
+   `node scripts/redattore-passi.mjs apri-pr --ramo articolo/<slug> --titolo "Articolo · <data> · <titolo>" --corpo-file <file>`.
+   Non usare `gh pr`: nel cloud non funziona. Lo script mette da solo l'etichetta `articolo`.
 5. mai su `main`, mai merge: l'approvazione è della proprietà (merge su GitHub o tasto Vai su Telegram)
 6. se dopo due giri il Revisore dice ancora DA CORREGGERE, apri la PR lo stesso ma **come bozza**
-   (`gh pr create --draft`), con i dubbi in cima alla descrizione: la proprietà decide
+   (stesso comando con `--bozza`), con i dubbi in cima alla descrizione: la proprietà decide
 7. come ultima riga della tua risposta scrivi solo `PR: <link della PR>` (lo legge lo script che ti ha lanciato)
 
 ## 8 · Registro
 
-Aggiungi una riga in `~/ForgeGroup/progetti/sito/dipendenti-ai/Registro/<AAAA-MM>.md`:
+Aggiungi una riga in `~/ForgeGroup/progetti/sito/dipendenti-ai/Registro/<AAAA-MM>.md` (nel cloud: leggi
+il file del mese da Drive, aggiungi la riga in fondo e riscrivilo intero con il connettore; se il file
+del mese non c'è, crealo nella cartella `05 - Dipendenti AI/Registro`):
 `AAAA-MM-GG · Redattore · <titolo> (livello N, <argomento>) · prova: <link PR o "mostrato in chat">`.
