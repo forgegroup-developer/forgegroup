@@ -109,3 +109,7 @@ export function prPronta(n) {
     execFileSync("gh", ["pr", "ready", String(n), "--repo", REPO], { stdio: "ignore" });
   }
 }
+
+export function prEtichetta(n, etichetta) {
+  api(`repos/${REPO}/issues/${n}/labels`, { metodo: "POST", campi: { labels: [etichetta] } });
+}

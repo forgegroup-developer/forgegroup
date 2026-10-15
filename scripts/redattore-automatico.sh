@@ -7,8 +7,10 @@
 # 2. aggiorna la sua copia di lavoro (repo-redattore) all'ultimo main
 # 3. chiude le bozze scadute; se la coda è piena, oggi non scrive
 # 4. lancia /scrivi-articolo senza nessuno davanti, con i soli permessi che servono (max 90 minuti)
-# 5. controlla solo l'articolo nuovo; se il Revisore l'ha approvato, lo mette in coda da solo
-#    (silenzio-assenso) e lo manda su Telegram con il tasto Ritira; altrimenti con Vai/Correggi/Scarta
+# 5. controlla solo l'articolo nuovo (scripts/redattore-passi.mjs dopo): se il Revisore l'ha
+#    approvato, lo mette in coda da solo (silenzio-assenso), altrimenti chiede Vai/Correggi/Scarta.
+#    Su Telegram lo manda Vercel, avvisato da GitHub con un'etichetta: è la stessa logica della
+#    routine nel cloud.
 # 6. se la coda è ancora sotto i 7 articoli, scrive un secondo articolo (al massimo 2 al giorno):
 #    il sito ne pubblica uno al giorno, e con uno solo scritto la coda non cresceva mai
 #    (al 15/10/2026 ce n'era 1 su 7). Se il secondo non riesce, il giorno resta comunque fatto.
@@ -69,11 +71,9 @@ git checkout -q -f --detach "$REF" || fallito "copia di lavoro non aggiornabile"
 # Le bozze il cui giorno di uscita è passato senza approvazione si chiudono.
 coda() { node scripts/coda-articoli.mjs > "$LOG/coda.json" || fallito "calcolo della coda"; }
 campo() { python3 -c "import json; d=json.load(open('$LOG/coda.json')); print($1)"; }
-coda
-for PR in $(campo '" ".join(str(b["pr"]) for b in d["bozzeScadute"])'); do
-  gh pr close "$PR" --delete-branch --comment "Bozza non approvata prima del giorno di uscita: chiusa, l'argomento torna libero." \
-    && avvisa "La bozza della PR #$PR non è stata approvata in tempo: l'ho chiusa e l'argomento torna libero."
-done
+node scripts/redattore-passi.mjs prima > "$LOG/prima.json" || fallito "chiusura delle bozze scadute"
+CHIUSE="$(python3 -c "import json; print(json.load(open('$LOG/prima.json'))['bozzeChiuse'])")"
+[ "$CHIUSE" != "0" ] && avvisa "Ho chiuso $CHIUSE bozze non approvate prima del giorno di uscita: i loro argomenti tornano liberi."
 coda
 DA_SCRIVERE="$(campo 'd["daScrivere"]')"
 echo "da scrivere: $DA_SCRIVERE (bozze aperte: $(campo 'len(d["bozze"])'))"
@@ -89,7 +89,7 @@ while true; do
     --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" "Agent" "Task" \
       "Bash(git status:*)" "Bash(git diff:*)" "Bash(git log:*)" "Bash(git show:*)" "Bash(git fetch:*)" \
       "Bash(git switch -c articolo/:*)" "Bash(git add:*)" "Bash(git commit:*)" "Bash(git push -u origin articolo/:*)" \
-      "Bash(gh pr create:*)" "Bash(gh pr list:*)" "Bash(gh pr view:*)" \
+      "Bash(node scripts/redattore-passi.mjs:*)" \
       "Bash(node scripts/coda-articoli.mjs:*)" "Bash(node scripts/copertina.mjs:*)" "Bash(node scripts/controlla-articolo.mjs:*)" \
       "Bash(python3 $HOME/ForgeGroup/ricerca/concorrente-a/cerca.py:*)" "Bash(python3 $HOME/ForgeGroup/ricerca/keyword/keyword.py:*)" \
       "Bash(python3 $HOME/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py:*)" \
@@ -105,32 +105,19 @@ while true; do
   [ -n "$PR_URL" ] || fallito "nessuna PR aperta (il motivo è in fondo a $USCITA)"
   PR="${PR_URL##*/}"
 
-  # Si controlla solo l'articolo nuovo, sul suo ramo (con la sua copertina).
-  INFO="$(gh pr view "$PR" --json isDraft,headRefName,files --jq '[(.isDraft|tostring), .headRefName, ([.files[].path | select(startswith("content/articoli/") and endswith(".json"))][0] // "")] | @tsv')"
-  BOZZA="$(echo "$INFO" | cut -f1)"; RAMO="$(echo "$INFO" | cut -f2)"; FILE="$(echo "$INFO" | cut -f3)"
-  CONTROLLO="no"
-  if [ -n "$FILE" ] && git fetch -q origin "$RAMO" && git checkout -q -f --detach "origin/$RAMO"; then
-    node scripts/controlla-articolo.mjs "$FILE" && CONTROLLO="sì"
-  fi
-  git checkout -q -f --detach "$REF"
-  echo "PR #$PR · bozza: $BOZZA · controllo: $CONTROLLO"
-
-  # Silenzio-assenso (decisione della proprietà, 01/10/2026). Il file "approvazione-manuale"
-  # riporta tutto al tasto Vai.
-  if [ "$BOZZA" = "false" ] && [ "$CONTROLLO" = "sì" ] && [ ! -f "$HOME/ForgeGroup/automazioni/approvazione-manuale" ]; then
-    node scripts/telegram.mjs automatico "$PR" && echo "PR #$PR in coda (silenzio-assenso)"
-  else
-    node scripts/telegram.mjs articolo "$PR" || osascript -e "display notification \"Articolo pronto: $PR_URL\" with title \"Redattore Forge\""
-  fi
+  # Controllo dell'articolo nuovo e silenzio-assenso (decisione della proprietà, 01/10/2026; il
+  # file "approvazione-manuale" riporta tutto al tasto Vai). Il messaggio Telegram lo manda Vercel.
+  node scripts/redattore-passi.mjs dopo "$PR" \
+    || osascript -e "display notification \"Articolo pronto: $PR_URL\" with title \"Redattore Forge\""
 
   touch "$FATTO"
   rm -f "$LOG/tentativi-$OGGI"
   # Un secondo articolo solo se la coda è ancora corta e c'è posto (bozze comprese).
   [ "$GIRO" -ge 2 ] && break
+  GIRO=2
   coda
   [ "$(campo 'd["inCoda"]')" -ge "$(campo 'd["obiettivo"]')" ] && break
   [ "$(campo 'd["daScrivere"]')" = "0" ] && break
-  GIRO=2
   echo "coda a $(campo 'd["inCoda"]') su $(campo 'd["obiettivo"]'): scrivo il secondo articolo di oggi"
 done
 
