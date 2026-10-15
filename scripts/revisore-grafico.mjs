@@ -72,7 +72,17 @@ for (const [disp, larghezza] of DISPOSITIVI) {
         // 1 · evidenziatore
         // Colore della fascia: il fondo pieno, o il primo colore non trasparente
         // del gradiente (la fascia dei titoli sul mattone e' un background-image).
-        const rgb = (c) => (c.match(/[\d.]+/g) || []).map(Number);
+        // I colori di Tailwind 4 (amber, sky, ...) arrivano come oklch(): i
+        // numeri non sono rosso, verde e blu, quindi li converte il canvas.
+        const tela = Object.assign(document.createElement("canvas"), { width: 1, height: 1 }).getContext("2d", { willReadFrequently: true });
+        const rgb = (c) => {
+          if (!/^(oklch|oklab|lch|lab|color)\(/.test(c)) return (c.match(/[\d.]+/g) || []).map(Number);
+          tela.clearRect(0, 0, 1, 1);
+          tela.fillStyle = c;
+          tela.fillRect(0, 0, 1, 1);
+          const [r, g, b, a] = tela.getImageData(0, 0, 1, 1).data;
+          return [r, g, b, a / 255];
+        };
         const fascia = (cs) => {
           const bg = rgb(cs.backgroundColor);
           if (bg.length >= 3 && (bg[3] ?? 1) > 0.5) return bg;
