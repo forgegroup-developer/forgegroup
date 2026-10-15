@@ -1,0 +1,201 @@
+{
+  "slug": "quanti-contatti-impresa-edile",
+  "title": "Quanti contatti può aspettarsi un'impresa edile, e di chi sono",
+  "description": "Quanti contatti può aspettarsi un'impresa edile dalla pubblicità, quanti sopralluoghi ne escono e di chi sono le richieste: cosa decide il numero e quando.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-10-16",
+  "publishAt": "2026-10-16T09:00:00+02:00",
+  "readTime": "5 min",
+  "excerpt": "Prima di partire con la pubblicità vuoi sapere quanti contatti arriveranno e se saranno solo tuoi. Il numero giusto si stima dai sopralluoghi che la tua impresa regge.",
+  "tags": [
+    "contatti",
+    "sopralluoghi",
+    "studio di fattibilità",
+    "pubblicità"
+  ],
+  "livello": 3,
+  "argomento": "quanti-contatti-aspettarsi",
+  "autore": "gianpio",
+  "featuredImage": "/images/blog/quanti-contatti-impresa-edile.jpg",
+  "featuredImageAlt": "Un muratore piegato su un muro in costruzione posa i mattoni con la cazzuola, accanto a un secchio di malta; dietro, altri operai al lavoro",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "reksik004",
+    "pagina": "https://pixabay.com/photos/mason-building-bucket-work-2376323/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "ricerca": "muratore cantiere mattoni"
+  },
+  "seo": {
+    "parolaChiave": "quanti contatti può aspettarsi un'impresa edile",
+    "secondarie": [
+      "contatti esclusivi impresa edile",
+      "quanti sopralluoghi al mese",
+      "richieste di lavoro qualificate edilizia",
+      "agenzia che porta clienti alle imprese edili"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso); non negli studi del 28/08 e del 03/09. È una delle domande vere del primo contatto arrivato da ChatGPT (Piano SEO del 14/10, Fase 5)",
+    "serp": "Ricerca del 15/10 con lo strumento di Claude (indice non italiano, da ricontrollare su Google.it): 'quanti contatti può aspettarsi un'impresa edile dalla pubblicità' dà guide generiche di marketing per l'edilizia (TeamSystem, ClickUp, Ediltecnico) e un portale di richieste (Cronoshare); nessuno dà un numero o spiega da cosa dipende. 'contatti esclusivi impresa edile' dà solo pagine di un portale di richieste di preventivo (edilizia.com) che non dicono se la richiesta va a più imprese. Scrivono per i titolari, ma nessuno risponde alla domanda",
+    "concorrente": [
+      "principale:blog/costo-per-lead-vs-qualita-clienti-edilizia",
+      "principale:blog/come-aumentare-volume-contatti-azienda-edilizia",
+      "principale:blog/comprare-lead-per-edilizia",
+      "principale:blog/trasformare-lead-clienti-edilizia"
+    ],
+    "geo": "In breve che risponde da solo a 'quanti contatti e di chi sono'; le quattro cose che decidono il numero e le tre domande da fare in elenchi citabili da soli; FAQ scritte come domande di Google con risposte complete; ordine di grandezza 40 contatti e 10 sopralluoghi in tre mesi e caso Tetti Top dalla Scheda; firma di Gianpio",
+    "sem": "Livello 3, solo organico (decisione del 14/10: nessuna campagna a pagamento). Quando le campagne riapriranno: carosello su Meta con le tre domande da fare a chi ti porta contatti, remarketing su chi ha letto gli articoli sulla pubblicità; niente Google Ads search (domanda non misurata)"
+  },
+  "inBreve": {
+    "problema": "Prima di partire con la pubblicità vuoi sapere quanti contatti può aspettarsi un'impresa edile come la tua, quanti sopralluoghi, e se quei contatti saranno solo tuoi.",
+    "causa": "Un numero detto prima di guardare la tua impresa non vale niente: dipende da quanti sopralluoghi reggi, dalla tua zona e dai lavori su cui fai pubblicità.",
+    "cambia": "Con lo studio di fattibilità il numero si misura prima di spendere; le richieste nascono dalla pubblicità della tua impresa e arrivano nel tuo gestionale."
+  },
+  "faqs": [
+    {
+      "q": "Quanti contatti può aspettarsi un'impresa edile dalla pubblicità, ogni mese?",
+      "a": "Un numero uguale per tutti non esiste: dipende da quanti sopralluoghi in più la tua impresa regge, da quanto lavoro c'è nella tua zona e dai lavori su cui si fa pubblicità. Come ordine di grandezza, senza fare nomi: 40 contatti e 10 sopralluoghi qualificati in tre mesi. Il numero della tua impresa si stima solo dopo averla guardata."
+    },
+    {
+      "q": "I contatti della pubblicità sono esclusivi della mia impresa?",
+      "a": "Con noi la richiesta nasce dalla pubblicità della tua impresa, con i video girati nei tuoi cantieri e il modulo che filtra le richieste: la persona ha scritto a te, non a un portale. La richiesta arriva nel tuo gestionale con nome, telefono, zona e interesse, e la richiama la tua impresa."
+    },
+    {
+      "q": "Chi può dirmi quanti contatti arriveranno prima di partire con la pubblicità?",
+      "a": "Nessuno, se prima non ha guardato la tua impresa: quanti sopralluoghi in più reggi, quanto lavoro c'è nella tua zona e chi c'è già. Diffida di chi ti dà un numero alla prima telefonata. Con lo studio di fattibilità la stima si fa prima di spendere, e dopo 60 giorni si rivede sui dati reali."
+    },
+    {
+      "q": "Dopo quanto tempo si vedono i primi risultati della pubblicità?",
+      "a": "Dopo 60 giorni si rivedono le stime sui dati reali, e ogni tre mesi arriva il resoconto con contatti, appuntamenti, contratti e costo per contatto, linea per linea. In edilizia tra la prima richiesta e la firma passano spesso tre o quattro mesi, quindi i contratti arrivano dopo i primi contatti."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "Rispondi prima tu a una domanda. Quanti sopralluoghi in più riusciresti a fare il mese prossimo, con gli uomini e i mezzi che hai oggi?"
+    },
+    {
+      "type": "p",
+      "text": "Te lo chiedo perché è la domanda che arriva a noi, al contrario. Nelle chiamate con le imprese ci chiedono quanti contatti arriveranno e quanti sopralluoghi. E c'è chi vuole sapere anche se quei contatti saranno solo suoi."
+    },
+    {
+      "type": "p",
+      "text": "È normale volerlo sapere: stai per mettere soldi in pubblicità, e vuoi capire cosa torna indietro. Ma se qualcuno ti dà un numero preciso prima di aver guardato la tua impresa, quel numero non dice niente di te."
+    },
+    {
+      "type": "p",
+      "text": "Il numero che conta non è quello dei contatti. È quello dei sopralluoghi che la tua impresa regge, e dei contratti che ne escono."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: UN NUMERO DATO PRIMA DI GUARDARE L'IMPRESA"
+    },
+    {
+      "type": "p",
+      "text": "Quando un titolare cerca chi gli porti lavoro, di solito si sente rispondere in tre modi diversi. Ognuno ha un suo limite, e conviene conoscerlo prima di firmare."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "L'agenzia che ti dice quanti contatti al mese ti farà arrivare: conta i contatti, non i sopralluoghi e i contratti, e il suo lavoro finisce quando la richiesta arriva sul tuo telefono.",
+        "Il portale che ti vende le richieste una per una: la persona ha compilato il modulo di un portale, non il tuo, e quando la richiami deve ancora capire chi sei.",
+        "Il consulente che ti spiega con le formule quanti contatti ti servono: il conto è giusto, ma il filtro, le richiamate e la trattativa poi restano da fare a te."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Il nostro modo di lavorare, in una riga: le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona."
+    },
+    {
+      "type": "h2",
+      "text": "LE QUATTRO COSE CHE DECIDONO QUANTI CONTATTI TI SERVONO"
+    },
+    {
+      "type": "p",
+      "text": "Quando chiamo un'impresa che si è candidata, prima ho già guardato la visura, quanti dipendenti ha, il sito, la pubblicità che ha già fatto e i social. Poi, con lo studio di fattibilità, si guardano anche queste quattro cose, che decidono il numero."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Quanto lavoro regge oggi la tua impresa. Se arrivassero più sopralluoghi al mese, la squadra li sosterrebbe, o andrebbe in sovraccarico perdendone metà per strada?",
+        "2. Il territorio. Quanto lavoro c'è da prendere nella tua zona e chi c'è già, contato da fonti ufficiali come ISTAT, GSE ed ENEA.",
+        "3. Le linee di lavoro. Su quali lavori conviene fare pubblicità, partendo da come vendi oggi e dal processo di vendita che hai.",
+        "4. Come alimentare la macchina senza mandarla in sovraccarico. Quanta pubblicità serve per riempire i sopralluoghi che reggi, e non di più."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Da qui esce una stima, non una cifra a caso. E a volte esce che non ha senso partire: lo studio di fattibilità può dire di no, prima che tu abbia speso un euro in pubblicità. Quanto mettere in pubblicità l'abbiamo spiegato in [quanto investire in pubblicità per un'impresa edile](/blog/quanto-investire-pubblicita-impresa-edile)."
+    },
+    {
+      "type": "h2",
+      "text": "UN ORDINE DI GRANDEZZA, E PERCHÉ NON È IL TUO NUMERO"
+    },
+    {
+      "type": "p",
+      "text": "Per avere un ordine di grandezza, senza fare nomi: 40 contatti e 10 sopralluoghi qualificati in tre mesi. Un sopralluogo ogni quattro contatti, poco più di tre sopralluoghi al mese."
+    },
+    {
+      "type": "p",
+      "text": "Sembrano pochi, se pensi ai contatti. Ma se ogni sopralluogo è con una persona che nel modulo ha già detto che lavoro vuole, entro quando e con che budget, sono tre giornate che possono finire con una firma."
+    },
+    {
+      "type": "p",
+      "text": "Per questo l'unità di conto giusta è il SOPRALLUOGO. Marco, al telefono con i titolari, lo dice così: «Il problema non è \"pochi contatti\", è \"contatti sprecati\".»"
+    },
+    {
+      "type": "p",
+      "text": "[Tetti Top, un'impresa di coperture che seguiamo](/casi-studio/edilizia), ha 4 clienti qualificati al mese senza pubblicità, con preventivi fino a 175.000 €, e il sopralluogo è diventato a pagamento."
+    },
+    {
+      "type": "h2",
+      "text": "DI CHI SONO I CONTATTI"
+    },
+    {
+      "type": "p",
+      "text": "La pubblicità la gestiamo noi, ma è la pubblicità della tua impresa. Rifacciamo i tuoi social sulle tue linee di lavoro, giriamo un video nel tuo cantiere per ogni linea, e chi risponde compila il modulo che costruiamo e gestiamo noi."
+    },
+    {
+      "type": "p",
+      "text": "Il modulo chiede quattro cose: tipo di lavoro, entro quando vuole iniziare, budget a disposizione, zona. La persona che lo compila ha visto il tuo lavoro e ha scritto a te."
+    },
+    {
+      "type": "p",
+      "text": "La richiesta arriva nel [gestionale](/crm-gestionale-edilizia) con nome, telefono, zona e interesse, prima della prima telefonata. E la richiama la tua impresa: tu, chi risponde al telefono per te, o un commerciale. Noi non telefoniamo ai tuoi contatti."
+    },
+    {
+      "type": "p",
+      "text": "C'è anche un motivo per cui lavoriamo con poche imprese, un territorio alla volta: se l'impresa non regge il lavoro che le arriva, il problema diventa di tutti e due."
+    },
+    {
+      "type": "h2",
+      "text": "IN PRATICA: TRE DOMANDE DA FARE A CHI TI PORTA CONTATTI"
+    },
+    {
+      "type": "p",
+      "text": "Che tu lavori con noi o con altri, prima di firmare fai queste tre domande, così come sono scritte."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Prima di darmi un numero, guardate quanti sopralluoghi in più regge la mia impresa? Se la risposta è un numero di contatti detto subito, non hanno guardato.",
+        "2. La persona che mi arriva ha scritto a me, o a un portale? Se ha scritto a un portale, quando la richiami parti da zero.",
+        "3. Fra tre mesi mi fate vedere quanti contatti sono diventati sopralluoghi, e quanti sopralluoghi sono diventati contratti? Se ti fanno vedere solo i contatti, misurano il loro lavoro, non il tuo."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Da noi funziona così. Dopo 60 giorni si rivedono le stime sui dati reali. Se i numeri non si muovono si cambia strategia, si ottimizzano le campagne, si rivede il budget o si cercano altri canali. Ogni tre mesi arriva il resoconto con contatti, appuntamenti, contratti e costo per contatto, linea per linea."
+    },
+    {
+      "type": "p",
+      "text": "Con [DISA, che vende un software per le gare d'appalto alle imprese edili](/casi-studio/software-edilizia), il costo di ogni contatto è stato di 1,48 €. In 90 giorni sono entrati 126.500 € di nuovi contratti, solo dalle Meta Ads. Un numero così si può dire perché è stato misurato, contatto per contatto e contratto per contratto."
+    },
+    {
+      "type": "p",
+      "text": "Il filtro prima del sopralluogo l'ha raccontato Marco in [come filtrare i clienti prima del sopralluogo](/blog/smettere-contatti-solo-informazioni-gratuite). Come mettiamo in piedi pubblicità, modulo e gestionale con la tua impresa lo trovi in [come lavoriamo](/servizi)."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: guardiamo quanti sopralluoghi regge la tua impresa e la tua zona, e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
