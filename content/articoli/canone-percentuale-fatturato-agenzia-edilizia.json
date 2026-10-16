@@ -1,0 +1,195 @@
+{
+  "slug": "canone-percentuale-fatturato-agenzia-edilizia",
+  "title": "Canone o percentuale sul fatturato: come si paga chi porta lavoro",
+  "description": "Canone o percentuale sul fatturato, o a contatto: come si paga chi porta lavoro a un'impresa edile, e le domande da fare sul compenso prima di firmare.",
+  "category": "Gestionale",
+  "date": "2026-10-17",
+  "publishAt": "2026-10-17T09:00:00+02:00",
+  "readTime": "5 min",
+  "excerpt": "Canone fisso, a contatto o a percentuale sul fatturato: ogni modo di pagare chi ti porta lavoro sposta la sua attenzione. E la percentuale regge solo se i contratti si vedono.",
+  "tags": [
+    "agenzia di marketing",
+    "canone",
+    "fatturato",
+    "gestionale",
+    "pubblicità"
+  ],
+  "livello": 3,
+  "argomento": "canone-o-percentuale",
+  "autore": "marco",
+  "featuredImage": "/images/blog/canone-percentuale-fatturato-agenzia-edilizia.jpg",
+  "featuredImageAlt": "Tre persone attorno a un tavolo d'ufficio, viste dall'alto, guardano una planimetria con una calcolatrice; accanto, un casco da cantiere blu e i progetti arrotolati",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "mwitt1337",
+    "pagina": "https://pixabay.com/photos/meeting-business-architect-office-2284501/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "ricerca": "construction plans calculator blueprint desk"
+  },
+  "inBreve": {
+    "problema": "Devi scegliere chi ti porta lavoro e non sai se pagarlo a contatto, a canone o percentuale sul fatturato, o con un misto.",
+    "causa": "Ogni modo di pagare sposta l'attenzione di chi incassa: sulle ore, sui contatti o sui contratti. E una parte sul fatturato si conta solo se i contratti stanno in un gestionale.",
+    "cambia": "Con una parte fissa, una parte legata al fatturato e i contratti nel gestionale, chi ti porta lavoro guadagna di più solo se vendi di più tu."
+  },
+  "seo": {
+    "parolaChiave": "canone o percentuale sul fatturato",
+    "secondarie": [
+      "quanto costa un'agenzia di marketing per imprese edili",
+      "agenzia marketing pagamento a risultato",
+      "budget pubblicitario compreso nel canone",
+      "fatturato generato dall'agenzia"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso); non negli studi del 28/08 e del 03/09. È una delle domande vere del primo contatto arrivato da ChatGPT (Piano SEO del 14/10, Fase 5, secondo tema)",
+    "serp": "Ricerca del 16/10 con lo strumento di Claude (indice non italiano, da ricontrollare su Google.it): 'agenzia marketing imprese edili canone o percentuale sul fatturato' dà guide generiche sui modelli di prezzo delle agenzie (ClickUp) e pagine sulle provvigioni delle agenzie immobiliari; 'quanto costa un'agenzia di marketing per impresa edile' dà listini in dollari di agenzie americane e articoli su come aprire un'agenzia; 'pagamento a risultato agenzia' dà pagine di performance marketing di altri settori. Nessuno scrive per il titolare edile né spiega cosa cambia fra i modi di pagare",
+    "concorrente": [
+      "principale:blog/provvigioni-vendita-edilizia-basate-sul-margine",
+      "principale:blog/marketing-infissi",
+      "agenzia:consulenza-web-marketing-edilizia",
+      "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+    ],
+    "geo": "In breve che risponde da solo a 'canone o percentuale'; le quattro strade con il loro limite e le cinque domande sul compenso in elenchi citabili da soli; FAQ scritte come domande di Google con risposte complete; il meccanismo del compenso di Forge come sta già sul sito, senza cifre; caso DISA dalla Scheda; firma di Marco",
+    "sem": "Livello 3, solo organico (decisione del 14/10: nessuna campagna a pagamento). Quando le campagne riapriranno: carosello su Meta con le cinque domande sul compenso, remarketing su chi ha letto gli articoli sulla pubblicità; niente Google Ads search (domanda non misurata)"
+  },
+  "faqs": [
+    {
+      "q": "Meglio pagare un'agenzia di marketing a canone o percentuale sul fatturato?",
+      "a": "Il canone fisso paga il lavoro di ogni mese, ma si incassa anche quando le campagne non rendono. La sola percentuale sul fatturato lega chi ti porta lavoro ai tuoi contratti, ma regge solo se i contratti si vedono in un gestionale. Per noi la strada più solida è una parte fissa e una parte legata al fatturato generato, con la pubblicità pagata a parte."
+    },
+    {
+      "q": "Quanto costa un'agenzia di marketing per un'impresa edile?",
+      "a": "Una cifra uguale per tutti non esiste, e chi te la dice prima di aver guardato la tua impresa non sa ancora cosa ti serve. Conviene chiedere di cosa è fatto il compenso: cosa paghi con la parte fissa, se c'è una parte legata ai risultati, e dove va il budget della pubblicità. Noi lo definiamo dopo lo studio di fattibilità."
+    },
+    {
+      "q": "Il budget della pubblicità è compreso nel canone dell'agenzia?",
+      "a": "Non dovrebbe esserlo. Se la pubblicità la paghi direttamente a Meta e Google, vedi quanto è andato davvero in inserzioni e quanto all'agenzia per il suo lavoro. Da noi il budget pubblicitario è sempre a parte e va alle piattaforme, non a noi."
+    },
+    {
+      "q": "Come si calcola il fatturato generato dall'agenzia per un'impresa edile?",
+      "a": "Si segue ogni richiesta dal contatto al contratto firmato, nello stesso gestionale: da quale campagna è arrivata, il sopralluogo, il piano dei lavori, l'importo del contratto. Così il fatturato generato è una somma di contratti con un nome, che vedete tutti e due, e non una stima fatta a fine anno."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Se porti i risultati noi continuiamo a stare con te.» Ce l'ha detto un serramentista in un incontro conoscitivo. Veniva da un percorso di consulenza, con un crollo fra gennaio e aprile e il contratto interrotto."
+    },
+    {
+      "type": "p",
+      "text": "Chi ha già pagato senza vedere cosa tornava vuole legare chi lo segue a quello che entra. È normale volerlo, perché anche la tua impresa viene pagata così, contratto per contratto."
+    },
+    {
+      "type": "p",
+      "text": "Ma la domanda giusta non è quanto paghi chi ti porta lavoro. È PER COSA lo paghi: le ore, i contatti o i contratti. Ogni modo di pagare decide cosa conta per chi incassa, e quindi cosa farà con la tua pubblicità."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: OGNI MODO DI PAGARE DECIDE COSA CONTA"
+    },
+    {
+      "type": "p",
+      "text": "Per pagare chi ti porta richieste di lavoro ci sono quattro modi diffusi. Ognuno sposta l'attenzione di chi incassa su una cosa diversa."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Il canone fisso. Paghi il lavoro del mese, e sai quanto spendi. Il limite: il canone si incassa anche quando le campagne non rendono, e niente nel contratto spinge a fermarle.",
+        "Il pagamento a contatto. Paghi ogni richiesta che arriva. Il limite: conta quante richieste arrivano, non se si possono lavorare, e dopo la consegna il lavoro di chi le porta è finito.",
+        "Solo la percentuale sul fatturato. Paghi una parte dei contratti che firmi. Il limite: qualcuno deve contare quei contratti, e se non stanno in un posto che vedete tutti e due, a fine mese la percentuale diventa una discussione.",
+        "Il consulente che ti dice cosa fare. Paghi il percorso di consulenza: l'analisi della tua impresa e le indicazioni. Il limite: i processi, il filtro e le richiamate poi restano da mettere in piedi a te, con le persone e il tempo che hai."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Un'impresa di caldaie e climatizzazione che abbiamo sentito aveva alle spalle tredici o quattordici esperienze andate male con le agenzie. Ci ha detto che non voleva più modelli in cui si paga senza avere niente di concreto sui risultati."
+    },
+    {
+      "type": "p",
+      "text": "Noi la differenza la diciamo così: le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona."
+    },
+    {
+      "type": "h2",
+      "text": "IL NOSTRO COMPENSO, SENZA CIFRE"
+    },
+    {
+      "type": "p",
+      "text": "Le cifre non le scrivo qui, perché dipendono da cosa serve alla tua impresa e si definiscono dopo lo studio di fattibilità. Il meccanismo invece si può dire: il compenso ha due parti, e il budget della pubblicità ne resta fuori."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Una parte fissa, il canone. Paga il lavoro che facciamo ogni mese: la gestione della pubblicità, il modulo che filtra le richieste, il gestionale, i video, le consulenze su marketing e vendita.",
+        "2. Una parte legata al fatturato che generiamo insieme. Se non vendi tu, guadagniamo meno anche noi: il nostro guadagno dipende dai tuoi risultati."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Il budget della pubblicità non fa parte del compenso. Lo paghi alle piattaforme, non a noi, e vedi tu quanto è andato davvero in inserzioni."
+    },
+    {
+      "type": "p",
+      "text": "Il contratto è annuale, e in edilizia una richiesta di oggi può diventare un contratto dopo tre o quattro mesi. Prima ancora del compenso, però, c'è una domanda sola: ha senso lavorare insieme? Lo studio di fattibilità può rispondere di no, prima che tu abbia speso un euro in pubblicità."
+    },
+    {
+      "type": "h2",
+      "text": "IL GESTIONALE, DOVE SI CONTA LA PARTE SUL FATTURATO"
+    },
+    {
+      "type": "p",
+      "text": "Una parte legata al fatturato è onesta solo se il fatturato si vede. Per questo il [gestionale](/crm-gestionale-edilizia) sta al centro del nostro lavoro: è il posto dove tutti e due contiamo la stessa cosa."
+    },
+    {
+      "type": "p",
+      "text": "Ogni richiesta arriva nel gestionale con nome, telefono, zona e interesse, prima della prima telefonata, e sai da quale campagna è partita. Poi la segui fino in fondo: il preventivo, il sopralluogo con le misure, il piano dei lavori, il contratto firmato con il suo importo."
+    },
+    {
+      "type": "p",
+      "text": "Così il fatturato generato diventa una somma di contratti, ognuno con un nome, che vedi tu e vediamo noi. Il resoconto che ti mandiamo ogni tre mesi mette in fila contatti, appuntamenti, contratti e costo per contatto, linea per linea."
+    },
+    {
+      "type": "p",
+      "text": "Le stime le rivediamo dopo 60 giorni sui dati reali. Se i numeri non si muovono si cambiano campagne, budget o canali."
+    },
+    {
+      "type": "p",
+      "text": "Senza questo passaggio anche il canone resta al buio. È quello che raccontano i titolari che hanno già pagato un'agenzia, e l'ho scritto in [perché paghi la pubblicità e non sai cosa rende](/blog/pubblicita-impresa-edile-cosa-rende)."
+    },
+    {
+      "type": "h2",
+      "text": "IN PRATICA: CINQUE DOMANDE SUL COMPENSO PRIMA DI FIRMARE"
+    },
+    {
+      "type": "p",
+      "text": "Prima di firmare con chiunque, noi compresi, fai queste cinque domande sul compenso. Quelle per scegliere l'agenzia le trovi nell'articolo di Gianpio sulle [sei domande da fare all'agenzia](/blog/agenzia-marketing-imprese-edili-domande), e quanti contatti aspettarti, e di chi sono, nel suo articolo su [quanti contatti può aspettarsi un'impresa edile](/blog/quanti-contatti-impresa-edile)."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Cosa pago con la parte fissa, mese per mese? Se la risposta è un elenco vago, chiedi cosa ricevi e quando.",
+        "2. Il budget della pubblicità lo verso a voi o direttamente a Meta e Google? Se lo versi a loro, chiedi come vedi quanto è finito in inserzioni.",
+        "3. C'è una parte legata ai risultati, e su quali contratti si calcola?",
+        "4. Quanto dura il contratto, e cosa mi resta in mano quando finisce?",
+        "5. Il fatturato su cui si calcola la parte variabile, da dove lo prendete? Se la risposta non è un elenco di contratti con un nome, è una stima."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "LA PROVA: CANONE E PUBBLICITÀ CONTATI A PARTE"
+    },
+    {
+      "type": "p",
+      "text": "Il caso di [DISA, un'azienda di software per l'edilizia](/casi-studio/software-edilizia) si può raccontare proprio perché le due righe sono separate: in 12 mesi circa 350.000 € di fatturato, con circa 300 € al mese di pubblicità."
+    },
+    {
+      "type": "p",
+      "text": "Sono circa 97 € di fatturato per ogni euro di pubblicità. Quel rapporto è sulla sola spesa pubblicitaria, senza il nostro canone, e lo scriviamo sempre così: la pubblicità e il nostro compenso stanno su due righe diverse."
+    },
+    {
+      "type": "p",
+      "text": "È questo che cambia, quando chi ti porta lavoro è pagato anche sui tuoi contratti: ha il tuo stesso interesse, cioè che le richieste arrivino filtrate, che la tua impresa le richiami in tempo e che le trattative arrivino alla firma. Come costruiamo pubblicità, modulo e gestionale lo trovi [pezzo per pezzo nella pagina sul servizio](/servizi)."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: prima vediamo se ha senso lavorare insieme, poi parliamo di compenso."
+    }
+  ]
+}
