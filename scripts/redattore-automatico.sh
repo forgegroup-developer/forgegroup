@@ -67,6 +67,12 @@ fallito() {
 cd "$WT" || fallito "copia di lavoro mancante"
 git fetch -q origin || fallito "rete non disponibile"
 git checkout -q -f --detach "$REF" || fallito "copia di lavoro non aggiornabile"
+# Le dipendenze si reinstallano quando cambia package-lock.json (16/10/2026: mancava sharp e il
+# Redattore ha compresso la copertina a mano con sips).
+IMPRONTA="$(shasum package-lock.json | cut -d' ' -f1)"
+if [ "$(cat node_modules/.impronta-lock 2>/dev/null)" != "$IMPRONTA" ]; then
+  npm ci --silent --no-audit --no-fund && echo "$IMPRONTA" > node_modules/.impronta-lock || fallito "dipendenze non installate"
+fi
 
 # Le bozze il cui giorno di uscita è passato senza approvazione si chiudono.
 coda() { node scripts/coda-articoli.mjs > "$LOG/coda.json" || fallito "calcolo della coda"; }
