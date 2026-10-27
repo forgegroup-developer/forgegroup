@@ -183,84 +183,89 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "arredo-commerciale",
     sector: "Arredamento negozi",
-    title: "Arredamento negozi: 25.000 € chiusi in 4 mesi",
+    title: "Caso ROVI, arredamento negozi: 25.000 € chiusi in 4 mesi",
     shortTitle: "Arredamento negozi",
     resultHeadline: "25.000 € chiusi in quattro mesi, e oltre 200.000 € di trattative aperte.",
     excerpt:
-      "ROVI lavorava solo con il passaparola, faceva sopralluoghi e progetti per chiunque chiedesse e perdeva trattative sul prezzo. Oggi conosce il budget del cliente prima dell'appuntamento: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+      "ROVI il lavoro lo sapeva fare. Le mancava un modo per venderlo: le richieste arrivavano solo dal passaparola, il progetto si faceva a chiunque lo chiedesse e la trattativa finiva sempre sul prezzo. Oggi ROVI sa chi decide e quanto vuole spendere il cliente prima di progettare.",
     hubExcerpt:
-      "Da sopralluoghi e progetti per chiunque a clienti con il budget già detto: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
-    excerptHighlights: ["conosce il budget del cliente prima dell'appuntamento", "oltre 200.000 € di trattative aperte"],
+      "Prima il progetto a chiunque lo chiedesse, oggi il budget e chi decide prima di progettare: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+    excerptHighlights: ["Le mancava un modo per venderlo", "chi decide e quanto vuole spendere"],
     sintesi: {
-      problema: "Solo passaparola, sopralluoghi e progetti per chiunque, trattative perse sul prezzo.",
-      soluzione: "Chi decide al primo incontro, la cifra detta presto, il piano dei lavori presentato di persona, ogni trattativa nel gestionale.",
-      risultato: "25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+      problema:
+        "Richieste solo dal passaparola, progetti fatti a chiunque e trattative perse sul prezzo, anche quando il lavoro era fatto meglio.",
+      soluzione:
+        "Prima di progettare si capisce chi decide e si dice la cifra. Il piano dei lavori si presenta di persona, e ogni trattativa ha la sua data nel gestionale.",
+      risultato:
+        "25.000 € chiusi in quattro mesi, e oltre 200.000 € di trattative aperte che seguiamo ogni settimana con il titolare.",
     },
     metaDescription:
-      "ROVI, arredamento negozi: dal solo passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte, con il budget del cliente saputo prima.",
+      "Caso ROVI, arredamento negozi: dal solo passaparola a 25.000 € chiusi in quattro mesi, sapendo chi decide e il budget del cliente prima del progetto.",
     context: [
       { label: "Settore", value: "Arredamento e allestimento di negozi e locali" },
       { label: "Azienda", value: "ROVI Srl" },
       { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "ROVI il lavoro lo sa fare, e i clienti lo scelgono anche per la cura. In un negozio, un altro preventivo metteva due vetrine da un metro e settantacinque più il banco cassa: messi così, la porta non si apriva più. ROVI le misure le aveva prese sul posto. Il problema era vendere quella professionalità: tutto arrivava dal passaparola, sopralluoghi e progetti si facevano per chiunque chiedesse, e le trattative saltavano sul prezzo.",
+      "Un negozio da arredare, e il cliente con altri preventivi già in mano. In uno c'erano due vetrine da un metro e settantacinque più il banco cassa: messi così, la porta non si apriva più. Chi l'aveva fatto le misure sul posto non le aveva prese. ROVI sì, e il cliente l'ha scelta anche per questo. Il problema di ROVI non era il lavoro, era venderlo: quella cura non si vedeva in un preventivo mandato in chat, e quasi ogni trattativa finiva a parlare di prezzo.",
     scena: {
       titolo: "Cinque appuntamenti, nessuna firma",
       testo:
-        "Un locale da arredare. La trattativa la seguiva la figlia del proprietario: cinque appuntamenti e nessuna firma. In consulenza si è capito perché: le decisioni sui soldi le prendeva il padre, e al tavolo non c'era mai stato. Da lì la prima regola: al primo incontro si capisce chi decide e chi paga, prima di progettare.",
+        "Un locale da arredare. La trattativa la seguiva la figlia del proprietario: cinque appuntamenti, e nessuna firma. In consulenza abbiamo capito perché: le decisioni sui soldi le prendeva il padre, e al tavolo non c'era mai stato. Da lì è nata la prima regola: al primo incontro si capisce chi decide e chi paga, prima di progettare.",
     },
     diagnosis: [
-      "Solo passaparola: nessun altro canale per trovare clienti",
-      "Sopralluoghi e progetti regalati: a chiunque chiedesse, senza sapere il budget",
-      "La guerra dei prezzi: la cura del lavoro non si vedeva nel preventivo",
-      "Il preventivo e poi il silenzio: agenda, WhatsApp, nessuna data per richiamare",
+      "Solo passaparola: quando il giro delle conoscenze rallentava, non c'era un altro modo per trovare clienti",
+      "Progetti regalati: sopralluogo e progetto a chiunque li chiedesse, senza sapere chi decide né quanto vuole spendere",
+      "La trattativa sul prezzo: la cura del lavoro non si vedeva nel preventivo, e il cliente confrontava solo il totale",
+      "Il preventivo e poi il silenzio: appunti in agenda, messaggi su WhatsApp, nessuna data per richiamare",
     ],
     system: [
       {
         step: "01",
         title: "Chi decide, al primo incontro",
         description:
-          "Il primo incontro serve a capire chi decide, chi paga e quanto vuole spendere. Non si progetta ancora.",
+          "È la risposta ai progetti regalati. Il primo incontro serve a capire chi decide, chi paga e quanto vuole spendere. Il progetto viene dopo.",
       },
       {
         step: "02",
         title: "La cifra detta presto",
         description:
-          "La fascia di prezzo si dice subito, in chiamata. Se è sostenibile si fissa il sopralluogo: così si esce solo per chi può spendere.",
+          "La fascia di prezzo si dice già in chiamata, e si chiede se è sostenibile. Solo allora si fissa il sopralluogo, al secondo incontro: così si esce solo per chi può spendere.",
       },
       {
         step: "03",
         title: "Il piano dei lavori, presentato di persona",
         description:
-          "Non si chiama più preventivo ma piano dei lavori, e si presenta in sede o in videochiamata con lo schermo condiviso. Mai su WhatsApp, e non si lascia in copia prima della firma.",
+          "Non si chiama più preventivo ma piano dei lavori, perché dentro c'è un progetto e non una lista di prezzi, con due opzioni. Si presenta in sede o in videochiamata con lo schermo condiviso, mai su WhatsApp, e non si lascia in copia prima della firma. È lì che il cliente vede la cura del lavoro, e smette di guardare solo il totale.",
       },
       {
         step: "04",
         title: "Ogni incontro finisce con una data",
         description:
-          "Il prossimo contatto si scrive nel gestionale prima di salutarsi, insieme alla trattativa: cosa ha chiesto, cosa gli serve, chi decide.",
+          "Prima di salutarsi si scrive nel gestionale il prossimo contatto, e accanto la trattativa: cosa ha chiesto il cliente, cosa gli serve, perché ha fretta, chi decide. Nessuna richiesta resta in agenda senza un passo successivo.",
       },
       {
         step: "05",
         title: "Le campagne con il modulo che filtra",
         description:
-          "Campagne su Facebook e Instagram per chi sta aprendo o rinnovando un'attività, con le domande su budget, stato del locale e tempi prima dell'appuntamento.",
+          "Le campagne su Facebook e Instagram parlano a chi sta aprendo o rinnovando un'attività. Il modulo chiede budget, stato del locale e tempi: quando ROVI richiama, sa già con chi parla.",
       },
       {
         step: "06",
         title: "I pagamenti fissati prima",
         description:
-          "Bonifico, acconto all'arrivo della merce, saldo allo scarico: come e quando si paga si decide prima di iniziare, per iscritto.",
+          "Come e quando si paga si decide prima di iniziare, per iscritto: bonifico, acconto all'arrivo della merce, saldo allo scarico. E prima di accettare un assegno si controlla l'azienda in Camera di commercio.",
       },
     ],
     resultsEyebrow: "Dove siamo adesso",
     resultsHeading: "I primi numeri,",
     resultsHeadingHighlight: "e il lavoro continua",
     results: [
-      { value: "25K€", label: "Contratti chiusi", detail: "Nei primi quattro mesi di lavoro insieme" },
-      { value: "+200K€", label: "Trattative aperte", detail: "In cinque mesi, ancora in corso" },
+      { value: "25K€", label: "Contratti chiusi", detail: "Firmati nei primi quattro mesi di lavoro insieme" },
+      { value: "+200K€", label: "Trattative aperte", detail: "In cinque mesi, seguite ogni settimana con il titolare" },
     ],
+    resultNote:
+      "I 25.000 € sono contratti già firmati. I 200.000 € sono trattative ancora aperte: le guardiamo una per una con il titolare, nella chiamata di ogni settimana.",
     quote: {
       text: "Progetto in corso con Forge Group.",
       author: "ROVI Srl",
@@ -273,21 +278,21 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Richieste",
         before: "Solo passaparola",
-        after: "Campagne con il modulo che chiede budget, stato del locale e tempi",
+        after: "Campagne su Facebook e Instagram, con il modulo che chiede budget, stato del locale e tempi",
       },
       {
         aspect: "Sopralluoghi e progetti",
-        before: "Per chiunque chiedesse",
+        before: "Fatti a chiunque li chiedesse",
         after: "Solo dopo aver detto la cifra e capito chi decide",
       },
       {
         aspect: "Il preventivo",
-        before: "Mandato su WhatsApp, confrontato solo sul prezzo",
-        after: "Un piano dei lavori presentato di persona",
+        before: "Mandato su WhatsApp e confrontato solo sul totale",
+        after: "Un piano dei lavori con due opzioni, presentato di persona",
       },
       {
         aspect: "Le trattative",
-        before: "Agenda cartacea e WhatsApp, nessuno storico",
+        before: "Appunti in agenda e WhatsApp, nessuna data per richiamare",
         after: "Nel gestionale, e ogni incontro finisce con una data",
       },
       {
@@ -296,11 +301,12 @@ export const caseStudies: CaseStudy[] = [
         after: "Fissati per iscritto prima di iniziare",
       },
     ],
-    statusBadge: "Progetto attivo · primi contratti chiusi",
+    statusBadge: "Progetto attivo · primi contratti firmati",
     forWhom: [
-      "Imprese che lavorano su progetti importanti e vivono solo di passaparola",
-      "Imprese che regalano sopralluoghi e progetti a chi non ha ancora deciso di comprare",
-      "Titolari che perdono trattative sul prezzo anche quando lavorano meglio degli altri",
+      "Imprese che lavorano su progetti importanti e trovano clienti solo con il passaparola",
+      "Titolari che fanno sopralluogo e progetto a chi non ha ancora deciso di comprare",
+      "Titolari che mandano il preventivo su WhatsApp e poi aspettano una risposta",
+      "Titolari che perdono la trattativa sul prezzo anche quando il loro lavoro è fatto meglio",
     ],
     ...caseStudyLogosBySlug["arredo-commerciale"],
   },
