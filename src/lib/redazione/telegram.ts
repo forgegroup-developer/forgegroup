@@ -139,7 +139,9 @@ export async function inviaArticolo(n: number | string, modo: "automatico" | "" 
   const esito = pr.body.match(/ESITO:\s*([A-Z ]+)/)?.[1]?.trim() ?? "vedi la PR";
   const testo = [
     automatico
-      ? "✅ <b>Articolo nuovo, già in coda.</b> Il Revisore l'ha approvato. Non devi fare niente: se non ti va, premi Ritira prima del giorno di uscita."
+      ? pr.labels.includes("dubbi-revisore")
+        ? "✅ <b>Articolo nuovo, già in coda.</b> ⚠️ Il Revisore aveva dei dubbi: leggili nella PR. Se non ti va, premi Ritira prima del giorno di uscita."
+        : "✅ <b>Articolo nuovo, già in coda.</b> Il Revisore l'ha approvato. Non devi fare niente: se non ti va, premi Ritira prima del giorno di uscita."
       : pr.isDraft
         ? "⚠️ <b>BOZZA: il Revisore ha dei dubbi, leggili nella PR</b>"
         : "📝 <b>Articolo nuovo: Vai, Correggi o Scarta?</b>",

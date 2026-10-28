@@ -178,9 +178,10 @@ proprietà corregge qualcosa, aggiorna il file e aggiungi la regola in
    `ESITO: APPROVATO` o `ESITO: DA CORREGGERE`), poi
    `node scripts/redattore-passi.mjs apri-pr --ramo articolo/<slug> --titolo "Articolo · <data> · <titolo>" --corpo-file <file>`.
    Non usare `gh pr`: nel cloud non funziona. Lo script mette da solo l'etichetta `articolo`.
-5. mai su `main`, mai merge: l'approvazione è della proprietà (merge su GitHub o tasto Vai su Telegram)
+5. mai su `main`, mai merge: il merge lo fa lo script `dopo` (silenzio-assenso) o la proprietà
 6. se dopo due giri il Revisore dice ancora DA CORREGGERE, apri la PR lo stesso ma **come bozza**
-   (stesso comando con `--bozza`), con i dubbi in cima alla descrizione: la proprietà decide
+   (stesso comando con `--bozza`), con i dubbi in cima alla descrizione: lo script `dopo` la mette
+   in coda lo stesso e la proprietà legge i dubbi su Telegram, con il tasto Ritira
 7. come ultima riga della tua risposta scrivi solo `PR: <link della PR>` (lo legge lo script che ti ha lanciato)
 
 ## 8 · Registro

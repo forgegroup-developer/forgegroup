@@ -25,7 +25,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { prChiudi, prCommenta, prCrea, prEtichetta, prUnisci, prVedi } from "./github.mjs";
+import { prChiudi, prCommenta, prCrea, prEtichetta, prPronta, prUnisci, prVedi } from "./github.mjs";
 
 const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const node = (...a) => execFileSync("node", a, { cwd: RADICE, encoding: "utf8" });
@@ -115,13 +115,20 @@ function dopo(n) {
       git("checkout", "-q", "-f", "--detach", partenza);
     }
   }
-  const automatico = !pr.isDraft && controllo && !manuale();
+  // Silenzio-assenso sempre, anche con i dubbi del Revisore (decisione della proprietà, 28/10/2026):
+  // la bozza diventa pronta e l'etichetta `dubbi-revisore` fa arrivare su Telegram l'avviso con Ritira.
+  // Resta fuori solo l'articolo che non passa lo script di controllo.
+  const automatico = controllo && !manuale();
   if (automatico) {
     // L'etichetta prima del merge: è quella che dice a Vercel di mandarlo con il tasto Ritira.
     prEtichetta(n, "silenzio-assenso");
     try {
+      if (pr.isDraft) {
+        prEtichetta(n, "dubbi-revisore");
+        prPronta(n);
+      }
       prUnisci(n);
-      console.log(`PR #${n} in coda (silenzio-assenso)`);
+      console.log(`PR #${n} in coda (silenzio-assenso${pr.isDraft ? ", con i dubbi del Revisore" : ""})`);
       return;
     } catch (e) {
       console.error(`merge non riuscito: ${e.message}`);
