@@ -1,0 +1,163 @@
+{
+  "slug": "pagamenti-lavori-edili-acconto-saldo",
+  "title": "Quando si fissano i pagamenti dei lavori edili, e con chi?",
+  "description": "Pagamenti dei lavori edili: acconto e saldo detti alla fine non reggono. Le strade che si provano, e i sei momenti della trattativa in cui si fissano.",
+  "category": "Trattative e vendita",
+  "date": "2026-10-31",
+  "publishAt": "2026-10-31T09:00:00+01:00",
+  "readTime": "5 min",
+  "excerpt": "Sollecitare dopo, scrivere un contratto più lungo, chiedere acconti più alti a tutti: le strade che si provano per farsi pagare. E i sei momenti della trattativa in cui i pagamenti si mettono in chiaro, dal budget nel modulo all'assegno.",
+  "tags": [
+    "pagamenti",
+    "acconto",
+    "saldo",
+    "trattativa",
+    "piano dei lavori"
+  ],
+  "livello": 3,
+  "argomento": "soldi-che-non-entrano",
+  "autore": "marco",
+  "inBreve": {
+    "problema": "I pagamenti dei lavori edili si decidono alla firma o a fine lavori, e il saldo si ferma alla prima cosa che il cliente trova da ridire.",
+    "causa": "Modalità di pagamento non dette per tempo e per iscritto: il cliente le scopre in fondo all'offerta, e a fine lavori diventano contestazioni e ritardi.",
+    "cambia": "Se i soldi si mettono in chiaro passaggio per passaggio, dal budget nel modulo alle date legate alla merce, a fine lavori non ci sono sorprese."
+  },
+  "seo": {
+    "parolaChiave": "pagamenti dei lavori edili",
+    "secondarie": [
+      "acconto lavori edili",
+      "acconto e saldo lavori",
+      "condizioni di pagamento nell'offerta",
+      "assegno da un'azienda camera di commercio"
+    ],
+    "domanda": "Non misurata (Keyword Planner sospeso, proprietà 30/09): nessuna di queste parole è negli studi del 03/09 e del 28/08; nello studio del 03/09 'clienti che non pagano impresa edile' è sotto soglia",
+    "serp": "Google 29/10 (strumento con risultati USA, da ricontrollare su Google.it), 'acconto lavori edili quanto chiedere impresa' e 'come farsi pagare lavori edili acconto saldo stato avanzamento': forum di privati e condomini (condominioweb.com, dequo.it, edilclima), pagine tecniche sul SAL e sugli appalti pubblici (edilizia.com, codiceappalti.it, lavoripubblici.it). Scrivono per chi paga o per gli appalti pubblici; nessuno spiega al titolare in che momento della trattativa parlare di soldi. Il concorrente A ci scrive con clausole contrattuali e percentuali di acconto",
+    "concorrente": [
+      "principale:blog/clausole-contrattuali-incassi-puntuali-edilizia",
+      "principale:blog/gestione-contestazioni-saldo-lavori-edilizia",
+      "principale:blog/progetto-preliminare-ristrutturazione-strumento-vendita"
+    ],
+    "geo": "In breve che risponde da solo alla domanda 'quando si fissano i pagamenti'; i sei momenti in un elenco numerato, citabile voce per voce; FAQ come domande di Google con risposte complete; firma di Marco",
+    "sem": "Livello 3: niente Google Ads search (domanda sotto soglia e prima pagina fatta da privati). Si usa organico e come pagina da mandare a chi, al telefono, dice che il problema sono i clienti che pagano tardi; remarketing solo se la proprietà riapre le campagne"
+  },
+  "faqs": [
+    {
+      "q": "Quando si parla dei pagamenti dei lavori edili con il cliente?",
+      "a": "Prima di quanto si pensa. Il budget si conosce già dal modulo, chi paga si capisce al primo incontro, e i pagamenti si presentano insieme al piano dei lavori, prima della firma. A fine lavori dovrebbero essere solo date già scritte."
+    },
+    {
+      "q": "Quanto acconto chiedere per un lavoro edile?",
+      "a": "Non c'è una cifra giusta per tutti: dipende dal lavoro, dai materiali e da quanto anticipi tu. Secondo noi conta di più a cosa leghi ogni pagamento: con un'azienda di arredamento negozi le date sono l'arrivo della merce e lo scarico, due fatti che non si discutono."
+    },
+    {
+      "q": "Meglio dire i pagamenti a voce o scriverli nell'offerta?",
+      "a": "Tutte e due le cose. Scritti, perché a fine lavori nessuno deve ricordare a memoria cosa si era detto. Detti a voce, mentre presenti il piano dei lavori di persona o in videochiamata, perché una riga letta da soli in chat il cliente la scopre senza nessuno che gliela spieghi."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "Quando una richiesta arriva dal modulo, prima ancora di richiamare sai il budget che il cliente ha a disposizione. Di soldi, in quella trattativa, si è già cominciato a parlare."
+    },
+    {
+      "type": "p",
+      "text": "In tante imprese, invece, come e quando si paga non viene detto per tempo e per iscritto. Il cliente lo scopre in fondo all'offerta, e a fine lavori diventa una contestazione o un ritardo."
+    },
+    {
+      "type": "p",
+      "text": "È normale che vada così. I pagamenti sembrano la parte burocratica del lavoro, quella da sistemare dopo, quando il cliente ha già detto sì. Ma è proprio dopo che il cliente ha meno voglia di ascoltarli."
+    },
+    {
+      "type": "p",
+      "text": "Io vengo dal marketing, e la prima cosa che guardo è da dove arrivano i clienti. Il modo in cui arrivano pesa anche su come pagano: per questo ne scrivo io, e non solo chi segue le trattative."
+    },
+    {
+      "type": "h2",
+      "text": "LE STRADE CHE SI PROVANO PER I PAGAMENTI DEI LAVORI EDILI"
+    },
+    {
+      "type": "p",
+      "text": "Quando un saldo resta fermo, le strade che i titolari provano sono più o meno sempre le stesse. Nessuna è sbagliata del tutto."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Sollecitare, e poi l'avvocato. A volte serve, ma arriva quando il lavoro è finito e i soldi li hai già anticipati tu. E al prossimo cliente succede di nuovo.",
+        "Un contratto più lungo, con più condizioni scritte. Scrivere è giusto. Ma se il cliente quelle righe le legge per la prima volta il giorno della firma, gli sembrano un'imposizione.",
+        "Chiedere a tutti un acconto più alto. Chi ha il budget lo paga, chi non ce l'ha sparisce, e con lui anche qualche lavoro buono. E il saldo dipende ancora da come la vede il cliente quando consegni.",
+        "Mettere i soldi dentro la trattativa, un passaggio alla volta, e scegliersi i clienti invece di prenderli per bisogno. È la strada che abbiamo preso con ROVI, un'azienda di arredamento negozi che seguiamo."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Il nostro modo di lavorare, in una riga: le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona."
+    },
+    {
+      "type": "h2",
+      "text": "IN PRATICA: I SEI MOMENTI IN CUI SI PARLA DI SOLDI"
+    },
+    {
+      "type": "p",
+      "text": "Di soldi si parla in sei momenti della trattativa, nell'ordine in cui arrivano. Il primo è il modulo che costruiamo per le richieste della pubblicità. Gli altri partono dalle regole di vendita scritte con ROVI, e dove aggiungo un consiglio mio lo dico."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "1. Il modulo. Chi chiede un lavoro scrive il tipo di lavoro, entro quando vuole iniziare, il budget a disposizione e la zona. Quando lo richiami, quella cifra ce l'hai già davanti. Il filtro lo fa il modulo che costruiamo e gestiamo noi, non una nostra telefonata.",
+        "2. Il primo incontro. Con ROVI serve a capire chi decide, chi paga e quanto vuole spendere, e non si progetta ancora. Il mio consiglio: le condizioni di pagamento dille a chi paga, non a chi lo accompagna.",
+        "3. La cifra, detta presto. Come fascia, «si aggira intorno a…»: se il cliente la trova sostenibile, fissate il sopralluogo.",
+        "4. Il piano dei lavori, presentato di persona. Con ROVI si presenta in sede o in videochiamata con lo schermo condiviso, mai su WhatsApp, e non si lascia in copia prima della firma. Il mio consiglio: in quel momento i pagamenti leggili tu, ad alta voce, invece di lasciarli in fondo alla pagina.",
+        "5. Le date legate alla merce. Bonifico, acconto all'arrivo della merce, saldo allo scarico: è la regola sui pagamenti scritta con ROVI. Nel tuo mestiere i momenti saranno altri.",
+        "6. L'assegno. Prima di accettare un assegno da un'azienda, nella stessa regola, si controlla chi è in Camera di commercio."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Al quarto momento puoi presentarli più o meno così, con parole tue: qui ci sono i pagamenti, ognuno legato a un momento del lavoro, l'acconto quando arriva la merce e il saldo quando scarichiamo. Se qualcosa non ti torna, ne parliamo adesso."
+    },
+    {
+      "type": "p",
+      "text": "Perché legarli alla merce, secondo me? Perché l'arrivo del materiale e lo scarico sono fatti che vedete tutti e due, e su un fatto c'è poco da discutere. Un saldo a fine lavori invece aspetta che il cliente decida quando il lavoro è finito."
+    },
+    {
+      "type": "p",
+      "text": "C'è poi una regola che tiene insieme le altre: ogni incontro finisce con una data, e il prossimo contatto si scrive nel gestionale prima di salutarsi. Così nessun passaggio, compreso quello dei soldi, resta in sospeso."
+    },
+    {
+      "type": "h2",
+      "text": "PERCHÉ IL PROBLEMA COMINCIA DA DOVE ARRIVANO I CLIENTI"
+    },
+    {
+      "type": "p",
+      "text": "Tutto questo funziona con un cliente che ti sei scelto. Perché chi vive di passaparola prende i lavori per bisogno lo spiega Gianpio in [clienti che non pagano: cosa decidere prima di iniziare](/blog/gare-appalto-vs-clienti-privati-pagano), con il conto di un saldo che si ferma."
+    },
+    {
+      "type": "p",
+      "text": "Dal mio lato la differenza la vedo all'inizio. Una richiesta che arriva con il budget già scritto ti permette di dire la fascia al telefono senza paura di perderla. Una che arriva per caso, in un mese vuoto, la richiami sperando che vada bene, e sui soldi tendi a rimandare."
+    },
+    {
+      "type": "h2",
+      "text": "LA PROVA: IL BUDGET CONOSCIUTO PRIMA DELL'APPUNTAMENTO"
+    },
+    {
+      "type": "p",
+      "text": "Prima ROVI faceva sopralluoghi e progetti per chiunque li chiedesse, e tante trattative saltavano sul prezzo. Oggi le richieste arrivano filtrate dal modulo, e il budget lo conosce prima di sedersi al tavolo."
+    },
+    {
+      "type": "p",
+      "text": "Quanto ha portato lo trovi [nel caso studio di ROVI](/casi-studio/arredo-commerciale): 25.000 € di lavori chiusi in quattro mesi, e oltre 200.000 € di trattative aperte. La regola sui pagamenti non è un pezzo a parte: sta nello stesso processo che porta alla firma."
+    },
+    {
+      "type": "p",
+      "text": "Le richieste le richiama la tua impresa: noi non telefoniamo ai tuoi contatti. Costruiamo con te il modulo e le regole. Poi il materiale per presentare il piano dei lavori, e il [gestionale per l'edilizia](/crm-gestionale-edilizia) dove ogni trattativa ha la sua data."
+    },
+    {
+      "type": "p",
+      "text": "Come si arriva al piano dei lavori senza scendere di prezzo lo racconta Gianpio in [il cliente chiede lo sconto: cosa cambiare prima del prezzo](/blog/cliente-chiede-sconto-cosa-fare). Il percorso intero, dal modulo alla firma, è nella pagina su [come lavoriamo con le imprese edili](/servizi)."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: guardiamo come ti arrivano i clienti e come vendi oggi, e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
