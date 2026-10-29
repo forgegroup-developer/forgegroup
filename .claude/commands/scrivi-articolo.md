@@ -13,8 +13,10 @@ dove stanno i materiali. Sul Mac valgono i percorsi `~/ForgeGroup/...` scritti q
 quei percorsi non esistono: ogni file si legge da Google Drive con il connettore
 (`read_file_content` con l'ID preso da `forge-ricerca/materiali-drive.md`, dove `materiali/` e
 `dipendenti-ai/` sono `www.forgegroup.it/` e `05 - Dipendenti AI/`); `feedback-generale.md` e
-`cerca.py` sono nel repo `forge-ricerca`. Nel cloud non scrivi mai file su Drive tranne il Registro
-(passo 8) e il Registro dei contrasti.
+`cerca.py` sono nel repo `forge-ricerca`. Nel cloud **il connettore Drive non sa modificare un file
+che esiste già, sa solo crearne di nuovi**: per questo non scrivi mai su Drive, tranne i file nuovi
+del Registro (passo 8) e dei contrasti, tutti nella cartella `05 - Dipendenti AI/Registro`
+(ID `1ejb2uxpq3cLwB_ggxJGeErhlo55ApCxu`).
 
 Non ricordi niente delle volte precedenti: la tua memoria sono i file. Apri
 `~/ForgeGroup/progetti/sito/dipendenti-ai/00 - PERCORSO DI LETTURA DEI DIPENDENTI AI.md` e seguilo
@@ -22,7 +24,9 @@ come **Redattore**, dal passo 0 al passo 4:
 
 - **passo 0, la memoria:** `feedback.md` dei dipendenti e `feedback-generale.md`, le ultime dieci
   righe di `dipendenti-ai/Registro/<AAAA-MM>.md`, le righe aperte di
-  `materiali/00 - REGISTRO DEI CONTRASTI.md`
+  `materiali/00 - REGISTRO DEI CONTRASTI.md`. Nel cloud leggi anche i file singoli della cartella
+  Registro creati negli ultimi 15 giorni (`search_files` con `parentId = '1ejb2uxpq3cLwB_ggxJGeErhlo55ApCxu'`
+  e `createdTime` recente): sono le righe scritte dalle routine e non ancora unite al file del mese
 - **passo 1:** Scheda dei fatti (con le decisioni del 29/09), Testa aziendale, Regole v2, Campione di voce
 - **passo 2:** il manuale dei dipendenti e tutta la cartella `Redazione/`
 - **passo 3, sezione Redattore:** piramide, guida editoriale, mappa editoriale, materiale vero,
@@ -30,8 +34,9 @@ come **Redattore**, dal passo 0 al passo 4:
 - **passo 4:** rispondi alle domande di controllo senza riaprire i file; se sbagli, rileggi
 
 Per i documenti lunghi che il compito tocca di lato usa `materiali/00 - RIASSUNTI DEI DOCUMENTI.md`.
-Se trovi due fonti in contrasto, scrivilo in `materiali/00 - REGISTRO DEI CONTRASTI.md` e non
-scegliere da solo. In cima al tuo lavoro scrivi in una riga cosa hai letto.
+Se trovi due fonti in contrasto, scrivilo in `materiali/00 - REGISTRO DEI CONTRASTI.md` (nel cloud:
+crea un file nuovo `AAAA-MM-GG Contrasto - <slug>.md` nella cartella Registro, e mettilo anche in cima
+alla descrizione della PR) e non scegliere da solo. In cima al tuo lavoro scrivi in una riga cosa hai letto.
 
 ## 1 · Guarda la coda
 
@@ -186,7 +191,10 @@ proprietà corregge qualcosa, aggiorna il file e aggiungi la regola in
 
 ## 8 · Registro
 
-Aggiungi una riga in `~/ForgeGroup/progetti/sito/dipendenti-ai/Registro/<AAAA-MM>.md` (nel cloud: leggi
-il file del mese da Drive, aggiungi la riga in fondo e riscrivilo intero con il connettore; se il file
-del mese non c'è, crealo nella cartella `05 - Dipendenti AI/Registro`):
+Aggiungi una riga in `~/ForgeGroup/progetti/sito/dipendenti-ai/Registro/<AAAA-MM>.md`. **Nel cloud**
+non toccare il file del mese: crea con `create_file` un file nuovo nella cartella Registro
+(`parentId` `1ejb2uxpq3cLwB_ggxJGeErhlo55ApCxu`), di tipo testo, chiamato
+`AAAA-MM-GG Redattore - <slug>.md`, che contiene solo la riga. Se `daScrivere` era 0 il file si chiama
+`AAAA-MM-GG Redattore - coda piena.md`. Le sessioni sul Mac uniscono questi file al file del mese e li
+cancellano. La riga:
 `AAAA-MM-GG · Redattore · <titolo> (livello N, <argomento>) · prova: <link PR o "mostrato in chat">`.
