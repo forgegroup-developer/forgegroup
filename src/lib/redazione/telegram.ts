@@ -59,6 +59,15 @@ async function chiama<T = unknown>(metodo: string, dati: Record<string, unknown>
   return j.result;
 }
 
+/**
+ * Il Redattore gira di notte (01:00 UTC) per non consumare l'utilizzo della mattina:
+ * tra le 22 e le 8 di Roma i messaggi arrivano senza suono, si leggono al risveglio.
+ */
+function diNotte() {
+  const ora = Number(new Intl.DateTimeFormat("it-IT", { timeZone: "Europe/Rome", hour: "2-digit", hourCycle: "h23" }).format(new Date()));
+  return ora >= 22 || ora < 8;
+}
+
 export const html = (s: unknown) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 export async function messaggio(testo: string, tasti?: Tasto[], extra: Record<string, unknown> = {}) {
@@ -67,6 +76,7 @@ export async function messaggio(testo: string, tasti?: Tasto[], extra: Record<st
     text: testo.slice(0, 4000),
     parse_mode: "HTML",
     disable_web_page_preview: true,
+    disable_notification: diNotte(),
     ...(tasti ? { reply_markup: { inline_keyboard: [tasti] } } : {}),
     ...extra,
   });
@@ -80,6 +90,7 @@ async function foto(immagine: Buffer, didascalia: string, tasti?: Tasto[]) {
   const dati = new FormData();
   dati.append("chat_id", chatProprieta());
   dati.append("caption", didascalia.slice(0, 1000));
+  dati.append("disable_notification", String(diNotte()));
   dati.append("photo", new Blob([new Uint8Array(immagine)], { type: "image/jpeg" }), "foto.jpg");
   if (tasti) dati.append("reply_markup", JSON.stringify({ inline_keyboard: [tasti] }));
   const r = (await (await fetch(`https://api.telegram.org/bot${chiave()}/sendPhoto`, { method: "POST", body: dati })).json()) as {
