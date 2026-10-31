@@ -6,7 +6,7 @@
   "date": "2026-11-03",
   "publishAt": "2026-11-03T09:00:00+01:00",
   "readTime": "4 min",
-  "excerpt": "Ogni preventivo ha un numero, il contratto è chiaro, eppure la titolare non sa dire se quell'ordine le porti fatturato. Il segreto sta in cosa si scrive accanto al numero.",
+  "excerpt": "Ogni preventivo ha un numero, il contratto è chiaro, eppure la titolare non sa dire se quell'ordine le porti fatturato. Cosa scrivere accanto al numero perché ogni trattativa abbia un esito e una data.",
   "tags": [
     "numerazione dei preventivi",
     "preventivi",
@@ -42,16 +42,20 @@
   },
   "faqs": [
     {
+      "q": "Come numerare i preventivi di un'impresa edile?",
+      "a": "Con un numero progressivo che non salta mai, spesso con l'anno davanti, così ogni preventivo si ritrova e si conta. Accanto al numero conviene scrivere l'esito, firmato, perso o ancora aperto, e per quelli aperti la data del prossimo contatto."
+    },
+    {
       "q": "Perché numerare i preventivi?",
       "a": "Perché un preventivo con il numero si conta e si ritrova. Con una numerazione progressiva ogni preventivo deve avere un esito, firmato, perso o ancora aperto, e quelli aperti si vedono tutti in un elenco invece di sparire."
     },
     {
       "q": "La numerazione dei preventivi fa aumentare il fatturato?",
-      "a": "Da sola no: è ordine, e la titolare di serramenti di questa storia lo dice con franchezza. Comincia a pesare quando accanto al numero ci sono chi decide, cosa ha chiesto il cliente e la data del prossimo contatto, perché così le trattative aperte vengono richiamate in tempo."
+      "a": "Da sola no: la numerazione dei preventivi mette ordine nell'archivio, ma non dice a chi telefonare. Comincia a pesare sul fatturato quando accanto a ogni numero ci sono l'esito, chi decide, cosa ha chiesto il cliente e la data del prossimo contatto, perché così i preventivi aperti vengono richiamati in tempo."
     },
     {
       "q": "Come sapere a che punto sono le trattative se il titolare non c'è?",
-      "a": "Serve un elenco dei preventivi che anche chi risponde al telefono può aprire, con l'esito di ognuno e la data della prossima richiamata. Se le trattative stanno solo nella memoria di chi le segue, quando lui si ferma si fermano anche loro."
+      "a": "Serve un elenco dei preventivi che anche chi risponde al telefono può aprire, con l'esito di ognuno e la data della prossima richiamata. Se le trattative stanno solo nella memoria di chi le segue, nei giorni in cui lui non c'è nessuno sa chi va richiamato e quando."
     }
   ],
   "content": [
@@ -65,7 +69,7 @@
     },
     {
       "type": "p",
-      "text": "Poi ha detto una frase che vale la pena di riportare intera:"
+      "text": "Poi, parlando di come lavorano, ci ha detto:"
     },
     {
       "type": "quote",
@@ -73,19 +77,19 @@
     },
     {
       "type": "p",
-      "text": "E subito dopo, con la stessa franchezza, ha aggiunto: «che poi possa questo portarti un aumento di fatturato, io questo in questo momento non te lo so dire»."
+      "text": "Però, con franchezza, ha aggiunto: «che poi possa questo portarti un aumento di fatturato, io questo in questo momento non te lo so dire»."
     },
     {
       "type": "p",
-      "text": "Non ha cercato di convincerci di niente. Ci ha detto quello che vede: l'ordine c'è, il legame con i soldi che entrano non lo vede ancora."
+      "text": "L'ordine lo vede ogni giorno; il legame con il fatturato, per ora, lei stessa dice di non vederlo."
     },
     {
       "type": "h2",
-      "text": "UN NUMERO SU OGNI PREVENTIVO"
+      "text": "LA NUMERAZIONE DEI PREVENTIVI, VISTA DA CHI LI SCRIVE"
     },
     {
       "type": "p",
-      "text": "Al cliente, quel numero dice poco. Lo legge, forse, e passa al totale. A chi lo scrive, invece, può dire una cosa che di solito nessuno gli chiede."
+      "text": "Il numero sul preventivo, di solito, si mette per tenere in ordine l'archivio: un numero progressivo, spesso con l'anno davanti. A chi lo scrive, però, può dire una cosa che di solito nessuno gli chiede."
     },
     {
       "type": "p",
@@ -101,7 +105,7 @@
     },
     {
       "type": "p",
-      "text": "Senza numero, un preventivo che nessuno ha richiamato non lascia traccia. Non c'è un buco da notare nell'elenco: c'è solo un cliente che non si è più fatto sentire, e un file fra tanti in una cartella."
+      "text": "Senza numero, un preventivo che nessuno ha richiamato non lascia traccia. Non c'è un numero che manca all'appello: c'è solo un cliente che non si è più fatto sentire, e un file fra tanti in una cartella."
     },
     {
       "type": "h2",
@@ -125,7 +129,11 @@
     },
     {
       "type": "p",
-      "text": "Con queste due cose il numero smette di essere solo un'abitudine da ufficio ordinato. Diventa il modo di sapere a che punto è ogni trattativa, anche quando chi l'ha seguita non è in ufficio."
+      "text": "Un esempio inventato, per vedere come si legge: preventivo 2026/043, sei finestre da sostituire, decide il marito, vuole finire prima dell'inverno, da richiamare giovedì. Una riga così la capisce chiunque apra l'elenco in ufficio."
+    },
+    {
+      "type": "p",
+      "text": "Con queste due cose scritte accanto, dal numero del preventivo sai a che punto è la trattativa, anche quando chi l'ha seguita non è in ufficio."
     },
     {
       "type": "h2",
@@ -133,11 +141,11 @@
     },
     {
       "type": "p",
-      "text": "Pensa a una settimana in cui non ci sei: un lavoro lontano da seguire, qualche giorno di febbre, le ferie di agosto."
+      "text": "Pensa a un cliente che aspetta la tua telefonata martedì, in una settimana in cui sei su un lavoro lontano."
     },
     {
       "type": "p",
-      "text": "Se le trattative stanno nella memoria di chi le segue, quella settimana si fermano anche loro. Il cliente che andava richiamato martedì non lo richiama nessuno, perché nessuno sa che era martedì."
+      "text": "Se quel martedì è scritto solo nella tua agenda, o nella tua memoria, in ufficio nessuno sa che quel cliente va sentito."
     },
     {
       "type": "p",
@@ -149,7 +157,7 @@
     },
     {
       "type": "p",
-      "text": "Secondo me è qui che l'ordine comincia a pesare sui soldi: non nel preventivo che esce, ma in quello che dopo non si perde. Quanto pesi, in euro, non te lo so dire nemmeno io. So che un preventivo che nessuno richiama difficilmente diventa un contratto."
+      "text": "Secondo me l'ordine comincia a pesare sui soldi quando i preventivi aperti vengono richiamati nel giorno scritto accanto al numero. Quanto pesi in euro non te lo so dire nemmeno io: dipende da quanti preventivi restano oggi senza risposta."
     },
     {
       "type": "h2",
@@ -161,7 +169,7 @@
     },
     {
       "type": "p",
-      "text": "Sapresti dire quanti ne hai mandati da gennaio, e quanti sono diventati contratti? Quelli che non hanno chiuso li hai richiamati, o sono rimasti lì?"
+      "text": "Sapresti dire quanti ne hai mandati da gennaio, e quanti sono diventati contratti? Dei preventivi di settembre, quanti hanno accanto la data del prossimo contatto?"
     },
     {
       "type": "p",
@@ -169,7 +177,7 @@
     },
     {
       "type": "p",
-      "text": "Quante trattative ha aperte un'impresa edile nello stesso momento, e cosa succede quando stanno tutte nella memoria del titolare, l'ho contato in [gestione clienti impresa edile: trenta trattative in testa](/blog/gestione-clienti-impresa-edile-trattative). Come si tiene questo elenco in un posto che tutta l'impresa può aprire lo trovi nella pagina sul [gestionale per l'edilizia](/crm-gestionale-edilizia)."
+      "text": "Quante trattative ha aperte un'impresa edile nello stesso momento, e cosa succede quando stanno tutte nella memoria del titolare, l'ho contato in [gestione clienti impresa edile: trenta trattative in testa](/blog/gestione-clienti-impresa-edile-trattative). Di questa titolare, e di cosa succede al suo preventivo numerato quando il cliente lo mette accanto a quelli degli altri, ho scritto in [vendere serramenti senza sconti](/blog/vendere-serramenti-senza-sconti)."
     }
   ]
 }
