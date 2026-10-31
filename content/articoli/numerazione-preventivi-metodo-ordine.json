@@ -47,7 +47,7 @@
     },
     {
       "q": "Perché numerare i preventivi?",
-      "a": "Perché un preventivo con il numero si conta e si ritrova. Con una numerazione progressiva ogni preventivo deve avere un esito, firmato, perso o ancora aperto, e quelli aperti si vedono tutti in un elenco invece di sparire."
+      "a": "Perché ogni preventivo numerato deve avere un esito, firmato, perso o ancora aperto, e quelli aperti si vedono tutti in un elenco invece di sparire."
     },
     {
       "q": "La numerazione dei preventivi fa aumentare il fatturato?",
@@ -129,7 +129,7 @@
     },
     {
       "type": "p",
-      "text": "Un esempio inventato, per vedere come si legge: preventivo 2026/043, sei finestre da sostituire, decide il marito, vuole finire prima dell'inverno, da richiamare giovedì. Una riga così la capisce chiunque apra l'elenco in ufficio."
+      "text": "In pratica, accanto al numero del preventivo bastano cinque voci: cosa ha chiesto il cliente, cosa gli serve, perché ha fretta, chi decide e il giorno del prossimo contatto. Scritte così, le capisce chiunque apra l'elenco in ufficio, anche se quel cliente non l'ha mai sentito."
     },
     {
       "type": "p",
