@@ -1,0 +1,175 @@
+{
+  "slug": "numerazione-preventivi-metodo-ordine",
+  "title": "«Il metodo porta metodo»: la numerazione dei preventivi",
+  "description": "Una titolare di serramenti dà un numero a ogni preventivo ma non sa dire se le porta fatturato. Cosa cambia la numerazione dei preventivi nelle trattative.",
+  "category": "Gestionale",
+  "date": "2026-11-03",
+  "publishAt": "2026-11-03T09:00:00+01:00",
+  "readTime": "4 min",
+  "excerpt": "Ogni preventivo ha un numero, il contratto è chiaro, eppure la titolare non sa dire se quell'ordine le porti fatturato. Il segreto sta in cosa si scrive accanto al numero.",
+  "tags": [
+    "numerazione dei preventivi",
+    "preventivi",
+    "trattative",
+    "gestionale",
+    "serramenti"
+  ],
+  "livello": 1,
+  "argomento": "trattative-nella-testa",
+  "autore": "gianpio",
+  "inBreve": {
+    "problema": "Una titolare di serramenti ha la numerazione dei preventivi e fa firmare contratti chiari, ma non sa dire se quell'ordine le porti fatturato.",
+    "causa": "Il numero da solo è ordine d'ufficio: diventa utile quando accanto ci sono l'esito del preventivo, chi decide e la data del prossimo contatto.",
+    "cambia": "Con numero, esito e data le trattative aperte si vedono in un elenco, e si richiamano anche nella settimana in cui chi le segue non c'è."
+  },
+  "seo": {
+    "parolaChiave": "numerazione dei preventivi",
+    "secondarie": [
+      "numerare i preventivi",
+      "preventivi numerati",
+      "trattative aperte",
+      "gestionale preventivi"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso): nessuna delle parole è negli studi del 03/09 e del 28/08; vicine con domanda misurata solo «programma per preventivi edili» e «gestionale impresa edile» (100-1K, studi del 03/09 e del 28/08). Livello 1: parole ampie, portano visite e non contatti",
+    "serp": "ricerca web del 31/10 (strumento con risultati USA, da ricontrollare su Google.it): su «numerazione dei preventivi impresa edile» guide su come compilare un preventivo (edilizia.com, teamsystem.com, finom.co con la numerazione progressiva come buona pratica d'archivio) e forum di condomini; su «come organizzare i preventivi impresa edile trattative aperte» guide alla redazione, software e pareri sugli appalti pubblici. Nessuno racconta il numero sul preventivo come strumento per seguire le trattative: buco libero",
+    "concorrente": [
+      "principale:casi-partner/metodo-di-lavoro-edilizia-caso-parma",
+      "principale:blog/gestione-impresa-edile",
+      "principale:lp/checklist-processi-edilizia"
+    ],
+    "geo": "In breve che racconta da solo la scena e il segreto; FAQ scritte come domande di Google, con risposte complete in due o tre frasi; frasi vere di una titolare di serramenti, anonime; firma di Gianpio",
+    "sem": "Livello 1: se la proprietà riapre le campagne (dal 14/10 si lavora solo in organico), post o carosello su Meta e Instagram con la frase «il metodo porta metodo, l'ordine porta ordine» e la domanda finale; niente Google Ads search"
+  },
+  "faqs": [
+    {
+      "q": "Perché numerare i preventivi?",
+      "a": "Perché un preventivo con il numero si conta e si ritrova. Con una numerazione progressiva ogni preventivo deve avere un esito, firmato, perso o ancora aperto, e quelli aperti si vedono tutti in un elenco invece di sparire."
+    },
+    {
+      "q": "La numerazione dei preventivi fa aumentare il fatturato?",
+      "a": "Da sola no: è ordine, e la titolare di serramenti di questa storia lo dice con franchezza. Comincia a pesare quando accanto al numero ci sono chi decide, cosa ha chiesto il cliente e la data del prossimo contatto, perché così le trattative aperte vengono richiamate in tempo."
+    },
+    {
+      "q": "Come sapere a che punto sono le trattative se il titolare non c'è?",
+      "a": "Serve un elenco dei preventivi che anche chi risponde al telefono può aprire, con l'esito di ognuno e la data della prossima richiamata. Se le trattative stanno solo nella memoria di chi le segue, quando lui si ferma si fermano anche loro."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "A ottobre, al primo incontro con noi, la titolare di un'azienda di serramenti ci ha raccontato come lavorano. Ogni preventivo che esce dal loro ufficio ha un numero, il cliente firma un contratto chiaro, e si stanno certificando con la ISO 9001."
+    },
+    {
+      "type": "p",
+      "text": "Per questo, ci ha detto, nel suo mercato sono visti come quelli strani."
+    },
+    {
+      "type": "p",
+      "text": "Poi ha detto una frase che vale la pena di riportare intera:"
+    },
+    {
+      "type": "quote",
+      "text": "«Il metodo porta metodo, l'ordine porta ordine.»"
+    },
+    {
+      "type": "p",
+      "text": "E subito dopo, con la stessa franchezza, ha aggiunto: «che poi possa questo portarti un aumento di fatturato, io questo in questo momento non te lo so dire»."
+    },
+    {
+      "type": "p",
+      "text": "Non ha cercato di convincerci di niente. Ci ha detto quello che vede: l'ordine c'è, il legame con i soldi che entrano non lo vede ancora."
+    },
+    {
+      "type": "h2",
+      "text": "UN NUMERO SU OGNI PREVENTIVO"
+    },
+    {
+      "type": "p",
+      "text": "Al cliente, quel numero dice poco. Lo legge, forse, e passa al totale. A chi lo scrive, invece, può dire una cosa che di solito nessuno gli chiede."
+    },
+    {
+      "type": "p",
+      "text": "Un preventivo con il numero si può CONTARE. E se si può contare, a ognuno si può chiedere com'è finito: firmato, perso, oppure ancora aperto."
+    },
+    {
+      "type": "p",
+      "text": "Una numerazione non ha buchi: dopo il 41 viene il 42, poi il 43. Un elenco fatto così ti mette davanti ogni preventivo che hai mandato, anche quelli di cui non ti ricordi più il cliente."
+    },
+    {
+      "type": "p",
+      "text": "Con quell'elenco davanti puoi fare la domanda che conta davvero: dei preventivi dal 30 al 60, quanti sono ancora aperti? E per ognuno di quelli, chi sta aspettando l'altro, tu o il cliente?"
+    },
+    {
+      "type": "p",
+      "text": "Senza numero, un preventivo che nessuno ha richiamato non lascia traccia. Non c'è un buco da notare nell'elenco: c'è solo un cliente che non si è più fatto sentire, e un file fra tanti in una cartella."
+    },
+    {
+      "type": "h2",
+      "text": "COSA SCRIVERE ACCANTO AL NUMERO"
+    },
+    {
+      "type": "p",
+      "text": "Sul fatturato la titolare ha ragione: il numero, da solo, è ordine d'ufficio. La differenza la fa quello che c'è scritto accanto."
+    },
+    {
+      "type": "p",
+      "text": "Nelle regole di vendita che abbiamo messo per iscritto con [un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale) ce ne sono due che servono proprio a questo."
+    },
+    {
+      "type": "p",
+      "text": "La prima: nel gestionale si scrive la trattativa, non il compito. Cosa ha chiesto il cliente, cosa gli serve, perché ha fretta, chi decide."
+    },
+    {
+      "type": "p",
+      "text": "La seconda: ogni incontro finisce con una data. Il giorno del prossimo contatto si scrive prima di salutarsi, non quando qualcuno se ne ricorda."
+    },
+    {
+      "type": "p",
+      "text": "Con queste due cose il numero smette di essere solo un'abitudine da ufficio ordinato. Diventa il modo di sapere a che punto è ogni trattativa, anche quando chi l'ha seguita non è in ufficio."
+    },
+    {
+      "type": "h2",
+      "text": "LA SETTIMANA IN CUI NON CI SEI"
+    },
+    {
+      "type": "p",
+      "text": "Pensa a una settimana in cui non ci sei: un lavoro lontano da seguire, qualche giorno di febbre, le ferie di agosto."
+    },
+    {
+      "type": "p",
+      "text": "Se le trattative stanno nella memoria di chi le segue, quella settimana si fermano anche loro. Il cliente che andava richiamato martedì non lo richiama nessuno, perché nessuno sa che era martedì."
+    },
+    {
+      "type": "p",
+      "text": "Il cliente, dal suo lato, non sa niente di tutto questo. Sa solo che aspettava una telefonata e non è arrivata, e intanto ha sentito un'altra impresa."
+    },
+    {
+      "type": "p",
+      "text": "Se invece ogni preventivo ha il suo numero, il suo esito e la sua data, chi risponde al telefono apre l'elenco e vede quali sono ancora aperti e chi va sentito quel giorno."
+    },
+    {
+      "type": "p",
+      "text": "Secondo me è qui che l'ordine comincia a pesare sui soldi: non nel preventivo che esce, ma in quello che dopo non si perde. Quanto pesi, in euro, non te lo so dire nemmeno io. So che un preventivo che nessuno richiama difficilmente diventa un contratto."
+    },
+    {
+      "type": "h2",
+      "text": "E DA TE?"
+    },
+    {
+      "type": "p",
+      "text": "Prendi l'ultimo preventivo che hai mandato. Ha un numero?"
+    },
+    {
+      "type": "p",
+      "text": "Sapresti dire quanti ne hai mandati da gennaio, e quanti sono diventati contratti? Quelli che non hanno chiuso li hai richiamati, o sono rimasti lì?"
+    },
+    {
+      "type": "p",
+      "text": "E se domani ti fermassi una settimana, chi saprebbe a che punto sono le tue trattative, e quali clienti aspettano una telefonata?"
+    },
+    {
+      "type": "p",
+      "text": "Quante trattative ha aperte un'impresa edile nello stesso momento, e cosa succede quando stanno tutte nella memoria del titolare, l'ho contato in [gestione clienti impresa edile: trenta trattative in testa](/blog/gestione-clienti-impresa-edile-trattative). Come si tiene questo elenco in un posto che tutta l'impresa può aprire lo trovi nella pagina sul [gestionale per l'edilizia](/crm-gestionale-edilizia)."
+    }
+  ]
+}
