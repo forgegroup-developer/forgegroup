@@ -1,0 +1,209 @@
+{
+  "slug": "agenzia-marketing-percentuale-rischio-diviso",
+  "title": "Un'agenzia di marketing a percentuale ci crede quanto te?",
+  "description": "Agenzia di marketing a percentuale o a canone? Se i soldi li metti solo tu, il rischio è tutto tuo. Il conto di chi rischia, e quattro domande da fare.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-11-04",
+  "publishAt": "2026-11-04T09:00:00+01:00",
+  "readTime": "5 min",
+  "excerpt": "«Dobbiamo essere in due a crederci»: quando paghi un'agenzia solo a canone, i soldi li metti tu e il rischio pure. Cosa cambia con una parte sul fatturato.",
+  "tags": [
+    "agenzia di marketing",
+    "provvigione",
+    "canone",
+    "fatturato"
+  ],
+  "livello": 2,
+  "argomento": "canone-o-percentuale",
+  "autore": "marco",
+  "inBreve": {
+    "problema": "Paghi l'agenzia ogni mese e, che i contratti arrivino o no, i soldi e il rischio li metti solo tu.",
+    "causa": "Con il solo canone niente lega chi ti segue ai tuoi contratti; con la sola percentuale i mesi fra richiesta e contratto non li paga nessuno.",
+    "cambia": "Con una parte fissa, una parte legata al fatturato e i contratti contati in un gestionale comune, l'agenzia di marketing a percentuale rischia con te."
+  },
+  "seo": {
+    "parolaChiave": "agenzia di marketing a percentuale",
+    "secondarie": [
+      "provvigione agenzia di marketing",
+      "agenzia marketing pagata a risultati",
+      "canone agenzia marketing",
+      "contratto agenzia di marketing"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso); non negli studi del 28/08 e del 03/09, dove tutte le ricerche sulle agenzie per l'edilizia sono sotto soglia. Secondo tema della Fase 5 del Piano SEO del 14/10 (domanda vera del primo contatto arrivato da ChatGPT), qui al livello 2",
+    "serp": "Ricerca del 02/11 con lo strumento di Claude (indice non italiano, da ricontrollare su Google.it): 'agenzia di marketing pagata a risultati impresa edile' dà elenchi di agenzie americane (Semrush), un'agenzia italiana per l'edilizia e un articolo su un'agenzia pagata con i crediti d'imposta; 'agenzia marketing a percentuale sul fatturato conviene' dà guide sui modelli di prezzo scritte per chi gestisce un'agenzia (ClickUp, Harvest, performance marketing); 'agenzia marketing garantisce aumento fatturato provvigione' dà contratti di agenzia commerciale e redditività delle agenzie. Nessuno scrive dal lato del titolare edile né su chi porta il rischio",
+    "concorrente": [
+      "principale:blog/agenzia-marketing-edilizia-risultati",
+      "principale:blog/gestione-edilizia-comunicare-valore",
+      "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile",
+      "principale:blog/provvigioni-vendita-edilizia-basate-sul-margine",
+      "principale:blog/schema-compensi-variabile-tecnico-di-cantiere"
+    ],
+    "geo": "In breve che risponde da solo a 'agenzia a percentuale o a canone'; il conto dei tre modi di pagare in un elenco citabile da solo; quattro domande di autodiagnosi; FAQ scritte come domande di Google con risposte complete; caso DISA con i numeri della Scheda; firma di Marco",
+    "sem": "Livello 2, solo organico (decisione del 14/10: nessuna campagna a pagamento). Quando le campagne riapriranno: su Meta verso i titolari che hanno già un'agenzia, con la frase «dobbiamo essere in due a crederci» e le quattro domande; niente Google Ads search (domanda non misurata)"
+  },
+  "faqs": [
+    {
+      "q": "Conviene pagare un'agenzia di marketing a percentuale sul fatturato?",
+      "a": "La sola percentuale lega chi ti segue ai tuoi contratti, ma in edilizia una richiesta può diventare contratto dopo mesi, e il lavoro di quei mesi resta senza compenso. Regge meglio una parte fissa per il lavoro di ogni mese più una parte legata al fatturato, con i contratti contati in un gestionale che vedete tutti e due."
+    },
+    {
+      "q": "Un'agenzia di marketing può mettere per iscritto quanto fatturato ti porterà?",
+      "a": "Un numero di fatturato non lo può firmare nessuno di serio, perché dipende anche da come richiami le richieste e da come chiudi le trattative. Si può mettere per iscritto il meccanismo: cosa si misura, ogni quanto si guarda, cosa succede se i numeri non si muovono e come si conta la parte di compenso legata ai contratti."
+    },
+    {
+      "q": "Perché un'agenzia chiede una provvigione oltre al canone?",
+      "a": "Il canone paga il lavoro di ogni mese, la parte legata al fatturato è il modo in cui l'agenzia condivide il rischio con te: guadagna di più se vendi di più, e meno se non vendi. Ha senso solo se i contratti si contano in un posto comune e se il budget della pubblicità resta a parte."
+    },
+    {
+      "q": "Cosa controllare nel contratto con un'agenzia di marketing?",
+      "a": "Cosa paga la parte fissa, se c'è una parte legata ai risultati e su quali contratti si calcola, dove va il budget della pubblicità e cosa succede se dopo qualche mese i numeri non si muovono. Se queste quattro cose non sono scritte, il rischio resta tutto a te."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Tu sei disposto a metterci la firma sul fatto che tu mi aiuterai a incrementare il mio fatturato di X?… Dobbiamo essere in due a crederci, perché da quello che io vedo oggi ci sto credendo solo io, perché solo io caccio i soldi.»"
+    },
+    {
+      "type": "p",
+      "text": "L'ha detto la titolare di un'azienda di serramenti, in un incontro conoscitivo con noi. Era al terzo anno con la stessa agenzia, e aveva appena rifatto i conti di quello che le era costata."
+    },
+    {
+      "type": "p",
+      "text": "Se hai pagato un'agenzia per mesi senza capire cosa ti tornava indietro, quella frase la conosci. E viene naturale pensare a un'agenzia di marketing a percentuale, che incassa solo quando vendi tu."
+    },
+    {
+      "type": "p",
+      "text": "Io seguo la parte di marketing e pubblicità. La sua frase, però, non chiede di pagare meno: chiede che i soldi, e il RISCHIO, non li metta solo lei."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: I SOLDI LI METTI SOLO TU"
+    },
+    {
+      "type": "p",
+      "text": "Con il solo canone fisso il conto è semplice. Tu paghi ogni mese, qualunque cosa succeda alle campagne, e chi ti segue incassa lo stesso, che i contratti arrivino o no."
+    },
+    {
+      "type": "p",
+      "text": "Chi lavora a canone può lavorare bene, ma niente, nel modo in cui è pagato, lo lega ai tuoi contratti: se le campagne non rendono, ci perdi solo tu."
+    },
+    {
+      "type": "p",
+      "text": "Un serramentista che abbiamo sentito, ex cliente di un'altra agenzia, lo ha detto così: «da parte loro non c'è stata la serietà di dire: guarda, sospendiamo le campagne perché non stanno andando, oppure riduciamo il canone». Con il solo canone, a chi lo incassa quella frase non conviene dirla."
+    },
+    {
+      "type": "p",
+      "text": "E la firma sul fatturato che chiedeva la titolare? Su un numero di fatturato non può firmare nessuno di serio, perché dipende anche da come si richiamano le richieste, da come si fa il sopralluogo, da come si chiude."
+    },
+    {
+      "type": "p",
+      "text": "Quando me la chiedono, rispondo come rispondo al telefono: «non c'ho la palla magica». Quello che si può firmare è un'altra cosa: chi guadagna cosa, quando, e su quali contratti contati dove."
+    },
+    {
+      "type": "h2",
+      "text": "LA STESSA RICHIESTA, VISTA DALL'ALTRA PARTE"
+    },
+    {
+      "type": "p",
+      "text": "Nello stesso incontro, quando si è parlato della parte di compenso legata al fatturato, la stessa titolare ha risposto: «pure la provvigione vuoi?»."
+    },
+    {
+      "type": "p",
+      "text": "Anche questa reazione è normale. Hai già pagato tanto, e una parte sui tuoi contratti suona come pagare due volte la stessa cosa."
+    },
+    {
+      "type": "p",
+      "text": "Io le due frasi le leggo come due lati della stessa richiesta. Essere in due a crederci, con i soldi, vuol dire che chi ti segue guadagna di più se vendi di più tu, e guadagna meno se non vendi."
+    },
+    {
+      "type": "p",
+      "text": "La parte del compenso legata al fatturato serve a questo. Regge, però, solo se si può CONTARE, contratto per contratto."
+    },
+    {
+      "type": "h2",
+      "text": "IL CONTO: CHI RISCHIA, ANNO PER ANNO"
+    },
+    {
+      "type": "p",
+      "text": "Facciamo il conto senza cifre: guarda solo chi incassa e chi ci perde. Prendi un anno in cui le campagne vanno bene e uno in cui vanno male, nei tre modi di pagare."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Solo canone. Anno buono: tu guadagni, l'agenzia incassa il canone. Anno cattivo: tu perdi, l'agenzia incassa lo stesso canone. Chi rischia: solo tu.",
+        "Solo percentuale. Anno buono: guadagnate tutti e due. Anno cattivo: l'agenzia non incassa niente per mesi, anche per il lavoro già fatto. Chi rischia: tutti e due, ma su tempi diversi.",
+        "Canone più una parte sul fatturato. Anno buono: guadagnate tutti e due. Anno cattivo: l'agenzia incassa solo la parte fissa, cioè il lavoro fatto, e perde la parte che conta di più. Il rischio è diviso."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Il secondo caso sembra il più giusto, ma in edilizia ha un limite di tempo. Una richiesta di oggi può diventare un contratto dopo tre o quattro mesi, e il lavoro di quei mesi, con la sola percentuale, non lo paga nessuno."
+    },
+    {
+      "type": "p",
+      "text": "Nel terzo caso c'è una condizione: i contratti devono stare in un posto che guardate tutti e due. Se ognuno ha i suoi conti, a fine anno la parte sul fatturato diventa la tua parola contro la sua."
+    },
+    {
+      "type": "p",
+      "text": "Ora fai lo stesso conto con i tuoi numeri, riga per riga: quanti mesi di canone hai pagato, quanti contratti sai attribuire con certezza all'agenzia, e quanto ti è costato ognuno. Se la seconda riga resta vuota, la terza non la puoi scrivere."
+    },
+    {
+      "type": "h2",
+      "text": "QUANDO IL RISCHIO È DIVISO"
+    },
+    {
+      "type": "p",
+      "text": "Com'è la settimana, quando i soldi non li metti più solo tu? Apri il [gestionale](/crm-gestionale-edilizia) e vedi da quale campagna è arrivata ogni richiesta, chi l'ha richiamata, se c'è stato il sopralluogo e se è diventata un contratto."
+    },
+    {
+      "type": "p",
+      "text": "Chi ti segue guarda gli stessi numeri. Ogni tre mesi c'è un report con contatti, appuntamenti, contratti e costo per contatto."
+    },
+    {
+      "type": "p",
+      "text": "Dopo sessanta giorni le stime si rivedono sui dati veri, e se i numeri non si muovono si cambiano strategia, campagne, budget o canali."
+    },
+    {
+      "type": "p",
+      "text": "Con [DISA, un'azienda di software per l'edilizia](/casi-studio/software-edilizia), siamo arrivati a circa 350.000 € di fatturato in 12 mesi, con circa 300 € al mese di pubblicità. Sono circa 97 € per ogni euro di pubblicità, conto fatto sulla sola spesa pubblicitaria, senza il nostro canone."
+    },
+    {
+      "type": "h2",
+      "text": "QUATTRO DOMANDE SUL CONTRATTO CHE HAI OGGI"
+    },
+    {
+      "type": "p",
+      "text": "Sono le domande che faccio ai titolari quando mi raccontano dell'agenzia che li segue. Rispondi più o meno, senza andare a cercare le carte."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Quanto ti è costato l'ultimo contratto che sai attribuire all'agenzia, più o meno?",
+        "Se le campagne si fermassero domani, chi ci perderebbe di più, tu o chi ti segue?",
+        "Nel contratto c'è scritto cosa succede se dopo qualche mese i numeri non si muovono?",
+        "I contratti li contate nello stesso posto, o ognuno tiene i suoi conti?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Se alla prima sai rispondere solo per metà e alla seconda la risposta è \"io\", conviene guardare come è diviso il rischio e dove si contano i contratti, prima di cambiare agenzia."
+    },
+    {
+      "type": "p",
+      "text": "Se prima vuoi sapere quanto ti è costato ogni contratto finora, ne ho scritto in [quanto ti costa ogni contratto portato dall'agenzia](/blog/risultati-agenzia-marketing-costo-contratto). Gianpio spiega come si costruisce un compenso con una parte fissa e una sul fatturato in [canone o percentuale sul fatturato: come si paga chi ti porta lavoro](/blog/pagare-agenzia-canone-percentuale-fatturato)."
+    },
+    {
+      "type": "p",
+      "text": "Prima del compenso, poi, viene un'altra domanda: ha senso lavorare insieme? Lo studio di fattibilità serve a questo, e la risposta può essere no prima che tu abbia speso un euro in pubblicità."
+    },
+    {
+      "type": "p",
+      "text": "Come lavoriamo fino alla firma lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi)."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: guardiamo chi porta il rischio oggi e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
