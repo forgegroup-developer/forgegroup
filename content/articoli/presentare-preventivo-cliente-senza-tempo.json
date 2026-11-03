@@ -17,8 +17,8 @@
   "argomento": "presentare-il-preventivo",
   "autore": "gianpio",
   "inBreve": {
-    "problema": "Il cliente vuole il lavoro ma non ha tempo di venire in sede, e invece di presentare il preventivo viene naturale mandarglielo perché lo guardi con calma.",
-    "causa": "Un preventivo letto da solo, la sera, sullo schermo del telefono, arriva al cliente come un totale senza nessuno che gli spieghi cosa c'è dentro.",
+    "problema": "Il cliente lavora fino a tardi e non ha tempo di venire in sede, e invece di presentare il preventivo di persona viene naturale mandarglielo perché lo guardi con calma.",
+    "causa": "Un preventivo letto da solo, a fine giornata, arriva al cliente come un totale senza nessuno che gli spieghi cosa c'è dentro.",
     "cambia": "In una consulenza si è deciso così: prima una stima di massima con la fascia di prezzo e tre stili, poi l'invito in sede, e se non può, venti minuti in videochiamata davanti al computer."
   },
   "seo": {
@@ -87,10 +87,6 @@
       "text": "Il terzo vale solo se proprio non può venire: una videochiamata di VENTI MINUTI, con il cliente seduto davanti al computer e non al telefono."
     },
     {
-      "type": "p",
-      "text": "Sono tre passi piccoli, e nessuno dei tre lascia il cliente da solo con un documento in mano."
-    },
-    {
       "type": "h2",
       "text": "PRESENTARE IL PREVENTIVO A CHI NON HA TEMPO"
     },
@@ -112,19 +108,11 @@
     },
     {
       "type": "p",
-      "text": "Il motivo è scritto nella stessa consulenza: un documento mandato in chat vale meno, e il cliente lo può portare da un'altra impresa."
-    },
-    {
-      "type": "p",
       "text": "Con lo schermo condiviso, tu e il cliente guardate la stessa pagina nello stesso momento, e le domande le fa a te mentre siete collegati. Al telefono, quelle pagine il cliente non le vede: le può solo ascoltare."
     },
     {
       "type": "p",
       "text": "La stima di massima mandata prima, con la fascia e i tre stili, fa la sua parte. Quando arriva l'incontro, in sede o al computer, il cliente sa già di che cifra si parla e ha già davanti gli stili fra cui scegliere."
-    },
-    {
-      "type": "p",
-      "text": "È per questo che la decisione regge anche con chi lavora fino a tardi. Il cliente non deve trovare un pomeriggio libero: deve trovare venti minuti, seduto a una scrivania."
     },
     {
       "type": "h2",
@@ -136,15 +124,11 @@
     },
     {
       "type": "p",
-      "text": "In consulenza se n'è parlato in due incontri diversi, uno ad agosto e uno a settembre. Il timore era proprio quello detto sopra: che il progetto finisse da un altro, e che un documento arrivato in chat pesasse meno di uno spiegato a voce."
+      "text": "In consulenza il timore era quello detto sopra: che il progetto finisse da un altro, e che un documento arrivato in chat pesasse meno di uno spiegato a voce."
     },
     {
       "type": "p",
       "text": "La decisione è stata la stessa, anche lì: il piano dei lavori si presenta di persona o in videochiamata, e il file resta all'impresa fino alla firma."
-    },
-    {
-      "type": "p",
-      "text": "Due clienti diversi, uno che non ha tempo e uno che vuole il documento subito, e una risposta sola: l'incontro non si toglie, al massimo si accorcia."
     },
     {
       "type": "h2",
@@ -165,6 +149,22 @@
     {
       "type": "p",
       "text": "E la fascia di prezzo, gliel'avevi detta prima, o l'ha scoperta in fondo all'ultima pagina?"
+    },
+    {
+      "type": "p",
+      "text": "E l'ultimo cliente che ti ha chiesto il preventivo su WhatsApp, gliel'hai mandato subito, o gli hai proposto di vedervi, anche solo in videochiamata?"
+    },
+    {
+      "type": "p",
+      "text": "Se gliel'hai mandato, ti ha più risposto, o il file è rimasto lì, letto e senza una parola?"
+    },
+    {
+      "type": "p",
+      "text": "E quando un cliente ti ha detto che non aveva tempo, gli hai mai proposto un giorno e un'ora precisi per vedervi, anche per poco, o hai aspettato che si facesse vivo lui?"
+    },
+    {
+      "type": "p",
+      "text": "Sono domande che non hanno una risposta giusta per tutti. Ma ognuna ti dice dove si trovava il tuo cliente nel momento in cui doveva decidere, e se in quel momento c'eri anche tu."
     },
     {
       "type": "p",
