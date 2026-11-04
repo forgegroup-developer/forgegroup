@@ -71,8 +71,8 @@ export const caseStudyImageLayout: Record<string, CaseStudyImageLayout> = {
 
 export const siteImages = {
   heroGrowth: "/images/hero/hero-growth.jpg",
-  /** Copertina della videorecensione DISA, l'unico video del sito. */
-  videoPoster: "/images/video-recensione-poster.jpg",
+  /** Copertina della videorecensione DISA dopo 12 mesi (la stessa di YouTube). */
+  videoPoster: "/images/video-recensione-disa-12-mesi.jpg",
 } as const;
 
 /** Foto dei fondatori, verticali 2:3; foundersDuo e' quella del TEDx in home. */

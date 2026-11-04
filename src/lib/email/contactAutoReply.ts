@@ -1,7 +1,9 @@
 import { absoluteUrl } from "@/lib/seo/site";
 
-const VIDEO_URL = absoluteUrl("/video-recensione.mp4");
-const VIDEO_POSTER = absoluteUrl("/images/video-recensione-poster.jpg");
+import { videoDisa } from "@/data/video";
+
+const VIDEO_URL = videoDisa.url;
+const VIDEO_POSTER = absoluteUrl("/images/video-recensione-disa-12-mesi.jpg");
 
 function firstName(nomeCognome: string): string {
   const trimmed = nomeCognome.trim();
@@ -44,7 +46,7 @@ Prendi gli ultimi dieci preventivi che hai mandato. Quanti sono diventati contra
 Se vuoi vedere cosa abbiamo fatto per altre imprese edili, e come lavoriamo, è tutto qui:
 ${INIZIA_URL}
 
-DISA, software per l'edilizia: 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads. Il titolare lo racconta qui:
+DISA, software per l'edilizia: circa 300.000 € di fatturato in 12 mesi, solo dalle Meta Ads. Il titolare lo racconta qui:
 ${VIDEO_URL}
 
 A presto,
@@ -78,7 +80,7 @@ export function buildContactAutoReplyHtml(nomeCognome: string): string {
         <img src="${VIDEO_POSTER}" alt="Il titolare di DISA racconta il lavoro con Forge Group" width="560" style="display:block;width:100%;max-width:560px;height:auto;border-radius:10px;border:1px solid #e8d5cc;" />
       </a>
       <p style="margin:16px 0 8px;font-size:16px;font-weight:700;color:#111111;">DISA, software per l'edilizia</p>
-      <p style="margin:0 0 12px;font-size:14px;color:#555555;"><strong style="color:#c8502a;">126.500 € di nuovi contratti in 90 giorni</strong>, solo dalle Meta Ads</p>
+      <p style="margin:0 0 12px;font-size:14px;color:#555555;"><strong style="color:#c8502a;">circa 300.000 € di fatturato in 12 mesi</strong>, solo dalle Meta Ads</p>
       <a href="${VIDEO_URL}" style="display:inline-block;font-size:14px;font-weight:700;color:#c8502a;text-decoration:none;">▶ Guarda la videorecensione</a>
     </div>`,
     paragraph("A presto,<br /><strong>Marco e Gianpio</strong>"),

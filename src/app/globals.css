@@ -2739,11 +2739,14 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   border-radius: 1.5rem;
   border: 1px solid var(--color-brand-bordo);
   background-color: #241812;
-  aspect-ratio: 16 / 10;
+  /* 16:9 come il video di YouTube: la copertina ha il titolo scritto
+     sopra e con un altro rapporto si tagliava ai lati. */
+  aspect-ratio: 16 / 9;
   box-shadow: 0 26px 60px -32px rgba(60, 30, 18, 0.5);
 }
 
 .cornice-video video,
+.cornice-video iframe,
 .avvia-video img {
   position: absolute;
   inset: 0;

@@ -1,26 +1,22 @@
 import { absoluteUrl } from "@/lib/seo/site";
-import { siteImages } from "@/data/images";
+import { videoDisa } from "@/data/video";
 import type { CaseStudy } from "@/data/caseStudies";
 
 /**
- * Dati strutturati della videorecensione.
+ * Dati strutturati della videorecensione (YouTube).
  *
- * Serve a dire a Google e agli assistenti che quel file non e' un video
- * qualsiasi ma la testimonianza di un cliente con nome e cognome. Senza
- * questo, un video in pagina resta un rettangolo nero di cui nessuno sa
- * niente: qui invece diventa citabile.
+ * Serve a dire a Google e agli assistenti che quel video non è un video
+ * qualsiasi ma la testimonianza di un cliente con nome e numeri. Con i
+ * capitoli (Clip) Google può mostrare i "momenti chiave" nei risultati, e
+ * le AI possono citare il punto preciso ("Il fatturato in 12 mesi").
  *
- * Si emette solo dove c'e' davvero un video, ed e' il video stesso a
+ * Si emette solo dove c'è davvero il video, ed è il video stesso a
  * garantire che la frase citata sia del cliente e non nostra. Dichiarare
  * come Review un testo scritto da noi sarebbe un dato falso, non
  * un'ottimizzazione.
  */
 type Props = {
   caso: CaseStudy;
-  /** Durata in secondi, dal file. */
-  durataSecondi: number;
-  /** Data di pubblicazione sul sito, formato ISO. */
-  dataPubblicazione: string;
 };
 
 function iso8601(secondi: number) {
@@ -29,46 +25,59 @@ function iso8601(secondi: number) {
   return `PT${m > 0 ? `${m}M` : ""}${s}S`;
 }
 
-export default function JsonLdVideoRecensione({
-  caso,
-  durataSecondi,
-  dataPubblicazione,
-}: Props) {
+export default function JsonLdVideoRecensione({ caso }: Props) {
   if (!caso.videoUrl) return null;
+
+  const v = videoDisa;
+  const capitoli = v.capitoli.map((c, i) => ({
+    "@type": "Clip",
+    name: c.titolo,
+    startOffset: c.inizio,
+    endOffset: v.capitoli[i + 1]?.inizio ?? v.durataSecondi,
+    url: `${v.url}&t=${c.inizio}s`,
+  }));
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: `Videorecensione ${caso.shortTitle}: ${caso.resultHeadline}`,
-    description: caso.metaDescription,
-    thumbnailUrl: [absoluteUrl(siteImages.videoPoster)],
-    uploadDate: dataPubblicazione,
-    duration: iso8601(durataSecondi),
-    contentUrl: absoluteUrl(caso.videoUrl),
-    embedUrl: absoluteUrl(`/casi-studio/${caso.slug}`),
+    "@id": absoluteUrl(`/casi-studio/${caso.slug}#videorecensione`),
+    name: v.titolo,
+    description: v.descrizione,
+    thumbnailUrl: [
+      absoluteUrl(v.copertina),
+      `https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`,
+    ],
+    uploadDate: v.dataPubblicazione,
+    duration: iso8601(v.durataSecondi),
+    embedUrl: v.embedUrl,
+    url: v.url,
     inLanguage: "it",
     isFamilyFriendly: true,
+    keywords:
+      "Meta Ads edilizia, marketing per imprese edili, videorecensione, Forge Group, DISA, SOS Appalti",
+    about: {
+      "@type": "Organization",
+      name: "DISA SRL",
+      description: "Software per l'edilizia: SOS Appalti, software per le gare d'appalto",
+    },
     publisher: {
       "@type": "Organization",
       name: "Forge Group Italia",
       url: absoluteUrl("/"),
+      logo: { "@type": "ImageObject", url: absoluteUrl("/logo.png") },
     },
+    hasPart: capitoli,
     ...(caso.quote?.text
       ? {
-          /* La recensione sta dentro il video: e' quello che il titolare
+          /* La recensione sta dentro il video: è quello che il titolare
              dice davanti alla telecamera, non un testo che abbiamo
-             scritto noi. Per questo il blocco si emette solo dove c'e'
-             un video: e' il video a dimostrare che la frase e' sua.
-             Senza video non si dichiara nessuna recensione, perche' un
-             testo scritto da noi e marcato come Review e' un dato
-             falso. */
+             scritto noi. */
           review: {
             "@type": "Review",
             reviewBody: caso.quote.text,
             author: {
-              "@type": "Person",
+              "@type": "Organization",
               name: caso.quote.author,
-              ...(caso.quote.role ? { jobTitle: caso.quote.role } : {}),
             },
             itemReviewed: {
               "@type": "Organization",

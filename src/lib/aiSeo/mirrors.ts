@@ -50,7 +50,7 @@ const COME_LAVORIAMO = `- Gestiamo noi la pubblicità su Meta e Google, con vide
 
 const STUDIO = `Prima di iniziare c'è lo studio di fattibilità: quanto lavoro produce la zona, da fonti ufficiali (ISTAT, GSE, ENEA), quanto lavoro regge oggi l'impresa, e se ha senso lavorare insieme. La risposta può essere no. Lavoriamo con poche imprese, una per territorio. Il contratto è annuale; una parte del compenso è legata al fatturato generato. I prezzi non sono pubblici: si definiscono dopo lo studio.`;
 
-const PROVE = `- DISA (software per l'edilizia): 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto; circa 350.000 € in 12 mesi con circa 300 € al mese di pubblicità.
+const PROVE = `- DISA (software per l'edilizia): 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto; circa 300.000 € di fatturato in 12 mesi con 6.000 € di pubblicità in tutto (circa 500 € al mese). Videorecensione del titolare dopo 12 mesi: https://www.youtube.com/watch?v=GdAON_dLDMQ
 - Tetti Top (coperture e lattoneria): 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 €, sopralluogo diventato a pagamento.
 - ROVI (arredamento negozi): 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.
 - Google: 5,0 su 6 recensioni.`;

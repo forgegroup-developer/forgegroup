@@ -21,11 +21,15 @@ export const NUMERI_AMMESSI = [
   "+126k",
   "1,48 €",
   "€1,48",
-  "350.000 €",
-  "+350k",
-  "+350K€",
-  "300 €",
-  "97 €",
+  // Dal 04/11/2026 (videorecensione dopo 12 mesi): circa 300.000 € in 12 mesi
+  // con 6.000 € di pubblicità in tutto, circa 500 € al mese, circa 50 € per euro.
+  "300.000 €",
+  "300.000€",
+  "+300k",
+  "+300K€",
+  "6.000 €",
+  "500 €",
+  "50 €",
   // Tetti Top: mai la cifra del sopralluogo. "0 €" = "senza pubblicità" (Scheda)
   "0 €", "0€",
   "175.000 €",
@@ -51,11 +55,11 @@ export const casi = [
     slug: "software-edilizia",
     chi: "DISA",
     settore: "Software per l'edilizia",
-    numero: "350.000 €",
+    numero: "300.000 €",
     numeroDetto: "in 12 mesi, solo dalle Meta Ads",
     prima:
       "I commerciali chiamavano a freddo imprenditori edili senza sapere chi fosse interessato, e chiedevano nomi ai clienti.",
-    dopo: "Circa 350.000 € in un anno con circa 300 € al mese di pubblicità. Nei primi 90 giorni 126.500 € di nuovi contratti, a 1,48 € per contatto.",
+    dopo: "Circa 300.000 € in un anno con 6.000 € di pubblicità in tutto, circa 500 € al mese. Nei primi 90 giorni 126.500 € di nuovi contratti, a 1,48 € per contatto.",
   },
   {
     slug: "edilizia",
