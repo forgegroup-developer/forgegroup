@@ -1,0 +1,172 @@
+{
+  "slug": "costo-per-contatto-pubblicita-guadagno",
+  "title": "Costo per contatto: perché da solo non dice se guadagni",
+  "description": "Il costo per contatto di DISA era 1,48 €, ma non diceva se la pubblicità rendeva: l'hanno detto i contratti. La storia e la domanda da farti oggi.",
+  "category": "Gestionale",
+  "date": "2026-11-06",
+  "publishAt": "2026-11-06T09:00:00+01:00",
+  "readTime": "4 min",
+  "excerpt": "Un'azienda di software per l'edilizia pagava ogni contatto 1,48 €. Il numero che le ha detto se la pubblicità rendeva, però, era un altro.",
+  "tags": [
+    "costo per contatto",
+    "pubblicità",
+    "quanto rende la pubblicità",
+    "contratti",
+    "gestionale"
+  ],
+  "livello": 1,
+  "argomento": "quanto-rende-ogni-euro",
+  "autore": "marco",
+  "inBreve": {
+    "problema": "Il costo per contatto è il primo numero che una campagna ti dà, e spesso l'unico che il titolare conosce della sua pubblicità.",
+    "causa": "Dice quanto hai pagato un nome e un numero di telefono, non quanti di quei nomi sono diventati un contratto firmato.",
+    "cambia": "Quando i contratti si contano partendo dalle richieste da cui sono nati, si vede quanto rende ogni euro di pubblicità, e non solo quanto costa."
+  },
+  "seo": {
+    "parolaChiave": "costo per contatto",
+    "secondarie": [
+      "quanto rende la pubblicità",
+      "costo per contratto",
+      "costo per lead edilizia",
+      "pubblicità impresa edile"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso, proprietà 30/09): «costo per contatto», «costo per contratto» e «quanto rende la pubblicità» non sono negli studi del 03/09 e del 28/08; la più vicina con domanda misurata è «pubblicita impresa edile» 10-100 (studio del 03/09). Livello 1: parole ampie, portano visite e non contatti",
+    "serp": "ricerche web del 04/11 (lo strumento è tarato sugli Stati Uniti: la prima pagina di Google.it va ricontrollata): su «costo per contatto pubblicità impresa edile quanto rende», «costo per lead edilizia Facebook ads» e «come capire se la pubblicità rende impresa edile contratti» escono listini di portali edilizi, benchmark americani sul costo per contatto (WordStream, LocaliQ, influee), guide generiche (ClickUp, Ranktracker), tutti scritti per chi fa pubblicità. Nessun testo per il titolare edile con un caso vero che va dal costo per contatto ai contratti: buco libero. Il concorrente A ne scrive dal lato della metrica da sostituire",
+    "concorrente": [
+      "principale:blog/costo-per-lead-vs-qualita-clienti-edilizia",
+      "principale:blog/budget-marketing-edilizia-clienti",
+      "agenzia:campagna-pubblicitaria-sul-web",
+      "agenzia:82-come-fare-pubblicita-a-un-impresa-edile-le-ads-che-funzionano"
+    ],
+    "geo": "In breve che dice da solo cosa misura il costo per contatto e cosa no; FAQ scritte come le domande del titolare a Google, con risposte complete in due o tre frasi; i numeri di DISA come stanno nella Scheda, con la precisazione «solo dalle Meta Ads» e «senza il canone»; firma di Marco, che segue marketing e acquisizione",
+    "sem": "Livello 1: se la proprietà riapre le campagne (dal 14/10 si lavora solo in organico), post o carosello su Meta e Instagram con i due numeri di DISA, 1,48 € e 126.500 €, e la domanda finale; niente Google Ads search, la domanda non è misurata"
+  },
+  "faqs": [
+    {
+      "q": "Quanto costa un contatto dalla pubblicità per un'impresa edile?",
+      "a": "Dipende dal lavoro che vendi, dalla zona e da come è fatta la campagna, e non c'è una cifra valida per tutti. Con DISA, un'azienda di software per l'edilizia, è stato 1,48 € a contatto sulle Meta Ads. Ma il costo per contatto, da solo, non dice se la pubblicità ti fa guadagnare."
+    },
+    {
+      "q": "Un costo per contatto basso vuol dire che la pubblicità funziona?",
+      "a": "No. Un costo per contatto basso dice che paghi poco ogni nome e numero di telefono, non che quei nomi diventano lavoro. La pubblicità funziona quando dai contatti nascono contratti, e per saperlo bisogna contare i contratti, non solo i contatti."
+    },
+    {
+      "q": "Come si calcola quanto rende la pubblicità?",
+      "a": "Si mette da una parte quanto hai speso in pubblicità in un periodo, e dall'altra il valore dei contratti nati dalle richieste di quella pubblicità. Dividendo il secondo numero per il primo sai quanto fatturato ti ha portato ogni euro; con DISA, in 12 mesi, è stato circa 97 € per ogni euro di pubblicità, solo dalle Meta Ads e calcolato sulla sola spesa pubblicitaria."
+    },
+    {
+      "q": "Che differenza c'è fra costo per contatto e costo per contratto?",
+      "a": "Il costo per contatto è quanto hai pagato in pubblicità per ogni richiesta arrivata. Il costo per contratto è quanto hai pagato per ogni contratto firmato: è il numero che ti dice se la pubblicità si ripaga, ma si vede solo se ogni contratto si porta dietro la richiesta da cui è nato."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "I commerciali di DISA, un'azienda che fa software per l'edilizia, trovavano clienti in due modi. Chiamavano a freddo imprenditori edili, senza sapere chi fosse interessato, e chiedevano nomi ai clienti che avevano già."
+    },
+    {
+      "type": "p",
+      "text": "Poi partivano in trasferta, per incontrare persone che non conoscevano il software e non sapevano a cosa servisse. Il lavoro nuovo dipendeva dal favore di qualcuno."
+    },
+    {
+      "type": "p",
+      "text": "Chi cerca clienti così, una cosa almeno la sa: dietro ogni cliente nuovo c'è una telefonata fatta da lui o un nome che gli ha dato qualcuno."
+    },
+    {
+      "type": "h2",
+      "text": "UN EURO E QUARANTOTTO"
+    },
+    {
+      "type": "p",
+      "text": "Poi DISA ha cominciato a fare pubblicità su Meta, con circa 300 € al mese, e a chiedere a chi rispondeva le informazioni che servivano ai commerciali prima di chiamare."
+    },
+    {
+      "type": "p",
+      "text": "Il primo numero che una campagna ti mette davanti è quanto costa ogni contatto. Per DISA era 1,48 €."
+    },
+    {
+      "type": "p",
+      "text": "È un numero piccolo, e fa piacere leggerlo. Ma su una cosa, da solo, non diceva niente: se DISA con quella pubblicità stava guadagnando."
+    },
+    {
+      "type": "p",
+      "text": "Con lo stesso costo per contatto puoi avere un elenco pieno di nomi e nessun contratto. Il numero in cima al report sarebbe identico, e i soldi spesi in pubblicità non tornerebbero indietro."
+    },
+    {
+      "type": "h2",
+      "text": "IL NUMERO CHE HA RISPOSTO ALLA DOMANDA"
+    },
+    {
+      "type": "p",
+      "text": "La risposta è arrivata dopo, quando le richieste sono diventate appuntamenti con persone che il software lo conoscevano già, e gli appuntamenti sono diventati contratti."
+    },
+    {
+      "type": "p",
+      "text": "In 90 giorni sono stati 126.500 € di nuovi contratti, solo dalle Meta Ads. In 12 mesi circa 350.000 €, sempre con circa 300 € al mese di pubblicità."
+    },
+    {
+      "type": "p",
+      "text": "Vuol dire circa 97 € di fatturato per ogni euro di pubblicità, contando solo i soldi dati a Meta e non il compenso di chi ha seguito le campagne."
+    },
+    {
+      "type": "p",
+      "text": "Il costo per contatto, da solo, questi numeri non li conteneva: per arrivarci bisognava contare i contratti nati da quelle richieste."
+    },
+    {
+      "type": "p",
+      "text": "Il titolare, nella sua video-recensione, lo racconta con tre parole prima dei numeri: «ero scettico all'inizio»."
+    },
+    {
+      "type": "h2",
+      "text": "COSA TI DICE IL COSTO PER CONTATTO, E COSA NO"
+    },
+    {
+      "type": "p",
+      "text": "In edilizia si guadagna con i contratti, e il costo per contatto si ferma prima. Ti dice quanto hai pagato un nome e un numero di telefono, non quanti di quei nomi sono arrivati a una firma."
+    },
+    {
+      "type": "p",
+      "text": "Per saperlo serve un filo che leghi ogni contratto alla richiesta da cui è nato. Senza quel filo, il costo per contatto resta l'unico numero che conosci della tua pubblicità, e lo conosci solo perché te lo dà la piattaforma."
+    },
+    {
+      "type": "p",
+      "text": "Una titolare di un'impresa di ristrutturazioni, in un incontro conoscitivo, ci ha raccontato le campagne fatte prima di sentirci. I contatti erano arrivati. Su quanti fossero diventati clienti, ha detto: «contatti che si sono rivelati poi clienti veri e propri… non mi ricordo quanti»."
+    },
+    {
+      "type": "p",
+      "text": "Succede quando i contatti stanno in un posto e i contratti in un altro: il filo fra i due resta nella memoria di chi li ha seguiti, e dopo qualche mese la memoria risponde così."
+    },
+    {
+      "type": "p",
+      "text": "Con il passaparola il filo si vede da solo, perché sai chi ti ha mandato il cliente, mentre con la pubblicità, se nessuno lo scrive, fra la richiesta arrivata a marzo e il contratto firmato a giugno non resta nessun legame."
+    },
+    {
+      "type": "p",
+      "text": "E quel contratto finisce nel mucchio dei lavori arrivati chissà come, mentre la pubblicità che l'ha portato sembra non aver reso niente."
+    },
+    {
+      "type": "h2",
+      "text": "E DA TE?"
+    },
+    {
+      "type": "p",
+      "text": "Pensa all'ultima pubblicità che hai pagato. Quanto ti è costato ogni contatto, probabilmente lo sai: è il numero che ti arriva per primo."
+    },
+    {
+      "type": "p",
+      "text": "Ora prova con l'altra domanda. Quanti contratti sono nati da quei contatti, e quanto ti è costato ognuno di loro in pubblicità? Prova a rispondere con un numero, anche più o meno giusto, come faresti con me al telefono."
+    },
+    {
+      "type": "p",
+      "text": "Se per rispondere devi andare a memoria, ti succede quello che è successo alla titolare di prima. E se fra i tuoi contatti ci sono anche quelli che non avevano nessun lavoro da darti, ne ho scritto nell'articolo su [chi ti scrive a mezzanotte senza un lavoro da darti](/blog/contatti-pubblicita-richiesta-mezzanotte)."
+    },
+    {
+      "type": "p",
+      "text": "Il prima e il dopo di DISA, passo per passo, stanno nella pagina del [caso del software per l'edilizia](/casi-studio/software-edilizia)."
+    },
+    {
+      "type": "p",
+      "text": "Come si fa il conto del costo per contratto, e perché di solito arriva quando i mesi sono già pagati, l'ho scritto in [quanto costa ogni contratto della tua pubblicità](/blog/risultati-agenzia-marketing-costo-contratto)."
+    }
+  ]
+}
