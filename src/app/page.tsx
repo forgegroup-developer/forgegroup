@@ -15,6 +15,8 @@ import StorieClienti from "@/components/sezioni/StorieClienti";
 import PercheSceglierci from "@/components/sezioni/PercheSceglierci";
 import PerChiSiPerChiNo from "@/components/sezioni/PerChiSiPerChiNo";
 import VideoScettico from "@/components/sezioni/VideoScettico";
+import JsonLdVideoRecensione from "@/components/casi-studio/JsonLdVideoRecensione";
+import { caseStudies } from "@/data/caseStudies";
 import BannerGoogle from "@/components/sezioni/BannerGoogle";
 import Gestionale from "@/components/blocchi/Gestionale";
 import ServiceCard, { services } from "@/components/sezioni/ServiceCard";
@@ -298,7 +300,12 @@ export default function Home() {
       {/* S6b — PER CHI E' SCETTICO
           Quattro imprenditori su quattro, nelle conoscitive, avevano gia'
           provato con un'agenzia. Qui non si argomenta: parla uno che era
-          nella stessa posizione, e la sua prima frase e' "ero scettico". */}
+          nella stessa posizione: dal 04/11/2026 la videorecensione dopo 12
+          mesi, da YouTube. Il JSON-LD sta fuori da DeferredMount, così
+          Google lo legge nell'HTML anche prima che la sezione si monti. */}
+      <JsonLdVideoRecensione
+        caso={caseStudies.find((c) => c.slug === "software-edilizia")!}
+      />
       <DeferredMount minHeight="560px" rootMargin="320px 0px">
         <VideoScettico />
       </DeferredMount>

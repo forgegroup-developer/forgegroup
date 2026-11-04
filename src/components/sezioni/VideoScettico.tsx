@@ -1,10 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import VideoYouTube from "@/components/media/VideoYouTube";
 import { caseStudies } from "@/data/caseStudies";
-import { siteImages } from "@/data/images";
 
 /**
  * Il blocco per chi è scettico.
@@ -15,11 +13,11 @@ import { siteImages } from "@/data/images";
  * un'altra volta?".
  *
  * A quella domanda non si risponde con un argomento: si risponde
- * facendo parlare uno che era nella stessa posizione. La testimonianza
- * si apre proprio con "Ero scettico all'inizio", quindi la citazione
- * non è una cornice che ci mettiamo noi — è la sua prima frase.
+ * facendo parlare uno che era nella stessa posizione. Dal 04/11/2026 è
+ * la videorecensione dopo 12 mesi (YouTube): «un canale a me francamente
+ * sconosciuto» è la sua frase, non una cornice che ci mettiamo noi.
  *
- * Il video non parte da solo e carica solo il poster finché non lo si
+ * Il video non parte da solo e carica solo la copertina finché non lo si
  * chiede: un prospect se n'era andato perché il video si bloccava.
  */
 
@@ -31,14 +29,6 @@ type Props = {
 };
 
 export default function VideoScettico({ senzaLinkCaso = false }: Props) {
-  const [attivo, setAttivo] = useState(false);
-  const video = useRef<HTMLVideoElement>(null);
-
-  const avvia = () => {
-    setAttivo(true);
-    requestAnimationFrame(() => video.current?.play());
-  };
-
   return (
     <section
       id="scettico"
@@ -55,31 +45,7 @@ export default function VideoScettico({ senzaLinkCaso = false }: Props) {
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
           <div className="cornice-video">
-            {attivo ? (
-              <video
-                ref={video}
-                src={caso.videoUrl}
-                controls
-                playsInline
-                preload="metadata"
-                aria-label="Videorecensione del titolare"
-              />
-            ) : (
-              <button type="button" onClick={avvia} className="avvia-video">
-                <Image
-                  src={siteImages.videoPoster}
-                  alt="Il titolare di DISA racconta i 126.500 € in 90 giorni"
-                  fill
-                  sizes="(min-width: 1024px) 52vw, 100vw"
-                />
-                <span className="avvia-video-tasto" aria-hidden>
-                  ▶
-                </span>
-                <span className="sr-only">
-                  Guarda la videorecensione del titolare
-                </span>
-              </button>
-            )}
+            <VideoYouTube label="Il titolare di DISA racconta i circa 300.000 € di fatturato in 12 mesi dalle Meta Ads" />
           </div>
 
           <div className="flex flex-col justify-center">

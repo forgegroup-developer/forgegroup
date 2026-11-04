@@ -59,6 +59,19 @@ const nextConfig: NextConfig = {
         destination: IUBENDA.cookiePolicyUrl,
         permanent: false,
       },
+      // Il video vecchio di DISA (90 giorni) è stato sostituito dalla
+      // videorecensione dopo 12 mesi su YouTube (04/11/2026): l'indirizzo
+      // è nelle email di risposta già mandate, quindi porta al video nuovo.
+      {
+        source: "/video-recensione.mp4",
+        destination: "https://www.youtube.com/watch?v=GdAON_dLDMQ",
+        permanent: false,
+      },
+      {
+        source: "/api/video-recensione",
+        destination: "https://www.youtube.com/watch?v=GdAON_dLDMQ",
+        permanent: false,
+      },
       // Articoli e categorie del vecchio posizionamento (B2B, Campania, lead generation):
       // l'elenco sta in src/data/articoliRitirati.ts. Permanenti: Google li toglie
       // dall'indice e passa il valore alla pagina di arrivo.

@@ -27,7 +27,7 @@ export type CaseStudy = {
   /** Logo prodotto/servizio (es. SOS Appalti per DISA) */
   productLogo?: string;
   productLogoAlt?: string;
-  /** URL della video recensione del caso studio, se disponibile */
+  /** Indirizzo YouTube della videorecensione (i dati stanno in src/data/video.ts) */
   videoUrl?: string;
   /** Screenshot Meta/dashboard in cornice telefono accanto al contesto */
   contextPhoneScreenshot?: {
@@ -307,21 +307,21 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "software-edilizia",
     sector: "Software per l'edilizia",
-    title: "Software per l'edilizia: 126.500 € in 90 giorni solo dalle Meta Ads",
+    title: "Software per l'edilizia: 300.000 € in 12 mesi solo dalle Meta Ads",
     shortTitle: "Software per l'edilizia",
-    resultHeadline: "126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads.",
+    resultHeadline: "Circa 300.000 € di fatturato in 12 mesi, solo dalle Meta Ads.",
     excerpt:
-      "DISA trovava clienti solo con chiamate a freddo e referenze. Con le campagne su Meta e il modulo che filtra: 126.500 € di nuovi contratti in 90 giorni a 1,48 € per contatto, e circa 350.000 € in 12 mesi con circa 300 € al mese di pubblicità.",
+      "DISA trovava clienti solo con chiamate a freddo e referenze. Con le campagne su Meta e il modulo che filtra: 126.500 € di nuovi contratti in 90 giorni a 1,48 € per contatto, e circa 300.000 € in 12 mesi con 6.000 € di pubblicità in tutto, circa 500 € al mese.",
     hubExcerpt:
-      "Dalle chiamate a freddo a 126.500 € di nuovi contratti in 90 giorni, e circa 350.000 € in 12 mesi, solo dalle Meta Ads.",
-    excerptHighlights: ["126.500 € di nuovi contratti in 90 giorni", "circa 350.000 € in 12 mesi"],
+      "Dalle chiamate a freddo a circa 300.000 € di fatturato in 12 mesi, solo dalle Meta Ads: 126.500 € già nei primi 90 giorni.",
+    excerptHighlights: ["circa 300.000 € di fatturato in 12 mesi", "126.500 €"],
     sintesi: {
       problema: "Chiamate a freddo, referenze chieste ai clienti, trasferte con chi non conosceva il software.",
       soluzione: "Il messaggio riscritto, i video, le campagne su Meta e il modulo che filtra.",
-      risultato: "126.500 € in 90 giorni a 1,48 € per contatto, circa 350.000 € in 12 mesi.",
+      risultato: "Circa 300.000 € in 12 mesi con 6.000 € di pubblicità; 126.500 € nei primi 90 giorni, a 1,48 € per contatto.",
     },
     metaDescription:
-      "DISA, software per l'edilizia: 126.500 € di nuovi contratti in 90 giorni solo dalle Meta Ads, a 1,48 € per contatto, e circa 350.000 € in 12 mesi.",
+      "DISA, software per l'edilizia: circa 300.000 € di fatturato in 12 mesi solo dalle Meta Ads, con 6.000 € di pubblicità. Guarda la videorecensione del titolare.",
     context: [
       { label: "Settore", value: "Software per l'edilizia, gare d'appalto" },
       { label: "Azienda", value: "DISA SRL, SOS APPALTI: software per le gare d'appalto" },
@@ -332,7 +332,7 @@ export const caseStudies: CaseStudy[] = [
     scena: {
       titolo: "Non ci credeva",
       testo:
-        "Il titolare di DISA non si aspettava niente dalle campagne. Nella video-recensione lo dice lui stesso, «ero scettico all'inizio», e subito dopo racconta i 126.500 € dei primi 90 giorni.",
+        "Il titolare di DISA non si aspettava niente dalle campagne. Dopo un anno, nella videorecensione, lo dice lui: «abbiamo fatturato circa 300 mila euro su un canale a me francamente sconosciuto». E alla domanda se rifarebbe la scelta risponde «certo che sì».",
     },
     diagnosis: [
       "Chiamate a freddo: nessun canale per trovare chi aveva davvero bisogno del software",
@@ -357,7 +357,7 @@ export const caseStudies: CaseStudy[] = [
         step: "03",
         title: "Le campagne su Meta",
         description:
-          "Le campagne le gestiamo noi, con circa 300 € al mese di pubblicità, per raggiungere le imprese che partecipano alle gare.",
+          "Le campagne le gestiamo noi, con circa 500 € al mese di pubblicità, per raggiungere le imprese che partecipano alle gare.",
       },
       {
         step: "04",
@@ -373,28 +373,23 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     results: [
-      { value: "+126k", label: "Nuovi contratti", detail: "Nei primi 90 giorni, solo dalle Meta Ads" },
+      { value: "+300k", label: "Fatturato in 12 mesi", detail: "Circa, solo dalle Meta Ads" },
+      { value: "6.000 €", label: "Di pubblicità in 12 mesi", detail: "Circa 500 € al mese" },
+      { value: "+126k", label: "Nei primi 90 giorni", detail: "Nuovi contratti, solo dalle Meta Ads" },
       { value: "€1,48", label: "Costo per contatto", detail: "Solo dalle Meta Ads" },
-      { value: "+350k", label: "In 12 mesi", detail: "Con circa 300 € al mese di pubblicità" },
-      { value: "97 €", label: "Per ogni euro di pubblicità", detail: "Circa, sulla sola spesa pubblicitaria" },
     ],
     resultNote:
-      "I circa 97 € di fatturato per ogni euro sono calcolati sulla sola spesa pubblicitaria, senza il compenso di Forge.",
+      "Circa 50 € di fatturato per ogni euro di pubblicità: il rapporto è calcolato sulla sola spesa pubblicitaria, senza il compenso di Forge.",
     quote: {
-      text: "126.500€ di fatturato, non me lo aspettavo. Ero scettico all'inizio: questo metodo per me ha funzionato. Lo consiglio a tutte le aziende che vogliono crescere sul mercato.",
+      text: "Abbiamo fatturato circa 300 mila euro su un canale a me francamente sconosciuto.",
       author: "DISA SRL",
       role: "Titolare · Software per l'edilizia",
     },
     quoteSegments: [
-      { text: "126.500€ di fatturato", highlight: true },
-      { text: ", non me lo aspettavo. Ero scettico all'inizio: " },
-      { text: "questo metodo", highlight: true },
-      { text: " per me " },
-      { text: "ha funzionato", highlight: true },
-      { text: ". " },
-      { text: "Lo consiglio", highlight: true },
-      { text: " a tutte le aziende che vogliono " },
-      { text: "crescere sul mercato", highlight: true },
+      { text: "Abbiamo fatturato " },
+      { text: "circa 300 mila euro", highlight: true },
+      { text: " su un canale a me " },
+      { text: "francamente sconosciuto", highlight: true },
       { text: "." },
     ],
     ...caseStudyLogosBySlug["software-edilizia"],
@@ -420,7 +415,7 @@ export const caseStudies: CaseStudy[] = [
       {
         aspect: "Contratti",
         before: "Legati al passaparola",
-        after: "126.500 € nei primi 90 giorni, circa 350.000 € in 12 mesi",
+        after: "126.500 € nei primi 90 giorni, circa 300.000 € in 12 mesi",
       },
       {
         aspect: "Mercato",
@@ -428,7 +423,7 @@ export const caseStudies: CaseStudy[] = [
         after: "Un sistema pronto per tutta Italia",
       },
     ],
-    videoUrl: "/video-recensione.mp4",
+    videoUrl: "https://www.youtube.com/watch?v=GdAON_dLDMQ",
     contextPhoneScreenshot: {
       src: "/images/casi-studio/disa-meta-ads-dashboard.png",
       alt: "Le campagne Meta Ads di DISA SRL",
