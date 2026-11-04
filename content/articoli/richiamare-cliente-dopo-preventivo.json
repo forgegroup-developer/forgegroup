@@ -17,18 +17,14 @@
   "argomento": "preventivo-e-silenzio",
   "autore": "gianpio",
   "featuredImage": "/images/blog/richiamare-cliente-dopo-preventivo.jpg",
-  "featuredImageAlt": "Un operaio con il casco rosso, di spalle, visto attraverso un'apertura in un muro di cemento, con una gru sullo sfondo",
+  "featuredImageAlt": "Un telefono da ufficio con la cornetta e la tastiera in primo piano",
   "copertina": {
     "fonte": "Pixabay",
-    "autore": "phooto",
-    "pagina": "https://pixabay.com/photos/construction-construction-worker-4754309/",
+    "autore": "andresruiz",
+    "pagina": "https://pixabay.com/photos/phone-office-work-out-of-office-2386192/",
     "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
-    "ricerca": [
-      "builder phone call office",
-      "construction paperwork phone",
-      "lavoratore telefono cantiere",
-      "worker talking phone helmet"
-    ]
+    "banca": "contatti-2386192.jpg",
+    "ricerca": "contatti"
   },
   "inBreve": {
     "problema": "Dopo il preventivo il cliente dice che ci deve pensare, e nella maggior parte delle imprese edili da lì nessuno lo richiama più.",
