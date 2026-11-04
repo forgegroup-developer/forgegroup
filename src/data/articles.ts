@@ -39,11 +39,14 @@ export type Article = {
   /** Cosa si vede nella copertina (regola 7 delle immagini). Se manca si usa il titolo. */
   featuredImageAlt?: string;
   /** Da dove viene la copertina e con che licenza (Pexels, foto vera di un cliente…). */
-  copertina?: { fonte: string; autore?: string; pagina?: string; licenza: string };
+  copertina?: { fonte: string; autore?: string; pagina?: string; licenza: string; ricerca?: string; banca?: string };
   /** Articoli della coda: livello della piramide di consapevolezza (1-5). */
   livello?: 1 | 2 | 3 | 4 | 5;
   /** Articoli della coda: l'argomento della mappa editoriale, comune ai cinque livelli. */
   argomento?: string;
+  /** Dal 05/11/2026: il settore e l'id della voce in content/mappa-settori.json. */
+  settore?: string;
+  mappa?: string;
   /** Chi firma l'articolo (src/data/autori.ts). Senza, firma l'azienda. */
   autore?: AutoreId;
   /** Le tre righe in apertura: il problema, la causa, cosa cambia. */

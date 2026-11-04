@@ -40,21 +40,26 @@ registro ("coda piena") e non fare altro. Altrimenti usa `prossimoGiornoLibero` 
 
 ## 2 · Scegli argomento e livello
 
-**Prima della mappa, i quattro argomenti del Piano SEO** (`~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Piano SEO GEO SEM - 2026-10-14.md`, Fase 5),
-decisi dalla proprietà il 14/10/2026: sono le domande vere del primo contatto arrivato da ChatGPT,
-e servono a farci citare dalle AI. Finché uno non è in `giaScritti`, si sceglie quello:
-1. quanti contatti e sopralluoghi può aspettarsi un'impresa edile, e se i contatti sono suoi e di nessun altro;
-2. canone o compenso legato al fatturato: come si paga chi porta lavoro a un'impresa edile (il meccanismo, **mai cifre**);
-3. agenzia o piattaforme che vendono contatti: cosa cambia per un'impresa edile;
-4. trovare clienti per un serramentista (il verticale con domanda vera nel Keyword Planner).
-Ognuno apre con "In breve" e chiude con le FAQ come gli altri; i fatti solo dalla Scheda.
+**Dal 04/11/2026 l'argomento lo dà la mappa per settore** (`content/mappa-settori.json`, nel repo:
+c'è anche nel cloud). Decisione della proprietà: il blog si divide per settore (serramenti, arredo
+negozi, fotovoltaico, tetti, ristrutturazioni, impianti, edilizia in generale) e copre anche le parole
+con cui il titolare cerca chi lo aiuta ("agenzia marketing edilizia", "agenzia marketing arredo
+negozi"…), anche se il Keyword Planner le dà sotto soglia: sono presidio su Google e sulle AI.
 
-Poi, dalla mappa editoriale in `~/ForgeGroup/progetti/sito/materiali/02 - Ricerca e strategia/Concorrente A - ricerca completa e mappa editoriale 2026-09-28.md` (§5).
-Regole di scelta (piramide, "L'ordine: prima il 20% che porta l'80%"):
-- non ripetere una coppia argomento + livello già in `giaScritti`
-- prima i livelli 2 e 3; prima serramenti, fotovoltaico e i temi del gestionale
-- alterna le tre categorie rispetto agli ultimi articoli in coda
-- scegli un angolo di comunicazione dalla testa aziendale (sezione 11)
+- Scrivi **la voce `prossimaVoce`** che ti dà `coda-articoli.mjs`: settore, livello, parola chiave,
+  secondarie, titolo di lavoro, codici del concorrente A. Lo script alterna i settori (mai lo stesso
+  settore dei due articoli precedenti). Il titolo di lavoro si può migliorare, la parola chiave no.
+- Nel file metti `"settore"` e `"mappa"` (l'id della voce): il controllo automatico li chiede.
+  `"argomento"` = l'id della voce senza il numero finale (es. `arredo-negozi`).
+- **L'articolo parla del settore, non di un nostro cliente.** Il titolare di quel settore deve
+  riconoscersi nelle prime righe: i suoi lavori, i suoi clienti, le sue parole (showroom, vetrine,
+  pannelli, coppi, caldaie…). Un nostro caso può entrare come prova a metà articolo, mai come argomento.
+- Se `prossimaVoce` è `null` (mappa finita), fermati e scrivilo nel registro: la mappa si allarga
+  con la proprietà.
+- Scegli un angolo di comunicazione dalla testa aziendale (sezione 11).
+
+La vecchia mappa editoriale (`Concorrente A - ricerca completa e mappa editoriale 2026-09-28.md` §5) e
+i quattro argomenti del Piano SEO del 14/10 sono già scritti: restano solo come fonte di domande.
 
 ## 2 bis · Leggi cosa ha già scritto il concorrente A
 
@@ -94,7 +99,15 @@ cerca davvero. Guida editoriale §11. In ordine:
    4-5, Google Ads search solo se il punto 1 trova domanda).
 6. Scrivi tutto nel campo `"seo"` del file (formato in `content/articoli/LEGGIMI.md`).
 
-## 3 · Trova il materiale vero
+## 3 · Trova il materiale vero (la prova, non l'argomento)
+
+**Dal 04/11/2026 il materiale vero non decide l'argomento** (correzione della proprietà: gli articoli
+erano "molto specifici su situazioni già successe", sei di fila dalla stessa consulenza). L'argomento
+è la voce della mappa; il materiale vero entra dentro l'articolo come prova di quello che dici
+(un caso, una regola di vendita, una frase vera), e può anche non aprire l'articolo. Se per quel
+settore non c'è materiale vero, **scrivi lo stesso**: l'articolo si regge sulle domande del titolare
+(Google, concorrente A) e sui fatti della Scheda, senza inventare scene, numeri o frasi. Mai più di
+un articolo su tre dalla stessa consulenza o dallo stesso cliente.
 
 Esegui `python3 ~/ForgeGroup/progetti/sito/dipendenti-ai/Redazione/banca.py "$PWD"` (nel cloud: scarica
 da Drive `banca.py` e `Banca del materiale vero.md` in una cartella temporanea e lancia
@@ -103,10 +116,8 @@ da Drive `banca.py` e `Banca del materiale vero.md` in una cartella temporanea e
 un pezzo mai usato, e non aprire con lo stesso pezzo dell'articolo precedente. Se lo script avvisa che
 restano meno di dieci pezzi mai usati, scrivilo nel registro e nel messaggio finale.
 
-Prima di scrivere, individua **il pezzo di materiale vero** da cui parte l'articolo (guida §4):
-una scena, una regola di vendita, un caso con i suoi numeri, una frase di un cliente, una storia in
-`Redazione/2 - Storie dalle consulenze`. Annota documento e punto. **Se non c'è, non scrivi**:
-scegli un altro argomento, e se il materiale è finito lo segnali nel registro e ti fermi.
+Annota nella scheda di revisione quale pezzo usi e dove (documento e punto), oppure "nessun materiale
+vero per questo settore". La banca esaurita non è più un motivo per fermarsi.
 
 ## 4 · Scrivi
 
@@ -118,6 +129,8 @@ forma di domanda di Google, titolo in una forma diversa dall'articolo precedente
 racconta dal suo punto di vista (Marco: marketing e acquisizione; Gianpio: vendita e trattative). `date` = il giorno libero,
 `publishAt` = le 09:00 di Roma di quel giorno (lo script ti dice il fuso giusto se sbagli).
 
+In più `"settore"` e `"mappa"` dalla voce della mappa (passo 2).
+
 Mentre scrivi: nel testo "gestionale", mai "CRM"; ROVI è "Arredamento negozi"; virgolette solo su
 frasi dette davvero, con la fonte nella scheda di revisione; cifre in euro solo dalla tabella
 "Numeri" della Scheda, o tonde in un conto che dice di esserlo. Poi la struttura del livello dalla regola della piramide, la voce dal Campione, la
@@ -126,13 +139,19 @@ interni dentro le frasi, l'invito giusto per il livello.
 
 ## 4 bis · La copertina
 
-Ogni articolo ha la sua copertina. In quest'ordine:
-1. **Foto vere di Forge o dei clienti**, se nella cartella `~/ForgeGroup/progetti/sito/materiali/03 - Materiali sito/`
-   ce n'è una adatta all'argomento e già usata sul sito con il permesso del cliente (nel cloud: solo
-   quelle già in `public/images/`).
-2. Altrimenti **Pixabay**: `node scripts/copertina.mjs cerca "<parole>"` (prova in inglese e in italiano,
-   due o tre ricerche), guarda le anteprime e scegli; poi `node scripts/copertina.mjs scarica <id> <slug>`.
-   Se lo script dice che manca la chiave, l'articolo esce con la copertina generica: scrivilo nella PR.
+Ogni articolo ha la sua copertina, **senza copertina il controllo automatico lo blocca** (dal 04/11/2026:
+sette articoli erano usciti con quella generica perché il cloud non raggiunge Pixabay). In quest'ordine:
+1. **La raccolta di copertine** nel repo (`content/copertine/`, 71 foto già scelte e descritte, funziona
+   anche nel cloud): `node scripts/copertina.mjs banca` mostra i temi e quante volte è usata ogni foto;
+   `node scripts/copertina.mjs banca <tema> <slug>` copia la meno usata del tema. Il tema è il
+   **settore** dell'articolo (serramenti, arredo-negozi, fotovoltaico, tetti, ristrutturazioni, impianti);
+   per `edilizia` scegli il momento che l'articolo racconta (sopralluogo, preventivi, trattativa,
+   contatti, marketing, cantiere). Se vuoi una foto precisa del tema, aggiungi il nome del file.
+   La descrizione (`featuredImageAlt`) è già scritta: controllala.
+2. **Pixabay** solo sul Mac e solo se nessuna foto del tema va bene:
+   `node scripts/copertina.mjs cerca "<parole>"`, poi `scarica <id> <slug>`.
+3. **Foto vere di Forge o dei clienti** (`03 - Materiali sito/`) solo per gli articoli che raccontano
+   quel cliente, con il suo permesso.
 
 Cosa si sceglie: una scena del mestiere che l'articolo racconta (sopralluogo, misure, cantiere, ufficio di
 un'impresa, preventivi sul tavolo), luce naturale, aspetto europeo e non americano, nessun logo o marchio

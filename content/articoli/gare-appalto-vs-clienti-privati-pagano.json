@@ -203,5 +203,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo come ti arrivano i clienti e come vendi oggi, e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/gare-appalto-vs-clienti-privati-pagano.jpg",
+  "featuredImageAlt": "Una stretta di mano davanti a una casa",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "geralt",
+    "pagina": "https://pixabay.com/photos/purchase-house-house-purchase-3347053/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "trattativa-3347053.jpg",
+    "ricerca": "trattativa"
+  }
 }

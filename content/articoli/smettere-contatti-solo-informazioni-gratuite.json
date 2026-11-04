@@ -206,5 +206,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo le richieste che ti arrivano oggi e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/smettere-contatti-solo-informazioni-gratuite.jpg",
+  "featuredImageAlt": "Chiavi, brugole, morsetto e metro a nastro sparsi su un tavolo di legno",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "falconp4",
+    "pagina": "https://pixabay.com/photos/tool-work-repair-roulette-wrench-2663036/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "sopralluogo-2663036.jpg",
+    "ricerca": "sopralluogo"
+  }
 }

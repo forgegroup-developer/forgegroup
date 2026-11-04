@@ -210,5 +210,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo come vendi oggi e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/perche-clienti-spariscono-dopo-preventivo.jpg",
+  "featuredImageAlt": "Un telefono fisso da ufficio sulla scrivania",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "ElasticComputeFarm",
+    "pagina": "https://pixabay.com/photos/telephone-technical-support-cisco-1223310/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "contatti-1223310.jpg",
+    "ricerca": "contatti"
+  }
 }

@@ -88,10 +88,65 @@ async function scarica(id, slug, radice = RADICE) {
   );
 }
 
+/**
+ * La raccolta di copertine già scaricate (content/copertine/, dal 04/11/2026): funziona senza
+ * internet, quindi anche nel cloud dove Pixabay non si raggiunge. Ogni foto ha un tema (un settore
+ * o un momento del lavoro), la descrizione di cosa si vede e la fonte. Si sceglie la meno usata del tema.
+ *   node scripts/copertina.mjs banca                        i temi e quante volte è usata ogni foto
+ *   node scripts/copertina.mjs banca <tema> <slug> [file]   copia la foto meno usata del tema (o quella
+ *        indicata) in public/images/blog/<slug>.jpg e stampa i campi, con la descrizione già scritta
+ */
+const BANCA = path.join(RADICE, "content", "copertine");
+
+function usiDellaBanca() {
+  const usi = {};
+  const cartella = path.join(RADICE, "content", "articoli");
+  for (const f of fs.readdirSync(cartella).filter((x) => x.endsWith(".json"))) {
+    const a = JSON.parse(fs.readFileSync(path.join(cartella, f), "utf8"));
+    if (a.copertina?.banca) usi[a.copertina.banca] = (usi[a.copertina.banca] ?? 0) + 1;
+  }
+  return usi;
+}
+
+function banca(tema, slug, file) {
+  const foto = JSON.parse(fs.readFileSync(path.join(BANCA, "banca.json"), "utf8"));
+  const usi = usiDellaBanca();
+  const temi = [...new Set(foto.map((f) => f.tema))];
+  if (!tema) {
+    console.log(JSON.stringify(Object.fromEntries(temi.map((t) => [t, foto.filter((f) => f.tema === t).map((f) => ({ file: f.file, usi: usi[f.file] ?? 0, alt: f.alt }))])), null, 1));
+    return;
+  }
+  if (!temi.includes(tema)) throw new Error(`tema "${tema}" non c'è. Temi: ${temi.join(", ")}`);
+  const candidate = foto.filter((f) => f.tema === tema).sort((x, y) => (usi[x.file] ?? 0) - (usi[y.file] ?? 0));
+  if (!slug) {
+    console.log(JSON.stringify(candidate.map((f) => ({ file: f.file, usi: usi[f.file] ?? 0, alt: f.alt })), null, 1));
+    return;
+  }
+  if (!/^[a-z0-9-]+$/.test(slug)) throw new Error("slug non valido");
+  const scelta = file ? candidate.find((f) => f.file === file) : candidate[0];
+  if (!scelta) throw new Error(`la foto ${file} non è nel tema ${tema}`);
+  const dest = path.join(RADICE, "public", "images", "blog", `${slug}.jpg`);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(path.join(BANCA, scelta.file), dest);
+  console.log(
+    JSON.stringify(
+      {
+        featuredImage: `/images/blog/${slug}.jpg`,
+        featuredImageAlt: scelta.alt,
+        copertina: { fonte: "Pixabay", autore: scelta.autore, pagina: scelta.pagina, licenza: scelta.licenza, banca: scelta.file, ricerca: tema },
+        giaUsata: usi[scelta.file] ?? 0,
+      },
+      null,
+      1
+    )
+  );
+}
+
 const [comando, ...resto] = process.argv.slice(2);
 if (comando === "cerca") await cerca(resto.join(" "));
 else if (comando === "scarica") await scarica(resto[0], resto[1], resto[2]);
+else if (comando === "banca") banca(resto[0], resto[1], resto[2]);
 else {
-  console.log('Uso: cerca "parole" | scarica <id> <slug>');
+  console.log('Uso: banca [tema] [slug] [file] | cerca "parole" | scarica <id> <slug>');
   process.exit(1);
 }

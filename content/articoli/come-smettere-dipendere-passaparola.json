@@ -209,5 +209,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo la tua zona e i tuoi numeri, e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/come-smettere-dipendere-passaparola.jpg",
+  "featuredImageAlt": "Una carriola piena di mattoni davanti a un muro in costruzione",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "sandid",
+    "pagina": "https://pixabay.com/photos/barrow-bricks-wheel-barrow-wall-420728/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "cantiere-420728.jpg",
+    "ricerca": "cantiere"
+  }
 }

@@ -205,5 +205,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo chi porta il rischio oggi e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/agenzia-marketing-percentuale-rischio-diviso.jpg",
+  "featuredImageAlt": "Una stretta di mano sopra un tavolo con fogli di grafici e un tablet",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "ccfb",
+    "pagina": "https://pixabay.com/photos/finance-bank-banking-business-4858797/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "trattativa-4858797.jpg",
+    "ricerca": "trattativa"
+  }
 }
