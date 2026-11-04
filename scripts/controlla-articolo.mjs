@@ -192,6 +192,15 @@ function controlla(file, esistenti) {
   if (a.description.length < 140 || a.description.length > 155) errori.push(`description di ${a.description.length} caratteri (da 140 a 155, guida §8)`);
   if (!CATEGORIE.includes(a.category)) errori.push(`categoria "${a.category}": deve essere una di ${CATEGORIE.join(", ")}`);
   if (![1, 2, 3, 4, 5].includes(a.livello)) errori.push("livello: un numero da 1 a 5");
+  // Dal 05/11/2026 ogni articolo nuovo viene da una voce della mappa per settore
+  // (content/mappa-settori.json, decisione della proprietà del 04/11/2026).
+  if (a.date >= "2026-11-05" && !a.riscrittura) {
+    const mappa = JSON.parse(fs.readFileSync(path.join(RADICE, "content", "mappa-settori.json"), "utf8"));
+    const voce = mappa.voci.find((v) => v.id === a.mappa);
+    if (!a.settore || !mappa.settori[a.settore]) errori.push(`settore: uno di ${Object.keys(mappa.settori).join(", ")} (mappa per settore)`);
+    if (!voce) errori.push(`mappa: l'id di una voce di content/mappa-settori.json (trovato "${a.mappa ?? ""}")`);
+    else if (voce.settore !== a.settore) errori.push(`mappa: la voce ${voce.id} è del settore ${voce.settore}, non ${a.settore}`);
+  }
   if (!Array.isArray(a.tags) || a.tags.length < 3 || a.tags.length > 5) errori.push("tags: da 3 a 5");
   if (!["marco", "gianpio"].includes(a.autore)) errori.push('autore: "marco" o "gianpio"');
   for (const riga of ["problema", "causa", "cambia"]) {
@@ -222,8 +231,10 @@ function controlla(file, esistenti) {
 
   // La copertina (regole delle immagini in src/data/images.ts): file presente, sotto i 300 KB,
   // descrizione di cosa si vede, fonte e licenza.
+  // Dal 04/11/2026 senza copertina l'articolo non esce (sette articoli erano usciti con quella
+  // generica perché il cloud non raggiungeva Pixabay): c'è la raccolta, `copertina.mjs banca`.
   if (!a.featuredImage) {
-    avvisi.push("nessuna copertina: il sito userà quella generica (passo 4 bis del Redattore)");
+    errori.push("nessuna copertina: scegline una con `node scripts/copertina.mjs banca <tema> <slug>` (passo 4 bis del Redattore)");
   } else if (a.featuredImage.startsWith("/images/blog/")) {
     const f = path.join(RADICE, "public", a.featuredImage);
     if (!fs.existsSync(f)) errori.push(`copertina: il file ${a.featuredImage} non c'è in public/`);

@@ -159,5 +159,15 @@
       "type": "cta",
       "text": "Richiedi lo studio di fattibilità: guardiamo come ti arrivano i clienti e come vendi oggi, e ti diciamo se ha senso lavorare insieme."
     }
-  ]
+  ],
+  "featuredImage": "/images/blog/pagamenti-lavori-edili-acconto-saldo.jpg",
+  "featuredImageAlt": "Una calcolatrice e una penna stilografica su un foglio firmato",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "jarmoluk",
+    "pagina": "https://pixabay.com/photos/document-agreement-documents-sign-428338/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "preventivi-428338.jpg",
+    "ricerca": "preventivi"
+  }
 }

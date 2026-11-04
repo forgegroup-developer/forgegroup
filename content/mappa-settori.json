@@ -1,0 +1,401 @@
+{
+ "_leggimi": "Mappa per settore del blog, decisa dalla proprietà il 04/11/2026. La legge scripts/coda-articoli.mjs, che propone al Redattore la prossima voce alternando i settori. Ogni articolo scritto da qui porta nel suo file \"settore\" e \"mappa\" (l'id della voce). Gli argomenti vengono da quello che funziona già: i testi più forti del concorrente A (codici in \"concorrente\", da leggere con cerca.py --leggi; mai le sue frasi) e la prima pagina di Google (\"serp\", vista il 04/11/2026 dagli Stati Uniti, da ricontrollare). Volumi solo dagli studi del 28/08 e del 03/09: dove non c'è il numero, \"non misurata\". Il materiale vero (Banca, consulenze) entra DENTRO l'articolo come prova, non ne decide l'argomento. Livelli: 1 inconsapevole, 2 consapevole del problema, 3 consapevole della soluzione, 4 del prodotto (chi cerca già un'agenzia).",
+ "settori": {
+  "serramenti": "serramentisti e showroom di infissi",
+  "arredo-negozi": "aziende di arredamento e allestimento negozi",
+  "fotovoltaico": "installatori di fotovoltaico",
+  "tetti": "imprese di coperture, tetti e lattoneria",
+  "ristrutturazioni": "imprese di ristrutturazione",
+  "impianti": "impiantisti: termoidraulica, pompe di calore, climatizzazione",
+  "edilizia": "imprese edili in generale (parole su agenzia e marketing senza settore)"
+ },
+ "voci": [
+  {
+   "id": "arredo-negozi-1",
+   "settore": "arredo-negozi",
+   "livello": 1,
+   "parolaChiave": "arredamento negozi clienti",
+   "secondarie": [
+    "allestimento negozi",
+    "arredo negozi preventivo"
+   ],
+   "titolo": "Arredo negozi: il progetto disegnato gratis che il cliente porta a un altro",
+   "volume": "arredamento negozi 100-1K / 1K-10K; allestimento negozi 10-100 / 100-1K (28/08)",
+   "concorrente": [
+    "principale:blog/progetto-preliminare-ristrutturazione-strumento-vendita"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "arredo-negozi-2",
+   "settore": "arredo-negozi",
+   "livello": 2,
+   "parolaChiave": "arredo negozi prezzo",
+   "secondarie": [
+    "arredamento negozi concorrenza",
+    "vendere arredamento per negozi"
+   ],
+   "titolo": "Arredo per negozi: vendere al prezzo giusto quando la concorrenza taglia",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/metodo-vendita-per-aziende-in-edilizia"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "arredo-negozi-3",
+   "settore": "arredo-negozi",
+   "livello": 3,
+   "parolaChiave": "trovare clienti arredamento negozi",
+   "secondarie": [
+    "come trovare negozi da arredare",
+    "marketing arredamento negozi"
+   ],
+   "titolo": "Come trovare clienti per l'arredamento negozi: chi apre, chi rinnova, chi decide",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/sistema-lead-generation-architetti-geometri"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "arredo-negozi-4",
+   "settore": "arredo-negozi",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing arredamento negozi",
+   "secondarie": [
+    "marketing per aziende di arredo negozi",
+    "agenzia marketing arredo"
+   ],
+   "titolo": "Agenzia di marketing per l'arredo negozi: cosa deve sapere del tuo mestiere",
+   "volume": "non misurata",
+   "concorrente": [
+    "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+   ],
+   "serp": "04/11: nessuna agenzia del settore in prima pagina, solo elenchi Semrush, annunci di lavoro e directory: posto libero"
+  },
+  {
+   "id": "edilizia-agenzia-4",
+   "settore": "edilizia",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing edilizia",
+   "secondarie": [
+    "agenzia di marketing per imprese edili",
+    "migliore agenzia marketing edilizia"
+   ],
+   "titolo": "Agenzia di marketing per l'edilizia: cosa fa davvero e cosa no",
+   "volume": "sotto soglia (28/08 e 03/09): presidio SEO e GEO",
+   "concorrente": [
+    "principale:blog/agenzia-marketing-edilizia-risultati",
+    "principale:blog/gestione-edilizia-comunicare-valore"
+   ],
+   "serp": "04/11: due articoli su una sola agenzia (trend-online, ediltecnico), elenchi Semrush esteri: posto libero"
+  },
+  {
+   "id": "edilizia-marketing-3",
+   "settore": "edilizia",
+   "livello": 3,
+   "parolaChiave": "marketing edilizia",
+   "secondarie": [
+    "marketing per edilizia",
+    "marketing per aziende edili"
+   ],
+   "titolo": "Marketing per l'edilizia: da dove parte un'impresa che non l'ha mai fatto",
+   "volume": "marketing edilizia 10-100; marketing per aziende edili 10-100 (28/08)",
+   "concorrente": [
+    "principale:blog/marketing-impresa-edile"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "ristrutturazioni-1",
+   "settore": "ristrutturazioni",
+   "livello": 1,
+   "parolaChiave": "preventivo ristrutturazione casa",
+   "secondarie": [
+    "progetto ristrutturazione gratis",
+    "sopralluogo ristrutturazione"
+   ],
+   "titolo": "Ristrutturazione: il progetto regalato che finisce in mano a un'altra impresa",
+   "volume": "preventivo ristrutturazione casa 1K-10K (28/08, ricerca dei privati)",
+   "concorrente": [
+    "principale:blog/progetto-preliminare-ristrutturazione-strumento-vendita"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "ristrutturazioni-2",
+   "settore": "ristrutturazioni",
+   "livello": 2,
+   "parolaChiave": "ristrutturazioni clienti che chiedono solo il prezzo",
+   "secondarie": [
+    "ristrutturazione chiavi in mano",
+    "clienti ristrutturazioni"
+   ],
+   "titolo": "Ristrutturazioni chiavi in mano: perché il cliente confronta solo il totale",
+   "volume": "ristrutturazione chiavi in mano 100-1K (28/08)",
+   "concorrente": [
+    "principale:blog/caso-studio-edilizia"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "ristrutturazioni-3",
+   "settore": "ristrutturazioni",
+   "livello": 3,
+   "parolaChiave": "come trovare clienti per ristrutturazioni",
+   "secondarie": [
+    "trovare clienti ristrutturazioni",
+    "marketing ristrutturazioni"
+   ],
+   "titolo": "Come trovare clienti per ristrutturazioni senza comprare contatti dai portali",
+   "volume": "Ristrutturazioni sotto soglia (03/09)",
+   "concorrente": [
+    "agenzia:come-trovare-clienti-per-ristrutturazioni"
+   ],
+   "serp": "04/11: portali di preventivi (Cronoshare), TeamSystem, Ranktracker; il concorrente A ha un testo dedicato"
+  },
+  {
+   "id": "ristrutturazioni-4",
+   "settore": "ristrutturazioni",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing ristrutturazioni",
+   "secondarie": [
+    "marketing per imprese di ristrutturazione"
+   ],
+   "titolo": "Agenzia di marketing per imprese di ristrutturazione: cosa chiederle",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/agenzia-marketing-edilizia-risultati"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "tetti-1",
+   "settore": "tetti",
+   "livello": 1,
+   "parolaChiave": "rifacimento tetto preventivo",
+   "secondarie": [
+    "coperture tetti clienti",
+    "sopralluogo tetto"
+   ],
+   "titolo": "Rifacimento del tetto: il sopralluogo sul tetto fatto per chi voleva solo un prezzo",
+   "volume": "rifacimento tetto 10-100 / 1K-10K; coperture tetti 100-1K / 1K-10K (28/08)",
+   "concorrente": [
+    "principale:blog/sopralluogo-e-preventivo-in-edilizia"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "tetti-2",
+   "settore": "tetti",
+   "livello": 2,
+   "parolaChiave": "trovare clienti coperture",
+   "secondarie": [
+    "clienti per impresa di coperture",
+    "lavoro tetti stagionale"
+   ],
+   "titolo": "Impresa di coperture: perché il lavoro arriva tutto insieme e poi sparisce",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/clienti-per-imprese-edili"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "tetti-3",
+   "settore": "tetti",
+   "livello": 3,
+   "parolaChiave": "marketing per imprese di coperture",
+   "secondarie": [
+    "marketing tetti",
+    "pubblicità impresa coperture"
+   ],
+   "titolo": "Marketing per imprese di coperture: cosa funziona in Italia",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/marketing-impresa-edile"
+   ],
+   "serp": "04/11: solo guide americane e inglesi (roofing marketing), niente in italiano: posto libero"
+  },
+  {
+   "id": "tetti-4",
+   "settore": "tetti",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing coperture tetti",
+   "secondarie": [
+    "agenzia marketing per impresa tetti"
+   ],
+   "titolo": "Agenzia di marketing per chi rifà tetti: le domande da fare",
+   "volume": "non misurata",
+   "concorrente": [
+    "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "impianti-1",
+   "settore": "impianti",
+   "livello": 1,
+   "parolaChiave": "impiantista preventivo pompa di calore",
+   "secondarie": [
+    "preventivo climatizzatore",
+    "sopralluogo impianto"
+   ],
+   "titolo": "Pompa di calore: il preventivo fatto in giornata che il cliente usa per trattare con un altro",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/sopralluogo-e-preventivo-in-edilizia"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "impianti-3",
+   "settore": "impianti",
+   "livello": 3,
+   "parolaChiave": "impiantista come trovare clienti",
+   "secondarie": [
+    "trovare clienti termoidraulica",
+    "marketing impiantisti"
+   ],
+   "titolo": "Impiantista: come trovare clienti per i lavori programmati, non solo per le urgenze",
+   "volume": "Impiantisti / idraulici sotto soglia (03/09)",
+   "concorrente": [
+    "principale:blog/impiantista-come-trovare-clienti"
+   ],
+   "serp": "04/11: business plan, portali di preventivi, schede di aziende; il testo del concorrente A è il più completo"
+  },
+  {
+   "id": "impianti-4",
+   "settore": "impianti",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing impiantisti",
+   "secondarie": [
+    "marketing per impiantisti",
+    "agenzia marketing termoidraulica"
+   ],
+   "titolo": "Agenzia di marketing per impiantisti: come distinguere chi porta lavoro",
+   "volume": "non misurata",
+   "concorrente": [
+    "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "fotovoltaico-1",
+   "settore": "fotovoltaico",
+   "livello": 1,
+   "parolaChiave": "installatore fotovoltaico clienti",
+   "secondarie": [
+    "vendere fotovoltaico",
+    "preventivo fotovoltaico"
+   ],
+   "titolo": "Fotovoltaico: quando il cliente chiede solo quanto costa al kilowatt",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/vendere-in-edilizia"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "fotovoltaico-3",
+   "settore": "fotovoltaico",
+   "livello": 3,
+   "parolaChiave": "marketing fotovoltaico",
+   "secondarie": [
+    "marketing per installatori fotovoltaico",
+    "contatti fotovoltaico"
+   ],
+   "titolo": "Marketing per installatori di fotovoltaico: richieste vere o liste comprate",
+   "volume": "trovare clienti fotovoltaico 10-100, CPC 3,17 € (03/09)",
+   "concorrente": [
+    "agenzia:pubblicita-su-google-o-su-facebook-cosa-e-meglio-per-la-tua-azienda"
+   ],
+   "serp": "04/11: newsletter di settore, directory e portali di contatti; nessuna guida per il titolare"
+  },
+  {
+   "id": "fotovoltaico-4",
+   "settore": "fotovoltaico",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing fotovoltaico",
+   "secondarie": [
+    "agenzia per installatori fotovoltaico",
+    "lead fotovoltaico"
+   ],
+   "titolo": "Agenzia di marketing per il fotovoltaico: come capire se porta contratti",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/agenzia-marketing-edilizia-risultati"
+   ],
+   "serp": "04/11: portali di contatti e directory, nessuna agenzia italiana chiara"
+  },
+  {
+   "id": "serramenti-1",
+   "settore": "serramenti",
+   "livello": 1,
+   "parolaChiave": "showroom serramenti clienti",
+   "secondarie": [
+    "clienti showroom infissi",
+    "vendere infissi"
+   ],
+   "titolo": "Lo showroom pieno il sabato e le offerte che restano sul tavolo",
+   "volume": "non misurata",
+   "concorrente": [
+    "principale:blog/strategie-di-vendita-per-showroom",
+    "serramenti:come-vendere-infissi"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "serramenti-2",
+   "settore": "serramenti",
+   "livello": 2,
+   "parolaChiave": "preventivo infissi",
+   "secondarie": [
+    "preventivo serramenti cliente non risponde",
+    "sostituzione infissi"
+   ],
+   "titolo": "Preventivo infissi: perché il cliente lo gira a tre concorrenti",
+   "volume": "sostituzione infissi 10-100 / 100-1K (28/08)",
+   "concorrente": [
+    "serramenti:come-fare-un-preventivo-infissi"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "serramenti-3",
+   "settore": "serramenti",
+   "livello": 3,
+   "parolaChiave": "trovare clienti serramenti",
+   "secondarie": [
+    "come trovare clienti per infissi",
+    "marketing serramenti"
+   ],
+   "titolo": "Come trovare clienti per i serramenti senza vivere di passaparola",
+   "volume": "trovare clienti serramenti sotto soglia; marketing serramenti 10-100 (28/08)",
+   "concorrente": [
+    "principale:blog/marketing-infissi",
+    "serramenti:aprire-un-negozio-di-serramenti"
+   ],
+   "serp": "da cercare"
+  },
+  {
+   "id": "serramenti-4",
+   "settore": "serramenti",
+   "livello": 4,
+   "parolaChiave": "agenzia marketing serramenti",
+   "secondarie": [
+    "agenzia marketing per serramentisti",
+    "marketing per serramentisti"
+   ],
+   "titolo": "Agenzia di marketing per serramentisti: le domande da fare prima di firmare",
+   "volume": "marketing per serramentisti 10-100, CPC fino a 8,63 € (03/09)",
+   "concorrente": [
+    "principale:blog/marketing-infissi",
+    "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+   ],
+   "serp": "da cercare"
+  }
+ ],
+ "_ordine": "Le voci sono in ordine di priorità: prima i settori mai coperti (arredo negozi, agenzia di marketing per l'edilizia), per ultimi i serramenti, già trattati in tre articoli prima del 04/11."
+}

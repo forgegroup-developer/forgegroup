@@ -55,6 +55,13 @@ Il livello 1 non vende e non nomina Forge come soluzione; il 2 apre con la frase
 il conto; il 3 porta prove e "in pratica"; il 4 e il 5 invitano. Se il livello è sbagliato,
 dillo e indica quale sarebbe giusto.
 
+**2 bis. Il settore** (dal 04/11/2026). L'articolo parla al titolare del settore della sua voce
+(`settore` e `mappa`, in `content/mappa-settori.json`)? Nelle prime righe un serramentista, un'azienda
+di arredo negozi, un installatore, un impiantista si riconosce nel suo lavoro e nelle sue parole?
+Se l'articolo racconta soprattutto una nostra situazione specifica (un cliente, una consulenza) invece
+del problema del settore, è un errore: il materiale vero è la prova, non l'argomento. Un articolo
+senza materiale vero va bene, se non inventa scene, numeri o frasi.
+
 **3. La voce.** Regole v2: frasi intere di 15-20 parole, paragrafi di una o due frasi, seconda
 persona singolare, apertura con la frase del cliente o una scena vera, il conto davanti al
 lettore, le parole esatte da dire, diretto ma con la soluzione subito dopo.

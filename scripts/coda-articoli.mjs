@@ -15,7 +15,11 @@
  * I conti li fa questo script, non il modello.
  */
 import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import { prElenco } from "./github.mjs";
+
+const RADICE = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 
 const OBIETTIVO_CODA = 7;
 const MASSIMO_BOZZE = 2;
@@ -83,10 +87,29 @@ for (const a of futuri) {
   if (g > prossimo) prossimo = g;
 }
 
+// La mappa per settore (decisione della proprietà del 04/11/2026): la prossima voce non ancora
+// scritta, di un settore diverso da quello degli ultimi due articoli; prima i settori meno coperti.
+function prossimaVoce() {
+  const mappa = JSON.parse(fs.readFileSync(path.join(RADICE, "content", "mappa-settori.json"), "utf8"));
+  const scritte = new Set(tutti.map((a) => a.mappa).filter(Boolean));
+  const recenti = tutti
+    .filter((a) => a.settore)
+    .sort((x, y) => y.date.localeCompare(x.date))
+    .slice(0, 2)
+    .map((a) => a.settore);
+  const libere = mappa.voci.filter((v) => !scritte.has(v.id));
+  const usatiPerSettore = (s) => tutti.filter((a) => a.settore === s).length;
+  const ordinate = libere
+    .filter((v) => !recenti.includes(v.settore))
+    .sort((x, y) => usatiPerSettore(x.settore) - usatiPerSettore(y.settore) || mappa.voci.indexOf(x) - mappa.voci.indexOf(y));
+  return { prossimaVoce: ordinate[0] ?? libere[0] ?? null, vociLibere: libere.length, ultimiSettori: recenti };
+}
+
 console.log(
   JSON.stringify(
     {
       oggi: giorno(adesso),
+      ...prossimaVoce(),
       inCoda: inCoda.length,
       obiettivo: OBIETTIVO_CODA,
       daScrivere,
@@ -98,7 +121,7 @@ console.log(
       coda: inCoda
         .sort((x, y) => x.date.localeCompare(y.date))
         .map((a) => ({ date: a.date, slug: a.slug, argomento: a.argomento, livello: a.livello, autore: a.autore, fonte: a.fonte })),
-      giaScritti: tutti.map((a) => ({ argomento: a.argomento, livello: a.livello, slug: a.slug })),
+      giaScritti: tutti.map((a) => ({ argomento: a.argomento, livello: a.livello, slug: a.slug, settore: a.settore, mappa: a.mappa })),
     },
     null,
     2
