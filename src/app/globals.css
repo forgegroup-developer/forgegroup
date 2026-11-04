@@ -2755,6 +2755,43 @@ html[data-video-playing="true"] .forge-gooey-blob-interactive {
   object-fit: cover;
 }
 
+/* Player di YouTube sopra, copertina che porta a YouTube sotto.
+   iubenda blocca l'iframe senza consenso ai cookie (src="about:blank"):
+   allora l'iframe sparisce e resta la copertina, leggibile e cliccabile. */
+.cornice-video iframe {
+  z-index: 1;
+  border: 0;
+}
+
+.cornice-video iframe[src="about:blank"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.video-ripiego {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.video-ripiego img {
+  object-fit: cover;
+}
+
+.video-ripiego-etichetta {
+  position: absolute;
+  right: 0.875rem;
+  bottom: 0.875rem;
+  z-index: 1;
+  padding: 0.5rem 0.875rem;
+  border-radius: 999px;
+  background-color: rgba(20, 12, 8, 0.82);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
 .avvia-video {
   position: absolute;
   inset: 0;
