@@ -367,10 +367,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                Google deve trovare il video nell'HTML per mostrarlo. */
             <div className="mt-16 grid items-start gap-6 sm:gap-8 md:mt-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
                 <div className="cornice-video min-w-0">
-                  <VideoYouTube
-                    label={`Videorecensione ${clientName}: ${c.resultHeadline}`}
-                    sizes="(min-width: 1024px) 574px, 100vw"
-                  />
+                  <VideoYouTube label={`Videorecensione ${clientName}: ${c.resultHeadline}`} />
                 </div>
 
                 <div className="card-xl superficie-chiara min-w-0 rounded-2xl border p-6 md:p-8">
