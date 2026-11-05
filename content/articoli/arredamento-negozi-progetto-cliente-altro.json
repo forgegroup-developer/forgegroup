@@ -1,7 +1,7 @@
 {
   "slug": "arredamento-negozi-progetto-cliente-altro",
   "title": "Arredamento negozi: i clienti che portano il progetto a un altro",
-  "description": "Nell'arredamento negozi, i clienti che ricevono il progetto prima di firmare a volte lo portano a un altro. Perché succede, e cosa cambia se non esce.",
+  "description": "Nell'arredamento negozi, i clienti che hanno il progetto prima di firmare a volte lo portano a un altro. Cosa cambia se il progetto non esce dall'ufficio.",
   "category": "Clienti e sopralluoghi",
   "date": "2026-11-06",
   "publishAt": "2026-11-06T09:00:00+01:00",
@@ -59,11 +59,11 @@
   "content": [
     {
       "type": "p",
-      "text": "Hai fatto il rilievo del locale, hai disegnato la pianta con il banco cassa e le vetrine, e il cliente ti chiede di mandargli tutto su WhatsApp per guardarlo con calma."
+      "text": "Hai fatto il rilievo del locale e hai disegnato la pianta con il banco cassa e le vetrine. Poi il cliente ti chiede di mandargli tutto su WhatsApp, per guardarlo con calma."
     },
     {
       "type": "p",
-      "text": "Chi fa arredamento negozi conosce bene questo momento, perché nel suo mestiere il progetto pesa più che altrove: senza il progetto non c'è un prezzo da fare."
+      "text": "Chi fa arredamento negozi conosce bene questo momento. Nel suo mestiere il progetto pesa più che altrove: senza progetto non c'è un prezzo da fare."
     },
     {
       "type": "p",
@@ -75,7 +75,7 @@
     },
     {
       "type": "p",
-      "text": "Da lì in avanti il progetto è un file sul telefono di un altro, e tu non sai più chi lo apre, a chi lo mostra e con quale domanda."
+      "text": "Da lì in avanti il progetto è un file sul telefono del cliente. E tu non sai più chi lo apre, a chi lo mostra e con quale domanda."
     },
     {
       "type": "h2",
@@ -130,7 +130,7 @@
     },
     {
       "type": "p",
-      "text": "La regola è questa: ogni cosa che dai al cliente va accompagnata da un INCONTRO."
+      "text": "Da lì la regola: ogni cosa che dai al cliente va accompagnata da un INCONTRO."
     },
     {
       "type": "h2",
@@ -138,7 +138,11 @@
     },
     {
       "type": "p",
-      "text": "Nel tuo settore la concorrenza è tanta e i prezzi sono schiacciati. Quando due offerte si somigliano, la differenza sta quasi tutta nel progetto: come hai risolto l'ingombro della cassa, dove hai messo la vetrina, quanta merce entra sulla parete di fondo."
+      "text": "Nel tuo settore la concorrenza è tanta e i prezzi sono schiacciati. Quando due offerte si somigliano, la differenza sta quasi tutta nel progetto."
+    },
+    {
+      "type": "p",
+      "text": "Come hai risolto l'ingombro della cassa, dove hai messo la vetrina, quanta merce entra sulla parete di fondo."
     },
     {
       "type": "p",
@@ -146,11 +150,11 @@
     },
     {
       "type": "p",
-      "text": "Poi c'è la data di apertura. Con quella data che si avvicina, il cliente vuole il progetto in mano per confrontare in fretta, ed è proprio lì che un incontro, anche in videochiamata, ti tiene dentro il confronto."
+      "text": "Poi c'è la data di apertura. Quando si avvicina, il cliente vuole il progetto in mano per confrontare in fretta. È proprio lì che un incontro, anche in videochiamata, ti tiene dentro il confronto."
     },
     {
       "type": "p",
-      "text": "Di quanto può pesare un progetto fatto sulle misure vere, quando il cliente mette le offerte una accanto all'altra, ho scritto raccontando [il rilievo delle misure che ha fatto scegliere un'impresa](/blog/rilievo-misure-vetrine-porta): lì il cliente ha scelto anche per il rilievo fatto sul posto."
+      "text": "Di quanto può pesare un progetto fatto sulle misure vere ho scritto raccontando [il rilievo delle misure che ha fatto scegliere un'impresa](/blog/rilievo-misure-vetrine-porta). Lì il cliente aveva più offerte in mano, e ha scelto anche per il rilievo fatto sul posto."
     },
     {
       "type": "h2",
@@ -178,7 +182,7 @@
     },
     {
       "type": "p",
-      "text": "Se il problema dei sopralluoghi e dei progetti dati a chi poi non compra lo senti anche tu, ho messo in fila il conto di un anno in [sopralluoghi e preventivi a vuoto: quanto ti costano](/blog/sopralluoghi-a-vuoto-quanto-costano)."
+      "text": "Se senti anche tu il problema dei sopralluoghi e dei progetti dati a chi poi non compra, c'è il conto di un anno. L'ho messo in fila in [sopralluoghi e preventivi a vuoto: quanto ti costano](/blog/sopralluoghi-a-vuoto-quanto-costano)."
     }
   ],
   "featuredImage": "/images/blog/arredamento-negozi-progetto-cliente-altro.jpg",
