@@ -1,7 +1,7 @@
 {
   "slug": "arredamento-negozi-progetto-cliente-altro",
   "title": "Arredamento negozi: i clienti che portano il progetto a un altro",
-  "description": "Nell'arredamento negozi clienti che ricevono il progetto prima di firmare a volte lo portano a un altro. Una scena da una consulenza, e cosa insegna.",
+  "description": "Nell'arredamento negozi, i clienti che ricevono il progetto prima di firmare a volte lo portano a un altro. Perché succede, e cosa cambia se non esce.",
   "category": "Clienti e sopralluoghi",
   "date": "2026-11-06",
   "publishAt": "2026-11-06T09:00:00+01:00",
@@ -20,7 +20,7 @@
   "mappa": "arredo-negozi-1",
   "autore": "gianpio",
   "inBreve": {
-    "problema": "Nell'arredamento negozi clienti che ricevono il progetto prima di firmare a volte lo portano a un altro arredatore, e il progetto è metà del lavoro.",
+    "problema": "Nell'arredamento negozi, i clienti che ricevono il progetto prima di firmare a volte lo portano a un altro arredatore, insieme alle ore che ci hai messo.",
     "causa": "Il progetto esce dall'ufficio come un file da guardare con calma: chi lo riceve dopo non deve fare il rilievo né pensare il negozio, deve solo fare un prezzo.",
     "cambia": "In un'azienda di arredamento negozi che seguiamo si è deciso così: il piano dei lavori si presenta di persona o in videochiamata, e non si lascia in copia prima della firma."
   },
@@ -44,54 +44,58 @@
   },
   "faqs": [
     {
-      "q": "Come evitare che il cliente porti il progetto del negozio a un altro arredatore?",
-      "a": "Non lasciandogli il progetto in copia prima della firma. In un'azienda di arredamento negozi che seguiamo il piano dei lavori si presenta solo di persona, in sede, o in videochiamata con lo schermo condiviso: il cliente lo vede tutto e fa le sue domande, ma non ha un file da girare a un altro per farsi fare un prezzo."
+      "q": "Arredamento negozi: come evitare che i clienti portino il progetto a un altro arredatore?",
+      "a": "Non lasciando il progetto in copia prima della firma. In un'azienda di arredamento negozi che seguiamo il piano dei lavori si presenta solo di persona, in sede, o in videochiamata con lo schermo condiviso: il cliente lo vede tutto e fa le sue domande, ma non ha un file da girare a un altro per farsi fare un prezzo."
     },
     {
-      "q": "Conviene mandare il preventivo di arredo negozi su WhatsApp?",
-      "a": "In chat il preventivo arriva subito, ma porta con sé due rischi: che il cliente lo inoltri a un concorrente e che, letto fra un messaggio e l'altro, valga meno di un documento spiegato a voce. Per questo conviene fissare un incontro, anche in videochiamata, e presentarlo davanti al cliente."
+      "q": "Si può lasciare al cliente una copia del progetto del negozio prima che firmi?",
+      "a": "Conviene di no. Il cliente il progetto lo vede tutto, di persona o in videochiamata con lo schermo condiviso, e fa le sue domande; la copia arriva con la firma. Un file lasciato prima si inoltra a un altro arredatore, e in chat vale meno di un progetto spiegato a voce."
     },
     {
       "q": "Perché nell'allestimento negozi il progetto conta così tanto?",
-      "a": "Perché quando le offerte si somigliano nel prezzo, la differenza sta nel progetto: dove va il banco cassa, come sono messe le vetrine, quanta merce entra sulle pareti. È il lavoro che richiede più ore, ed è proprio quello che il cliente si porta via se lo riceve prima di firmare."
+      "a": "Perché quando le offerte si somigliano nel prezzo, la differenza sta nel progetto: dove va il banco cassa, come sono messe le vetrine, quanta merce entra sulle pareti. È un lavoro di ore, ed è proprio quello che il cliente si porta via se lo riceve prima di firmare."
     }
   ],
   "content": [
     {
-      "type": "quote",
-      "text": "Vado a fare i sopralluoghi, faccio i preventivi, mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro."
+      "type": "p",
+      "text": "Hai fatto il rilievo del locale, hai disegnato la pianta con il banco cassa e le vetrine, e il cliente ti chiede di mandargli tutto su WhatsApp per guardarlo con calma."
     },
     {
       "type": "p",
-      "text": "È una frase che abbiamo sentito dai titolari con cui parliamo. Chi fa arredamento negozi la riconosce prima degli altri, perché nel suo mestiere il progetto non è un di più: è metà del lavoro."
+      "text": "Chi fa arredamento negozi conosce bene questo momento, perché nel suo mestiere il progetto pesa più che altrove: senza il progetto non c'è un prezzo da fare."
     },
     {
       "type": "p",
-      "text": "Prima di arrivare a un prezzo ci sono il rilievo del locale, la pianta con il banco cassa e le vetrine, le scaffalature a parete pensate sulla merce che il negozio deve esporre, spesso una vista in 3D per far capire al cliente come sarà il negozio quando ci entra."
+      "text": "Prima di arrivare a un prezzo c'è il rilievo del locale. Poi la pianta con il banco cassa e le vetrine, e le scaffalature pensate sulla merce che il negozio deve esporre."
     },
     {
       "type": "p",
-      "text": "Sono ore di lavoro, tue o del tuo ufficio tecnico. Poi arriva il momento in cui quel lavoro esce dall'ufficio: un PDF, una mail, un messaggio sul telefono del cliente."
+      "text": "Poi arriva il momento in cui quel lavoro esce dall'ufficio: un PDF, una mail, un messaggio sul telefono del cliente."
+    },
+    {
+      "type": "p",
+      "text": "Da lì in avanti il progetto è un file sul telefono di un altro, e tu non sai più chi lo apre, a chi lo mostra e con quale domanda."
     },
     {
       "type": "h2",
-      "text": "IL PREVENTIVO CHIESTO SU WHATSAPP"
+      "text": "QUANDO IL CLIENTE TI CHIEDE IL PROGETTO SU WHATSAPP"
     },
     {
       "type": "p",
-      "text": "Questa scena viene da [un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale), e ne abbiamo parlato fra agosto e settembre, durante le [consulenze che facciamo con loro](/servizi)."
+      "text": "Ci è capitato di parlarne con [un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale), fra agosto e settembre, nelle consulenze che facciamo con loro."
     },
     {
       "type": "p",
-      "text": "Un cliente insisteva per avere il preventivo scritto, su WhatsApp. Lo voleva lì, in chat, da guardare per conto suo."
+      "text": "Un cliente insisteva per avere il preventivo scritto, su WhatsApp."
     },
     {
       "type": "p",
-      "text": "Sembra la richiesta più normale del mondo. Chi deve aprire un negozio ha poco tempo, vuole guardare le cose con calma, magari farle vedere a chi decide con lui."
+      "text": "È una richiesta normale. Chi deve aprire un negozio ha poco tempo, e vuole guardare le cose quando può, magari con chi decide insieme a lui."
     },
     {
       "type": "p",
-      "text": "In consulenza, con il titolare, abbiamo messo sul tavolo i rischi di quel messaggio. Sono due, e nessuno dei due si vede nel momento in cui premi invio."
+      "text": "In consulenza abbiamo messo sul tavolo due rischi."
     },
     {
       "type": "ul",
@@ -106,7 +110,7 @@
     },
     {
       "type": "p",
-      "text": "Ecco la cosa che nel mestiere si dice poco. Il cliente che porta il tuo progetto a un altro arredatore non deve per forza essere in malafede."
+      "text": "Il cliente che porta il tuo progetto a un altro arredatore non deve per forza essere in malafede."
     },
     {
       "type": "p",
@@ -114,19 +118,23 @@
     },
     {
       "type": "p",
-      "text": "Chi riceve quel file, invece, parte con un vantaggio che non si è guadagnato. Non deve fare il rilievo, non deve pensare la disposizione, non deve capire il negozio. Deve solo fare un prezzo, e il tuo lavoro diventa la base della sua offerta."
+      "text": "Chi riceve quel file, invece, non deve fare il rilievo né pensare la disposizione: deve solo fare un prezzo, e il tuo disegno diventa il suo."
     },
     {
       "type": "p",
-      "text": "Per questo, quel giorno, la decisione dell'azienda è stata netta: il piano dei lavori si presenta solo di persona, in sede, o in una videochiamata con lo schermo condiviso. E non si lascia in copia prima della firma."
+      "text": "Per questo la decisione è stata questa: il piano dei lavori si presenta solo di persona, in sede, o in una videochiamata con lo schermo condiviso. E non si lascia in copia prima della firma."
     },
     {
       "type": "p",
-      "text": "La regola che ne è uscita sta in una riga: ogni cosa che dai al cliente va accompagnata da un INCONTRO."
+      "text": "Il cliente il progetto lo vede tutto, fa le sue domande, chiede quello che vuole cambiare. La copia arriva con la firma, insieme al lavoro."
+    },
+    {
+      "type": "p",
+      "text": "La regola è questa: ogni cosa che dai al cliente va accompagnata da un INCONTRO."
     },
     {
       "type": "h2",
-      "text": "PERCHÉ NELL'ARREDO NEGOZI PESA DI PIÙ"
+      "text": "PERCHÉ NELL'ARREDAMENTO NEGOZI I CLIENTI CONFRONTANO IL PROGETTO"
     },
     {
       "type": "p",
@@ -138,11 +146,11 @@
     },
     {
       "type": "p",
-      "text": "C'è anche il calendario. Chi apre un negozio ha quasi sempre una data, il giorno dell'apertura, e in quelle settimane raccoglie offerte da più aziende e le mette una accanto all'altra."
+      "text": "Poi c'è la data di apertura. Con quella data che si avvicina, il cliente vuole il progetto in mano per confrontare in fretta, ed è proprio lì che un incontro, anche in videochiamata, ti tiene dentro il confronto."
     },
     {
       "type": "p",
-      "text": "Di quanto può pesare un progetto fatto sulle misure vere, in quel confronto, ho scritto raccontando [il rilievo delle misure che ha fatto scegliere un'impresa](/blog/rilievo-misure-vetrine-porta): lì il cliente ha scelto anche per il lavoro che si vedeva nell'offerta."
+      "text": "Di quanto può pesare un progetto fatto sulle misure vere, quando il cliente mette le offerte una accanto all'altra, ho scritto raccontando [il rilievo delle misure che ha fatto scegliere un'impresa](/blog/rilievo-misure-vetrine-porta): lì il cliente ha scelto anche per il rilievo fatto sul posto."
     },
     {
       "type": "h2",
@@ -154,15 +162,19 @@
     },
     {
       "type": "p",
+      "text": "E di quelli che non hanno firmato, sai a chi è andato il lavoro, e con quale progetto in mano?"
+    },
+    {
+      "type": "p",
       "text": "L'ultima volta che un cliente ti ha chiesto di mandarglielo su WhatsApp, cosa gli hai risposto? E il progetto glielo hai spiegato tu, davanti a lui, o l'ha letto da solo la sera?"
     },
     {
       "type": "p",
-      "text": "Poi fai un conto, con i tuoi numeri. Quante ore ti prende un progetto, dal rilievo alla vista in 3D? Moltiplicale per i progetti che nell'ultimo anno non hanno firmato con te."
+      "text": "Quante ore ti prende un progetto, dal rilievo alla pianta finita? E quanti progetti, nell'ultimo anno, non hanno firmato con te?"
     },
     {
       "type": "p",
-      "text": "E un'ultima domanda, la più scomoda: se domani entrassi in uno di quei negozi, ci troveresti la tua disposizione con i mobili di un altro?"
+      "text": "E poi: se domani entrassi in uno di quei negozi, ci troveresti la tua disposizione con i mobili di un altro?"
     },
     {
       "type": "p",
