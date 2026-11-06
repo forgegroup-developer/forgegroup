@@ -1,0 +1,192 @@
+{
+  "slug": "agenzia-marketing-edilizia-cosa-fa",
+  "title": "Cosa fa un'agenzia marketing edilizia, e cosa lascia a te?",
+  "description": "Cosa fa un'agenzia marketing edilizia come Forge, dalla pubblicità alla firma, e cosa non fa: i tuoi contatti li chiami tu, e non lavoriamo con tutti.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-11-07",
+  "publishAt": "2026-11-07T09:00:00+01:00",
+  "readTime": "4 min",
+  "excerpt": "«La maggior parte di queste non sai come realmente lavorano.» Cosa facciamo noi, passo per passo, dalla pubblicità alla firma, e le cose che lasciamo a te.",
+  "tags": [
+    "agenzia di marketing",
+    "marketing edilizia",
+    "imprese edili",
+    "studio di fattibilità"
+  ],
+  "livello": 4,
+  "argomento": "edilizia-agenzia",
+  "settore": "edilizia",
+  "mappa": "edilizia-agenzia-4",
+  "autore": "marco",
+  "inBreve": {
+    "problema": "Cerchi un'agenzia marketing edilizia e tutte si descrivono con le stesse parole: campagne, social, sito, più clienti.",
+    "causa": "Le parole sono uguali perché la differenza non sta nell'elenco dei servizi, ma nel punto in cui il lavoro dell'agenzia si ferma.",
+    "cambia": "Quando sai cosa fa l'agenzia dopo il contatto, e cosa resta a te, puoi capire se ti porta richieste da lavorare o solo numeri da guardare."
+  },
+  "seo": {
+    "parolaChiave": "agenzia marketing edilizia",
+    "secondarie": [
+      "agenzia di marketing per imprese edili",
+      "migliore agenzia marketing edilizia",
+      "cosa fa un'agenzia di marketing"
+    ],
+    "domanda": "sotto soglia negli studi del 28/08 e del 03/09 (Keyword Planner sospeso; non misurata dalla routine cloud): presidio SEO e GEO per decisione della proprietà del 04/11",
+    "serp": "Ricerca del 06/11 con lo strumento di Claude (indice non italiano, da ricontrollare su Google.it): 'agenzia marketing edilizia' e 'agenzia di marketing per imprese edili cosa fa' danno elenchi di agenzie estere su Semrush, due articoli su una sola agenzia italiana (trend-online, ediltecnico) e un sito di prodotti edili. Nessuno spiega dal lato del titolare cosa fa l'agenzia dopo il contatto: posto libero, come segnato nella mappa il 04/11",
+    "concorrente": [
+      "principale:blog/agenzia-marketing-edilizia-risultati",
+      "principale:blog/gestione-edilizia-comunicare-valore",
+      "principale:blog/consulente-azienda-che-opera-in-edilizia",
+      "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile"
+    ],
+    "geo": "In breve che risponde da solo a 'cosa fa un'agenzia di marketing per l'edilizia'; due elenchi citabili da soli (cosa fa, cosa non fa); FAQ scritte come domande di Google con risposte complete; caso DISA con i numeri della Scheda e le frasi della videorecensione; firma di Marco",
+    "sem": "Livello 4, solo organico (decisione del 14/10: nessuna campagna a pagamento). Quando le campagne riapriranno: remarketing verso chi ha visitato il sito o ci ha sentito al telefono, e pagina da mandare dopo la chiamata con Gianpio; niente Google Ads search (domanda sotto soglia)"
+  },
+  "faqs": [
+    {
+      "q": "Cosa fa un'agenzia marketing edilizia?",
+      "a": "Gestisce la pubblicità su Meta e Google per portarti richieste di lavoro nella tua zona. Quella che ti serve fa anche il resto: filtra le richieste con un modulo, le mette in un gestionale e ti affianca nelle trattative fino al contratto."
+    },
+    {
+      "q": "Come scegliere un'agenzia di marketing per un'impresa edile?",
+      "a": "Chiedile cosa succede dopo il contatto: chi lo filtra, chi lo richiama, dove si segue la trattativa e come si conta fino al contratto. Se la risposta finisce con il report delle campagne, il lavoro dopo resta tutto a te."
+    },
+    {
+      "q": "L'agenzia di marketing chiama i clienti al posto dell'impresa?",
+      "a": "Da noi no: i contatti li chiama l'impresa, cioè il titolare o chi risponde al telefono per lui. Noi costruiamo il modulo che filtra le richieste e il metodo con cui richiamarle, e guardiamo con te come vanno le trattative."
+    },
+    {
+      "q": "Quanto tempo serve per vedere i risultati con un'agenzia di marketing?",
+      "a": "Dipende dal tuo mercato e da quanto lavoro reggi, ed è per questo che prima si fa lo studio di fattibilità. Da noi le stime si rivedono sui dati veri dopo 60 giorni, e ogni tre mesi c'è un report con contatti, appuntamenti e contratti."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Il problema è che la maggior parte di queste non sai come realmente lavorano.»"
+    },
+    {
+      "type": "p",
+      "text": "Ce l'ha detto un titolare in una call con noi, parlando delle agenzie di marketing che aveva conosciuto. Se stai cercando un'agenzia di marketing per l'edilizia, probabilmente la pensi come lui."
+    },
+    {
+      "type": "p",
+      "text": "È normale. Apri tre siti e trovi le stesse parole: campagne, social, sito, più clienti. Ma la differenza tra un'agenzia e l'altra non sta in quell'elenco: sta nel PUNTO in cui il loro lavoro si ferma."
+    },
+    {
+      "type": "p",
+      "text": "Io seguo la parte di marketing e pubblicità di Forge. Qui ti metto in fila cosa facciamo, passo per passo, e cosa invece non facciamo, così sai con chi stai parlando prima di candidarti."
+    },
+    {
+      "type": "h2",
+      "text": "IN PRATICA: COSA FACCIAMO, DALLA PUBBLICITÀ ALLA FIRMA"
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Lo studio di fattibilità, prima di tutto: quanto lavoro regge la tua impresa oggi, quanto c'è da prendere nel tuo territorio e chi c'è già. Risponde a una domanda sola: ha senso lavorare insieme?",
+        "L'audit commerciale: come sei organizzato, a chi ti rivolgi, come arrivano e come gestisci le richieste oggi, i tuoi numeri e gli obiettivi a dodici mesi.",
+        "I social rifatti sulle tue linee di lavoro, quelle scelte nell'audit, così chi ti trova capisce subito cosa fai.",
+        "Le campagne su Meta e Google, gestite da noi, con un video girato in cantiere per ogni linea.",
+        "Il modulo che filtra le richieste: tipo di lavoro, entro quanto vuole iniziare, budget a disposizione, zona. Lo leggi prima di richiamare.",
+        "Il gestionale, dove ogni richiesta arriva con nome, telefono, zona e interesse, e resta tracciata fino al sopralluogo e al contratto.",
+        "Il processo di vendita scritto: materiale commerciale, script e tutti i passaggi fino al contratto, costruiti con te sulla tua impresa.",
+        "Le consulenze su marketing e vendita, e noi al tuo fianco sulle trattative fino alla firma: di persona dove abbiamo consulenti, altrove in videochiamata."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Ogni tre mesi ricevi un report con contatti, appuntamenti, contratti e costo per contatto. Dopo sessanta giorni le stime si rivedono sui dati veri."
+    },
+    {
+      "type": "p",
+      "text": "Come si incastrano questi pezzi lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi), e il gestionale nel dettaglio nella pagina sul [gestionale per l'edilizia](/crm-gestionale-edilizia)."
+    },
+    {
+      "type": "h2",
+      "text": "E COSA NON FACCIAMO"
+    },
+    {
+      "type": "p",
+      "text": "Qui di solito il titolare si sorprende, perché da un'agenzia si aspetta che faccia tutto. Alcune cose, invece, le lasciamo a te di proposito."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Le telefonate ai tuoi contatti non le facciamo noi. Le fa l'impresa: tu, i tuoi setter o chi risponde al telefono per te, con il metodo e le parole che costruiamo insieme.",
+        "Non andiamo agli incontri con il tuo cliente. Le trattative le guardiamo con te, una per una, ma al tavolo ci sei tu.",
+        "Non lavoriamo con tutte le imprese. Poche, un territorio alla volta: se un'azienda non regge il lavoro che le arriva, il problema diventa di tutti e due.",
+        "Non ti diamo numeri prima di aver visto la tua azienda. I numeri vengono dallo studio, non dalla telefonata."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "C'è anche il caso opposto. Se hai già venditori bravi, puoi chiederci solo la pubblicità e le richieste filtrate: il nostro lavoro si ferma al contatto già filtrato, e il resto lo seguono loro."
+    },
+    {
+      "type": "h2",
+      "text": "LA PROVA: UN CANALE CHE IL TITOLARE NON CONOSCEVA"
+    },
+    {
+      "type": "p",
+      "text": "[DISA, un'azienda di software per l'edilizia](/casi-studio/software-edilizia), prima di lavorare con noi cercava clienti così: i commerciali chiamavano a freddo imprenditori edili e chiedevano nomi ai clienti che avevano già."
+    },
+    {
+      "type": "p",
+      "text": "Abbiamo costruito le campagne su Meta, e i commerciali hanno cominciato a chiamare chi aveva chiesto informazioni. Nei primi 90 giorni sono arrivati 126.500 € di nuovi contratti, solo dalle Meta Ads, a 1,48 € per contatto."
+    },
+    {
+      "type": "p",
+      "text": "Dopo dodici mesi il conto è di circa 300.000 € di fatturato, con 6.000 € di pubblicità in tutto, circa 500 € al mese. Sono circa 50 € per ogni euro di pubblicità, conto fatto sulla sola spesa pubblicitaria, senza il nostro canone."
+    },
+    {
+      "type": "p",
+      "text": "Nella videorecensione il titolare l'ha detto così: «Abbiamo fatturato circa 300 mila euro su un canale a me francamente sconosciuto». E alla domanda se rifarebbe la scelta: «Certo che sì»."
+    },
+    {
+      "type": "h2",
+      "text": "«NON È IL MIO SETTORE»"
+    },
+    {
+      "type": "p",
+      "text": "È un'obiezione che sentiamo spesso dopo un caso come questo, e ha senso. Un software non è un tetto, un bagno o un serramento, e i tuoi clienti non sono quelli di DISA."
+    },
+    {
+      "type": "p",
+      "text": "Per questo il caso non basta, e prima della pubblicità c'è lo studio di fattibilità. Guarda il tuo mercato, il tuo territorio, la storia della tua impresa e quanti sopralluoghi in più potresti sostenere senza perderne metà per strada."
+    },
+    {
+      "type": "p",
+      "text": "La risposta può essere no, e te la diamo prima che tu abbia speso un euro in pubblicità. Se è sì, dopo sessanta giorni guardiamo i dati veri: se i numeri non si muovono cambiamo strategia, campagne, budget o canali."
+    },
+    {
+      "type": "p",
+      "text": "Se stai ancora confrontando più agenzie, Gianpio ha messo in fila [sei domande da fare all'agenzia prima di firmare](/blog/agenzia-marketing-imprese-edili-domande). Fai le stesse anche a noi."
+    },
+    {
+      "type": "h2",
+      "text": "CHI ENTRA, E COME"
+    },
+    {
+      "type": "p",
+      "text": "Lavoriamo con imprese edili che hanno una storia e un potenziale di mercato, o in cui vediamo un potenziale su cui lavorare. Poche, un territorio alla volta."
+    },
+    {
+      "type": "p",
+      "text": "Compili il modulo, guardiamo la tua impresa e la tua zona, e Gianpio ti chiama entro 48 ore lavorative. Se ci sono i presupposti fissiamo un appuntamento, di persona se sei nel nostro raggio, altrimenti in videochiamata."
+    },
+    {
+      "type": "cta",
+      "text": "Candida la tua impresa: guardiamo il tuo mercato e ti diciamo se ha senso lavorare insieme."
+    }
+  ],
+  "featuredImage": "/images/blog/agenzia-marketing-edilizia-cosa-fa.jpg",
+  "featuredImageAlt": "Una persona guarda i grafici sul portatile con una tazzina di caffè accanto",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "Firmbee",
+    "pagina": "https://pixabay.com/photos/laptop-work-coffee-chart-man-6062423/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "marketing-6062423.jpg",
+    "ricerca": "marketing"
+  }
+}
