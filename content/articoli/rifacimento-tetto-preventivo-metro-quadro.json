@@ -44,7 +44,7 @@
  "faqs": [
   {
    "q": "Cosa dire al cliente che ha letto il prezzo al metro quadro del rifacimento tetto su una guida?",
-   "a": "Che la cifra della guida spesso non comprende il ponteggio né lo smaltimento del vecchio manto, e che la tua invece sì. Detto al telefono, con una fascia larga che li comprende, il cliente fa il confronto prima del sopralluogo, e non quando il preventivo è già scritto."
+   "a": "Che la cifra della guida spesso non comprende il ponteggio, e a volte nemmeno le spese tecniche, mentre la tua comprende tutto, dallo smaltimento del vecchio manto alla lattoneria. Detto al telefono, con una fascia larga che li comprende, il cliente fa il confronto prima del sopralluogo, e non quando il preventivo è già scritto."
   },
   {
    "q": "Rifacimento tetto preventivo: perché al cliente sembra troppo caro?",
@@ -118,7 +118,7 @@
   },
   {
    "type": "p",
-   "text": "Se invece la sente prima, come fascia larga e con dentro il ponteggio, succede una di due cose. O si ferma lì, e ti ha risparmiato la salita. Oppure ti dice perché vuole rifare il tetto ed entro quando, e il sopralluogo lo fai a lui."
+   "text": "Se invece la sente prima, come fascia larga e con dentro il ponteggio, succede una di due cose: o si ferma lì e ti ha risparmiato la salita, oppure ti dice perché vuole rifare il tetto ed entro quando, e il sopralluogo lo fai a lui."
   },
   {
    "type": "p",
