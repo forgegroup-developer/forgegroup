@@ -21,7 +21,7 @@
  "autore": "marco",
  "inBreve": {
   "problema": "Il preventivo per il rifacimento del tetto, fatto dopo scala, foto e misure delle falde, torna indietro con un grazie perché sembra caro.",
-  "causa": "Il cliente lo confronta con il prezzo al metro quadro letto su Google, che in più di una guida non comprende il ponteggio né le spese tecniche.",
+  "causa": "Il cliente lo confronta con il prezzo al metro quadro trovato cercando rifacimento tetto preventivo su Google, che in più di una guida non comprende il ponteggio.",
   "cambia": "Il confronto si decide al telefono: chi sente prima una fascia con dentro il ponteggio si ferma lì, oppure ti dice perché vuole rifare il tetto."
  },
  "seo": {
@@ -32,27 +32,27 @@
    "coperture tetti clienti"
   ],
   "domanda": "Studio Ricerca Keyword Google Ads del 28/08 (dalla mappa per settore): rifacimento tetto 10-100 / 1K-10K, coperture tetti 100-1K / 1K-10K. 'Rifacimento tetto preventivo', 'rifacimento tetto prezzo al metro quadro' e 'sopralluogo tetto' non misurate (Keyword Planner sospeso, routine cloud). Livello 1: parole ampie, cercate dai privati, portano visite e non contatti",
-  "serp": "Ricerca web dell'08/11 (strumento con risultati USA, da ricontrollare su Google.it). 'rifacimento tetto preventivo': forum di condomini (condominioweb), guide con i costi al metro quadro (studiomadera, arredamento.it, cosedicasa, wikicasa), portali di preventivi (Cronoshare), notizie sui bonus. 'rifacimento tetto prezzo al metro quadro': guide e pagine di domande e risposte con forbici al metro quadro molto larghe; studiomadera avverte che le cifre escludono ponteggi, suolo pubblico e professionisti, un'altra pagina conta il ponteggio a parte. 'sopralluogo tetto preventivo impresa coperture': pagine di imprese che offrono sopralluogo e preventivo senza farli pagare, moduli di richiesta, forum. Tutto scritto per i privati: nessun testo per il titolare dell'impresa di coperture, il concorrente A non c'è",
+  "serp": "Ricerca web dell'08/11 (strumento con risultati USA, da ricontrollare su Google.it). 'rifacimento tetto preventivo': forum di condomini (condominioweb), guide con i costi al metro quadro (studiomadera, arredamento.it, cosedicasa, wikicasa), portali di preventivi (Cronoshare), notizie sui bonus. 'rifacimento tetto prezzo al metro quadro': guide e pagine di domande e risposte con forbici al metro quadro molto larghe; studiomadera avverte che le cifre escludono ponteggi, suolo pubblico e professionisti, un'altra pagina conta il ponteggio a parte. 'sopralluogo tetto preventivo impresa coperture': pagine di imprese che offrono sopralluogo e preventivo senza farli pagare, moduli di richiesta, forum. Tutto scritto per i privati: nessun testo per il titolare dell'impresa di coperture, il concorrente A non c'è. Fonti della nota sul ponteggio (dai risultati dell'08/11, pagine non riaperte perché il cloud non le raggiunge): https://studiomadera.it/news/225-rifacimento-tetto (cifre che escludono ponteggi, suolo pubblico e professionisti) e https://studiolegalelavorospoltore.it/costruzioni/tetto/rifacimento-tetto-prezzo-al-mq/ (ponteggio e spese tecniche contati a parte)",
   "concorrente": [
    "principale:blog/sopralluogo-e-preventivo-in-edilizia",
    "principale:blog/offerta-serramenti-distanza-senza-sopralluogo-strategia",
    "principale:blog/come-trasformare-sopralluogo-strumento-di-vendita-edilizia"
   ],
-  "geo": "In breve che dice da solo problema (preventivo che sembra caro), causa (il prezzo al metro quadro delle guide senza ponteggio) e cosa cambia (la fascia detta al telefono); FAQ come domande di Google sul prezzo al metro quadro, sul preventivo che sembra caro e sul sopralluogo a chi chiede solo il prezzo, con risposte complete; firma di Marco",
+  "geo": "In breve che dice da solo problema (preventivo che sembra caro), causa (il prezzo al metro quadro delle guide senza ponteggio) e cosa cambia (la fascia detta al telefono); FAQ come domande di Google sul prezzo al metro quadro, sul preventivo che sembra caro e sul ponteggio escluso dal prezzo al metro quadro, con risposte complete; firma di Marco",
   "sem": "Livello 1: post e carosello su Meta e Instagram per i titolari di imprese di coperture e lattoneria, con la scena della telefonata e la nota del ponteggio escluso; niente Google Ads (ricerca dei privati)"
  },
  "faqs": [
   {
-   "q": "Rifacimento tetto al metro quadro: cosa rispondere al cliente che chiede il prezzo al telefono?",
-   "a": "Un prezzo al metro quadro serio non c'è prima di aver visto struttura, isolamento e accessi. Al telefono però si può dire subito una fascia larga, con dentro ponteggio e smaltimento, e chiedere perché vuole rifare il tetto ed entro quando. Così la cifra vera il cliente la sente prima del sopralluogo, non in fondo al preventivo."
+   "q": "Cosa dire al cliente che ha letto il prezzo al metro quadro del rifacimento tetto su una guida?",
+   "a": "Che la cifra della guida spesso non comprende il ponteggio né lo smaltimento del vecchio manto, e che la tua invece sì. Detto al telefono, con una fascia larga che li comprende, il cliente fa il confronto prima del sopralluogo, e non quando il preventivo è già scritto."
   },
   {
    "q": "Rifacimento tetto preventivo: perché al cliente sembra troppo caro?",
-   "a": "Perché il cliente può confrontarlo con il prezzo al metro quadro letto su una guida online, che in più di un caso non comprende il ponteggio né le spese tecniche. Il preventivo completo, con ponteggio, smaltimento del vecchio manto, lattoneria e travi da sostituire, accanto a quel numero sembra caro anche quando non lo è."
+   "a": "Perché il cliente può confrontarlo con il prezzo al metro quadro letto su una guida online, che in più di un caso non comprende il ponteggio, e a volte nemmeno le spese tecniche. Il preventivo completo, con ponteggio, smaltimento del vecchio manto, lattoneria e travi da sostituire, accanto a quel numero sembra caro."
   },
   {
-   "q": "Conviene fare il sopralluogo sul tetto a chi chiede solo il prezzo?",
-   "a": "Il sopralluogo sul tetto è lavoro: la scala, le foto, le misure delle falde, il controllo di travi e lattoneria, poi il preventivo da scrivere. Conviene farlo dopo che il cliente ha sentito una fascia di prezzo realistica e ha detto perché vuole rifare il tetto: se a quella cifra si ferma, ti ha risparmiato la salita."
+   "q": "Il prezzo al metro quadro del rifacimento tetto comprende il ponteggio?",
+   "a": "Nelle guide online spesso no: più d'una avverte, in nota, che la cifra esclude il ponteggio, e qualcuna anche le spese tecniche. In un preventivo vero il ponteggio c'è, insieme a smaltimento e lattoneria, ed è per questo che il totale non torna con il conto fatto sulla guida."
   }
  ],
  "content": [
@@ -62,7 +62,7 @@
   },
   {
    "type": "p",
-   "text": "Rispondi la cosa più onesta che si può dire a quel punto: dipende, bisogna salire a vedere. E fissate un giorno."
+   "text": "Rispondi con la cosa più onesta che si può dire a quel punto, cioè che dipende e che bisogna salire a vedere, e fissate un giorno."
   },
   {
    "type": "p",
@@ -70,11 +70,11 @@
   },
   {
    "type": "p",
-   "text": "La sera, o la domenica mattina, scrivi il preventivo per il rifacimento del tetto: smontaggio e smaltimento del vecchio manto, guaina, isolamento se serve, manto nuovo, lattoneria, ponteggio. Lo mandi."
+   "text": "La sera, o la domenica mattina, scrivi il preventivo per il rifacimento del tetto: smontaggio e smaltimento del vecchio manto, guaina, isolamento se serve, manto nuovo, lattoneria, ponteggio, e la mattina dopo lo mandi."
   },
   {
    "type": "p",
-   "text": "Poi non succede niente. Oppure arriva un messaggio gentile: grazie, ma è più di quello che pensavamo."
+   "text": "Poi per giorni non succede niente, oppure arriva un messaggio gentile: grazie, ma è più di quello che pensavamo."
   },
   {
    "type": "h2",
@@ -82,19 +82,19 @@
   },
   {
    "type": "p",
-   "text": "Viene spontaneo pensare a un'altra impresa che ha fatto un prezzo più basso. A volte è così. Ma c'è un altro confronto, che il tuo preventivo perde prima ancora che tu salga sul tetto."
+   "text": "Viene spontaneo pensare a un'altra impresa che ha fatto un prezzo più basso, e a volte è così. C'è però anche un altro confronto, e il tuo preventivo lo perde già al telefono, prima che tu salga sul tetto."
   },
   {
    "type": "p",
-   "text": "Prima di telefonarti, il cliente ha cercato su Google rifacimento tetto preventivo, o quanto costa rifare il tetto al metro quadro. Basta fare la stessa ricerca per vedere cosa trova: guide per privati con forbici di prezzo al metro quadro larghissime, portali che raccolgono richieste di preventivo, forum di condomini, pagine di imprese che il sopralluogo lo offrono senza farlo pagare."
+   "text": "Prima di telefonarti, il cliente ha cercato su Google quanto costa rifare il tetto al metro quadro. Basta fare la stessa ricerca per vedere cosa trova: guide per privati con forbici di prezzo al metro quadro larghissime, portali che raccolgono richieste di preventivo, forum di condomini, pagine di imprese che il sopralluogo lo offrono senza farlo pagare."
   },
   {
    "type": "p",
-   "text": "Più d'una di quelle guide, in piccolo, avvisa che il ponteggio non è compreso nella cifra. E nemmeno le spese dei tecnici."
+   "text": "Più d'una di quelle guide, in piccolo, avvisa che il ponteggio non è compreso nella cifra, e qualcuna lascia fuori anche le spese dei tecnici."
   },
   {
    "type": "p",
-   "text": "Il cliente si ricorda il numero, non la nota. Moltiplica i metri quadri del suo tetto per la cifra più comoda della forbice, e quello diventa, nella sua testa, il prezzo giusto del lavoro."
+   "text": "Della guida il cliente tiene a mente la cifra al metro quadro, e la nota sul ponteggio, scritta in piccolo, la dimentica. Spesso moltiplica i metri quadri del suo tetto per la cifra più comoda della forbice, e quello diventa, nella sua testa, il prezzo giusto del lavoro."
   },
   {
    "type": "h2",
@@ -106,11 +106,11 @@
   },
   {
    "type": "p",
-   "text": "Messo accanto al numero della guida sembra caro. Non perché lo sia, ma perché è COMPLETO, e il cliente non ha modo di saperlo da solo."
+   "text": "Messo accanto al numero della guida sembra caro, perché dentro c'è tutto quello che la guida lascia fuori, e il cliente da solo non ha modo di vederlo."
   },
   {
    "type": "p",
-   "text": "Ed è qui che si gioca la partita: quel confronto si decide al telefono, quando il cliente ti chiede il metro quadro, non dopo il sopralluogo."
+   "text": "Quel confronto però si decide al telefono, quando il cliente ti chiede il prezzo al metro quadro, e non dopo il sopralluogo."
   },
   {
    "type": "p",
@@ -121,20 +121,8 @@
    "text": "Se invece la sente prima, come fascia larga e con dentro il ponteggio, succede una di due cose. O si ferma lì, e ti ha risparmiato la salita. Oppure ti dice perché vuole rifare il tetto ed entro quando, e il sopralluogo lo fai a lui."
   },
   {
-   "type": "h2",
-   "text": "UN'IMPRESA DI COPERTURE CHE IL SOPRALLUOGO LO FA PAGARE"
-  },
-  {
    "type": "p",
-   "text": "[Tetti Top, un'impresa di coperture](/casi-studio/edilizia), è andata ancora oltre: oggi il sopralluogo sul tetto lo fa pagare. La cifra resta sua."
-  },
-  {
-   "type": "p",
-   "text": "Ha 4 clienti qualificati al mese senza pubblicità, e preventivi che arrivano fino a 175.000 €. Non è una strada che vale per ogni impresa, e non tutti i clienti sono pronti a pagare il sopralluogo."
-  },
-  {
-   "type": "p",
-   "text": "Ma dice una cosa del mestiere: chi paga perché qualcuno salga sul suo tetto non sta cercando un numero al metro quadro. Sta cercando qualcuno che gli dica cosa ha il suo tetto, e quanto costa sistemarlo davvero."
+   "text": "Un'impresa di coperture, [Tetti Top](/casi-studio/edilizia), oggi il sopralluogo sul tetto lo fa pagare, e la cifra resta sua. Non è una strada che vale per ogni impresa, e non tutti i clienti sono pronti a pagarlo."
   },
   {
    "type": "h2",
