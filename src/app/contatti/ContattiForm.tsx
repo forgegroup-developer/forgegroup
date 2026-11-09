@@ -2,28 +2,23 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { sendGAEvent } from "@next/third-parties/google";
+import { segnaCandidaturaInviata, traccia } from "@/lib/leadClient";
+import { OPZIONI_FONTE, OPZIONI_OSTACOLO } from "@/data/candidatura";
 import AnimatedStepper, { Step } from "@/components/sezioni/AnimatedStepper";
 import HeroGooeySection from "@/components/sfondi/HeroGooeySection";
 
 type FormData = {
   nome_attivita: string;
   zona: string;
-  ostacolo: string;
-  fonte: string;
   nome_cognome: string;
   telefono: string;
-  email: string;
 };
 
 const initialFormData: FormData = {
   nome_attivita: "",
   zona: "",
-  ostacolo: "",
-  fonte: "",
   nome_cognome: "",
   telefono: "",
-  email: "",
 };
 
 type FieldType = "text" | "tel" | "email" | "select";
@@ -43,9 +38,10 @@ type FormStep = {
   fields: Field[];
 };
 
-// Quattro schermate invece di otto (15/10/2026): via le due domande a testo
-// libero, che da telefono fermavano chi compilava. Quello che serviva sapere
-// prima di chiamare (impresa e zona) sta nella prima schermata.
+// Due schermate invece di quattro (proprietà, 09/11/2026: "il modulo è troppo
+// lungo"). Restano solo i dati che servono prima di chiamare: impresa e zona
+// (le guardiamo prima di sentirti), poi nome e telefono. L'email non serve
+// per partire; ostacolo e fonte si chiedono dopo l'invio, facoltativi.
 const steps: FormStep[] = [
   {
     title: "Come si chiama la tua impresa, e dove lavora?",
@@ -67,49 +63,6 @@ const steps: FormStep[] = [
     ],
   },
   {
-    title: "Qual è il tuo più grande ostacolo oggi?",
-    fields: [
-      {
-        name: "ostacolo",
-        type: "select",
-        options: [
-          {
-            value: "Aumentare i potenziali clienti da contattare",
-            label: "Aumentare i potenziali clienti da contattare",
-          },
-          {
-            value: "Aumentare il tasso di conversione e vendere di più",
-            label: "Aumentare il tasso di conversione e vendere di più",
-          },
-          {
-            value: "Aumentare la qualità dei clienti e il margine dell'azienda",
-            label: "Aumentare la qualità dei clienti e il margine dell'azienda",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    // Le visite dalle AI non portano la parola cercata: questa risposta dice da dove arriva
-    // davvero la candidatura (piano SEO del 14/10/2026). Va anche nell'evento GA4.
-    title: "Come ci hai conosciuto?",
-    fields: [
-      {
-        name: "fonte",
-        type: "select",
-        options: [
-          { value: "Su Google", label: "Su Google" },
-          { value: "Da ChatGPT o un'altra intelligenza artificiale", label: "Da ChatGPT o un'altra intelligenza artificiale" },
-          { value: "Su LinkedIn", label: "Su LinkedIn" },
-          { value: "Su Instagram o Facebook", label: "Su Instagram o Facebook" },
-          { value: "Me ne ha parlato un'altra impresa", label: "Me ne ha parlato un'altra impresa" },
-          { value: "Ci siamo già sentiti con Forge Group", label: "Ci siamo già sentiti con Forge Group" },
-          { value: "Altro", label: "Altro" },
-        ],
-      },
-    ],
-  },
-  {
     title: "Dove ti chiamiamo entro 48 ore?",
     fields: [
       {
@@ -125,13 +78,6 @@ const steps: FormStep[] = [
         type: "tel",
         placeholder: "333 1234567",
         autoComplete: "tel",
-      },
-      {
-        name: "email",
-        label: "Email",
-        type: "email",
-        placeholder: "nome@azienda.it",
-        autoComplete: "email",
       },
     ],
   },
@@ -166,12 +112,17 @@ export default function ContattiForm({
   const [campoErrato, setCampoErrato] = useState<keyof FormData | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const campiRef = useRef<Partial<Record<keyof FormData, HTMLInputElement | null>>>({});
+  const iniziato = useRef(false);
 
   const current = steps[stepIndex];
   const isLastStep = stepIndex === steps.length - 1;
 
   const updateField = (name: keyof FormData, value: string) => {
     setForm((prev) => ({ ...prev, [name]: value }));
+    if (!iniziato.current && value.trim()) {
+      iniziato.current = true;
+      traccia("form_start", { form_name: sorgente });
+    }
     setStepError("");
     setCampoErrato(null);
   };
@@ -214,7 +165,12 @@ export default function ContattiForm({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, website: honeypot }),
+        body: JSON.stringify({
+          ...form,
+          sorgente,
+          pagina: window.location.pathname,
+          website: honeypot,
+        }),
       });
 
       if (!response.ok) {
@@ -222,7 +178,8 @@ export default function ContattiForm({
         throw new Error(j.message || "Errore durante l'invio del modulo.");
       }
 
-      sendGAEvent("event", "generate_lead", { form_name: sorgente, fonte: form.fonte });
+      traccia("generate_lead", { form_name: sorgente });
+      segnaCandidaturaInviata();
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return true;
@@ -244,10 +201,14 @@ export default function ContattiForm({
   const domandaPrecedente = useRef(stepIndex);
   useEffect(() => {
     if (domandaPrecedente.current === stepIndex) return;
+    // Si conta solo chi va avanti: dice a quale schermata ci si ferma.
+    if (stepIndex > domandaPrecedente.current) {
+      traccia("form_step", { form_name: sorgente, step: stepIndex + 1 });
+    }
     domandaPrecedente.current = stepIndex;
     const primo = steps[stepIndex].fields[0];
     if (primo.type !== "select") campiRef.current[primo.name]?.focus();
-  }, [stepIndex]);
+  }, [stepIndex, sorgente]);
 
   // Invio sulla tastiera: passa al campo dopo della stessa schermata, poi
   // alla schermata dopo, e sull'ultima invia.
@@ -402,6 +363,7 @@ export default function ContattiForm({
             sono, te lo diciamo lì.
           </p>
         </div>
+        <DomandeDopoInvio form={form} sorgente={sorgente} />
         <Link href="/" className="btn-ghost">
           Torna alla Home
         </Link>
@@ -535,5 +497,101 @@ export default function ContattiForm({
         </div>
       </section>
     </>
+  );
+}
+
+/**
+ * Dopo l'invio, due domande facoltative: prima stavano dentro il modulo e lo
+ * allungavano. Chi risponde le aggiunge alla candidatura con una seconda mail;
+ * chi non risponde ha già fatto tutto quello che serviva.
+ */
+function DomandeDopoInvio({ form, sorgente }: { form: FormData; sorgente: string }) {
+  const [ostacolo, setOstacolo] = useState("");
+  const [fonte, setFonte] = useState("");
+  const [stato, setStato] = useState<"aperto" | "invio" | "fatto" | "errore">("aperto");
+
+  const invia = async () => {
+    if (!ostacolo && !fonte) return;
+    setStato("invio");
+    try {
+      const r = await fetch("/api/contact/dettagli", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome_cognome: form.nome_cognome,
+          telefono: form.telefono,
+          nome_attivita: form.nome_attivita,
+          ostacolo,
+          fonte,
+        }),
+      });
+      if (!r.ok) throw new Error();
+      // La fonte detta dalla persona va in GA4: è una voce di un elenco, non un dato personale.
+      traccia("lead_dettagli", { form_name: sorgente, fonte: fonte || "non detta" });
+      setStato("fatto");
+    } catch {
+      setStato("errore");
+    }
+  };
+
+  if (stato === "fatto") {
+    return (
+      <p className="mb-8 text-base text-brand-grigio" role="status">
+        Grazie, le abbiamo aggiunte alla tua candidatura.
+      </p>
+    );
+  }
+
+  const gruppo = (
+    titolo: string,
+    opzioni: readonly string[],
+    valore: string,
+    scegli: (v: string) => void,
+  ) => (
+    <fieldset className="mb-6 text-left">
+      <legend className="mb-3 text-base font-semibold text-brand-nero">{titolo}</legend>
+      <div className="space-y-2" role="radiogroup">
+        {opzioni.map((o) => (
+          <button
+            key={o}
+            type="button"
+            role="radio"
+            aria-checked={valore === o}
+            onClick={() => scegli(valore === o ? "" : o)}
+            className={`w-full rounded-xl border-2 px-4 py-3 text-left text-base transition-all ${
+              valore === o
+                ? "border-brand-corallo bg-brand-corallo/5 font-semibold text-brand-nero"
+                : "border-brand-bordo bg-brand-bianco text-brand-grigio hover:border-brand-corallo/50"
+            }`}
+          >
+            {o}
+          </button>
+        ))}
+      </div>
+    </fieldset>
+  );
+
+  return (
+    <div className="mx-auto mb-10 max-w-xl rounded-2xl border border-brand-bordo bg-brand-bianco p-5 text-left md:p-7">
+      <p className="mb-5 text-lg text-brand-nero">
+        Ci aiuti a preparare la chiamata?{" "}
+        <span className="text-brand-grigio">Due tocchi, se vuoi.</span>
+      </p>
+      {gruppo("Qual è il tuo più grande ostacolo oggi?", OPZIONI_OSTACOLO, ostacolo, setOstacolo)}
+      {gruppo("Come ci hai conosciuto?", OPZIONI_FONTE, fonte, setFonte)}
+      {stato === "errore" && (
+        <p className="mb-4 text-sm font-medium text-brand-corallo-text" role="alert">
+          Non siamo riusciti a inviarle. La candidatura invece è arrivata: ne parliamo al telefono.
+        </p>
+      )}
+      <button
+        type="button"
+        onClick={() => void invia()}
+        disabled={(!ostacolo && !fonte) || stato === "invio"}
+        className="btn-corallo w-full disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        {stato === "invio" ? "Invio in corso..." : "Aggiungi le risposte"}
+      </button>
+    </div>
   );
 }

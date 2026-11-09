@@ -112,7 +112,7 @@ ${BASE}/contatti
     body: `
 # Candida la tua impresa
 
-Il modulo chiede il nome dell'impresa, la zona in cui lavora, cosa vuole migliorare per primo, come ci ha conosciuto, nome e telefono.
+Il modulo chiede il nome dell'impresa, la zona in cui lavora, nome e telefono. Dopo l'invio, se vuoi, due domande in più: cosa vuoi migliorare per primo e come ci hai conosciuto.
 
 ## Cosa succede dopo
 1. Guardiamo la tua impresa e la tua zona prima di sentirti.
