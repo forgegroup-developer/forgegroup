@@ -39,7 +39,7 @@ const scena = (tema: string) => {
 /* Il conto della landing, disegnato: riquadri uniti dalla freccia. */
 function ContoSopralluoghi() {
   const passi = [
-    "Esci per otto sopralluoghi al mese",
+    "Fai otto sopralluoghi al mese",
     "Ne chiudi uno",
     "Sono sette giornate a vuoto al mese, più di ottanta l'anno",
   ];
@@ -334,7 +334,7 @@ export default function ServiziHub() {
         <div className={CONTENITORE}>
           <Titolo
             occhiello="Prima di cominciare"
-            sottotitolo="Il primo passo è uno studio di fattibilità, e serve a rispondere a quella domanda. A volte la risposta è no, e te la diamo prima che tu abbia speso un euro in pubblicità."
+            sottotitolo="Il primo passo è uno studio di fattibilità, e serve a rispondere a quella domanda prima che tu abbia speso un euro in pubblicità."
           >
             La prima domanda non è quanto costa, ma se ha senso <Chiave>lavorare insieme</Chiave>.
           </Titolo>

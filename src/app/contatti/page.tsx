@@ -16,7 +16,7 @@ import { faqsPagina } from "@/data/site";
 export const metadata: Metadata = {
   title: "Candida la tua impresa edile",
   description:
-    "Candida la tua impresa edile: lo studio di fattibilità dice se ha senso lavorare insieme, e può dire di no. Ti chiamiamo entro 48 ore lavorative.",
+    "Candida la tua impresa edile: lo studio di fattibilità ti dice se ha senso lavorare insieme, sui numeri veri. Ti chiamiamo entro 48 ore lavorative.",
   alternates: { canonical: "/contatti" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -97,9 +97,11 @@ export default function ContattiPage() {
             <p className="body-lg order-3 text-pretty lg:col-start-1 lg:row-start-2 lg:mb-8">
               È il primo passo per lavorare con noi. Prima di parlare di
               pubblicità facciamo i conti sulla tua impresa e sulla tua zona,
-              e decidiamo insieme se ha senso partire:{" "}
-              <strong className="chiave">a volte la risposta è no</strong>, e
-              te la diamo prima che tu abbia speso un euro.
+              e decidiamo insieme se ha senso partire,{" "}
+              <strong className="chiave">
+                prima che tu abbia speso un euro
+              </strong>
+              .
             </p>
             {/* Da telefono niente riquadro intorno: il modulo ha già il suo, e
                 due bordi uno dentro l'altro lasciavano al campo 200 px. */}

@@ -34,7 +34,7 @@ export const problemiConScena: (Problema & { src: string; alt: string })[] = [
       "Mi metto a disposizione, gli faccio anche il progetto, e poi sceglie un altro.",
     testo: (
       <>
-        Esci per chiunque chiami, perché non sai chi ha un budget e chi vuole
+        Fai il sopralluogo a chiunque chiami, perché non sai chi ha un budget e chi vuole
         solo un prezzo da confrontare.{" "}
         <strong>Le giornate a vuoto non te le paga nessuno.</strong>
       </>
@@ -42,7 +42,7 @@ export const problemiConScena: (Problema & { src: string; alt: string })[] = [
     soluzione: (
       <>
         Il modulo chiede a ogni richiesta tipo di lavoro, tempi, budget e zona:{" "}
-        <strong>esci solo per chi ha un lavoro vero da fare.</strong> E
+        <strong>il sopralluogo lo fai solo a chi ha un lavoro vero da fare.</strong> E
         lavoriamo con te perché il sopralluogo diventi a pagamento, come con
         Tetti Top.
       </>
@@ -249,7 +249,7 @@ export const studio = [
   {
     cosa: "Una risposta: ha senso lavorare insieme?",
     dettaglio:
-      "Può essere no, e te la diamo prima che tu spenda un euro in pubblicità.",
+      "Te la diamo prima che tu spenda un euro in pubblicità.",
   },
 ];
 
@@ -262,7 +262,7 @@ export const passi = [
   {
     titolo: "Lo studio di fattibilità",
     testo:
-      "Contiamo quanti lavori produce ogni anno la tua zona, da fonti ufficiali, e guardiamo quanto lavoro regge oggi la tua impresa. La risposta può essere no, e te la diamo prima che tu spenda un euro in pubblicità.",
+      "Contiamo quanti lavori produce ogni anno la tua zona, da fonti ufficiali, e guardiamo quanto lavoro regge oggi la tua impresa. La risposta te la diamo prima che tu spenda un euro in pubblicità.",
   },
   {
     titolo: "Se si parte",
@@ -313,7 +313,7 @@ export const domandeDopoLaChiamata: Pick<Faq, "q" | "a">[] = [
   },
   {
     q: "E se poi non funziona?",
-    a: "Prima di iniziare, lo studio di fattibilità ci dice se ci sono i presupposti, e può dire di no. Se si parte, ogni settimana guardiamo le trattative, e dopo 60 giorni rivediamo le stime sui dati veri. Se i numeri non si muovono, cambiamo strategia, campagne o budget.",
+    a: "Prima di iniziare, lo studio di fattibilità ci dice se ci sono i presupposti per lavorare insieme. Se si parte, ogni settimana guardiamo le trattative, e dopo 60 giorni rivediamo le stime sui dati veri. Se i numeri non si muovono, cambiamo strategia, campagne o budget.",
   },
   {
     q: "Ho già provato con un'agenzia. Cosa cambia?",

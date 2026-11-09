@@ -42,7 +42,7 @@ export default function FooterCtaBand({ isCaseStudy = false }: Props) {
 
         <p className="mx-auto mb-9 max-w-2xl text-pretty text-lg leading-relaxed text-brand-grigio">
           {isCaseStudy
-            ? "Partiamo da uno studio di fattibilità: guardiamo i tuoi numeri e ti diciamo se un percorso simile ha senso per te. A volte la risposta è no, e te la diciamo lo stesso."
+            ? "Partiamo da uno studio di fattibilità: guardiamo i tuoi numeri e ti diciamo se un percorso simile ha senso per te."
             : "Se la seconda risposta non ti piace, il problema non è il prezzo degli altri. Partiamo da uno studio di fattibilità e guardiamo i tuoi numeri insieme."}
         </p>
 
