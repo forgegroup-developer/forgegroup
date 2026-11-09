@@ -59,7 +59,8 @@ export type CaseStudy = {
    * (proprietà, 09/11/2026: "elevare i nostri clienti, non parlarne male").
    */
   etichettaPartenza?: string;
-  etichettaPunti?: string;
+  /** Un'etichetta per ogni punto della sfida, nello stesso ordine di `diagnosis`. */
+  etichettaPunti?: string[];
   /** Badge progetto in corso (es. ROVI) */
   statusBadge?: string;
   /** Logo cliente (carousel, hub, contesto). Omesso se cliente non pubblicato */
@@ -196,13 +197,13 @@ export const caseStudies: CaseStudy[] = [
     excerpt:
       "ROVI arreda negozi e locali con una cura che i suoi clienti riconoscono. Il lavoro arrivava dal passaparola: insieme abbiamo costruito il modo di portare richieste nuove e di presentare ogni progetto di persona. 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     hubExcerpt:
-      "Una cura del progetto che i clienti riconoscono, oggi anche fuori dal passaparola: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+      "I clienti scelgono ROVI per la cura dei progetti, e oggi la trovano anche fuori dal passaparola: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     excerptHighlights: ["presentare ogni progetto di persona", "oltre 200.000 € di trattative aperte"],
     etichettaPartenza: "Il punto di partenza",
-    etichettaPunti: "Da costruire",
+    etichettaPunti: ["Il primo passo", "Il secondo passo", "Il terzo passo", "Il quarto passo"],
     sintesi: {
-      problema: "Un lavoro curato, scelto dai clienti, che arrivava solo dal passaparola.",
-      soluzione: "Le campagne con il modulo che filtra, la cifra detta presto, il piano dei lavori presentato di persona, ogni trattativa nel gestionale.",
+      problema: "ROVI faceva un lavoro curato e scelto dai clienti, ma le richieste arrivavano solo dal passaparola.",
+      soluzione: "Abbiamo avviato le campagne con il modulo che filtra, e con ROVI abbiamo scritto come presentare ogni progetto e seguire ogni trattativa.",
       risultato: "25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     },
     metaDescription:
@@ -220,10 +221,10 @@ export const caseStudies: CaseStudy[] = [
         "Un negozio aveva più preventivi in mano. In uno c'erano due vetrine da un metro e settantacinque e il banco cassa: messi così, la porta non si apriva. ROVI il rilievo l'aveva fatto sul posto, e il cliente l'ha scelta anche per quello. Il lavoro fatto insieme parte da qui: far vedere questa cura già prima della firma.",
     },
     diagnosis: [
-      "Richieste anche oltre il passaparola: un canale in più, da poter programmare",
-      "Il budget prima del progetto: i progetti di ROVI valgono, e vanno fatti per chi può realizzarli",
-      "La cura che si vede subito: il piano dei lavori presentato di persona, non un totale da confrontare",
-      "Ogni trattativa al suo posto: con più richieste, serviva un posto dove seguirle una per una",
+      "Far arrivare richieste anche oltre il passaparola: il passaparola porta clienti buoni, ma non permette di programmare il lavoro dei mesi successivi.",
+      "Conoscere il budget prima di preparare il progetto: i progetti di ROVI hanno un valore, e meritano di essere preparati per chi può davvero realizzarli.",
+      "Far vedere la cura già nella proposta: con il piano dei lavori presentato di persona, il cliente capisce cosa compra prima di guardare il totale.",
+      "Seguire ogni trattativa fino alla firma: con più richieste in arrivo, serviva un posto dove scrivere a che punto è ognuna e quando richiamare.",
     ],
     system: [
       {
@@ -281,23 +282,23 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Richieste",
-        before: "Dal passaparola",
-        after: "Anche dalle campagne, con il modulo che chiede budget, stato del locale e tempi",
+        before: "Arrivavano solo dal passaparola.",
+        after: "Arrivano anche dalle campagne, con il modulo che chiede budget, stato del locale e tempi.",
       },
       {
         aspect: "Sopralluoghi e progetti",
-        before: "Preparati prima di conoscere il budget",
-        after: "Dopo aver detto la fascia di prezzo e capito chi decide",
+        before: "Si preparavano prima di conoscere il budget del cliente.",
+        after: "Si preparano dopo aver detto la fascia di prezzo e capito chi decide.",
       },
       {
         aspect: "La presentazione",
-        before: "Un preventivo, confrontato sul totale",
-        after: "Un piano dei lavori presentato di persona, che fa vedere la cura del progetto",
+        before: "Il cliente riceveva un preventivo e lo confrontava sul totale.",
+        after: "Il cliente vede un piano dei lavori presentato di persona, che mostra la cura del progetto.",
       },
       {
         aspect: "Le trattative",
-        before: "Seguite a memoria dal titolare",
-        after: "Nel gestionale, e ogni incontro finisce con una data",
+        before: "Il titolare le seguiva a memoria.",
+        after: "Stanno nel gestionale, e ogni incontro finisce con la data del passo successivo.",
       },
     ],
     statusBadge: "Progetto attivo · primi contratti chiusi",

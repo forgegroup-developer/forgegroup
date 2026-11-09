@@ -252,7 +252,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   const { titolo, testo } = dividi(d);
                   return (
                     <li key={d} className="card-xl superficie-chiara rounded-2xl border p-6 max-md:p-5">
-                      <p className="eyebrow mb-2">{c.etichettaPunti ?? "Problema"} #{i + 1}</p>
+                      <p className="eyebrow mb-2">{c.etichettaPunti?.[i] ?? `Problema #${i + 1}`}</p>
                       <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero max-md:mb-0">
                         {titolo}
                       </h3>
