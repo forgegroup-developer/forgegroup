@@ -48,7 +48,7 @@ const COME_LAVORIAMO = `- Gestiamo noi la pubblicità su Meta e Google, con vide
 - Dopo 60 giorni si rivedono le stime sui dati veri; dopo 90 giorni il primo report: contatti, appuntamenti, contratti, costo per contatto.
 - Metodo F.O.R.G.E.: Fondamenta (audit commerciale), Organizzazione (social), Richieste (campagne), Gestione (gestionale), Evoluzione (processo di vendita e consulenza).`;
 
-const STUDIO = `Prima di iniziare c'è lo studio di fattibilità: quanto lavoro produce la zona, da fonti ufficiali (ISTAT, GSE, ENEA), quanto lavoro regge oggi l'impresa, e se ha senso lavorare insieme. La risposta può essere no. Lavoriamo con poche imprese, una per territorio. Il contratto è annuale; una parte del compenso è legata al fatturato generato. I prezzi non sono pubblici: si definiscono dopo lo studio.`;
+const STUDIO = `Prima di iniziare c'è lo studio di fattibilità: quanto lavoro produce la zona, da fonti ufficiali (ISTAT, GSE, ENEA), quanto lavoro regge oggi l'impresa, e se ha senso lavorare insieme. Lavoriamo con poche imprese, una per territorio. Il contratto è annuale; una parte del compenso è legata al fatturato generato. I prezzi non sono pubblici: si definiscono dopo lo studio.`;
 
 const PROVE = `- DISA (software per l'edilizia): 126.500 € di nuovi contratti in 90 giorni, solo dalle Meta Ads, a 1,48 € per contatto; circa 300.000 € di fatturato in 12 mesi con 6.000 € di pubblicità in tutto (circa 500 € al mese). Videorecensione del titolare dopo 12 mesi: https://www.youtube.com/watch?v=GdAON_dLDMQ
 - Tetti Top (coperture e lattoneria): 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 €, sopralluogo diventato a pagamento.
@@ -118,7 +118,7 @@ Il modulo chiede il nome dell'impresa, la zona in cui lavora, cosa vuole miglior
 1. Guardiamo la tua impresa e la tua zona prima di sentirti.
 2. Ti chiama Gianpio entro 48 ore lavorative, per capire se ci sono i presupposti.
 3. Se ci sono, si fissa un appuntamento: di persona se sei vicino ai nostri consulenti, altrimenti in videochiamata.
-4. Lo studio di fattibilità dice se ha senso lavorare insieme. La risposta può essere no.
+4. Lo studio di fattibilità dice se ha senso lavorare insieme.
 
 ## Privacy
 Dati trattati secondo la Privacy Policy: ${BASE}/privacy-policy
@@ -332,7 +332,7 @@ Ogni pagina principale ha una versione markdown senza navigazione o script. Aggi
 ${mirrorList}
 
 ## Cosa ci distingue
-Il gestionale costruito da noi sul processo di vendita edile, dove il titolare vede ogni trattativa e quanto rende ogni euro. Lo studio di fattibilità che conta il mercato da fonti ufficiali e può dire di no. Un'impresa per territorio. Di persona dove abbiamo consulenti.
+Il gestionale costruito da noi sul processo di vendita edile, dove il titolare vede ogni trattativa e quanto rende ogni euro. Lo studio di fattibilità che conta il mercato da fonti ufficiali e dice se ha senso lavorare insieme. Un'impresa per territorio. Di persona dove abbiamo consulenti.
 
 ## Frequently Asked Questions
 ${faqs.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}

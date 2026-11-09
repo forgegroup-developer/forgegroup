@@ -227,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
         step: "02",
         title: "La cifra detta presto",
         description:
-          "La fascia di prezzo si dice subito, in chiamata. Se è sostenibile si fissa il sopralluogo: così si esce solo per chi può spendere.",
+          "La fascia di prezzo si dice subito, in chiamata. Se è sostenibile si fissa il sopralluogo: così il sopralluogo si fa solo a chi può spendere.",
       },
       {
         step: "03",

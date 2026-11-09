@@ -115,7 +115,7 @@ export default function Problemi({ dopo }: { dopo?: ReactNode }) {
               Facciamo due conti, con numeri tondi
             </p>
             <p className="mb-5 text-lg leading-relaxed">
-              Esci per otto sopralluoghi al mese e ne chiudi uno: sono sette
+              Fai otto sopralluoghi al mese e ne chiudi uno: sono sette
               giornate a vuoto al mese, più di ottanta l&apos;anno.
             </p>
             <h3 className="font-display text-2xl font-bold leading-snug md:text-3xl">

@@ -113,7 +113,7 @@ export default async function BlogSidebar({ excludeSlug, searchQuery = "" }: Pro
         <h2 className="text-lg font-semibold text-brand-nero mb-2">Il primo passo</h2>
         <p className="text-sm text-brand-grigio mb-4">
           Uno studio di fattibilità sulla tua impresa: quanto lavoro c&apos;è nella tua zona e quanto
-          ne reggi oggi. A volte la risposta è no, e te la diciamo lo stesso.
+          ne reggi oggi, e se ha senso lavorare insieme.
         </p>
         <Link href="/contatti" className="btn-corallo w-full">
           Richiedi lo studio

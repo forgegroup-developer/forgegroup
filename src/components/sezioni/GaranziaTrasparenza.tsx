@@ -33,7 +33,7 @@ const garanzie = [
   },
   {
     t: "Prima di partire sai se ha senso",
-    d: "Si comincia da uno studio di fattibilità sui tuoi numeri. A volte la risposta è no, e te la diciamo lo stesso.",
+    d: "Si comincia da uno studio di fattibilità sui tuoi numeri, prima di spendere un euro in pubblicità.",
   },
 ];
 
