@@ -65,8 +65,7 @@ export function buildContactInternalHtml(data: Record<string, string>): string {
 }
 
 export function buildContactInternalSubject(data: Record<string, string>): string {
-  const impresa = String(data.nome_attivita ?? "").trim() || "impresa da chiedere";
-  return `Nuova candidatura: ${impresa} (${data.nome_cognome})`;
+  return `Nuova candidatura: ${data.nome_attivita} (${data.nome_cognome})`;
 }
 
 /**

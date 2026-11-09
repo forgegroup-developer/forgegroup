@@ -180,6 +180,7 @@ function ModuloRiquadro({
   const invia = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!nome.trim()) return setErrore("Manca il nome.");
+    if (!impresa.trim()) return setErrore("Manca il nome dell'impresa.");
     if (telefono.replace(/\D/g, "").length < 8) {
       return setErrore("Controlla il numero di telefono: sembra incompleto.");
     }
@@ -237,15 +238,14 @@ function ModuloRiquadro({
       <p className="mb-5 text-base leading-relaxed text-brand-grigio">
         {tipo === "ritorno" ? (
           <>
-            Lascia nome e telefono.{" "}
+            Lascia i tuoi dati.{" "}
             <strong className="chiave">Ti chiama Gianpio entro 48 ore lavorative</strong> per
             capire se ha senso lavorare insieme.
           </>
         ) : (
           <>
-            Lo capiamo con una telefonata. Lascia nome e telefono e{" "}
-            <strong className="chiave">ti chiama Gianpio entro 48 ore lavorative</strong>. Se
-            non ci sono i presupposti, te lo dice lì.
+            Lo capiamo con una telefonata. Lascia i tuoi dati e{" "}
+            <strong className="chiave">ti chiama Gianpio entro 48 ore lavorative</strong>.
           </>
         )}
       </p>
@@ -287,15 +287,14 @@ function ModuloRiquadro({
           />
         </label>
         <label className="block">
-          <span className="mb-1 block text-sm font-semibold text-brand-nero">
-            Impresa e zona <span className="font-normal text-brand-grigio">(se vuoi)</span>
-          </span>
+          <span className="mb-1 block text-sm font-semibold text-brand-nero">Nome dell&apos;impresa</span>
           <input
             className={inputCls}
             value={impresa}
             onChange={(e) => setImpresa(e.target.value)}
             autoComplete="organization"
-            placeholder="Es. Edil Srl, Bari"
+            placeholder="Es. Edil Srl"
+            required
           />
         </label>
       </div>

@@ -18,8 +18,8 @@ export const runtime = "nodejs";
 // L'email non serve per partire (la chiamata la facciamo noi); ostacolo e fonte
 // arrivano dopo l'invio, facoltativi, da /api/contact/dettagli.
 const CAMPI_MODULO = ["nome_attivita", "zona", "nome_cognome", "telefono"] as const;
-// Il riquadro "ti chiamiamo noi" chiede solo nome e telefono (impresa e zona facoltativi).
-const CAMPI_RIQUADRO = ["nome_cognome", "telefono"] as const;
+// Il riquadro "ti chiamiamo noi" chiede nome, telefono e nome dell'impresa (sempre obbligatorio, proprietà 09/11).
+const CAMPI_RIQUADRO = ["nome_attivita", "nome_cognome", "telefono"] as const;
 
 const EMAIL_VALIDA = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

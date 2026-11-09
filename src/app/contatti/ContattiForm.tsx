@@ -343,24 +343,19 @@ export default function ContattiForm({
           <span className="eyebrow-rule">Candidatura ricevuta</span>
         </p>
         <h1 className="heading-section-xl text-balance text-brand-nero mb-6">
-          Grazie. Adesso{" "}
-          <span className="text-brand-corallo-text">guardiamo i tuoi numeri</span>.
+          Grazie. Ti chiama Gianpio{" "}
+          <span className="text-brand-corallo-text">entro 48 ore lavorative</span>.
         </h1>
         <div className="text-lg text-brand-grigio leading-relaxed mb-8 space-y-4 max-w-xl mx-auto">
           <p>
-            Prima di sentirti ci guardiamo la tua impresa e la tua zona, così
-            quando ti chiamiamo sappiamo già di cosa stiamo parlando e non ti
-            facciamo perdere venti minuti a raccontarci quello che hai già
-            scritto.
+            Prima di sentirti guardiamo la tua impresa e la tua zona: così la
+            chiamata parte da quello che ci hai già scritto.
           </p>
           <p>
-            Ti chiamiamo entro <strong>48 ore lavorative</strong>.
-          </p>
-          <p>
-            Quella chiamata serve a capire se ci sono i presupposti per lavorare
-            insieme. Se ci sono, fissiamo un appuntamento: di persona se sei in
-            una zona dove arriviamo, altrimenti in videochiamata. Se non ci
-            sono, te lo diciamo lì.
+            In quella chiamata vediamo{" "}
+            <strong className="chiave">se ha senso lavorare insieme</strong>. Se
+            ha senso, fissiamo l&apos;appuntamento: di persona se sei in una zona
+            dove arriviamo, altrimenti in videochiamata.
           </p>
         </div>
         <DomandeDopoInvio form={form} sorgente={sorgente} />
