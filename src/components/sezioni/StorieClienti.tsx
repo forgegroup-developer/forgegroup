@@ -111,11 +111,21 @@ export default function StorieClienti() {
           </h3>
           <ol className="mb-6 space-y-4">
             <li className="flex gap-3.5">
-              <span className="segno-no mt-0.5" aria-hidden>
-                ✕
-              </span>
+              {/* Per i casi raccontati partendo da quello che il cliente fa bene
+                  (ROVI) niente ✕: una freccia neutra e "Il punto di partenza". */}
+              {caso.etichettaPartenza ? (
+                <span className="mt-0.5 shrink-0 font-bold text-brand-grigio" aria-hidden>
+                  →
+                </span>
+              ) : (
+                <span className="segno-no mt-0.5" aria-hidden>
+                  ✕
+                </span>
+              )}
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-brand-grigio">Com&apos;era</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-brand-grigio">
+                  {caso.etichettaPartenza ?? "Com'era"}
+                </p>
                 <p className="leading-relaxed text-brand-grigio">{caso.sintesi.problema}</p>
               </div>
             </li>

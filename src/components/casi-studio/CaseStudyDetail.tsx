@@ -146,7 +146,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
           <dl className="mt-10 grid gap-4 max-md:hidden md:grid-cols-3">
             {(
               [
-                ["Il problema", c.sintesi.problema],
+                [c.etichettaPartenza ?? "Il problema", c.sintesi.problema],
                 ["La soluzione", c.sintesi.soluzione],
                 ["Il risultato", c.sintesi.risultato],
               ] as const
@@ -252,7 +252,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
                   const { titolo, testo } = dividi(d);
                   return (
                     <li key={d} className="card-xl superficie-chiara rounded-2xl border p-6 max-md:p-5">
-                      <p className="eyebrow mb-2">Problema #{i + 1}</p>
+                      <p className="eyebrow mb-2">{c.etichettaPunti ?? "Problema"} #{i + 1}</p>
                       <h3 className="mb-2 font-display text-xl font-bold leading-snug text-brand-nero max-md:mb-0">
                         {titolo}
                       </h3>
@@ -281,7 +281,7 @@ export default function CaseStudyDetail({ c, showBackLink = false }: Props) {
         <div className={CONTENITORE}>
           <Titolo
             occhiello="La soluzione"
-            sottotitolo={`Ogni problema ha il suo passo, costruito insieme a ${clientName}. Oggi il sistema resta in mano loro.`}
+            sottotitolo={`${c.etichettaPunti ? "Ogni passo" : "Ogni problema ha il suo passo,"} costruito insieme a ${clientName}. Oggi il sistema resta in mano loro.`}
           >
             Il sistema che abbiamo <Chiave>costruito insieme</Chiave>.
           </Titolo>

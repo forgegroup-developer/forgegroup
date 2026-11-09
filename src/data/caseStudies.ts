@@ -53,6 +53,13 @@ export type CaseStudy = {
   sintesi: { problema: string; soluzione: string; risultato: string };
   /** Una scena vera dal lavoro con il cliente (Scene ROVI, video-recensione DISA). */
   scena?: { titolo: string; testo: string };
+  /**
+   * Etichette al posto di "Il problema" (sintesi) e "Problema #n" (la sfida),
+   * per i casi che si raccontano partendo da quello che il cliente fa bene
+   * (proprietà, 09/11/2026: "elevare i nostri clienti, non parlarne male").
+   */
+  etichettaPartenza?: string;
+  etichettaPunti?: string;
   /** Badge progetto in corso (es. ROVI) */
   statusBadge?: string;
   /** Logo cliente (carousel, hub, contesto). Omesso se cliente non pubblicato */
@@ -187,34 +194,36 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Arredamento negozi",
     resultHeadline: "25.000 € chiusi in quattro mesi, e oltre 200.000 € di trattative aperte.",
     excerpt:
-      "ROVI lavorava solo con il passaparola, faceva sopralluoghi e progetti per chiunque chiedesse e perdeva trattative sul prezzo. Oggi conosce il budget del cliente prima dell'appuntamento: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+      "ROVI arreda negozi e locali con una cura che i suoi clienti riconoscono. Il lavoro arrivava dal passaparola: insieme abbiamo costruito il modo di portare richieste nuove e di presentare ogni progetto di persona. 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     hubExcerpt:
-      "Da sopralluoghi e progetti per chiunque a clienti con il budget già detto: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
-    excerptHighlights: ["conosce il budget del cliente prima dell'appuntamento", "oltre 200.000 € di trattative aperte"],
+      "Una cura del progetto che i clienti riconoscono, oggi anche fuori dal passaparola: 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
+    excerptHighlights: ["presentare ogni progetto di persona", "oltre 200.000 € di trattative aperte"],
+    etichettaPartenza: "Il punto di partenza",
+    etichettaPunti: "Da costruire",
     sintesi: {
-      problema: "Solo passaparola, sopralluoghi e progetti per chiunque, trattative perse sul prezzo.",
-      soluzione: "Chi decide al primo incontro, la cifra detta presto, il piano dei lavori presentato di persona, ogni trattativa nel gestionale.",
+      problema: "Un lavoro curato, scelto dai clienti, che arrivava solo dal passaparola.",
+      soluzione: "Le campagne con il modulo che filtra, la cifra detta presto, il piano dei lavori presentato di persona, ogni trattativa nel gestionale.",
       risultato: "25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     },
     metaDescription:
-      "ROVI, arredamento negozi: dal solo passaparola a 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte, con il budget del cliente saputo prima.",
+      "ROVI, arredamento negozi: un lavoro curato, oggi non più solo dal passaparola. 25.000 € chiusi in quattro mesi e oltre 200.000 € di trattative aperte.",
     context: [
       { label: "Settore", value: "Arredamento e allestimento di negozi e locali" },
       { label: "Azienda", value: "ROVI Srl" },
       { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "ROVI il lavoro lo sa fare, e i clienti lo scelgono anche per la cura. In un negozio, un altro preventivo metteva due vetrine da un metro e settantacinque più il banco cassa: messi così, la porta non si apriva più. ROVI le misure le aveva prese sul posto. Il problema era vendere quella professionalità: tutto arrivava dal passaparola, sopralluoghi e progetti si facevano per chiunque chiedesse, e le trattative saltavano sul prezzo.",
+      "ROVI progetta e arreda negozi e locali, e i clienti la scelgono per la cura: il rilievo lo fa sul posto, e il progetto lo pensa sul locale vero. Il lavoro arrivava dal passaparola, che porta clienti buoni ma non si può programmare. Il passo da fare insieme era portare la stessa cura anche prima del cantiere: nel modo di far arrivare le richieste, di presentare i progetti e di seguire ogni trattativa fino alla firma.",
     scena: {
-      titolo: "Cinque appuntamenti, nessuna firma",
+      titolo: "Le due vetrine che non facevano aprire la porta",
       testo:
-        "Un locale da arredare. La trattativa la seguiva la figlia del proprietario: cinque appuntamenti e nessuna firma. In consulenza si è capito perché: le decisioni sui soldi le prendeva il padre, e al tavolo non c'era mai stato. Da lì la prima regola: al primo incontro si capisce chi decide e chi paga, prima di progettare.",
+        "Un negozio aveva più preventivi in mano. In uno c'erano due vetrine da un metro e settantacinque e il banco cassa: messi così, la porta non si apriva. ROVI il rilievo l'aveva fatto sul posto, e il cliente l'ha scelta anche per quello. Il lavoro fatto insieme parte da qui: far vedere questa cura già prima della firma.",
     },
     diagnosis: [
-      "Solo passaparola: nessun altro canale per trovare clienti",
-      "Sopralluoghi e progetti regalati: a chiunque chiedesse, senza sapere il budget",
-      "La guerra dei prezzi: la cura del lavoro non si vedeva nel preventivo",
-      "Il preventivo e poi il silenzio: agenda, WhatsApp, nessuna data per richiamare",
+      "Richieste anche oltre il passaparola: un canale in più, da poter programmare",
+      "Il budget prima del progetto: i progetti di ROVI valgono, e vanno fatti per chi può realizzarli",
+      "La cura che si vede subito: il piano dei lavori presentato di persona, non un totale da confrontare",
+      "Ogni trattativa al suo posto: con più richieste, serviva un posto dove seguirle una per una",
     ],
     system: [
       {
@@ -251,7 +260,7 @@ export const caseStudies: CaseStudy[] = [
         step: "06",
         title: "I pagamenti fissati prima",
         description:
-          "Bonifico, acconto all'arrivo della merce, saldo allo scarico: come e quando si paga si decide prima di iniziare, per iscritto.",
+          "Come e quando si paga si decide prima di iniziare, per iscritto, così il cantiere parte sereno per tutti e due.",
       },
     ],
     resultsEyebrow: "Dove siamo adesso",
@@ -272,28 +281,23 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Richieste",
-        before: "Solo passaparola",
-        after: "Campagne con il modulo che chiede budget, stato del locale e tempi",
+        before: "Dal passaparola",
+        after: "Anche dalle campagne, con il modulo che chiede budget, stato del locale e tempi",
       },
       {
         aspect: "Sopralluoghi e progetti",
-        before: "Per chiunque chiedesse",
-        after: "Solo dopo aver detto la cifra e capito chi decide",
+        before: "Preparati prima di conoscere il budget",
+        after: "Dopo aver detto la fascia di prezzo e capito chi decide",
       },
       {
-        aspect: "Il preventivo",
-        before: "Mandato su WhatsApp, confrontato solo sul prezzo",
-        after: "Un piano dei lavori presentato di persona",
+        aspect: "La presentazione",
+        before: "Un preventivo, confrontato sul totale",
+        after: "Un piano dei lavori presentato di persona, che fa vedere la cura del progetto",
       },
       {
         aspect: "Le trattative",
-        before: "Agenda cartacea e WhatsApp, nessuno storico",
+        before: "Seguite a memoria dal titolare",
         after: "Nel gestionale, e ogni incontro finisce con una data",
-      },
-      {
-        aspect: "I pagamenti",
-        before: "Decisi strada facendo",
-        after: "Fissati per iscritto prima di iniziare",
       },
     ],
     statusBadge: "Progetto attivo · primi contratti chiusi",

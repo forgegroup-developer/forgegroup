@@ -26,7 +26,7 @@ export const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
     prima: {
       src: iniziaImages.prezzoPiuBasso,
       alt: "Un titolare guarda due preventivi affiancati: il cliente indica quello più basso",
-      commento: "Due preventivi sul tavolo, e il cliente guarda solo il totale più basso.",
+      commento: "Due preventivi sul tavolo: dal solo totale, la cura del progetto non si vede.",
     },
     dopo: {
       src: primaDopoImages.roviDopo,
