@@ -6,7 +6,7 @@
  "date": "2026-11-10",
  "publishAt": "2026-11-10T09:00:00+01:00",
  "readTime": "4 min",
- "excerpt": "Fai il sopralluogo, scegli la macchina giusta e la sera stessa il preventivo è sul telefono del cliente. Il giorno dopo un altro impiantista lo usa per fargli un prezzo.",
+ "excerpt": "Fai il sopralluogo, scegli la macchina giusta e la sera stessa il preventivo è sul telefono del cliente. A volte è proprio quel foglio che un altro impiantista usa per fargli un prezzo.",
  "tags": [
   "impianti",
   "pompa di calore",
@@ -63,7 +63,7 @@
   },
   {
    "type": "p",
-   "text": "Guardi la caldaia, conti i radiatori uno per uno, chiedi se il bagno di sopra si scalda e quante persone fanno la doccia la mattina. Poi esci in giardino a cercare un angolo per l'unità esterna."
+   "text": "Guardi la caldaia e conti i radiatori uno per uno. Chiedi se il bagno di sopra si scalda e quante persone fanno la doccia la mattina, poi esci in giardino a cercare un angolo per l'unità esterna."
   },
   {
    "type": "p",
@@ -83,7 +83,7 @@
   },
   {
    "type": "p",
-   "text": "Il cliente non deve aver fatto niente di strano. Aveva in mano un foglio chiaro, scritto bene, e per spendere meno gli bastava girarlo a un altro installatore con una domanda sola: quanto mi fai per questa?"
+   "text": "Il cliente non ha bisogno di fare niente di strano. Aveva in mano un foglio chiaro, scritto bene, e per spendere meno gli bastava girarlo a un altro installatore con una domanda sola: quanto mi fai per questa?"
   },
   {
    "type": "p",
@@ -139,7 +139,7 @@
   },
   {
    "type": "p",
-   "text": "In quel giorno il cliente ti chiede perché proprio quella macchina e non una più piccola, cosa cambia con i radiatori che ha, quanto tempo serve per il montaggio. E le risposte le sente da chi ha fatto il sopralluogo, non da chi ha letto solo il PDF."
+   "text": "In quel giorno il cliente ti può chiedere perché proprio quella macchina e non una più piccola, cosa cambia con i radiatori che ha, quanto tempo serve per il montaggio. E le risposte le sente da chi ha fatto il sopralluogo, non da chi ha letto solo il PDF."
   },
   {
    "type": "p",
