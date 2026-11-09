@@ -41,9 +41,9 @@ export const metadata: Metadata = {
    alla volta, le richieste le richiama l'impresa, contratto annuale. */
 const impegno = [
   {
-    cosa: "Rispondi con i numeri veri.",
+    cosa: "In chiamata, dacci i numeri veri.",
     dettaglio:
-      "Le domande del modulo servono a fare i conti sulla tua impresa: più sono precise, più è onesta la risposta.",
+      "Ti chiediamo quanti preventivi fai, quanti sopralluoghi e quanti contratti chiudi oggi: più sono precisi, più è onesto lo studio.",
   },
   {
     cosa: "All'appuntamento porta chi decide con te.",
