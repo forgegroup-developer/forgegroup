@@ -23,6 +23,7 @@ export const SOCIAL_PROFILES = {
   facebook: "https://www.facebook.com/profile.php?id=61590577058663",
   instagram: "https://www.instagram.com/forgegroupitalia/",
   linkedin: "https://www.linkedin.com/company/forge-group-italia",
+  youtube: "https://www.youtube.com/@forgegroupitalia",
   /** La scheda dell'azienda su Google (link stabile con il CID). */
   google: "https://www.google.com/maps?cid=16002235616676818453",
 } as const;
