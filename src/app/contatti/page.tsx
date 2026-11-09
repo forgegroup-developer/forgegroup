@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ContattiFormLoader from "./ContattiFormLoader";
 import { studio } from "@/data/blocchi";
+import SocialLinks from "@/components/ui/SocialLinks";
 import BannerGoogle from "@/components/sezioni/BannerGoogle";
 import {
   CONTENITORE,
@@ -138,6 +139,12 @@ export default function ContattiPage() {
                 </strong>{" "}
                 e fissiamo l&apos;appuntamento in cui te lo presentiamo.
               </p>
+              {/* I social (proprietà, 09/11/2026): chi si candida può vedere
+                  prima chi siamo, i video e i lavori dei clienti. */}
+              <p className="mt-8 mb-3 font-display text-lg font-bold text-brand-nero">
+                Prima di candidarti, guarda chi siamo:
+              </p>
+              <SocialLinks variante="chiaro" />
             </div>
           </div>
         </div>
