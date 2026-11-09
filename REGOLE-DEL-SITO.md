@@ -151,9 +151,21 @@ Dalla revisione del codice del 15/10. Ogni PR che tocca pagine, testi o rotte pa
 
 | Evento | Parametri | Quando |
 |---|---|---|
-| `generate_lead` | `form_name` = la sorgente (`contatti`, `inizia`, …) | invio riuscito del modulo di candidatura |
+| `generate_lead` | `form_name` = la sorgente (`contatti`, `inizia`, `riquadro-ritorno`, `riquadro-uscita`, …) | invio riuscito del modulo di candidatura o del riquadro "ti chiamiamo noi" |
+| `form_start` | `form_name` | prima risposta scritta nel modulo |
+| `form_step` | `form_name`, `step` (numero della schermata raggiunta) | passaggio alla schermata dopo: dice dove ci si ferma |
+| `lead_dettagli` | `form_name`, `fonte` (voce dell'elenco) | risposte facoltative date dopo l'invio |
 | `whatsapp_click` | `posizione` (attributo `data-wa`), `pagina` | tocco su qualunque link WhatsApp |
+| `whatsapp_ritorno` | `pagina` | ritorno sul sito fra 4 secondi e 30 minuti dopo un tocco su WhatsApp |
+| `riquadro_view` / `riquadro_chiuso` | `tipo` (`ritorno`, `uscita`), `pagina` | il riquadro "ti chiamiamo noi" compare / viene chiuso |
 | `newsletter_signup` | `location` | iscrizione alla newsletter |
+
+  *(Eventi del modulo e del riquadro aggiunti il 09/11/2026 su decisione della proprietà.)*
+- **Il modulo di candidatura** ha due schermate (impresa e zona, poi nome e telefono); ostacolo e
+  "come ci hai conosciuto" sono facoltativi, dopo l'invio. **Il riquadro "ti chiamiamo noi"**
+  (`src/components/layout/RiquadroChiamata.tsx`) compare al massimo una volta per visita: al ritorno
+  da WhatsApp (una volta sola per visitatore) e, solo da computer, all'uscita. Mai prima di aprire
+  WhatsApp, mai da telefono all'apertura della pagina, mai su `/contatti` e `/inizia`.
 
 - **Ogni modulo nuovo passa la sua `sorgente`** (`<ContattiFormLoader sorgente="…" />`), così le
   candidature si contano pagina per pagina. **Ogni link WhatsApp nuovo ha `data-wa`.**

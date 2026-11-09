@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { sendGAEvent } from "@next/third-parties/google";
+import { segnaClicWhatsApp, traccia } from "@/lib/leadClient";
 import { WHATSAPP, whatsappHref } from "@/data/contatti";
 import IconaWhatsApp from "@/components/ui/IconaWhatsApp";
 
@@ -41,8 +41,9 @@ export default function WhatsAppFlottante() {
     const conta = (e: MouseEvent) => {
       const link = (e.target as Element | null)?.closest?.('a[href*="wa.me/"]');
       if (!link) return;
-      if (!(window as unknown as { dataLayer?: unknown[] }).dataLayer) return;
-      sendGAEvent("event", "whatsapp_click", {
+      // Serve al riquadro "ti chiamiamo noi" per riconoscere chi torna senza aver scritto.
+      segnaClicWhatsApp();
+      traccia("whatsapp_click", {
         posizione: link.getAttribute("data-wa") ?? "altro",
         pagina: window.location.pathname,
       });

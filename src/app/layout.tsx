@@ -8,6 +8,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFlottante from "@/components/layout/WhatsAppFlottante";
+import RiquadroChiamata from "@/components/layout/RiquadroChiamata";
 import {
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
@@ -193,6 +194,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppFlottante />
+        <RiquadroChiamata />
         {/* Sempre caricato: finché il visitatore non accetta, iubenda tiene
             il consenso a "negato" e GA manda solo segnali anonimi, senza
             cookie. Prima GA partiva solo dopo il sì, e chi rifiutava o
