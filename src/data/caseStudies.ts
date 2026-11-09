@@ -88,14 +88,16 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Coperture e lattoneria",
     resultHeadline: "4 clienti qualificati al mese, senza pubblicità. E oggi il sopralluogo si paga.",
     excerpt:
-      "Tetti Top viveva di passaparola, con mesi pieni e mesi vuoti, e faceva preventivi a chiunque chiedesse. Oggi ha 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € e il sopralluogo a pagamento.",
+      "Tetti Top è un'azienda di famiglia che rifà tetti e coperture. Le richieste arrivavano dal passaparola, e molte chiedevano solo il prezzo al metro quadro. Oggi ha 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € e il sopralluogo a pagamento.",
     hubExcerpt:
-      "Da mesi pieni e mesi vuoti a 4 clienti qualificati al mese senza pubblicità, con il sopralluogo diventato a pagamento.",
+      "Meno telefonate per il solo prezzo al metro quadro, e 4 clienti qualificati al mese senza pubblicità: oggi il sopralluogo sul tetto si paga.",
     excerptHighlights: ["4 clienti qualificati al mese", "il sopralluogo a pagamento"],
+    etichettaPartenza: "Il punto di partenza",
+    etichettaPunti: ["Il primo passo", "Il secondo passo", "Il terzo passo", "Il quarto passo"],
     sintesi: {
-      problema: "Clienti solo dal passaparola, mesi pieni e mesi vuoti, sopralluoghi per chiunque chiedesse.",
-      soluzione: "Il modulo che filtra, le parole per richiamare, il sopralluogo a pagamento, il sito e il profilo Google per la sua zona.",
-      risultato: "4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € + IVA.",
+      problema: "Tetti Top lavorava bene sui tetti, ma le richieste arrivavano solo dal passaparola, e molte chiedevano soltanto il prezzo al metro quadro.",
+      soluzione: "Abbiamo costruito il modulo che filtra, scritto con Tetti Top le domande per richiamare, portato il sopralluogo a pagamento e reso l'impresa facile da trovare in zona.",
+      risultato: "Oggi arrivano 4 clienti qualificati al mese senza pubblicità, con preventivi fino a 175.000 € + IVA.",
     },
     metaDescription:
       "Tetti Top, coperture e lattoneria: da mesi pieni e mesi vuoti a 4 clienti qualificati al mese senza pubblicità, preventivi fino a 175.000 € e sopralluogo a pagamento.",
@@ -106,19 +108,19 @@ export const caseStudies: CaseStudy[] = [
       { label: "Mercato", value: "La sua zona" },
     ],
     challenge:
-      "Tetti Top il lavoro lo sa fare. Il problema era un altro: i clienti arrivavano solo dal passaparola, quando arrivavano. Mesi pieni e mesi vuoti, preventivi a chiunque chiedesse, sopralluoghi anche per chi voleva solo un prezzo da confrontare.",
+      "Tetti Top è un'azienda di famiglia che rifà tetti e coperture, e il lavoro lo sa fare. Le richieste arrivavano dal passaparola, con mesi pieni e mesi più tranquilli. Molte telefonate chiedevano solo quanto costa il tetto al metro quadro, ma un preventivo serio su una copertura non si fa senza salire a vedere. Il passo da fare insieme era far arrivare le richieste giuste tutto l'anno, e dare al sopralluogo il valore che ha.",
     diagnosis: [
-      "I mesi morti: mesi pieni e mesi vuoti, nessun modo di pianificare il lavoro o le assunzioni",
-      "Nessun filtro: preventivi anche a chi cercava solo il prezzo più basso",
-      "Sopralluoghi regalati: giornate intere per clienti che non avrebbero firmato",
-      "Invisibile a chi cercava: chi cercava un'impresa di coperture in zona non la trovava",
+      "Avere richieste tutto l'anno: il passaparola porta clienti buoni, ma non permette di programmare la squadra e i lavori dei mesi successivi.",
+      "Riconoscere prima chi vuole rifare il tetto davvero: chi chiede solo il prezzo al metro quadro si capisce al telefono, prima di salire sul tetto.",
+      "Dare valore al sopralluogo: salire sul tetto, prendere le misure e capire cosa serve è già lavoro, e chi lo prenota deve saperlo.",
+      "Farsi trovare da chi cerca in zona: chi deve rifare il tetto cerca su Google un'impresa vicina, e deve trovare Tetti Top.",
     ],
     system: [
       {
         step: "01",
         title: "Il modulo che filtra",
         description:
-          "Prima del primo contatto il modulo chiede tipo di lavoro, tempi, budget e zona. A Tetti Top arriva chi ha un lavoro vero da fare, già con le informazioni per decidere se vale il viaggio.",
+          "Prima del primo contatto il modulo chiede tipo di lavoro, tempi, budget e zona. A Tetti Top arriva chi ha un tetto da rifare davvero, con le informazioni per decidere se vale il viaggio.",
       },
       {
         step: "02",
@@ -141,7 +143,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: [
       { value: "4", label: "Clienti qualificati al mese", detail: "Senza pubblicità" },
-      { value: "0€", label: "Investiti in pubblicità", detail: "Il lavoro arriva da chi cerca in zona" },
+      { value: "0 €", label: "Spesi in pubblicità", detail: "Le richieste arrivano da chi cerca un'impresa in zona" },
       { value: "175K€", label: "Il preventivo più alto", detail: "Più IVA" },
     ],
     quote: {
@@ -155,28 +157,28 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Richieste",
-        before: "Mesi pieni e mesi vuoti, tutto dal passaparola",
-        after: "4 clienti qualificati al mese, senza pubblicità",
+        before: "Arrivavano dal passaparola, con mesi pieni e mesi più tranquilli.",
+        after: "Arrivano 4 clienti qualificati al mese, senza pubblicità.",
       },
       {
-        aspect: "Filtro",
-        before: "Preventivi a chiunque chiedesse",
-        after: "Il modulo che chiede tipo di lavoro, tempi, budget e zona",
+        aspect: "Chi chiama",
+        before: "Molti chiedevano solo il prezzo al metro quadro.",
+        after: "Il modulo chiede tipo di lavoro, tempi, budget e zona prima della telefonata.",
       },
       {
         aspect: "Sopralluoghi",
-        before: "Regalati, anche a chi voleva solo un prezzo",
-        after: "A pagamento, con chi ha già deciso di fare sul serio",
+        before: "Si saliva sul tetto per chiunque lo chiedesse.",
+        after: "Il sopralluogo si paga, e lo prenota chi ha già deciso di rifare il tetto.",
       },
       {
         aspect: "Richiamate",
-        before: "A memoria, quando c'era tempo",
-        after: "Con le parole scritte insieme: cosa chiedere e in che ordine",
+        before: "Si facevano a memoria, quando c'era tempo.",
+        after: "Si fanno con le domande scritte insieme: cosa chiedere e in che ordine.",
       },
       {
         aspect: "Visibilità",
-        before: "Invisibile a chi cercava in zona",
-        after: "Sito, profilo Google, social e video pensati per la sua zona",
+        before: "Chi cercava un'impresa di coperture in zona faticava a trovarla.",
+        after: "Sito, profilo Google, social e video sono pensati per la sua zona.",
       },
     ],
     resultNote:
@@ -316,14 +318,16 @@ export const caseStudies: CaseStudy[] = [
     shortTitle: "Software per l'edilizia",
     resultHeadline: "Circa 300.000 € di fatturato in 12 mesi, solo dalle Meta Ads.",
     excerpt:
-      "DISA trovava clienti solo con chiamate a freddo e referenze. Con le campagne su Meta e il modulo che filtra: 126.500 € di nuovi contratti in 90 giorni a 1,48 € per contatto, e circa 300.000 € in 12 mesi con 6.000 € di pubblicità in tutto, circa 500 € al mese.",
+      "DISA ha SOS APPALTI, un software per le gare d'appalto pensato per le imprese edili, e i clienti li cercava con le chiamate dei suoi commerciali. Con le campagne su Meta e il modulo che filtra: 126.500 € di nuovi contratti in 90 giorni a 1,48 € per contatto, e circa 300.000 € in 12 mesi con 6.000 € di pubblicità in tutto, circa 500 € al mese.",
     hubExcerpt:
       "Dalle chiamate a freddo a circa 300.000 € di fatturato in 12 mesi, solo dalle Meta Ads: 126.500 € già nei primi 90 giorni.",
     excerptHighlights: ["circa 300.000 € di fatturato in 12 mesi", "126.500 €"],
+    etichettaPartenza: "Il punto di partenza",
+    etichettaPunti: ["Il primo passo", "Il secondo passo", "Il terzo passo", "Il quarto passo"],
     sintesi: {
-      problema: "Chiamate a freddo, referenze chieste ai clienti, trasferte con chi non conosceva il software.",
-      soluzione: "Il messaggio riscritto, i video, le campagne su Meta e il modulo che filtra.",
-      risultato: "Circa 300.000 € in 12 mesi con 6.000 € di pubblicità; 126.500 € nei primi 90 giorni, a 1,48 € per contatto.",
+      problema: "DISA aveva un software per le imprese che partecipano alle gare, ma i clienti arrivavano solo da chiamate a freddo e referenze.",
+      soluzione: "Abbiamo riscritto con DISA come presentare SOS APPALTI, girato i video e avviato le campagne su Meta con il modulo che filtra.",
+      risultato: "Circa 300.000 € di fatturato in 12 mesi con 6.000 € di pubblicità, e 126.500 € già nei primi 90 giorni, a 1,48 € per contatto.",
     },
     metaDescription:
       "DISA, software per l'edilizia: circa 300.000 € di fatturato in 12 mesi solo dalle Meta Ads, con 6.000 € di pubblicità. Guarda la videorecensione del titolare.",
@@ -333,17 +337,17 @@ export const caseStudies: CaseStudy[] = [
       { label: "Mercato", value: "Italia" },
     ],
     challenge:
-      "I commerciali di DISA chiamavano a freddo imprenditori edili senza sapere chi fosse interessato, e chiedevano nomi ai clienti. Facevano trasferte per incontrare persone che non conoscevano il software e non sapevano a cosa servisse.",
+      "DISA ha SOS APPALTI, un software per le gare d'appalto pensato per le imprese edili. I suoi commerciali trovavano i clienti chiamando a freddo e chiedendo nomi a chi lo usava già, e facevano molti chilometri per incontrare imprese che non lo conoscevano ancora. Il passo da fare insieme era far arrivare ai commerciali le imprese che un servizio per i bandi lo stavano già cercando.",
     scena: {
       titolo: "Non ci credeva",
       testo:
         "Il titolare di DISA non si aspettava niente dalle campagne. Dopo un anno, nella videorecensione, lo dice lui: «abbiamo fatturato circa 300 mila euro su un canale a me francamente sconosciuto». E alla domanda se rifarebbe la scelta risponde «certo che sì».",
     },
     diagnosis: [
-      "Chiamate a freddo: nessun canale per trovare chi aveva davvero bisogno del software",
-      "Referenze chieste ai clienti: il lavoro nuovo dipendeva dal favore di qualcuno",
-      "Contatti non consapevoli: chi incontravano non sapeva a cosa servisse il software",
-      "Trasferte a vuoto: appuntamenti lontani con poco interesse reale",
+      "Raggiungere le imprese che partecipano alle gare: con le campagne su Meta il software arriva a chi lavora con i bandi, senza chiamate a freddo.",
+      "Non dipendere più solo dalle referenze: i nomi suggeriti dai clienti restano preziosi, ma il lavoro nuovo deve arrivare anche da solo.",
+      "Spiegare il software prima del primo contatto: un'impresa che ha già visto cosa fa SOS APPALTI arriva all'appuntamento con le domande giuste.",
+      "Usare il tempo dei commerciali sugli incontri utili: meno chilometri per appuntamenti a freddo, più tempo con imprese già interessate.",
     ],
     system: [
       {
@@ -404,28 +408,28 @@ export const caseStudies: CaseStudy[] = [
     beforeAfter: [
       {
         aspect: "Richieste",
-        before: "Chiamate a freddo e referenze chieste ai clienti",
-        after: "Campagne Meta Ads con il modulo che filtra",
+        before: "Arrivavano da chiamate a freddo e da nomi chiesti ai clienti.",
+        after: "Arrivano dalle campagne su Meta, passando dal modulo che filtra.",
       },
       {
         aspect: "Contatti",
-        before: "Persone che non conoscevano SOS APPALTI",
-        after: "Richieste di chi conosce già il software e ne ha bisogno",
+        before: "Molte imprese incontrate non conoscevano ancora SOS APPALTI.",
+        after: "Scrivono imprese che conoscono già il software e ne hanno bisogno.",
       },
       {
         aspect: "Commerciali",
-        before: "Trasferte per appuntamenti a freddo",
-        after: "Appuntamenti con clienti interessati",
+        before: "Facevano molte trasferte per appuntamenti a freddo.",
+        after: "Incontrano imprese già interessate al software.",
       },
       {
         aspect: "Contratti",
-        before: "Legati al passaparola",
-        after: "126.500 € nei primi 90 giorni, circa 300.000 € in 12 mesi",
+        before: "Dipendevano dal passaparola e dalle referenze.",
+        after: "126.500 € nei primi 90 giorni e circa 300.000 € in 12 mesi, solo dalle Meta Ads.",
       },
       {
         aspect: "Mercato",
-        before: "La zona vicino alla sede",
-        after: "Un sistema pronto per tutta Italia",
+        before: "Il lavoro si concentrava vicino alla sede.",
+        after: "Il sistema oggi è pronto per tutta Italia.",
       },
     ],
     videoUrl: "https://www.youtube.com/watch?v=GdAON_dLDMQ",

@@ -18,7 +18,7 @@ export const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
     prima: {
       src: iniziaImages.sopralluogoAVuoto,
       alt: "Durante un sopralluogo il tecnico prende le misure mentre la cliente guarda il telefono",
-      commento: "Il sopralluogo fatto a chi voleva solo un prezzo da confrontare.",
+      commento: "Si saliva sul tetto anche per chi voleva solo un prezzo al metro quadro.",
     },
     dopo: scenaCantiere,
   },
@@ -38,12 +38,12 @@ export const scenePrimaDopo: Record<string, { prima: Scena; dopo: Scena }> = {
     prima: {
       src: primaDopoImages.disaPrima,
       alt: "Un commerciale alla scrivania al telefono, stanco, davanti a un elenco di numeri da chiamare",
-      commento: "Chiamate a freddo a chi non conosceva il software.",
+      commento: "Il commerciale chiamava a freddo imprese che il software non lo conoscevano ancora.",
     },
     dopo: {
       src: primaDopoImages.disaDopo,
       alt: "Lo stesso commerciale sorride in videochiamata con un imprenditore edile in cantiere, con il contratto firmato sulla scrivania",
-      commento: "In videochiamata con un imprenditore che sa già cosa gli serve.",
+      commento: "Oggi il commerciale parla in videochiamata con un imprenditore che sa già cosa gli serve.",
     },
   },
 };
