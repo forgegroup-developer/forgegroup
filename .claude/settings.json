@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(.env)",
+      "Edit(.env.local)",
+      "Read(.env.local)"
+    ],
+    "ask": [
+      "Edit(src/data/prove.ts)",
+      "Edit(src/data/articoliRitirati.ts)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/hook-avvio.sh\"",
+            "timeout": 15,
+            "statusMessage": "Leggo i feedback e il percorso di lettura"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/hook-controlla.sh\"",
+            "timeout": 60,
+            "statusMessage": "Controllo le regole del sito"
+          }
+        ]
+      }
+    ]
+  }
+}
