@@ -197,3 +197,12 @@ Dalla revisione del codice del 15/10. Ogni PR che tocca pagine, testi o rotte pa
   (script) e `src/lib/redazione/github.ts` (Vercel).
 - **I passi fissi del Redattore** stanno in `scripts/redattore-passi.mjs`, uguali sul Mac e nel cloud:
   le decisioni (coda, silenzio-assenso, bozze scadute) le prende lo script, non il modello.
+- **Gli hook di Claude Code** (`.claude/settings.json`, dal 12/11/2026). All'avvio di ogni sessione, anche
+  di quelle senza nessuno davanti (`claude -p`), `scripts/hook-avvio.sh` mette in contesto i due feedback e il
+  promemoria del percorso di lettura. Dopo ogni modifica sotto `src/`, `scripts/hook-controlla.sh` lancia
+  `controlla-sito.mjs` e rimanda gli errori al modello, che li corregge subito. Gli strumenti non leggono né
+  modificano `.env` e `.env.local`; `src/data/prove.ts` e `articoliRitirati.ts` chiedono conferma.
+- **I revisori del sito** (`.claude/agents/`): `revisore-sito` per i testi fuori dal blog, `controllore-seo-geo`
+  per la lista del §7 BIS e il tracciamento del §8. Li chiama `/chiudi-modifica`, che fa i passi del §9 fino
+  alla PR e non unisce mai. `percorso-lettura` fa il percorso di lettura in un contesto separato e torna il
+  riassunto; `/worktree-stato` elenca le copie di lavoro già unite a `main` (la cancellazione la fa la proprietà).
