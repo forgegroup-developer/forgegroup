@@ -1,0 +1,206 @@
+{
+  "slug": "trovare-clienti-coperture-lavoro-stagionale",
+  "title": "Trovare clienti per le coperture: il lavoro che arriva a ondate",
+  "description": "Trovare clienti per le coperture: perché il lavoro sui tetti arriva tutto insieme e poi sparisce, e come i rifacimenti persi nel picco riempiono l'inverno.",
+  "category": "Clienti e sopralluoghi",
+  "date": "2026-11-16",
+  "publishAt": "2026-11-16T09:00:00+01:00",
+  "readTime": "5 min",
+  "excerpt": "Nei mesi pieni le richieste per il tetto arrivano tutte insieme, in quelli vuoti spariscono. Il conto di una stagione e quattro domande per vedere dove vanno a finire.",
+  "tags": [
+    "coperture",
+    "tetti",
+    "stagionalità",
+    "richieste di lavoro"
+  ],
+  "livello": 2,
+  "argomento": "tetti",
+  "settore": "tetti",
+  "mappa": "tetti-2",
+  "autore": "gianpio",
+  "featuredImage": "/images/blog/trovare-clienti-coperture-lavoro-stagionale.jpg",
+  "featuredImageAlt": "Un vecchio tetto di coppi danneggiato, coperto in parte da un telo blu in attesa della riparazione",
+  "copertina": {
+    "fonte": "Pixabay",
+    "autore": "Bernhard_Staerck",
+    "pagina": "https://pixabay.com/photos/patched-roof-brick-roofs-chimney-2732645/",
+    "licenza": "Licenza dei contenuti Pixabay (uso commerciale libero)",
+    "banca": "tetti-2732645.jpg",
+    "ricerca": "tetti"
+  },
+  "inBreve": {
+    "problema": "Per trovare clienti per le coperture si aspetta la stagione: nei mesi pieni il telefono non smette di squillare, in quelli vuoti tace.",
+    "causa": "Nel picco le richieste si prendono in ordine di arrivo: le riparazioni urgenti passano davanti, e i rifacimenti senza fretta si perdono senza che nessuno li segni.",
+    "cambia": "Se ogni richiesta arriva con il tipo di lavoro e il mese in cui il cliente vuole farlo, i rifacimenti persi nel picco diventano il lavoro dei mesi vuoti."
+  },
+  "seo": {
+    "parolaChiave": "trovare clienti coperture",
+    "secondarie": [
+      "clienti per impresa di coperture",
+      "lavoro tetti stagionale"
+    ],
+    "domanda": "non misurata (Keyword Planner sospeso; la parola non è negli studi del 28/08 e del 03/09). Negli studi c'è solo il lato privato: rifacimento tetto 10-100, coperture tetti 100-1K (28/08)",
+    "serp": "Ricerca del 15/11 dal cloud (risultati non localizzati su Google.it, da ricontrollare): per 'trovare clienti impresa di coperture tetti' e 'clienti per impresa di coperture marketing' escono elenchi di imprese (edilizia.com, impresaitalia), moduli e directory di agenzie generaliste, una scheda Trustpilot del concorrente A; per 'lavoro tetti stagionale' annunci di lavoro e articoli per privati. Nessun articolo scritto per il titolare di un'impresa di coperture: spazio libero",
+    "concorrente": [
+      "principale:blog/clienti-per-imprese-edili",
+      "principale:blog/promozione-efficace-edilizia-vendere-fuori-stagione",
+      "principale:blog/rischio-dipendenza-passaparola-edilizia"
+    ],
+    "geo": "In breve che risponde da solo a 'perché il lavoro sui tetti arriva a ondate'; tre FAQ come le domande di Google (trovare clienti d'inverno, perché è stagionale, pubblicità nel picco) con risposte complete in due frasi; firma di Gianpio",
+    "sem": "Livello 2: post e carosello su Meta verso titolari di imprese di coperture e lattoneria (il conto della stagione, le quattro domande come sondaggio nelle storie). Niente Google Ads search: domanda non misurata"
+  },
+  "faqs": [
+    {
+      "q": "Come trovare clienti per un'impresa di coperture anche d'inverno?",
+      "a": "Nei mesi vuoti i clienti più vicini sono quelli che ti hanno chiesto un rifacimento nei mesi pieni e non avevano fretta. Se per ogni richiesta hai segnato il tipo di lavoro e il mese in cui il cliente vuole farlo, a gennaio hai una lista da richiamare invece di un telefono che tace."
+    },
+    {
+      "q": "Perché il lavoro sui tetti è così stagionale?",
+      "a": "Le richieste per il tetto si concentrano quando il problema si vede: un'infiltrazione, una macchia sul soffitto, le tegole spostate dal vento. La stagione però spiega solo una parte dei mesi vuoti: l'altra parte sono i rifacimenti chiesti nel picco e persi perché nessuno li ha segnati."
+    },
+    {
+      "q": "Conviene fare pubblicità per un'impresa di coperture nei mesi di picco?",
+      "a": "Se nei mesi pieni non riesci già a fare il sopralluogo a tutti, altra pubblicità aggiunge telefonate che nessuno segue. Prima serve un filtro che dica, per ogni richiesta, che lavoro vuole il cliente e per quando, così il picco riempie anche l'agenda dei mesi dopo."
+    }
+  ],
+  "content": [
+    {
+      "type": "p",
+      "text": "«Andremo incontro a periodi di vacche magre.»"
+    },
+    {
+      "type": "p",
+      "text": "In un incontro conoscitivo con noi, un'impresa di serramenti ha descritto così il futuro che vedeva. Se fai coperture, quella frase la conosci: per trovare clienti per le coperture nei mesi vuoti, di solito si aspetta che tornino quelli pieni."
+    },
+    {
+      "type": "p",
+      "text": "Se ti ci ritrovi, è normale. Chi lavora sui tetti racconta spesso l'anno in due tempi, i mesi in cui il telefono non smette di squillare e quelli in cui tace, e dà la colpa al tempo."
+    },
+    {
+      "type": "h2",
+      "text": "IL PROBLEMA: LE RICHIESTE ARRIVANO TUTTE INSIEME"
+    },
+    {
+      "type": "p",
+      "text": "Il tempo c'entra, ed è inutile negarlo. Le richieste per il tetto non arrivano distribuite sui dodici mesi: arrivano quando il problema si vede, con una macchia sul soffitto o le tegole spostate dal vento."
+    },
+    {
+      "type": "p",
+      "text": "Nel mese pieno, però, succede una cosa che pesa più del tempo. Le richieste arrivano tutte insieme, e tu le prendi nell'ordine in cui arrivano, non nell'ordine in cui valgono."
+    },
+    {
+      "type": "p",
+      "text": "La perdita da riparare è urgente e il cliente ti chiama tre volte al giorno, quindi passa davanti. Il rifacimento completo chiede un sopralluogo fatto con calma e un preventivo scritto bene, e scivola in fondo alla settimana."
+    },
+    {
+      "type": "p",
+      "text": "Intanto chi voleva rifare il tetto aspetta, oppure sente anche un'altra impresa. E nessuno, da te, si è segnato che stava aspettando proprio una tua telefonata."
+    },
+    {
+      "type": "h2",
+      "text": "TROVARE CLIENTI PER LE COPERTURE NEI MESI VUOTI"
+    },
+    {
+      "type": "p",
+      "text": "Il mese vuoto non arriva solo per il tempo. Arriva anche perché, nel mese pieno, hai perso traccia di chi voleva rifare il tetto e non aveva fretta."
+    },
+    {
+      "type": "p",
+      "text": "Quelle persone potevano essere il lavoro dei mesi vuoti. Pensa all'ultima estate: quanti dei rifacimenti che ti hanno chiesto erano da fare la primavera dopo, e chi li ha richiamati in inverno?"
+    },
+    {
+      "type": "p",
+      "text": "Se nessuno se le è segnate, a gennaio non hai una lista da riprendere in mano. Hai un telefono che squilla poco e la sensazione che il lavoro sia finito, mentre una parte stava solo aspettando di essere richiamata."
+    },
+    {
+      "type": "h2",
+      "text": "IL CONTO DI UNA STAGIONE"
+    },
+    {
+      "type": "p",
+      "text": "Mettiamo giù una stagione con numeri tondi, scelti solo per far tornare il conto. Poi prova a metterci accanto i tuoi."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Nei mesi pieni ti arrivano trenta richieste per il tetto, tra telefono, passaparola e messaggi.",
+        "Con le squadre già impegnate sui tetti degli altri, riesci a fare il sopralluogo a dodici.",
+        "Dei dodici, gli urgenti li chiudi subito; i rifacimenti li preventivi e poi non li richiami, perché la settimana dopo è piena come quella prima.",
+        "Le altre diciotto richieste restano su un foglio, in una chat del telefono, o in nessun posto."
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Su trenta richieste, più di metà non hanno mai visto un sopralluogo. Quelle diciotto persone ti avevano cercato, e nessuno le ha richiamate."
+    },
+    {
+      "type": "p",
+      "text": "E se anche solo tre di quelle diciotto erano rifacimenti da fare entro la primavera, erano proprio i lavori che ti sarebbero serviti a febbraio."
+    },
+    {
+      "type": "p",
+      "text": "Sono tre rifacimenti per cui non dovevi cercare nessun cliente nuovo, né pagare un euro di pubblicità in più: il cliente c'era già, e aveva già il tuo numero in rubrica."
+    },
+    {
+      "type": "p",
+      "text": "Quanto costano i sopralluoghi che non diventano contratto l'ho messo in fila in [sopralluoghi e preventivi a vuoto: quanto ti costano](/blog/sopralluoghi-a-vuoto-quanto-costano). Qui il punto è un altro: le richieste che al sopralluogo non ci arrivano nemmeno."
+    },
+    {
+      "type": "h2",
+      "text": "COSA CAMBIA QUANDO OGNI RICHIESTA HA UNA DATA"
+    },
+    {
+      "type": "p",
+      "text": "Prova a immaginare la stessa stagione con una differenza sola. Ogni richiesta, che sia arrivata dalla pubblicità o dal passaparola, la segni appena arriva con il lavoro che vuole il cliente ed entro quando vuole farlo."
+    },
+    {
+      "type": "p",
+      "text": "La perdita da riparare resta urgente e la fai subito. Il rifacimento da fare entro la primavera lo segni con il suo mese, e lo richiami quando il telefono comincia a squillare meno."
+    },
+    {
+      "type": "p",
+      "text": "Il mese pieno diventa una settimana di lavoro messa in ordine invece di una corsa dietro a chi chiama più spesso, e nel mese vuoto sai già chi richiamare e per quale tetto."
+    },
+    {
+      "type": "p",
+      "text": "Sulle richieste che arrivano dalla pubblicità il filtro lo mettiamo noi, con un modulo: tipo di lavoro, entro quando iniziare, budget e zona arrivano prima che tu richiami. Le chiamate poi le fa la tua impresa, con un metodo costruito insieme, e come funziona per intero lo trovi nella pagina su [come lavoriamo con le imprese edili](/servizi)."
+    },
+    {
+      "type": "p",
+      "text": "Un'impresa di coperture che seguiamo, [Tetti Top](/casi-studio/edilizia), oggi ha 4 clienti qualificati al mese senza pubblicità."
+    },
+    {
+      "type": "h2",
+      "text": "QUATTRO DOMANDE SULLA TUA ULTIMA STAGIONE"
+    },
+    {
+      "type": "p",
+      "text": "Non serve aprire l'agenda o i fogli dei preventivi: basta il numero che ti viene in mente per primo."
+    },
+    {
+      "type": "ul",
+      "items": [
+        "Nei tuoi mesi più pieni, quante richieste per il tetto ti sono arrivate, più o meno?",
+        "A quante hai fatto il sopralluogo, e quante sono rimaste senza una risposta?",
+        "Di quelle senza risposta, sai dire chi voleva un rifacimento e per quando?",
+        "A gennaio hai una lista di persone da richiamare, o aspetti che squilli il telefono?"
+      ]
+    },
+    {
+      "type": "p",
+      "text": "Se alla terza hai risposto di no, il problema non sono soltanto la stagione e i pochi clienti. Le richieste ti arrivano senza una data, e quelle senza fretta si perdono nel mese pieno."
+    },
+    {
+      "type": "p",
+      "text": "Perché chi vive di passaparola alterna mesi pieni e mesi morti lo ha raccontato Marco in [mesi pieni e mesi morti: smettere di dipendere dal passaparola](/blog/come-smettere-dipendere-passaparola). Perché il preventivo del tetto sembra caro a chi ti chiama lo trovi in [rifacimento tetto: il preventivo che al cliente sembra caro](/blog/rifacimento-tetto-preventivo-metro-quadro)."
+    },
+    {
+      "type": "p",
+      "text": "Quanto lavoro sui tetti c'è nella tua zona, e quanto ne regge oggi la tua impresa, è quello che guardiamo nello studio di fattibilità. Ti diciamo se ha senso lavorare insieme, prima che tu spenda un euro in pubblicità."
+    },
+    {
+      "type": "cta",
+      "text": "Richiedi lo studio di fattibilità: guardiamo la tua zona e le tue richieste, e ti diciamo se ha senso lavorare insieme."
+    }
+  ]
+}
