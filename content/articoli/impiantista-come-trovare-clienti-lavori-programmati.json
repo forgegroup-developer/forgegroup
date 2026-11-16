@@ -63,7 +63,7 @@
     },
     {
       "q": "Quanto tempo ci vuole perché il marketing per impiantisti porti contratti?",
-      "a": "Dipende dalla zona e dalle linee di lavoro, e prima di aver visto la tua impresa nessuno te lo può dire con serietà. Per questo le stime si rivedono sui dati reali dopo 60 giorni, e ogni tre mesi guardi contatti, appuntamenti, contratti e costo per contatto."
+      "a": "Dipende dalla zona e dalle linee di lavoro, e prima di aver visto la tua impresa non si può dire con serietà. Per questo le stime si rivedono sui dati reali dopo 60 giorni, e ogni tre mesi guardi contatti, appuntamenti, contratti e costo per contatto."
     },
     {
       "q": "Chi richiama le richieste che arrivano dalla pubblicità?",
@@ -73,7 +73,7 @@
   "content": [
     {
       "type": "p",
-      "text": "Se fai l'impiantista, il telefono suona quasi ogni giorno: una caldaia in blocco, uno scarico che perde, un condizionatore che non parte. Di lavoro ne hai, spesso più di quanto riesci a fare in una settimana."
+      "text": "Se fai l'impiantista, il telefono suona quasi ogni giorno: una caldaia in blocco, un termosifone freddo, un condizionatore che non parte. Di lavoro ne hai, spesso più di quanto riesci a fare in una settimana."
     },
     {
       "type": "p",
@@ -93,11 +93,11 @@
     },
     {
       "type": "p",
-      "text": "Il preventivo parte qualche giorno dopo, e intanto il cliente ha già sentito altri due installatori e ha messo i loro fogli uno accanto all'altro."
+      "text": "Il preventivo parte qualche giorno dopo, e intanto il cliente ha già sentito altri installatori e ha messo i loro fogli uno accanto all'altro."
     },
     {
       "type": "p",
-      "text": "Al telefono con i titolari lo dico spesso, e per gli impianti vale ancora di più: il problema non è «pochi contatti», è «contatti sprecati». Le richieste ci sono, ma si perdono tra un intervento e l'altro."
+      "text": "Al telefono con i titolari lo dico spesso, e vale anche per gli impianti: il problema non è «pochi contatti», è «contatti sprecati». Le richieste ci sono, ma si perdono tra un intervento e l'altro."
     },
     {
       "type": "h2",
@@ -105,7 +105,7 @@
     },
     {
       "type": "p",
-      "text": "Quando un titolare di impianti decide di cercare più lavori programmati, di solito prova quattro strade. Ognuna porta qualcosa, e ognuna si ferma in un punto diverso."
+      "text": "Quando un titolare di impianti decide di cercare più lavori programmati, di solito prova quattro strade. Ognuna porta qualcosa, ma si ferma in un punto diverso."
     },
     {
       "type": "ul",
@@ -122,7 +122,7 @@
     },
     {
       "type": "p",
-      "text": "Con una storia così, nessun titolare ha voglia di provarne un'altra uguale. Ha ragione: prima di spendere un euro in pubblicità vuole sapere cosa succede a ogni richiesta, dal modulo alla firma."
+      "text": "Con una storia così, nessun titolare ha voglia di provarne un'altra uguale. Ha ragione: prima di spendere un euro in pubblicità vuole sapere cosa succede a ogni richiesta, dal modulo alla firma. Ne ho scritto anche in [come smettere di dipendere dal passaparola](/blog/come-smettere-dipendere-passaparola)."
     },
     {
       "type": "h2",
@@ -161,7 +161,7 @@
     },
     {
       "type": "p",
-      "text": "Se oggi i tuoi preventivi partono la sera stessa in PDF, Gianpio ha raccontato cosa può succedere in [il preventivo della pompa di calore girato a un altro impiantista](/blog/preventivo-pompa-di-calore-altro-impiantista)."
+      "text": "Se oggi i tuoi preventivi partono la sera stessa in PDF, Gianpio ha raccontato cosa può succedere nell'articolo sul [preventivo della pompa di calore girato a un altro impiantista](/blog/preventivo-pompa-di-calore-altro-impiantista)."
     },
     {
       "type": "h2",
@@ -177,7 +177,7 @@
     },
     {
       "type": "p",
-      "text": "DISA non è un'impresa di impianti, e te lo dico chiaro. Il meccanismo però è lo stesso che costruiremmo con la tua impresa di impianti: le richieste arrivano filtrate, le richiama l'impresa, e ogni euro di pubblicità si segue nel [gestionale per l'impresa edile](/crm-gestionale-edilizia) fino al contratto."
+      "text": "DISA non è un'impresa di impianti, e te lo dico chiaro. Il meccanismo però è lo stesso che costruiremmo con te: le richieste arrivano filtrate e le richiama la tua impresa. Ogni euro di pubblicità si segue nel [gestionale](/crm-gestionale-edilizia) fino al contratto."
     },
     {
       "type": "h2",
