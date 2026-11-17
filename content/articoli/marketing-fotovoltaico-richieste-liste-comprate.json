@@ -5,8 +5,8 @@
   "category": "Clienti e sopralluoghi",
   "date": "2026-11-18",
   "publishAt": "2026-11-18T09:00:00+01:00",
-  "readTime": "7 min",
-  "excerpt": "Comprare nomi, pagare un portale o fare pubblicità con la tua impresa: per un installatore di fotovoltaico la differenza si vede sul tetto, prima ancora che nella fattura.",
+  "readTime": "6 min",
+  "excerpt": "Una lista di nomi della tua zona, un portale che ti manda richieste a pagamento o la pubblicità della tua impresa: per un installatore di fotovoltaico cambia cosa sai quando sali sul tetto.",
   "tags": [
     "fotovoltaico",
     "marketing fotovoltaico",
@@ -31,7 +31,7 @@
   },
   "inBreve": {
     "problema": "Per un installatore il marketing fotovoltaico sembra spesso una scelta fra due cose: comprare liste di nomi e richieste dai portali, o pagare qualcuno che faccia la pubblicità.",
-    "causa": "Nel fotovoltaico i concorrenti sono tanti e il cliente sa poco di quello che compra: un nome comprato non ti conosce, e una richiesta divisa con altri finisce sul prezzo.",
+    "causa": "Nel fotovoltaico i concorrenti sono tanti e il cliente sa poco di quello che compra: se non ti conosce, confronta l'unico numero che capisce, il prezzo.",
     "cambia": "Rendono le richieste nate dalla pubblicità della tua impresa, filtrate da un modulo prima del sopralluogo e seguite con un processo di vendita fino alla firma."
   },
   "seo": {
@@ -39,7 +39,7 @@
     "secondarie": [
       "marketing per installatori fotovoltaico",
       "contatti fotovoltaico",
-      "trovare clienti fotovoltaico"
+      "pubblicità installatore fotovoltaico"
     ],
     "domanda": "Non misurata: routine cloud, Keyword Planner sospeso. Negli studi del 03/09 e del 28/08 c'è solo la vicina 'trovare clienti fotovoltaico' (10-100, CPC 3,17 €, studio del 03/09); 'marketing fotovoltaico' non compare",
     "serp": "Ricerca web del 17/11/2026 (strumento con risultati USA, non Google.it): per 'marketing fotovoltaico installatori' newsletter di settore (SolareB2B, QualEnergia), guide di fornitori di software e directory; per 'contatti fotovoltaico' portali che girano la richiesta a più installatori (fino a tre preventivi) e pagine 'trova un installatore' dei produttori; nessuna guida scritta per il titolare, nessun testo del concorrente A",
@@ -49,8 +49,8 @@
       "principale:blog/campagne-pagamento-edilizia",
       "principale:blog/costo-per-lead-vs-qualita-clienti-edilizia"
     ],
-    "geo": "In breve che risponde da solo a 'marketing fotovoltaico: liste o richieste?'; quattro strade messe a confronto in un elenco numerato; FAQ scritte come domande di Google (conviene comprare liste, come fare marketing, portale o agenzia, quanto rende) con risposte complete; firma di Gianpio",
-    "sem": "Nessuna campagna: si lavora solo in organico (decisione del 14/10). Se la proprietà riapre le campagne: carosello sul confronto fra le quattro strade e sul caso DISA per i titolari su Meta e LinkedIn; Google Ads search solo su 'trovare clienti fotovoltaico' (10-100, CPC 3,17 €)"
+    "geo": "In breve che risponde da solo a 'marketing fotovoltaico: liste o richieste?'; quattro strade a confronto e sei passi numerati del sistema; FAQ scritte come domande di Google (conviene comprare liste, come si fa marketing fotovoltaico, portale o agenzia, quanto rende) con risposte complete; firma di Gianpio",
+    "sem": "Nessuna campagna: si lavora solo in organico (decisione del 14/10). Se la proprietà riapre le campagne: carosello per i titolari su Meta e LinkedIn con le quattro strade e i sei passi del sistema; nessuna campagna search, perché 'marketing fotovoltaico' non è misurata"
   },
   "faqs": [
     {
@@ -59,65 +59,61 @@
     },
     {
       "q": "Come si fa marketing fotovoltaico per un'impresa di installazione?",
-      "a": "Si parte dalle linee che vuoi vendere, come pannelli, accumulo o pompe di calore, con una campagna e un video girato in cantiere per ciascuna. Ogni richiesta passa da un modulo che chiede tipo di lavoro, tempi, budget e zona. Poi conta come la segui: richiamata in tempo, domande chiuse e una data per il prossimo contatto."
+      "a": "Si parte dal mercato della tua zona, contato sui dati del GSE, e dalle linee che vuoi vendere, come pannelli, accumulo o pompe di calore. Per ogni linea c'è una campagna con un video girato in cantiere, e ogni richiesta passa da un modulo che chiede tipo di lavoro, tempi, budget e zona prima di arrivare nel tuo gestionale."
     },
     {
-      "q": "Meglio un portale di preventivi o un'agenzia per trovare clienti fotovoltaico?",
-      "a": "Dal portale la persona ha scritto al portale, e alcuni portali girano la stessa richiesta a più installatori. Con un'agenzia la persona ha scritto a te, ma se l'agenzia si ferma al contatto il filtro e la trattativa restano sulle tue spalle. Prima di scegliere, chiedi cosa saprai della persona prima di chiamarla e chi ti aiuta a seguirla fino alla firma."
+      "q": "Meglio un portale di preventivi o un'agenzia per un installatore fotovoltaico?",
+      "a": "Dal portale la persona ha scritto al portale, e alcuni portali scrivono nella loro pagina che la stessa richiesta arriva a più installatori. Con un'agenzia la persona ha scritto a te, ma se l'agenzia si ferma al contatto il filtro e la trattativa restano sulle tue spalle. Prima di scegliere, chiedi cosa saprai della persona prima di chiamarla e chi ti aiuta a seguirla fino alla firma."
     },
     {
       "q": "Quanto rende la pubblicità per un installatore fotovoltaico?",
-      "a": "Dipende dalla tua zona, da quanti impianti si installano ogni anno e da quanto lavoro regge la tua squadra: per questo lo studio di fattibilità conta il mercato prima di partire. Il numero da guardare è quanti contratti firmati porta ogni euro speso, non quanti contatti arrivano."
+      "a": "Dipende dalla tua zona, da quanti impianti si installano ogni anno e da quanto lavoro regge la tua squadra: per questo lo studio di fattibilità conta il mercato prima di partire. Per vedere se rende, conta i contratti firmati e quanto hai speso in pubblicità per arrivarci."
     }
   ],
   "content": [
     {
-      "type": "quote",
-      "text": "«Richieste che arrivano e non sono lavorabili è come se non arrivassero.»"
+      "type": "p",
+      "text": "Se installi impianti fotovoltaici, prima o poi qualcuno ti propone una lista di nomi della tua zona, oppure un portale che ti manda richieste di preventivo a pagamento. E prima o poi ti chiama anche un'agenzia che vuole fare la pubblicità per la tua impresa."
     },
     {
       "type": "p",
-      "text": "Me l'ha detto un serramentista in un incontro conoscitivo, parlando dei contatti che riceveva prima di conoscerci. Vale anche per chi installa impianti fotovoltaici, e forse vale di più."
+      "text": "Quando si parla di marketing fotovoltaico, sembra di dover scegliere fra due strade: comprare nomi e richieste da chi li vende, oppure pagare qualcuno che faccia la pubblicità. È normale ragionare così, perché sono le proposte che arrivano da sole."
     },
     {
       "type": "p",
-      "text": "Quando si parla di marketing fotovoltaico, la scelta sembra una sola: comprare nomi e richieste da chi li vende, oppure pagare qualcuno che faccia la pubblicità. È normale partire da lì, perché sono le due strade che si vedono per prime."
-    },
-    {
-      "type": "p",
-      "text": "La differenza fra le strade, però, non si vede nel costo del contatto. Si vede SUL TETTO: a quante persone fai il sopralluogo quando hanno già deciso di fare l'impianto, e a quante quando stanno solo raccogliendo prezzi."
+      "text": "Prima di scegliere, però, conviene guardare una cosa che nelle proposte non c'è scritta: cosa saprai di quella persona il giorno in cui sali sul suo tetto per il sopralluogo."
     },
     {
       "type": "h2",
-      "text": "IL PROBLEMA: UN CLIENTE CHE SA POCO E SENTE TANTI"
+      "text": "IL PROBLEMA: TANTI INSTALLATORI, UN CLIENTE CHE SA POCO"
     },
     {
       "type": "p",
-      "text": "Nel fotovoltaico gli installatori sono tanti, e chi vuole l'impianto per casa sua sa poco di pannelli, inverter e accumulo. Sono i due tratti di questa nicchia che teniamo presenti ogni volta che guardiamo un'impresa del settore."
+      "text": "Nel fotovoltaico gli installatori sono tanti, e chi vuole l'impianto per casa sua sa poco di pannelli, inverter e accumulo. Sono i due tratti che la nostra analisi segna per questa nicchia."
     },
     {
       "type": "p",
-      "text": "Un cliente così, se non ha niente per distinguerti da un altro, confronta l'unica cosa che capisce: il numero in fondo all'offerta. Ed è qui che conta da dove arriva il contatto."
+      "text": "Messi insieme, vogliono dire che il cliente ha davanti molte offerte e pochi strumenti per capirle. Se nessuno gli ha dato un motivo per sceglierti, mette le offerte in fila e guarda il totale in fondo a ciascuna."
     },
     {
       "type": "p",
-      "text": "Meno quella persona sa di te quando la chiami, prima il discorso scivola sul prezzo. Più sa di te, perché ha visto il tuo lavoro e ti ha scritto, più spazio hai per parlare della sua casa."
+      "text": "Per questo, più del costo di un contatto, conta quanto quella persona sa già della tua impresa, e di cosa ha bisogno, quando la chiami per la prima volta."
     },
     {
       "type": "h2",
-      "text": "QUATTRO STRADE, MESSE UNA ACCANTO ALL'ALTRA"
+      "text": "QUATTRO STRADE PER UN INSTALLATORE FOTOVOLTAICO"
     },
     {
       "type": "p",
-      "text": "Le strade che un installatore ha davanti per trovare clienti sono quattro, più la nostra. Le metto in fila guardando una cosa sola: cosa sai della persona prima di salire sul tetto."
+      "text": "Le strade che un installatore ha davanti sono quattro, più la nostra. Le metto in fila guardando soltanto cosa sai della persona prima del sopralluogo."
     },
     {
       "type": "ul",
       "items": [
-        "1. Le liste di nomi comprate. Hai nomi e numeri di persone che non hanno chiesto niente alla tua impresa, e le chiami tu o qualcuno per te. Alla prima telefonata devi spiegare chi sei, e non sai se quella persona ha un tetto adatto o se ci ha mai pensato.",
-        "2. I portali che rivendono le richieste. La persona un preventivo l'ha chiesto, ma l'ha chiesto al portale, e alcuni portali girano la stessa richiesta a più installatori. Il confronto sul prezzo comincia prima ancora che tu la chiami.",
-        "3. L'agenzia che fa la pubblicità e si ferma al contatto. La persona ha visto un annuncio della tua impresa e ha scritto a te, ed è già un passo avanti. Ma se nessuno filtra le richieste e nessuno ti aiuta a seguirle, tutto il lavoro dopo il contatto resta a te.",
-        "4. Il consulente che ti spiega cosa fare. Esci con le idee chiare su campagne, modulo e richiamate, e con tutto da costruire con le persone e il tempo che hai già."
+        "1. Le liste di nomi comprate. Hai nomi e numeri di persone che non hanno chiesto niente alla tua impresa, e le chiami tu o qualcuno per te. Alla prima telefonata devi spiegare chi sei, e non sai se quella persona ha un tetto adatto o se all'impianto ci ha mai pensato.",
+        "2. I portali di preventivi. La persona l'impianto lo vuole, ma ha scritto al portale e non a te, e alcuni portali scrivono nella loro pagina che la stessa richiesta arriva a più installatori.",
+        "3. L'agenzia che fa la pubblicità e si ferma al contatto. La persona ha visto un annuncio della tua impresa e ha scritto a te. Ma se nessuno filtra le richieste e nessuno ti aiuta a seguirle, tutto quello che viene dopo il contatto resta sulle tue spalle.",
+        "4. Il consulente che ti spiega cosa fare. Ti lascia le idee chiare su campagne, modulo e richiamate, e tutto da costruire con le persone e il tempo che hai già."
       ]
     },
     {
@@ -126,64 +122,46 @@
     },
     {
       "type": "p",
-      "text": "Dei portali e dei contatti a pagamento ho scritto più a fondo in [conviene comprare contatti per un'impresa edile](/blog/comprare-contatti-impresa-edile-agenzia-portali). Qui guardo cosa cambia per chi monta impianti fotovoltaici."
+      "text": "Di portali e contatti a pagamento per tutta l'edilizia ho scritto in [conviene comprare contatti per un'impresa edile](/blog/comprare-contatti-impresa-edile-agenzia-portali). Qui resto sugli impianti fotovoltaici."
     },
     {
       "type": "h2",
-      "text": "COSA SAI PRIMA DI SALIRE SUL TETTO"
+      "text": "IN PRATICA: IL SISTEMA PER UN INSTALLATORE, PASSO PER PASSO"
     },
     {
       "type": "p",
-      "text": "Con una lista comprata, prima del sopralluogo hai un nome e un numero. Con una richiesta vera, nata dalla pubblicità della tua impresa e passata da un modulo che costruiamo e gestiamo noi, ne sai molto di più."
-    },
-    {
-      "type": "p",
-      "text": "Il modulo raccoglie per ogni richiesta quattro informazioni: il tipo di lavoro, entro quando vuole iniziare, il budget a disposizione e la zona. Nel fotovoltaico vuol dire sapere se cerca solo i pannelli, anche l'accumulo o una pompa di calore, se vuole montare a breve o fra un anno, quanto ha pensato di spendere e in che comune abita."
-    },
-    {
-      "type": "p",
-      "text": "Le richieste arrivano nel tuo gestionale con nome, telefono, zona e interesse, prima della prima telefonata. Così il sopralluogo sul tetto lo fai a chi ha deciso di fare l'impianto."
-    },
-    {
-      "type": "p",
-      "text": "Se vendi più linee, per esempio fotovoltaico, accumulo e pompe di calore, ognuna ha la sua campagna e il suo video girato in cantiere. Vedi quale linea porta richieste che arrivano alla firma, e su quella metti il budget."
-    },
-    {
-      "type": "h2",
-      "text": "IN PRATICA: LA PRIMA TELEFONATA A UNA RICHIESTA VERA"
-    },
-    {
-      "type": "p",
-      "text": "La richiamata resta alla tua impresa: la fai tu, chi risponde al telefono per te o il tuo commerciale. Noi non telefoniamo ai tuoi contatti, ma il processo e le parole li costruiamo con te."
-    },
-    {
-      "type": "p",
-      "text": "Fra le dodici regole di vendita che abbiamo scritto con [un'azienda di arredamento negozi che seguiamo](/casi-studio/arredo-commerciale) ce ne sono quattro che userei così con una richiesta di fotovoltaico."
+      "text": "Ecco come lo montiamo per chi installa fotovoltaico, nell'ordine in cui lo facciamo. Ogni passo lascia qualcosa che puoi vedere."
     },
     {
       "type": "ul",
       "items": [
-        "1. Se nel modulo ci sono il fisso e il cellulare, provali tutti e due: chi non risponde sull'uno spesso risponde sull'altro.",
-        "2. Al primo contatto non progetti l'impianto: capisci chi decide, chi paga e quanto vuole spendere.",
-        "3. Fai domande chiuse, che si rispondono in una parola. Il tetto è suo o del condominio? Decide da solo o con qualcuno in famiglia?",
-        "4. Ogni telefonata e ogni incontro finisce con una data: il prossimo contatto si scrive nel gestionale prima di salutarsi."
+        "1. Contiamo il mercato. Il GSE pubblica i dati degli impianti fotovoltaici installati: da lì si conta quanti se ne registrano ogni anno nella zona in cui lavori, prima di spendere un euro in pubblicità.",
+        "2. Scegliamo le linee. Pannelli, accumulo, pompe di calore: partiamo dall'audit della tua impresa e decidiamo su quali linee cercare richieste.",
+        "3. Giriamo un video in cantiere per ogni linea. Il cliente vede il tuo lavoro, sul tetto di una casa vera, prima di scriverti.",
+        "4. Facciamo la pubblicità su Meta e Google, una campagna per ogni linea. Così vedi quale linea porta richieste che arrivano alla firma.",
+        "5. Ogni richiesta passa dal modulo che costruiamo e gestiamo noi, con quattro informazioni: tipo di lavoro, entro quando vuole iniziare, budget a disposizione e zona.",
+        "6. La richiesta arriva nel tuo gestionale con nome, telefono, zona e interesse, prima della prima telefonata. La richiamata resta alla tua impresa, la fai tu o chi risponde al telefono per te: il processo di vendita e le parole li costruiamo con te."
       ]
     },
     {
       "type": "p",
-      "text": "Con un nome comprato queste regole servono lo stesso, ma partono un passo indietro. Prima devi farti conoscere, e solo dopo puoi capire se quella persona un impianto lo vuole davvero."
+      "text": "Al punto 5, per chi monta impianti, le quattro informazioni diventano molto concrete. Sai se cerca solo i pannelli, anche l'accumulo o una pompa di calore, se vuole montare entro l'estate o l'anno prossimo, quanto ha pensato di spendere e in che comune abita."
+    },
+    {
+      "type": "p",
+      "text": "Con una lista comprata, nello stesso momento, hai un nome e un numero di telefono. Con il sistema, sul tetto sali sapendo già cosa vuole, entro quando e quanto ha pensato di spendere."
     },
     {
       "type": "h2",
-      "text": "LA PROVA: DALLE CHIAMATE A FREDDO AI CONTATTI DELLE CAMPAGNE"
+      "text": "LA PROVA: UN'AZIENDA CHE HA LASCIATO LE CHIAMATE A FREDDO"
     },
     {
       "type": "p",
-      "text": "Il caso che lo mostra meglio non è un installatore, e preferisco dirtelo subito. [DISA vende un software alle imprese edili](/casi-studio/software-edilizia), e prima trovava clienti con le chiamate a freddo e chiedendo referenze, cioè con la strada dei nomi da chiamare."
+      "text": "Il caso che porto non è un installatore, e preferisco dirtelo subito. [DISA vende un software alle imprese edili](/casi-studio/software-edilizia): prima trovava clienti con le chiamate a freddo e chiedendo referenze."
     },
     {
       "type": "p",
-      "text": "Oggi i suoi commerciali chiamano i contatti delle campagne, che arrivano con le informazioni raccolte prima della telefonata. In 90 giorni sono entrati 126.500 € di nuovi contratti, solo dalle Meta Ads, a 1,48 € per contatto."
+      "text": "Oggi i suoi commerciali richiamano le persone che hanno risposto alle campagne, e prima di telefonare sanno già cosa cercano. In 90 giorni sono entrati 126.500 € di nuovi contratti, solo dalle Meta Ads, a 1,48 € per contatto."
     },
     {
       "type": "p",
@@ -191,40 +169,39 @@
     },
     {
       "type": "p",
-      "text": "Quando racconto questo caso, la risposta che sento più spesso è «non è il mio settore». Il prodotto è diverso, certo. Il meccanismo è lo stesso: chi riceve richieste di persone che hanno scritto a lui, e le segue con un processo, smette di inseguire nomi che non l'hanno mai cercato."
+      "text": "Se stai pensando che DISA non sia del tuo settore, hai ragione sul prodotto, che è diverso. Il meccanismo però è lo stesso: chi riceve richieste di persone che hanno scritto a lui, e le segue con un processo, smette di inseguire nomi che non l'hanno mai cercato."
     },
     {
       "type": "h2",
-      "text": "I TUOI ULTIMI DIECI SOPRALLUOGHI"
+      "text": "TRE CONTI DA FARE SULL'ULTIMO ANNO"
     },
     {
       "type": "p",
-      "text": "Prendi gli ultimi dieci sopralluoghi che hai fatto su un tetto, e rispondi a occhio, come risponderesti a un collega che installa come te."
+      "text": "Prima di comprare la prossima lista o di firmare con qualcuno, guarda gli impianti che hai montato nell'ultimo anno."
     },
     {
       "type": "ul",
       "items": [
-        "Quanti venivano da persone che avevano scritto alla tua impresa, e quanti da nomi comprati o da richieste di un portale?",
-        "Di quei dieci, quanti sono diventati un impianto firmato, e da quale strada arrivavano?",
-        "Prima di salire sul tetto sapevi già se volevano anche l'accumulo e quanto avevano pensato di spendere?",
-        "Dopo il sopralluogo, ogni trattativa aveva una data per il prossimo contatto scritta da qualche parte?"
+        "Da dove è arrivato ciascun cliente: passaparola, nome comprato, portale o una richiesta che aveva scritto alla tua impresa?",
+        "Quanto hai speso in tutto per liste, portali e pubblicità, e quanti impianti firmati ne sono usciti per ciascuna strada?",
+        "Su quanti tetti sei salito per persone che poi non hanno firmato niente, né con te né con altri?"
       ]
     },
     {
       "type": "p",
-      "text": "Se gli impianti firmati vengono quasi tutti dalle richieste arrivate a te, sai già dove mettere i soldi del marketing. Se a queste domande non sai rispondere, il primo lavoro è proprio riuscire a vederlo."
+      "text": "Se una strada ti ha portato impianti firmati e un'altra solo sopralluoghi, sai già dove spostare i soldi del marketing. Se questi conti non li riesci a fare, il primo lavoro è mettere le richieste in un posto dove si vedono."
     },
     {
       "type": "p",
-      "text": "Perché il cliente del fotovoltaico finisce per guardare solo il prezzo, Marco l'ha messo in fila in [come trovare clienti per il fotovoltaico se lo vendono tutti](/blog/trovare-clienti-fotovoltaico). Cosa facciamo noi, dalla pubblicità al modulo fino alla firma, lo trovi nella pagina [dei servizi per le imprese edili](/servizi)."
+      "text": "Perché il cliente del fotovoltaico finisce per guardare solo il prezzo, Marco l'ha raccontato in [come trovare clienti per il fotovoltaico se lo vendono tutti](/blog/trovare-clienti-fotovoltaico). Cosa facciamo noi, dalla pubblicità al modulo fino alla firma, lo trovi nella pagina su [come lavoriamo con le imprese](/servizi)."
     },
     {
       "type": "p",
-      "text": "Prima di partire facciamo lo studio di fattibilità. Contiamo il mercato della tua zona dalle fonti ufficiali, come i dati del GSE sugli impianti installati, guardiamo quanto lavoro regge oggi la tua impresa e ti diciamo se ha senso lavorare insieme. Lavoriamo con poche imprese, un territorio alla volta."
+      "text": "Il punto 1 del sistema è anche l'inizio dello studio di fattibilità. Contiamo gli impianti della tua zona dalle fonti ufficiali, guardiamo quanto lavoro regge oggi la tua impresa e ti diciamo se ha senso lavorare insieme. Lavoriamo con poche imprese, un territorio alla volta."
     },
     {
       "type": "cta",
-      "text": "Richiedi lo studio di fattibilità: ti diciamo se ha senso lavorare insieme, prima che tu spenda un euro in pubblicità."
+      "text": "Richiedi lo studio di fattibilità: contiamo gli impianti della tua zona e ti diciamo se ha senso lavorare insieme."
     }
   ]
 }
