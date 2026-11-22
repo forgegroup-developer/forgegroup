@@ -20,7 +20,7 @@
   "mappa": "impianti-4",
   "autore": "marco",
   "inBreve": {
-    "problema": "Cerchi un'agenzia marketing impiantisti dopo averne già provata una, e tutte ti parlano di campagne, social e contatti.",
+    "problema": "Cerchi un'agenzia di marketing per impiantisti dopo averne già provata una, e tutte ti parlano di campagne, social e contatti.",
     "causa": "Quasi nessuna ti dice cosa succede dopo il contatto: chi lo filtra, chi lo richiama, dove si segue il preventivo e come si conta fino al contratto.",
     "cambia": "Se sai cosa chiedere prima di firmare, riconosci l'agenzia che ti porta lavori programmati da quella che ti lascia solo un report delle campagne."
   },
@@ -36,8 +36,7 @@
     "concorrente": [
       "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile",
       "principale:blog/impiantista-come-trovare-clienti",
-      "principale:blog/agenzia-marketing-edilizia-risultati",
-      "principale:blog/marketing-infissi"
+      "principale:blog/agenzia-marketing-edilizia-risultati"
     ],
     "geo": "L'In breve risponde da solo a 'come scegliere un'agenzia di marketing per impiantisti'; due elenchi che si citano da soli (le sei domande da fare all'agenzia, come lavoriamo con un'impresa di impianti); FAQ scritte come domande di Google con risposte complete; caso ROVI con il numero della Scheda; firma di Marco",
     "sem": "Livello 4, solo organico (decisione del 14/10: nessuna campagna a pagamento). Quando le campagne riapriranno: remarketing verso i titolari di impianti che hanno visitato il sito, e pagina da mandare su WhatsApp dopo la chiamata di Gianpio a un impiantista; niente Google Ads search (domanda sotto soglia)"
@@ -71,7 +70,7 @@
     },
     {
       "type": "p",
-      "text": "Un titolare, in una call con noi, ha raccontato così l'agenzia che lo seguiva prima: «Da parte loro non c'è stata la serietà di dire: guarda, sospendiamo le campagne perché non stanno andando, oppure riduciamo il canone.»"
+      "text": "Un serramentista, in una call con noi, ha raccontato così l'agenzia che lo seguiva prima: «Da parte loro non c'è stata la serietà di dire: guarda, sospendiamo le campagne perché non stanno andando, oppure riduciamo il canone.» Gli impianti non c'entrano, ma la storia è la stessa."
     },
     {
       "type": "p",
@@ -94,7 +93,7 @@
     },
     {
       "type": "p",
-      "text": "La terza domanda è quella che separa davvero un'agenzia dall'altra. Per un impiantista le richieste non sono tutte uguali: chi ha la caldaia in blocco ti chiama oggi, chi vuole la pompa di calore ci pensa per settimane e chiede tre preventivi."
+      "text": "La terza domanda è quella che conta di più per un impiantista. La pompa di calore o l'impianto da rifare passano da un sopralluogo e da un preventivo che il cliente mette accanto a quelli di altri installatori."
     },
     {
       "type": "p",
@@ -106,7 +105,7 @@
     },
     {
       "type": "p",
-      "text": "Le agenzie ti lasciano i contatti, i consulenti ti lasciano i compiti. Noi costruiamo il sistema, lo facciamo girare con te fino alla firma, e te lo lasciamo in mano che già funziona."
+      "text": "Un'agenzia che si ferma al contatto ti lascia le richieste da sbrogliare, un consulente ti lascia un elenco di compiti da fare la sera. Noi il sistema lo costruiamo, lo facciamo girare con la tua impresa fino alla firma e poi te lo lasciamo in mano già funzionante."
     },
     {
       "type": "ul",
@@ -117,7 +116,7 @@
         "Ogni richiesta passa da un modulo con quattro informazioni: tipo di lavoro, entro quando iniziare, budget a disposizione e zona.",
         "La richiesta arriva nel gestionale con nome, telefono, zona e interesse, prima della prima telefonata.",
         "A richiamare è la tua impresa: tu, chi risponde al telefono per te o un collaboratore, con il metodo e le parole che scriviamo insieme.",
-        "Le consulenze su marketing e vendita, e noi al tuo fianco sulle trattative fino alla firma: di persona dove abbiamo consulenti, altrove in videochiamata."
+        "Le consulenze su marketing e vendita, di persona dove abbiamo consulenti, altrove in videochiamata. Sulle trattative siamo al tuo fianco fino alla firma, ma agli incontri con il cliente ci vai tu."
       ]
     },
     {
@@ -146,7 +145,7 @@
     },
     {
       "type": "p",
-      "text": "Per un impiantista vuol dire una cosa precisa: il sopralluogo per la pompa di calore lo fai a chi ha un lavoro, un tempo e un budget compatibili con quello che fai. Come richiamare quelle richieste l'ho raccontato in [come trovare clienti per i lavori programmati](/blog/impiantista-come-trovare-clienti-lavori-programmati)."
+      "text": "Per un impiantista vuol dire una cosa precisa: prima di caricare il furgone per il sopralluogo della pompa di calore sai già che lavoro vuole il cliente, entro quando e con quale budget. Come richiamare quelle richieste l'ho raccontato in [come trovare clienti per i lavori programmati](/blog/impiantista-come-trovare-clienti-lavori-programmati)."
     },
     {
       "type": "h2",
@@ -154,19 +153,19 @@
     },
     {
       "type": "p",
-      "text": "È una frase che ci sentiamo dire spesso al telefono, e la capisco. Quasi tutti i titolari con cui parliamo ci hanno già provato, e hanno pagato un canone senza sapere cosa succedeva alle loro richieste."
+      "text": "È una frase che qualche titolare ci ha detto chiaro, e la capisco: quasi tutti quelli con cui parliamo ci hanno già provato."
     },
     {
       "type": "p",
-      "text": "Al telefono rispondo così: se mangi male in un ristorante non smetti di andare al ristorante. Guardi le recensioni, e guardi se sono specializzati in quello che ti serve."
+      "text": "A chi me lo dice rispondo così: se mangi male in un ristorante non smetti di andare al ristorante. Guardi le recensioni, e guardi se sono specializzati in quello che ti serve."
     },
     {
       "type": "p",
-      "text": "Da noi la fiducia si controlla con i numeri. Ogni richiesta sta nel gestionale con il suo stato, e ogni tre mesi vedi quanti contratti sono arrivati e quanto ti è costato ciascuno, anche mentre sei su un impianto."
+      "text": "Da noi la fiducia si controlla con i numeri. Ogni richiesta sta nel gestionale con il suo stato, e la guardi quando vuoi, anche mentre sei su un impianto. Ogni tre mesi ricevi il report con contatti, appuntamenti, contratti e costo per contatto."
     },
     {
       "type": "p",
-      "text": "Se stai confrontando più agenzie, Gianpio ha scritto [sei domande da fare all'agenzia prima di firmare](/blog/agenzia-marketing-imprese-edili-domande). Falle anche a noi."
+      "text": "Per ognuna di queste domande Gianpio ha scritto cosa dovresti sentirti rispondere, in [sei domande da fare all'agenzia prima di firmare](/blog/agenzia-marketing-imprese-edili-domande). Falle anche a noi."
     },
     {
       "type": "h2",
