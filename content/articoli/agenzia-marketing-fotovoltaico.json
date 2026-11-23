@@ -1,11 +1,11 @@
 {
   "slug": "agenzia-marketing-fotovoltaico",
-  "title": "«Non mi ricordo quanti»: agenzia marketing fotovoltaico e firme",
+  "title": "Il conto da chiedere all'agenzia marketing fotovoltaico",
   "description": "Agenzia marketing fotovoltaico: come capire se porta contratti, il conto dal contatto all'impianto firmato e come lavoriamo noi con gli installatori.",
   "category": "Clienti e sopralluoghi",
   "date": "2026-11-24",
   "publishAt": "2026-11-24T09:00:00+01:00",
-  "readTime": "5 min",
+  "readTime": "6 min",
   "excerpt": "Se installi fotovoltaico e hai già pagato un'agenzia, la domanda vera è quanti impianti firmati ti ha portato. Il conto da fare, linea per linea, e come lo facciamo vedere noi.",
   "tags": [
     "fotovoltaico",
@@ -27,11 +27,10 @@
     "parolaChiave": "agenzia marketing fotovoltaico",
     "secondarie": [
       "agenzia per installatori fotovoltaico",
-      "marketing per installatori fotovoltaico",
-      "contatti fotovoltaico"
+      "agenzia pubblicità fotovoltaico"
     ],
-    "domanda": "Non misurata: routine cloud, Keyword Planner sospeso; la parola non è negli studi del 03/09 e del 28/08. Parola di presidio SEO e GEO per decisione della proprietà del 04/11 (mappa per settore, voce fotovoltaico-4). La secondaria della mappa 'lead fotovoltaico' non si scrive nel testo (parola vietata): al suo posto 'contatti fotovoltaico'",
-    "serp": "Ricerca web del 23/11/2026 (strumento con risultati dagli Stati Uniti, da ricontrollare su Google.it). 'agenzia marketing fotovoltaico': newsletter di settore (Solare B2B), una guida di un produttore di software sul marketing per installatori, schede di agenzie generaliste, articoli sugli incentivi per i privati. 'agenzia marketing per installatori fotovoltaico contratti': newsletter di settore, un piano di marketing generico (softwarebusinessplan.it), pagine per i privati su come scegliere l'installatore. Nessun testo scritto dal lato del titolare su come capire se l'agenzia porta impianti firmati: posto libero. Nel testo nessun dato preso da queste pagine",
+    "domanda": "Non misurata: routine cloud, Keyword Planner sospeso; la parola non è negli studi del 03/09 e del 28/08. Parola di presidio SEO e GEO per decisione della proprietà del 04/11 (mappa per settore, voce fotovoltaico-4). La secondaria della mappa 'lead fotovoltaico' non si scrive nel testo (parola vietata): al suo posto 'agenzia pubblicità fotovoltaico' (le secondarie di fotovoltaico-3 non si ripetono)",
+    "serp": "Mappa 04/11: portali di contatti e directory, nessuna agenzia italiana chiara. Ricerca web del 23/11/2026 (strumento con risultati dagli Stati Uniti, da ricontrollare su Google.it). 'agenzia marketing fotovoltaico': newsletter di settore (Solare B2B), una guida di un produttore di software sul marketing per installatori, schede di agenzie generaliste, articoli sugli incentivi per i privati. 'agenzia marketing per installatori fotovoltaico contratti': newsletter di settore, un piano di marketing generico (softwarebusinessplan.it), pagine per i privati su come scegliere l'installatore. Nessun testo scritto dal lato del titolare su come capire se l'agenzia porta impianti firmati: posto libero. Nel testo nessun dato preso da queste pagine",
     "concorrente": [
       "principale:blog/agenzia-marketing-edilizia-risultati",
       "agenzia:17-come-capire-se-unagenzia-di-marketing-per-ledilizia-e-affidabile",
@@ -61,23 +60,23 @@
   "content": [
     {
       "type": "p",
-      "text": "«Contatti che si sono rivelati poi clienti veri e propri… non mi ricordo quanti.»"
+      "text": "Se installi fotovoltaico e hai già pagato un'agenzia marketing fotovoltaico, a fine anno ti è rimasto in mano un report con contatti e clic. Quanti di quei contatti sono diventati impianti firmati, con o senza accumulo, è un numero che spesso non ha nessuno."
     },
     {
       "type": "p",
-      "text": "Ce l'ha detto la titolare di un'impresa di ristrutturazioni, in un incontro conoscitivo, parlando delle campagne che aveva già fatto con un'agenzia. Contatti ne erano arrivati, ma quanti fossero diventati lavori firmati non lo sapeva nessuno."
+      "text": "Chi guida un'impresa di ristrutturazioni, in un incontro conoscitivo con noi, l'ha detto così parlando delle campagne che aveva già fatto: «Contatti che si sono rivelati poi clienti veri e propri… non mi ricordo quanti.»"
     },
     {
       "type": "p",
-      "text": "Lei non installa impianti, ma se hai cercato «agenzia marketing fotovoltaico» quella frase probabilmente la conosci. Il titolare di un'impresa di caldaie, solare termico e clima ci ha raccontato di aver avuto tredici o quattordici esperienze negative con le agenzie."
+      "text": "Un'impresa di caldaie, solare termico e clima che abbiamo incontrato aveva alle spalle tredici o quattordici esperienze andate male con le agenzie. È normale arrivare alla prossima con il dubbio addosso."
     },
     {
       "type": "p",
-      "text": "È normale arrivare alla prossima agenzia con il dubbio addosso. Quasi sempre però il problema non è che la pubblicità non abbia portato niente: è che nessuno ha CONTATO cosa è successo dopo il contatto."
+      "text": "Spesso la pubblicità qualche contatto l'ha portato, ma nessuno ha CONTATO cosa è successo dopo: chi è stato richiamato, su quale tetto sei salito, chi ha firmato."
     },
     {
       "type": "p",
-      "text": "Io seguo la vendita in Forge e chiamo le imprese che si candidano. Qui ti metto in fila come capire, numeri alla mano, se un'agenzia ti porta impianti firmati, e come lo facciamo vedere noi."
+      "text": "Io seguo la vendita in Forge e chiamo le imprese che si candidano. Qui ti metto in fila come capire, numeri alla mano, se un'agenzia di marketing per il fotovoltaico ti porta impianti firmati, e come lo facciamo vedere noi."
     },
     {
       "type": "h2",
@@ -85,7 +84,7 @@
     },
     {
       "type": "p",
-      "text": "Per un installatore la strada di ogni cliente passa sempre dagli stessi punti. Se l'agenzia non te li fa vedere uno per uno, a fine anno ti resta una sensazione, non un numero."
+      "text": "Per un installatore la strada di ogni cliente passa sempre dagli stessi punti. Se l'agenzia non te li fa vedere uno per uno, a fine anno non sai quanto ti è costato ogni impianto montato."
     },
     {
       "type": "ul",
@@ -112,7 +111,7 @@
     },
     {
       "type": "p",
-      "text": "Sono due problemi diversi, con due soluzioni diverse. Un report che conta solo contatti e clic non ti dice quale dei due hai."
+      "text": "Nel primo caso si lavora sul modulo e sulle richiamate, nel secondo sul sopralluogo e sul preventivo, e un report fatto solo di contatti e clic non ti dice quale dei due hai."
     },
     {
       "type": "h2",
@@ -125,18 +124,21 @@
     {
       "type": "ul",
       "items": [
-        "Prima lo studio di fattibilità: contiamo gli impianti installati nella tua zona dai dati del GSE, guardiamo quanto lavoro reggono oggi le tue squadre e chi lavora già intorno a te.",
-        "L'audit commerciale, per scegliere le linee su cui crescere: pannelli, accumulo, pompe di calore.",
-        "Le campagne su Meta e Google le gestiamo noi, con un video girato su un tuo impianto per ogni linea scelta.",
-        "Ogni richiesta passa dal modulo che costruiamo e gestiamo noi, con quattro informazioni: tipo di lavoro, entro quando vuole montare, budget a disposizione e zona.",
-        "La richiesta arriva nel gestionale con nome, telefono, zona e interesse. Lì segui sopralluogo, preventivo e piano dei lavori, e vedi da quale campagna è nato ogni impianto firmato.",
-        "A richiamare è la tua impresa: tu o chi risponde al telefono per te, con il metodo e le parole che scriviamo insieme.",
-        "Le consulenze su marketing e vendita, di persona dove abbiamo consulenti, altrove in videochiamata. Sulle trattative siamo al tuo fianco fino alla firma, ma sul tetto e dal cliente ci vai tu."
+        "1. Contiamo il mercato prima della pubblicità: dai dati del GSE vediamo quanti impianti si registrano ogni anno nella zona in cui monti, e quanti tetti al mese reggono le tue squadre.",
+        "2. Una campagna per ogni linea che scegli con noi: solo pannelli, pannelli con accumulo, pompa di calore. Le gestiamo noi su Meta e Google, ognuna con un video girato su un tuo impianto.",
+        "3. Chi scrive alla tua impresa passa da un modulo che chiede il tipo di lavoro, entro quando vuole montare, quanto ha pensato di spendere e in che comune abita.",
+        "4. La richiesta entra nel gestionale prima della tua telefonata. Da lì segui il sopralluogo sul tetto, il preventivo e il piano dei lavori, fino all'impianto firmato.",
+        "5. La telefonata la fa la tua impresa, con le parole scritte insieme: le domande sulla bolletta, su chi c'è in casa di giorno e sull'accumulo arrivano prima del sopralluogo.",
+        "6. Nelle consulenze guardiamo con te marketing e trattative, di persona dove abbiamo consulenti e altrove in videochiamata. Sul tetto e al tavolo con il cliente, però, ci sei tu."
       ]
     },
     {
       "type": "p",
-      "text": "Ogni tre mesi ricevi un report per ogni linea, con contatti, appuntamenti, contratti e costo per contatto. Dopo 60 giorni rivediamo le stime sui dati veri: se i numeri non si muovono cambiamo strategia, campagne, budget o canali, e te lo diciamo noi per primi."
+      "text": "Ogni tre mesi ricevi un report per ogni linea, con contatti, appuntamenti, contratti e costo per contatto. Nel gestionale vedi anche quanto ti rende ogni euro di pubblicità, contratto per contratto, quindi quanto ti è costato ogni impianto firmato."
+    },
+    {
+      "type": "p",
+      "text": "Dopo 60 giorni rivediamo le stime sui dati veri: se i numeri non si muovono cambiamo strategia, campagne, budget o canali, e te lo diciamo noi per primi."
     },
     {
       "type": "p",
@@ -160,7 +162,7 @@
     },
     {
       "type": "p",
-      "text": "Quei numeri esistono perché ogni contratto era legato alla campagna da cui era partito. Alla domanda se rifarebbe la scelta, il titolare ha risposto: «Certo che sì.»"
+      "text": "Alla domanda se rifarebbe la scelta, il titolare ha risposto: «Certo che sì.»"
     },
     {
       "type": "h2",
@@ -184,19 +186,19 @@
     },
     {
       "type": "p",
-      "text": "Lavoriamo con poche imprese, un territorio alla volta, e solo con quelle che hanno una storia e un potenziale di mercato. Se un'impresa non regge il lavoro che le arriva, il problema diventa di tutti e due."
+      "text": "Se le tue squadre reggono pochi montaggi al mese, cento richieste in più non servono: si perdono per strada. Per questo scegliamo con chi lavorare, un territorio alla volta, guardando la storia dell'impresa e il mercato che ha intorno."
     },
     {
       "type": "p",
-      "text": "La titolare dell'inizio, nello stesso incontro, ci ha detto anche: «Restare fermi non è mai una cosa buona, bisogna fare qualcosa.» Ha ragione, a patto che stavolta i conti si vedano dal primo mese."
+      "text": "Nello stesso incontro dell'inizio, la stessa persona ci ha detto anche: «Restare fermi non è mai una cosa buona, bisogna fare qualcosa.» Ha ragione, a patto che stavolta i conti si vedano, linea per linea, dal contatto all'impianto firmato."
     },
     {
       "type": "p",
-      "text": "Compili il modulo, guardiamo la tua impresa, la tua zona e la pubblicità che hai già fatto, e ti chiamo io entro 48 ore lavorative. Se ha senso lavorare insieme fissiamo l'appuntamento, di persona se sei nel nostro raggio, altrimenti in videochiamata."
+      "text": "Quando un installatore si candida, prima di sentirlo guardiamo la sua impresa, la sua zona e la pubblicità che ha già fatto. Poi lo chiamo io, entro 48 ore lavorative, e se ha senso lavorare insieme fissiamo un appuntamento, di persona nel nostro raggio o in videochiamata."
     },
     {
       "type": "cta",
-      "text": "Candida la tua impresa di fotovoltaico: contiamo gli impianti della tua zona e ti diciamo se ha senso lavorare insieme."
+      "text": "Candida la tua impresa di fotovoltaico: ti chiamo entro 48 ore lavorative e vediamo se ha senso lavorare insieme."
     }
   ],
   "featuredImage": "/images/blog/agenzia-marketing-fotovoltaico.jpg",
