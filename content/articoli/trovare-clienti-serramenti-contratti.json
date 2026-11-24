@@ -11,8 +11,8 @@
     "serramenti",
     "infissi",
     "trovare clienti serramenti",
-    "marketing serramenti",
-    "passaparola"
+    "passaparola",
+    "clienti infissi"
   ],
   "livello": 3,
   "argomento": "serramenti",
@@ -30,7 +30,7 @@
     "ricerca": "serramenti"
   },
   "inBreve": {
-    "problema": "Chi cerca come trovare clienti serramenti senza vivere di passaparola di solito parte da un canale nuovo: una pagina, qualche annuncio, un portale, un'agenzia.",
+    "problema": "Chi ha un'azienda di serramenti e vuole trovare clienti senza vivere di passaparola di solito parte da un canale nuovo: una pagina, qualche annuncio, un portale, un'agenzia.",
     "causa": "Spesso non è scritto da nessuna parte da dove sono arrivati i contratti dell'anno, e così ogni strada sembra funzionare o non funzionare a sensazione.",
     "cambia": "Quando ogni richiesta porta scritta la sua provenienza fino al contratto, le strade si confrontano con i numeri e la pubblicità si misura per quello che rende."
   },
@@ -47,7 +47,7 @@
       "serramenti:aprire-un-negozio-di-serramenti",
       "principale:blog/foro-finestra-marketing"
     ],
-    "geo": "L'In breve risponde da solo a 'come trovare clienti per i serramenti senza passaparola'; quattro FAQ come le domande di Google (come trovare clienti serramenti, se basta il passaparola, come capire quale pubblicità porta clienti, se conviene un'agenzia) con risposte che si citano da sole; firma di Marco con il punto di vista del marketing e della misura",
+    "geo": "L'In breve risponde da solo a 'come trovare clienti per i serramenti senza passaparola'; quattro FAQ come le domande di Google (come trovare clienti serramenti, se basta il passaparola, come capire quale pubblicità porta clienti, quanto tempo serve per capire se la pubblicità porta contratti) con risposte che si citano da sole; firma di Marco con il punto di vista del marketing e della misura",
     "sem": "Livello 3: niente Google Ads search (domanda sotto soglia, e dal 14/10 si lavora solo in organico). Quando le campagne ripartiranno, carosello Meta con l'esercizio delle provenienze e il caso DISA per i titolari di aziende di serramenti; intanto pagina da mandare dopo la chiamata a un serramentista che si candida"
   },
   "faqs": [
@@ -64,8 +64,8 @@
       "a": "Chiedendo a ogni nuova richiesta da dove arriva, e scrivendolo nel gestionale accanto al nome fino al contratto. Ogni tre mesi si guardano contatti, appuntamenti, contratti e costo per contatto. Senza questo passaggio si giudica dalle telefonate, non dai contratti firmati."
     },
     {
-      "q": "Conviene un'agenzia di marketing per un'azienda di serramenti?",
-      "a": "Conviene se resta con te fino alla firma e ti fa vedere quanto rende ogni euro, contatto per contatto e contratto per contratto. Un'agenzia che porta i contatti e si ferma lì lascia a te il filtro, le richiamate e il conto. Prima di firmare chiedi casi con numeri verificati e cosa succede dopo che la richiesta arriva."
+      "q": "Quanto tempo serve per capire se una pubblicità porta contratti di serramenti?",
+      "a": "Dopo 60 giorni si rivedono le stime sui dati reali, e ogni tre mesi il report mette in fila contatti, appuntamenti, contratti e costo per contatto. In edilizia tra la prima richiesta e la firma passano spesso tre o quattro mesi, quindi giudicare dalla prima settimana di telefonate porta a fermarsi troppo presto."
     }
   ],
   "content": [
@@ -75,7 +75,7 @@
     },
     {
       "type": "p",
-      "text": "Ce l'ha detto la titolare di un'azienda di serramenti al primo incontro con noi, poco dopo aver detto che vede arrivare «periodi di vacche magre»."
+      "text": "Ce l'ha detto la titolare di un'azienda di serramenti al primo incontro con noi. Nello stesso incontro ha detto che vede arrivare «periodi di vacche magre»."
     },
     {
       "type": "p",
@@ -103,7 +103,7 @@
     },
     {
       "type": "p",
-      "text": "Per questo i mesi morti non sono solo stagione. Quando l'unica strada è il passaparola, il telefono tace ogni volta che tacciono i clienti di ieri, e non hai una leva da tirare. Ne avevo scritto per tutta l'edilizia in [mesi pieni e mesi morti](/blog/come-smettere-dipendere-passaparola)."
+      "text": "Per questo i mesi morti non sono solo stagione. Quando l'unica strada è il passaparola, quando i clienti di ieri smettono di chiamare il telefono resta fermo, e non hai una leva da tirare. Ne avevo scritto per tutta l'edilizia in [mesi pieni e mesi morti](/blog/come-smettere-dipendere-passaparola)."
     },
     {
       "type": "h2",
@@ -118,7 +118,7 @@
       "items": [
         "1. Scrivi in colonna i contratti firmati, dal più recente, con il tipo di lavoro: tutte le finestre di casa, solo le persiane, la porta d'ingresso, una veranda.",
         "2. Accanto a ciascuno scrivi da dove era arrivato il cliente: un cliente di prima, un suo conoscente, lo showroom, un'impresa o un tecnico che ti ha girato il lavoro, internet o la pubblicità.",
-        "3. Dove non te lo ricordi, scrivi che non lo sai, senza tirare a indovinare. Anche quella è una risposta, e spesso è la riga più lunga.",
+        "3. Dove non te lo ricordi, scrivi che non lo sai, senza tirare a indovinare. Anche quella è una risposta.",
         "4. Poi conta quanti contratti ha portato ogni strada, e quanto valgono in tutto."
       ]
     },
@@ -140,8 +140,8 @@
         "Il passaparola: costa poco e porta clienti che si fidano, ma non lo accendi tu, e segue l'andamento dei lavori degli anni prima.",
         "Lo showroom: chi entra ha già un'idea e vuole vedere i campioni, ma devi aspettare che entri. Come non perdere le offerte fatte al banco lo racconta Gianpio in [lo showroom di serramenti pieno di clienti il sabato](/blog/showroom-serramenti-sabato-offerte).",
         "Le imprese e i tecnici che ti girano i lavori: portano clienti che hanno già deciso, ma arrivano quando hanno un cantiere loro, non quando ti servono.",
-        "I portali e i contatti comprati: le richieste arrivano, ma spesso la stessa richiesta la ricevono anche altri serramentisti della tua zona.",
-        "L'agenzia che porta i contatti e si ferma lì: la stessa titolare, facendo il conto di quanto le costava ogni mese, l'ha paragonata a un «dipendente part-time». Il filtro, le richiamate e il conto per contratto restano a te.",
+        "I portali e i contatti comprati: le richieste arrivano, ma alcuni portali girano la stessa richiesta a più serramentisti della tua zona.",
+        "L'agenzia che porta i contatti e si ferma lì: le richieste arrivano, ma il filtro, le richiamate e il conto per contratto restano a te.",
         "Il consulente: ti spiega cosa fare, e poi il lavoro lo devi fare tu, con le persone e il tempo che hai già."
       ]
     },
@@ -159,12 +159,12 @@
     },
     {
       "type": "p",
-      "text": "Dal foglio dell'esercizio si passa a un'abitudine di tutti i giorni. Con le imprese che seguiamo la mettiamo giù in cinque passi."
+      "text": "Dal foglio dell'esercizio si passa a un'abitudine di tutti i giorni, in cinque passi."
     },
     {
       "type": "ul",
       "items": [
-        "1. Al primo contatto, chi risponde al telefono chiede da dove arriva il cliente con una domanda chiusa: ci ha conosciuto da qualcuno che ha già lavorato con noi, dallo showroom o da internet?",
+        "1. Al primo contatto, chiedi al cliente da dove ti ha conosciuto, con una domanda a cui si risponde con una parola: da qualcuno che ha già lavorato con te, dallo showroom o da internet?",
         "2. La risposta si scrive nel gestionale accanto al nome, insieme a tipo di lavoro, tempi, budget e zona. Se la richiesta arriva dalla pubblicità, queste quattro cose il cliente le ha già scritte nel modulo che filtra le richieste.",
         "3. Ogni passo successivo resta sulla stessa scheda: il sopralluogo, il rilievo delle misure, l'offerta, la firma. Così ogni contratto si porta dietro la strada da cui è partito.",
         "4. Ogni tre mesi c'è il report: contatti, appuntamenti, contratti e costo per contatto, per ogni linea.",
@@ -201,7 +201,7 @@
     },
     {
       "type": "p",
-      "text": "Per te non conta il software. Conta che quei numeri hanno accanto la strada da cui sono arrivati, le sole Meta Ads, e quindi si possono mettere a confronto con tutte le altre."
+      "text": "Per un'azienda di serramenti la cosa utile di questo caso è che quei numeri hanno accanto la strada da cui sono arrivati, le sole Meta Ads, e quindi si possono mettere a confronto con tutte le altre."
     },
     {
       "type": "p",
@@ -209,11 +209,11 @@
     },
     {
       "type": "p",
-      "text": "Lo studio di fattibilità parte proprio da qui: guardiamo da dove arrivano oggi i tuoi contratti, quanto lavoro c'è nella tua zona e quante pose in più reggi con la squadra che hai. Poi ti diciamo se ha senso lavorare insieme, prima che tu spenda un euro in pubblicità, perché lavoriamo con poche imprese, un territorio alla volta."
+      "text": "Lo studio di fattibilità guarda i tuoi numeri: quante richieste ricevi e quante diventano contratti, quanto lavoro c'è nella tua zona e quante pose in più reggi con la squadra che hai. Poi ti diciamo se ha senso lavorare insieme, prima che tu spenda un euro in pubblicità, perché lavoriamo con poche imprese, un territorio alla volta."
     },
     {
       "type": "cta",
-      "text": "Richiedi lo studio di fattibilità: guardiamo da dove arrivano i tuoi contratti di serramenti e ti diciamo se ha senso lavorare insieme."
+      "text": "Richiedi lo studio di fattibilità: guardiamo i numeri della tua azienda di serramenti e ti diciamo se ha senso lavorare insieme."
     }
   ]
 }
